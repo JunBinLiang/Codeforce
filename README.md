@@ -8,6 +8,6 @@ My Codeforce Practice<br/>
 
 |  #  | Title           |    Date  | 
 |-----|---------------- | --------------- |
-|  1485C  |[Floor and Mod (1700) ](./code/1485c.txt)   |2021/02/15|
+|  1485C  |[Floor and Mod (1700) ](./code/1485c.md)   |2021/02/15|
 
 
