@@ -3,7 +3,7 @@
 My Codeforce Practice<br/>
 
 
- # 打卡挑战,每日一题
+ # 打卡挑战
  
 
 |  #  | Title           |    Date  | 
