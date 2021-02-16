@@ -6,8 +6,8 @@ My Codeforce Practice<br/>
  # 打卡挑战,每日一题
  
 
-|  #  | Title           |    Difficulty  | 
+|  #  | Title           |    Date  | 
 |-----|---------------- | --------------- |
-|  1485C  |[1485C Floor and Mod (1700) ](./code/1485c.txt)   | (M-) 1200|
+|  1485C  |[Floor and Mod (1700) ](./code/1485c.txt)   |2021/02/15|
 
 
