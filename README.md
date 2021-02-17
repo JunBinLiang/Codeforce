@@ -14,5 +14,5 @@ My Codeforce Practice<br/>
 |  1485D  |[Multiples and Power Differences (2200) ](./code/1485d.md)   |2021/02/15|
 |  1485F  |[ Copy or Prefix Sum (2400) **Venice Technique** ](./code/1485f.md)   |2021/02/16|
 |  1467B  |[ Hills And Valleys (1700) (Brute force)](./code/1467B.md)   |2021/02/17|
-
+|  845C  |[Luba And The Ticket (1600) (Brute force)](./code/845C.md)   |2021/02/17|
 
