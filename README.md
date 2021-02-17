@@ -17,4 +17,5 @@ My Codeforce Practice<br/>
 |  845C  |[Luba And The Ticket (1600) (Brute force)](./code/845C.md)   |2021/02/17|
 |  272D  |[Dima and Two Sequence (1600) (Combination)](./code/272D.md)   |2021/02/17|
 |  1490G  |[Old Floppy Drive (1900) (Prefix + Binary Search)](./code/1490G.md)   |2021/02/17|
+|  1329B  |[Dreamoon Likes Sequences (1700) (Bitmask)](./code/1329B.md)   |2021/02/17|
 
