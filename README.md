@@ -18,4 +18,4 @@ My Codeforce Practice<br/>
 |  272D  |[Dima and Two Sequence (1600) (Combination)](./code/272D.md)   |2021/02/17|
 |  1490G  |[Old Floppy Drive (1900) (Prefix + Binary Search)](./code/1490G.md)   |2021/02/17|
 |  1329B  |[Dreamoon Likes Sequences (1700) (Bitmask)](./code/1329B.txt)   |2021/02/17|
-
+|  1478C  |[Nezzar and Symmetric Array (1700) (Math + Sort)](./code/1478C.txt)   |2021/02/18|
