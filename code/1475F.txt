@@ -1,0 +1,161 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[][]=new int[n][n];
+            int B[][]=new int[n][n];
+
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<n;j++){
+                    A[i][j]=s.charAt(j)-'0';
+                }
+            }
+
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<n;j++){
+                    B[i][j]=s.charAt(j)-'0';
+                }
+            }
+
+            Solution sol=new Solution();
+            sol.solution(A,B);
+
+        }
+        out.flush();
+    }
+
+    public static long Long(){
+        return in.nextLong();
+    }
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+class Solution{
+    //horizontal : 1-n
+    //vertical   : n+1 - 2n
+    List<Integer>adjecent[];
+    List<Integer>rev[];
+    boolean visit[];
+    int order[];
+    int cnt=0;
+    int comp[];
+
+    public void solution(int A[][],int B[][]){
+        //0 xor 1= 1
+        //1 xor 1 =0
+        //=>toggle
+        int n=A.length;
+        int M=2*n;
+        visit=new boolean[M*2+100];
+        adjecent=new ArrayList[M*2+100];
+        rev=new ArrayList[M*2+100];
+        order=new int[M*2+1];
+        comp=new int[M*2+1];
+        Arrays.fill(comp,-1);
+
+        for(int i=0;i<rev.length;i++){
+            adjecent[i]=new ArrayList<>();
+            rev[i]=new ArrayList<>();
+        }
+
+
+
+        //construct graph
+        for(int i=0;i<n;i++){
+            int u=i;
+            for(int j=0;j<n;j++){
+                int v=j+n;
+
+                if(A[i][j]==B[i][j]){//0 zero toggle
+                    add(u,v);
+                    add(v,u);
+                    add(u+M,v+M);
+                    add(v+M,u+M);
+                }
+                else{//1 toggle
+                    add(u+M,v);
+                    add(v,u+M);
+                    add(v+M,u);
+                    add(u,v+M);
+                }
+            }
+        }
+
+
+
+        for(int i=0;i<2*M;i++){
+            if(!visit[i]){
+                dfs1(i);
+            }
+        }
+
+        int color=0;
+        for(int i=2*M-1;i>=0;i--){
+            int v=order[i];
+            if(comp[v]==-1){
+                dfs2(v,color);
+                color++;
+            }
+        }
+
+
+        for(int i=0;i<M;i++){
+            if(comp[i]==comp[i+M]){
+                System.out.println("NO");
+                return;
+            }
+        }
+
+        System.out.println("YES");
+
+    }
+
+    public void add(int u,int v){
+        adjecent[u].add(v);
+        rev[v].add(u);
+    }
+
+    public void dfs1(int root){
+        visit[root]=true;
+        List<Integer>childs=adjecent[root];
+        for(int c:childs){
+            if(visit[c])continue;
+            dfs1(c);
+        }
+        order[cnt++]=root;
+    }
+
+    public void dfs2(int root,int color){
+        comp[root]=color;
+        List<Integer>childs=rev[root];
+        for(int c:childs){
+            if(comp[c]!=-1)continue;
+            dfs2(c,color);
+        }
+    }
+
+}
