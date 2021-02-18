@@ -1,0 +1,72 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int d=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(A,d);
+
+        }
+        out.flush();
+    }
+
+    public static long Long(){
+        return in.nextLong();
+    }
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+class Solution{
+    public void solution(int A[],int d){
+        //if d==7
+
+        //7 70 700 7000...
+
+        for(int i:A){
+            boolean good=false;
+            if(i>=d*10){
+                System.out.println("YES");
+                continue;
+            }
+
+            for(int j=1;j<=10;j++){
+                if(i-j*d>=0&&(i-j*d)%10==0){
+                    good=true;
+                }
+            }
+            if(good){
+                System.out.println("YES");
+            }
+            else{
+                System.out.println("NO");
+            }
+        }
+    }
+    
+}
