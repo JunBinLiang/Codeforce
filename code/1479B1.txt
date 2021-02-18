@@ -1,0 +1,110 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(A);
+
+        }
+        out.flush();
+    }
+
+    public static long Long(){
+        return in.nextLong();
+    }
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+class Solution{
+    public void solution(int A[]){
+        //1. split array into two subsequence, each number can belong to only one subsequence
+        //2. merge(A1)+merge(A2) =>maximize
+
+
+        int x=0,y=0;
+        int res=0;
+        int pre=0;
+        for(int i=0;i<A.length;i++){
+            if(A[i]==x&&A[i]==y)continue;
+
+            int j=i;
+            int cnt=0;
+            while(j<A.length&&A[j]==A[i]){
+                j++;
+                cnt++;
+            }
+
+            if(x==y){
+                if(cnt==1){
+                    res++;
+                    x=A[i];
+                }
+                else{
+                    res+=2;
+                    x=A[i];
+                    y=A[i];
+                }
+            }
+            else{//x!=y
+                if(cnt==1){
+                    res++;
+                    if(x==A[i]){
+                        y=A[i];
+                    }
+                    else if(y==A[i]){
+                        x=A[i];
+                    }
+                    else{//merge
+                        x=A[i];y=0;
+                    }
+                }
+                else{
+                    if(x==A[i]){
+                        res++;
+                        y=A[i];
+                    }
+                    else if(y==A[i]){
+                        x=A[i];
+                        res++;
+                    }
+                    else{
+                        res+=2;
+                        x=A[i];
+                        y=A[i];
+                    }
+                }
+            }
+            i=j-1;
+        }
+        System.out.println(res);
+
+    }
+
+}
