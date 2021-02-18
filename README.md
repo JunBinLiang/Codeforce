@@ -21,3 +21,4 @@ My Codeforce Practice<br/>
 |  1478C  |[Nezzar and Symmetric Array (1700) (Math + Sort)](./code/1478C.txt)   |2021/02/18|
 |  1478B  |[Nezzar and Lucky Number (1100) ](./code/1478B.txt)   |2021/02/18|
 |  1479B1  |[Painting the Array I (1900) (Greedy) ](./code/1479B1.txt)   |2021/02/18|
+|  776D  |[The Door Problem (2000) (2 Sat) ](https://github.com/JunBinLiang/Leetcode-Complete-Guide/blob/master/code/776D.txt)   |2021/02/18|
