@@ -1,0 +1,97 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int()*2;
+            long A[]=new long[n];
+            for(int i=0;i<n;i++){
+                A[i]=Long();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(A);
+
+        }
+        out.flush();
+    }
+
+    public static long Long(){
+        return in.nextLong();
+    }
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+class Solution{
+    public void solution(long A[]){
+        int n=A.length/2;
+        Arrays.sort(A);
+
+        Map<Long,Integer>f=new HashMap<>();
+
+        for(long i:A){
+            if(i%2==1){
+                System.out.println("NO");
+                return;
+            }
+            if(!f.containsKey(i)){
+                f.put(i,1);
+            }
+            else{
+                f.put(i,f.get(i)+1);
+            }
+        }
+
+        for(Long key:f.keySet()){
+            if(f.get(key)!=2){
+                System.out.println("NO");
+                return;
+            }
+        }
+
+
+
+        long total=0;
+
+        for(int i=A.length-1;i>=0;i-=2){
+            if(((A[i]-total)%n!=0)||(A[i]==total)||(total>A[i])){
+                System.out.println("NO");
+                return;
+            }
+            else{
+                if((A[i]-total)%2!=0){
+                    System.out.println("NO");
+                    return;
+                }
+                total+=((A[i]-total)/n);
+                n--;
+            }
+            //System.out.println(total);
+        }
+        System.out.println("YES");
+    }
+
+
+
+
+}
