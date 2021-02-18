@@ -25,3 +25,4 @@ My Codeforce Practice<br/>
 |  1475F  |[Unusual Matrix (1900) (2 Sat) ](./code/1475F.txt)   |2021/02/18|
 |  1475G  |[Strange Beauty (1900) (Dp+打表) ](./code/1475G.txt)   |2021/02/18|
 |  1475E  |[Advertising Agency (1600) (Combination + Sort) ](./code/1475E.txt)   |2021/02/18|
+|  1475C  |[Ball in Berland (1400) (Math) ](./code/1475C.txt)   |2021/02/18|
