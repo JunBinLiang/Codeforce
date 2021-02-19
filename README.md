@@ -26,3 +26,4 @@ My Codeforce Practice<br/>
 |  1475G  |[Strange Beauty (1900) (Dp+打表) ](./code/1475G.txt)   |2021/02/18|
 |  1475E  |[Advertising Agency (1600) (Combination + Sort) ](./code/1475E.txt)   |2021/02/18|
 |  1475C  |[Ball in Berland (1400) (Math) ](./code/1475C.txt)   |2021/02/18|
+|  341E  |[Ball in Berland (2000) (Matrix Exponent + DP) ](./code/341E.txt)   |2021/02/19|
