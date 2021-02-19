@@ -30,3 +30,4 @@ My Codeforce Practice<br/>
 |  1469B  |[Red and Blue (1000) (Prefix) ](./code/1469B.txt)   |2021/02/19|
 |  608C  |[Chain Reaction (1600) (DP) ](./code/608C.txt)   |2021/02/19|
 |  1475D  |[Cleaning the Phone (1800) (Binary Search + Sort) ](./code/1475D.txt)   |2021/02/19|
+|  1475B  |[New Year's Number (900) (Math) ](./code/1475B.txt)   |2021/02/19|
