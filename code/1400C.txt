@@ -1,0 +1,94 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            String s=Str();
+            int x=Int();
+            Solution sol=new Solution();
+            sol.solution(out,s,x);
+
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){
+        return in.nextLong();
+    }
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+class Solution{
+
+    public void solution(PrintWriter out,String s,int x){
+        int n=s.length();
+        char A[]=new char[n];
+        Arrays.fill(A,'1');
+
+
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(c=='0'){
+                if(i+x<A.length){
+                    A[i+x]='0';
+                }
+                if(i-x>=0){
+                    A[i-x]='0';
+                }
+
+            }
+        }
+
+
+
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(c=='1'){
+                boolean good=false;
+                if(i+x<A.length&&A[i+x]=='1'){
+                    good=true;
+                }
+                if(i-x>=0&&A[i-x]=='1'){
+                    good=true;
+                }
+
+                if(!good){
+                    System.out.println(-1);
+                    return;
+                }
+            }
+        }
+
+
+
+        String res=new String(A);
+        System.out.println(res);
+    }
+
+
+
+
+
+}
+
