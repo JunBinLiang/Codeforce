@@ -27,3 +27,4 @@ My Codeforce Practice<br/>
 |  1475E  |[Advertising Agency (1600) (Combination + Sort) ](./code/1475E.txt)   |2021/02/18|
 |  1475C  |[Ball in Berland (1400) (Math) ](./code/1475C.txt)   |2021/02/18|
 |  341E  |[Ball in Berland (2000) (Matrix Exponent + DP) ](./code/341E.txt)   |2021/02/19|
+|  1469B  |[Red and Blue (1000) (Prefix) ](./code/1469B.txt)   |2021/02/19|
