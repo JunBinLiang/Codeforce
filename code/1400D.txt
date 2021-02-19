@@ -1,0 +1,112 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){
+        return in.nextLong();
+    }
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+class Solution{
+
+    public void solution(PrintWriter out,int A[]){
+
+        long res=0;
+        int id=0;
+        Map<Integer,Integer>f=new HashMap<>();
+
+        for(int i:A){
+            if(!f.containsKey(i)){
+                f.put(i,id++);
+            }
+        }
+
+        for(int i=0;i<A.length;i++){
+            A[i]=f.get(A[i]);
+        }
+
+
+        for(int i=0;i<A.length;i++){
+            long sum=0;
+            long sums[]=new long[3010];
+            int r[]=new int[3010];
+            int l[]=new int[3010];
+
+
+            for(int j=i+2;j<A.length;j++){
+                r[A[j]]++;
+            }
+
+
+            for(int j=i+1;j<A.length;j++){
+                if(A[i]==A[j]){
+                    res+=sum;
+                }
+
+                if(j+1<A.length){
+                    r[A[j+1]]--;
+                    sum-=sums[A[j+1]];
+                    sums[A[j+1]]=l[A[j+1]]*r[A[j+1]];
+                    sum+=l[A[j+1]]*r[A[j+1]];
+                }
+
+
+                //update
+                sum-=sums[A[j]];
+                l[A[j]]++;
+                sums[A[j]]=l[A[j]]*r[A[j]];
+                sum+=sums[A[j]];
+            }
+        }
+
+
+        System.out.println(res);
+    }
+
+
+    public void remove(Map<Integer,Integer>f,int val){
+        f.put(val,f.get(val)-1);
+        if(f.get(val)==0){
+            f.remove(val);
+        }
+    }
+
+}
+
