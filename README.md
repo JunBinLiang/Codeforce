@@ -29,3 +29,4 @@ My Codeforce Practice<br/>
 |  341E  |[Ball in Berland (2000) (Matrix Exponent + DP) ](./code/341E.txt)   |2021/02/19|
 |  1469B  |[Red and Blue (1000) (Prefix) ](./code/1469B.txt)   |2021/02/19|
 |  608C  |[Chain Reaction (1600) (DP) ](./code/608C.txt)   |2021/02/19|
+|  1475D  |[Cleaning the Phone (1800) (Binary Search + Sort) ](./code/1475D.txt)   |2021/02/19|
