@@ -34,3 +34,4 @@ My Codeforce Practice<br/>
 |  1472D  |[Even-Odd Game (1200) (Game) ](./code/1472D.txt)   |2021/02/19|
 |  1400B  |[RPG Protagonist (1700) (Math + Greedy) ](./code/1400B.txt)   |2021/02/19|
 |  1400C  |[Binary String Reconstruction (1500) (Implementation) ](./code/1400C.txt)   |2021/02/19|
+|  1400D  |[ZigZag (1900) (Math + DP) ](./code/1400D.txt)   |2021/02/19|
