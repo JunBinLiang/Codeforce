@@ -32,3 +32,4 @@ My Codeforce Practice<br/>
 |  1475D  |[Cleaning the Phone (1800) (Binary Search + Sort) ](./code/1475D.txt)   |2021/02/19|
 |  1475B  |[New Year's Number (900) (Math) ](./code/1475B.txt)   |2021/02/19|
 |  1472D  |[Even-Odd Game (1200) (Game) ](./code/1472D.txt)   |2021/02/19|
+|  1400B  |[RPG Protagonist (1700) (Math + Greedy) ](./code/1400B.txt)   |2021/02/19|
