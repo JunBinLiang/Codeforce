@@ -35,3 +35,4 @@ My Codeforce Practice<br/>
 |  1400B  |[RPG Protagonist (1700) (Math + Greedy) ](./code/1400B.txt)   |2021/02/19|
 |  1400C  |[Binary String Reconstruction (1500) (Implementation) ](./code/1400C.txt)   |2021/02/19|
 |  1400D  |[ZigZag (1900) (Math + DP) ](./code/1400D.txt)   |2021/02/19|
+|  1476C  |[Longest Simple Cycle (1600) (Observation + Graph + Greedy) ](./code/1476C.txt)   |2021/02/20|
