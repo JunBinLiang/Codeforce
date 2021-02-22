@@ -1,0 +1,98 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            Solution sol=new Solution();
+            sol.solution(out,n);
+
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){
+        return in.nextLong();
+    }
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+class Solution{
+
+    public void solution(PrintWriter out,int n){
+        //each player plays (n-1) game, win+lose+tie should be same
+
+        //(n-1)/2
+
+        if((n-1)%2==0){
+            for(int i=0;i<n;i++){
+                int cnt=0;
+                for(int j=i+1;j<n;j++){
+                    if(cnt%2==0){
+                        out.print(1+" ");
+                    }
+                    else{
+                        out.print(-1+" ");
+                    }
+                    cnt++;
+                }
+            }
+        }
+        else{
+            for(int i=0;i<n;i++){
+                int cnt=-1;
+                if(i%2==0){
+                    cnt=0;
+                }
+                else{
+                    cnt=1;
+                }
+
+                int j=i+1;
+
+                if(i%2==0){
+                    out.print("0 ");
+                    j++;
+                }
+
+                for(;j<n;j++){
+                    if(cnt%2==0){
+                        out.print(1+" ");
+                    }
+                    else{
+                        out.print(-1+" ");
+                    }
+                    cnt++;
+                }
+            }
+        }
+
+        out.println();
+    }
+
+
+
+
+}
+
