@@ -1,0 +1,225 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n1=Int();int n2=Int();int n3=Int();int n4=Int();
+            int A[][]=new int[n1][2];
+            int B[][]=new int[n2][2];
+            int C[][]=new int[n3][2];
+            int D[][]=new int[n4][2];
+
+
+            for(int i=0;i<n1;i++){
+                A[i][0]=Int();
+                A[i][1]=i;
+            }
+
+            for(int i=0;i<n2;i++){
+                B[i][0]=Int();
+                B[i][1]=i;
+            }
+
+            for(int i=0;i<n3;i++){
+                C[i][0]=Int();
+                C[i][1]=i;
+            }
+
+            for(int i=0;i<n4;i++){
+                D[i][0]=Int();
+                D[i][1]=i;
+            }
+
+            int m1=Int();
+            int E[][]=new int[m1][2];
+            for(int i=0;i<m1;i++){
+                E[i][0]=Int()-1;
+                E[i][1]=Int()-1;
+            }
+
+            int m2=Int();
+            int F[][]=new int[m2][2];
+            for(int i=0;i<m2;i++){
+                F[i][0]=Int()-1;
+                F[i][1]=Int()-1;
+            }
+
+            int m3=Int();
+            int G[][]=new int[m3][2];
+            for(int i=0;i<m3;i++){
+                G[i][0]=Int()-1;
+                G[i][1]=Int()-1;
+            }
+
+
+
+            Solution sol=new Solution();
+            sol.solution(out,A,B,C,D,E,F,G);
+
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){
+        return in.nextLong();
+    }
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+class Solution{
+    Set<Integer>s1[];
+    Set<Integer>s2[];
+    Set<Integer>s3[];
+
+    public void solution(PrintWriter out,int A[][],int B[][],int C[][],int D[][],int E[][],int F[][],int G[][]){
+        int res=Integer.MAX_VALUE;
+
+        sort(B);
+        sort(C);
+        sort(D);
+
+        s1=new HashSet[A.length];
+        s2=new HashSet[B.length];
+        s3=new HashSet[C.length];
+
+        for(int i=0;i<s1.length;i++){
+            s1[i]=new HashSet<>();
+        }
+
+        for(int i=0;i<s2.length;i++){
+            s2[i]=new HashSet<>();
+        }
+
+        for(int i=0;i<s3.length;i++){
+            s3[i]=new HashSet<>();
+        }
+
+        for(int p[]:E){
+            s1[p[0]].add(p[1]);
+        }
+
+        for(int p[]:F){
+            s2[p[0]].add(p[1]);
+        }
+
+        for(int p[]:G){
+            s3[p[0]].add(p[1]);
+        }
+
+
+
+        int cnt1=0;
+
+        for(int i=0;i<C.length;i++){
+            int id1=C[i][1];
+            boolean good=false;
+            for(int j=0;j<D.length;j++){
+                int id2=D[j][1];
+                if(!s3[id1].contains(id2)){
+                    good=true;
+                    C[i][0]+=D[j][0];
+                    break;
+                }
+            }
+            if(!good){
+                cnt1++;
+                C[i][0]=-1;
+            }
+        }
+
+        sort(C);
+        int cnt2=0;
+
+
+        for(int i=0;i<B.length;i++){
+            int id1=B[i][1];
+            boolean good=false;
+            for(int j=cnt1;j<C.length;j++){
+                if(C[j][0]==-1)continue;
+                int id2=C[j][1];
+                if(!s2[id1].contains(id2)){
+                    good=true;
+                    B[i][0]+=C[j][0];
+                    break;
+                }
+            }
+            if(!good){
+                cnt2++;
+                B[i][0]=-1;
+            }
+        }
+
+        sort(B);
+
+        for(int i=0;i<A.length;i++){
+            int id1=A[i][1];
+            for(int j=cnt2;j<B.length;j++){
+                if(B[j][0]==-1)continue;
+                int id2=B[j][1];
+                if(!s1[id1].contains(id2)){
+                    A[i][0]+=B[j][0];
+                    res=Math.min(res,A[i][0]);
+                    break;
+                }
+            }
+        }
+
+        /*for(int i=0;i<C.length;i++){
+            System.out.print(C[i][0]+" ");
+        }System.out.println();
+
+        for(int i=0;i<B.length;i++){
+            System.out.print(B[i][0]+" ");
+        }System.out.println();
+
+        for(int i=0;i<A.length;i++){
+            System.out.print(A[i][0]+" ");
+        }System.out.println();*/
+
+
+        if(res==Integer.MAX_VALUE){
+            System.out.println(-1);
+        }
+        else{
+            System.out.println(res);
+        }
+    }
+
+    public void sort(int A[][]){
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            return a[0]-b[0];
+        });
+
+        for(int p[]:A){
+            pq.add(p);
+        }
+
+        for(int i=0;i<A.length;i++){
+            A[i]=pq.poll();
+        }
+    }
+
+
+}
+
