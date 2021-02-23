@@ -38,3 +38,4 @@ My Codeforce Practice<br/>
 |  1476C  |[Longest Simple Cycle (1600) (Observation + Graph + Greedy) ](./code/1476C.txt)   |2021/02/20|
 |  1487C  |[Minimum Tile (1500) (Math) ](./code/1487C.txt)   |2021/02/22|
 |  1487D  |[Pythagorean Triples (1500) (Math + BinarySearch) ](./code/1487D.txt)   |2021/02/22|
+|  1487E  |[Cheap Dinner (2000) (Greedy + Sort) ](./code/1487E.txt)   |2021/02/22|
