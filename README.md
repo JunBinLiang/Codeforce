@@ -40,3 +40,4 @@ My Codeforce Practice<br/>
 |  1487D  |[Pythagorean Triples (1500) (Math + BinarySearch) ](./code/1487D.txt)   |2021/02/22|
 |  1487E  |[Cheap Dinner (2000) (Greedy + Sort) ](./code/1487E.txt)   |2021/02/22|
 |  1470B  |[Strange Definition	 (1900) (Math + Hash + Bit) ](./code/1470B.txt)   |2021/02/24|
+|  1472F  |[New Year's Puzzle	 (2100) (DP) ](./code/1472F.txt)   |2021/02/24|
