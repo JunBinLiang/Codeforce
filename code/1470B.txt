@@ -1,0 +1,138 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int primes[]=new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997, 1009, 1013, 1019, 1021, 1031, 1033, 1039, 1049, 1051, 1061, 1063, 1069, 1087, 1091, 1093, 1097};
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            long A[]=new long[n];
+
+            for(int i=0;i<n;i++){
+                A[i]=Long();
+            }
+
+            int m=Int();
+            long q[]=new long[m];
+            for(int i=0;i<m;i++){
+                q[i]=Long();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A,q,primes);
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){ return in.nextLong();}
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+
+class Solution{
+    Map<String,Integer>f=new HashMap<>();
+    public void solution(PrintWriter out,long A[],long q[],int[] primes){
+        int one=0;
+
+
+        for(long key:A){
+            if(key==1){
+                one++;
+                continue;
+            }
+            hash(key,1,primes);
+        }
+
+        int merge=0;
+        int mx=0;
+        int even=0;
+
+        for(String key:f.keySet()){
+            int fre=f.get(key);
+            mx=Math.max(mx,fre);
+            if(fre%2==0||key.length()==0){
+                if(key.length()==0){
+                    even=fre;
+                }
+                merge+=fre;
+            }
+            else{
+
+            }
+        }
+
+        //System.out.println(f);
+
+        for(long w:q){
+            if(w==0){
+                out.println(Math.max(mx,even+one));
+            }
+            else{
+                out.println(Math.max(mx,merge+one));
+            }
+        }
+    }
+
+    public void hash(long n,int cnt1,int primes[]){
+        if(n==1)return;
+        long sum1=0,sum2=0;
+        long base1 = 21841,base2=1429;
+        long mod1=29050993,mod2=68861641;
+
+        StringBuilder str=new StringBuilder();
+        for(int i:primes){
+            int cnt=0;
+            if(n==1||n<i)break;
+
+            while(n%i==0){
+                n/=i;
+                cnt++;
+            }
+
+            if(cnt%2==1) {
+                sum1 = (sum1 * base1 + i) % mod1;
+                sum2 = (sum2 * base2 + i) % mod2;
+            }
+        }
+        if(n>1){
+            sum1=(sum1*base1+n)%mod1;
+            sum2=(sum2*base2+n)%mod2;
+        }
+
+
+        String g="";
+        if(sum1!=0||sum2!=0){
+            g=sum1+","+sum2;
+        }
+
+        if(!f.containsKey(g)){
+            f.put(g,cnt1);
+        }
+        else{
+            f.put(g,f.get(g)+cnt1);
+        }
+    }
+
+
+}
