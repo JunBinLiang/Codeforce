@@ -43,3 +43,4 @@ My Codeforce Practice<br/>
 |  1472F  |[New Year's Puzzle	 (2100) (DP) ](./code/1472F.txt)   |2021/02/24|
 |  1472E  |[Correct Placement	 (1700) (Sort + Two pointer) ](./code/1472E.txt)   |2021/02/24|
 |  1468J  |[Road Reform	 (1800) (UF + Greedy) ](./code/1468J.txt)   |2021/02/25|
+|  1468A  |[LaIS (2200) (DP+Greedy+Segment Tree) ](./code/1468A.txt)   |2021/02/25|
