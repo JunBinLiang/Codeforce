@@ -45,3 +45,4 @@ My Codeforce Practice<br/>
 |  1468J  |[Road Reform	 (1800) (UF + Greedy) ](./code/1468J.txt)   |2021/02/25|
 |  1468A  |[LaIS (2200) (DP+Greedy+Segment Tree) ](./code/1468A.txt)   |2021/02/25|
 |  1468K  |[The Robot (1600) (Brute force) ](./code/1468K.txt)   |2021/02/25|
+|  1468D  |[Firecrackers	 (1700) (Binary Search) ](./code/1468D.txt)   |2021/02/25|
