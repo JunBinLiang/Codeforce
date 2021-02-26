@@ -1,0 +1,108 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            String s=Str();
+
+
+            Solution sol=new Solution();
+            sol.solution(out,s.toCharArray());
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){ return in.nextLong();}
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,char A[]){
+        int x=0,y=0;
+
+        for(int i=0;i<A.length;i++){
+            char c=A[i];
+            if(c=='U'){
+                y++;
+            }
+            else if(c=='D'){
+                y--;
+            }
+            else if(c=='R'){
+                x++;
+            }
+            else{
+                x--;
+            }
+            if(check(A,x,y)){
+                out.println(x+" "+y);
+                return;
+            }
+        }
+
+        out.println("0 0");
+
+    }
+    public boolean check(char A[],int a,int b){
+        int x=0,y=0;
+        for(int i=0;i<A.length;i++){
+            char c=A[i];
+            if(c=='U'){
+                y++;
+            }
+            else if(c=='D'){
+                y--;
+            }
+            else if(c=='R'){
+                x++;
+            }
+            else{
+                x--;
+            }
+
+            if(x==a&&y==b){
+                if(c=='U'){
+                    y--;
+                }
+                else if(c=='D'){
+                    y++;
+                }
+                else if(c=='R'){
+                    x--;
+                }
+                else{
+                    x++;
+                }
+            }
+        }
+
+        return x==0&&y==0;
+    }
+
+}
+
+
