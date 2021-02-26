@@ -48,4 +48,4 @@ My Codeforce Practice<br/>
 |  1468D  |[Firecrackers	 (1700) (Binary Search) ](./code/1468D.txt)   |2021/02/25|
 |  1468H  |[K and Medians	 (2200) (Greedy + Reverse Thinking) ](./code/1468H.txt)   |2021/02/25|
 |  1492D  |[Genius's Gambit	 (1900) (Greedy + Observation) ](./code/1492D.txt)   |2021/02/26|
-
+|  1486D  |[Max Median	 (2100) (Binary Search) ](./code/1486D.txt)   |2021/02/26|
