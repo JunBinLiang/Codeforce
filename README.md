@@ -52,4 +52,4 @@ My Codeforce Practice<br/>
 |  1486D  |[Max Median	 (2100) (Binary Search) ](./code/1486D.txt)   |2021/02/26|
 |  1468C  |[Berpizza	 (1400) (Implementation) ](./code/1468C.txt)   |2021/02/26|
 |  1364C  |[Ehab and Prefix MEXs	 (1600) (Greedy + BIT) ](./code/1364C.txt)   |2021/02/27|
-
+|  1389C  |[Good String	 (1500) (Obsercation + Brute Force) ](./code/1389C.txt)   |2021/02/27|
