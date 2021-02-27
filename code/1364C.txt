@@ -1,0 +1,153 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){ return in.nextLong();}
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[]){
+        int res[]=new int[A.length];
+        Map<Integer,Integer>f=new HashMap<>();
+        PriorityQueue<Integer>pq=new PriorityQueue<>();
+
+        int arr[]=new int[A.length*2+10];
+        Fenwick fen=new Fenwick(arr);
+
+        for(int i:A){
+            if(f.containsKey(i)){
+                f.put(i,f.get(i)+1);
+            }
+            else{
+                f.put(i,1);
+            }
+        }
+
+        for(int i=0;i<A.length*2+10;i++){
+            if(!f.containsKey(i)){
+                pq.add(i);
+            }
+        }
+
+
+        for(int i=0;i<A.length;i++){
+            if(A[i]==0){
+                int min=pq.poll();
+                res[i]=min;
+                fen.update(min,1);
+            }
+            else{
+                int min=pq.poll();
+                res[i]=min;
+                fen.update(min,1);
+
+                int sum=fen.sumRange(0,A[i]-1);
+
+                if(sum<A[i]){
+                    System.out.println("-1");
+                    return;
+                }
+
+            }
+
+
+            f.put(A[i],f.get(A[i])-1);
+            if(f.get(A[i])==0){
+                f.remove(A[i]);
+                pq.add(A[i]);
+            }
+        }
+
+
+
+
+        for(int i:res){
+            System.out.print(i+" ");
+        }
+    }
+
+    class Fenwick {
+        int tree[];//1-index based
+        int A[];
+        int arr[];
+        public Fenwick(int[] A) {
+            this.A=A;
+            arr=new int[A.length];
+            tree=new int[A.length+1];
+            int sum=0;
+            for(int i=0;i<A.length;i++){
+                update(i,A[i]);
+            }
+        }
+
+        public void update(int i, int val) {
+            if(arr[i]==0){
+                arr[i]=val;
+            }
+            else{
+                val=0;
+            }
+
+            i++;
+            while(i<tree.length){
+                tree[i]+=val;
+                i+=(i&-i);
+            }
+
+        }
+
+        public int sumRange(int i, int j) {
+            return pre(j+1)-pre(i);
+        }
+
+        public int pre(int i){
+            int sum=0;
+            while(i>0){
+                sum+=tree[i];
+                i-=(i&-i);
+            }
+            return sum;
+        }
+    }
+
+
+}
+
