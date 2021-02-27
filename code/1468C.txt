@@ -1,0 +1,79 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[][]=new int[n][2];
+            for(int i=0;i<A.length;i++){
+                A[i][0]=Int();
+                if(A[i][0]==1){
+                    A[i][1]=Int();
+                }
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){ return in.nextLong();}
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[][]){
+        PriorityQueue<int[]>pq1=new PriorityQueue<>((a,b)->{
+            if(b[1]==a[1])return a[0]-b[0];
+            return b[1]-a[1];
+        });
+        PriorityQueue<Integer>pq2=new PriorityQueue<>();
+        Set<Integer>set=new HashSet<>();
+        int cnt=1;
+        for(int i=0;i<A.length;i++){
+            if(A[i][0]==2){
+                while(pq2.size()>0&&set.contains(pq2.peek()))pq2.poll();
+                int top=pq2.poll();
+                System.out.print(top+" ");
+                set.add(top);
+            }
+            else if(A[i][0]==3){
+                while(pq1.size()>0&&set.contains(pq1.peek()[0]))pq1.poll();
+                int top[]=pq1.poll();
+                System.out.print(top[0]+" ");
+                set.add(top[0]);
+            }
+            else{
+                pq2.add(cnt);
+                pq1.add(new int[]{cnt,A[i][1]});
+                cnt++;
+            }
+        }
+    }
+}
+
