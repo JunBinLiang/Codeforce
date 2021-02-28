@@ -1,0 +1,125 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int A[]=new int[n];
+            int B[]=new int[n];
+            int C[]=new int[m];
+
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            for(int i=0;i<n;i++){
+                B[i]=Int();
+            }
+
+            for(int i=0;i<m;i++){
+                C[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A,B,C);
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){ return in.nextLong();}
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[],int B[],int C[]){
+        Map<Integer,Queue<Integer>>f=new HashMap<>();//unmatch
+        Stack<Integer>stack=new Stack<>();
+        int res[]=new int[C.length];
+        for(int i=0;i<A.length;i++){
+            if(A[i]!=B[i]){
+                if(!f.containsKey(B[i]))f.put(B[i],new LinkedList<>());
+                f.get(B[i]).add((i));
+            }
+        }
+
+
+
+        for(int i=0;i<C.length;i++){
+            int color=C[i];
+            if(f.containsKey(C[i])){
+                int index=f.get(C[i]).poll();
+                if(f.get(C[i]).size()==0)f.remove(C[i]);
+                while(stack.size()>0){
+                    int top=stack.pop();
+                    res[top]=index;
+                }
+                res[i]=index;
+                A[index]=color;
+            }
+            else{
+                stack.push(i);
+            }
+        }
+
+        Map<Integer,Integer>g=new HashMap<>();
+
+        for(int i=0;i<A.length;i++){
+            g.put(A[i],i);
+        }
+
+        //System.out.println(stack+"  "+g+"  "+f);
+
+        if(stack.size()>0){
+            int top=stack.peek();
+            if(!g.containsKey(C[top])){
+                out.println("NO");
+                return;
+            }
+            else{
+                while(stack.size()>0){
+                    res[stack.peek()]=g.get(C[top]);
+                    stack.pop();
+                }
+
+            }
+        }
+
+
+        if(f.size()!=0){
+            out.println("NO");
+            return;
+        }
+
+        out.println("YES");
+        for(int i:res){
+            out.print((i+1)+" ");
+        }
+        out.println();
+    }
+
+}
+
