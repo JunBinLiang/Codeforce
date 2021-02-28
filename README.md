@@ -55,3 +55,4 @@ My Codeforce Practice<br/>
 |  1389C  |[Good String	 (1500) (Obsercation + Brute Force) ](./code/1389C.txt)   |2021/02/27|
 |  1481C  |[ Fence Painting	 (1600) ( Brute Force) ](./code/1481C.txt)   |2021/02/27|
 |  1472G  |[Moving to the Capital		 (2100) ( Graph + DP) ](./code/1472G.txt)   |2021/02/28|
+|  1474C  |[Array Destruction	 (1700) ( Brute force + Greedy) ](./code/1474C.txt)   |2021/02/28|
