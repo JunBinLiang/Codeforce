@@ -1,0 +1,124 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int()*2;
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){ return in.nextLong();}
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[]){
+        Arrays.sort(A);
+        int n=A.length;
+        boolean good=false;
+        for(int i=n-2;i>=0;i--){
+            List<int[]>res=new ArrayList<>();
+            res.add(new int[]{A[n-1]+A[i]});
+            res.add(new int[]{A[n-1],A[i]});
+            int x=A[n-1];
+            int count=1;
+            Map<Integer,Integer>f=new HashMap<>();
+            for(int j=0;j<n-1;j++){
+                if(i==j)continue;
+                if(!f.containsKey(A[j])){
+                    f.put(A[j],1);
+                }
+                else{
+                    f.put(A[j],f.get(A[j])+1);
+                }
+            }
+            //System.out.println(f);
+
+            for(int j=n-2;j>=0;j--){
+                if(j==i)continue;
+                if(f.containsKey(A[j])){
+                    if(f.containsKey(x-A[j])){
+                        if(x-A[j]==A[j]){
+                            if(f.get(A[j])<2){
+                                break;
+                            }
+                            else{
+                                f.put(A[j],f.get(A[j])-2);
+                                if(f.get(A[j])==0)f.remove(A[j]);
+                                count++;
+                                res.add(new int[]{A[j],x-A[j]});
+                                x=A[j];
+                            }
+                        }
+                        else{
+                            f.put(A[j],f.get(A[j])-1);
+                            f.put(x-A[j],f.get(x-A[j])-1);
+                            if(f.get(A[j])==0)f.remove(A[j]);
+                            if(f.get(x-A[j])==0)f.remove(x-A[j]);
+                            count++;
+                            res.add(new int[]{A[j],x-A[j]});
+                            x=A[j];
+
+                        }
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }
+            if(count==n/2){
+                print(out,res);
+                return;
+            }
+        }
+
+        out.println("NO");
+
+    }
+
+    public void print(PrintWriter out,List<int[]>res){
+        out.println("YES");
+        for(int p[]:res){
+            if(p.length==1){
+                out.println(p[0]);
+            }
+            else{
+                out.println(p[0]+" "+p[1]);
+            }
+        }
+    }
+}
+
