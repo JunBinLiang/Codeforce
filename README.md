@@ -57,3 +57,4 @@ My Codeforce Practice<br/>
 |  1472G  |[Moving to the Capital		 (2100) ( Graph + DP) ](./code/1472G.txt)   |2021/02/28|
 |  1474C  |[Array Destruction	 (1700) ( Brute force + Greedy) ](./code/1474C.txt)   |2021/02/28|
 |  1363C  |[Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   |2021/03/01|
+|  1491C  |[Pekora and Trampoline (1700) (  Greedy) ](./code/1491C.txt)   |2021/03/01|
