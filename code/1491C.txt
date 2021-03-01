@@ -1,0 +1,112 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){ return in.nextLong();}
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[]){
+        long res=0;
+        int n=A.length;
+        int dp[]=new int[n];
+
+        for(int i=0;i<A.length;i++){
+            if(A[i]<=1){
+                if(i+1<A.length){
+                    dp[i+1]+=dp[i];
+                }
+                continue;
+            }
+
+            for(int j=2;j<=A[i];j++){
+                if(i+j>=A.length)break;
+                dp[i+j]++;
+            }
+
+            if(A[i]>dp[i]){
+                A[i]-=dp[i];
+                res+=(A[i]-1);
+            }
+            else{
+                dp[i]=dp[i]-(A[i]-1);
+                if(i+1<A.length){
+                    dp[i+1]+=dp[i];
+                }
+                A[i]=1;
+            }
+        }
+
+
+        System.out.println(res);
+    }
+
+    public int dfs(int dp[],int A[],int i){
+        if(i>=A.length){
+            return 0;
+        }
+        if(dp[i]!=-1){
+            return dp[i];
+        }
+        int res=1+dfs(dp,A,i+A[i]);
+        dp[i]=res;
+        return res;
+    }
+
+    public void go(int A[],int i){
+        if(i>=A.length){
+            return;
+        }
+        go(A,i+A[i]);
+        A[i]=Math.max(1,A[i]-1);
+    }
+
+    public void print(int A[]){
+        for(int i:A){
+            System.out.print(i+" ");
+        }
+        System.out.println();
+        System.out.println();
+    }
+
+}
+
