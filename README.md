@@ -58,3 +58,4 @@ My Codeforce Practice<br/>
 |  1474C  |[Array Destruction	 (1700) ( Brute force + Greedy) ](./code/1474C.txt)   |2021/02/28|
 |  1363C  |[Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   |2021/03/01|
 |  1491C  |[Pekora and Trampoline (1700) (  Greedy) ](./code/1491C.txt)   |2021/03/01|
+|  1491B  |[Minimal Cost (1200) (Brute Force) ](./code/1491B.txt)   |2021/03/01|
