@@ -80,33 +80,5 @@ class Solution{
         System.out.println(res);
     }
 
-    public int dfs(int dp[],int A[],int i){
-        if(i>=A.length){
-            return 0;
-        }
-        if(dp[i]!=-1){
-            return dp[i];
-        }
-        int res=1+dfs(dp,A,i+A[i]);
-        dp[i]=res;
-        return res;
-    }
-
-    public void go(int A[],int i){
-        if(i>=A.length){
-            return;
-        }
-        go(A,i+A[i]);
-        A[i]=Math.max(1,A[i]-1);
-    }
-
-    public void print(int A[]){
-        for(int i:A){
-            System.out.print(i+" ");
-        }
-        System.out.println();
-        System.out.println();
-    }
-
 }
 
