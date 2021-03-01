@@ -1,0 +1,73 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int x=Int()-1;
+            int A[][]=new int[n-1][2];
+            for(int i=0;i<A.length;i++){
+                A[i][0]=Int()-1;
+                A[i][1]=Int()-1;
+            }
+
+
+            Solution sol=new Solution();
+            sol.solution(out,A,n,x);
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){ return in.nextLong();}
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+
+class Solution{
+    String a="Ayush";
+    String b="Ashish";
+    public void solution(PrintWriter out,int A[][],int n,int x){
+        int in[]=new int[n];
+        for(int p[]:A){
+            int v1=p[0],v2=p[1];
+            in[v1]++;
+            in[v2]++;
+        }
+
+        if(in[x]<=1){
+            System.out.println(a);
+        }
+        else{
+            if(n%2==0){
+                System.out.println(a);
+            }
+            else{
+                System.out.println(b);
+            }
+        }
+
+    }
+
+}
+
