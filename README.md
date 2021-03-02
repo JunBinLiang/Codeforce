@@ -1,6 +1,7 @@
 # CF
 
 My Codeforce Practice<br/>
+慢慢刷，细水长流
 
 
  # 打卡挑战
