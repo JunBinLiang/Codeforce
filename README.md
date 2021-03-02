@@ -59,3 +59,4 @@ My Codeforce Practice<br/>
 |  1363C  |[Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   |2021/03/01|
 |  1491C  |[Pekora and Trampoline (1700) (  Greedy) ](./code/1491C.txt)   |2021/03/01|
 |  1491B  |[Minimal Cost (1200) (Brute Force) ](./code/1491B.txt)   |2021/03/01|
+|  1491D  |[Zookeeper and The Infinite Zoo	 (1800) (Bit) ](./code/1491D.txt)   |2021/03/01|
