@@ -1,0 +1,71 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[][]=new int[n][2];
+            for(int i=0;i<n;i++){
+                A[i][0]=Int();
+                A[i][1]=Int();
+            }
+
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){ return in.nextLong();}
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[][]){
+        int x[]=new int[A.length];
+        int y[]=new int[A.length];
+        for(int i=0;i<A.length;i++){
+            x[i]=A[i][0];
+            y[i]=A[i][1];
+        }
+
+        Arrays.sort(x);
+        Arrays.sort(y);
+
+        long res=solve(x)*solve(y);
+        out.println(res);
+    }
+
+    public long solve(int A[]){
+        int n=A.length;
+        if(n%2==1)return 1;
+        return A[n/2]-A[n/2-1]+1;
+    }
+
+
+
+}
+
