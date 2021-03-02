@@ -46,15 +46,18 @@ public class Main {
         int T=1;
         for(int t=0;t<T;t++){
             int n= fs.Int();
-            Set<Integer>g[]=new HashSet[n];
+            List<int[]>g[]=new ArrayList[n];
             for(int i=0;i<g.length;i++){
-                g[i]=new HashSet<>();
+                g[i]=new ArrayList<>();
             }
+
             for(int i=0;i<n-1;i++){
                 int u=fs.Int()-1;int v=fs.Int()-1;
-                g[u].add(v);
-                g[v].add(u);
+                g[u].add(new int[]{v,1});
+                g[v].add(new int[]{u,1});
             }
+
+
             Solution sol=new Solution();
             sol.solution(out,g);
         }
@@ -67,19 +70,21 @@ public class Main {
 
 
 class Solution{
-    Set<Integer>g[];
+    List<int[]>g[];
     int count[];
     int dp[];
     int cnt=0;
     int n;
     boolean res=false;
-    public void solution(PrintWriter out,Set<Integer>g[]){
+    int pos=-1;
+    int posparent=-1;
+    public void solution(PrintWriter out,List<int[]>g[]){
         //two ways to cur => we can cut any
         this.g=g;
         n=g.length;
 
         init(n);
-        getCount(-1,0,-1);
+        getCount(-1,0,-1,100000000);
 
         int fib=fib(n);
         if(fib==-1){
@@ -96,7 +101,8 @@ class Solution{
         if(res)return;
 
 
-        if(dp[fib]<=2){
+
+        if(dp[fib]<=3){
             cnt+=dp[fib];
             if(cnt==n){
                 res=true;
@@ -105,20 +111,43 @@ class Solution{
         }
 
 
-        List<Integer>childs=new ArrayList<>(g[root]);
-        for(int next:childs){
+
+        for(int p[]:g[root]){
+            int next=p[0],state=p[1];
+            if(state==0)continue;
             if(next!=parent){
                 if(count[next]==dp[fib-1]||count[next]==dp[fib-2]){
-                    g[root].remove(next);
-                    g[next].remove(root);
+                    pos=-1;
+                    posparent=-1;
+                    p[1]=0;
                     if(count[next]==dp[fib-1]){
-                        getCount(parent,root,1);
-                        dfs(-1,root,fib-2);
+                        getCount(-1,root,1,dp[fib-2]);
+                        if(pos==-1){
+                            System.out.println("NO");
+                            System.exit(0);
+                            return;
+                        }
+
+                        for(int x[]:g[next]){
+                            if(x[0]==root)x[1]=0;
+                        }
+                        dfs(posparent,pos,fib-2);
                         dfs(-1,next,fib-1);
+
                     }
                     else if(count[next]==dp[fib-2]){
-                        getCount(parent,root,1);
-                        dfs(-1,root,fib-1);
+                        getCount(-1,root,1,dp[fib-1]);
+                        if(pos==-1){
+                            System.out.println("NO");
+                            System.exit(0);
+                            return;
+                        }
+
+
+                        for(int x[]:g[next]){
+                            if(x[0]==root)x[1]=0;
+                        }
+                        dfs(posparent,pos,fib-1);
                         dfs(-1,next,fib-2);
                     }
                     return;
@@ -134,23 +163,19 @@ class Solution{
 
 
     //get the subtree count
-    public int getCount(int parent,int root,int dir){
-        if(dir!=-1){
-            count[root]=1;
-            if(parent!=-1){
-                count[root]+=getCount(root,parent,-1);
+    public int getCount(int parent,int root,int dir,int cc){
+        count[root]=1;
+        for(int p[]:g[root]){
+            int next=p[0],state=p[1];
+            if(next!=parent&&state!=0){
+                count[root]+=getCount(root,next,-1,cc);
             }
-            return count[root];
         }
-        else{
-            count[root]=1;
-            for(int next:g[root]){
-                if(next!=parent){
-                    count[root]+=getCount(root,next,-1);
-                }
-            }
-            return count[root];
+        if(count[root]==cc){
+            pos=root;
+            posparent=parent;
         }
+        return count[root];
 
 
     }
