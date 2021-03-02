@@ -1,0 +1,87 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static Scanner in = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int q[][]=new int[n][2];
+            for(int i=0;i<n;i++){
+                q[i][0]=Int();
+                q[i][1]=Int();
+            }
+
+
+            Solution sol=new Solution();
+            sol.solution(out,q);
+        }
+        out.flush();
+
+    }
+
+    public static long Long(){ return in.nextLong();}
+    public static int Int(){
+        return in.nextInt();
+    }
+    public static String Str(){
+        return in.next();
+    }
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int q[][]){
+        for(int p[]:q){
+            int u=p[0],v=p[1];
+            if(u==v){
+                out.println("YES");
+                continue;
+            }
+            if(v<u||(Integer.bitCount(u)<Integer.bitCount(v))){
+                out.println("NO");
+                continue;
+            }
+
+            List<Integer>l1=new ArrayList<>();
+            List<Integer>l2=new ArrayList<>();
+            for(int j=0;j<31;j++){
+                if((u&(1<<j))!=0){
+                    l1.add(j);
+                }
+                if((v&(1<<j))!=0){
+                    l2.add(j);
+                }
+            }
+
+            boolean good=true;
+            for(int i=0;i<l2.size();i++){
+                if(l2.get(i)<l1.get(i)){
+                    good=false;
+                }
+            }
+
+            if(good){
+                out.println("YES");
+            }
+            else{
+                out.println("NO");
+            }
+        }
+    }
+
+}
+
