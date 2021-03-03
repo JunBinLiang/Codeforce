@@ -67,3 +67,4 @@ My Codeforce Practice<br/>
 |  1156D  |[0-1-Tree	 (2200) (UF + Math) ](./code/1156C.txt)   |2021/03/03|
 |  1156B  |[Ugly Pair	 (1800) (Greedy) ](./code/1156B.txt)   |2021/03/03|
 |  1156A  |[Inscribed Figures	 (1400) (Geometry) ](./code/1156A.txt)   |2021/03/03|
+|  1156E  |[Special Segments of Permutation (2200) (Divide Conquer + Segment Tree) ](./code/1156E.txt)   |2021/03/03|
