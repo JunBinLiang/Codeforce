@@ -1,0 +1,178 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<A.length;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    int res=0;
+    Seg seg;
+    int f[];
+    public void solution(PrintWriter out,int A[]){
+        int n=A.length;
+        f=new int[n+1];
+        seg=new Seg(0,n-1);
+        for(int i=0;i<A.length;i++){
+            seg.update(i,A[i]);
+            f[A[i]]=i;
+        }
+
+        dfs(A,0,n-1);
+        System.out.println(res);
+    }
+    //0 1 2 3   4  5 6 7
+
+    public void dfs(int A[],int l,int r){
+        if(l>=r){
+            return;
+        }
+        int mx=seg.query(l,r);
+        int mid=f[mx];
+
+        int size1=mid-l;
+        int size2=r-mid;
+
+        if(size1<size2){
+            for(int i=l;i<mid;i++){
+                int com=mx-A[i];
+                if(f[com]>mid&&f[com]<=r){
+                    res++;
+                }
+            }
+
+        }
+        else{
+            for(int i=mid+1;i<=r;i++){
+                int com=mx-A[i];
+                if(f[com]>=l&&f[com]<mid){
+                    res++;
+                }
+            }
+        }
+
+
+        dfs(A,l,mid-1);
+        dfs(A,mid+1,r);
+
+    }
+
+
+
+
+
+
+    class Seg{
+        int l,r;
+        int max=Integer.MIN_VALUE;
+        Seg left=null,right=null;
+        public Seg(int l,int r){
+            this.l=l;
+            this.r=r;
+            if(l!=r){
+                int mid=l+(r-l)/2;
+                if(l<=mid)left=new Seg(l,mid);
+                if(r>=mid+1)right=new Seg(mid+1,r);
+            }else{
+
+            }
+        }
+        public int query(int s,int e){
+            if(l==s&&r==e){
+                return max;
+            }
+            int mid=l+(r-l)/2; //left :  to mid-1,
+            if(e<=mid){
+                return left.query(s,e);
+            }
+            else if(s>=mid+1){
+                return right.query(s,e);
+            }else{
+                return Math.max(left.query(s,mid),right.query(mid+1,e));
+            }
+        }
+
+        public void update(int index,int val){
+            if(l==r){
+                max=val;
+                return;
+            }
+            int mid=l+(r-l)/2;
+            if(index<=mid){
+                left.update(index,val);
+            }else{
+                right.update(index,val);
+            }
+            this.max=Math.max(left.max,right.max);
+        }
+    }
+
+
+}
+
