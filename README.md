@@ -65,3 +65,4 @@ My Codeforce Practice<br/>
 |  1491E  |[Fib-tree	 (2400) (Tree + Greedy + Brute Force) ](./code/1491E.txt)   |2021/03/02|
 |  1156C  |[Match Points	 (2000) (Binary Search) ](./code/1156C.txt)   |2021/03/02|
 |  1156D  |[0-1-Tree	 (2200) (UF + Math) ](./code/1156C.txt)   |2021/03/03|
+|  1156B  |[Ugly Pair	 (1800) (Greedy) ](./code/1156B.txt)   |2021/03/03|
