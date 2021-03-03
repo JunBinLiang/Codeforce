@@ -1,0 +1,116 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<A.length;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+
+    public void solution(PrintWriter out,int A[]){
+        int res=0;
+        for(int i=1;i<A.length;i++){
+            if(A[i]==1){//circle
+                if(A[i-1]==2)res+=3;
+                else res+=4;
+            }
+            else if(A[i]==2){//triangle
+                if(A[i-1]==1)res+=3;
+                else {
+                    System.out.println("Infinite");
+                    return;
+                }
+            }
+            else if(A[i]==3){//square
+                if(A[i-1]==1)res+=4;
+                else {
+                    System.out.println("Infinite");
+                    return;
+                }
+            }
+
+        }
+
+        for(int i=2;i<A.length;i++){
+            if(A[i-2]==3&&A[i-1]==1&&A[i]==2)res--;
+        }
+
+        System.out.println("Finite");
+        System.out.println(res);
+    }
+
+
+
+
+
+
+
+
+}
+
