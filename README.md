@@ -70,5 +70,5 @@ My Codeforce Practice<br/>
 |  1156E  |[Special Segments of Permutation (2200) (Divide Conquer + Segment Tree) ](./code/1156E.txt)   |2021/03/03|
 |  740C  |[Alyona and mex (1700) (Greedy) ](./code/740C.txt)   |2021/03/03|
 |  740D  |[Alyona and a tree (1900) (Tree + Binary Search + BIT + Prefix) ](./code/740D.txt)   |2021/03/04|
-|  1353D  |[Constructing the Array (1600) （Sort + Implementation）) ](./code/1353D.txt)   |2021/03/04|
-|  1353E  |[K-periodic Garland (1900) （DP + Sliding Window）) ](./code/1353E.txt)   |2021/03/04|
+|  1353D  |[Constructing the Array (1600) （Sort + Implementation）](./code/1353D.txt)   |2021/03/04|
+|  1353E  |[K-periodic Garland (1900) （DP + Sliding Window） ](./code/1353E.txt)   |2021/03/04|
