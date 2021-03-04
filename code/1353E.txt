@@ -1,0 +1,144 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=Int();
+        for(int t=0;t<T;t++){
+
+            int n=Int();int k=Int();
+            String s=Str();
+
+            Solution sol=new Solution();
+            sol.solution(out,s,k);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,String s,int k){
+        char A[]=s.toCharArray();
+        StringBuilder str=new StringBuilder(s);
+        char B[]=str.reverse().toString().toCharArray();
+
+        int res=Math.min(solve(A,k),solve(B,k));
+
+
+        out.println(res);
+    }
+
+    public int solve(char A[],int k){
+        int n=A.length;
+        int sum=0;int res=Integer.MAX_VALUE;
+        int right[]=new int[n];
+
+        for(int i=right.length-1;i>=0;i--){
+            sum+=(A[i]-'0');
+            right[i]=sum;
+        }
+        res=sum;
+
+
+
+        Queue<Integer>q=new LinkedList<>();
+        int dp[]=new int[n];
+        sum=0;
+        int left=0;
+
+        for(int i=0;i<n;i++){
+            int d=A[i]-'0';
+            int flip=get(right,i+1);
+
+            if(i-k<0){
+                if(d==0){
+                    dp[i]=1+left;
+                }
+                else{
+                    dp[i]=left;
+                }
+            }
+            else{
+                while(q.size()>k-1){
+                    sum-=q.poll();
+                }
+                if(d==1){
+                    dp[i]=Math.min(sum+dp[i-k],left);
+                }
+                else{
+                    dp[i]=Math.min(1+sum+dp[i-k],1+left);
+                }
+            }
+            res=Math.min(res,dp[i]+flip);
+
+            left+=d;
+            sum+=d;
+            q.add(d);
+        }
+
+        return res;
+    }
+
+    public int get(int A[],int i){
+        if(i>=A.length)return 0;
+        return A[i];
+    }
+
+
+
+}
+
+
