@@ -1,0 +1,116 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int A[][]=new int[m][2];
+            for(int i=0;i<A.length;i++){
+                A[i][0]=Int()-1;
+                A[i][1]=Int()-1;
+            }
+            Solution sol=new Solution();
+            sol.solution(out,A,n);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+
+    public void solution(PrintWriter out,int A[][],int n){
+        //find the shortest one and fill it greedly first
+        int res[]=new int[n];
+        int mn=Integer.MAX_VALUE;
+        int j=-1;
+
+        for(int i=0;i<A.length;i++){
+            int p[]=A[i];
+            int l=p[0],r=p[1];
+            int cnt=r-l+1;
+            if(cnt<mn){
+                mn=cnt;
+                j=i;
+            }
+        }
+
+        int val=0;
+        for(int i=A[j][0];i<=A[j][1];i++){
+            res[i]=val;
+            val++;
+        }
+        
+
+        for(int i=A[j][1]+1;i<res.length;i++){
+            res[i]=res[i-mn];
+        }
+
+        for(int i=A[j][0]-1;i>=0;i--){
+            res[i]=res[i+mn];
+        }
+
+
+        out.println(mn);
+        for(int i:res){
+            out.print(i+" ");
+        }
+        out.println();
+    }
+
+}
+
