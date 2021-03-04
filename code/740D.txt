@@ -1,0 +1,220 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            int B[][]=new int[n-1][2];
+            for(int i=0;i<A.length;i++){
+                A[i]=Int();
+            }
+
+            for(int i=0;i<B.length;i++){
+                B[i][0]=Int()-1;
+                B[i][1]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A,B);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    List<int[]>g[];
+    boolean visit[];
+    int A[];int res[];
+    public void solution(PrintWriter out,int A[],int B[][]){
+        //root 0
+        int n=A.length;
+        this.A=A;
+
+        g=new ArrayList[n];
+        res=new int[n];
+
+        int arr[]=new int[n];
+        Fenwick fen=new Fenwick(arr);
+
+        for(int i=0;i<n;i++){
+            g[i]=new ArrayList<>();
+        }
+
+
+        //1.preorder + binary search
+        //2.BIT for calculating range sum
+        for(int i=0;i<B.length;i++){
+            int u=B[i][0];
+            int v=i+1;
+            g[u].add(new int[]{v,B[i][1]});
+        }
+
+        List<long[]>pre=new ArrayList<>();
+        pre.add(new long[]{0l,0l});
+
+        dfs(0,pre,fen);
+
+        res[0]=fen.sumRange(0,0);
+
+
+        for(int i:res){
+            out.print(i+" ");
+        }
+    }
+
+    public void dfs(int root,List<long[]>pre,Fenwick fen){
+        //System.out.println(root);
+
+        for(int next[]:g[root]){
+            int v=next[0],w=next[1];
+
+            int l=0,r=pre.size()-1;
+            int pos=-1;
+            while(l<=r){
+                int mid=l+(r-l)/2;
+                long dis=get(pre,pre.size()-1)-get(pre,mid);
+                if(dis+w<=A[v]){
+                    pos=mid;
+                    r=mid-1;
+                }
+                else{
+                    l=mid+1;
+                }
+
+            }
+
+
+
+
+
+            pre.add(new long[]{v,w+get(pre,pre.size()-1)});
+            if(pos!=-1){
+                fen.update(pos,1);
+            }
+            else{
+
+            }
+            fen.update(pre.size()-1,-fen.sumRange(0,pre.size()-1));
+
+
+            dfs(v,pre,fen);
+
+            int sum=fen.sumRange(0,pre.size()-1);
+            res[v]=sum;
+            fen.zero(pre.size()-1,0);
+            pre.remove(pre.size()-1);
+        }
+
+    }
+
+    public long get(List<long[]>pre,int i){
+        if(i<0)return 0;
+        return pre.get(i)[1];
+    }
+
+    class Fenwick {
+        int tree[];//1-index based
+        int A[];
+        int arr[];
+        public Fenwick(int[] A) {
+            this.A=A;
+            arr=new int[A.length];
+            tree=new int[A.length+1];
+            int sum=0;
+            for(int i=0;i<A.length;i++){
+                update(i,A[i]);
+            }
+        }
+
+        public void update(int i, int val) {
+            arr[i]+=val;
+            i++;
+            while(i<tree.length){
+                tree[i]+=val;
+                i+=(i&-i);
+            }
+        }
+
+        public void zero(int i, int val) {
+            int dif=val-arr[i];
+            arr[i]=val;
+            i++;
+            while(i<tree.length){
+                tree[i]+=dif;
+                i+=(i&-i);
+            }
+        }
+
+        public int sumRange(int i, int j) {
+            return pre(j+1)-pre(i);
+        }
+
+        public int pre(int i){
+            int sum=0;
+            while(i>0){
+                sum+=tree[i];
+                i-=(i&-i);
+            }
+            return sum;
+        }
+    }
+
+}
+
+
