@@ -1,0 +1,143 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=1;
+        for(int t=0;t<T;t++){
+
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[]){
+        int res=Integer.MIN_VALUE;
+        int cnt=1;
+        int neg=0,pos=0;
+        int pre[]=new int[A.length];
+
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            return b[0]-a[0];
+        });
+
+        pre[0]=A[0];
+        for(int i=1;i<A.length;i++){
+            pre[i]=pre[i-1]+A[i];
+            if(i==A.length-1){
+                res=Math.max(res,pre[i]);
+            }
+        }
+
+
+
+        for(int i=A.length-1;i>=0;i--){
+            if(A[i]<0)neg+=A[i];
+            else pos+=A[i];
+            pq.add(new int[]{(-neg)+(-pos)+get(pre,i-1),cnt,(-neg)+(-pos)});
+            pq.add(new int[]{(neg)+(pos)+get(pre,i-1),cnt,(neg)+(pos)});
+            cnt++;
+            if(i==0){
+                res=Math.max(res,(-neg)+(-pos));
+            }
+        }
+
+
+        res=Math.max(res,pq.peek()[0]);
+
+        neg=0;pos=0;
+        for(int i=0;i<A.length-1;i++){
+            if(A[i]<0)neg+=A[i];
+            else pos+=A[i];
+
+            int sum=(-neg)+(-pos);
+            int remain=A.length-(i+1);
+            while(pq.size()>0&&pq.peek()[1]>remain)pq.poll();
+
+
+            int peek[]=pq.peek();
+            sum+=peek[2];
+
+            int j=A.length-peek[1]-1;
+            sum+=(pre[j]-pre[i]);
+            res=Math.max(res,sum);
+        }
+
+        System.out.println(res);
+
+    }
+
+    public int get(int A[],int i){
+        if(i<0||i>=A.length)return 0;
+        return A[i];
+    }
+
+
+
+
+
+}
+
+
