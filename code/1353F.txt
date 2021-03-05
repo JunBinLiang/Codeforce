@@ -1,0 +1,133 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=Int();
+        for(int t=0;t<T;t++){
+
+            int n=Int();int m=Int();
+            long A[][]=new long[n][m];
+
+            for(int i=0;i<n;i++){
+                for(int j=0;j<m;j++){
+                    A[i][j]=Long();
+                }
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    long dp[][];
+    public void solution(PrintWriter out,long mat[][]){
+        long res=1000000000000000000l;
+        int n=mat.length,m=mat[0].length;
+        dp=new long[n][m];
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                //fix mat[i][j]
+                init();
+                long mn=dfs(mat,0,0,mat[i][j]-(i+j));
+                res=Math.min(res,mn);
+            }
+        }
+
+        out.println(res);
+    }
+
+    public long dfs(long mat[][],int r, int c,long start){//n+m at most
+        if(r>=mat.length||c>=mat[0].length)return 1000000000000000000l;
+        if(dp[r][c]!=Long.MAX_VALUE)return dp[r][c];
+
+        long target=start+r+c;
+        if(mat[r][c]<target){
+            return 1000000000000000000l;
+        }
+
+        long res=Long.MAX_VALUE;
+        long need=mat[r][c]-target;
+
+        if(r==mat.length-1&&c==mat[0].length-1){
+            return need;
+        }
+
+        res=Math.min(res,need+dfs(mat,r+1,c,start));
+        res=Math.min(res,need+dfs(mat,r,c+1,start));
+        dp[r][c]=res;
+        return res;
+    }
+
+
+    public void init(){
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++){
+                dp[i][j]=Long.MAX_VALUE;
+            }
+        }
+    }
+
+
+
+
+}
+
+
