@@ -1,0 +1,100 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=Int();
+        for(int t=0;t<T;t++){
+
+            int d=Int();int k=Int();
+
+            Solution sol=new Solution();
+            sol.solution(out,d,k);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    String a="Ashish";
+    String b="Utkarsh";
+    public void solution(PrintWriter out,long d,long k){
+
+        long res=0;
+        long i=0;
+        while((i*i*2)<=d*d){
+            res=i;
+            i+=k;
+        }
+        
+
+        if(res*res+(res+k)*(res+k)<=d*d){
+            out.println(a);
+        }
+        else{
+            out.println(b);
+        }
+
+    }
+
+
+
+
+
+
+}
+
+
