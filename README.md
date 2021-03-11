@@ -76,4 +76,5 @@ My Codeforce Practice<br/>
 |  1353F  |[Decreasing Heights (2200) （DP + Brute Force） ](./code/1353F.txt)   |2021/03/05|
 |  1451D  |[Circle Game (1700) （Game） ](./code/1451D.txt)   |2021/03/06|
 |  1494C  |[1D Sokoban (1900) （Binary Search + Greedy + Math） ](./code/1494C.txt)   |2021/03/10|
+|  1494B  |[Let's Go Hiking (1900) （Game） ](./code/1495B.txt)   |2021/03/11|
 
