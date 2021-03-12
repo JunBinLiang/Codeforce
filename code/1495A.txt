@@ -1,0 +1,114 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+        PrintWriter out = new PrintWriter(System.out);
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[][]=new int[n*2][2];
+            for(int i=0;i<A.length;i++){
+                A[i][0]=Int();
+                A[i][1]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[][]){
+        //x==0:miner
+        //y==0:mine
+        double sum=0;
+        List<Long>persons=new ArrayList<>();
+        List<Long>mines=new ArrayList<>();
+
+        for(int i=0;i<A.length;i++){
+            if(A[i][0]==0){
+                persons.add((A[i][1]+0l)*(A[i][1]));
+            }
+            else{
+                mines.add((A[i][0]+0l)*(A[i][0]));
+            }
+        }
+
+        Collections.sort(persons);
+        Collections.sort(mines);
+
+        for(int i=0;i<persons.size();i++){
+            sum=sum+Math.sqrt(persons.get(i)+mines.get(i));
+        }
+
+        out.println(sum);
+
+
+
+
+    }
+
+
+
+
+}
+
+
+
