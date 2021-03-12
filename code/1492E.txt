@@ -1,0 +1,142 @@
+// Don't place your source in a package
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+        PrintWriter out = new PrintWriter(System.out);
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int A[][]=new int[n][m];
+            for(int i=0;i<A.length;i++){
+                for(int j=0;j<A[0].length;j++){
+                    A[i][j]=Int();
+                }
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[][]){
+        boolean v=dfs(out,A,0);
+        if(v){
+            out.println("YES");
+            for(int i:A[0]){
+                out.print(i+" ");
+            }
+        }
+        else{
+            out.println("NO");
+        }
+
+
+    }
+
+    public boolean dfs(PrintWriter out,int A[][],int cnt){
+        if(cnt>2)return false;
+
+        for(int i=1;i<A.length;i++){
+            List<Integer>list=new ArrayList<>();
+            for(int j=0;j<A[0].length;j++){
+                if(A[0][j]!=A[i][j]){
+                    list.add(j);
+                }
+            }
+            int size=list.size();
+
+            if(size>=5)return false;
+            if(size<=2)continue;
+            for(int index:list){
+                int old=A[0][index];
+                A[0][index]=A[i][index];
+                if(dfs(out,A,cnt+1))return true;
+                A[0][index]=old;
+            }
+            return false;
+        }
+
+        return true;
+    }
+
+
+
+
+
+
+    public void yes(PrintWriter out,int A[]){
+        out.println("YES");
+        for(int i:A){
+            out.print(i+" ");
+        }
+        out.println();
+    }
+
+    public void no(PrintWriter out){
+        out.print("NO");
+    }
+
+
+}
+
+
+
+//1 2 3 1 1 1
