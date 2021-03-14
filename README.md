@@ -81,4 +81,4 @@ My Codeforce Practice<br/>
 |  1495A  |[Diamond Miner (1200) （Greedy + Sort） ](./code/1495A.txt)   |2021/03/11|
 |  1492E  |[Almost Fault-Tolerant Database (2500) （Backtracking + Time complexity） ](./code/1492E.txt)   |2021/03/12|
 |  1500A  |[Going Home (1800) （Brute Force） ](./code/1500A.txt)   |2021/03/14|
-
+|  687B  |[Remainders Game (1800) （Number Theory） ](./code/687B.txt)   |2021/03/14|
