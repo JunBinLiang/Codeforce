@@ -1,0 +1,164 @@
+// Don't place your source in a package
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int k=Int();
+            String s=Str();
+
+
+            Sol sol=new Sol();
+            sol.solution(out,s,k);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Sol{
+    public void solution(PrintWriter out,String s,int k){
+        if(s.length()%k!=0) {
+            out.println(-1);
+            return;
+        }
+        if(check(s,k)){
+            out.println(s);
+            return;
+        }
+
+
+        int t[]=new int[26];
+        for(int i=0;i<s.length();i++){
+            t[s.charAt(i)-'a']++;
+        }
+
+
+        for(int i=s.length()-1;i>=0;i--){
+            int d=s.charAt(i)-'a';
+            t[d]--;
+            int cnt=s.length()-(i+1);
+
+            for(int j=d+1;j<26;j++){
+                t[j]++;
+
+                if(good(t,cnt,k)){
+                    String ans=construct(s,i-1,k,cnt,j);
+                    out.println(ans);
+                    return;
+                }
+                t[j]--;
+            }
+        }
+
+    }
+
+    public String construct(String s,int fix,int k,int cnt,int cc){
+        StringBuilder str=new StringBuilder();
+        int t[]=new int[26];
+        for(int i=0;i<=fix;i++){
+            t[s.charAt(i)-'a']++;
+            str.append(s.charAt(i)+"");
+        }
+
+        t[cc]++;
+        str.append((char)(cc+'a'));
+
+
+        for(int i=0;i<t.length;i++){
+            int need=k-(t[i]%k);
+            need%=k;
+            cnt-=need;
+            t[i]=need;
+        }
+
+        t[0]+=cnt;
+
+        for(int i=0;i<t.length;i++){
+            char c=(char)(i+'a');
+            for(int j=0;j<t[i];j++){
+                str.append(c);
+            }
+        }
+        return str.toString();
+    }
+
+
+    public boolean good(int t[],int cnt,int k){
+        for(int i=0;i<t.length;i++){
+            int need=k-(t[i]%k);
+            need%=k;
+            cnt-=need;
+        }
+        return cnt>=0&&(cnt%k==0);
+    }
+
+    public boolean check(String s,int k){
+        int t[]=new int[26];
+        for(int i=0;i<s.length();i++){
+            t[s.charAt(i)-'a']++;
+        }
+
+        for(int i:t){
+            if(i%k!=0)return false;
+        }
+
+        return true;
+    }
+
+
+}
