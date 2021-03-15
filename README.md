@@ -83,3 +83,4 @@ My Codeforce Practice<br/>
 |  1500A  |[Going Home (1800) （Brute Force） ](./code/1500A.txt)   |2021/03/14|
 |  687B  |[Remainders Game (1800) （Number Theory） ](./code/687B.txt)   |2021/03/14|
 |  1493C  |[K-beautiful Strings (2000) （Greedy + Constructive） ](./code/1493C.txt)   |2021/03/15|
+|  1393C  |[Pinkie Pie Eats Patty-cakes (1700) （Greedy + Constructive） ](./code/1393C.txt)   |2021/03/15|
