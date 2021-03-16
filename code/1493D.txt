@@ -1,0 +1,198 @@
+// Don't place your source in a package
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+	static FastScanner fs=new FastScanner();
+	static class FastScanner {//scanner from SecondThread
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st=new StringTokenizer("");
+		public String next() {
+			while (!st.hasMoreElements())
+				try {
+					st=new StringTokenizer(br.readLine());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			return st.nextToken();
+		}
+		int Int() {
+			return Integer.parseInt(next());
+		}
+
+		long Long() {
+			return Long.parseLong(next());
+		}
+
+		String Str(){
+			return next();
+		}
+	}
+
+
+	public static void main (String[] args) throws java.lang.Exception {
+		PrintWriter out = new PrintWriter(System.out);
+		int T=1;
+		for(int t=0;t<T;t++){
+			int n=Int();int m=Int();
+			int A[]=new int[n];
+			int B[][]=new int[m][2];
+
+			for(int i=0;i<n;i++){
+				A[i]=Int();
+			}
+
+			for(int i=0;i<m;i++){
+				B[i][0]=Int();
+				B[i][1]=Int();
+			}
+
+			Sol sol=new Sol();
+			sol.solution(out,A,B);
+		}
+		out.flush();
+
+	}
+
+	public static int Int(){
+		return fs.Int();
+	}
+	public static long Long(){
+		return fs.Long();
+	}
+	public static String Str(){
+		return fs.Str();
+	}
+
+}
+
+
+
+class Sol{
+    int mod=1000000007;
+	public void solution(PrintWriter out,int A[],int B[][]){
+	    long g=A[0];
+		List<Integer>primes=new ArrayList<>();
+        Map<Integer,Map<Integer,Integer>>f=new HashMap<>();
+
+		int bool[]=new int[200010];
+		for(int i=2;i<bool.length;i++){
+		    if(bool[i]!=0)continue;
+		    primes.add(i);
+		    for(int j=i;j<bool.length;j+=i){
+                bool[j]=1;
+            }
+        }
+
+		for(int i=0;i<primes.size();i++){
+		    int prime=primes.get(i);
+		    f.put(prime,new HashMap<>());
+        }
+
+        for(int i=1;i<A.length;i++){
+            g=gcd(g,A[i-1]);
+        }
+
+        for(int i=0;i<A.length;i++){
+            A[i]/=g;
+            for(int p:primes){
+                if(p*p>A[i])break;
+                int cnt=0;
+                while(A[i]%p==0){
+                    cnt++;
+                    A[i]/=p;
+                }
+                put(f.get(p),i,cnt);
+                if(A[i]==1)break;
+            }
+            if(A[i]!=1){
+                put(f.get(A[i]),i,1);
+            }
+        }
+
+        for(int q[]:B){
+            int i=q[0]-1,x=q[1];
+
+            for(int p:primes){
+                if(x==1||p*p>x)break;
+                int cnt=0;
+                while(x%p==0){
+                    x/=p;
+                    cnt++;
+                }
+                put(f.get(p),i,cnt);
+                if(f.get(p).size()==A.length){
+                    int mn=Integer.MAX_VALUE;
+                    Map<Integer,Integer>m=f.get(p);
+                    List<Integer>keys=new ArrayList<>();
+                    for(Integer key:m.keySet()){
+                        keys.add(key);
+                        mn=Math.min(mn,m.get(key));
+                    }
+                    for(int key:keys){
+                        m.put(key,m.get(key)-mn);
+                        if(m.get(key)==0)m.remove(key);
+                    }
+                    g=g*(long)(Math.pow(p,mn));
+                    g%=mod;
+                }
+            }
+
+            if(x!=1){
+                put(f.get(x),i,1);
+                if(f.get(x).size()==A.length){
+                    int mn=Integer.MAX_VALUE;
+                    Map<Integer,Integer>m=f.get(x);
+                    List<Integer>keys=new ArrayList<>();
+                    for(Integer key:m.keySet()){
+                        keys.add(key);
+                        mn=Math.min(mn,m.get(key));
+                    }
+                    for(int key:keys){
+                        m.put(key,m.get(key)-mn);
+                        if(m.get(key)==0)m.remove(key);
+                    }
+                    g=g*(long)(Math.pow(x,mn));
+                    g%=mod;
+                }
+            }
+
+
+            out.println(g);
+        }
+
+
+	}
+
+	public void put(Map<Integer,Integer>f,int key,int val){
+	    if(val==0)return;
+	    if(!f.containsKey(key))f.put(key,0);
+	    f.put(key,f.get(key)+val);
+    }
+
+
+
+	public long gcd(long num1, long num2) {
+		if (num2 != 0){
+			return gcd(num2, num1 % num2);
+		} else{
+			return num1;
+		}
+	}
+
+
+}
+
+
+
