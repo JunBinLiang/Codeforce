@@ -1,0 +1,122 @@
+// Don't place your source in a package
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Sol sol=new Sol();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Sol{
+    int mod=998244353;
+    public void solution(PrintWriter out,int A[]){
+        Map<Integer,int[]>f=new HashMap<>();
+        long res=1;
+
+        for(int i=0;i<A.length;i++){
+            if(!f.containsKey(A[i])){
+                f.put(A[i],new int[]{Integer.MAX_VALUE,Integer.MIN_VALUE});
+            }
+            int p[]=f.get(A[i]);
+            p[0]=Math.min(p[0],i);
+            p[1]=Math.max(p[1],i);
+        }
+
+        int j=0;
+        int end1=f.get(A[0])[1];
+        while(j<=end1){
+            int p[]=f.get(A[j]);
+            j++;
+            end1=Math.max(end1,p[1]);
+        }
+
+
+        for(int i=j;i<A.length;i++){
+            res*=2;
+            res%=mod;
+            int end2=f.get(A[i])[1];
+            int k=i;
+            while(k<=end2){
+                int p[]=f.get(A[k]);
+                k++;
+                end2=Math.max(end2,p[1]);
+            }
+            i=k-1;
+        }
+
+        out.println(res);
+    }
+
+
+
+
+
+}
+
+
+
