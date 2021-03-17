@@ -85,3 +85,4 @@ My Codeforce Practice<br/>
 |  1493C  |[K-beautiful Strings (2000) （Greedy + Constructive） ](./code/1493C.txt)   |2021/03/15|
 |  1393C  |[Pinkie Pie Eats Patty-cakes (1700) （Greedy + Constructive） ](./code/1393C.txt)   |2021/03/15|
 |  1493D  |[GCD of an Array (2100) （Brute Force + Number Theory） ](./code/1493D.txt)   |2021/03/16|
+|  1102E  |[Monotonic Renumeration (1700) （Combination） ](./code/1102E.txt)   |2021/03/17|
