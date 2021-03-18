@@ -1,0 +1,141 @@
+// Don't place your source in a package
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        List<Integer>primes=new ArrayList<>();
+        int p[]=new int[10000];
+        for(int i=2;i<p.length;i++){
+            if(p[i]!=0)continue;
+            primes.add(i);
+            for(int j=i;j<p.length;j+=i){
+                p[j]=1;
+            }
+        }
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int k=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Sol sol=new Sol();
+            sol.solution(out,A,k,primes);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Sol{
+
+    public void solution(PrintWriter out,int A[],int k,List<Integer>primes){
+        int res=0;
+        int n=A.length;
+        int match[]=new int[n];
+        Arrays.fill(match,n);
+        Map<String,Integer>f=new HashMap<>();
+        for(int i=0;i<A.length;i++){
+            String s=hash(A[i],primes);
+            if(f.containsKey(s)){
+                int index=f.get(s);
+                match[index]=i;
+                f.put(s,i);
+            }
+            else{
+                f.put(s,i);
+            }
+        }
+
+        //greedy take
+        for(int i=0;i<n;i++){
+            int end=match[i];
+            int j=i;
+            res++;
+            while(j<end){
+                end=Math.min(end,match[j]);
+                j++;
+            }
+            i=j-1;
+        }
+        out.println(res);
+    }
+
+    public String hash(int n,List<Integer>primes){
+        StringBuilder str=new StringBuilder("x,");
+        for(int i:primes){
+            if(i*i>n)break;
+            int cnt=0;
+            while(n%i==0){
+                n/=i;
+                cnt++;
+            }
+            cnt%=2;
+            if(cnt!=0)str.append(i+",");
+        }
+        if(n!=1)str.append(n+",");
+        return str.toString();
+
+    }
+
+}
+
+
+
