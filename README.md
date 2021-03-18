@@ -86,3 +86,4 @@ My Codeforce Practice<br/>
 |  1393C  |[Pinkie Pie Eats Patty-cakes (1700) （Greedy + Constructive） ](./code/1393C.txt)   |2021/03/15|
 |  1493D  |[GCD of an Array (2100) （Brute Force + Number Theory） ](./code/1493D.txt)   |2021/03/16|
 |  1102E  |[Monotonic Renumeration (1700) （Combination） ](./code/1102E.txt)   |2021/03/17|
+|  1497C2  |[k-LCM (hard version) (1600) （Greedy） ](./code/1497C2.txt)   |2021/03/17|
