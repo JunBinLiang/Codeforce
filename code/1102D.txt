@@ -1,0 +1,142 @@
+// Don't place your source in a package
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+
+
+
+
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            String s=Str();
+
+            Sol sol=new Sol();
+            sol.solution(out,s);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Sol{
+
+    public void solution(PrintWriter out,String s){
+        char A[]=s.toCharArray();
+        int n=A.length;
+        int t[]=new int[3];
+
+
+        for(char c:A){
+            t[c-'0']++;
+        }
+
+
+
+        for(int i=0;i<n;i++){
+            if(A[i]!='0'){
+                if(t[0]<n/3&&t[A[i]-'0']>n/3){
+                    t[0]++;
+                    t[A[i]-'0']--;
+                    A[i]='0';
+                }
+            }
+        }
+
+
+        int cnt=0;
+        for(int i=0;i<n;i++){
+            if(A[i]!='1'){
+                if(t[1]<n/3){
+                    if(A[i]=='0'&&t[0]>n/3){
+                        if(cnt==n/3){
+                            t[0]--;
+                            t[1]++;
+                            A[i]='1';
+                            //System.out.println(i);
+                        }
+                        else{
+                            cnt++;
+                        }
+                    }
+                    else if(A[i]=='2'){
+                        if(t[2]>n/3){
+                            t[2]--;t[1]++;
+                            A[i]='1';
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        for(int i=n-1;i>=0;i--){
+            if(A[i]!='2'){
+                if(t[2]<n/3&&t[A[i]-'0']>n/3){
+                    t[2]++;
+                    t[A[i]-'0']--;
+                    A[i]='2';
+                }
+            }
+        }
+
+        out.println(new String(A));
+    }
+
+
+
+}
+
+
+
