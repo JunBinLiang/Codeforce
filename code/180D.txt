@@ -1,0 +1,158 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+            String tt=Str();
+
+            Sol sol=new Sol();
+            sol.solution(out,s,tt);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Sol{
+    public void solution(PrintWriter out,String s,String t){
+        int f[]=new int[26];
+        StringBuilder str=new StringBuilder();
+        for(int i=0;i<s.length();i++){
+            f[s.charAt(i)-'a']++;
+        }
+
+
+        int j=-1;
+        for(int i=0;i<t.length();i++){
+            int next=-1;
+            if(i!=t.length()-1){
+                next=t.charAt(i+1)-'a';
+            }
+
+            if(f[t.charAt(i)-'a']==0)break;
+            f[t.charAt(i)-'a']--;
+
+            if(check(f,next)){
+                j=i;
+
+            }
+            else{
+
+            }
+        }
+
+
+
+       // System.out.println(j+"  "+str.toString());
+
+        //re-construct
+        Arrays.fill(f,0);
+        for(int i=0;i<s.length();i++){
+            f[s.charAt(i)-'a']++;
+        }
+
+        for(int i=0;i<=j;i++){
+            str.append(t.charAt(i)+"");
+            f[t.charAt(i)-'a']--;
+        }
+        int next=-1;
+        if(j+1<t.length())next=t.charAt(j+1)-'a';
+        int d=find(f,next);
+        if(d==-1){
+            out.println(-1);
+            return;
+        }
+
+        char c=(char)(d+'a');
+        f[d]--;
+        str.append(c+"");
+        for(int i=0;i<26;i++){
+            if(f[i]!=0){
+                int time=f[i];
+                char cc=(char)(i+'a');
+                while(time>0){
+                    time--;
+                    str.append(cc+"");
+                }
+            }
+        }
+        out.println(str.toString());
+
+    }
+
+    public boolean check(int t[],int d){
+        for(int i=d+1;i<t.length;i++){
+            if(t[i]>0)return true;
+        }
+        return false;
+    }
+
+    public int find(int t[],int d){
+        for(int i=d+1;i<t.length;i++){
+            if(t[i]>0)return i;
+        }
+        return -1;
+    }
+
+
+}
+
+
+
+
+
+
