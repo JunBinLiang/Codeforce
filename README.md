@@ -5,7 +5,7 @@ My Codeforce Practice<br/>
 做不出来不要紧，题得补和学会
 
 
- # 打卡挑战
+ # 每日刷题挑战
  
 
 |  #  | Title           |    Date  | 
