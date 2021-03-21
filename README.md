@@ -96,3 +96,4 @@ My Codeforce Practice<br/>
 |  180D  |[Name (1900) （Greedy + String） ](./code/180D.txt)   |2021/03/19|
 |  180E  |[Cubes (1800) （Slding window + Segment Tree） ](./code/180E.txt)   |2021/03/19|
 |  1499C  |[Minimum Grid Path (1500) （Math） ](./code/1499C.txt)   |2021/03/21|
+|  1499D  |[The Number of Pairs (2100) （Math） ](./code/1499D.txt)   |2021/03/21|
