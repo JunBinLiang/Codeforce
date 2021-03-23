@@ -98,3 +98,4 @@ My Codeforce Practice<br/>
 |  1499C  |[Minimum Grid Path (1500) （Math） ](./code/1499C.txt)   |2021/03/21|
 |  1499D  |[The Number of Pairs (2100) （Math） ](./code/1499D.txt)   |2021/03/21|
 |  1481D  |[AB Graph (2000) （Graph + Greedy + Constructive） ](./code/1481D.txt)   |2021/03/22|
+|  1481E  |[Sorting Book (2500) （DP） ](./code/1481E.txt)   |2021/03/23|
