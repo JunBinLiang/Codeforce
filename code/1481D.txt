@@ -1,0 +1,211 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            char A[][]=new char[n][n];
+            for(int i=0;i<n;i++){
+                String s=Str();
+                A[i]=s.toCharArray();
+            }
+
+
+            Solution sol=new Solution();
+            sol.solution(out,A,m);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,char A[][],int m){
+
+        int n=A.length;
+        for(int i=0;i<A.length;i++){//basic check
+            for(int j=0;j<A.length;j++){
+                if(i==j)continue;
+                if(A[i][j]==A[j][i]||m%2==1){
+                    out.println("YES");
+                    for(int k=0;k<=m;k++){
+                        if(k%2==0){
+                            out.print((i+1)+" ");
+                        }
+                        else{
+                            out.print((j+1)+" ");
+                        }
+                    }
+                    out.println();
+                    return;
+                }
+            }
+        }
+
+
+        //preprocessing
+        boolean check[]=new boolean[n];
+        for(int i=0;i<n;i++){
+            Set<Character>set=new HashSet<>();
+            for(int j=0;j<n;j++){
+                if(i==j)continue;
+                set.add(A[i][j]);
+            }
+            if(set.size()==2)check[i]=true;
+        }
+
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i==j)continue;
+                if(m==2&&check[j]){//special case
+                    int k=-1;
+                    for(int x=0;x<n;x++){
+                        if(A[i][j]==A[j][x])k=x;
+                    }
+                    if(k!=-1){
+                        out.println("YES");
+                        out.print((i+1)+" ");
+                        out.print((j+1)+" ");
+                        out.print((k+1)+" ");
+                        out.println();
+                        return;
+                    }
+                }
+
+
+                if(m%4==0){
+                    if(check[i]){
+                        int k=-1;
+                        for(int x=0;x<n;x++){
+                            if(A[i][x]==A[j][i])k=x;
+                        }
+                        if(k==-1)continue;
+                        out.println("YES");
+                        for(int x=0;x<=m/2;x++){
+                            if(x%2==0){
+                                out.print((i+1)+" ");
+                            }
+                            else{
+                                out.print((j+1)+" ");
+                            }
+                        }
+
+                        for(int x=0;x<m/2;x++){
+                            if(x%2==0){
+                                out.print((k+1)+" ");
+                            }
+                            else{
+                                out.print((i+1)+" ");
+                            }
+                        }
+                        out.println();
+                        return;
+
+                    }
+                }
+                else{
+                    if(check[j]){
+                        int k=-1;
+                        for(int x=0;x<n;x++){
+                            if(A[j][x]==A[i][j])k=x;
+                        }
+                        if(k==-1)continue;
+                        out.println("YES");
+                        for(int x=0;x<=m/2;x++){
+                            if(x%2==0){
+                                out.print((i+1)+" ");
+                            }
+                            else{
+                                out.print((j+1)+" ");
+                            }
+                        }
+
+
+                        for(int x=0;x<m/2;x++){
+                            if(x%2==0){
+                                out.print((k+1)+" ");
+                            }
+                            else{
+                                out.print((j+1)+" ");
+                            }
+                        }
+                        out.println();
+                        return;
+                    }
+                }
+            }
+        }
+        //
+        out.println("NO");
+    }
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
