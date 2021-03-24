@@ -1,0 +1,179 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int q=Int();
+            int A[][]=new int[q][3];
+            for(int i=0;i<A.length;i++){
+                A[i][0]=Int()-1;
+                A[i][1]=Int()-1;
+                A[i][2]=Int();
+            }
+
+
+            Solution sol=new Solution();
+            sol.solution(out,A,n);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    boolean res[];
+    int cnt=0;
+    public void solution(PrintWriter out,int q[][],int n){
+
+        res=new boolean[n+1];
+        res[0]=true;
+        Seg seg=new Seg(0,n-1);
+        for(int i=0;i<q.length;i++){
+            int l=q[i][0],r=q[i][1],x=q[i][2];
+            seg.add(l,r,x);
+        }
+
+        boolean dp[]=new boolean[n+1];
+        dp[0]=true;
+        dfs(null,seg,dp);
+
+
+        for(int i=1;i<res.length;i++){
+            if(res[i]){
+                cnt++;
+            }
+        }
+
+        out.println(cnt);
+        for(int i=1;i<res.length;i++){
+            if(res[i]){
+                out.print(i+" ");
+            }
+        }
+    }
+
+
+
+    public void dfs(Seg parent,Seg root,boolean dp[]){
+        if(root==null)return;
+        boolean old[]=new boolean[dp.length];
+
+        for(int i=0;i<dp.length;i++){
+            old[i]=dp[i];
+        }
+
+
+        for(int i:root.A){
+            boolean first[]=new boolean[dp.length];
+            for(int j=1;j<dp.length;j++){
+                if(dp[j])continue;
+                if(j-i>=0&&dp[j-i]&&(!first[j-i])){
+                    dp[j]=true;
+                    res[j]=true;
+                    first[j]=true;
+                }
+            }
+
+
+
+        }
+
+        dfs(root,root.left,dp);
+        dfs(root,root.right,dp);
+        for(int i=0;i<dp.length;i++){
+            dp[i]=old[i];
+        }
+    }
+
+
+    class Seg{//segment tree
+        int l,r;
+        Seg left=null,right=null;
+        List<Integer>A=new ArrayList<>();
+        public Seg(int l,int r){
+            this.l=l;
+            this.r=r;
+            if(l!=r){
+                int mid=l+(r-l)/2;
+                if(l<=mid)left=new Seg(l,mid);
+                if(r>=mid+1)right=new Seg(mid+1,r);
+            }else{
+
+            }
+        }
+
+        public void add(int s,int e,int x){
+            if(l==s&&r==e){//add the query to cur
+                A.add(x);
+                return ;
+            }
+            int mid=l+(r-l)/2; //left :  to mid-1,
+            if(e<=mid){
+                left.add(s,e,x);
+            }
+            else if(s>=mid+1){
+                right.add(s,e,x);
+            }
+            else{
+                left.add(s,mid,x);
+                right.add(mid+1,e,x);
+            }
+        }
+    }
+
+}
