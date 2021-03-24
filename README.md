@@ -99,3 +99,4 @@ My Codeforce Practice<br/>
 |  1499D  |[The Number of Pairs (2100) （Math） ](./code/1499D.txt)   |2021/03/21|
 |  1481D  |[AB Graph (2000) （Graph + Greedy + Constructive） ](./code/1481D.txt)   |2021/03/22|
 |  1481E  |[Sorting Book (2500) （DP + 观察 + 思维） ](./code/1481E.txt)   |2021/03/23|
+|  1140C  |[Playlist (1600) （Sort） ](./code/1140C.txt)   |2021/03/24|
