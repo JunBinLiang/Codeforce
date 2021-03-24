@@ -100,3 +100,4 @@ My Codeforce Practice<br/>
 |  1481D  |[AB Graph (2000) （Graph + Greedy + Constructive） ](./code/1481D.txt)   |2021/03/22|
 |  1481E  |[Sorting Book (2500) （DP + 观察 + 思维） ](./code/1481E.txt)   |2021/03/23|
 |  1140C  |[Playlist (1600) （Sort） ](./code/1140C.txt)   |2021/03/24|
+|  1140F  |[Extending Set of Points (2600) （Dynamic Connectivity） ](./code/1140F.txt)   |2021/03/24|
