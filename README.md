@@ -101,4 +101,4 @@ My Codeforce Practice<br/>
 |  1481E  |[Sorting Book (2500) （DP + 观察 + 思维） ](./code/1481E.txt)   |2021/03/23|
 |  1140C  |[Playlist (1600) （Sort） ](./code/1140C.txt)   |2021/03/24|
 |  1140F  |[Extending Set of Points (2600) （Dynamic Connectivity） ](./code/1140F.txt)   |2021/03/24|
-|  981E  |[Addition on Segments (2200) （Dp + Segment Tree） ](./code/981E.txt)   |2021/03/24|
+|  981E  |[Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)   |2021/03/24|
