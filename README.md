@@ -106,3 +106,4 @@ My Codeforce Practice<br/>
 |  1270C  |[Make Good	 (1400) （Constructive） ](./code/1270C.txt)   |2021/03/25|
 |  1282B2  |[K for the Price of One (Hard Version)	 (1600) （Greedy） ](./code/1282B2.txt)   |2021/03/25|
 |  1278D  |[ Segment Tree 	 (2100) （Sort + TreeMap + UF） ](./code/1278D.txt)   |2021/03/25|
+|  1282C  |[ Petya and Exam 	 (1800) （Sort + Math） ](./code/1282C.txt)   |2021/03/25|
