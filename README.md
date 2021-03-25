@@ -104,3 +104,4 @@ My Codeforce Practice<br/>
 |  981E  |[Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)   |2021/03/24|
 |  1466E  |[Apollo versus Pan	 (1800) （Bit + Math） ](./code/1466E.txt)   |2021/03/24|
 |  1270C  |[Make Good	 (1400) （Constructive） ](./code/1270C.txt)   |2021/03/25|
+|  1282B2  |[K for the Price of One (Hard Version)	 (1600) （Greedy） ](./code/1282B2.txt)   |2021/03/25|
