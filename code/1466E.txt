@@ -1,0 +1,111 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int cnt[]=new int[60];
+            long A[]=new long[n];
+            for(int i=0;i<n;i++){
+                A[i]=Long();
+                for(int j=0;j<60;j++){
+                    if((A[i]&(1l<<j))!=0){
+                        cnt[j]++;
+                    }
+                }
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A,cnt);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    int mod=1000000007;
+    public void solution(PrintWriter out,long A[],int cnt[]){
+        long res=0;
+        for(int j=0;j<A.length;j++){//fix A[j]
+            long xor=0;long and=0;
+            for(int k=0;k<60;k++){
+                long shift=(1l<<k);
+                long shift1=shift;
+                shift%=mod;shift1%=mod;
+                if((A[j]&(1l<<k))!=0){
+                    shift*=A.length;
+                    shift1*=cnt[k];
+                }
+                else{
+                    shift*=cnt[k];
+                    shift1=0;
+                }
+
+                xor+=shift;
+                xor%=mod;
+                and+=shift1;
+                and%=mod;
+            }
+            res=res+(and*xor);
+            res%=mod;
+        }
+        out.println(res);
+    }
+
+
+}
