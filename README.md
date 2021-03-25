@@ -103,3 +103,4 @@ My Codeforce Practice<br/>
 |  1140F  |[Extending Set of Points (2600) （Dynamic Connectivity） ](./code/1140F.txt)   |2021/03/24|
 |  981E  |[Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)   |2021/03/24|
 |  1466E  |[Apollo versus Pan	 (1800) （Bit + Math） ](./code/1466E.txt)   |2021/03/24|
+|  1270C  |[Make Good	 (1400) （Constructive） ](./code/1270C.txt)   |2021/03/25|
