@@ -109,3 +109,4 @@ My Codeforce Practice<br/>
 |  1282C  |[ Petya and Exam 	 (1800) （Sort + Math） ](./code/1282C.txt)   |2021/03/25|
 |  1328F  |[ Make k Equal 	 (2200) （Sort + Math + Brute Force） ](./code/1328F.txt)   |2021/03/25|
 |  1328D  |[ Carousel 	 (1800) （Constructive + Greedy） ](./code/1328D.txt)   |2021/03/26|
+|  1328E  |[ 1328E 	 (1800) （LCA + Sprase Table + Thinking） ](./code/1328E.txt)   |2021/03/26|
