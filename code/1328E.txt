@@ -1,0 +1,177 @@
+思路：
+1.最深的点肯定是在path 上
+2.每个点的自身或者father肯定是在path上
+3.让每个点给跟他自身的父亲跟最深的点做LCA，如果一样，这两个点是好的，如果一对错了，那这个就不存在答案
+
+好题！
+
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int A[]=new int[n];
+            List<Integer>g[]=new ArrayList[n];
+            for(int i=0;i<g.length;i++){
+                g[i]=new ArrayList<>();
+            }
+
+            for(int i=0;i<n-1;i++){
+                int u=Int()-1;int v=Int()-1;
+                g[u].add(v);
+                g[v].add(u);
+            }
+
+            List<int[]>q=new ArrayList<>();
+            for(int i=0;i<m;i++){
+                int k=Int();
+                int B[]=new int[k];
+                for(int j=0;j<k;j++){
+                    B[j]=Int()-1;
+                }
+                q.add(B);
+            }
+
+
+            Solution sol=new Solution();
+            sol.solution(out,g,q);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    List<Integer>g[];
+    int sparse[][];
+    int d[];
+    public void solution(PrintWriter out,List<Integer>g[],List<int[]>q){
+        this.g=g;
+        int n=g.length;
+        sparse=new int[n][18];
+        d=new int[n];
+        for(int i=0;i<sparse.length;i++){
+            Arrays.fill(sparse[i],-1);
+        }
+        dfs(-1,0,1);
+
+
+        for(int i=1;i<sparse[0].length;i++){
+            for(int j=0;j<sparse.length;j++){
+                if(sparse[j][i-1]==-1||sparse[sparse[j][i-1]][i-1]==-1)continue;
+                sparse[j][i]=sparse[sparse[j][i-1]][i-1];
+            }
+        }
+
+
+        for(int A[]:q){
+            boolean ok=true;
+            int u=-1;
+            int mx=-1;
+            for(int i=0;i<A.length;i++){
+                if(d[A[i]]>mx){
+                    mx=d[A[i]];
+                    u=A[i];
+                }
+            }
+
+            for(int i:A){
+                if(i==u)continue;
+                if((!check(sparse[i][0],u))&&(!check(i,u))){
+                    ok=false;
+                    break;
+                }
+            }
+
+            if(!ok){
+                out.println("NO");
+            }
+            else{
+                out.println("YES");
+            }
+        }
+    }
+
+    public void dfs(int fa,int root,int level){
+        sparse[root][0]=fa;
+        d[root]=level;
+        List<Integer>childs=g[root];
+        for(int next:childs){
+            if(next!=fa){
+                dfs(root,next,level+1);
+            }
+        }
+    }
+
+    public boolean check(int u,int v){
+        //System.out.println(u+" "+v);
+        if(v==-1)return true;
+        int dif=d[v];
+        if(u!=-1)dif=d[v]-d[u];
+
+        for(int i=0;i<18;i++){
+            if(v==-1)break;
+            if((dif&(1<<i))!=0){
+                v=sparse[v][i];
+            }
+        }
+        return v==u;
+    }
+}
+
+
