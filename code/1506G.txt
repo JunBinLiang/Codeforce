@@ -44,10 +44,17 @@ public class Main {
 
         int T=Int();
         for(int t=0;t<T;t++){
-            String s=Str();
+            int n=Int();
+            int A[][]=new int[n][2];
+            for(int i=0;i<n;i++){
+                A[i][0]=Int();
+            }
+            for(int i=0;i<n;i++){
+                A[i][1]=Int();
+            }
 
             Solution sol=new Solution();
-            sol.solution(out,s);
+            sol.solution(out,A);
         }
         out.flush();
 
@@ -69,55 +76,42 @@ public class Main {
 
 class Solution{
 
-    public void solution(PrintWriter out,String s){
-        StringBuilder str=new StringBuilder();
-        Stack<Character>stack=new Stack<>();
-        char A[]=s.toCharArray();
-        int t[]=new int[26];
-        int f[]=new int[26];
-
+    public void solution(PrintWriter out,int A[][]){
+        Arrays.sort(A,(a,b)->{
+            return a[0]-b[0];
+        });
+        long res=0;
+        int pr=1,pc=1;
         for(int i=0;i<A.length;i++){
-            t[A[i]-'a']++;
-        }
-
-        for(int i=0;i<A.length;i++){
-            if(f[A[i]-'a']!=0){
-                t[A[i]-'a']--;
-                continue;
-            }
-            if(stack.size()==0){
-                stack.push(A[i]);
+            int r=A[i][0],c=A[i][1];
+            int difr=r-pr; int difc=c-pc;
+            int stop=difr-difc;
+            if(difr==difc){
+                if(even(r,c)){
+                    res+=difr;
+                }
+                else{
+                    res+=0;
+                }
             }
             else{
-                while(stack.size()>0&&A[i]>stack.peek()&&t[stack.peek()-'a']>0){
-                    f[stack.pop()-'a']--;
+                if(even(pr,pc)){
+                    stop--;
+                    res=res+(stop/2)+(stop%2);
                 }
-                stack.push(A[i]);
+                else{
+                    res=res+(stop/2)+(stop%2);
+                }
+
             }
-            //System.out.println(i+" "+stack);
-            f[A[i]-'a']++;
-            t[A[i]-'a']--;
+            pr=r;pc=c;
         }
-
-        char B[]=new char[stack.size()];
-        int j=B.length-1;
-        while(stack.size()!=0){
-            B[j]=stack.pop();
-            j--;
-        }
-
-        Arrays.fill(f,0);
-        for(int i=0;i<B.length;i++){
-            char c=B[i];
-            if(f[c-'a']!=0)continue;
-            str.append(c+"");
-            f[c-'a']++;
-        }
-
-        out.println(str.toString());
+        out.println(res);
     }
 
-
+    public boolean even(int a,int b){
+        return (a+b)%2==0;
+    }
 }
 
 
