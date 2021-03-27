@@ -1,0 +1,124 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+
+    public void solution(PrintWriter out,int A[]){
+        int n=A.length;
+        int res1[]=new int[n];
+        int res2[]=new int[n];
+        PriorityQueue<Integer>mx=new PriorityQueue<>((a,b)->{
+            return b-a;
+        });
+        PriorityQueue<Integer>mn=new PriorityQueue<>();
+
+
+        int pre=0;
+        Set<Integer>set=new HashSet<>();
+        for(int i=0;i<A.length;i++){
+            int j=i;
+            while(j<A.length&&A[j]==A[i]){
+                j++;
+            }
+
+            for(int k=pre+1;k<A[i];k++){
+                mx.add(k);
+                mn.add(k);
+            }
+
+            res1[i]=A[i];
+            res2[i]=A[i];
+
+            for(int k=i+1;k<=j-1;k++){
+                res1[k]=mn.poll();
+                res2[k]=mx.poll();
+            }
+            i=j-1;
+            pre=A[i];
+        }
+
+
+        for(int i:res1){
+            out.print(i+" ");
+        }out.println();
+
+        for(int i:res2){
+            out.print(i+" ");
+        }out.println();
+
+    }
+
+
+}
+
+
