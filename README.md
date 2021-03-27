@@ -111,3 +111,4 @@ My Codeforce Practice<br/>
 |  1328D  |[ Carousel 	 (1800) （Constructive + Greedy） ](./code/1328D.txt)   |2021/03/26|
 |  1328E  |[ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)   |2021/03/26|
 |  1560E  |[ Restoring the Permutation 	 (1500) （Greedy + Constructive） ](./code/1560E.txt)   |2021/03/27|
+|  1560G  |[  Maximize the Remaining String 	 (2000) （Greedy + Stack） ](./code/1560G.txt)   |2021/03/27|
