@@ -111,4 +111,5 @@ My Codeforce Practice<br/>
 |  1328D  |[ Carousel 	 (1800) （Constructive + Greedy） ](./code/1328D.txt)   |2021/03/26|
 |  1328E  |[ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)   |2021/03/26|
 |  1506D  |[ Restoring the Permutation 	 (1500) （Greedy + Constructive） ](./code/1506D.txt)   |2021/03/27|
-|  1506F  |[  Maximize the Remaining String 	 (2000) （Greedy + Stack） ](./code/1506F.txt)   |2021/03/27|
+|  1506G  |[  Maximize the Remaining String 	 (2000) （Greedy + Stack） ](./code/1506G.txt)   |2021/03/27|
+|  1506F  |[ Triangular Paths 	 (2000) （Math） ](./code/1506F.txt)   |2021/03/27|
