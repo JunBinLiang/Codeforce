@@ -113,3 +113,4 @@ My Codeforce Practice<br/>
 |  1506D  |[ Restoring the Permutation 	 (1500) （Greedy + Constructive） ](./code/1506D.txt)   |2021/03/27|
 |  1506G  |[  Maximize the Remaining String 	 (2000) （Greedy + Stack） ](./code/1506G.txt)   |2021/03/27|
 |  1506F  |[ Triangular Paths 	 (2000) （Math） ](./code/1506F.txt)   |2021/03/27|
+|  1227D2  |[ Optimal Subsequences (Easy Version) 	 (1800) （Greedy + Fenwick + BinarySearch） ](./code/1227D2.txt)   |2021/03/28|
