@@ -1,3 +1,6 @@
+五个维度：prefix of s, prefix of t, end with x or y, there is x, there is y
+
+
 // Don't place your source in a package
 import java.lang.reflect.Array;
 import java.text.DecimalFormat;
