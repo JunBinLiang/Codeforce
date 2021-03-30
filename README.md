@@ -121,3 +121,4 @@ My Codeforce Practice<br/>
 |  1343D  |[ Constant Palindrome Sum (1700) （Line Sweep） ](./code/1343D.txt)   |2021/03/30|
 |  1269B  |[ Modulo Equality (1500) （Brute Force） ](./code/1269B.txt)   |2021/03/30|
 |  1269C  |[ Long Beautiful Integer (1700) （Greedy） ](./code/1269C.txt)   |2021/03/30|
+|  297A  |[ Parity Game (1700) （智力题） ](./code/297A.txt)   |2021/03/30|
