@@ -118,3 +118,4 @@ My Codeforce Practice<br/>
 |  1499E  |[  Chaotic Merge	 (2400) （DP + Combination） ](./code/1499E.txt)   |2021/03/29|
 |  1381A2  |[  Prefix Flip (Hard Version)	 (1700) （Constructive + Two Pointer） ](./code/1381A2.txt)   |2021/03/29|
 |  1388C  |[ Uncle Bogdan and Country Happiness (1800) （Tree + Math） ](./code/1388C.txt)   |2021/03/30|
+|  1343D  |[ Constant Palindrome Sum (1700) （Line Sweep） ](./code/1343D.txt)   |2021/03/30|
