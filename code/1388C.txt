@@ -1,0 +1,154 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            List<Integer>g[]=new ArrayList[n];
+            int A[]=new int[n];
+            int B[]=new int[n];
+
+            for(int i=0;i<n;i++){
+                g[i]=new ArrayList<>();
+            }
+
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            for(int i=0;i<n;i++){
+                B[i]=Int();
+            }
+
+            for(int i=0;i<n-1;i++){
+                int u=Int()-1;
+                int v=Int()-1;
+                g[u].add(v);
+                g[v].add(u);
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A,B,m,g);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    long cnt[];
+    List<Integer>g[];
+    int A[];
+    int B[];
+    boolean res=true;
+    public void solution(PrintWriter out,int A[],int B[],int m,List<Integer>g[]){
+        this.g=g;this.A=A;this.B=B;
+        int n=A.length;
+        cnt=new long[n];
+
+        dfs1(-1,0);
+        dfs2(-1,0);
+
+        if(res){
+            out.println("YES");
+        }
+        else{
+            out.println("NO");
+        }
+    }
+
+    public long dfs1(int p,int root){
+        cnt[root]=A[root];
+        for(int next:g[root]){
+            if(next!=p){
+                cnt[root]+=dfs1(root,next);
+            }
+        }
+        return cnt[root];
+    }
+
+    public long[] dfs2(int p,int root){//
+        long count=cnt[root];
+        long h=B[root];
+        if((count+h)%2!=0){
+            res=false;
+        }
+
+        long good=(count+h)/2;
+        long bad=count-good;
+        long sum=0;
+
+        if(good<0||bad<0){
+            res=false;
+        }
+
+        for(int next:g[root]){
+            if(next!=p){
+                long a[]=dfs2(root,next);
+                sum+=a[0];
+            }
+        }
+
+        if(sum>good){
+            res=false;
+        }
+        return new long[]{good,bad};
+    }
+
+
+}
+
+
