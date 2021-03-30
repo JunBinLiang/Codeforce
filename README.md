@@ -116,3 +116,4 @@ My Codeforce Practice<br/>
 |  1227D2  |[ Optimal Subsequences (Easy Version) 	 (1800) （Greedy + Fenwick + BinarySearch） ](./code/1227D2.txt)   |2021/03/28|
 |  1227C  |[  Messy	 (1700) （Constructive） ](./code/1227C.txt)   |2021/03/28|
 |  1499E  |[  Chaotic Merge	 (2400) （DP + Combination） ](./code/1499E.txt)   |2021/03/29|
+|  1381A2  |[  Prefix Flip (Hard Version)	 (1700) （Constructive） ](./code/1381A2.txt)   |2021/03/29|
