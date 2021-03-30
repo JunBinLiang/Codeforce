@@ -117,3 +117,4 @@ My Codeforce Practice<br/>
 |  1227C  |[  Messy	 (1700) （Constructive） ](./code/1227C.txt)   |2021/03/28|
 |  1499E  |[  Chaotic Merge	 (2400) （DP + Combination） ](./code/1499E.txt)   |2021/03/29|
 |  1381A2  |[  Prefix Flip (Hard Version)	 (1700) （Constructive + Two Pointer） ](./code/1381A2.txt)   |2021/03/29|
+|  1388C  |[ Uncle Bogdan and Country Happiness (1800) （Tree + Math） ](./code/1388C.txt)   |2021/03/30|
