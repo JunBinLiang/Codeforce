@@ -1,0 +1,149 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {//scanner from SecondThread
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            String a=Str();
+            String b=Str();
+
+            Solution sol=new Solution();
+            sol.solution(out,a,b);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,String s,String t){
+        int A[]=new int[s.length()];
+        int B[]=new int[t.length()];
+        for(int i=0;i<A.length;i++){
+            A[i]=s.charAt(i)-'0';
+            B[i]=t.charAt(i)-'0';
+        }
+
+
+        int j=B.length-1;
+        int l=0,r=s.length()-1;
+        int cnt=0;
+        List<Integer>res=new ArrayList<>();
+
+        while(j>=0){
+            if(j==0){
+                if((A[l]+cnt)%2!=B[0]){
+                    res.add(0);
+                }
+                break;
+            }
+
+            if(cnt%2==0){
+                if(A[r]==B[j]){//just skip
+                    r--;
+                }
+                else{
+                    if((A[l]+1)%2==B[j]){
+                        res.add(j);
+                    }
+                    else{
+                        res.add(0);
+                        res.add(j);
+                    }
+                    l++;
+                    cnt++;
+                }
+
+            }
+            else{
+                if((A[l]+cnt)%2==B[j]){
+                    l++;
+                }
+                else{
+                    if((A[r])%2==B[j]){
+                        res.add(j);
+                    }
+                    else{
+                        res.add(0);
+                        res.add(j);
+                    }
+                    r--;
+                    cnt++;
+                }
+            }
+            j--;
+        }
+
+
+
+
+        if(res.size()==0){
+            out.println(res.size()+" ");
+            return;
+        }
+        out.print(res.size()+" ");
+        for(int i:res){
+            out.print((i+1)+" ");
+        }
+        out.println();
+
+    }
+
+
+}
+
+
