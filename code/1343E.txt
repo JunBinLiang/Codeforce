@@ -1,0 +1,142 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int a=Int()-1;int b=Int()-1;int c=Int()-1;
+
+            int A[]=new int[m];
+            for(int i=0;i<m;i++){
+                A[i]=Int();
+            }
+
+            List<Integer>g[]=new ArrayList[n];
+            for(int i=0;i<g.length;i++){
+                g[i]=new ArrayList<>();
+            }
+
+            for(int i=0;i<m;i++){
+                int u=Int()-1,v=Int()-1;
+                g[u].add(v);
+                g[v].add(u);
+            }
+
+
+            Solution sol=new Solution();
+            sol.solution(out,n,A,g,a,b,c);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    int a,b,c;
+    int n;
+    List<Integer>g[];
+    public void solution(PrintWriter out,int n,int A[],List<Integer>g[],int a,int b,int c){
+        this.g=g;this.n=n;
+        this.a=a;this.b=b;this.c=c;
+        long res=Long.MAX_VALUE;
+        Arrays.sort(A);
+        long pre[]=new long[A.length+1];
+        pre[1]=A[0];
+        for(int i=1;i<=A.length;i++){
+            pre[i]=pre[i-1]+A[i-1];
+        }
+
+        int dis1[]=bfs(a);
+        int dis2[]=bfs(b);
+        int dis3[]=bfs(c);
+
+
+
+        for(int i=0;i<n;i++){
+            if(dis1[i]+dis2[i]+dis3[i]>A.length)continue;
+            long cost=pre[dis1[i]+dis2[i]+dis3[i]]+pre[dis2[i]];
+            res=Math.min(res,cost);
+        }
+
+        out.println(res);
+    }
+
+    public int[] bfs(int root){
+        Queue<Integer>q=new LinkedList<>();
+        q.add(root);
+        int dis[]=new int[n];
+        Arrays.fill(dis,-1);
+        dis[root]=0;
+        while(q.size()!=0){
+            int top=q.poll();
+            for(int next:g[top]){
+                if(dis[next]==-1){
+                    dis[next]=dis[top]+1;
+                    q.add(next);
+                }
+            }
+        }
+        return dis;
+    }
+
+    public long get(long pre[],int A[],int i){
+        if(i<pre.length)return pre[i];
+        return pre[pre.length-1]+A[A.length-1]*(i-(pre.length-1));
+    }
+}
+
+
