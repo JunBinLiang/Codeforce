@@ -126,3 +126,4 @@ My Codeforce Practice<br/>
 |  1251D  |[ Salary Changing (1900) （Binary Search） ](./code/1251D.txt)   |2021/04/01|
 |  1496B  |[ Max and Mex (1100) （Math + Greedy） ](./code/1496B.txt)   |2021/04/01|
 |  1486E  |[ Paired Payment (2200) （Graph + SPFA） ](./code/1486E.txt)   |2021/04/01|
+|  1379C  |[ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)   |2021/04/02|
