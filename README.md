@@ -129,3 +129,4 @@ My Codeforce Practice<br/>
 |  1379C  |[ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)   |2021/04/02|
 |  1348C  |[ Phoenix and Distribution (1600) （Greedy + Constructive） ](./code/1348C.txt)   |2021/04/02|
 |  888D  |[ Almost Identity Permutations (1600) （Combination ） ](./code/888D.txt)   |2021/04/02|
+|  888E  |[ Maximum Subsequence (1800) （Divide Conquer + Meet in Middle ） ](./code/888E.txt)   |2021/04/02|
