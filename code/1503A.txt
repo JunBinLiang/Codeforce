@@ -1,0 +1,158 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            String s=Str();
+
+            Solution sol=new Solution();
+            sol.solution(out,s);
+        }
+        out.flush();
+
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution{
+    public void solution(PrintWriter out,String s){
+        char A[]=s.toCharArray();
+        if(A[0]=='0'||A[A.length-1]=='0'||A.length%2==1){
+            out.println("NO");
+            return;
+        }
+
+        int one=0;int zero=0;
+        for(int i=0;i<A.length;i++){
+            if(A[i]=='1')one++;
+        }
+
+        if(one%2==1){
+            out.println("NO");
+            return;
+        }
+
+
+        StringBuilder str1=new StringBuilder();
+        StringBuilder str2=new StringBuilder();
+
+        int open=0;
+        for(int i=0;i<A.length;i++){
+            if(A[i]=='1'){
+                open++;
+                if(open*2<=one){
+                    str1.append("(");str2.append("(");
+                }
+                else{
+                    str1.append(")");str2.append(")");
+                }
+            }
+            else{
+                zero++;
+                if(zero%2==0){
+                    str1.append("(");str2.append(")");
+                }
+                else{
+                    str2.append("(");str1.append(")");
+                }
+            }
+        }
+
+
+        out.println("YES");
+        out.println(str1.toString());
+        out.println(str2.toString());
+    }
+
+
+
+}
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
