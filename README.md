@@ -136,3 +136,4 @@ My Codeforce Practice<br/>
 |  1253D  |[Harmonious Graph (1700) （Graph + UF） ](./code/1253D.txt)   |2021/04/07|
 |  1253C  |[Sweets Eating (1500) （Math + DP） ](./code/1253C.txt)   |2021/04/07|
 |  1223D  |[Sequence Sorting (2000) （DP） ](./code/1223D.txt)   |2021/04/07|
+|  1467C  |[Three Bags (1900) （Greedy） ](./code/1467C.txt)   |2021/04/07|
