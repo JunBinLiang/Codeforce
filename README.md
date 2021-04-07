@@ -132,5 +132,6 @@ My Codeforce Practice<br/>
 |  888E  |[ Maximum Subsequence (1800) （Divide Conquer + Meet in Middle ） ](./code/888E.txt)   |2021/04/02|
 |  1335E2  |[Three Blocks Palindrome (hard version) (1800) （Two Pointer + Prefix sum ） ](./code/1335E2.txt)   |2021/04/02|
 |  1503A  |[Balance the Bits (1600) （Constructive ） ](./code/1503A.txt)   |2021/04/02|
-|  1503C  |[Travelling Salesman Problem (2200) （Constructive +Greedy ） ](./code/1503C.txt)   |2021/04/02|
-|  1253D  |[Harmonious Graph (1700) （Graph + UF） ](./code/1253D.txt)   |2021/04/03|
+|  1503C  |[Travelling Salesman Problem (2200) （Constructive +Greedy ） ](./code/1503C.txt)   |2021/04/06|
+|  1253D  |[Harmonious Graph (1700) （Graph + UF） ](./code/1253D.txt)   |2021/04/07|
+|  1253C  |[Sweets Eating (1500) （Math + DP） ](./code/1253C.txt)   |2021/04/07|
