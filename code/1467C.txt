@@ -1,0 +1,161 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();int k=Int();
+            int A[]=new int[n];int B[]=new int[m];int C[]=new int[k];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            for(int i=0;i<m;i++){
+                B[i]=Int();
+            }
+            for(int i=0;i<k;i++){
+                C[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A,B,C);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[],int B[],int C[]){
+        Arrays.sort(A);
+        Arrays.sort(B);
+        Arrays.sort(C);
+        long res=Long.MIN_VALUE;
+        long sum=0;
+
+        long sum1=0,sum2=0,sum3=0;
+
+        for(int i=0;i<A.length;i++){
+            sum+=A[i];
+            if(i>=1)sum1+=A[i];
+        }
+
+        for(int i=0;i<B.length;i++){
+            sum+=B[i];
+            if(i>=1)sum2+=B[i];
+        }
+
+        for(int i=0;i<C.length;i++){
+            sum+=C[i];
+            if(i>=1)sum3+=C[i];
+        }
+
+
+
+        int mins[]=new int[]{A[0],B[0],C[0]};
+        Arrays.sort(mins);
+        res=Math.max(res,sum-mins[0]*2-mins[1]*2);
+
+
+
+        //has problem
+
+        res=Math.max(res,sum-A[0]*2-sum1*2);
+        res=Math.max(res,sum-B[0]*2-sum2*2);
+        res=Math.max(res,sum-C[0]*2-sum3*2);
+
+
+        out.println(res);
+    }
+
+
+}
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
