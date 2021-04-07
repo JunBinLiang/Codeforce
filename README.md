@@ -135,3 +135,4 @@ My Codeforce Practice<br/>
 |  1503C  |[Travelling Salesman Problem (2200) （Constructive +Greedy ） ](./code/1503C.txt)   |2021/04/06|
 |  1253D  |[Harmonious Graph (1700) （Graph + UF） ](./code/1253D.txt)   |2021/04/07|
 |  1253C  |[Sweets Eating (1500) （Math + DP） ](./code/1253C.txt)   |2021/04/07|
+|  1223D  |[Sequence Sorting (2000) （DP） ](./code/1223D.txt)   |2021/04/07|
