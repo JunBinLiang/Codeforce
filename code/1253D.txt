@@ -1,0 +1,173 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int A[][]=new int[m][2];
+            /*List<Integer>g[]=new ArrayList[n];
+            for(int i=0;i<n;i++){
+                g[i]=new ArrayList<>();
+            }*/
+
+            for(int i=0;i<m;i++){
+                int u=Int()-1,v=Int()-1;
+                A[i][0]=u;
+                A[i][1]=v;
+                Arrays.sort(A[i]);
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,n,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int n,int A[][]){
+        int res=0;
+        int nums[]=new int[n];
+        int maxs[]=new int[n];
+        for(int i=0;i<n;i++){
+            nums[i]=i;
+        }
+
+        for(int p[]:A){
+            int r1=find(nums,p[0]);
+            int r2=find(nums,p[1]);
+            if(r1!=r2){
+                nums[r1]=r2;
+            }
+        }
+
+
+        for(int i=0;i<n;i++){
+            int r=find(nums,i);
+            maxs[r]=i;
+        }
+
+
+        int end=-1;
+        int v1=-1;
+        for(int i=0;i<n;i++){
+            int r2=find(nums,i);
+            if(i>end){
+                v1=i;
+                end=maxs[r2];
+            }
+            else{
+               int r1=find(nums,v1);
+               if(nums[r1]!=r2){
+                   res++;
+                   end=Math.max(end,Math.max(maxs[r1],maxs[r2]));
+                   nums[r2]=r1;
+               }
+            }
+        }
+
+        out.println(res);
+    }
+
+    public int find(int nums[],int x){
+        if(nums[x]==x)return x;
+        int root=find(nums,nums[x]);
+        nums[x]=root;
+        return root;
+    }
+
+
+}
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
