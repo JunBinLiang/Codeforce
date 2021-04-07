@@ -1,0 +1,154 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[]){
+        Map<Integer,int[]>f=new HashMap<>();
+        TreeSet<Integer>tree=new TreeSet<>();
+        int res=0;
+        for(int i=0;i<A.length;i++){
+            if(!f.containsKey(A[i])){
+                f.put(A[i],new int[]{Integer.MAX_VALUE,Integer.MIN_VALUE});
+            }
+            int pair[]=f.get(A[i]);
+            pair[0]=Math.min(pair[0],i);
+            pair[1]=i;
+            tree.add(A[i]);
+        }
+
+
+
+        int dp[]=new int[A.length];
+        int cnt[]=new int[A.length+10];
+        for(int i=0;i<A.length;i++){
+            int cur=A[i];
+            if(i!=f.get(cur)[0]){
+                cnt[A[i]]=dp[i];
+                continue;
+            }
+            int mx=1;
+            Integer floor=tree.lower(cur);
+
+            if(floor!=null){
+                mx+=cnt[floor];
+            }
+            dp[f.get(cur)[1]]=mx;
+            res=Math.max(res,mx);
+            cnt[A[i]]=dp[i];
+        }
+
+
+
+
+        out.println(f.size()-res);
+    }
+
+    
+}
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
