@@ -1,0 +1,160 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n-1];
+            for(int i=0;i<A.length;i++){
+                A[i]=Int();
+            }
+            Solution sol=new Solution();
+            sol.solution(out,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    public void solution(PrintWriter out,int A[]){
+        long n=A.length+1;
+        long total=(1+n)*n/2;
+        long sum=0;
+        for(int i=0;i<A.length;i++){
+            sum+=A[i];
+            total-=sum;
+        }
+
+        if(total<=0||total%n!=0){
+            out.println(-1);
+            return;
+        }
+
+        int first=(int)(total/n);
+        if(first<=0||first>n){
+            out.println(-1);
+            return;
+        }
+
+        List<Integer>res=new ArrayList<>();
+        res.add(first);
+        Set<Integer>set=new HashSet<>();
+        set.add(first);
+        for(int i:A){
+            int last=res.get(res.size()-1);
+            int cur=i+last;
+            if(set.contains(cur)){
+                out.println(-1);
+                return;
+            }
+            if(cur<=0||cur>n){
+                out.println(-1);
+                return;
+            }
+            set.add(cur);
+            res.add(cur);
+        }
+
+        for(int i:res){
+            out.print(i+" ");
+        }
+
+
+    }
+
+
+
+
+}
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
