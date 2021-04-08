@@ -137,3 +137,4 @@ My Codeforce Practice<br/>
 |  1253C  |[Sweets Eating (1500) （Math + DP） ](./code/1253C.txt)   |2021/04/07|
 |  1223D  |[Sequence Sorting (2000) （DP） ](./code/1223D.txt)   |2021/04/07|
 |  1467C  |[Three Bags (1900) （Greedy） ](./code/1467C.txt)   |2021/04/07|
+|  1093D  |[Beautiful Graph (1700) （Bipartile Graph + Math） ](./code/1093D.txt)   |2021/04/08|
