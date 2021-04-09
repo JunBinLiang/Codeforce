@@ -1,0 +1,185 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            String a=Str();
+            String b=Str();
+
+            Solution sol=new Solution();
+            sol.solution(out,a,b);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    public void solution(PrintWriter out,String s,String t){
+        char A[]=s.toCharArray();
+        char B[]=t.toCharArray();
+        Queue<Integer>q[]=new LinkedList[26];
+        TreeSet<Integer>tree=new TreeSet<>();
+        List<int[]>res=new ArrayList<>();
+
+        for(int i=0;i<q.length;i++){
+            q[i]=new LinkedList<>();
+        }
+
+        for(int i=0;i<B.length;i++){
+            if(B[i]=='?')continue;
+            q[B[i]-'a'].add(i);
+            tree.add(i);
+        }
+
+
+        boolean visit[]=new boolean[A.length];
+        for(int i=0;i<A.length;i++){
+            if(A[i]=='?')continue;
+            if(q[A[i]-'a'].size()>0){
+                visit[i]=true;
+                int top=q[A[i]-'a'].poll();
+                tree.remove(top);
+                res.add(new int[]{i,top});
+            }
+        }
+
+
+        Queue<Integer>q1=new LinkedList<>();
+        for(int i=0;i<A.length;i++){
+            if(A[i]=='?'){
+                if(tree.size()>0){
+                    visit[i]=true;
+                    int first=tree.first();
+                    tree.remove(first);
+                    res.add(new int[]{i,first});
+                }
+            }
+        }
+
+
+
+
+
+
+        for(int i=0;i<A.length;i++){
+            if(!visit[i]){
+                q1.add(i);
+            }
+        }
+        for(int i=0;i<B.length;i++){
+            if(B[i]=='?'){
+                if(q1.size()>0){
+                    int top=q1.poll();
+                    res.add(new int[]{top,i});
+                }
+            }
+        }
+
+
+
+
+
+        out.println(res.size());
+        for(int p[]:res){
+            out.println((p[0]+1)+" "+(p[1]+1));
+        }
+
+    }
+
+
+
+
+}
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
