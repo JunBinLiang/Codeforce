@@ -1,0 +1,180 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int k=Int();
+            List<Integer>g[]=new ArrayList[n];
+            Map<String,Integer>f=new HashMap<>();
+            for(int i=0;i<g.length;i++){
+                g[i]=new ArrayList<>();
+            }
+
+            for(int i=0;i<n-1;i++){
+                int u=Int()-1;
+                int v=Int()-1;
+                g[u].add(v);
+                g[v].add(u);
+                String state1=u+","+v;
+                String state2=v+","+u;
+                f.put(state1,i);
+                f.put(state2,i);
+            }
+
+
+            Solution sol=new Solution();
+            sol.solution(out,k,g,f);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    int in[];
+    Map<String,Integer>f;
+    int res[];
+    int need;
+    boolean visit[];
+    List<Integer>g[];
+    public void solution(PrintWriter out,int k,List<Integer>g[],Map<String,Integer>f){
+        int n=g.length;this.f=f;
+        this.g=g;
+        in=new int[n];
+        res=new int[n-1];
+        visit=new boolean[n];
+        for(int i=0;i<n;i++){
+            in[i]=g[i].size();
+        }
+
+        Arrays.sort(in);
+        need=in[n-k-1];
+
+
+        visit[0]=true;
+        dfs(0,0);
+
+        out.println(need);
+        for(int i:res){
+            out.print((i)+" ");
+        }
+    }
+
+    public void dfs(int root,int pre){
+        int color=1;
+        for(int next:g[root]){
+            if(!visit[next]){
+                String edge=root+","+next;
+                int index=f.get(edge);
+                visit[next]=true;
+                if(g[root].size()>need){
+                    if(pre==0)pre=1;
+                    res[index]=pre;
+                    dfs(next,pre);
+                }
+                else{
+                    if(color==pre)color++;
+                    res[index]=color;
+                    dfs(next,res[index]);
+                    color++;
+                }
+            }
+        }
+
+    }
+
+
+
+
+}
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
