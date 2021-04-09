@@ -1,0 +1,170 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            long h=Long();
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution();
+            sol.solution(out,h,A);
+        }
+        out.flush();
+
+    }
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    public void solution(PrintWriter out,long h,int A[]){
+        long sum=0;
+        long mn=Long.MAX_VALUE;
+        long res=0,n=A.length;
+        for(int i=0;i<A.length;i++){
+            sum+=A[i];
+            if(h+sum<=0){
+                out.println(i+1);
+                return;
+            }
+            mn=Math.min(mn,sum);
+        }
+
+        if(sum>=0){
+            out.println(-1);
+            return;
+        }
+
+        sum=-sum;
+        mn=-mn;
+
+
+        long round=(h-mn)/sum;
+        //System.out.println(sum+"  "+mn);
+        //System.out.println(round);
+
+        if((h-mn)%sum!=0){
+
+            round++;
+            res+=(n*round);
+            h-=round*sum;
+            for(int i=0;i<A.length;i++){
+                h+=A[i];
+                if(h<=0){
+                    res+=(i+1);
+                    break;
+                }
+            }
+
+        }
+        else{
+            res+=(n*round);
+            h=mn;
+            for(int i=0;i<A.length;i++){
+                h+=A[i];
+                if(h<=0){
+                    res+=(i+1);
+                    break;
+                }
+            }
+        }
+        out.println(res);
+    }
+
+
+
+
+}
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
