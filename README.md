@@ -143,3 +143,4 @@ My Codeforce Practice<br/>
 |  1141C  |[Polycarp Restores Permutation (1500) （Math + Constructive） ](./code/1141C.txt)   |2021/04/08|
 |  1141D  |[Colored Boots (1500) （Greedy） ](./code/1141D.txt)   |2021/04/08|
 |  1141E  |[Superhero Battle (1700) （Math） ](./code/1141E.txt)   |2021/04/09|
+|  1141G  |[Privatization of Roads in Treeland (1900) （Greedy + Graph + Tree） ](./code/1141G.txt)   |2021/04/09|
