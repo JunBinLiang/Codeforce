@@ -141,3 +141,4 @@ My Codeforce Practice<br/>
 |  174C  |[Range Increments(1800) （差分 + Constructive） ](./code/174C.txt)   |2021/04/08|
 |  1141F2  |[Same Sum Blocks (Hard) (1900) （DP） ](./code/1141F2.txt)   |2021/04/08|
 |  1141C  |[Polycarp Restores Permutation (1500) （Math + Constructive） ](./code/1141C.txt)   |2021/04/08|
+|  1141D  |[Colored Boots (1500) （Greedy） ](./code/1141D.txt)   |2021/04/08|
