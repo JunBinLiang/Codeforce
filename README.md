@@ -147,4 +147,5 @@ My Codeforce Practice<br/>
 |  1338B  |[Edge Weight Assignment (1800) （Greedy + Bit + Tree） ](./code/1338B.txt)   |2021/04/09|
 |  1338A  |[Powered Addition (1500) （Greedy） ](./code/1338A.txt)   |2021/04/09|
 |  1223E  |[Tree Painting (2100) （Tree + DP + Sort） ](./code/1223E.txt)   |2021/04/09|
-|  1110D  |[Jongmah (2100) （DP + Greedy） ](./code/1110D.txt)   |2021/04/10|
+|  1110D  |[Jongmah (2200) （DP + Greedy） ](./code/1110D.txt)   |2021/04/10|
+|  1415D  |[XOR-gun (2000) （Brute Force + Greedy） ](./code/1415D.txt)   |2021/04/10|
