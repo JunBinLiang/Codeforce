@@ -149,3 +149,4 @@ My Codeforce Practice<br/>
 |  1223E  |[Tree Painting (2100) （Tree + DP + Sort） ](./code/1223E.txt)   |2021/04/09|
 |  1110D  |[Jongmah (2200) （DP + Greedy） ](./code/1110D.txt)   |2021/04/10|
 |  1415D  |[XOR-gun (2000) （Brute Force + Greedy） ](./code/1415D.txt)   |2021/04/10|
+|  910C  |[Minimum Sum (1700) （Greedy） ](./code/910C.txt)   |2021/04/11|
