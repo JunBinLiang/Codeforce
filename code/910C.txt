@@ -1,0 +1,173 @@
+see the contribution of each letter
+
+
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            String A[]=new String[n];
+            for(int i=0;i<n;i++){
+                A[i]=Str();
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+    public void solution(String A[]){
+        //See the contribution of each letter
+
+        Set<Character>first=new HashSet<>();
+        Map<Character,Integer>map=new HashMap<>();
+        long res=0;
+        int cnt[]=new int[8];
+        cnt[0]=1;
+        for(int i=1;i<cnt.length;i++){
+            cnt[i]=cnt[i-1]*10;
+        }
+
+
+        for(int i=0;i<A.length;i++){
+            StringBuilder str=new StringBuilder(A[i]);
+            first.add(A[i].charAt(0));
+            A[i]=str.reverse().toString();
+        }
+
+
+
+        int f[][]=new int[10][2];
+        for(int i=0;i<f.length;i++){
+            f[i][1]=i;
+        }
+
+
+        for(int i=0;i<A.length;i++){
+            for(int j=0;j<A[i].length();j++){
+                char c=A[i].charAt(j);
+                f[c-'a'][0]+=cnt[j];
+            }
+        }
+
+        Arrays.sort(f,(a,b)->{
+            return b[0]-a[0];
+        });
+        boolean visit[]=new boolean[10];
+        for(int i=0;i<f.length;i++){
+            char c=(char)(f[i][1]+'a');
+            if(f[i][0]==0)continue;
+            for(int j=0;j<10;j++){
+                if(!visit[j]){
+                    if(j==0&&first.contains(c))continue;
+                    visit[j]=true;
+                    res+=j*f[i][0];
+                    break;
+                }
+            }
+        }
+
+        out.println(res);
+    }
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
