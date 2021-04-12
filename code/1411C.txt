@@ -1,0 +1,177 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int(),m=Int();
+            int A[][]=new int[m][2];
+            for(int i=0;i<m;i++){
+                A[i][0]=Int();
+                A[i][1]=Int();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(n,A);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    boolean visit[];
+    int cnt=0;
+    Map<Integer,Integer>x=new HashMap<>();
+    int A[][];
+    public void solution(int N,int A[][]){
+        //no attack at the initial placement
+        //one cycle require 1 more move
+        this.A=A;
+        int res=0;
+        visit=new boolean[A.length];
+
+
+
+        for(int i=0;i<A.length;i++){
+            x.put(A[i][0],i);
+        }
+
+
+        for(int i=0;i<A.length;i++){
+            if(visit[i])continue;
+            visit[i]=true;
+            cnt=0;
+            Set<Integer>stack=new HashSet<>();
+            stack.add(i);
+            dfs(A[i],stack);
+            res+=cnt;
+
+        }
+
+
+        for(int i=0;i<A.length;i++){
+            if(A[i][0]==A[i][1]){
+                res-=2;
+            }
+        }
+        out.println(res);
+
+    }
+
+    public void dfs(int cur[],Set<Integer>stack){
+        cnt++;
+        if(x.containsKey(cur[1])){
+            int i=x.get(cur[1]);
+            if(visit[i]){
+                if(stack.contains(i)){
+                    cnt++;
+                }
+            }
+            else{
+                visit[i]=true;
+                stack.add(i);
+                dfs(A[i],stack);
+            }
+        }
+
+    }
+
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
