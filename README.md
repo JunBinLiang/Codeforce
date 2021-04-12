@@ -151,3 +151,4 @@ My Codeforce Practice<br/>
 |  1415D  |[XOR-gun (2000) （Brute Force + Greedy） ](./code/1415D.txt)   |2021/04/10|
 |  910B  |[Door Frames (1600) （ DFS ） ](./code/910B.txt)   |2021/04/11|
 |  910C  |[Minimum Sum (1700) （Greedy） ](./code/910C.txt)   |2021/04/11|
+|  1411C  |[Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   |2021/04/12|
