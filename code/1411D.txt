@@ -1,0 +1,229 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+            int x=Int();int y=Int();
+
+            Solution sol=new Solution(out);
+            sol.solution(s,x,y);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(String s,long x,long y){
+        long res=Long.MAX_VALUE;
+        char A[]=s.toCharArray();
+        long p[]=check(A,x,y);
+        res=Math.min(p[0],p[1]);
+
+        int one=0,zero=0,mark1=0,mark2=0;
+        int r[][]=new int[A.length][2];
+        for(int i=A.length-1;i>=0;i--){
+            if(A[i]=='0')zero++;
+            if(A[i]=='1')one++;
+            if(A[i]=='?'){
+                mark1++;
+                mark2++;
+            }
+            r[i][0]=zero;
+            r[i][1]=one;
+        }
+        one=0;zero=0;
+
+        //p[0] : all zero
+        //p[1] : all one
+
+        //System.out.println(Arrays.toString(p));
+
+        if(x<y){//01<10    000 111
+            for(int i=0;i<A.length;i++){
+                if(A[i]=='0'){
+                    zero++;
+                }
+                else if(A[i]=='1'){
+                    one++;
+                }
+                else{
+                    mark1--;
+                    p[1]-=zero*x;
+                    p[1]+=one*y;
+                    if(i+1<A.length){
+                        p[1]-=y*r[i+1][0];
+                        p[1]+=x*(r[i+1][1]+mark1);
+                    }
+                    zero++;
+                }
+                res=Math.min(res,p[1]);
+            }
+
+        }
+        else{//10<01  111 000
+            for(int i=0;i<A.length;i++){
+                if(A[i]=='0'){
+                    zero++;
+                }
+                else if(A[i]=='1'){
+                    one++;
+                }
+                else{
+                    mark2--;
+                    p[0]+=zero*x;
+                    p[0]-=one*y;
+                    if(i+1<A.length){
+                        p[0]+=y*(r[i+1][0]+mark2);
+                        p[0]-=x*(r[i+1][1]);
+                    }
+                    one++;
+                }
+                res=Math.min(res,p[0]);
+            }
+        }
+
+        out.println(res);
+    }
+
+
+
+    public long[] check(char A[],long x,long y){//all zero or all one
+        long sum1=0,sum2=0;
+        int one=0,zero=0;
+        for(int i=0;i<A.length;i++){
+            if(A[i]=='0'){
+                sum1+=y*one;
+                zero++;
+            }
+            else if(A[i]=='1'){
+                sum1+=x*zero;
+                one++;
+            }
+            else{
+                sum1+=y*one;
+                zero++;
+            }
+        }
+
+
+        one=0;zero=0;
+
+        for(int i=0;i<A.length;i++){
+            if(A[i]=='0'){
+                sum2+=y*one;
+                zero++;
+            }
+            else if(A[i]=='1'){
+                sum2+=x*zero;
+                one++;
+            }
+            else{
+                sum2+=x*zero;
+                one++;
+            }
+        }
+
+
+        return new long[]{sum1,sum2};
+    }
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
