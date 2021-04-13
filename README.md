@@ -153,3 +153,4 @@ My Codeforce Practice<br/>
 |  910C  |[Minimum Sum (1700) （Greedy） ](./code/910C.txt)   |2021/04/11|
 |  1411C  |[Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   |2021/04/12|
 |  1411D  |[Grime Zoo (2100) （Greedy + Brute Force） ](./code/1411D.txt)   |2021/04/12|
+|  940E  |[Cashback (2000) （Greedy + DP + MonoQueue） ](./code/940E.txt)   |2021/04/12|
