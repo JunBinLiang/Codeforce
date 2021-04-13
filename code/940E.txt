@@ -1,0 +1,173 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int(),c=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,c);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(int A[],int k){
+        int n=A.length;
+        long res=Long.MAX_VALUE;
+        LinkedList<int[]>mono=new LinkedList<>();
+        LinkedList<long[]>mono1=new LinkedList<>();
+        long dp[]=new long[n];
+        long pre[]=new long[n];
+
+        pre[0]=A[0];
+        for(int i=1;i<A.length;i++){
+            pre[i]=pre[i-1]+A[i];
+        }
+
+        for(int i=0;i<n;i++){
+            while(mono.size()>0&&mono.getFirst()[0]<=i-k)mono.removeFirst();
+            while(mono.size()>0&&A[i]<=mono.getLast()[1])mono.removeLast();
+
+            mono.add(new int[]{i,A[i]});
+            int mn=mono.getFirst()[1];
+
+            if(i+1<k){
+                if(i==0)dp[i]+=A[i];
+                else dp[i]=dp[i-1]+A[i];
+            }
+            else{
+                dp[i]=get(dp,i-k)+(pre[i]-pre[i-k+1]+A[i-k+1])-mn;
+                while(mono1.size()>0&&mono1.getFirst()[0]<=i-k)mono1.removeFirst();
+
+                if(mono1.size()>0){
+                    int j=(int)(mono1.getFirst()[0]);
+                    dp[i]=Math.min(dp[i],dp[j]+pre[i]-pre[j]);
+                }
+            }
+
+            long sum=dp[i]+pre[n-1]-pre[i];
+            while(mono1.size()>0&&sum<=mono1.getLast()[1])mono1.removeLast();
+            mono1.addLast(new long[]{i,sum});
+        }
+
+
+        res=dp[n-1];
+        long sum=0;
+        for(int i=n-1;i>=Math.max(n-k+1,0);i--){
+            sum+=A[i];
+            res=Math.min(res,sum+get(dp,i-1));
+        }
+
+        out.println(res);
+    }
+
+    public long get(long A[],int i){
+        if(i<0)return 0;
+        return A[i];
+    }
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
