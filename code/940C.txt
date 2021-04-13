@@ -1,0 +1,154 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int(),k=Int();
+            String s=Str();
+
+            Solution sol=new Solution(out);
+            sol.solution(s,k);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(String s,int k){
+        StringBuilder str=new StringBuilder();
+        Set<Character>set=new HashSet<>();
+        for(char c:s.toCharArray()){
+            set.add(c);
+        }
+
+        List<Character>list=new ArrayList<>(set);
+        Collections.sort(list);
+
+        if(k>s.length()){
+            str.append(s);
+            for(int i=s.length();i<k;i++){
+                str.append(list.get(0)+"");
+            }
+        }
+        else{
+            for(int i=k-1;i>=0;i--){
+                char c=s.charAt(i);
+                int pos=-1;
+                for(int j=0;j<list.size();j++){
+                    if(list.get(j)>c){
+                        pos=j;
+                        break;
+                    }
+                }
+                if(pos!=-1){
+                    str.append(s.substring(0,i));
+                    str.append(list.get(pos)+"");
+                    for(int j=str.length();j<k;j++){
+                        str.append(list.get(0));
+                    }
+                    break;
+                }
+            }
+        }
+        out.println(str.toString());
+    }
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
