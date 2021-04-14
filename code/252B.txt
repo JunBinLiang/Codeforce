@@ -1,0 +1,204 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    Set<Integer>set=new HashSet<>();
+    public void solution(int A[]){
+        /*
+        It may seem that the complexity of described algorithm is O(N3).
+        Actually it's not true and the real complexity is O(N).
+         One may notice that in every array of length greater than 3 there are at least 3 pairs of different numbers
+         (remember we assumed that there exist at least one pair of different numbers in the array).
+          Note that these 3 pairs lead to 3 different resulting arrays. On the other hand,
+          there are only 2 possible sorted arrays. According to the pigeonhole principle one of these 3 resulting arrays is unsorted.
+        * */
+
+
+        if(A.length<=2){
+            out.println(-1);
+            return;
+        }
+        int n=A.length;
+        int B[]=new int[n];
+        int C[]=new int[n];
+
+
+        for(int i=0;i<n;i++){
+            B[i]=A[i];
+            C[i]=A[i];
+            set.add(A[i]);
+        }
+
+        if(set.size()==1){
+            out.println(-1);
+            return;
+        }
+
+
+
+
+        Arrays.sort(B);
+        Arrays.sort(C);
+        reverse(C);
+
+
+        for(int i=0;i<A.length;i++){
+            for(int j=i+1;j<A.length;j++){
+                if(A[i]!=A[j]){
+                    int t=A[i];
+                    A[i]=A[j];
+                    A[j]=t;
+
+                    if(!check(A,B)&&!check(A,C)){
+                        out.println((i+1)+" "+(j+1));
+                        return;
+                    }
+
+                    t=A[i];
+                    A[i]=A[j];
+                    A[j]=t;
+
+                }
+            }
+        }
+
+        out.println(-1);
+
+    }
+
+    public boolean check(int A[],int B[]){
+        for(int i=0;i<A.length;i++){
+            if(A[i]!=B[i])return false;
+        }
+        return true;
+    }
+
+
+
+
+    public void reverse(int A[]){
+        int i=0,j=A.length-1;
+        while(i<j){
+            int t=A[i];
+            A[i]=A[j];
+            A[j]=t;
+            i++;
+            j--;
+        }
+    }
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
