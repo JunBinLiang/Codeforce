@@ -157,3 +157,4 @@ My Codeforce Practice<br/>
 |  940C  |[Phone Numbers (1500) （Greedy + Constructive） ](./code/940C.txt)   |2021/04/13|
 |  252B  |[Unsorting Array (1800) （Brute Force + Time Complexity） ](./code/252B.txt)   |2021/04/13|
 |  652C  |[Foe Pair (1800) （Two Pointer + Sort + Binay Search） ](./code/652C.txt)   |2021/04/14|
+|  919D  |[Substring (1700) （DP + Topological Sort + Direct Graph Cycle Detection） ](./code/919D.txt)   |2021/04/14|
