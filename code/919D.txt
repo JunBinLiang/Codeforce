@@ -1,0 +1,226 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            String s=Str();
+            int A[][]=new int[m][2];
+
+            for(int i=0;i<m;i++){
+                A[i][0]=Int()-1;
+                A[i][1]=Int()-1;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(s,A);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    boolean good=true;
+    boolean visit[];
+    Map<Integer,Set<Integer>>f=new HashMap<>();
+    public void solution(String s,int B[][]){
+        char A[]=s.toCharArray();
+        int n=A.length;
+        int res=0;
+
+        int dp[][]=new int[n][26];
+        int in[]=new int[n];
+        visit=new boolean[n];
+
+
+
+        for(int p[]:B){
+            int u=p[0],v=p[1];
+            if(!f.containsKey(u)){
+                f.put(u,new HashSet<>());
+            }
+            if(!f.containsKey(v)){
+                f.put(v,new HashSet<>());
+            }
+
+            if(!f.get(u).contains(v)){
+                in[v]++;
+                f.get(u).add(v);
+            }
+
+        }
+
+        for(int i=0;i<n;i++){
+            if(!f.containsKey(i)){
+                f.put(i,new HashSet<>());
+            }
+        }
+
+
+
+        for(int i=0;i<n;i++){
+            if(!visit[i]){
+                visit[i]=true;
+                Set<Integer>stack=new HashSet<>();
+                stack.add(i);
+                dfs(i,stack);
+                if(!good){
+                    out.println(-1);
+                    return;
+                }
+            }
+        }
+
+
+
+        Queue<Integer>q=new LinkedList<>();
+        for(int i=0;i<in.length;i++){
+            if(in[i]==0){
+                dp[i][A[i]-'a']=1;
+                q.add(i);
+            }
+        }
+
+
+
+        while(q.size()!=0){
+            int root=q.poll();
+            for(int next:f.get(root)){
+                for(int j=0;j<26;j++){
+                    dp[next][j]=Math.max(dp[next][j],dp[root][j]);
+                }
+                in[next]--;
+                if(in[next]==0){
+                    q.add(next);
+                    dp[next][A[next]-'a']++;
+                }
+            }
+        }
+
+
+
+
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++){
+                res=Math.max(res,dp[i][j]);
+            }
+        }
+        out.println(res);
+    }
+
+    public void dfs(int cur,Set<Integer>stack){
+        for(int next:f.get(cur)){
+            if(visit[next]){
+                if(stack.contains(next)){
+                    good=false;
+                }
+            }
+            else{
+                visit[next]=true;
+                stack.add(next);
+                dfs(next,stack);
+                stack.remove(next);
+            }
+        }
+    }
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
