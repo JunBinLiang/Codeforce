@@ -1,0 +1,181 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int A[]=new int[n];
+            int B[][]=new int[m][2];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            for(int i=0;i<m;i++){
+                B[i][0]=Int();
+                B[i][1]=Int();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,B);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(int A[],int B[][]){
+        long res=0;
+        Map<Integer,Integer>f=new HashMap<>();
+
+        for(int i=0;i<A.length;i++){
+            f.put(A[i],i);
+        }
+
+        for(int p[]:B){
+            p[0]=f.get(p[0]);
+            p[1]=f.get(p[1]);
+            Arrays.sort(p);
+        }
+
+        Arrays.sort(B,(a,b)->{
+            return a[0]-b[0];
+        });
+
+        int mins[]=new int[B.length];
+        mins[B.length-1]=B[B.length-1][1];
+        for(int i=B.length-2;i>=0;i--){
+            mins[i]=Math.min(mins[i+1],B[i][1]);
+        }
+
+
+        for(int i=0,j=0;i<A.length;i++){
+
+            while(true){
+                int l=0,r=B.length-1;
+                int pos=-1;
+                while(l<=r){
+                    int mid=l+(r-l)/2;
+                    if(B[mid][0]>=j){
+                        pos=mid;
+                        r=mid-1;
+                    }
+                    else{
+                        l=mid+1;
+                    }
+                }
+                if(pos==-1){
+                    break;
+                }
+                if(mins[pos]>i){
+                    break;
+                }
+                j++;
+            }
+            res+=(i-j+1);
+        }
+
+
+        out.println(res);
+    }
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
