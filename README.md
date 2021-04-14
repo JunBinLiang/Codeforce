@@ -159,3 +159,4 @@ My Codeforce Practice<br/>
 |  652C  |[Foe Pair (1800) （Two Pointer + Sort + Binay Search） ](./code/652C.txt)   |2021/04/14|
 |  652D  |[Nested Segments (1800) （Sort + Divide Conquer） ](./code/652D.txt)   |2021/04/14|
 |  919D  |[Substring (1700) （DP + Topological Sort + Direct Graph Cycle Detection） ](./code/919D.txt)   |2021/04/14|
+|  1151D  |[ Min Cost String (1600) （Constructive） ](./code/1151D.txt)   |2021/04/14|
