@@ -155,3 +155,4 @@ My Codeforce Practice<br/>
 |  1411D  |[Grime Zoo (2100) （Greedy + Brute Force） ](./code/1411D.txt)   |2021/04/12|
 |  940E  |[Cashback (2000) （Greedy + DP + MonoQueue） ](./code/940E.txt)   |2021/04/12|
 |  940C  |[Phone Numbers (1500) （Greedy + Constructive） ](./code/940C.txt)   |2021/04/12|
+|  252B  |[Unsorting Array (1800) （Brute Force + Time Complexity） ](./code/252B.txt)   |2021/04/12|
