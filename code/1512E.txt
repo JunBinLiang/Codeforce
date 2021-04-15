@@ -1,0 +1,187 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int(),l=Int()-1,r=Int()-1,s=Int();
+            Solution sol=new Solution(out);
+            sol.solution(n,l,r,s);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+
+    public void solution(int n,int l,int r,int sum){
+        int A[]=new int[n];
+
+        int cnt=r-l+1;
+        int max=((n)+(n-cnt+1))*cnt/2;
+
+        if(max<sum||sum<(1+cnt)*(cnt)/2){
+            out.println(-1);
+            return;
+        }
+
+
+
+
+
+        boolean visit[]=new boolean[n+1];
+        for(int i=l;i<=r;i++){
+            cnt--;
+            for(int j=visit.length-1;j>=1;j--){
+                if(visit[j])continue;
+                int newsum=sum-j;
+                int mx=((j-1)+(j-1-cnt+1))*cnt/2;
+
+                if(mx<newsum||newsum<(1+cnt)*(cnt)/2){
+
+                }
+                else{
+                    sum=newsum;
+                    visit[j]=true;
+                    A[i]=j;
+                    break;
+                }
+            }
+        }
+
+
+
+        //remaining
+        for(int i=0;i<l;i++){
+            for(int j=1;j<visit.length;j++){
+                if(!visit[j]){
+                    A[i]=j;
+                    visit[j]=true;
+                    break;
+                }
+            }
+        }
+        for(int i=r+1;i<A.length;i++){
+            for(int j=1;j<visit.length;j++){
+                if(!visit[j]){
+                    A[i]=j;
+                    visit[j]=true;
+                    break;
+                }
+            }
+        }
+
+
+
+        for(int i:A){
+            out.print(i+" ");
+        }
+        out.println();
+
+    }
+
+
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
