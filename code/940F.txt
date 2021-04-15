@@ -1,0 +1,311 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int A[]=new int[n];
+            int q[][]=new int[m][3];
+            int cnt1=0,cnt2=0;
+
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            for(int i=0;i<m;i++){
+                q[i][0]=Int();
+                q[i][1]=Int()-1;
+                q[i][2]=Int();
+                if(q[i][0]==1){
+                    q[i][2]--;
+                    cnt1++;
+                }
+                else{
+                    cnt2++;
+                }
+            }
+
+
+            Solution sol=new Solution(out);
+            sol.solution(A,q,cnt1,cnt2);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+    Query l1[];
+    Change l2[];
+    int last[];
+    int cnt[];
+    int fre[];
+    int A[];
+    public void solution(int A[],int q[][],int cnt1,int cnt2){
+        this.A=A;
+        last=new int[A.length];
+        l1=new Query[cnt1];
+        l2=new Change[cnt2];
+
+        Map<Integer,Integer>f=new HashMap<>();
+        int j=0;
+        int BLOCK=(int)(Math.pow((A.length+0.0),2.0/3));
+
+        /////////////////////////////////
+        for(int i:A){
+            if(!f.containsKey(i)){
+                f.put(i,j++);
+            }
+        }
+
+        for(int p[]:q){
+            if(p[0]==2){
+                int b=p[2];
+                if(!f.containsKey(b)){
+                    f.put(b,j++);
+                }
+            }
+        }
+
+        cnt=new int[f.size()+10];
+        fre=new int[A.length+1];
+        /////////////////////////////////////////////////////
+
+
+
+        for(int i=0;i<A.length;i++){
+            A[i]=f.get(A[i]);
+            last[i]=A[i];
+        }
+
+
+        int x=0,y=0;
+
+        for(int i=0;i<q.length;i++){
+            if(q[i][0]==2){
+                q[i][2]=f.get(q[i][2]);
+            }
+
+            if(q[i][0]==1){//query
+                l1[x]=(new Query(q[i][1],q[i][2],x,y-1));
+                x++;
+            }
+            else{//change
+                l2[y++]=(new Change(q[i][1],q[i][2],last[q[i][1]]));
+                last[q[i][1]]=q[i][2];
+            }
+        }
+
+        int res[]=new int[l1.length];
+
+        Arrays.sort(l1,(q1,q2)->{
+            if(q1.l/BLOCK!=q2.l/BLOCK)return q1.l-q2.l;
+            if(q1.r/BLOCK!=q2.r/BLOCK)return q1.r/BLOCK-q2.r/BLOCK;
+            return q1.t-q2.t;
+        });
+
+
+
+
+
+        int l=0,r=-1,time=-1;
+
+        for(int i=0;i<l1.length;i++){
+            Query query=l1[i];
+            int ll=query.l,rr=query.r,id=query.i,t=query.t;
+            //System.out.println(query);
+
+            while( r < rr )
+                add(++r);
+            while( l > ll )
+                add(--l);
+
+            while( r > rr )
+                del(r--);
+            while( l < ll )
+                del(l++);
+
+            while(time<t){
+                Change ch=l2[time+1];
+                change(l,r,ch.pos,ch.val);
+                time++;
+            }
+            while(time>t){
+                Change ch=l2[time];
+                change(l,r,ch.pos,ch.pre);
+                time--;
+            }
+            res[id]=find();
+        }
+
+
+
+
+        //print answer
+        for(int i:res){
+            out.println(i);
+        }
+    }
+
+    public int find(){
+        for(int i=1;i<fre.length;i++){
+            if(fre[i]==0)return i;
+        }
+        return -1;
+    }
+
+    public void add(int i){
+        int val=A[i];
+        int old=cnt[val];
+        cnt[val]++;
+
+        fre[cnt[val]]++;
+        fre[old]--;
+    }
+    public void del(int i){
+        int val=A[i];
+        int old=cnt[val];
+        cnt[val]--;
+
+        fre[cnt[val]]++;
+        fre[old]--;
+    }
+
+    public void change(int l,int r,int pos,int val){
+
+        if(pos>=l&&pos<=r){
+            del(pos);
+            A[pos]=val;
+            add(pos);
+        }
+        else{
+            A[pos]=val;
+        }
+    }
+
+    class Query{
+        int l,r,i,t;
+        public Query(int l,int r,int i,int t){
+            this.l=l;
+            this.r=r;
+            this.i=i;
+            this.t=t;
+        }
+
+        public String toString(){
+            return "["+this.l+","+this.r+","+this.i+","+this.t+"]";
+        }
+    }
+    class Change{
+        int pos,val,pre;
+        public Change(int pos,int val,int pre){
+            this.pos=pos;
+            this.val=val;
+            this.pre=pre;
+        }
+    }
+
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
