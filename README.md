@@ -165,3 +165,4 @@ My Codeforce Practice<br/>
 |  1207D  |[Number Of Permutations (1800) （Combination + 容斥） ](./code/1207D.txt)   |2021/04/15|
 |  1512E  |[Permutation by Sum(1600) （Brute Force + Constructiv + Induction） ](./code/1512E.txt)   |2021/04/15|
 |  1512G  |[Short Task (1700) （Brute Force + 打表） ](./code/1512G.txt)   |2021/04/15|
+|  1512F  |[Education (1900) （Math + DP） ](./code/1512F.txt)   |2021/04/15|
