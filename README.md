@@ -161,3 +161,4 @@ My Codeforce Practice<br/>
 |  919D  |[Substring (1700) （DP + Topological Sort + Direct Graph Cycle Detection） ](./code/919D.txt)   |2021/04/14|
 |  1151D  |[ Min Cost String (1600) （Constructive） ](./code/1151D.txt)   |2021/04/14|
 |  86D  |[ Powerful Array (2200) （莫队） ](./code/86D.txt)   |2021/04/14|
+|  940F  |[Machine Learning (2600) （莫队修改） ](./code/940F.txt)   |2021/04/15|
