@@ -164,3 +164,4 @@ My Codeforce Practice<br/>
 |  940F  |[Machine Learning (2600) （莫队修改） ](./code/940F.txt)   |2021/04/15|
 |  1207D  |[Number Of Permutations (1800) （Combination + 容斥） ](./code/1207D.txt)   |2021/04/15|
 |  1512E  |[Permutation by Sum(1600) （Brute Force + Constructiv + Induction） ](./code/1512E.txt)   |2021/04/15|
+|  1512G  |[Short Task (1700) （Brute Force + 打表） ](./code/1512G.txt)   |2021/04/15|
