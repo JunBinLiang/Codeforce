@@ -162,3 +162,4 @@ My Codeforce Practice<br/>
 |  1151D  |[ Min Cost String (1600) （Constructive） ](./code/1151D.txt)   |2021/04/14|
 |  86D  |[ Powerful Array (2200) （莫队） ](./code/86D.txt)   |2021/04/14|
 |  940F  |[Machine Learning (2600) （莫队修改） ](./code/940F.txt)   |2021/04/15|
+|  1207D  |[Number Of Permutations (1800) （Combination + 容斥） ](./code/1207D.txt)   |2021/04/15|
