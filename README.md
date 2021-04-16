@@ -166,6 +166,6 @@ My Codeforce Practice<br/>
 |  1512E  |[Permutation by Sum(1600) （Brute Force + Constructiv + Induction） ](./code/1512E.txt)   |2021/04/15|
 |  1512G  |[Short Task (1700) （Brute Force + 打表） ](./code/1512G.txt)   |2021/04/15|
 |  1512F  |[Education (1900) （Math + DP） ](./code/1512F.txt)   |2021/04/15|
-|  1513B  |[AND Sequences (1400) （Bit + Greedy + Combination） ](./code/1513B.txt)   |2021/04/15|
-|  1513C  |[Add One (1600) （DP） ](./code/1513C.txt)   |2021/04/15|
+|  1513B  |[AND Sequences (1400) （Bit + Greedy + Combination） ](./code/1513B.txt)   |2021/04/16|
+|  1513C  |[Add One (1600) （DP） ](./code/1513C.txt)   |2021/04/16|
 |  1513D  |[GCD and MST (2000) （Sort + Greedy + Graph） ](./code/1513D.txt)   |2021/04/16|
