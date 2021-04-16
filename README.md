@@ -170,3 +170,4 @@ My Codeforce Practice<br/>
 |  1513C  |[Add One (1600) （DP） ](./code/1513C.txt)   |2021/04/16|
 |  1513D  |[GCD and MST (2000) （Sort + Greedy + Graph） ](./code/1513D.txt)   |2021/04/16|
 |  1333C  |[Eugene and an array (1700) （Prefix + Two pointer） ](./code/1333C.txt)   |2021/04/16|
+|  1513E  |[Cost Equilibrium (2300) （Observation + Combination） ](./code/1513E.txt)   |2021/04/16|
