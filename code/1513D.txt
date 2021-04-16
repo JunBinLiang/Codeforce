@@ -1,0 +1,171 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int p=Int();
+            int A[][]=new int[n][2];
+            for(int i=0;i<A.length;i++){
+                A[i][0]=Int();
+                A[i][1]=i;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,p);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+
+    public void solution(int A[][],long p){
+
+        long res=0;
+        int n=A.length;int edge=0;
+        int B[]=new int[n];boolean visit[]=new boolean[n];
+
+        for(int i=0;i<n;i++){
+            B[i]=A[i][0];
+        }
+        Arrays.sort(A,(a,b)->{
+            return a[0]-b[0];
+        });
+
+
+
+        for(int i=0;i<A.length;i++){
+            if(A[i][0]>=p)break;
+            if(visit[A[i][1]])continue;
+
+            int min=A[i][0];
+            int j=A[i][1]+1;
+            while(j<n&&(B[j]%min==0)){
+                res+=min;
+                edge++;
+                if(visit[j])break;
+                visit[j]=true;
+                j++;
+            }
+
+            int k=A[i][1]-1;
+            while(k>=0&&(B[k]%min)==0){
+                res+=min;
+                edge++;
+                if(visit[k])break;
+                visit[k]=true;
+                k--;
+            }
+
+        }
+
+        res=res+(n-1-edge)*p;
+        out.println(res);
+
+    }
+
+
+
+}
+
+//1 2 2 6 9
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
