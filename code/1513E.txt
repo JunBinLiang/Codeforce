@@ -1,0 +1,208 @@
+// Don't place your source in a package
+
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+    int mod=1000000007;
+    public void solution(int A[]){
+        long sum=0;int n=A.length;
+        long f[]=new long[n+10];
+        Map<Integer,Integer>map=new HashMap<>();
+        int source=0,sink=0,same=0;
+        for(int i:A){
+            sum+=i;
+        }
+        if(sum%n!=0){
+            out.println(0);
+            return;
+        }
+
+
+        f[0]=f[1]=1;
+        for(int i=2;i<f.length;i++){
+            f[i]=f[i-1]*i;
+            f[i]%=mod;
+        }
+
+        for(int i=0;i<A.length;i++){
+            if(A[i]>sum/n){
+                source++;
+            }
+            else if(A[i]<sum/n){
+                sink++;
+            }
+            else{
+                same++;
+            }
+            if(!map.containsKey(A[i])){
+                map.put(A[i],1);
+            }
+            else{
+                map.put(A[i],map.get(A[i])+1);
+            }
+        }
+
+
+        if(sink<=1||source<=1){
+            long res=f[n];
+            for(Integer key:map.keySet()){
+                res=divide(res,f[map.get(key)]);
+            }
+            out.println(res);
+        }
+        else{
+            long a=C(f,n,same);
+            long b=f[source];
+            long c=f[sink];
+
+            for(Integer key:map.keySet()){
+                if(key==sum/n)continue;
+                if(key>sum/n){
+                    c=divide(c,f[map.get(key)]);
+                }
+                else{
+                    b=divide(b,f[map.get(key)]);
+                }
+            }
+            long res=(a*b)%mod;
+            res=(res*c*2)%mod;
+            out.println(res);
+        }
+
+
+    }
+
+    public long C(long fact[],int i,int j){ // C(20,3)=20!/(17!*3!)
+        //return fact[i].divide(fact[i-j].multiply(fact[j]));
+        long mod=1000000007;
+        long a=fact[i];
+        long b=((fact[i-j]%mod)*(fact[j]%mod))%mod;
+        BigInteger B= BigInteger.valueOf(b);
+        long binverse=B.modInverse(BigInteger.valueOf(mod)).longValue();
+        return ((a)*(binverse%mod))%mod;
+    }
+
+    public long divide(long a,long b){
+        BigInteger B= BigInteger.valueOf(b);
+        long binverse=B.modInverse(BigInteger.valueOf(mod)).longValue();
+        return ((a)*(binverse%mod))%mod;
+    }
+
+
+
+
+
+}
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
