@@ -168,3 +168,4 @@ My Codeforce Practice<br/>
 |  1512F  |[Education (1900) （Math + DP） ](./code/1512F.txt)   |2021/04/15|
 |  1513B  |[AND Sequences (1400) （Bit + Greedy + Combination） ](./code/1513B.txt)   |2021/04/15|
 |  1513C  |[Add One (1600) （DP） ](./code/1513C.txt)   |2021/04/15|
+|  1513D  |[GCD and MST (2000) （Sort + Greedy + Graph） ](./code/1513D.txt)   |2021/04/15|
