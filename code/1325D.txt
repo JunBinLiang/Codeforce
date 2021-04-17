@@ -1,0 +1,171 @@
+// Don't place your source in a package
+
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            long u=Long();
+            long v=Long();
+            Solution sol=new Solution(out);
+            sol.solution(u,v);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+    public void solution(long xor,long sum){
+        if(sum<xor){
+            out.println(-1);
+            return;
+        }
+        if(xor==sum){
+            if(sum==0){
+                out.println(0);
+                return;
+            }
+            out.println(1);
+            out.println(sum);
+            return;
+        }
+
+
+        long dif=sum-xor;
+
+
+        if(dif%2==0){
+            long a=xor;
+            long half=dif/2;
+            boolean good=true;
+            for(int i=0;i<63;i++){
+                if((half&(1l<<i))!=0){
+                    if((xor&(1l<<i))!=0){
+                        good=false;
+                    }
+                }
+            }
+            if(good){
+                for(int i=0;i<63;i++){
+                    if((half&(1l<<i))!=0){
+                        a=a|(1l<<i);
+                    }
+                }
+                out.println(2);
+                out.println(a+" "+half);
+            }
+            else{
+                out.println(3);
+                out.println(xor+" "+dif/2+" "+dif/2);
+            }
+        }
+        else{
+            out.println(-1);
+        }
+
+    }
+
+
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
