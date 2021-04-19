@@ -1,0 +1,237 @@
+// Don't place your source in a package
+
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int A[][]=new int[n][m];
+            int cnt=0;
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<m;j++){
+                    if(s.charAt(j)=='*'){
+
+                    }
+                    else{
+                        cnt++;
+                        A[i][j]=1;
+                    }
+                }
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,cnt);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    int mod=998244353;
+    long dp[][];
+    long f[];
+    public void solution(int A[][],int cnt){
+        //0:black   1:white.
+        long res=0;
+        long a=0,b=0;
+        f=new long[A.length*A[0].length+10];
+        dp=new long[cnt][3];
+        for(int i=0;i<dp.length;i++){
+            Arrays.fill(dp[i],-1);
+        }
+
+        f[0]=1;
+        for(int i=1;i<f.length;i++){
+            f[i]=2*f[i-1];
+            f[i]%=mod;
+        }
+
+        dfs(0,0);
+
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length-1;j++){
+                if(dp[i][j]==-1)dp[i][j]=0;
+            }
+        }
+
+        for(int i=0;i<A.length;i++){
+            for(int j=0;j<A[0].length;j++){
+                if(A[i][j]==0)continue;
+                int k=j;
+                int one=0;
+                while(k<A[0].length&&A[i][k]==1){
+                    one++;
+                    k++;
+                }
+                j=k;
+                if(one==1)continue;
+                a+=((dp[dp.length-one][0])*f[(cnt-one)]);
+                a%=mod;
+
+            }
+        }
+
+
+        for(int i=0;i<A[0].length;i++){
+            for(int j=0;j<A.length;j++){
+                if(A[j][i]==0)continue;
+                int k=j;
+                int one=0;
+                while(k<A.length&&A[k][i]==1){
+                    one++;
+                    k++;
+                }
+                j=k;
+                if(one==1)continue;
+                b+=((dp[dp.length-one][0])*f[(cnt-one)]);
+                b%=mod;
+            }
+        }
+
+
+
+        res=(a+b)%mod;
+        out.println(res);
+
+    }
+
+    public long dfs(int i,int cnt){
+        if(i>=dp.length){
+            return 0;
+        }
+        if(dp[i][cnt]!=-1)return dp[i][cnt];
+        long res=0;
+
+        if(cnt==0){
+            res+=dfs(i+1,cnt);
+            res%=mod;
+            res+=dfs(i+1,cnt+1);
+            res%=mod;
+        }
+        else{
+            res+=dfs(i+1,0);
+            res%=mod;
+            res+=f[dp.length-(i+1)]+dfs(i+1,0);
+            res%=mod;
+        }
+        dp[i][cnt]=res;
+        return res;
+    }
+
+    public long get(long dp[],int i){
+        if(i<0)return 0;
+        return dp[i];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
