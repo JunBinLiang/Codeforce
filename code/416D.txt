@@ -1,0 +1,174 @@
+// Don't place your source in a package
+
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            long A[]=new long[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+    public void solution(long A[]){
+        int res=0;
+        int n=A.length;
+
+        boolean good=false;
+        int pre=-1,pred=-1;
+
+        for(int i=0;i<A.length;i++){
+            res++;
+            int j=i;
+            while(j<n&&A[j]==-1)j++;
+            int k=j+1;
+            while(k<n&&A[k]==-1)k++;
+            if(k>=n)break;
+
+
+
+            int cnt1=j-i;
+            long d=(A[k]-A[j])/(k-j);
+
+            if((A[k]-A[j])%(k-j)!=0){
+                i=k-1;
+                continue;
+            }
+
+
+            if(A[j]-cnt1*d<=0){
+                i=k-1;
+                continue;
+            }
+
+            i=k+1;
+            while(i<A.length&&((A[i]==-1&&A[k]+(i-k)*d>0)||(A[i]>0&&A[i]==A[k]+(i-k)*d))){
+                i++;
+            }
+            i--;
+        }
+
+
+        out.println(res);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
