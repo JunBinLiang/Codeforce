@@ -178,3 +178,4 @@ My Codeforce Practice<br/>
 |  485D  |[Maximum Value (1900) （Time Complexity + Sort + BinarySearch ） ](./code/485D.txt)   |2021/04/19|
 |  416D  |[Population Size (2400) （Greedy + Heavy Implementation） ](./code/416D.txt)   |2021/04/19|
 |  416E  |[President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   |2021/04/19|
+|  577B  |[Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt)   |2021/04/20|
