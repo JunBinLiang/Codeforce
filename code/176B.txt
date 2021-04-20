@@ -1,0 +1,164 @@
+// Don't place your source in a package
+
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String a=Str();
+            String b=Str();
+            int k=Int();
+
+            Solution sol=new Solution(out);
+            sol.solution(a,b,k);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    int mod=1000000007;
+    public void solution(String s,String t,int k){
+        boolean flag=false;
+        int n=s.length();
+        int cnt=check(s,t);
+
+        long dp[][]=new long[k+1][2];
+        if(s.equals(t)){
+            dp[0][1]=1;//same
+            flag=true;
+        }
+        else{
+            dp[0][0]=1;//not same
+        }
+
+
+        for(int i=1;i<=k;i++){
+            dp[i][0]=dp[i-1][0]*Math.max((n-cnt-1),0);
+            dp[i][0]%=mod;
+            dp[i][0]+=dp[i-1][1]*(n-cnt);
+            dp[i][0]%=mod;
+
+            dp[i][1]=dp[i-1][0]*cnt;
+            dp[i][1]%=mod;
+            dp[i][1]+=dp[i-1][1]*Math.max(0,cnt-1);
+            dp[i][1]%=mod;
+        }
+
+
+
+        out.println(dp[k][1]);
+    }
+
+    public int check(String s,String t){
+        int cnt=0;
+        if(s.equals(t))cnt++;
+        for(int i=1;i<s.length();i++){
+            String a=s.substring(0,i);
+            String b=s.substring(i);
+            if((b+a).equals(t)){
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
