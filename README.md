@@ -179,3 +179,4 @@ My Codeforce Practice<br/>
 |  416D  |[Population Size (2400) （Greedy + Heavy Implementation） ](./code/416D.txt)   |2021/04/19|
 |  416E  |[President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   |2021/04/19|
 |  577B  |[Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt)   |2021/04/20|
+|  577C  |[Vasya and Petya's Game (1500) (Number Theory + Observation) ](./code/577C.txt)   |2021/04/20|
