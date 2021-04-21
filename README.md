@@ -185,4 +185,5 @@ My Codeforce Practice<br/>
 |  1234E  |[Special Permutations (2000) (Math) ](./code/1234E.txt)   |2021/04/20|
 |  1234F  |[Yet Another Substring Reverse (2200) (DP + Bit subset dp) ](./code/1234F.txt)   |2021/04/21|
 |  1234C  |[Pipes (1500) (Implementation) ](./code/1234C.txt)   |2021/04/21|
+|  1256E  |[Yet Another Division Into Teams (2000) (DP + Greedy) ](./code/1256E.txt)   |2021/04/21|
 
