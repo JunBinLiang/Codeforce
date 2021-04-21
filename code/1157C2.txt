@@ -1,0 +1,196 @@
+// Don't place your source in a package
+
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(int A[]){
+        int l=0,r=A.length-1;
+        StringBuilder str=new StringBuilder();
+        int pre=-1;
+        while(l<=r){
+            if(A[l]<=pre&&A[r]<=pre)break;
+
+            if(A[l]<A[r]){
+                if(A[l]>pre){
+                    str.append("L");
+                    pre=A[l];
+                    l++;
+                }
+                else{
+                    pre=A[r];
+                    str.append("R");
+                    r--;
+                }
+
+            }
+            else if(A[l]>A[r]){
+                if(A[r]>pre){
+                    pre=A[r];
+                    str.append("R");
+                    r--;
+                }
+                else{
+                    str.append("L");
+                    pre=A[l];
+                    l++;
+                }
+
+            }
+            else{
+                if(A[l]<pre)break;
+                int cnt1=1,cnt2=1;
+                for(int j=l+1;j<=r;j++){
+                    if(A[j]>A[j-1]){
+                        cnt1++;
+                    }
+                    else{
+                        break;
+                    }
+                }
+
+                for(int j=r-1;j>=l;j--){
+                    if(A[j]>A[j+1]){
+                        cnt2++;
+                    }
+                    else{
+                        break;
+                    }
+                }
+                if(cnt1>cnt2){
+                    for(int j=0;j<cnt1;j++)str.append("L");
+                }
+                else{
+                    for(int j=0;j<cnt2;j++)str.append("R");
+                }
+                break;
+            }
+        }
+        out.println(str.length());
+        out.println(str.toString());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
