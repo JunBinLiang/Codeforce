@@ -182,3 +182,5 @@ My Codeforce Practice<br/>
 |  577C  |[Vasya and Petya's Game (1500) (Number Theory + Observation) ](./code/577C.txt)   |2021/04/20|
 |  1234D  |[Distinct Characters Queriese (1600) (TreeSet) ](./code/1234D.txt)   |2021/04/20|
 |  176B  |[Word Cut (1700) (DP + Observation) ](./code/176B.txt)   |2021/04/20|
+|  1234E  |[Special Permutations (2000) (Math) ](./code/1234E.txt)   |2021/04/20|
+
