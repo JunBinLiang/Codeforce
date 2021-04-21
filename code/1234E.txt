@@ -1,0 +1,200 @@
+// Don't place your source in a package
+
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int(),m=Int();
+            int A[]=new int[m];
+            for(int i=0;i<A.length;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,n);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    long sum=0;
+    Map<Integer,List<Integer>>f=new HashMap<>();
+    public void solution(int A[],int n){
+
+        for(int i=1;i<=n;i++){
+            f.put(i,new ArrayList<>());
+        }
+
+        for(int i=0;i<A.length;i++){
+            f.get(A[i]).add(i);
+        }
+
+
+
+
+
+        for(int i=1;i<A.length;i++){
+            sum+=Math.abs(A[i]-A[i-1]);
+        }
+        out.print(sum+" ");
+        update(A,f.get(1));
+
+        for(int i=2;i<=n;i++){
+            List<Integer>list=f.get(i);
+            long cur=sum;
+
+            for(int j:list){
+                if(j-1>=0){
+                    cur-=Math.abs(A[j-1]-A[j]);
+                }
+                if(j+1<A.length){
+                    cur-=Math.abs(A[j+1]-A[j]);
+                }
+            }
+
+            for(int j:list){
+                A[j]=1;
+            }
+
+            for(int j:list){
+                if(j-1>=0){
+                    cur+=Math.abs(A[j-1]-1);
+                }
+                if(j+1<A.length){
+                    cur+=Math.abs(A[j+1]-1);
+                }
+            }
+
+            for(int j:list){
+                A[j]=i;
+            }
+
+
+
+            update(A,f.get(i));
+            out.print(cur+" ");
+        }
+
+    }
+
+    public void update(int A[],List<Integer>list){
+
+        for(int i:list){
+            int old=A[i];
+            A[i]++;
+
+            if(i-1>=0){
+                sum+=Math.abs(A[i]-A[i-1]);
+                sum-=Math.abs(old-A[i-1]);
+            }
+
+            if(i+1<A.length){
+                sum+=Math.abs(A[i]-A[i+1]);
+                sum-=Math.abs(old-A[i+1]);
+            }
+        }
+    }
+
+
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
