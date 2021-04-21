@@ -1,0 +1,226 @@
+如果有两个一样，就能自己翻转
+
+否则看冒泡排序次数差，如果差是2的倍数即可
+
+
+// Don't place your source in a package
+
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            String a=Str(),b=Str();
+            Solution sol=new Solution(out);
+            sol.solution(a,b);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(String s,String t){
+        if(!check(s,t)){
+            out.println("NO");
+            return;
+        }
+        char sort[]=s.toCharArray();
+        Arrays.sort(sort);
+        char A[]=s.toCharArray();
+        char B[]=t.toCharArray();
+
+
+        for(int i=1;i<sort.length;i++){
+            if(sort[i]==sort[i-1]){
+                out.println("YES");
+                return;
+            }
+        }
+
+
+        int cnt1=step(sort,A);
+        int cnt2=step(sort,B);
+
+        if(Math.abs(cnt1-cnt2)%2==0){
+            out.println("YES");
+        }
+        else{
+            out.println("NO");
+        }
+    }
+
+    public boolean check(String a,String b){
+        char A[]=a.toCharArray();
+        char B[]=b.toCharArray();
+        Arrays.sort(A);
+        Arrays.sort(B);
+        return (new String(A)).equals(new String(B));
+    }
+
+    public int step(char sort[],char A[]){
+        Map<Character,Queue<Integer>>f=new HashMap<>();
+        int cnt=0;
+        int arr[]=new int[sort.length];
+        Arrays.fill(arr,1);
+        FenWick fen=new FenWick(arr);
+
+        for(int i=0;i<A.length;i++){
+            if(!f.containsKey(A[i])){
+                f.put(A[i],new LinkedList<>());
+            }
+            f.get(A[i]).add(i);
+        }
+
+        //System.out.println(f);
+
+
+        for(int i=0;i<A.length;i++){
+            char cur=sort[i];
+            int index=f.get(cur).poll();
+            int step=fen.sumRange(0,index-1);
+            cnt+=step;
+            fen.update(index,-1);
+        }
+        return cnt;
+    }
+
+    class FenWick {
+        int tree[];//1-index based
+        int A[];
+        int arr[];
+        public FenWick(int[] A) {
+            this.A=A;
+            arr=new int[A.length];
+            tree=new int[A.length+1];
+            int sum=0;
+            for(int i=0;i<A.length;i++){
+                update(i,A[i]);
+            }
+        }
+
+        public void update(int i, int val) {
+            arr[i]=+val;
+            i++;
+            while(i<tree.length){
+                tree[i]+=val;
+                i+=(i&-i);
+            }
+        }
+
+        public int sumRange(int i, int j) {
+            if(j<i)return 0;
+            return pre(j+1)-pre(i);
+        }
+
+        public int pre(int i){
+            int sum=0;
+            while(i>0){
+                sum+=tree[i];
+                i-=(i&-i);
+            }
+            return sum;
+        }
+    }
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
