@@ -187,4 +187,5 @@ My Codeforce Practice<br/>
 |  1234C  |[Pipes (1500) (Implementation) ](./code/1234C.txt)   |2021/04/21|
 |  1256E  |[Yet Another Division Into Teams (2000) (DP + Greedy) ](./code/1256E.txt)   |2021/04/21|
 |  1256F  |[Equalizing Two Strings (2000) (Sort + Greedy + Thinking) ](./code/1256F.txt)   |2021/04/21|
+|  1203D2  |[Remove the Substring (hard version) (1700) (Binary Search) ](./code/1203D2.txt)   |2021/04/21|
 
