@@ -1,0 +1,170 @@
+// Don't place your source in a package
+
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+
+            Solution sol=new Solution(out);
+            sol.solution(s);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    int dp[];
+    int bits[];
+    public void solution(String s){
+
+
+        int n=s.length();
+        bits=new int[(1<<21)+10];
+        dp=new int[bits.length];
+        Arrays.fill(dp,-1);
+        for(int i=0;i<n;i++){
+            int bit=0;
+            for(int j=i;j<n;j++){
+                int d=s.charAt(j)-'a';
+                if((bit&(1<<d))!=0)break;
+                bit=bit|(1<<d);
+                bits[bit]=Math.max(j-i+1,bits[bit]);
+            }
+        }
+
+        int state=(1<<21)-1;
+        dfs(state);
+
+        int res=0;
+
+        for(int i=0;i<state;i++){
+            if(state-i<0)break;
+            res=Math.max(res,bits[i]+dp[state-i]);
+        }
+        out.println(res);
+    }
+
+    public int dfs(int state){
+        if(state==0)return 0;
+
+        if(bits[state]!=0){
+            dp[state]=Math.max(bits[state],dp[state]);
+            return bits[state];
+        }
+        if(dp[state]!=-1)return dp[state];
+
+        int res=0;
+        for(int i=0;i<21;i++){
+            if((state&(1<<i))!=0){
+                res=Math.max(res,dfs(state^(1<<i)));
+            }
+        }
+        dp[state]=res;
+        return res;
+    }
+
+
+
+
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
