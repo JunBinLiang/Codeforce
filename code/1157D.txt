@@ -1,0 +1,175 @@
+// Don't place your source in a package
+
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int k=Int();
+            Solution sol=new Solution(out);
+            sol.solution(n,k);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(long n,long k){
+        if(n<((1+k)*k/2)){
+            out.println("NO");
+            return;
+        }
+
+
+
+        long res[]=new long[(int)(k)];
+        for(int i=0;i<res.length;i++){
+            long l=0;long r=n;
+            if(i>0){
+                l=res[i-1];
+                r=res[i-1]*2;
+            }
+
+            long ans=-1;
+
+            while(l<=r){
+                long mid=l+(r-l)/2;
+                if(check(n-mid,k-(i+1),mid+1)){
+                    ans=mid;
+                    l=mid+1;
+                }
+                else{
+                    r=mid-1;
+                }
+            }
+
+
+            if(ans==-1){
+                out.println("NO");
+                return;
+            }
+            res[i]=ans;
+            n-=ans;
+
+        }
+
+        if(n!=0){
+            out.println("NO");
+            return;
+        }
+
+        out.println("YES");
+        for(long i:res){
+            out.print(i+" ");
+        }
+
+    }
+
+    public boolean check(long n,long k,long start){
+        if(n<((start+start+k-1)*k/2)){
+            return false;
+        }
+        return true;
+    }
+
+
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
