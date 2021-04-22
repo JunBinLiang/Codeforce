@@ -1,0 +1,212 @@
+// Don't place your source in a package
+
+import java.lang.reflect.Array;
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(int A[]){
+        List<int[]>list=new ArrayList<>();
+        List<Integer>res=new ArrayList<>();
+        sort(A);
+        int n=A.length;
+        for(int i=0;i<A.length;i++){
+            int j=i;
+            while(j<n&&A[j]==A[i]){
+                j++;
+            }
+            if(j-i>res.size()){
+                res=new ArrayList<>();
+                for(int k=i;k<j;k++){
+                    res.add(A[k]);
+                }
+            }
+            list.add(new int[]{A[i],j-i});
+            i=j-1;
+        }
+
+
+        for(int i=1;i<list.size();i++){
+            if(list.get(i)[0]-1==list.get(i-1)[0]){
+                int cnt=list.get(i)[1]+list.get(i-1)[1];
+                if(cnt>res.size()){
+                    res=new ArrayList<>();
+                    for(int j=0;j<list.get(i-1)[1];j++){
+                        res.add(list.get(i-1)[0]);
+                    }
+                    for(int j=0;j<list.get(i)[1];j++){
+                        res.add(list.get(i)[0]);
+                    }
+                }
+            }
+        }
+
+
+        for(int i=0;i<list.size();i++){
+            int j=i+1;
+            int pos=-1;
+            while(j<list.size()&&list.get(j)[0]-list.get(i)[0]==j-i){
+                pos=j;
+                if(list.get(j)[1]==1){
+                    break;
+                }
+                j++;
+            }
+
+
+            if(pos-i+1<=2){
+                i=j-1;
+                continue;
+            }
+
+            List<Integer>l=get(list,i,pos);
+            if(l.size()>res.size()){
+                res=l;
+            }
+            i=j-1;
+        }
+
+
+        out.println(res.size());
+        for(int i:res){
+            out.print(i+" ");
+        }
+
+    }
+
+    public List<Integer> get(List<int[]>list,int l,int r){
+        List<Integer>res=new ArrayList<>();
+        for(int i=0;i<list.get(l)[1];i++){
+            res.add(list.get(l)[0]);
+        }
+
+        for(int i=l+1;i<=r;i++){
+            int t=list.get(i)[1];
+            for(int j=0;j<t-1;j++){
+                res.add(list.get(i)[0]);
+            }
+        }
+        for(int i=r;i>l;i--){
+            res.add(list.get(i)[0]);
+        }
+        return res;
+    }
+
+    public void sort(int A[]){
+        PriorityQueue<Integer>pq=new PriorityQueue<>();
+        for(int i:A)pq.add(i);
+        for(int i=0;i<A.length;i++)A[i]=pq.poll();
+    }
+
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
