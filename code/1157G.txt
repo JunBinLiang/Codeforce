@@ -1,0 +1,521 @@
+//java can tle
+
+// Don't place your source in a package
+
+import java.lang.reflect.Array;
+import java.math.BigInteger;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(System.out);
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int(),m=Int();
+            int A[][]=new int[n][m];
+
+            for(int i=0;i<n;i++){
+                for(int j=0;j<m;j++){
+                    A[i][j]=Int();
+                }
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.flush();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+
+
+    public void solution(int A[][]){//TLE
+        int n=A.length,m=A[0].length;
+        int B[][]=new int[n][m];
+        for(int i=0;i<n;i++){
+            Arrays.fill(B[i],1);
+        }
+
+        /*List<Integer>[] g = Stream.generate(ArrayList::new).limit((n+m)*2).toArray(List[]::new);
+        boolean res1[]=solve_2Sat(g,A,B);
+        if(res1!=null){
+            out.println("YES");
+            print(res1,n,m);
+            return;
+        }*/
+
+
+        /*for(int i=n-1;i>=0;i--){
+            int u=i*2;
+            int nu=i*2+1;
+            for(int j=m-1;j>=0;j--){
+                int v=(j+n)*2;
+                int nv=(j+n)*2+1;
+
+                if(A[i][j]==0){//0 filp at the beginning
+                    g[u].removeIf(a->a==v);
+                    g[v].removeIf(a->a==u);
+                    g[nu].removeIf(a->a==nv);
+                    g[nv].removeIf(a->a==nu);
+
+                    g[u].add(nv);
+                    g[v].add(nu);
+                    g[nu].add(v);
+                    g[nv].add(u);
+
+                }
+                else{//1 flip at the beginning
+                    g[u].removeIf(a->a==nv);
+                    g[v].removeIf(a->a==nu);
+                    g[nu].removeIf(a->a==v);
+                    g[nv].removeIf(a->a==u);
+
+                    g[u].add(v);
+                    g[v].add(u);
+                    g[nu].add(nv);
+                    g[nv].add(nu);
+                }
+
+                boolean res[]=Sat2.solve2Sat(g);
+                if(res!=null){
+                    out.println("YES");
+                    print(res,n,m);
+                    return;
+                }
+            }
+        }*/
+
+        if(check1(A,B)){
+            return;
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                B[i][j]=0;
+                if(check1(A,B)){
+                    return;
+                }
+            }
+        }
+
+
+        out.println("NO");
+    }
+
+
+    public boolean check1(int A[][],int B[][]){
+        int n=A.length,m=A[0].length;
+        int row[]=new int[n];
+        int col[]=new int[m];
+        row[0]=1;//flip the first row
+
+
+
+        for(int i=0;i<m;i++){
+            if(A[0][i]!=B[0][i]){
+            }
+            else{
+                col[i]=1;
+            }
+        }
+
+
+
+        for(int i=1;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]==B[i][j]&&col[j]==1){//no flip
+                    row[i]=1;
+                }
+            }
+            for(int j=0;j<m;j++){
+                if(A[i][j]==B[i][j]){
+                    if((row[i]+col[j])%2!=0)return false;
+                }
+                else{
+                    if((row[i]+col[j])%2!=1)return false;
+                }
+            }
+        }
+
+        out.println("YES");
+        print1(row);
+        print1(col);
+        return true;
+
+    }
+
+
+
+    /*public boolean check2(int A[][],int B[][]){
+        int n=A.length,m=A[0].length;
+        int row[]=new int[n];
+        int col[]=new int[m];
+        //fix the first row
+        for(int i=0;i<m;i++){
+            if(A[0][i]!=B[0][i]){
+                col[i]=1;
+            }
+        }
+
+
+
+        for(int i=1;i<n;i++){
+
+            if(col[0]==1){
+                if(A[i][0]==B[i][0])row[i]=1;
+            }
+            else{
+                if(A[i][0]!=B[i][0])row[i]=1;
+            }
+
+
+            for(int j=1;j<m;j++){
+                if(row[i]==0){
+                    if(col[j]==0){
+                        if(A[i][j]!=B[i][j])return false;
+                    }
+                    else{
+                        if(A[i][j]==B[i][j])return false;
+                    }
+                }
+                else{
+                    if(col[j]==0){
+                        if(A[i][j]==B[i][j])return false;
+                    }
+                    else{
+                        if(A[i][j]!=B[i][j])return false;
+                    }
+                }
+            }
+        }
+        out.println("YES");
+        print1(row);
+        print1(col);
+        return true;
+
+    }*/
+
+
+    public void print1(int A[]){
+        for(int i:A)out.print(i);
+        out.println();
+    }
+
+    public void print(boolean res[],int n,int m){//2 sat print
+        int j=0;
+        for(int i=0;i<n;i++){
+            if(res[j])out.print(1);
+            else out.print(0);
+            j++;
+        }
+        out.println();
+        for(int i=0;i<m;i++){
+            if(res[j])out.print(1);
+            else out.print(0);
+            j++;
+        }
+    }
+
+
+    public boolean[] solve_2Sat( List<Integer>[] g ,int A[][],int B[][]){//see if one matrix can transform to other
+        int n=A.length,m=A[0].length;
+        for(int i=0;i<n;i++){
+            int u=i*2;
+            int nu=i*2+1;
+            for(int j=0;j<m;j++){
+                int v=(j+n)*2;
+                int nv=(j+n)*2+1;
+                if(A[i][j]!=B[i][j]){//1 filp need
+                    g[u].add(nv);
+                    g[v].add(nu);
+                    g[nu].add(v);
+                    g[nv].add(u);
+                }
+                else{//0 filp need
+                    g[u].add(v);
+                    g[v].add(u);
+                    g[nu].add(nv);
+                    g[nv].add(nu);
+                }
+            }
+        }
+        return Sat2.solve2Sat(g);
+    }
+
+
+
+}
+
+class Sat2 {
+    static void dfs1(List<Integer>[] graph, boolean[] used, List<Integer> order, int u) {
+        used[u] = true;
+        for (int v : graph[u])
+            if (!used[v])
+                dfs1(graph, used, order, v);
+        order.add(u);
+    }
+
+    static void dfs2(List<Integer>[] reverseGraph, int[] comp, int u, int color) {
+        comp[u] = color;
+        for (int v : reverseGraph[u])
+            if (comp[v] == -1)
+                dfs2(reverseGraph, comp, v, color);
+    }
+
+    public static boolean[] solve2Sat(List<Integer>[] graph) {
+        int n = graph.length;
+        boolean[] used = new boolean[n];
+        List<Integer> order = new ArrayList<>();
+        for (int i = 0; i < n; ++i)
+            if (!used[i])
+                dfs1(graph, used, order, i);
+
+        List<Integer>[] reverseGraph = Stream.generate(ArrayList::new).limit(n).toArray(List[]::new);
+        for (int i = 0; i < n; i++)
+            for (int j : graph[i])
+                reverseGraph[j].add(i);
+
+        int[] comp = new int[n];
+        Arrays.fill(comp, -1);
+        for (int i = 0, color = 0; i < n; ++i) {
+            int u = order.get(n - i - 1);
+            if (comp[u] == -1)
+                dfs2(reverseGraph, comp, u, color++);
+        }
+
+        for (int i = 0; i < n; ++i)
+            if (comp[i] == comp[i ^ 1])
+                return null;
+
+        boolean[] res = new boolean[n / 2];
+        for (int i = 0; i < n; i += 2)
+            res[i / 2] = comp[i] > comp[i ^ 1];
+        return res;
+    }
+
+    /*public static void main(String[] args) {
+        int n = 6;
+        List<Integer>[] g = Stream.generate(ArrayList::new).limit(n).toArray(List[]::new);
+        // (a || b) && (b || !c)
+        // !a => b
+        // !b => a
+        // !b => !c
+        // c => b
+        int a = 0, na = 1, b = 2, nb = 3, c = 4, nc = 5;
+        g[na].add(b);
+        g[nb].add(a);
+        g[nb].add(nc);
+        g[c].add(b);
+
+        boolean[] solution = solve2Sat(g);
+        System.out.println(Arrays.toString(solution));
+    }*/
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//c++ pass
+
+
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int A[201][201];
+int B[201][201];
+int n,m;
+
+void print(vector<int>&A){
+    for(int &i:A)cout<<i;
+    cout<<endl;
+}
+
+bool check(){
+    
+        vector<int>row(n);
+        vector<int>col(m);
+        
+        row[0]=1;//flip the first row
+        for(int i=0;i<m;i++){
+            if(A[0][i]!=B[0][i]){
+            }
+            else{
+                col[i]=1;
+            }
+        }
+    
+        for(int i=0;i<m;i++){
+            if(A[0][i]!=B[0][i]){
+            }
+            else{
+                col[i]=1;
+            }
+        }
+
+
+
+        for(int i=1;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]==B[i][j]&&col[j]==1){//no flip
+                    row[i]=1;
+                }
+            }
+            for(int j=0;j<m;j++){
+                if(A[i][j]==B[i][j]){
+                    if((row[i]+col[j])%2!=0)return false;
+                }
+                else{
+                    if((row[i]+col[j])%2!=1)return false;
+                }
+            }
+        }
+
+        cout<<"YES"<<endl;
+        print(row);
+        print(col);
+        return true;
+}
+
+int main()
+{
+    
+    cin>>n>>m;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            int a;cin>>a;
+            A[i][j]=a;
+            B[i][j]=1;
+        }
+    }
+    
+    if(check()){
+        return 0;
+    }
+    
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            B[i][j]=0;
+            if(check()){
+                return 0;
+            }
+        }
+    }
+    cout<<"NO"<<endl;
+
+    return 0;
+}
+
+
+
