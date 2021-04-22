@@ -190,4 +190,5 @@ My Codeforce Practice<br/>
 |  1203D2  |[Remove the Substring (hard version) (1700) (Binary Search) ](./code/1203D2.txt)   |2021/04/21|
 |  1177B  |[Digits Sequence (Hard Edition) (1800) (Binary Search + Math) ](./code/1177B.txt)   |2021/04/21|
 |  1157C2  |[Increasing Subsequence (hard version) (1500) (Greedy) ](./code/1157C2.txt)   |2021/04/21|
+|  1157D  |[N Problems During K Dayse (hard version) (1900) (Constructive (Induction) + Greedy + Binary Search ) ](./code/1157D.txt)   |2021/04/21|
 
