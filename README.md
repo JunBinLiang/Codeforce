@@ -192,4 +192,5 @@ My Codeforce Practice<br/>
 |  1157C2  |[Increasing Subsequence (hard version) (1500) (Greedy) ](./code/1157C2.txt)   |2021/04/21|
 |  1157D  |[N Problems During K Dayse (hard version) (1900) (Constructive (Induction) + Greedy + Binary Search ) ](./code/1157D.txt)   |2021/04/21|
 |  1157F  |[Maximum Balanced Circle (2000) (Greedy + Constructive ) ](./code/1157F.txt)   |2021/04/22|
+|  1157G  |[Inverse of Rows and Columns (2200) (Brute Force + 2-sat ) ](./code/1157G.txt)   |2021/04/22|
 
