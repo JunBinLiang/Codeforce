@@ -1,0 +1,227 @@
+// Don't place your source in a package
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int A[]=new int[n];
+           Solution.Query q[]=new Solution.Query[m];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+
+
+            int BLOCK=(int)(Math.sqrt(n));
+            PriorityQueue<Solution.Query>pq=new PriorityQueue<>((q1, q2)->{
+                if(q1.l/BLOCK!=q2.l/BLOCK){
+                    return (q1.l/BLOCK)-(q2.l/BLOCK);
+                }
+                else{
+                    if(q1.r==q2.r)return q1.i-q2.i;
+                    return q1.r-q2.r;
+                }
+            });
+
+            for(int i=0;i<m;i++){
+                int a=Int()-1;
+                int b=Int()-1;
+                q[i]=new Solution.Query(a,b,i);
+            }
+            Arrays.sort(q,(q1, q2)->{
+                if(q1.l/BLOCK!=q2.l/BLOCK){
+                    return (q1.l/BLOCK)-(q2.l/BLOCK);
+                }
+                else{
+                    if(q1.r==q2.r)return q1.i-q2.i;
+                    return q1.r-q2.r;
+                }
+            });
+            Solution sol=new Solution(out);
+            sol.solution(q,A);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+    int cnt[];
+    int f[];
+    int A[];
+    int mx=0;
+    public void solution(Query q[],int A[]){
+        this.A=A;
+        int n=A.length;
+        int res[]=new int[q.length];
+        cnt=new int[n+1];
+        f=new int[n+1];
+
+
+
+
+        int l=0,r=0;
+        cnt[A[0]]=1;
+        for(Query query:q){
+            int ll=query.l;
+            int rr=query.r;
+
+
+            while( l > ll )
+                add(--l);
+            while( r < rr )
+                add(++r);
+            while( r > rr )
+                del(r--);
+            while( l < ll )
+                del(l++);
+            int len=rr-ll+1;
+
+
+
+            if(mx>=(len+3)/2){
+                int remain=len-mx;
+                res[query.i]=(mx-remain-1)+1;
+            }
+            else{
+                res[query.i]=1;
+            }
+        }
+
+
+
+
+
+        for(int i:res){
+            out.println(i);
+        }
+    }
+
+
+
+    public void add(int i){
+        int old=cnt[A[i]];
+        f[old]--;
+        cnt[A[i]]++;
+        f[cnt[A[i]]]++;
+        if(cnt[A[i]]>mx){
+            mx=cnt[A[i]];
+        }
+    }
+
+    public void del(int i){
+        int old=cnt[A[i]];
+        f[old]--;
+        if(old==mx&&f[old]<=0)mx--;
+        cnt[A[i]]--;
+        f[cnt[A[i]]]++;
+    }
+
+
+
+
+    static class Query{
+        int l,r,i;
+        public Query(int l,int r,int i){
+            this.l=l;
+            this.r=r;
+            this.i=i;
+        }
+    }
+}
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
