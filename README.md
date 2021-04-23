@@ -195,5 +195,5 @@ My Codeforce Practice<br/>
 |  1157G  |[Inverse of Rows and Columns (2200) (Brute Force + 2-sat ) ](./code/1157G.txt)   |2021/04/22|
 |  1516C  |[Baby Ehab Partitions Again (1700) (Math + Greedy ) ](./code/1516C.txt)   |2021/04/22|
 |  1516D  |[Cut (2100) (Sparse Table + Sliding Window + Prime ) ](./code/1516D.txt)   |2021/04/22|
-|  1514D  |[Cut and Stick (2000) (Greedy + 莫队 ) ](./code/1514D.txt)   |2021/04/22|
+|  1514D  |[Cut and Stick (2000) (Greedy + 莫队 + Update max) ](./code/1514D.txt)   |2021/04/22|
 
