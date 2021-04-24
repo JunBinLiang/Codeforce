@@ -1,0 +1,210 @@
+1.两个string merge 一般来说我们要找他们最大的lcs，但这要n^2 (并且可发现，根据这定理肯定有答案)
+2.但仔细发现，只有0 和 1，其中一种肯定是大于或等于n/2
+3. 根据这个发现，只要选最大的那一种也肯定存在答案
+
+
+
+
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            String A[]=new String[3];
+            for(int i=0;i<A.length;i++){
+                A[i]=Str();
+            }
+            Solution sol=new Solution(out);
+            sol.solution(n,A);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+
+    public void solution(int n,String A[]){
+
+        for(int i=0;i<A.length;i++){
+            for(int j=i+1;j<A.length;j++){
+                if(i!=j){
+                    String res=get(A[i],A[j]);
+                    if(res.length()<=3*n){
+                        out.println(res);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public String get(String s,String t){
+        StringBuilder str1=new StringBuilder();
+        StringBuilder str2=new StringBuilder();
+
+        int i=0,j=0;
+        while(i<s.length()&&j<t.length()){//one
+            if(s.charAt(i)==t.charAt(j)){
+                str1.append(s.charAt(i));
+                i++;j++;
+            }
+            else if(s.charAt(i)=='0'){
+                str1.append(t.charAt(j++));
+            }
+            else if(s.charAt(i)=='1'){
+                str1.append(s.charAt(i++));
+            }
+        }
+
+        str1.append(s.substring(i));
+        str1.append(t.substring(j));
+
+
+        i=0;j=0;
+        while(i<s.length()&&j<t.length()){//zero
+            if(s.charAt(i)==t.charAt(j)){
+                str2.append(s.charAt(i));
+                i++;j++;
+            }
+            else if(s.charAt(i)=='1'){
+                str2.append(t.charAt(j++));
+            }
+            else if(s.charAt(i)=='0'){
+                str2.append(s.charAt(i++));
+            }
+        }
+
+
+
+
+
+        str2.append(s.substring(i));
+        str2.append(t.substring(j));
+        if(str1.length()<str2.length()){
+            return str1.toString();
+        }
+        else{
+            return str2.toString();
+        }
+    }
+
+
+    public boolean issub(String s,String t){
+        int j=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)==t.charAt(j))j++;
+            if(j>=t.length())return true;
+        }
+        return false;
+    }
+
+}
+
+
+/*
+10
+11100100000100001100
+01010001010000000010
+11111111100111110111
+
+ans:11101010001010100001100010
+
+*/
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
