@@ -197,6 +197,7 @@ My Codeforce Practice<br/>
 |  1516D  |[Cut (2100) (Sparse Table + Sliding Window + Prime ) ](./code/1516D.txt)   |2021/04/22|
 |  1514D  |[Cut and Stick (2000) (Greedy + 莫队 + Update max) ](./code/1514D.txt)   |2021/04/22|
 |  1509C  |[The Sports Festival (1800) (DP) ](./code/1509C.txt)   |2021/04/23|
+|  1508A  |[Binary Literature (1900) (Greedy) (Thumb) ](./code/1508A.txt)   |2021/04/23|
 
 
 
