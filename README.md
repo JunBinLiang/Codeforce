@@ -201,4 +201,4 @@ My Codeforce Practice<br/>
 |  977E  |[Cyclic Components (1500) (Graph)  ](./code/977E.txt)   |2021/04/24|
 |  977F  |[Consecutive Subsequence (1700) (DP)  ](./code/977F.txt)   |2021/04/24|
 |  977D  |[Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)   |2021/04/24|
-
+|  1175E  |[Minimal Segment Cover (2200) (Sparse Table + Interval)  ](./code/1175E.txt)   |2021/04/25|
