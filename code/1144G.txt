@@ -83,7 +83,7 @@ class Solution{
 
 
 
-    // In:20    80    =>  (80+ ,100-)   (20+ 80-)
+    // In:20    80    =>  (80+ ,100-)   (20+ 80-), which one is better? Depends on next value!!
     // De:100
 
     public void solution(int A[]){
