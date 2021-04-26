@@ -204,4 +204,5 @@ My Codeforce Practice<br/>
 |  1175E  |[Minimal Segment Cover (2200) (Sparse Table + Interval)  ](./code/1175E.txt)   |2021/04/25|
 |  1203F1  |[Complete the Projects (easy version) (2100) (Greedy + Sort) (Thump)  ](./code/1203F1.txt)   |2021/04/25|
 |  126B  |[ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt)   |2021/04/25|
-|  1144G  |[ Two Merged Sequences (2400) (Thumb)  ](./code/1144G.txt)   |2021/04/26|
+|  1144G  |[ Two Merged Sequences (2400) (Greedy) (Thumb)  ](./code/1144G.txt)   |2021/04/26|
+|  1196D2  |[ RGB Substring (hard version)(1600) (DP)  ](./code/1196D2.txt)   |2021/04/26|
