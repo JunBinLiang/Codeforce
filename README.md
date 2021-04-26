@@ -203,3 +203,4 @@ My Codeforce Practice<br/>
 |  977D  |[Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)   |2021/04/24|
 |  1175E  |[Minimal Segment Cover (2200) (Sparse Table + Interval)  ](./code/1175E.txt)   |2021/04/25|
 |  1203F1  |[Complete the Projects (easy version) (2100) (Greedy + Sort) (Thump)  ](./code/1203F1.txt)   |2021/04/25|
+|  126B  |[ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt)   |2021/04/25|
