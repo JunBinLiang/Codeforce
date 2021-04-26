@@ -1,0 +1,213 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+
+            Solution sol=new Solution(out);
+            sol.solution(s);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+
+    public void solution(String s){
+        int kmp[]=pre(s);
+        int n=s.length();
+        int mx=0;
+        if(kmp[n-1]==0){
+            bad();
+            return;
+        }
+        int z[]=z(n,s.toCharArray());
+
+        int cnt=1;
+        TreeSet<Integer>tree=new TreeSet<>();
+        for(int i=n-1;i>=0;i--){
+            if(i+z[i]-1==n-1){
+                tree.add(cnt);
+            }
+            cnt++;
+        }
+
+        int last=kmp[n-1];
+        for(int i=0;i<kmp.length-1;i++){
+            if(kmp[i]>=last){
+                mx=last;
+            }
+            else{
+                if(kmp[i]!=0){
+                    Integer floor=tree.floor(kmp[i]);
+                    if(floor!=null){
+                        mx=Math.max(mx,floor);
+                    }
+                }
+            }
+        }
+
+        if(mx==0){
+            bad();
+        }
+        else{
+            out.println(s.substring(0,mx));
+        }
+
+    }
+
+
+
+    public void bad(){
+        out.println("Just a legend");
+        return;
+    }
+
+    public int[] z(int n,char s[]){
+        int z[]=new int[n];
+        int L = 0, R = 0;
+        for (int i = 1; i < n; i++) {
+            if (i > R) {
+                L = R = i;
+                while (R < n && s[R-L] == s[R]) R++;
+                z[i] = R-L; R--;
+            } else {
+                int k = i-L;
+                if (z[k] < R-i+1) z[i] = z[k];
+                else {
+                    L = i;
+                    while (R < n && s[R-L] == s[R]) R++;
+                    z[i] = R-L; R--;
+                }
+            }
+        }
+        return z;
+    }
+
+    public int[] pre(String pattern){
+        int pre[]=new int[pattern.length()];
+        int l=0,r=1;
+        while(r<pattern.length()){
+            if(pattern.charAt(r)==pattern.charAt(l)){
+                pre[r]=l+1;
+                l++;
+                r++;
+            }else{
+                if(l==0)r++;
+                else{
+                    l=pre[l-1];
+                }
+            }
+        }
+        return pre;
+    }
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
