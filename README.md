@@ -207,3 +207,4 @@ My Codeforce Practice<br/>
 |  1144G  |[ Two Merged Sequences (2400) (Greedy) (Thumb)  ](./code/1144G.txt)   |2021/04/26|
 |  1196D2  |[ RGB Substring (hard version)(1600) (DP)  ](./code/1196D2.txt)   |2021/04/26|
 |  987E  |[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)   |2021/04/26|
+|  1473D  |[ Program (1700) (DP + Prefix)  ](./code/1473D.txt)   |2021/04/26|
