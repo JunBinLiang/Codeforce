@@ -1,0 +1,200 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+
+            Solution sol=new Solution(out);
+            sol.solution(n,m);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+
+    public void solution(int b,int w){
+        int mn=Math.min(b,w);
+        List<int[]>res=new ArrayList<>();
+        int j=300001;
+        int k=30000;
+        for(int i=0;i<mn;i++){
+            if(w==mn){//white : even
+                res.add(new int[]{300001,j++});//white
+                res.add(new int[]{300001,j++});//black
+            }
+            else{//black : odd
+                res.add(new int[]{300001,k++});//black
+                res.add(new int[]{300001,k++});//white
+            }
+        }
+
+
+        w-=mn;
+        b-=mn;
+
+
+        if(w>0){
+            int size=res.size();
+            for(int i=0;i<size;i+=2){
+                if(w==0)break;
+                w--;
+                int cur[]=res.get(i);
+                res.add(new int[]{cur[0]-1,cur[1]});
+            }
+            for(int i=0;i<size;i+=2){
+                if(w==0)break;
+                w--;
+                int cur[]=res.get(i);
+                res.add(new int[]{cur[0]+1,cur[1]});
+            }
+            if(w>0){
+                w--;
+                res.add(new int[]{300001,30000-1});
+            }
+        }
+
+        if(b>0){
+            int size=res.size();
+            for(int i=0;i<size;i+=2){
+                if(b==0)break;
+                b--;
+                int cur[]=res.get(i);
+                res.add(new int[]{cur[0]-1,cur[1]});
+            }
+            for(int i=0;i<size;i+=2){
+                if(b==0)break;
+                b--;
+                int cur[]=res.get(i);
+                res.add(new int[]{cur[0]+1,cur[1]});
+            }
+            if(b>0){
+                b--;
+                res.add(new int[]{300001,300001-1});
+            }
+        }
+
+
+
+        if(w>0||b>0){
+            no();return;
+        }
+
+        out.println("YES");
+        for(int p[]:res){
+            out.println(p[0]+" "+p[1]);
+        }
+    }
+
+    public void no(){
+        out.println("NO");
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
