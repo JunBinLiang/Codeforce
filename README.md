@@ -212,3 +212,4 @@ My Codeforce Practice<br/>
 |  1516E  |[ Baby Ehab Plays with Permutations (2500) (超难 Combination + DP + 容斥 + Permutation)  ](./code/1516E.txt)   |2021/04/28|
 |  1334C  |[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)   |2021/04/28|
 |  1334D  |[ Minimum Euler Cycle (1800) (Graph + Greedy + Constructive + Math)  ](./code/1334D.txt)   |2021/04/28|
+|  1196F  |[ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt)   |2021/04/28|
