@@ -1,0 +1,218 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int k=Int();
+
+            Solution sol=new Solution(out);
+            sol.solution(n,k);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+    //len n and switch k times
+    int mod=1000000007;
+    long inv[]=new long[410];
+    long dp[][]=new long[405][405];
+    long fact[]=new long[410];
+    int ncr[][]=new int[410][410];
+    public void solution(int N,int k){
+
+        //init
+        for(int i=0;i<dp.length;i++){
+            Arrays.fill(dp[i],-1);
+        }
+        inv[1]=1;
+        for (int i=2;i<=2*k;i++){
+            inv[i]=inv[mod%i]*(mod-mod/i)%mod;
+        }
+
+
+        ncr[0][0]=1;
+        for (int i=1;i<ncr.length;i++) {
+            ncr[i][0]=1;
+            for (int j=1;j<ncr[0].length;j++) {
+                ncr[i][j]=(ncr[i-1][j]+ncr[i-1][j-1])%mod;
+            }
+        }
+
+
+
+        dfs(402,k);
+
+
+
+
+        long ans[]=new long[]{1,0};//even swap, odd swap
+        for(int i=1;i<=k;i++){//number of swaps
+            for(int j=1;j<=Math.min(2*i,N);j++){//fix a subset of places you want to swap
+                long choose=CC(N,j);
+                long sum=0;
+                for(int fix=0;fix<j;fix++){
+                    int coe=1;
+                    if(fix%2==1)coe=-1;
+                    long c2=ncr[j][fix];
+                    sum=sum+coe*c2*dp[j-fix][i];
+                    if(sum<0)sum+=mod;
+                    sum%=mod;
+                }
+
+                ans[i%2]+=choose*sum;
+                ans[i%2]%=mod;
+            }
+            out.print(ans[i%2]+" ");
+        }
+
+    }
+
+    public long dfs(int i,int k){
+        if(k==0){
+            dp[i][k]=1;
+            return 1;
+        }
+        if(i<=0){
+            if(i==0)dp[i][k]=0;
+            return 0;
+        }
+
+        if(dp[i][k]!=-1)return dp[i][k];
+        long res=0;
+        res+=dfs(i-1,k);
+        res%=mod;
+        res+=(i-1)*dfs(i-1,k-1);
+        res%=mod;
+        dp[i][k]=res;
+        return res;
+    }
+
+
+    public long C(int i,int j){ // C(20,3)=20!/(17!*3!)
+        //return fact[i].divide(fact[i-j].multiply(fact[j]));
+        long a=fact[i];
+        long b=((fact[i-j]%mod)*(fact[j]%mod))%mod;
+        BigInteger B= BigInteger.valueOf(b);
+        long binverse=B.modInverse(BigInteger.valueOf(mod)).longValue();
+        return ((a)*(binverse%mod))%mod;
+    }
+
+
+    public long CC(int n,int r) {
+        long ret=1;
+        for (int i=n-r+1;i<=n;i++)
+            ret=(ret*i)%mod;
+        for (int i=1;i<=r;i++)
+            ret=(ret*inv[i])%mod;
+        return ret;
+    }
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
