@@ -211,3 +211,4 @@ My Codeforce Practice<br/>
 |  1196E  |[ Connected Component on a Chessboard (1800) (Chessboard + Constructive + Greedy)  ](./code/1196E.txt)   |2021/04/26|
 |  1516E  |[ Baby Ehab Plays with Permutations (2500) (超难 Combination + DP + 容斥 + Permutation)  ](./code/1516E.txt)   |2021/04/28|
 |  1334C  |[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)   |2021/04/28|
+|  1334D  |[ Minimum Euler Cycle (1800) (Graph + Greedy + Constructive + Math)  ](./code/1334D.txt)   |2021/04/28|
