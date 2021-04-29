@@ -215,3 +215,4 @@ My Codeforce Practice<br/>
 |  1196F  |[ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt)   |2021/04/28|
 |  1278C  |[  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt)   |2021/04/29|
 |  1208D  |[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)   |2021/04/29|
+|  1208C  |[ Magic Grid	 (1800) (Constructive)  ](./code/1208C.txt)   |2021/04/29|
