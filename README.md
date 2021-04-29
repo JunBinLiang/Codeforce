@@ -214,3 +214,4 @@ My Codeforce Practice<br/>
 |  1334D  |[ Minimum Euler Cycle (1800) (Graph + Greedy + Constructive + Math)  ](./code/1334D.txt)   |2021/04/28|
 |  1196F  |[ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt)   |2021/04/28|
 |  1278C  |[  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt)   |2021/04/29|
+|  1208D  |[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)   |2021/04/29|
