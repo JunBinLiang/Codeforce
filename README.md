@@ -216,3 +216,5 @@ My Codeforce Practice<br/>
 |  1278C  |[  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt)   |2021/04/29|
 |  1208D  |[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)   |2021/04/29|
 |  1208C  |[ Magic Grid	 (1800) (Constructive)  ](./code/1208C.txt)   |2021/04/29|
+|  1167E  |[Range Deleting	 (2100) (Two Pointer + DP)  ](./code/1167E.txt)   |2021/04/30|
+
