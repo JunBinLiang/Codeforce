@@ -1,0 +1,205 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int x=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A,x);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+
+    public void solution(int A[],int x){
+        long res=0;
+        int cnt[][]=new int[x+10][2];
+        for(int i=0;i<cnt.length;i++){
+            cnt[i][0]=Integer.MAX_VALUE;
+            cnt[i][1]=Integer.MIN_VALUE;
+        }
+
+        for(int i=0;i<A.length;i++){
+            cnt[A[i]][0]=Math.min(i,cnt[A[i]][0]);
+            cnt[A[i]][1]=Math.max(i,cnt[A[i]][1]);
+        }
+
+
+
+
+
+
+
+
+        boolean right[]=new boolean[x+2];
+        right[x+1]=true;
+        int l=Integer.MAX_VALUE;
+
+        int r[]=new int[x+2];
+        r[x+1]=l;
+
+        for(int i=x;i>=1;i--){
+            if(cnt[i][0]==Integer.MAX_VALUE){
+                right[i]=true;
+                r[i]=l;
+            }
+            else{
+                if(cnt[i][1]>l){
+                    break;
+                }
+                else{
+                    right[i]=true;
+                    l=cnt[i][0];
+                    r[i]=l;
+                }
+            }
+        }
+
+
+        int mx=-1;
+        for(int i=1,j=1;i<=x;i++){
+            if(!right[i+1])continue;
+            boolean good=true;
+
+            while(j<=i&&mx<r[i+1]){
+                res+=(x-i+1);
+
+                if(cnt[j][1]!=Integer.MIN_VALUE){
+                    if(mx>cnt[j][0]){
+                        good=false;
+                        break;
+                    }
+                    else{
+                        mx=cnt[j][1];
+                    }
+                }
+                j++;
+
+            };
+
+            if(!good){
+                break;
+            }
+        }
+
+
+        out.println(res);
+    }
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
