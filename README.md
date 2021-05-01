@@ -218,4 +218,5 @@ My Codeforce Practice<br/>
 |  1208C  |[ Magic Grid	 (1800) (Constructive)  ](./code/1208C.txt)   |2021/04/29|
 |  1167E  |[Range Deleting	 (2100) (Two Pointer + DP)  ](./code/1167E.txt)   |2021/04/30|
 |  102D  |[Buses	 (1700) (Binary Search + DP + Prefix)  ](./code/102D.txt)   |2021/04/30|
+|  1133E  |[K Balanced Teams	 (1800) (DP)  ](./code/1133E.txt)   |2021/04/30|
 
