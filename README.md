@@ -220,3 +220,4 @@ My Codeforce Practice<br/>
 |  102D  |[Buses	 (1700) (Binary Search + DP + Prefix)  ](./code/102D.txt)   |2021/04/30|
 |  1133E  |[K Balanced Teams	 (1800) (DP)  ](./code/1133E.txt)   |2021/05/01|
 |  1133F1  |[Spanning Tree with Maximum Degree	 (1600) (Greedy + Graph)  ](./code/1133F1.txt)   |2021/05/01|
+|  1133F2  |[Spanning Tree with One Fixed Degree	 (1900) (Greedy + Graph + UF + Strongly Connect)  ](./code/1133F2.txt)   |2021/05/01|
