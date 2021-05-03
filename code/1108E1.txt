@@ -1,0 +1,169 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int(),m=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            int q[][]=new int[m][2];
+            for(int i=0;i<m;i++){
+                q[i][0]=Int()-1;
+                q[i][1]=Int()-1;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,q);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(int A[],int q[][]){
+        int mx=Integer.MIN_VALUE;
+        int mn=Integer.MAX_VALUE;
+        List<Integer>res=new ArrayList<>();
+        for(int i:A){
+            mx=Math.max(mx,i);
+            mn=Math.min(mn,i);
+        }
+        int ans=0;
+        ans=mx-mn;
+
+        for(int i=0;i<A.length;i++){
+            for(int j=0;j<A.length;j++){
+                int cnt=0;
+                List<Integer>list=new ArrayList<>();
+                for(int k=0;k<q.length;k++){
+                    int p[]=q[k];
+                    if(j>=p[0]&&j<=p[1]&&(i<p[0]||i>p[1])){
+                        cnt++;
+                        list.add(k);
+                    }
+                }
+                if(A[i]-(A[j]-cnt)>ans){
+                    ans=A[i]-(A[j]-cnt);
+                    res=list;
+                }
+
+            }
+        }
+
+        out.println(ans);
+        out.println(res.size());
+        for(int i:res){
+            out.print((i+1)+" ");
+        }
+        out.println();
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
