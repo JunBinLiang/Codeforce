@@ -1,0 +1,261 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int(),m=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            int q[][]=new int[m][3];
+            for(int i=0;i<m;i++){
+                q[i][0]=Int()-1;
+                q[i][1]=Int()-1;
+                q[i][2]=i;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,q);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+
+    long ans=0;
+    int A[];
+    List<Integer>res=new ArrayList<>();
+    public void solution(int A[],int q1[][]){
+        this.A=A;
+        int mx=Integer.MIN_VALUE;
+        int mn=Integer.MAX_VALUE;
+        for(int i:A){
+            mx=Math.max(mx,i);
+            mn=Math.min(mn,i);
+        }
+        ans=mx-mn;
+
+        int q2[][]=new int[q1.length][3];
+        for(int i=0;i<q2.length;i++){
+            q2[i][0]=q1[i][0];
+            q2[i][1]=q1[i][1];
+            q2[i][2]=q1[i][2];
+        }
+
+
+        Arrays.sort(q1,(a,b)->{
+            return a[0]-b[0];
+        });
+        Arrays.sort(q2,(a,b)->{
+            return a[1]-b[1];
+        });
+
+
+        int dif[]=new int[A.length];
+        long pre[]=new long[A.length];
+        long post[]=new long[A.length];
+        long l[]=new long[A.length];long r[]=new long[A.length];
+        for(int i=1;i<A.length;i++){
+            dif[i]=A[i]-A[i-1];
+        }
+
+        //System.out.println(Arrays.toString(dif));
+
+        //left to right
+
+        PriorityQueue<long[]>pq=new PriorityQueue<>((a,b)->{
+            return Long.compare(b[1],a[1]);
+        });
+        pre[0]=dif[0];
+        pq.add(new long[]{0,pre[0]});
+        for(int i=1;i<dif.length;i++){
+            pre[i]=pre[i-1]+dif[i];
+            pq.add(new long[]{i,pre[i]});
+        }
+        for(int i=0;i<l.length;i++){
+            while(pq.peek()[0]<i)pq.poll();
+            l[i]=pq.peek()[1];
+        }
+        for(int i=0;i<A.length;i++){
+            List<Integer>list=new ArrayList<>();
+            for(int j=0;j<q2.length;j++){
+                if(q2[j][0]<i&&q2[j][1]+1>=i&&q2[j][1]+1<dif.length){
+                    list.add(q2[j][2]);
+                    int cnt=list.size();
+                    long max=l[q2[j][1]+1];
+                    long actual=max-pre[i]+dif[i];
+                    if(actual+cnt>ans){
+                        ans=actual+cnt;
+                        res=list;
+                    }
+
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        pq=new PriorityQueue<>((a,b)->{
+            return Long.compare(a[1],b[1]);
+        });
+        post[A.length-1]=dif[A.length-1];
+        pq.add(new long[]{A.length-1,post[A.length-1]});
+        for(int i=A.length-2;i>=0;i--){
+            post[i]=dif[i]+post[i+1];
+            pq.add(new long[]{i,post[i]});
+        }
+
+
+
+        for(int i=A.length-1;i>=0;i--){
+            while(pq.peek()[0]>i)pq.poll();
+            r[i]=pq.peek()[1];
+        }
+
+        
+
+        for(int i=1;i<A.length;i++){
+            List<Integer>list=new ArrayList<>();
+            for(int j=q1.length-1;j>=0;j--){
+                if(q1[j][0]<=i&&q1[j][1]+1>i&&q1[j][0]!=0){
+                    list.add(q1[j][2]);
+                    int cnt=list.size();
+                    long min=r[q1[j][0]]-post[i]+dif[i];
+                    if(Math.abs(min-cnt)>ans){
+                        ans=Math.abs(min-cnt);
+                        res=list;
+                    }
+                }
+            }
+        }
+
+
+
+        out.println(ans);
+        out.println(res.size());
+        for(int i:res){
+            out.print((i+1)+" ");
+        }
+        out.println();
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
