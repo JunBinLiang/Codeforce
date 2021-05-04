@@ -226,3 +226,4 @@ My Codeforce Practice<br/>
 |  1108E1  |[Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt)   |2021/05/03|
 |  1108E2  |[Array and Segments (Hard version)	 (2100) (差分 + DP + Prefix)  ](./code/1108E2.txt)   |2021/05/03|
 |  1355C  |[Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)   |2021/05/04|
+|  1301C  |[Ayoub's function (1700) (Math + Greedy)  ](./code/1301C.txt)   |2021/05/04|
