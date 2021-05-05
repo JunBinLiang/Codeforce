@@ -232,3 +232,4 @@ My Codeforce Practice<br/>
 |  1185E  |[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt)   |2021/05/05|
 |  1185F  |[Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt)   |2021/05/05|
 |  1185G1  |[Playlist for Polycarp (easy version) (2100) (Bitmask DP )  ](./code/1185G1.txt)   |2021/05/05|
+|  1174D  |[Ehab and the Expected XOR Problem (1900) (bit + Thinking + Prefix )  ](./code/1174D.txt)   |2021/05/05|
