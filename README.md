@@ -229,3 +229,4 @@ My Codeforce Practice<br/>
 |  1301C  |[Ayoub's function (1700) (Math + Greedy)  ](./code/1301C.txt)   |2021/05/04|
 |  1185C2  |[Exam in BerSU (hard version) (1700) (Math )  ](./code/1185C2.txt)   |2021/05/05|
 |  1185D  |[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)   |2021/05/05|
+|  1185E  |[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt)   |2021/05/05|
