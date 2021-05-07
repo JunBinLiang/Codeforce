@@ -315,6 +315,7 @@ My Codeforce Practice<br/>
 
 ### Shortest Path
 416E. [President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   <br/>
+1486E. [ Paired Payment (2200) （Graph + SPFA） ](./code/1486E.txt)   <br/>
 
 ### Min Cost Maximum Flow
 237E. [Build String (2000) （Minimum Cost Max Flow ） ](./code/237E.txt)   |2021/04/16|
@@ -351,9 +352,14 @@ My Codeforce Practice<br/>
 
 ### 莫队
 1514D. [Cut and Stick (2000) (Greedy + 莫队 + Update max) ](./code/1514D.txt)  <br/>
+86D. [ Powerful Array (2200) （莫队） ](./code/86D.txt)   <br/>
+940F. [Machine Learning (2600) （莫队修改） ](./code/940F.txt)   |2021/04/15|
 
 ### Bit
 1174D.[Ehab and the Expected XOR Problem (1900) (bit + Thinking + Prefix )  ](./code/1174D.txt) <br/>
 1513B. [AND Sequences (1400) （Bit + Greedy + Combination） ](./code/1513B.txt)  <br/>
 1338B. [Edge Weight Assignment (1800) （Greedy + Bit + Tree） ](./code/1338B.txt)   <br/>
+
+### Divide Conquer
+652D. [Nested Segments (1800) （Sort + Divide Conquer + Thinking） ](./code/652D.txt)   |2021/04/14|
 
