@@ -260,12 +260,12 @@ My Codeforce Practice<br/>
 1144G. [ Two Merged Sequences (2400) (Greedy) (Thumb)  ](./code/1144G.txt) 
 <br/>
 ### 思维/Thinking/Observation
-540E. [Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)<br/>
-1208D. [ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)<br/>  
-977D. [Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)<br/>  
-1355C. [Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)<br/>   
-1334C. [ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)   <br/>
-987E. [ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)   <br/>
+540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)<br/>
+1208D.[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)<br/>  
+977D.[Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)<br/>  
+1355C.[Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)<br/>   
+1334C.[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt) <br/>
+987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
 
 ### 差分
 1108E2. [Array and Segments (Hard version)	 (2100) (差分 + DP + Prefix)  ](./code/1108E2.txt) <br/>  
