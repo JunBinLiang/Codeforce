@@ -356,6 +356,7 @@ My Codeforce Practice<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
+1156E. [Special Segments of Permutation (2200) (Divide Conquer + Segment Tree) ](./code/1156E.txt)<br/>
 
 ### Binary Search
 1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
