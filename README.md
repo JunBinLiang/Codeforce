@@ -244,6 +244,7 @@ My Codeforce Practice<br/>
 
 ### DP
 1133E.[K Balanced Teams	 (1800) (DP)  ](./code/1133E.txt)<br/>
+1110D [Jongmah (2200) （DP + Greedy） ](./code/1110D.txt)  <br/>
 
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>   
@@ -285,8 +286,12 @@ My Codeforce Practice<br/>
 1133F1. [Spanning Tree with Maximum Degree	 (1600) (Greedy + Graph)  ](./code/1133F1.txt) <br/> 
 1133F2. [Spanning Tree with One Fixed Degree	 (1900) (Greedy + Graph + UF + Strongly Connect)  ](./code/1133F2.txt) <br/>
 
+
+### 2-Sat
+
 ### Constructive 
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
+1493C. [K-beautiful Strings (2000) （Greedy + Constructive） ](./code/1493C.txt)   <br/> 
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
@@ -297,6 +302,11 @@ My Codeforce Practice<br/>
 926J.[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   <br/>
 
 ### Fenwick Tree
+
+### Sparse Table
+
+### Binary Search
+1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
 
 ### String Algorithm
 126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) <br/>
