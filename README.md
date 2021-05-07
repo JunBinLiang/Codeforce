@@ -245,6 +245,7 @@ My Codeforce Practice<br/>
 ### DP
 1133E.[K Balanced Teams	 (1800) (DP)  ](./code/1133E.txt)<br/>
 1110D [Jongmah (2200) （DP + Greedy） ](./code/1110D.txt)  <br/>
+176B. [Word Cut (1700) (DP + Observation) ](./code/176B.txt)   <br/>
 
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>   
@@ -253,7 +254,11 @@ My Codeforce Practice<br/>
 ### 树DP
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)<br/>
 
+### Bit DP
+1185G1. [Playlist for Polycarp (easy version) (2100) (Bitmask DP )  ](./code/1185G1.txt)  <br/>
 
+### 区间DP
+1509C. [The Sports Festival (1800) (DP) ](./code/1509C.txt)  <br/>
 
 
 ### 贪心
@@ -269,14 +274,27 @@ My Codeforce Practice<br/>
 1355C.[Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)<br/>   
 1334C.[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)<br/>
 987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
+1519D. [Maximum Sum of Products	 (1600) (Observation)  ](./code/1519D.txt) <br/>
+176B. [Word Cut (1700) (DP + Observation) ](./code/176B.txt)   <br/>
+
+### Game
+1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
+
+### Chessboard
+1196E. [ Connected Component on a Chessboard (1800) (Chessboard + Constructive + Greedy)  ](./code/1196E.txt)   <br/>
 
 ### 差分
 1108E2. [Array and Segments (Hard version)	 (2100) (差分 + DP + Prefix)  ](./code/1108E2.txt) <br/>  
+
+### Number Theory
+584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
+1512G. [Short Task (1700) （Brute Force + 打表） ](./code/1512G.txt)   <br/>
 
 ### Combination
 1185G2. [Playlist for Polycarp (Hard version) (2600) (DP + Combination  )  ](./code/1185G2.txt)<br/>
 1516E. [ Baby Ehab Plays with Permutations (2500) (超难 Combination + DP + 容斥 + Permutation)  ](./code/1516E.txt)<br/> 
 1515E. [Phoenix and Computers	 (2200) (DP + Combination)  ](./code/1515E.txt)<br/>   
+1513E. [Cost Equilibrium (2300) （Observation + Combination） ](./code/1513E.txt)  <br/>
 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
@@ -286,12 +304,21 @@ My Codeforce Practice<br/>
 1133F1. [Spanning Tree with Maximum Degree	 (1600) (Greedy + Graph)  ](./code/1133F1.txt) <br/> 
 1133F2. [Spanning Tree with One Fixed Degree	 (1900) (Greedy + Graph + UF + Strongly Connect)  ](./code/1133F2.txt) <br/>
 
+### Direct Graph Cycle
+1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   |2021/04/12|
+
+### Shortest Path
+416E. [President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   <br/>
+
+### Min Cost Maximum Flow
+237E. [Build String (2000) （Minimum Cost Max Flow ） ](./code/237E.txt)   |2021/04/16|
 
 ### 2-Sat
 
 ### Constructive 
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
 1493C. [K-beautiful Strings (2000) （Greedy + Constructive） ](./code/1493C.txt)   <br/> 
+1234C. [Pipes (1500) (Implementation) ](./code/1234C.txt)   <br/> 
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
@@ -304,6 +331,7 @@ My Codeforce Practice<br/>
 ### Fenwick Tree
 
 ### Sparse Table
+1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
 
 ### Binary Search
 1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
@@ -311,5 +339,11 @@ My Codeforce Practice<br/>
 ### String Algorithm
 126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) <br/>
 
+### 莫队
+1514D. [Cut and Stick (2000) (Greedy + 莫队 + Update max) ](./code/1514D.txt)  <br/>
 
+### Bit
+ 1174D.[Ehab and the Expected XOR Problem (1900) (bit + Thinking + Prefix )  ](./code/1174D.txt) <br/>
+ 1513B. [AND Sequences (1400) （Bit + Greedy + Combination） ](./code/1513B.txt)  <br/>
+ 1338B. [Edge Weight Assignment (1800) （Greedy + Bit + Tree） ](./code/1338B.txt)   <br/>
 
