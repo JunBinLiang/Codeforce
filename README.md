@@ -274,8 +274,8 @@ My Codeforce Practice<br/>
 ### 思维/Thinking/Observation
 540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking)  ](./code/540E.txt)<br/>
 1208D.[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)](./code/1208D.txt)<br/>
-977D.[ Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)<br/>   
-1355C.[ Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)<br/>   
+977D.[ Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)<br/> 
+1355C.[ Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)<br/> 
 1334C.[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)<br/>
 987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
 1519D. [Maximum Sum of Products	 (1600) (Observation)  ](./code/1519D.txt) <br/>
@@ -288,8 +288,7 @@ My Codeforce Practice<br/>
 1196E. [ Connected Component on a Chessboard (1800) (Chessboard + Constructive + Greedy)  ](./code/1196E.txt)   <br/>
 
 ### 差分
-1108E2. [Array and Segments (Hard version) (2100) (差分 + DP + Prefix)  ](./code/1108E2.txt)  <br/>  
-
+1108E2. [Array and Segments (Hard version) (2100) (差分 + DP + Prefix) ](./code/1108E2.txt)  <br/>
 174C. [Range Increments(1800) （差分 + Constructive） ](./code/174C.txt)   <br/>  
 
 ### Number Theory
@@ -298,15 +297,15 @@ My Codeforce Practice<br/>
 
 ### Combination
 1185G2. [Playlist for Polycarp (Hard version) (2600) (DP + Combination  )  ](./code/1185G2.txt)<br/>
-1516E. [ Baby Ehab Plays with Permutations (2500) (超难 Combination + DP + 容斥 + Permutation)  ](./code/1516E.txt)<br/> 
-1515E. [Phoenix and Computers	 (2200) (DP + Combination)  ](./code/1515E.txt)<br/>   
+1516E. [ Baby Ehab Plays with Permutations (2500) (超难 Combination + DP + 容斥 + Permutation)  ](./code/1516E.txt)<br/>
+1515E. [Phoenix and Computers	 (2200) (DP + Combination)  ](./code/1515E.txt)<br/> 
 1513E. [Cost Equilibrium (2300) （Observation + Combination） ](./code/1513E.txt)  <br/>
 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
 
 ### Graph 
-1196F. [ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt) <br/>  
+1196F. [ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt) <br/>
 1133F1. [Spanning Tree with Maximum Degree	 (1600) (Greedy + Graph)  ](./code/1133F1.txt) <br/> 
 1133F2. [Spanning Tree with One Fixed Degree	 (1900) (Greedy + Graph + UF + Strongly Connect)  ](./code/1133F2.txt) <br/>
 1472G. [Moving to the Capital		 (2100) ( Graph + DP) ](./code/1472G.txt)   <br/>
