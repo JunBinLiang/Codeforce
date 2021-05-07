@@ -249,6 +249,7 @@ My Codeforce Practice<br/>
 1472F. [New Year's Puzzle	 (2100) (DP) ](./code/1472F.txt)<br/>
 1513C. [Add One (1600) （DP） ](./code/1513C.txt)<br/>
 1517D. [Explorer Space (1800) （DP） ](./code/1517D.txt)<br/>
+977F. [Consecutive Subsequence (1700) (DP)  ](./code/977F.txt)<br/>
 
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>   
@@ -352,6 +353,9 @@ My Codeforce Practice<br/>
 
 ### Sparse Table
 1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
+
+### Segment Tree
+981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
 
 ### Binary Search
 1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
