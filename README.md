@@ -247,6 +247,7 @@ My Codeforce Practice<br/>
 
 ### Prefix DP
 1185D. [Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)   |2021/05/05|
+1278C. [  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt)   |2021/04/29|
 
 ### 树DP
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)
@@ -260,29 +261,43 @@ My Codeforce Practice<br/>
 
 ### 思维/Thinking/Observation
 540E. [Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)
-1208D. [ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)   |2021/04/29|
-977D. [Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)   |2021/04/24|
-1355C. [Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)   |2021/05/04|
+1208D. [ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)  
+977D. [Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)  
+1355C. [Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)   
+1334C. [ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)   |2021/04/28|
+987E. [ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)   |2021/04/26|
 
 ### 差分
-1108E2. [Array and Segments (Hard version)	 (2100) (差分 + DP + Prefix)  ](./code/1108E2.txt)   |2021/05/03|
+1108E2. [Array and Segments (Hard version)	 (2100) (差分 + DP + Prefix)  ](./code/1108E2.txt)   
 
 ### Combination
 1185G2. [Playlist for Polycarp (Hard version) (2600) (DP + Combination  )  ](./code/1185G2.txt)
-1516E. [ Baby Ehab Plays with Permutations (2500) (超难 Combination + DP + 容斥 + Permutation)  ](./code/1516E.txt)   |2021/04/28|
+1516E. [ Baby Ehab Plays with Permutations (2500) (超难 Combination + DP + 容斥 + Permutation)  ](./code/1516E.txt) 
+1515E.[Phoenix and Computers	 (2200) (DP + Combination)  ](./code/1515E.txt)   
+
+### 鸽子原理
+577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt)  
 
 ### Graph 
+1196F. [ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt)   
+1133F1. [Spanning Tree with Maximum Degree	 (1600) (Greedy + Graph)  ](./code/1133F1.txt)   
+1133F2. [Spanning Tree with One Fixed Degree	 (1900) (Greedy + Graph + UF + Strongly Connect)  ](./code/1133F2.txt)   
 
 ### Constructive 
-1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt)   |2021/05/05|
+1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt)  
 
 ### Brute Force
-1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt)   |2021/05/05|
+1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt)  
+1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) 
 
 
 ### TreeSet
-926J. [Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   |2021/05/07|
+926J. [Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   
 
 ### Fenwick Tree
+
+### String Algorithm
+126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) 
+
 
 
