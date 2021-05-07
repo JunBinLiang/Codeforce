@@ -242,10 +242,47 @@ My Codeforce Practice<br/>
 
 # 分类
 
+### DP
+1133E. [K Balanced Teams	 (1800) (DP)  ](./code/1133E.txt)   |2021/05/01|
+
+### Prefix DP
+1185D. [Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)   |2021/05/05|
+
 ### 树DP
-161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt) 
+161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)
+
+
+
 
 ### 贪心
 540B. [ School Marks  (1700) (Greedy )  ](./code/540B.txt)  
 1144G. [ Two Merged Sequences (2400) (Greedy) (Thumb)  ](./code/1144G.txt) 
+
+### 思维/Thinking/Observation
+540E. [Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)
+1208D. [ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)   |2021/04/29|
+977D. [Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)   |2021/04/24|
+1355C. [Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)   |2021/05/04|
+
+### 差分
+1108E2. [Array and Segments (Hard version)	 (2100) (差分 + DP + Prefix)  ](./code/1108E2.txt)   |2021/05/03|
+
+### Combination
+1185G2. [Playlist for Polycarp (Hard version) (2600) (DP + Combination  )  ](./code/1185G2.txt)
+1516E. [ Baby Ehab Plays with Permutations (2500) (超难 Combination + DP + 容斥 + Permutation)  ](./code/1516E.txt)   |2021/04/28|
+
+### Graph 
+
+### Constructive 
+1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt)   |2021/05/05|
+
+### Brute Force
+1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt)   |2021/05/05|
+
+
+### TreeSet
+926J. [Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   |2021/05/07|
+
+### Fenwick Tree
+
 
