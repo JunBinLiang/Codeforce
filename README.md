@@ -28,7 +28,7 @@ My Codeforce Practice<br/>
 |  1475G  |[Strange Beauty (1900) (Dp+打表) ](./code/1475G.txt)   |2021/02/18|
 |  1475E  |[Advertising Agency (1600) (Combination + Sort) ](./code/1475E.txt)   |2021/02/18|
 |  1475C  |[Ball in Berland (1400) (Math) ](./code/1475C.txt)   |2021/02/18|
-|  341E  |[Ball in Berland (2000) (Matrix Exponent + DP) ](./code/341E.txt)   |2021/02/19|
+|  621E  |[Wet Shark and Blocks (2000) (Matrix Exponent + DP) ](./code/341E.txt)   |2021/02/19|
 |  1469B  |[Red and Blue (1000) (Prefix) ](./code/1469B.txt)   |2021/02/19|
 |  608C  |[Chain Reaction (1600) (DP) ](./code/608C.txt)   |2021/02/19|
 |  1475D  |[Cleaning the Phone (1800) (Binary Search + Sort) ](./code/1475D.txt)   |2021/02/19|
@@ -246,6 +246,7 @@ My Codeforce Practice<br/>
 1133E.[K Balanced Teams	 (1800) (DP)  ](./code/1133E.txt)<br/>
 1110D [Jongmah (2200) （DP + Greedy） ](./code/1110D.txt)  <br/>
 176B. [Word Cut (1700) (DP + Observation) ](./code/176B.txt)   <br/>
+1472F. [New Year's Puzzle	 (2100) (DP) ](./code/1472F.txt)   |2021/02/24|
 
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>   
@@ -260,6 +261,9 @@ My Codeforce Practice<br/>
 ### 区间DP
 1509C. [The Sports Festival (1800) (DP) ](./code/1509C.txt)  <br/>
 
+### Matrix
+621E. [Wet Shark and Blocks (2000) (Matrix Exponent + DP) ](./code/341E.txt)   <br/>
+
 
 ### 贪心
 540B. [ School Marks  (1700) (Greedy )  ](./code/540B.txt)  <br/>
@@ -269,7 +273,7 @@ My Codeforce Practice<br/>
 
 ### 思维/Thinking/Observation
 540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking)  ](./code/540E.txt)<br/>
-1208D.[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)](./code/1208D.txt)
+1208D.[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)](./code/1208D.txt)<br/>
 977D.[Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)<br/>   
 1355C.[Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)<br/>   
 1334C.[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)<br/>
@@ -285,6 +289,7 @@ My Codeforce Practice<br/>
 
 ### 差分
 1108E2. [Array and Segments (Hard version)	 (2100) (差分 + DP + Prefix)  ](./code/1108E2.txt) <br/>  
+174C. [Range Increments(1800) （差分 + Constructive） ](./code/174C.txt)   <br/>  
 
 ### Number Theory
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
@@ -303,6 +308,7 @@ My Codeforce Practice<br/>
 1196F. [ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt) <br/>  
 1133F1. [Spanning Tree with Maximum Degree	 (1600) (Greedy + Graph)  ](./code/1133F1.txt) <br/> 
 1133F2. [Spanning Tree with One Fixed Degree	 (1900) (Greedy + Graph + UF + Strongly Connect)  ](./code/1133F2.txt) <br/>
+1472G. [Moving to the Capital		 (2100) ( Graph + DP) ](./code/1472G.txt)   <br/>
 
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   |2021/04/12|
@@ -314,6 +320,8 @@ My Codeforce Practice<br/>
 237E. [Build String (2000) （Minimum Cost Max Flow ） ](./code/237E.txt)   |2021/04/16|
 
 ### 2-Sat
+776D. [The Door Problem (2000) (2 Sat) ](https://github.com/JunBinLiang/Leetcode-Complete-Guide/blob/master/code/776D.txt)   |2021/02/18|
+1475F. [Unusual Matrix (1900) (2 Sat) ](./code/1475F.txt)   |2021/02/18|
 
 ### Constructive 
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
@@ -322,7 +330,8 @@ My Codeforce Practice<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
-1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/> 
+1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
+910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   |2021/04/11|
 
 
 ### TreeSet
