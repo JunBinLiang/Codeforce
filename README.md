@@ -243,5 +243,9 @@ My Codeforce Practice<br/>
 # 分类
 
 ### 树DP
-|  161D  |[Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)   |2021/05/06|
+[161D Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt) 
+
+### 贪心
+[540B School Marks  (1700) (Greedy )  ](./code/540B.txt)  
+[1144G Two Merged Sequences (2400) (Greedy) (Thumb)  ](./code/1144G.txt) 
 
