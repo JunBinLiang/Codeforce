@@ -1,0 +1,175 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int k=Int(),p=Int(),x=Int(),y=Int();
+            int A[]=new int[k];
+            for(int i=0;i<k;i++){
+                A[i]=Int();
+            }
+
+
+
+            Solution sol=new Solution(out);
+            sol.solution(A,n,p,x,y);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(int A[],int n,int p,int total,int median){
+        // add n-k elements
+        int cnt1=0,cnt2=0;int sum=0;
+        int a=n/2;int b=n-a;
+        for(int i:A){
+            sum+=i;
+            if(i<median)cnt1++;
+            else cnt2++;
+        }
+
+        if(cnt1>a){
+            out.println(-1);
+            return;
+        }
+
+        List<Integer>res=new ArrayList<>();
+
+        while(cnt1<a&&cnt1+cnt2<n){
+            cnt1++;
+            res.add(1);
+            sum++;
+        }
+
+        int need=n-cnt1-cnt2;
+        for(int i=0;i<need;i++){
+            sum+=median;
+            res.add(median);
+        }
+
+        if(sum<=total){
+            print(res);
+        }
+        else{
+            out.println(-1);
+        }
+
+
+
+    }
+
+    public void print(List<Integer>list){
+        for(int i:list)out.print(i+" ");
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
