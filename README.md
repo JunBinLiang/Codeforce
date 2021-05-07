@@ -258,15 +258,15 @@ My Codeforce Practice<br/>
 ### 贪心
 540B. [ School Marks  (1700) (Greedy )  ](./code/540B.txt)  <br/>
 1144G. [ Two Merged Sequences (2400) (Greedy) (Thumb)  ](./code/1144G.txt) <br/>
-1203F1. [Complete the Projects (easy version) (2100) (Greedy + Sort) (Thump)  ](./code/1203F1.txt)   <br/>
-1508A. [Binary Literature (1900) (Greedy) (Thumb) ](./code/1508A.txt)   |2021/04/24|
+1203F1. [Complete the Projects (easy version) (2100) (Greedy + Sort) (Thump)  ](./code/1203F1.txt)<br/>
+1508A. [Binary Literature (1900) (Greedy) (Thumb) ](./code/1508A.txt)<br/>
 
 ### 思维/Thinking/Observation
 540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)<br/>
 1208D.[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)<br/>  
 977D.[Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)<br/>  
 1355C.[Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)<br/>   
-1334C.[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt) <br/>
+1334C.[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)<br/>
 987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
 
 ### 差分
@@ -281,9 +281,9 @@ My Codeforce Practice<br/>
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
 
 ### Graph 
-1196F. [ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt) <br/>  
-1133F1. [Spanning Tree with Maximum Degree	 (1600) (Greedy + Graph)  ](./code/1133F1.txt)  <br/> 
-1133F2. [Spanning Tree with One Fixed Degree	 (1900) (Greedy + Graph + UF + Strongly Connect)  ](./code/1133F2.txt)   <br/>
+1196F. [ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt)<br/>  
+1133F1. [Spanning Tree with Maximum Degree	 (1600) (Greedy + Graph)  ](./code/1133F1.txt)<br/> 
+1133F2. [Spanning Tree with One Fixed Degree	 (1900) (Greedy + Graph + UF + Strongly Connect)  ](./code/1133F2.txt)<br/>
 
 ### Constructive 
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
