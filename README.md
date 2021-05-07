@@ -248,6 +248,7 @@ My Codeforce Practice<br/>
 176B. [Word Cut (1700) (DP + Observation) ](./code/176B.txt)   <br/>
 1472F. [New Year's Puzzle	 (2100) (DP) ](./code/1472F.txt)<br/>
 1513C. [Add One (1600) （DP） ](./code/1513C.txt)<br/>
+1517D. [Explorer Space (1800) （DP） ](./code/1517D.txt)<br/>
 
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>   
