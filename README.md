@@ -270,7 +270,7 @@ My Codeforce Practice<br/>
 ### 思维/Thinking/Observation
 540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking)  ](./code/540E.txt)<br/>
 1208D.[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)](./code/1208D.txt)<br/>  
-977D.[Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)<br/>  
+977D.[Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)
 1355C.[Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)<br/>   
 1334C.[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)<br/>
 987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
@@ -343,7 +343,7 @@ My Codeforce Practice<br/>
 1514D. [Cut and Stick (2000) (Greedy + 莫队 + Update max) ](./code/1514D.txt)  <br/>
 
 ### Bit
- 1174D.[Ehab and the Expected XOR Problem (1900) (bit + Thinking + Prefix )  ](./code/1174D.txt) <br/>
- 1513B. [AND Sequences (1400) （Bit + Greedy + Combination） ](./code/1513B.txt)  <br/>
- 1338B. [Edge Weight Assignment (1800) （Greedy + Bit + Tree） ](./code/1338B.txt)   <br/>
+1174D.[Ehab and the Expected XOR Problem (1900) (bit + Thinking + Prefix )  ](./code/1174D.txt) <br/>
+1513B. [AND Sequences (1400) （Bit + Greedy + Combination） ](./code/1513B.txt)  <br/>
+1338B. [Edge Weight Assignment (1800) （Greedy + Bit + Tree） ](./code/1338B.txt)   <br/>
 
