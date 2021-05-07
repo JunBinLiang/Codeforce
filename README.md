@@ -344,6 +344,7 @@ My Codeforce Practice<br/>
 
 ### Binary Search
 1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
+1177B. [Digits Sequence (Hard Edition) (1800) (Binary Search + Math) ](./code/1177B.txt)  <br/>
 
 ### String Algorithm
 126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) <br/>
