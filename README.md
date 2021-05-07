@@ -311,18 +311,18 @@ My Codeforce Practice<br/>
 1472G. [Moving to the Capital		 (2100) ( Graph + DP) ](./code/1472G.txt)   <br/>
 
 ### Direct Graph Cycle
-1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   |2021/04/12|
+1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
 
 ### Shortest Path
 416E. [President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   <br/>
 1486E. [ Paired Payment (2200) （Graph + SPFA） ](./code/1486E.txt)   <br/>
 
 ### Min Cost Maximum Flow
-237E. [Build String (2000) （Minimum Cost Max Flow ） ](./code/237E.txt)   |2021/04/16|
+237E. [Build String (2000) （Minimum Cost Max Flow ） ](./code/237E.txt)    <br/>
 
 ### 2-Sat
-776D. [The Door Problem (2000) (2 Sat) ](https://github.com/JunBinLiang/Leetcode-Complete-Guide/blob/master/code/776D.txt)   |2021/02/18|
-1475F. [Unusual Matrix (1900) (2 Sat) ](./code/1475F.txt)   |2021/02/18|
+776D. [The Door Problem (2000) (2 Sat) ](https://github.com/JunBinLiang/Leetcode-Complete-Guide/blob/master/code/776D.txt)    <br/>
+1475F. [Unusual Matrix (1900) (2 Sat) ](./code/1475F.txt)    <br/>
 
 ### Constructive 
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
@@ -361,5 +361,5 @@ My Codeforce Practice<br/>
 1338B. [Edge Weight Assignment (1800) （Greedy + Bit + Tree） ](./code/1338B.txt)   <br/>
 
 ### Divide Conquer
-652D. [Nested Segments (1800) （Sort + Divide Conquer + Thinking） ](./code/652D.txt)   |2021/04/14|
+652D. [Nested Segments (1800) （Sort + Divide Conquer + Thinking） ](./code/652D.txt)   <br/> 
 
