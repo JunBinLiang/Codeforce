@@ -283,6 +283,7 @@ My Codeforce Practice<br/>
 1519D. [Maximum Sum of Products	 (1600) (Observation)  ](./code/1519D.txt) <br/>
 176B. [Word Cut (1700) (DP + Observation) ](./code/176B.txt)<br/>
 1156B. [Ugly Pair	 (1800) (Greedy) ](./code/1156B.txt)<br/>
+1468H. [K and Medians	 (2200) (Greedy + Reverse Thinking) ](./code/1468H.txt)<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
@@ -367,6 +368,7 @@ My Codeforce Practice<br/>
 1174D.[Ehab and the Expected XOR Problem (1900) (bit + Thinking + Prefix )  ](./code/1174D.txt) <br/>
 1513B. [AND Sequences (1400) （Bit + Greedy + Combination） ](./code/1513B.txt)  <br/>
 1338B. [Edge Weight Assignment (1800) （Greedy + Bit + Tree） ](./code/1338B.txt)   <br/>
+1234D. [Distinct Characters Queriese (1600) (TreeSet) ](./code/1234D.txt)<br/>
 
 ### Divide Conquer
 652D. [Nested Segments (1800) （Sort + Divide Conquer + Thinking） ](./code/652D.txt)   <br/> 
