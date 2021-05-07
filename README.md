@@ -288,7 +288,8 @@ My Codeforce Practice<br/>
 1196E. [ Connected Component on a Chessboard (1800) (Chessboard + Constructive + Greedy)  ](./code/1196E.txt)   <br/>
 
 ### 差分
-1108E2. [Array and Segments (Hard version)	 (2100) (差分 + DP + Prefix)  ](./code/1108E2.txt) <br/>  
+1108E2. [Array and Segments (Hard version) (2100) (差分 + DP + Prefix)  ](./code/1108E2.txt)  <br/>  
+
 174C. [Range Increments(1800) （差分 + Constructive） ](./code/174C.txt)   <br/>  
 
 ### Number Theory
