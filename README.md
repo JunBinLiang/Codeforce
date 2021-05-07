@@ -237,3 +237,4 @@ My Codeforce Practice<br/>
 |  161D  |[Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)   |2021/05/06|
 |  926J  |[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   |2021/05/07|
 |  540E  |[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)   |2021/05/07|
+|  540B  |[School Marks  (1700) (Greedy )  ](./code/540B.txt)   |2021/05/07|
