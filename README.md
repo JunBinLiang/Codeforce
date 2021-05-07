@@ -257,8 +257,10 @@ My Codeforce Practice<br/>
 
 ### 贪心
 540B. [ School Marks  (1700) (Greedy )  ](./code/540B.txt)  <br/>
-1144G. [ Two Merged Sequences (2400) (Greedy) (Thumb)  ](./code/1144G.txt) 
-<br/>
+1144G. [ Two Merged Sequences (2400) (Greedy) (Thumb)  ](./code/1144G.txt) <br/>
+1203F1. [Complete the Projects (easy version) (2100) (Greedy + Sort) (Thump)  ](./code/1203F1.txt)   <br/>
+1508A. [Binary Literature (1900) (Greedy) (Thumb) ](./code/1508A.txt)   |2021/04/24|
+
 ### 思维/Thinking/Observation
 540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)<br/>
 1208D.[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)<br/>  
