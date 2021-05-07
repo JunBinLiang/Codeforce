@@ -313,6 +313,7 @@ My Codeforce Practice<br/>
 1133F1. [Spanning Tree with Maximum Degree	 (1600) (Greedy + Graph)  ](./code/1133F1.txt) <br/> 
 1133F2. [Spanning Tree with One Fixed Degree	 (1900) (Greedy + Graph + UF + Strongly Connect)  ](./code/1133F2.txt) <br/>
 1472G. [Moving to the Capital		 (2100) ( Graph + DP) ](./code/1472G.txt)   <br/>
+1334D. [ Minimum Euler Cycle (1800) (Graph + Greedy + Constructive + Math)  ](./code/1334D.txt)<br/>
 
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
