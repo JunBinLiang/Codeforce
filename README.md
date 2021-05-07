@@ -378,6 +378,6 @@ My Codeforce Practice<br/>
 
 ### Divide Conquer
 652D. [Nested Segments (1800) （Sort + Divide Conquer + Thinking） ](./code/652D.txt)   <br/> 
-1156E. [Special Segments of Permutation (2200) (Divide Conquer + Segment Tree) ](./code/1156E.txt)<br/>
+1156E. [Special Segments of Permutation (2200) (Divide Conquer + Segment Tree) (Thumb) ](./code/1156E.txt)<br/>
 
 
