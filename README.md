@@ -268,14 +268,14 @@ My Codeforce Practice<br/>
 1508A. [Binary Literature (1900) (Greedy) (Thumb) ](./code/1508A.txt)<br/>
 
 ### 思维/Thinking/Observation
-540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)<br/>
-1208D.[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)  ](./code/1208D.txt)<br/>  
+540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking)  ](./code/540E.txt)<br/>
+1208D.[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)](./code/1208D.txt)<br/>  
 977D.[Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)<br/>  
 1355C.[Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)<br/>   
 1334C.[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)<br/>
 987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
 1519D. [Maximum Sum of Products	 (1600) (Observation)  ](./code/1519D.txt) <br/>
-176B. [Word Cut (1700) (DP + Observation) ](./code/176B.txt)   <br/>
+176B. [Word Cut (1700) (DP + Observation) ](./code/176B.txt)<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
