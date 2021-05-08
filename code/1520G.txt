@@ -1,0 +1,200 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int w=Int();
+            int A[][]=new int[n][m];
+
+            for(int i=0;i<n;i++){
+                for(int j=0;j<m;j++){
+                    A[i][j]=Int();
+                }
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,w);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    int dir[][]=new int[][]{{0,1},{0,-1},{1,0},{-1,0}};
+    int A[][];int w;
+    long INF=Long.MAX_VALUE;
+    public void solution(int A[][],int w){
+        this.A=A;
+        this.w=w;
+        long res= Long.MAX_VALUE;
+        int n=A.length,m=A[0].length;
+        long dis1[][]=new long[A.length][A[0].length];//from start
+        long dis2[][]=new long[A.length][A[0].length];//from end
+
+        for(int i=0;i<dis1.length;i++){
+            Arrays.fill(dis1[i], INF);
+            Arrays.fill(dis2[i],INF);
+        }
+
+        bfs(0,0,dis1);
+        bfs(A.length-1,A[0].length-1,dis2);
+        res=dis2[0][0];
+
+
+        long mn=Long.MAX_VALUE;
+        int r=-1,c=-1;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]!=-1&&A[i][j]!=0){//portal
+                    if(dis2[i][j]!=INF){//reachble
+                        if(dis2[i][j]+A[i][j]<mn){
+                            mn=dis2[i][j]+A[i][j];
+                            r=i;
+                            c=j;
+                        }
+                    }
+                }
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]!=0&&A[i][j]!=-1&&dis1[i][j]!=INF&&mn!=INF){
+                    res=Math.min(res,dis1[i][j]+A[i][j]+mn);
+                }
+            }
+        }
+
+        if(res==INF)res=-1;
+        out.println(res);
+    }
+
+
+    public void bfs(int x,int y,long dis[][]){
+        Queue<int[]>q=new LinkedList<>();
+        q.add(new int[]{x,y});
+        dis[x][y]=0;
+        while(q.size()>0){
+            int pos[]=q.poll();
+            int r=pos[0],c=pos[1];
+            for(int p[]:dir){
+                int newr=r+p[0],newc=c+p[1];
+                if(newr<0||newr>=A.length||newc<0||newc>=A[0].length){
+                    continue;
+                }
+                if(A[newr][newc]!=-1&&dis[r][c]+w<dis[newr][newc]){
+                    dis[newr][newc]=dis[r][c]+w;
+                    q.add(new int[]{newr,newc});
+                }
+            }
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
