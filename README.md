@@ -238,6 +238,8 @@ My Codeforce Practice<br/>
 |  926J  |[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   |2021/05/07|
 |  540E  |[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)   |2021/05/07|
 |  540B  |[School Marks  (1700) (Greedy )  ](./code/540B.txt)   |2021/05/07|
+|  1520G  |[To Go Or Not To Go?  (2200) (Graph + Shortest Path )  ](./code/1520G.txt)   |2021/05/08|
+
 
 
 # 分类
@@ -322,6 +324,7 @@ My Codeforce Practice<br/>
 ### Shortest Path
 416E. [President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   <br/>
 1486E. [ Paired Payment (2200) （Graph + SPFA） ](./code/1486E.txt)   <br/>
+1520G. [To Go Or Not To Go?  (2200) (Graph + Shortest Path )  ](./code/1520G.txt)<br/>
 
 ### Min Cost Maximum Flow
 237E. [Build String (2000) （Minimum Cost Max Flow ） ](./code/237E.txt)    <br/>
