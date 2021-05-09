@@ -1,0 +1,147 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int a=Int(),b=Int(),c=Int();
+            Solution sol=new Solution(out);
+            sol.solution(a,b,c);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    double dp[][][]=new double[101][101][101];
+    public void solution(int a,int b,int c){
+        //a->b b->c c->a
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++){
+                Arrays.fill(dp[i][j],-1);
+            }
+        }
+        out.println(dfs(a,b,c)+" "+dfs(b,c,a)+" "+dfs(c,a,b));
+    }
+
+    public double dfs(int a,int b,int c){
+        if(a<=0||b<0||c<0)return 0;
+        if(a>0&&b==0&&c==0)return 1.0;
+        if(dp[a][b][c]!=-1)return dp[a][b][c];
+        double res=0.0;
+
+
+        double cnt1=a*b+b*c+a*c;
+
+        res+=(a*b*dfs(a,b-1,c)+a*c*dfs(a-1,b,c)+b*c*dfs(a,b,c-1))/cnt1;
+        dp[a][b][c]=res;
+        return res;
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
