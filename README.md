@@ -241,6 +241,7 @@ My Codeforce Practice<br/>
 |  1520G  |[To Go Or Not To Go?  (2200) (Graph + Shortest Path )  ](./code/1520G.txt)   |2021/05/08|
 |  1217C  |[The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)   |2021/05/08|
 |  540D  |[Bad Luck Island (1900) (DP)  ](./code/540D.txt)   |2021/05/08|
+|  1359  |[Yet Another Yet Another Task (2000) (Brute Force)  ](./code/1359.txt)   |2021/05/09|
 
 # 分类
 
@@ -350,7 +351,7 @@ My Codeforce Practice<br/>
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   |2021/04/11|
 1500A. [Going Home (1800) （Brute Force） ](./code/1500A.txt)<br/>
 1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
-
+1359. [Yet Another Yet Another Task  (2000) (Brute Force )  ](./code/1359.txt)<br/>
 
 ### TreeSet
 926J.[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   <br/>
