@@ -1,0 +1,156 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int k=Int();
+            Solution sol=new Solution(out);
+            sol.solution(n,k);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    int mod=998244353;
+    public void solution(int n,int k){
+        //len k
+        //a = [1:n]
+        long f[]=new long[n+10];
+        f[0]=f[1]=1;
+        for(int i=2;i<f.length;i++){
+            f[i]=f[i-1]*i;
+            f[i]%=mod;
+        }
+
+        long res=0;
+        for(int i=1;i<=n;i++){
+            int cnt=0;
+            for(int j=i;j<=n;j+=i){
+                cnt++;
+            }
+            if(cnt<k)continue;
+            res+=C(f,cnt-1,k-1);
+            res%=mod;
+        }
+        out.println(res);
+    }
+
+
+    public long C(long fact[],int i,int j){ // C(20,3)=20!/(17!*3!)
+        if(j==0)return 1;
+        long mod=998244353;
+        long a=fact[i];
+        long b=((fact[i-j]%mod)*(fact[j]%mod))%mod;
+        BigInteger B= BigInteger.valueOf(b);
+        long binverse=B.modInverse(BigInteger.valueOf(mod)).longValue();
+        return ((a)*(binverse%mod))%mod;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
