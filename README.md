@@ -241,7 +241,8 @@ My Codeforce Practice<br/>
 |  1520G  |[To Go Or Not To Go?  (2200) (Graph + Shortest Path )  ](./code/1520G.txt)   |2021/05/08|
 |  1217C  |[The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)   |2021/05/08|
 |  540D  |[Bad Luck Island (1900) (DP)  ](./code/540D.txt)   |2021/05/08|
-|  1359  |[Yet Another Yet Another Task (2000) (Brute Force)  ](./code/1359.txt)   |2021/05/09|
+|  1359D  |[Yet Another Yet Another Task (2000) (Brute Force)  ](./code/1359D.txt)   |2021/05/09|
+|  1359E  |[Modular Stability (2000) (Thinking + Number Theory + Combination)  ](./code/1359E.txt)   |2021/05/09|
 
 # 分类
 
@@ -305,6 +306,7 @@ My Codeforce Practice<br/>
 ### Number Theory
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
 1512G. [Short Task (1700) （Brute Force + 打表） ](./code/1512G.txt)   <br/>
+1359E.[Modular Stability (2000) (Thinking + Number Theory + Combination)  ](./code/1359E.txt)<br/>
 
 ### Combination
 1185G2. [Playlist for Polycarp (Hard version) (2600) (DP + Combination  )  ](./code/1185G2.txt)<br/>
