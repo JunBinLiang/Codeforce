@@ -239,7 +239,7 @@ My Codeforce Practice<br/>
 |  540E  |[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)   |2021/05/07|
 |  540B  |[School Marks  (1700) (Greedy )  ](./code/540B.txt)   |2021/05/07|
 |  1520G  |[To Go Or Not To Go?  (2200) (Graph + Shortest Path )  ](./code/1520G.txt)   |2021/05/08|
-
+|  1217C  |[The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)   |2021/05/08|
 
 
 # 分类
@@ -346,6 +346,7 @@ My Codeforce Practice<br/>
 1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   |2021/04/11|
 1500A. [Going Home (1800) （Brute Force） ](./code/1500A.txt)<br/>
+1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
 
 
 ### TreeSet
