@@ -240,7 +240,7 @@ My Codeforce Practice<br/>
 |  540B  |[School Marks  (1700) (Greedy )  ](./code/540B.txt)   |2021/05/07|
 |  1520G  |[To Go Or Not To Go?  (2200) (Graph + Shortest Path )  ](./code/1520G.txt)   |2021/05/08|
 |  1217C  |[The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)   |2021/05/08|
-
+|  540D  |[Bad Luck Island (1900) (DP)  ](./code/540D.txt)   |2021/05/08|
 
 # 分类
 
@@ -265,6 +265,9 @@ My Codeforce Practice<br/>
 
 ### 区间DP
 1509C. [The Sports Festival (1800) (DP) ](./code/1509C.txt)  <br/>
+
+## 概率DP
+540D. [Bad Luck Island (1900) (DP)  ](./code/540D.txt)<br/>
 
 ### Matrix
 621E. [Wet Shark and Blocks (2000) (Matrix Exponent + DP) ](./code/341E.txt)   <br/>
