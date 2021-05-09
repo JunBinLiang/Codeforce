@@ -347,10 +347,12 @@ My Codeforce Practice<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
-1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   |2021/04/11|
 1500A. [Going Home (1800) （Brute Force） ](./code/1500A.txt)<br/>
 1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
+
+### 枚举 (暴力)
+1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
 1359. [Yet Another Yet Another Task  (2000) (Brute Force )  ](./code/1359.txt)<br/>
 
 ### TreeSet
