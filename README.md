@@ -254,7 +254,7 @@ My Codeforce Practice<br/>
 977F. [Consecutive Subsequence (1700) (DP)  ](./code/977F.txt)<br/>
 
 ### Prefix DP
-1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>   
+1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
 1278C.[  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt) <br/>  
 
 ### 树DP
