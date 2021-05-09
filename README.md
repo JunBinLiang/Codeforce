@@ -355,7 +355,7 @@ My Codeforce Practice<br/>
 
 ### 枚举 (暴力)
 1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
-1359. [Yet Another Yet Another Task  (2000) (Brute Force )  ](./code/1359.txt)<br/>
+1359D. [Yet Another Yet Another Task  (2000) (Brute Force )  ](./code/1359D.txt)<br/>
 
 ### TreeSet
 926J.[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   <br/>
