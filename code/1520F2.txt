@@ -1,0 +1,231 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol=new Solution(out);
+            sol.solution();
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(){//101101
+        Scanner in=new Scanner(System.in);
+        int n=in.nextInt();int t=in.nextInt();
+        int A[]=null;
+        FenWick fen=null;
+        List<int[]>block=new ArrayList<>();
+
+        for(int j=0;j<t;j++){
+            int k=in.nextInt();
+            if(j==0){
+                int i=1;
+                while(i<=n){
+                    System.out.println("? "+i+" "+Math.min(i+19,n));
+                    int sum=in.nextInt();
+                    int size=Math.min(i+19,n)-i+1;
+                    block.add(new int[]{size-sum,i,Math.min(i+19,n)});
+                    i+=20;
+                }
+                A=new int[block.size()];
+                for(int x=0;x<A.length;x++){
+                    A[x]=block.get(x)[0];
+                }
+                fen =new FenWick(A);
+
+
+            }
+
+
+            int l=0,r=A.length-1;
+            int pos=-1;
+            while(l<=r){
+                int mid=l+(r-l)/2;
+                int sum=fen.sumRange(0,mid);
+                if(sum>=k){
+                    pos=mid;
+                    r=mid-1;
+                }
+                else{
+                    l=mid+1;
+                }
+            }
+            if(pos==-1){
+                System.out.println("! -1");
+            }
+            else{
+                int pair[]=block.get(pos);
+                int pre=0;
+                if(pos-1>=0){
+                    pre+=fen.sumRange(0,pos-1);
+                }
+                l=pair[1];r=pair[2];
+                int ll=l;
+                int res=-1;
+                while(l<=r){
+                    int mid=l+(r-l)/2;
+                    System.out.println("? "+ll+" "+mid);
+                    int sum=in.nextInt();
+                    int zero=(mid-ll+1)-sum;
+                    if(zero+pre>=k){
+                        res=mid;
+                        r=mid-1;
+                    }
+                    else{
+                        l=mid+1;
+                    }
+                }
+                System.out.println("! "+res);
+                fen.update(pos,-1);
+            }
+        }
+
+    }
+
+
+
+}
+
+class FenWick {
+    int tree[];//1-index based
+    int A[];
+    int arr[];
+    public FenWick(int[] A) {
+        this.A=A;
+        arr=new int[A.length];
+        tree=new int[A.length+1];
+        int sum=0;
+        for(int i=0;i<A.length;i++){
+            update(i,A[i]);
+        }
+    }
+
+    public void update(int i, int val) {
+        arr[i]=+val;
+        i++;
+        while(i<tree.length){
+            tree[i]+=val;
+            i+=(i&-i);
+        }
+    }
+
+    public int sumRange(int i, int j) {
+        return pre(j+1)-pre(i);
+    }
+
+    public int pre(int i){
+        int sum=0;
+        while(i>0){
+            sum+=tree[i];
+            i-=(i&-i);
+        }
+        return sum;
+    }
+}
+
+
+
+
+
+
+//101101
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
