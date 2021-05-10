@@ -1,0 +1,44 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,t;
+    cin>>n>>t;
+    while(t--){
+        int k;
+        cin>>k;//find the kth zero
+        
+        int res=-1;
+        
+        int l=1,r=n;
+        while(l<=r){
+            int mid=l+(r-l)/2;
+            cout<<"? "<<1<<" "<<mid<<endl;
+            int sum;
+            cin>>sum;
+            int cnt=mid;
+            int zero=cnt-sum;
+            
+            if(zero<k){
+                l=mid+1;
+            }
+            else{
+                res=mid;
+                r=mid-1;
+            }
+        }
+        cout<<"! "<<res<<endl;
+    }
+
+    return 0;
+}
