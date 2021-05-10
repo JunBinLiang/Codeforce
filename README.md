@@ -244,6 +244,7 @@ My Codeforce Practice<br/>
 |  1359D  |[Yet Another Yet Another Task (2000) (Brute Force)  ](./code/1359D.txt)   |2021/05/09|
 |  1359E  |[Modular Stability (2000) (Thinking + Number Theory + Combination)  ](./code/1359E.txt)   |2021/05/09|
 |  1520F1  |[Guess the K-th Zero (Easy version) (1600) (Binary Search)  ](./code/1520F1.txt)   |2021/05/10|
+|  1520F2  |[Guess the K-th Zero (Hard version) (2200) (Binary Search+ Divide Conquer)  ](./code/1520F2.txt)   |2021/05/10|
 
 # 分类
 
@@ -393,6 +394,7 @@ My Codeforce Practice<br/>
 652D. [Nested Segments (1800) （Sort + Divide Conquer + Thinking） ](./code/652D.txt)   <br/> 
 1156E. [Special Segments of Permutation (2200) (Divide Conquer + Segment Tree) (Thumb) ](./code/1156E.txt)<br/>
 888E. [ Maximum Subsequence (1800) （Divide Conquer + Meet in Middle ） ](./code/888E.txt)<br/>
+1520F2. [Guess the K-th Zero (Hard version) (2200) (Binary Search+ Divide Conquer)  ](./code/1520F2.txt)<br/>
 
 ### Interactive
 1520F1. [Guess the K-th Zero (Easy version) (1600) (Binary Search)  ](./code/1520F1.txt)<br/>
