@@ -245,6 +245,7 @@ My Codeforce Practice<br/>
 |  1359E  |[Modular Stability (2000) (Thinking + Number Theory + Combination)  ](./code/1359E.txt)   |2021/05/09|
 |  1520F1  |[Guess the K-th Zero (Easy version) (1600) (Binary Search)  ](./code/1520F1.txt)   |2021/05/10|
 |  1520F2  |[Guess the K-th Zero (Hard version) (2200) (Binary Search+ Divide Conquer)  ](./code/1520F2.txt)   |2021/05/10|
+|  1354D  |[Multiset (1900) (Fenwick Tree)  ](./code/1354D.txt)   |2021/05/10|
 
 # 分类
 
@@ -364,6 +365,7 @@ My Codeforce Practice<br/>
 
 ### Fenwick Tree
 1364C. [Ehab and Prefix MEXs	 (1600) (Greedy + BIT) ](./code/1364C.txt)<br/>
+1354D.[Multiset (1900) (Fenwick Tree)  ](./code/1354D.txt)<br/>
 
 ### Sparse Table
 1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
