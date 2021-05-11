@@ -248,6 +248,7 @@ My Codeforce Practice<br/>
 |  1354D  |[Multiset (1900) (Fenwick Tree)  ](./code/1354D.txt)   |2021/05/10|
 |  1354E |[ Graph Coloring (2100) (DP + Bipartite Graph)  ](./code/1354E.txt)   |2021/05/11|
 |  1473E |[ Minimum Path (2400) (Shortest Path)  ](./code/1473E.txt)   |2021/05/11|
+|  1295D |[ ame GCDs (1800) (GCD + Euler)  ](./code/1295D.txt)   |2021/05/11|
 
 # 分类
 
@@ -312,6 +313,9 @@ My Codeforce Practice<br/>
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
 1512G. [Short Task (1700) （Brute Force + 打表） ](./code/1512G.txt)   <br/>
 1359E.[Modular Stability (2000) (Thinking + Number Theory + Combination)  ](./code/1359E.txt)<br/>
+
+### 欧拉定理
+1295D.[ ame GCDs (1800) (GCD + Euler)  ](./code/1295D.txt)<br/>
 
 ### Combination
 1185G2. [Playlist for Polycarp (Hard version) (2600) (DP + Combination  )  ](./code/1185G2.txt)<br/>
