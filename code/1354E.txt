@@ -1,0 +1,270 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int(),m=Int();
+            int a=Int(),b=Int(),c=Int();
+            int edges[][]=new int[m][2];
+            for(int i=0;i<edges.length;i++){
+                edges[i][0]=Int()-1;
+                edges[i][1]=Int()-1;
+            }
+            Solution sol=new Solution(out);
+            sol.solution(n,a,b,c,edges);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    List<Integer>graph[];
+    int colors[];
+    boolean bad=false;
+    List<List<Integer>>list=new ArrayList<>();
+    int a,b,c;
+    boolean dp[][];
+    int path[][];
+    int cnt=0;
+    public void solution(int n,int a,int b,int c,int edges[][]){
+        this.a=a;this.b=b;this.c=c;
+        graph=new ArrayList[n];
+        colors=new int[n];
+        Arrays.fill(colors,-1);
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int e[]:edges){
+            int u=e[0],v=e[1];
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+
+        for(int i=0;i<n;i++){
+            if(colors[i]==-1){
+                List<Integer>A=new ArrayList<>();
+                List<Integer>B=new ArrayList<>();
+                dfs(i,0,A,B);
+                list.add(A);
+                list.add(B);
+
+            }
+        }
+
+
+        if(bad){
+            NO();
+            return;
+        }
+
+
+        dp=new boolean[list.size()/2+1][b+1];
+        path=new int[list.size()/2+1][b+1];
+        dp[0][0]=true;
+        for(int i=0;i<list.size()/2;i++){
+            int aa=list.get(i*2).size();
+            int bb=list.get(i*2+1).size();
+            for(int j=0;j<=b;j++){
+                if(j-aa>=0){
+                    dp[i+1][j]|=dp[i][j-aa];
+                    if(dp[i][j-aa]){
+                        path[i+1][j]=i*2;
+                    }
+
+                }
+                if(j-bb>=0){
+                    dp[i+1][j]|=dp[i][j-bb];
+                    if(dp[i][j-bb]){
+                        path[i+1][j]=i*2+1;
+                    }
+                }
+            }
+        }
+
+
+
+
+        if(!dp[list.size()/2][b]){
+            NO();
+            return;
+        }
+
+        int res[]=new int[n];
+        int i=list.size()/2;
+        int j=b;
+        Set<Integer>set=new HashSet<>();
+        while(j>0){
+            List<Integer>sub=list.get(path[i][j]);
+            set.add(path[i][j]);
+            for(int index:sub)res[index]=2;
+            j-=sub.size();
+            i--;
+        }
+
+        for(i=0;i<list.size();i++){
+            if(set.contains(i))continue;
+            List<Integer>A=list.get(i);
+            for(int index:A){
+                if(a>0){
+                    res[index]=1;a--;
+                }
+                else{
+                    res[index]=3;
+                }
+            }
+        }
+
+
+        out.println("YES");
+        for(int x:res)out.print(x);
+        out.println();
+    }
+
+
+    /*public boolean dfs1(int n,int i){
+        if(i>=list.size()/2){
+            if(n==0)return true;
+            else return false;
+        }
+        if(n<0)return false;
+
+        if(dp[n][i][0])return dp[n][i][1];
+        boolean a=dfs1(n-list.get(i*2).size(),i+1);
+        boolean b=dfs1(n-list.get(i*2+1).size(),i+1);
+        if(a){
+            path[n][i]=i*2;
+        }
+        if(b){
+            path[n][i]=i*2+1;
+        }
+
+        dp[n][i][0]=true;
+        dp[n][i][1]=(a|b);
+        cnt++;
+        return a|b;
+    }*/
+
+
+    public void NO(){
+        out.println("NO");
+    }
+
+    public void dfs(int root,int color,List<Integer>A,List<Integer>B){
+        if(color==0)A.add(root);
+        else B.add(root);
+        colors[root]=color;
+        int next=((color)+1)%2;
+        for(int child:graph[root]){
+            if(colors[child]==-1){
+                dfs(child,next,A,B);
+            }
+            else{
+                if(color==colors[child]){
+                    bad=true;
+                }
+            }
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
