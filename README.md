@@ -246,6 +246,7 @@ My Codeforce Practice<br/>
 |  1520F1  |[Guess the K-th Zero (Easy version) (1600) (Binary Search)  ](./code/1520F1.txt)   |2021/05/10|
 |  1520F2  |[Guess the K-th Zero (Hard version) (2200) (Binary Search+ Divide Conquer)  ](./code/1520F2.txt)   |2021/05/10|
 |  1354D  |[Multiset (1900) (Fenwick Tree)  ](./code/1354D.txt)   |2021/05/10|
+|  1354E |[ Graph Coloring (2100) (DP + Bipartite Graph)  ](./code/1354E.txt)   |2021/05/11|
 
 # 分类
 
@@ -329,6 +330,9 @@ My Codeforce Practice<br/>
 
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
+
+### Bipartite Graph
+1354E. [ Graph Coloring (2100) (DP + Bipartite Graph)  ](./code/1354E.txt)<br/>
 
 ### Shortest Path
 416E. [President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   <br/>
