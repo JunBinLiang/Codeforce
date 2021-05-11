@@ -1,0 +1,202 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int(),m=Int();
+            List<int[]>graph[]=new ArrayList[n];
+            Arrays.setAll(graph,e->new ArrayList<>());
+            for(int i=0;i<m;i++){
+                int u=Int()-1,v=Int()-1,w=Int();
+                graph[u].add(new int[]{v,w});
+                graph[v].add(new int[]{u,w});
+            }
+
+
+            Solution sol=new Solution(out);
+            sol.solution(graph);
+        }
+        out.close();
+
+    }
+
+
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(List<int[]>graph[]){
+        int n=graph.length;
+        long dis[][][]=new long[n][2][2];
+        for(int i=0;i<dis.length;i++){
+            for(int j=0;j<dis[0].length;j++){
+                Arrays.fill(dis[i][j],Long.MAX_VALUE);
+            }
+        }
+
+        dis[0][0][0]=0;
+
+
+        PriorityQueue<long[]>pq=new PriorityQueue<>((a,b)->{
+            return Long.compare(a[3],b[3]);
+        });
+
+
+        pq.add(new long[]{0,0,0,0});
+        while(pq.size()>0){
+            long top[]=pq.poll();
+            int root=(int)(top[0]);
+            int a=(int)(top[1]);int b=(int)(top[2]);//a:take  b: add
+            if(top[3]!=dis[root][a][b])continue;
+
+            for(int p[]:graph[root]) {
+                int next=p[0],w=p[1];
+
+                if(dis[root][a][b]+w<dis[next][a][b]){//not change
+                    dis[next][a][b]=dis[root][a][b]+w;
+                    pq.add(new long[]{next,a,b,dis[next][a][b]});
+                }
+
+                if(a==0&&b==0){
+                    if(dis[root][a][b]+w<dis[next][1][1]){
+                        dis[next][1][1]=dis[root][a][b]+w;
+                        pq.add(new long[]{next,1,1,dis[next][1][1]});
+                    }
+                    if(dis[root][a][b]<dis[next][1][0]){
+                        dis[next][1][0]=dis[root][a][b];
+                        pq.add(new long[]{next,1,0,dis[next][1][0]});
+                    }
+
+                    if(dis[root][a][b]+2*w<dis[next][0][1]){
+                        dis[next][0][1]=dis[root][a][b]+2*w;
+                        pq.add(new long[]{next,0,1,dis[next][0][1]});
+                    }
+                }
+                else if(a==0&&b==1){
+                    if(dis[root][a][b]<dis[next][1][1]){
+                        dis[next][1][1]=dis[root][a][b];
+                        pq.add(new long[]{next,1,1,dis[next][1][1]});
+                    }
+                }
+                else if(a==1&&b==0){
+                    if(dis[root][a][b]+2*w<dis[next][1][1]){
+                        dis[next][1][1]=dis[root][a][b]+2*w;
+                        pq.add(new long[]{next,1,1,dis[next][1][1]});
+                    }
+                }
+                else{//1 1
+
+                }
+
+            }
+        }
+        for(int i=1;i<dis.length;i++){
+            out.print(dis[i][1][1]+" ");
+        }
+
+
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
