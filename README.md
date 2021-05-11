@@ -248,7 +248,8 @@ My Codeforce Practice<br/>
 |  1354D  |[Multiset (1900) (Fenwick Tree)  ](./code/1354D.txt)   |2021/05/10|
 |  1354E |[ Graph Coloring (2100) (DP + Bipartite Graph)  ](./code/1354E.txt)   |2021/05/11|
 |  1473E |[ Minimum Path (2400) (Shortest Path)  ](./code/1473E.txt)   |2021/05/11|
-|  1295D |[ ame GCDs (1800) (GCD + Euler)  ](./code/1295D.txt)   |2021/05/11|
+|  1295D |[ game GCDs (1800) (GCD + Euler)  ](./code/1295D.txt)   |2021/05/11|
+|  448D |[ Multiplication Table (1800) (Binary Search)  ](./code/448D.txt)   |2021/05/11|
 
 # 分类
 
@@ -387,6 +388,7 @@ My Codeforce Practice<br/>
 ### Binary Search
 1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
 1177B. [Digits Sequence (Hard Edition) (1800) (Binary Search + Math) ](./code/1177B.txt)  <br/>
+448D. [Multiplication Table (1800) (Binary Search ) ](./code/448D.txt)  <br/>
 
 ### String Algorithm
 126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) <br/>
