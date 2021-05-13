@@ -291,6 +291,7 @@ My Codeforce Practice<br/>
 1144G. [ Two Merged Sequences (2400) (Greedy) (Thumb)  ](./code/1144G.txt) <br/>
 1203F1. [Complete the Projects (easy version) (2100) (Greedy + Sort) (Thump)  ](./code/1203F1.txt)<br/>
 1508A. [Binary Literature (1900) (Greedy) (Thumb) ](./code/1508A.txt)<br/>
+313E. [ Ilya and Two Numbers (2300) (Greedy + Thinking + Sort)  ](./code/313E.txt)<br/>
 
 ### 思维/Thinking/Observation
 540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking)  ](./code/540E.txt)<br/>
@@ -422,5 +423,5 @@ My Codeforce Practice<br/>
 1520F1. [Guess the K-th Zero (Easy version) (1600) (Binary Search)  ](./code/1520F1.txt)<br/>
 
 ### Sort 
-313E. [ Ilya and Two Numbers (2300) (Greedy + Thinking + Sort)  ](./code/313E.txt)<br/>
+
 
