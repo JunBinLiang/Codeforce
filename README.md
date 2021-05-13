@@ -251,6 +251,7 @@ My Codeforce Practice<br/>
 |  1295D |[ game GCDs (1800) (GCD + Euler)  ](./code/1295D.txt)   |2021/05/11|
 |  448D |[ Multiplication Table (1800) (Binary Search)  ](./code/448D.txt)   |2021/05/11|
 |  448E |[ Divisor (2200) (DFS + 剪枝)  ](./code/448E.txt)   |2021/05/12|
+|  313D |[ Ilya and Roads (2100) (DP)  ](./code/313D.txt)   |2021/05/13|
 
 # 分类
 
@@ -262,6 +263,7 @@ My Codeforce Practice<br/>
 1513C. [Add One (1600) （DP） ](./code/1513C.txt)<br/>
 1517D. [Explorer Space (1800) （DP） ](./code/1517D.txt)<br/>
 977F. [Consecutive Subsequence (1700) (DP)  ](./code/977F.txt)<br/>
+313D. [ Ilya and Roads (2100) (DP)  ](./code/313D.txt)<br/>
 
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
