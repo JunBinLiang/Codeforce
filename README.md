@@ -252,6 +252,7 @@ My Codeforce Practice<br/>
 |  448D |[ Multiplication Table (1800) (Binary Search)  ](./code/448D.txt)   |2021/05/11|
 |  448E |[ Divisor (2200) (DFS + 剪枝)  ](./code/448E.txt)   |2021/05/12|
 |  313D |[ Ilya and Roads (2100) (DP)  ](./code/313D.txt)   |2021/05/13|
+|  313E |[ Ilya and Two Numbers (2300) (Greedy + Thinking + Sort)  ](./code/313E.txt)   |2021/05/13|
 
 # 分类
 
@@ -419,4 +420,7 @@ My Codeforce Practice<br/>
 
 ### Interactive
 1520F1. [Guess the K-th Zero (Easy version) (1600) (Binary Search)  ](./code/1520F1.txt)<br/>
+
+### Sort 
+313E. [ Ilya and Two Numbers (2300) (Greedy + Thinking + Sort)  ](./code/313E.txt)<br/>
 
