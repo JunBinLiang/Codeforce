@@ -253,6 +253,7 @@ My Codeforce Practice<br/>
 |  448E |[ Divisor (2200) (DFS + 剪枝)  ](./code/448E.txt)   |2021/05/12|
 |  313D |[ Ilya and Roads (2100) (DP)  ](./code/313D.txt)   |2021/05/13|
 |  313E |[ Ilya and Two Numbers (2300) (Greedy + Thinking + Sort)  ](./code/313E.txt)   |2021/05/13|
+|  66D |[ Petya and His Friends (1700) (Constructive)  ](./code/66D.txt)   |2021/05/14|
 
 # 分类
 
@@ -365,6 +366,7 @@ My Codeforce Practice<br/>
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
 1493C. [K-beautiful Strings (2000) （Greedy + Constructive） ](./code/1493C.txt)   <br/> 
 1234C. [Pipes (1500) (Implementation) ](./code/1234C.txt)   <br/> 
+66D. [ Petya and His Friends (1700) (Constructive)  ](./code/66D.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
