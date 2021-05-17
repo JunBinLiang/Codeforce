@@ -255,6 +255,7 @@ My Codeforce Practice<br/>
 |  313E |[ Ilya and Two Numbers (2300) (Greedy + Thinking + Sort)  ](./code/313E.txt)   |2021/05/13|
 |  66D |[ Petya and His Friends (1700) (Constructive)  ](./code/66D.txt)   |2021/05/14|
 |  66E |[ Petya and Post(2000) (DP + Thinking)  ](./code/66E.txt)   |2021/05/14|
+|  125C |[ Hobbits' Party (1600) (Constructive)  ](./code/125C.txt)   |2021/05/17|
 
 # 分类
 
@@ -369,6 +370,7 @@ My Codeforce Practice<br/>
 1493C. [K-beautiful Strings (2000) （Greedy + Constructive） ](./code/1493C.txt)   <br/> 
 1234C. [Pipes (1500) (Implementation) ](./code/1234C.txt)   <br/> 
 66D. [ Petya and His Friends (1700) (Constructive)  ](./code/66D.txt)<br/>
+125C. [ Hobbits' Party (1600) (Constructive)  ](./code/125C.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
