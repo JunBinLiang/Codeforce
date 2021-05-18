@@ -257,6 +257,7 @@ My Codeforce Practice<br/>
 |  66E |[ Petya and Post(2000) (DP + Thinking)  ](./code/66E.txt)   |2021/05/14|
 |  125C |[ Hobbits' Party (1600) (Constructive)  ](./code/125C.txt)   |2021/05/17|
 |  125E |[ MST Company (2200) (MST + Thinking)  ](./code/125E.txt)   |2021/05/17|
+|  276D |[ Little Girl and Maximum XOR (1700) (Bit + Greedy)  ](./code/276D.txt)   |2021/05/17|
 
 # 分类
 
@@ -424,6 +425,7 @@ My Codeforce Practice<br/>
 1513B. [AND Sequences (1400) （Bit + Greedy + Combination） ](./code/1513B.txt)  <br/>
 1338B. [Edge Weight Assignment (1800) （Greedy + Bit + Tree） ](./code/1338B.txt)   <br/>
 1234D. [Distinct Characters Queriese (1600) (TreeSet) ](./code/1234D.txt)<br/>
+276D.[ Little Girl and Maximum XOR (1700) (Bit + Greedy)  ](./code/276D.txt)<br/>
 
 ### Divide Conquer
 652D. [Nested Segments (1800) （Sort + Divide Conquer + Thinking） ](./code/652D.txt)   <br/> 
