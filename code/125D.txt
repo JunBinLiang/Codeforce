@@ -1,0 +1,295 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    List<Integer>res1=new ArrayList<>();
+    List<Integer>res2=new ArrayList<>();
+    public void solution(int A[]){
+        if(A.length==2){
+            out.println(A[0]);
+            out.println(A[1]);
+            return;
+        }
+
+        check(A,0,1);
+        check(A,0,2);
+        check(A,1,2);
+
+
+        if(res1.size()==0){
+            out.println("No solution");
+            return;
+        }
+        for(int i:res1){
+            out.print(A[i]+" ");
+        }out.println();
+        for(int i:res2){
+            out.print(A[i]+" ");
+        }out.println();
+    }
+
+
+    public void check(int A[],int a,int b){//0 1  |  1  2  |  0   2
+        List<Integer>l1=new ArrayList<>();
+        List<Integer>l2=new ArrayList<>();
+
+        List<Integer>l3=new ArrayList<>();
+        List<Integer>l4=new ArrayList<>();
+
+        l1.add(a);
+        l1.add(b);
+
+        l3.add(a);
+        l3.add(b);
+        int dif=A[b]-A[a];
+        int seen[]=new int[A.length];
+        int seen1[]=new int[A.length];
+        seen[a]=seen[b]=1;
+        seen1[a]=seen1[b]=1;
+        for(int i=0;i<A.length;i++){
+            if(i==a||i==b)continue;
+            if(A[i]-A[l1.get(l1.size()-1)]==dif){
+                l1.add(i);
+                l3.add(i);
+                seen[i]=1;
+                seen1[i]=1;
+            }
+        }
+
+
+        for(int i=0;i<A.length;i++){
+            if(seen[i]==1)continue;
+            l2.add(i);
+            l4.add(i);
+            seen[i]=2;
+            seen1[i]=2;
+        }
+
+
+
+        if(l2.size()<2){
+            if(l2.size()==0){
+                l2.add(l1.get(l1.size()-1));
+                l1.remove(l1.size()-1);
+            }
+            res1=l1;
+            res2=l2;
+            return;
+        }
+
+
+
+
+        int size=l2.size();
+        int dif1=A[l2.get(size-1)]-A[l2.get(size-2)];
+        boolean flag1=true;
+        for(int i=size-3;i>=0;i--){
+            int cur=l2.get(i);
+            int next=l2.get(i+1);
+            if(A[next]-A[cur]!=dif1){
+                if(l1.size()>0){
+                    int last=l1.get(l1.size()-1);
+                    if(A[last]-A[cur]==dif1&&A[next]-A[last]==dif1&&last>cur&&last<next){
+                        l1.remove(l1.size()-1);
+                        seen[last]=2;
+                    }
+                    else{
+                        flag1=false;
+                    }
+                }
+                else{
+                    flag1=false;
+                }
+            }
+        }
+
+
+
+        if(flag1){
+            l1.clear();
+            l2.clear();
+            for(int i=0;i<A.length;i++){
+                if(seen[i]==1)l1.add(i);
+                else l2.add(i);
+            }
+            res1=l1;
+            res2=l2;
+            return;
+        }
+
+
+
+
+        if(l3.get(l3.size()-1)<l4.get(l4.size()-1)&&l3.get(l3.size()-1)>l4.get(l4.size()-2)){
+
+
+            int last1=l4.remove(l4.size()-1);
+            l4.add(l3.get(l3.size()-1));
+            seen1[l3.get(l3.size()-1)]=2;
+            l3.remove(l3.size()-1);
+            l4.add(last1);
+
+            //if(a==0&&b==1)System.out.println(l3+" "+l4);
+
+            size=l4.size();
+            dif1=A[l4.get(size-1)]-A[l4.get(size-2)];
+            flag1=true;
+            for(int i=size-3;i>=0;i--){
+                int cur=l4.get(i);
+                int next=l4.get(i+1);
+                if(A[next]-A[cur]!=dif1){
+                    if(l3.size()>0){
+                        int last=l3.get(l3.size()-1);
+                        if(A[last]-A[cur]==dif1&&A[next]-A[last]==dif1&&last>cur&&last<next){
+                            l3.remove(l3.size()-1);
+                            seen1[last]=2;
+                        }
+                        else{
+                            flag1=false;
+                        }
+                    }
+                    else{
+                        flag1=false;
+                    }
+                }
+            }
+
+            if(flag1){
+                l3.clear();
+                l4.clear();
+                for(int i=0;i<A.length;i++){
+                    if(seen1[i]==1)l3.add(i);
+                    else l4.add(i);
+                }
+                res1=l3;
+                res2=l4;
+            }
+
+        }
+
+
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
