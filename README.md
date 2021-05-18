@@ -258,6 +258,7 @@ My Codeforce Practice<br/>
 |  125C |[ Hobbits' Party (1600) (Constructive)  ](./code/125C.txt)   |2021/05/17|
 |  125E |[ MST Company (2200) (MST + Thinking)  ](./code/125E.txt)   |2021/05/17|
 |  276D |[ Little Girl and Maximum XOR (1700) (Bit + Greedy)  ](./code/276D.txt)   |2021/05/17|
+|  125D |[ Two progressions (2200) (Greedy + 鸽子)  ](./code/125D.txt)   |2021/05/18|
 
 # 分类
 
@@ -337,6 +338,7 @@ My Codeforce Practice<br/>
 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
+125D. [ Two progressions (2200) (Greedy + 鸽子)  ](./code/125D.txt)<br/>
 
 ### Graph 
 1196F. [ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt) <br/>
