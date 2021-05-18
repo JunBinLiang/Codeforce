@@ -256,6 +256,7 @@ My Codeforce Practice<br/>
 |  66D |[ Petya and His Friends (1700) (Constructive)  ](./code/66D.txt)   |2021/05/14|
 |  66E |[ Petya and Post(2000) (DP + Thinking)  ](./code/66E.txt)   |2021/05/14|
 |  125C |[ Hobbits' Party (1600) (Constructive)  ](./code/125C.txt)   |2021/05/17|
+|  125E |[ MST Company (2200) (MST + Thinking)  ](./code/125E.txt)   |2021/05/17|
 
 # 分类
 
@@ -361,6 +362,11 @@ My Codeforce Practice<br/>
 ### 2-Sat
 776D. [The Door Problem (2000) (2 Sat) ](https://github.com/JunBinLiang/Leetcode-Complete-Guide/blob/master/code/776D.txt)    <br/>
 1475F. [Unusual Matrix (1900) (2 Sat) ](./code/1475F.txt)    <br/>
+
+### UF
+
+### MST
+125E. [ MST Company (2200) (MST + Thinking)  ](./code/125E.txt)<br/>
 
 ### Dynamic Connectivity
 1140F.[Extending Set of Points (2600) （Dynamic Connectivity） ](./code/1140F.txt)<br/>
