@@ -260,6 +260,7 @@ My Codeforce Practice<br/>
 |  276D |[ Little Girl and Maximum XOR (1700) (Bit + Greedy)  ](./code/276D.txt)   |2021/05/17|
 |  125D |[ Two progressions (2200) (Greedy + 鸽子)  ](./code/125D.txt)   |2021/05/18|
 |  57C |[ Array (1900) (Combination) (Thumb)  ](./code/57C.txt)   |2021/05/18|
+|  962D |[ Merge Equals (1600) (Implementation)  ](./code/962D.txt)   |2021/05/19|
 
 # 分类
 
@@ -388,6 +389,7 @@ My Codeforce Practice<br/>
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   |2021/04/11|
 1500A. [Going Home (1800) （Brute Force） ](./code/1500A.txt)<br/>
 1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
+962D. [ Merge Equals (1600) (Implementation)  ](./code/962D.txt)<br/>
 
 ### 枚举 (暴力)
 1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
