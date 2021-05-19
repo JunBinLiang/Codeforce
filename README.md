@@ -261,6 +261,7 @@ My Codeforce Practice<br/>
 |  125D |[ Two progressions (2200) (Greedy + 鸽子)  ](./code/125D.txt)   |2021/05/18|
 |  57C |[ Array (1900) (Combination) (Thumb)  ](./code/57C.txt)   |2021/05/18|
 |  962D |[ Merge Equals (1600) (Implementation)  ](./code/962D.txt)   |2021/05/19|
+|  21C |[ Stripe 2 (2000) (Dp)  ](./code/21C.txt)   |2021/05/19|
 
 # 分类
 
@@ -278,6 +279,7 @@ My Codeforce Practice<br/>
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
 1278C.[  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt) <br/>  
+21C.[ Stripe 2 (2000) (Dp)  ](./code/21C.txt)<br/>  
 
 ### 树DP
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)<br/>
