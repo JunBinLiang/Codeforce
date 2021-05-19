@@ -256,7 +256,7 @@ My Codeforce Practice<br/>
 |  66D |[ Petya and His Friends (1700) (Constructive)  ](./code/66D.txt)   |2021/05/14|
 |  66E |[ Petya and Post(2000) (DP + Thinking)  ](./code/66E.txt)   |2021/05/14|
 |  125C |[ Hobbits' Party (1600) (Constructive)  ](./code/125C.txt)   |2021/05/17|
-|  125E |[ MST Company (2200) (MST + Thinking)  ](./code/125E.txt)   |2021/05/17|
+|  125E |[ MST Company (2400) (MST + Thinking)  ](./code/125E.txt)   |2021/05/17|
 |  276D |[ Little Girl and Maximum XOR (1700) (Bit + Greedy)  ](./code/276D.txt)   |2021/05/17|
 |  125D |[ Two progressions (2200) (Greedy + 鸽子)  ](./code/125D.txt)   |2021/05/18|
 |  57C |[ Array (1900) (Combination) (Thumb)  ](./code/57C.txt)   |2021/05/18|
@@ -371,7 +371,7 @@ My Codeforce Practice<br/>
 ### UF
 
 ### MST
-125E. [ MST Company (2200) (MST + Thinking)  ](./code/125E.txt)<br/>
+125E. [ MST Company (2400) (MST + Thinking)  ](./code/125E.txt)<br/>
 
 ### Dynamic Connectivity
 1140F.[Extending Set of Points (2600) （Dynamic Connectivity） ](./code/1140F.txt)<br/>
