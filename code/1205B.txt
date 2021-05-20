@@ -1,0 +1,203 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            List<Long>list=new ArrayList<>();
+            for(int i=0;i<n;i++){
+                long a=Long();
+                if(a!=0){
+                    list.add(a);
+                }
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(list);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    List<Integer>graph[];
+    public void solution(List<Long>list){
+        if(list.size()>130){
+            out.println("3");
+            return;
+        }
+
+        long A[]=new long[list.size()];
+        for(int i=0;i<A.length;i++){
+            A[i]=list.get(i);
+        }
+
+
+
+        graph=new ArrayList[A.length];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i=0;i<A.length;i++){
+            for(int j=i+1;j<A.length;j++){
+                if((A[i]&A[j])!=0){
+                    graph[i].add(j);
+                    graph[j].add(i);
+                }
+            }
+        }
+
+        int res=Integer.MAX_VALUE;
+        int n=A.length;
+        for(int i=0;i<A.length;i++){
+            //remove vertex i
+            int dis[][]=new int[n][n];
+            for(int j=0;j<dis.length;j++)Arrays.fill(dis[j],Integer.MAX_VALUE);
+
+            for(int j=0;j<n;j++){
+                if(j==i)continue;
+                Queue<Integer>q=new LinkedList<>();
+                q.add(j);
+                dis[j][j]=0;
+                while(q.size()>0){
+                    int top=q.poll();
+                    for(int next:graph[top]){
+                        if(next==i)continue;
+                        if(dis[j][top]+1<dis[j][next]){
+                            q.add(next);
+                            dis[j][next]=dis[j][top]+1;
+                        }
+                    }
+                }
+            }
+
+            //if(i==3)System.out.println(dis[0][2]+"  "+dis[2][0]);
+            for(int j=0;j<graph[i].size();j++){
+                int a=graph[i].get(j);
+                for(int k=j+1;k<graph[i].size();k++){
+                    int b=graph[i].get(k);
+                    if(dis[a][b]!=Integer.MAX_VALUE){
+                        res=Math.min(res,2+dis[a][b]);
+                    }
+                }
+            }
+        }
+
+        if(res==Integer.MAX_VALUE)out.println(-1);
+        else out.println(res);
+    }
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
