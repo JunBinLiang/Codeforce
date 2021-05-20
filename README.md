@@ -264,6 +264,7 @@ My Codeforce Practice<br/>
 |  21C |[ Stripe 2 (2000) (Dp)  ](./code/21C.txt)   |2021/05/19|
 |  37C |[ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)   |2021/05/19|
 |  37E |[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)   |2021/05/20|
+|  1205B |[ Shortest Cycle(1900) (Shortest Cycle in Weight1) (Thumb)  ](./code/1205B.txt)   |2021/05/20|
 
 # 分类
 
@@ -366,6 +367,10 @@ My Codeforce Practice<br/>
 1520G. [To Go Or Not To Go?  (2200) (Graph + Shortest Path )  ](./code/1520G.txt)<br/>
 1473E.[ Minimum Path (2400) (Shortest Path)  ](./code/1473E.txt)<br/>
 37E.[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)<br/>
+
+
+### Shortest Cycle in Weight-1 graph
+1205B.[ Shortest Cycle(1900) (Shortest Cycle in Weight1) (Thumb)  ](./code/1205B.txt)<br/>
 
 ### Min Cost Maximum Flow
 237E. [Build String (2000) （Minimum Cost Max Flow ） ](./code/237E.txt)    <br/>
