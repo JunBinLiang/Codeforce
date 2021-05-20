@@ -262,6 +262,7 @@ My Codeforce Practice<br/>
 |  57C |[ Array (1900) (Combination) (Thumb)  ](./code/57C.txt)   |2021/05/18|
 |  962D |[ Merge Equals (1600) (Implementation)  ](./code/962D.txt)   |2021/05/19|
 |  21C |[ Stripe 2 (2000) (Dp)  ](./code/21C.txt)   |2021/05/19|
+|  37C |[ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)   |2021/05/19|
 
 # 分类
 
@@ -445,5 +446,8 @@ My Codeforce Practice<br/>
 1520F1. [Guess the K-th Zero (Easy version) (1600) (Binary Search)  ](./code/1520F1.txt)<br/>
 
 ### Sort 
+
+### Trie
+37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
 
 
