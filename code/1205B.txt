@@ -114,6 +114,10 @@ class Solution{
             }
         }
 
+
+        //Find the shortest cycle, brute force runing weight-1 BFS
+        //O(n^3)
+        
         int res=Integer.MAX_VALUE;
         int n=A.length;
         for(int i=0;i<A.length;i++){
@@ -137,8 +141,7 @@ class Solution{
                     }
                 }
             }
-
-            //if(i==3)System.out.println(dis[0][2]+"  "+dis[2][0]);
+            
             for(int j=0;j<graph[i].size();j++){
                 int a=graph[i].get(j);
                 for(int k=j+1;k<graph[i].size();k++){
