@@ -263,6 +263,7 @@ My Codeforce Practice<br/>
 |  962D |[ Merge Equals (1600) (Implementation)  ](./code/962D.txt)   |2021/05/19|
 |  21C |[ Stripe 2 (2000) (Dp)  ](./code/21C.txt)   |2021/05/19|
 |  37C |[ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)   |2021/05/19|
+|  37E |[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)   |2021/05/20|
 
 # 分类
 
@@ -364,6 +365,7 @@ My Codeforce Practice<br/>
 1486E. [ Paired Payment (2200) （Graph + SPFA） ](./code/1486E.txt)   <br/>
 1520G. [To Go Or Not To Go?  (2200) (Graph + Shortest Path )  ](./code/1520G.txt)<br/>
 1473E.[ Minimum Path (2400) (Shortest Path)  ](./code/1473E.txt)<br/>
+37E.[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)<br/>
 
 ### Min Cost Maximum Flow
 237E. [Build String (2000) （Minimum Cost Max Flow ） ](./code/237E.txt)    <br/>
