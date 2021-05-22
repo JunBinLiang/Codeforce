@@ -265,6 +265,7 @@ My Codeforce Practice<br/>
 |  37C |[ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)   |2021/05/19|
 |  37E |[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)   |2021/05/20|
 |  1205B |[ Shortest Cycle(1900) (Shortest Cycle in Weight1) (Thumb)  ](./code/1205B.txt)   |2021/05/20|
+|  1525D |[ Armchairs (1800) (DP) ](./code/1525D.txt)   |2021/05/21|
 
 # 分类
 
@@ -278,6 +279,7 @@ My Codeforce Practice<br/>
 977F. [Consecutive Subsequence (1700) (DP)  ](./code/977F.txt)<br/>
 313D. [ Ilya and Roads (2100) (DP)  ](./code/313D.txt)<br/>
 66E.[ Petya and Post(2000) (DP + Thinking)  ](./code/66E.txt)<br/>
+1525D.[ Armchairs (1800) (DP) ](./code/1525D.txt)<br/>
 
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
