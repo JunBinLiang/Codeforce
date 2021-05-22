@@ -1,0 +1,277 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+
+            Solution sol=new Solution(out);
+            sol.solution(s);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(String s){
+       long res=0;
+       long n=s.length();
+       int SA[] = SuffixArray.suffixArray(s);
+       int LCP[]=SuffixArray.lcp(SA,s);
+
+       Stack<int[]>sta=new Stack<>();
+       for(int i=0;i<LCP.length;i++){
+            if(LCP[i]==0){
+                long cnt=0;
+                while(sta.size()>0){
+                    int top[]=sta.pop();
+                    long a=(top[0]+0l)*top[1];
+                    res=res+a*(1+cnt);
+                    cnt+=top[1];
+                }
+                continue;
+            }
+
+            int cnt=0;
+            while(sta.size()>0&&LCP[i]<sta.peek()[0]){
+                int top[]=sta.pop();
+                long a=(top[0]+0l)*top[1];
+                res+=(cnt+1l)*a;
+                cnt+=top[1];
+            }
+            sta.push(new int[]{LCP[i],cnt+1});
+
+       }
+
+
+        long cnt=0;
+        while(sta.size()>0){
+            int top[]=sta.pop();
+            long a=(top[0]+0l)*top[1];
+            res=res+a*(1+cnt);
+            cnt+=top[1];
+        }
+        res+=(n)*(n+1)/2;
+        out.println(res);
+    }
+
+    //59
+
+
+
+
+}
+
+class SuffixArray {
+
+    // sort suffixes of S in O(n*log(n))
+    public static int[] suffixArray(CharSequence S) {//O(nlogn)
+        int n = S.length();
+        Integer[] order = new Integer[n];
+        for (int i = 0; i < n; i++)
+            order[i] = n - 1 - i;
+        // stable sort of characters
+        Arrays.sort(order, (a, b) -> Character.compare(S.charAt(a), S.charAt(b)));
+
+        int[] sa = new int[n];
+        int[] classes = new int[n];
+        for (int i = 0; i < n; i++) {
+            sa[i] = order[i];
+            classes[i] = S.charAt(i);
+        }
+        // sa[i] - suffix on i'th position after sorting by first len characters
+        // classes[i] - equivalence class of the i'th suffix after sorting by first len characters
+
+        for (int len = 1; len < n; len *= 2) {
+            int[] c = classes.clone();
+            for (int i = 0; i < n; i++) {
+                // condition sa[i - 1] + len < n simulates 0-symbol at the end of the string
+                // a separate class is created for each suffix followed by simulated 0-symbol
+                classes[sa[i]] = i > 0 && c[sa[i - 1]] == c[sa[i]] && sa[i - 1] + len < n && c[sa[i - 1] + len / 2] == c[sa[i] + len / 2] ? classes[sa[i - 1]] : i;
+            }
+            // Suffixes are already sorted by first len characters
+            // Now sort suffixes by first len * 2 characters
+            int[] cnt = new int[n];
+            for (int i = 0; i < n; i++)
+                cnt[i] = i;
+            int[] s = sa.clone();
+            for (int i = 0; i < n; i++) {
+                // s[i] - order of suffixes sorted by first len characters
+                // (s[i] - len) - order of suffixes sorted only by second len characters
+                int s1 = s[i] - len;
+                // sort only suffixes of length > len, others are already sorted
+                if (s1 >= 0)
+                    sa[cnt[classes[s1]]++] = s1;
+            }
+        }
+        return sa;
+    }
+
+    // sort rotations of S in O(n*log(n))
+    public static int[] rotationArray(CharSequence S) {
+        int n = S.length();
+        Integer[] order = new Integer[n];
+        for (int i = 0; i < n; i++)
+            order[i] = i;
+        Arrays.sort(order, (a, b) -> Character.compare(S.charAt(a), S.charAt(b)));
+        int[] sa = new int[n];
+        int[] classes = new int[n];
+        for (int i = 0; i < n; i++) {
+            sa[i] = order[i];
+            classes[i] = S.charAt(i);
+        }
+        for (int len = 1; len < n; len *= 2) {
+            int[] c = classes.clone();
+            for (int i = 0; i < n; i++)
+                classes[sa[i]] = i > 0 && c[sa[i - 1]] == c[sa[i]] && c[(sa[i - 1] + len / 2) % n] == c[(sa[i] + len / 2) % n] ? classes[sa[i - 1]] : i;
+            int[] cnt = new int[n];
+            for (int i = 0; i < n; i++)
+                cnt[i] = i;
+            int[] s = sa.clone();
+            for (int i = 0; i < n; i++) {
+                int s1 = (s[i] - len + n) % n;
+                sa[cnt[classes[s1]]++] = s1;
+            }
+        }
+        return sa;
+    }
+
+    // longest common prefixes array in O(n)
+    public static int[] lcp(int[] sa, CharSequence s) {//O(n)
+        int n = sa.length;
+        int[] rank = new int[n];
+        for (int i = 0; i < n; i++)
+            rank[sa[i]] = i;
+        int[] lcp = new int[n - 1];
+        for (int i = 0, h = 0; i < n; i++) {
+            if (rank[i] < n - 1) {
+                for (int j = sa[rank[i] + 1]; Math.max(i, j) + h < s.length() && s.charAt(i + h) == s.charAt(j + h); ++h)
+                    ;
+                lcp[rank[i]] = h;
+                if (h > 0)
+                    --h;
+            }
+        }
+        return lcp;
+    }
+
+    // Usage example
+        /*public static void main(String[] args) {
+            String s1 = "abcab";
+            int[] sa1 = suffixArray(s1);
+            // print suffixes in lexicographic order
+            for (int p : sa1)
+                System.out.println(s1.substring(p));
+            System.out.println("lcp = " + Arrays.toString(lcp(sa1, s1)));
+        }*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
