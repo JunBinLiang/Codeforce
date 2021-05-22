@@ -266,6 +266,7 @@ My Codeforce Practice<br/>
 |  37E |[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)   |2021/05/20|
 |  1205B |[ Shortest Cycle(1900) (Shortest Cycle in Weight1) (Thumb)  ](./code/1205B.txt)   |2021/05/20|
 |  1525D |[ Armchairs (1800) (DP) ](./code/1525D.txt)   |2021/05/21|
+|  123D |[ String (2300) (Suffix Array LCP + Stack) ](./code/123D.txt)   |2021/05/22|
 
 # 分类
 
@@ -432,6 +433,9 @@ My Codeforce Practice<br/>
 
 ### String Algorithm
 126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) <br/>
+
+### Suffix Array (LCP)
+123D. [ String (2300) (Suffix Array LCP + Stack) ](./code/123D.txt)<br/>
 
 ### 莫队
 1514D. [Cut and Stick (2000) (Greedy + 莫队 + Update max) ](./code/1514D.txt)  <br/>
