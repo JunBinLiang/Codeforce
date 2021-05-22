@@ -399,7 +399,7 @@ My Codeforce Practice<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
-910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   |2021/04/11|
+910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
 1500A. [Going Home (1800) （Brute Force） ](./code/1500A.txt)<br/>
 1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
 962D. [ Merge Equals (1600) (Implementation)  ](./code/962D.txt)<br/>
@@ -440,7 +440,7 @@ My Codeforce Practice<br/>
 ### 莫队
 1514D. [Cut and Stick (2000) (Greedy + 莫队 + Update max) ](./code/1514D.txt)  <br/>
 86D. [ Powerful Array (2200) （莫队） ](./code/86D.txt)   <br/>
-940F. [Machine Learning (2600) （莫队修改） ](./code/940F.txt)   |2021/04/15|
+940F. [Machine Learning (2600) （莫队修改） ](./code/940F.txt)  <br/> 
 
 ### Bit
 1174D.[Ehab and the Expected XOR Problem (1900) (bit + Thinking + Prefix )  ](./code/1174D.txt) <br/>
