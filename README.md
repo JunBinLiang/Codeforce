@@ -271,6 +271,7 @@ My Codeforce Practice<br/>
 |  190D |[ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)   |2021/05/23|
 |  45J |[ Planting Trees (1800) (Constructive) ](./code/45J.txt)   |2021/05/23|
 |  45D |[ Event Dates (1900) (Sort) ](./code/45D.txt)   |2021/05/23|
+|  45C |[ Dancing Lessons (1900) (TreeMap) ](./code/45C.txt)   |2021/05/23|
 
 # 分类
 
@@ -418,8 +419,9 @@ My Codeforce Practice<br/>
 ### DFS/剪枝
 448E. [ Divisor (2200) (DFS + 剪枝)  ](./code/448E.txt)<br/>
 
-### TreeSet
+### TreeSet/TreeMap
 926J.[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   <br/>
+45C. [ Dancing Lessons (1900) (TreeMap) ](./code/45C.txt)<br/>
 
 ### Fenwick Tree
 1364C. [Ehab and Prefix MEXs	 (1600) (Greedy + BIT) ](./code/1364C.txt)<br/>
