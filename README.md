@@ -270,6 +270,7 @@ My Codeforce Practice<br/>
 |  78C |[ Beaver Game (2000) (Game) ](./code/78C.txt)   |2021/05/23|
 |  190D |[ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)   |2021/05/23|
 |  45J |[ Planting Trees (1800) (Constructive) ](./code/45J.txt)   |2021/05/23|
+|  45D |[ Event Dates (1900) (Sort) ](./code/45D.txt)   |2021/05/23|
 
 # 分类
 
@@ -464,6 +465,7 @@ My Codeforce Practice<br/>
 1520F1. [Guess the K-th Zero (Easy version) (1600) (Binary Search)  ](./code/1520F1.txt)<br/>
 
 ### Sort 
+45D. [ Event Dates (1900) (Sort) ](./code/45D.txt)<br/>
 
 ### Two Pointer
 190D. [ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)<br/>
