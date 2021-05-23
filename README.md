@@ -268,6 +268,7 @@ My Codeforce Practice<br/>
 |  1525D |[ Armchairs (1800) (DP) ](./code/1525D.txt)   |2021/05/21|
 |  123D |[ String (2300) (Suffix Array LCP + Stack) ](./code/123D.txt)   |2021/05/22|
 |  78C |[ Beaver Game (2000) (Game) ](./code/78C.txt)   |2021/05/23|
+|  190D |[ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)   |2021/05/23|
 
 # 分类
 
@@ -461,6 +462,9 @@ My Codeforce Practice<br/>
 1520F1. [Guess the K-th Zero (Easy version) (1600) (Binary Search)  ](./code/1520F1.txt)<br/>
 
 ### Sort 
+
+### Two Pointer
+190D. [ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
