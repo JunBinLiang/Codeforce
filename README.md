@@ -267,6 +267,7 @@ My Codeforce Practice<br/>
 |  1205B |[ Shortest Cycle(1900) (Shortest Cycle in Weight1) (Thumb)  ](./code/1205B.txt)   |2021/05/20|
 |  1525D |[ Armchairs (1800) (DP) ](./code/1525D.txt)   |2021/05/21|
 |  123D |[ String (2300) (Suffix Array LCP + Stack) ](./code/123D.txt)   |2021/05/22|
+|  78C |[ Beaver Game (2000) (Game) ](./code/78C.txt)   |2021/05/23|
 
 # 分类
 
@@ -324,6 +325,7 @@ My Codeforce Practice<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
+78C. [ Beaver Game (2000) (Game) ](./code/78C.txt)<br/>
 
 ### Chessboard
 1196E. [ Connected Component on a Chessboard (1800) (Chessboard + Constructive + Greedy)  ](./code/1196E.txt)   <br/>
