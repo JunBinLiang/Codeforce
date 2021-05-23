@@ -272,6 +272,7 @@ My Codeforce Practice<br/>
 |  45J |[ Planting Trees (1800) (Constructive) ](./code/45J.txt)   |2021/05/23|
 |  45D |[ Event Dates (1900) (Sort) ](./code/45D.txt)   |2021/05/23|
 |  45C |[ Dancing Lessons (1900) (TreeMap) ](./code/45C.txt)   |2021/05/23|
+|  45G |[ Prime Problem (2200) (Number Theory + Constructive) ](./code/45G.txt)   |2021/05/23|
 
 # 分类
 
@@ -342,6 +343,7 @@ My Codeforce Practice<br/>
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
 1512G. [Short Task (1700) （Brute Force + 打表） ](./code/1512G.txt)   <br/>
 1359E.[Modular Stability (2000) (Thinking + Number Theory + Combination)  ](./code/1359E.txt)<br/>
+45G.[ Prime Problem (2200) (Number Theory + Constructive) ](./code/45G.txt) <br/>
 
 ### 欧拉定理
 1295D.[ ame GCDs (1800) (GCD + Euler)  ](./code/1295D.txt)<br/>
