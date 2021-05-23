@@ -269,6 +269,7 @@ My Codeforce Practice<br/>
 |  123D |[ String (2300) (Suffix Array LCP + Stack) ](./code/123D.txt)   |2021/05/22|
 |  78C |[ Beaver Game (2000) (Game) ](./code/78C.txt)   |2021/05/23|
 |  190D |[ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)   |2021/05/23|
+|  45J |[ Planting Trees (1800) (Constructive) ](./code/45J.txt)   |2021/05/23|
 
 # 分类
 
@@ -399,6 +400,7 @@ My Codeforce Practice<br/>
 1234C. [Pipes (1500) (Implementation) ](./code/1234C.txt)   <br/> 
 66D. [ Petya and His Friends (1700) (Constructive)  ](./code/66D.txt)<br/>
 125C. [ Hobbits' Party (1600) (Constructive)  ](./code/125C.txt)<br/>
+45J. [ Planting Trees (1800) (Constructive) ](./code/45J.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
