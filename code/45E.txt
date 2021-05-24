@@ -1,0 +1,202 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            String A[]=new String[n];
+            String B[]=new String[n];
+            for(int i=0;i<n;i++)A[i]=Str();
+            for(int i=0;i<n;i++)B[i]=Str();
+            Solution sol=new Solution(out);
+            sol.solution(A,B);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(String A[],String B[]){
+        Arrays.sort(A);
+        Arrays.sort(B);
+        int n=A.length;
+        List<String>res=new ArrayList<>();
+        int f1[]=new int[26];
+        int f2[]=new int[26];
+        for(int i=0;i<n;i++){
+            f1[A[i].charAt(0)-'A']++;
+            f2[B[i].charAt(0)-'A']++;
+        }
+
+
+
+        Queue<String>q1=new LinkedList<>();
+        Queue<String>q2=new LinkedList<>();
+        int x=0,y=0;
+
+        for(int i=0;i<26;i++){
+            int match=Math.min(f1[i],f2[i]);
+            if(f1[i]==f2[i]){
+                for(int t=0;t<match;t++){
+                    res.add(A[x++]+" "+B[y++]);
+                    f1[i]--;
+                    f2[i]--;
+                }
+            }
+            else if(f1[i]>f2[i]){
+                while(q2.size()>0&&f1[i]>f2[i]){
+                    res.add(A[x++]+" "+q2.poll());
+                    f1[i]--;
+                }
+                for(int t=0;t<match;t++){
+                    res.add(A[x++]+" "+B[y++]);
+                    f1[i]--;
+                    f2[i]--;
+                }
+                while(f1[i]>0){
+                    f1[i]--;
+                    q1.add(A[x++]);
+                }
+
+            }
+            else{//f2[i]>f1[i]
+                while(q1.size()>0&&f2[i]>f1[i]){
+                    res.add(q1.poll()+" "+B[y++]);
+                    f2[i]--;
+                }
+                for(int t=0;t<match;t++){
+                    res.add(A[x++]+" "+B[y++]);
+                    f1[i]--;
+                    f2[i]--;
+                }
+                while(f2[i]>0){
+                    f2[i]--;
+                    q2.add(B[y++]);
+                }
+            }
+
+        }
+
+        Collections.sort(res);
+
+
+        for(int i=0;i<res.size();i++){
+            out.print(res.get(i));
+            if(i!=res.size()-1)out.print(", ");
+        }
+
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
