@@ -273,6 +273,7 @@ My Codeforce Practice<br/>
 |  45D |[ Event Dates (1900) (Sort) ](./code/45D.txt)   |2021/05/23|
 |  45C |[ Dancing Lessons (1900) (TreeMap) ](./code/45C.txt)   |2021/05/23|
 |  45G |[ Prime Problem (2200) (Number Theory + Constructive) ](./code/45G.txt)   |2021/05/23|
+|  45E |[Director (2000) (Greedy + Implementation) ](./code/45E.txt)   |2021/05/24|
 
 # 分类
 
@@ -309,12 +310,13 @@ My Codeforce Practice<br/>
 621E. [Wet Shark and Blocks (2000) (Matrix Exponent + DP) ](./code/341E.txt)   <br/>
 
 
-### 贪心
+### Greedy
 540B. [ School Marks  (1700) (Greedy )  ](./code/540B.txt)  <br/>
 1144G. [ Two Merged Sequences (2400) (Greedy) (Thumb)  ](./code/1144G.txt) <br/>
 1203F1. [Complete the Projects (easy version) (2100) (Greedy + Sort) (Thump)  ](./code/1203F1.txt)<br/>
 1508A. [Binary Literature (1900) (Greedy) (Thumb) ](./code/1508A.txt)<br/>
 313E. [ Ilya and Two Numbers (2300) (Greedy + Thinking + Sort)  ](./code/313E.txt)<br/>
+45E. [Director (2000) (Greedy + Implementation) ](./code/45E.txt)<br/>
 
 ### 思维/Thinking/Observation
 540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking)  ](./code/540E.txt)<br/>
