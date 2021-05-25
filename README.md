@@ -274,6 +274,7 @@ My Codeforce Practice<br/>
 |  45C |[ Dancing Lessons (1900) (TreeMap) ](./code/45C.txt)   |2021/05/23|
 |  45G |[ Prime Problem (2200) (Number Theory + Constructive) ](./code/45G.txt)   |2021/05/23|
 |  45E |[Director (2000) (Greedy + Implementation) ](./code/45E.txt)   |2021/05/24|
+|  45B |[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)   |2021/05/25|
 
 # 分类
 
@@ -433,6 +434,7 @@ My Codeforce Practice<br/>
 
 ### Sparse Table
 1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
+45B.[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
