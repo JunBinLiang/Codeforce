@@ -1,0 +1,198 @@
+Cut 不按顺序
+
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int w=Int(),h=Int();
+            int n=Int();
+            int A[][]=new int[n][4];
+            for(int i=0;i<n;i++){
+                A[i][0]=Int();
+                A[i][1]=Int();
+                A[i][2]=Int();
+                A[i][3]=Int();
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A,w,h);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(int A[][],int w,int h){
+        List<int[]>list=new ArrayList<>();
+        list.add(new int[]{0,0,w,h});
+        boolean seen[]=new boolean[A.length];
+        int cnt=0;
+        while(cnt<A.length){
+            for(int x=0;x<A.length;x++){
+                if(seen[x])continue;
+                int cut[]=A[x];
+                int j=-1;
+                for(int i=0;i<list.size();i++){
+                    int point[]=list.get(i);
+                    if(cut[0]==cut[2]){//horizontal cut
+                        if(cut[0]>point[0]&&cut[0]<point[2]&&cut[1]==point[1]&&cut[3]==point[3]){
+                            int p1[]=new int[]{point[0],point[1],cut[0],point[3]};
+                            int p2[]=new int[]{cut[0],point[1],point[2],point[3]};
+                            list.add(p1);
+                            list.add(p2);
+                            j=i;
+                            break;
+                        }
+                    }
+                    else if(cut[1]==cut[3]){//vertical cut
+                        if(cut[1]>point[1]&&cut[1]<point[3]&&cut[0]==point[0]&&cut[2]==point[2]){
+                            int p1[]=new int[]{point[0],point[1],point[2],cut[1]};
+                            int p2[]=new int[]{point[0],cut[1],point[2],point[3]};
+                            list.add(p1);
+                            list.add(p2);
+                            j=i;
+                            break;
+                        }
+                    }
+                }
+                if(j!=-1){
+                    list.remove(j);//update,remove the old point
+                    seen[x]=true;
+                    cnt++;
+                    break;
+                }
+            }
+        }
+
+
+
+
+
+        List<Integer>res=new ArrayList<>();
+        for(int p[]:list){
+            res.add((p[2]-p[0])*(p[3]-p[1]));
+        }
+        Collections.sort(res);
+        for(int i:res)out.print(i+" ");
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
