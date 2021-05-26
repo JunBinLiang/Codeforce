@@ -275,7 +275,7 @@ My Codeforce Practice<br/>
 |  45G |[ Prime Problem (2200) (Number Theory + Constructive) ](./code/45G.txt)   |2021/05/23|
 |  45E |[Director (2000) (Greedy + Implementation) ](./code/45E.txt)   |2021/05/24|
 |  45B |[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)   |2021/05/25|
-
+|  52C |[Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   |2021/05/25|
 # 分类
 
 ### DP
@@ -438,6 +438,7 @@ My Codeforce Practice<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
+52C. [Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   <br/>
 
 
 ### Binary Search
