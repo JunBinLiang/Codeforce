@@ -277,6 +277,7 @@ My Codeforce Practice<br/>
 |  45B |[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)   |2021/05/25|
 |  52C |[Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   |2021/05/25|
 |  52B |[Right Triangles (1600) (Combination) ](./code/52B.txt)   |2021/05/26|
+|  31D |[Chocolate (2000) (Brute Force + Implementation + Geometry) ](./code/31D.txt)   |2021/05/26|
 
 # 分类
 
@@ -353,6 +354,8 @@ My Codeforce Practice<br/>
 ### 欧拉定理
 1295D.[ ame GCDs (1800) (GCD + Euler)  ](./code/1295D.txt)<br/>
 
+### Geometry
+31D.[Chocolate (2000) (Brute Force + Implementation + Geometry) ](./code/31D.txt)<br/>
 ### Combination
 1185G2. [Playlist for Polycarp (Hard version) (2600) (DP + Combination  )  ](./code/1185G2.txt)<br/>
 1516E. [ Baby Ehab Plays with Permutations (2500) (超难 Combination + DP + 容斥 + Permutation)  ](./code/1516E.txt)<br/>
