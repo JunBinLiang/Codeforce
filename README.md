@@ -276,6 +276,8 @@ My Codeforce Practice<br/>
 |  45E |[Director (2000) (Greedy + Implementation) ](./code/45E.txt)   |2021/05/24|
 |  45B |[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)   |2021/05/25|
 |  52C |[Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   |2021/05/25|
+|  52B |[Right Triangles (1600) (Combination) ](./code/52B.txt)   |2021/05/26|
+
 # 分类
 
 ### DP
@@ -357,6 +359,7 @@ My Codeforce Practice<br/>
 1515E. [Phoenix and Computers	 (2200) (DP + Combination)  ](./code/1515E.txt)<br/> 
 1513E. [Cost Equilibrium (2300) （Observation + Combination） ](./code/1513E.txt)  <br/>
 57C. [ Array (1900) (Combination) (Thumb)  ](./code/57C.txt)<br/>
+52B.[Right Triangles (1600) (Combination) ](./code/52B.txt)<br/>
 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
