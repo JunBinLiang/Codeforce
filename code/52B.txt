@@ -1,0 +1,185 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            char A[][]=new char[n][m];
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<m;j++){
+                    A[i][j]=s.charAt(j);
+                }
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(char A[][]){
+        long res=0;
+        int n=A.length,m=A[0].length;
+        int r[]=new int[n],c[]=new int[m];
+        for(int i=0;i<n;i++){
+            int sum=0;
+            for(int j=0;j<m;j++)if(A[i][j]=='*')sum++;
+            r[i]=sum;
+        }
+
+        for(int i=0;i<m;i++){
+            int sum=0;
+            for(int j=0;j<n;j++)if(A[j][i]=='*')sum++;
+            c[i]=sum;
+        }
+        //System.out.println(Arrays.toString(r));
+        //System.out.println(Arrays.toString(c));
+
+        for(int i=0;i<n;i++){
+            int cnt=0;
+            for(int j=0;j<m;j++){
+                if(A[i][j]=='*'){
+                    cnt++;
+                    if(cnt>1){
+                        int a=c[j]-1;
+                        int b=(cnt-1);
+                        res+=a*b;
+                    }
+                }
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            int cnt=0;
+            for(int j=m-1;j>=0;j--){
+                if(A[i][j]=='*'){
+                    cnt++;
+                    if(cnt>1){
+                        int a=c[j]-1;
+                        int b=(cnt-1);
+                        res+=a*b;
+                    }
+                }
+            }
+        }
+        
+        out.println(res);
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
