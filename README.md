@@ -278,6 +278,7 @@ My Codeforce Practice<br/>
 |  52C |[Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   |2021/05/25|
 |  52B |[Right Triangles (1600) (Combination) ](./code/52B.txt)   |2021/05/26|
 |  31D |[Chocolate (2000) (Brute Force + Implementation + Geometry) ](./code/31D.txt)   |2021/05/26|
+|  31E |[TV Game (2400) (DP) ](./code/31E.txt)   |2021/05/26|
 
 # 分类
 
@@ -292,6 +293,7 @@ My Codeforce Practice<br/>
 313D. [ Ilya and Roads (2100) (DP)  ](./code/313D.txt)<br/>
 66E.[ Petya and Post(2000) (DP + Thinking)  ](./code/66E.txt)<br/>
 1525D.[ Armchairs (1800) (DP) ](./code/1525D.txt)<br/>
+31E. [TV Game (2400) (DP) ](./code/31E.txt)<br/>
 
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
