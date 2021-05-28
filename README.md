@@ -280,6 +280,7 @@ My Codeforce Practice<br/>
 |  31D |[Chocolate (2000) (Brute Force + Implementation + Geometry) ](./code/31D.txt)   |2021/05/26|
 |  31E |[TV Game (2400) (DP) ](./code/31E.txt)   |2021/05/26|
 |  5E |[ Bindian Signalizing (2400) (Stack + Thinking + Observation) ](./code/5E.txt)   |2021/05/27|
+|  1528A |[ Parsa's Humongous Tree (1600) (Tree + DP) ](./code/1528A.txt)   |2021/05/28|
 
 # 分类
 
@@ -432,6 +433,9 @@ My Codeforce Practice<br/>
 
 ### DFS/剪枝
 448E. [ Divisor (2200) (DFS + 剪枝)  ](./code/448E.txt)<br/>
+
+### Tree
+1528A.[ Parsa's Humongous Tree (1600) (Tree + DP) ](./code/1528A.txt)<br/>
 
 ### TreeSet/TreeMap
 926J.[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   <br/>
