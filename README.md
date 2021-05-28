@@ -279,6 +279,7 @@ My Codeforce Practice<br/>
 |  52B |[Right Triangles (1600) (Combination) ](./code/52B.txt)   |2021/05/26|
 |  31D |[Chocolate (2000) (Brute Force + Implementation + Geometry) ](./code/31D.txt)   |2021/05/26|
 |  31E |[TV Game (2400) (DP) ](./code/31E.txt)   |2021/05/26|
+|  5E |[ Bindian Signalizing (2400) (Stack + Thinking + Observation) ](./code/5E.txt)   |2021/05/27|
 
 # 分类
 
@@ -335,7 +336,7 @@ My Codeforce Practice<br/>
 176B. [Word Cut (1700) (DP + Observation) ](./code/176B.txt)<br/>
 1156B. [Ugly Pair	 (1800) (Greedy) ](./code/1156B.txt)<br/>
 1468H. [K and Medians	 (2200) (Greedy + Reverse Thinking) ](./code/1468H.txt)<br/>
-
+5E.[ Bindian Signalizing (2400) (Stack + Thinking + Observation) ](./code/5E.txt)<br/>
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
 78C. [ Beaver Game (2000) (Game) ](./code/78C.txt)<br/>
