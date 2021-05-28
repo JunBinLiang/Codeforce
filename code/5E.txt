@@ -1,0 +1,254 @@
+right[i]：右边第一个比i大
+left[i]:左边第一个
+same:注意一样的
+
+
+
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+            int B[]=new int[n];
+            for(int i=0;i<A.length;i++)B[i]=A[i];
+            Arrays.sort(B);
+            Map<Integer,Integer>f=new HashMap<>();
+            int id=0;
+            for(int i:B){
+                if(!f.containsKey(i))f.put(i,id++);
+            }
+            for(int i=0;i<A.length;i++){
+                A[i]=f.get(A[i]);
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(int A[]){
+        //List<Integer>list=new ArrayList<>();
+        int mx=Integer.MIN_VALUE;
+        int j=-1;
+        for(int i=0;i<A.length;i++){
+            if(A[i]>mx){
+                mx=A[i];
+                j=i;
+            }
+        }
+
+        int list[]=new int[A.length+1];
+        int index=0;
+
+        for(int i=j;i<A.length;i++){
+            list[index++]=A[i];
+        }
+        for(int i=0;i<=j;i++){
+            list[index++]=A[i];
+        }
+
+
+
+        long res=0;
+        int right[]=new int[list.length];
+        int left[]=new int[list.length];
+        int sames[]=new int[list.length];
+        int cnt[]=new int[list.length];
+        Arrays.fill(left,list.length-1);
+        Arrays.fill(right,list.length-1);
+        Stack<Integer>sta=new Stack<>();
+
+
+        for(int i=0;i<list.length;i++){
+            int idx=i;
+            Set<Integer>set=new HashSet<>();
+            while(sta.size()>0&&list[idx]>list[sta.peek()]){
+                int top=sta.pop();
+                right[top]=idx;
+                sames[top]=cnt[list[top]];
+                if(top!=list.length-1){
+                    set.add(list[top]);
+                    cnt[list[top]]++;
+                }
+            }
+            for(Integer x:set){
+                cnt[x]=0;
+            }
+            sta.push(idx);
+        }
+
+        while(sta.size()>0){
+            int top=sta.pop();
+            sames[top]=cnt[list[top]];
+            if(top!=list.length-1){
+                cnt[list[(top)]]++;
+            }
+        }
+
+        for(int i=list.length-1;i>=0;i--){
+            int idx=i;
+            while(sta.size()>0&&list[idx]>list[(sta.peek())]){
+                int top=sta.pop();
+                left[top]=idx;
+            }
+            sta.push(idx);
+        }
+
+
+        // System.out.println(list);
+        //System.out.println(Arrays.toString(sames));
+
+        //System.out.println(list);
+        //System.out.println();
+        //System.out.println(Arrays.toString(right));
+        //System.out.println(Arrays.toString(left));
+        // System.out.println();
+
+
+
+        for(int i=1;i<list.length;i++){
+
+            int r=Math.min(right[i],list.length-2);
+            int same=sames[i];
+            res+=same;
+            //System.out.println(res);
+            if(list[r]>list[i])res++;
+            int l=left[i];
+            if(l!=list.length-1&&list[l]>list[i]&&l>=1)res++;
+            //System.out.println(res);
+            //System.out.println();
+        }
+
+        for(int i=1;i<list.length-1;i++){
+            if((right[0]>=i&&(left[i]<=0||left[i]==list.length-1))||(right[i]>=list.length-1&&(left[list.length-1]<=i||left[list.length-1]==list.length-1))){
+                res++;
+            }
+        }
+
+
+        out.println(res);
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
