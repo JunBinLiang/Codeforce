@@ -281,6 +281,7 @@ My Codeforce Practice<br/>
 |  31E |[TV Game (2400) (DP) ](./code/31E.txt)   |2021/05/26|
 |  5E |[ Bindian Signalizing (2400) (Stack + Thinking + Observation) ](./code/5E.txt)   |2021/05/27|
 |  1528A |[ Parsa's Humongous Tree (1600) (Tree + DP) ](./code/1528A.txt)   |2021/05/28|
+|  1529D |[ Kavi on Pairing Duty (1700) (Thinking + DP) ](./code/1529D.txt)   |2021/05/28|
 
 # 分类
 
@@ -296,6 +297,7 @@ My Codeforce Practice<br/>
 66E.[ Petya and Post(2000) (DP + Thinking)  ](./code/66E.txt)<br/>
 1525D.[ Armchairs (1800) (DP) ](./code/1525D.txt)<br/>
 31E. [TV Game (2400) (DP) ](./code/31E.txt)<br/>
+1529D.[ Kavi on Pairing Duty (1700) (Thinking + DP) ](./code/1529D.txt)<br/>
 
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
