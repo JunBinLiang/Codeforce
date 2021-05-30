@@ -283,6 +283,7 @@ My Codeforce Practice<br/>
 |  1528A |[ Parsa's Humongous Tree (1600) (Tree + DP) ](./code/1528A.txt)   |2021/05/28|
 |  1529D |[ Kavi on Pairing Duty (1700) (Thinking + DP) ](./code/1529D.txt)   |2021/05/29|
 |  1527B1 |[ Palindrome Game (easy version) (1200) (Game) ](./code/1527B1.txt)   |2021/05/30|
+|  1527B2 |[ Palindrome Game (hard version) (1900) (Game) ](./code/1527B2.txt)   |2021/05/30|
 
 # 分类
 
@@ -345,6 +346,7 @@ My Codeforce Practice<br/>
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
 78C. [ Beaver Game (2000) (Game) ](./code/78C.txt)<br/>
 1527B1.[ Palindrome Game (easy version) (1200) (Game) ](./code/1527B1.txt)<br/>
+1527B2.[ Palindrome Game (hard version) (1900) (Game) ](./code/1527B2.txt)<br/>
 
 ### Chessboard
 1196E. [ Connected Component on a Chessboard (1800) (Chessboard + Constructive + Greedy)  ](./code/1196E.txt)   <br/>
