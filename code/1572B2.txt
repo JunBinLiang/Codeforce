@@ -1,0 +1,212 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            String s=Str();
+            Solution sol=new Solution(out);
+            sol.solution(s,t);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    public void solution(String s,int t){
+        int need=0;
+        int l=0,r=s.length()-1;
+        while(l<r){
+            if(s.charAt(l)!=s.charAt(r)){
+                need++;
+            }
+            l++;r--;
+
+        }
+
+        if(need==0){
+            p(s);
+            return;
+        }
+
+
+
+
+        int cnt=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='0')cnt++;
+        }
+        int perfect=cnt-need;
+
+
+
+        if(perfect%2==1){//middle zero
+            if(perfect==1){
+                if(need==1){
+                    out.println("DRAW");
+                }
+                else{
+                    out.println("ALICE");
+                }
+            }
+            else{//Bob have to take middle zero, otherwise,always loose
+                out.println("ALICE");
+            }
+        }
+        else{
+            if(perfect==0){//Alice just reverse
+                out.println("ALICE");
+                return;
+            }
+            if(need>2){//left bot take all until palindrom,alice -2
+                out.println("ALICE");
+            }
+            else{
+                out.println("ALICE");
+            }
+        }
+
+    }
+
+
+
+    public void p(String s){
+        int cnt=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='0')cnt++;
+        }
+
+        if(cnt%2==1){
+            if(cnt==1){
+                out.println("BOB");
+            }
+            else{
+                out.println("ALICE");
+            }
+        }
+        else{
+            out.println("BOB");
+        }
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+
