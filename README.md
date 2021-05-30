@@ -284,6 +284,7 @@ My Codeforce Practice<br/>
 |  1529D |[ Kavi on Pairing Duty (1700) (Thinking + DP) ](./code/1529D.txt)   |2021/05/29|
 |  1527B1 |[ Palindrome Game (easy version) (1200) (Game) ](./code/1527B1.txt)   |2021/05/30|
 |  1527B2 |[ Palindrome Game (hard version) (1900) (Game) ](./code/1527B2.txt)   |2021/05/30|
+|  1527C |[ Sequence Pair Weight (1600) (DP) ](./code/1527C.txt)   |2021/05/30|
 
 # 分类
 
@@ -300,6 +301,7 @@ My Codeforce Practice<br/>
 1525D.[ Armchairs (1800) (DP) ](./code/1525D.txt)<br/>
 31E. [TV Game (2400) (DP) ](./code/31E.txt)<br/>
 1529D.[ Kavi on Pairing Duty (1700) (Thinking + DP) ](./code/1529D.txt)<br/>
+1527C.[ Sequence Pair Weight (1600) (DP) ](./code/1527C.txt)<br/>
 
 ### Prefix DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
