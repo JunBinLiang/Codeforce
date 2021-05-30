@@ -285,6 +285,7 @@ My Codeforce Practice<br/>
 |  1527B1 |[ Palindrome Game (easy version) (1200) (Game) ](./code/1527B1.txt)   |2021/05/30|
 |  1527B2 |[ Palindrome Game (hard version) (1900) (Game) ](./code/1527B2.txt)   |2021/05/30|
 |  1527C |[ Sequence Pair Weight (1600) (DP) ](./code/1527C.txt)   |2021/05/30|
+|  39E |[ What Has Dirichlet Got to Do with That?(2000) (DP + Game + Optimization + MinMax) ](./code/39E.txt)   |2021/05/30|
 
 # 分类
 
@@ -349,6 +350,9 @@ My Codeforce Practice<br/>
 78C. [ Beaver Game (2000) (Game) ](./code/78C.txt)<br/>
 1527B1.[ Palindrome Game (easy version) (1200) (Game) ](./code/1527B1.txt)<br/>
 1527B2.[ Palindrome Game (hard version) (1900) (Game) ](./code/1527B2.txt)<br/>
+
+### MinMax
+39E.[ What Has Dirichlet Got to Do with That?(2000) (DP + Game + Optimization + MinMax) ](./code/39E.txt)<br/>
 
 ### Chessboard
 1196E. [ Connected Component on a Chessboard (1800) (Chessboard + Constructive + Greedy)  ](./code/1196E.txt)   <br/>
