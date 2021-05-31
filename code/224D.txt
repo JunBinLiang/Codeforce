@@ -1,0 +1,217 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+            String tt=Str();
+            Solution sol=new Solution(out);
+            sol.solution(s,tt);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(String s,String t){
+        int n=s.length();
+        int left[]=new int[n];int right[]=new int[n];
+        Map<Character,List<Integer>>f=new HashMap<>();
+
+        for(int i =0;i<t.length();i++){
+            char c=t.charAt(i);
+            if(!f.containsKey(c))f.put(c,new ArrayList<>());
+            f.get(c).add(i);
+        }
+
+        int j=0;
+        for(int i=0;i<s.length();i++){
+            if(j<t.length()&&s.charAt(i)==t.charAt(j))j++;
+            left[i]=j;
+        }
+
+        j=t.length()-1;
+        int match=0;
+        for(int i=s.length()-1;i>=0;i--){
+            if(j>=0&&s.charAt(i)==t.charAt(j)){
+                j--;
+                match++;
+            }
+            right[i]=match;
+        }
+
+
+
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(!f.containsKey(c)){
+                out.println("NO");
+                return;
+            }
+            List<Integer>list=f.get(c);
+            int lcnt=get(left,i-1);
+            int rcnt=get(right,i+1);
+            int l=0,r=list.size()-1;
+            int pos1=-1,pos2=-1;
+            while(l<=r){
+                int mid=l+(r-l)/2;
+                int index=list.get(mid);
+                if(lcnt>=index){
+                    pos1=mid;
+                    l=mid+1;
+                }
+                else{
+                    r=mid-1;
+                }
+            }
+
+            l=0;r=list.size()-1;
+            while(l<=r){
+                int mid=l+(r-l)/2;
+                int index=list.get(mid);
+                if(rcnt>=(t.length()-(index+1))){
+                    pos2=mid;
+                    r=mid-1;
+                }
+                else{
+                    l=mid+1;
+                }
+            }
+
+            if(pos1!=-1&&pos2!=-1&&pos1>=pos2){
+
+            }
+            else{
+                out.println("NO");
+                return;
+            }
+        }
+
+
+
+        out.println("YES");
+    }
+
+    public int get(int A[],int i){
+        if(i<0||i>=A.length)return 0;
+        return A[i];
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
