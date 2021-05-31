@@ -289,6 +289,7 @@ My Codeforce Practice<br/>
 |  1474D |[ Cleaning (2200) (Thinking + Left/Right DP) ](./code/1474D.txt)   |2021/05/30|
 |  33B |[ String Problem (1800) (Shortest Path + Direct Graph) ](./code/33B.txt)   |2021/05/30|
 |  224B |[ Array (1500) (Two Pointer + Thinking) ](./code/224B.txt)   |2021/05/31|
+|  224C |[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)   |2021/05/31|
 
 # 分类
 
@@ -514,5 +515,8 @@ My Codeforce Practice<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
+
+### Stack
+224C.[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)<br/>
 
 
