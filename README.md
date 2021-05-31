@@ -288,6 +288,7 @@ My Codeforce Practice<br/>
 |  39E |[ What Has Dirichlet Got to Do with That?(2000) (DP + Game + Optimization + MinMax) ](./code/39E.txt)   |2021/05/30|
 |  1474D |[ Cleaning (2200) (Thinking + Left/Right DP) ](./code/1474D.txt)   |2021/05/30|
 |  33B |[ String Problem (1800) (Shortest Path + Direct Graph) ](./code/33B.txt)   |2021/05/30|
+|  224B |[ Array (1500) (Two Pointer + Thinking) ](./code/224B.txt)   |2021/05/31|
 
 # 分类
 
@@ -509,6 +510,7 @@ My Codeforce Practice<br/>
 
 ### Two Pointer
 190D. [ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)<br/>
+224B.[ Array (1500) (Two Pointer + Thinking) ](./code/224B.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
