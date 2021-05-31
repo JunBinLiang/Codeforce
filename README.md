@@ -291,6 +291,7 @@ My Codeforce Practice<br/>
 |  224B |[ Array (1500) (Two Pointer + Thinking) ](./code/224B.txt)   |2021/05/31|
 |  224C |[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)   |2021/05/31|
 |  224D |[Two Strings (1900) (left-right DP +Binary Search) ](./code/224D.txt)   |2021/05/31|
+|  224E |[Partial Sums (1900) (Combination) ](./code/224E.txt)   |2021/05/31|
 
 # 分类
 
@@ -386,6 +387,7 @@ My Codeforce Practice<br/>
 1513E. [Cost Equilibrium (2300) （Observation + Combination） ](./code/1513E.txt)  <br/>
 57C. [ Array (1900) (Combination) (Thumb)  ](./code/57C.txt)<br/>
 52B.[Right Triangles (1600) (Combination) ](./code/52B.txt)<br/>
+224E.[Partial Sums (1900) (Combination) ](./code/224E.txt)<br/>
 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
