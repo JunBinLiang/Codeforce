@@ -287,6 +287,7 @@ My Codeforce Practice<br/>
 |  1527C |[ Sequence Pair Weight (1600) (DP) ](./code/1527C.txt)   |2021/05/30|
 |  39E |[ What Has Dirichlet Got to Do with That?(2000) (DP + Game + Optimization + MinMax) ](./code/39E.txt)   |2021/05/30|
 |  1474D |[ Cleaning (2200) (Thinking + Left/Right DP) ](./code/1474D.txt)   |2021/05/30|
+|  33B |[ String Problem (1800) (Shortest Path + Direct Graph) ](./code/33B.txt)   |2021/05/30|
 
 # 分类
 
@@ -405,6 +406,9 @@ My Codeforce Practice<br/>
 1520G. [To Go Or Not To Go?  (2200) (Graph + Shortest Path )  ](./code/1520G.txt)<br/>
 1473E.[ Minimum Path (2400) (Shortest Path)  ](./code/1473E.txt)<br/>
 37E.[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)<br/>
+
+### Floy
+33B [ String Problem (1800) (Shortest Path) ](./code/33B.txt)<br/>
 
 
 ### Shortest Cycle in Weight-1 graph
