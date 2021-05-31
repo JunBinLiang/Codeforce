@@ -286,6 +286,7 @@ My Codeforce Practice<br/>
 |  1527B2 |[ Palindrome Game (hard version) (1900) (Game) ](./code/1527B2.txt)   |2021/05/30|
 |  1527C |[ Sequence Pair Weight (1600) (DP) ](./code/1527C.txt)   |2021/05/30|
 |  39E |[ What Has Dirichlet Got to Do with That?(2000) (DP + Game + Optimization + MinMax) ](./code/39E.txt)   |2021/05/30|
+|  1474D |[ Cleaning (2200) (Thinking + Left/Right DP) ](./code/1474D.txt)   |2021/05/30|
 
 # 分类
 
@@ -304,10 +305,11 @@ My Codeforce Practice<br/>
 1529D.[ Kavi on Pairing Duty (1700) (Thinking + DP) ](./code/1529D.txt)<br/>
 1527C.[ Sequence Pair Weight (1600) (DP) ](./code/1527C.txt)<br/>
 
-### Prefix DP
+### Prefix/Left-Right DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
 1278C.[  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt) <br/>  
 21C.[ Stripe 2 (2000) (Dp)  ](./code/21C.txt)<br/>  
+1474D.[ Cleaning (2200) (Thinking + Left/Right DP) ](./code/1474D.txt)<br/>
 
 ### 树DP
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)<br/>
