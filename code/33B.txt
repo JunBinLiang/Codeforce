@@ -1,0 +1,208 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();String tt=Str();
+            int n=Int();
+            int dis[][]=new int[26][26];
+
+            for(int i=0;i<dis.length;i++){
+                Arrays.fill(dis[i],100000000);
+            }
+
+            for(int i=0;i<dis.length;i++){
+                dis[i][i]=0;
+            }
+
+
+
+            for(int i=0;i<n;i++){
+                int u=Str().charAt(0)-'a';
+                int v=Str().charAt(0)-'a';
+                int w=Int();
+                dis[u][v]=Math.min(dis[u][v],w);
+            }
+
+            for(int k=0;k<26;k++){
+                for(int i=0;i<26;i++){
+                    for(int j=0;j<26;j++){
+                        if(dis[i][k]+dis[k][j]<dis[i][j]){
+                            dis[i][j]=dis[i][k]+dis[k][j];
+                        }
+                    }
+                }
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(s,tt,dis);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    int INF=100000000;
+    public void solution(String s,String t,int dis[][]){
+        if(s.length()!=t.length()){
+            out.println(-1);
+            return;
+        }
+
+
+        int n=s.length();
+        long res=0;
+        StringBuilder str=new StringBuilder();
+        for(int i=0;i<n;i++){
+            int d1=s.charAt(i)-'a';
+            int d2=t.charAt(i)-'a';
+            if(d1!=d2){
+                char c='a';
+                int cost=Integer.MAX_VALUE;
+                for(int j=0;j<26;j++){
+                    int a=dis[d1][j];
+                    int b=dis[d2][j];
+                    if(a<INF&&b<INF){
+                        if(a+b<cost){
+                            cost=a+b;
+                            c=(char)(j+'a');
+                        }
+                    }
+                }
+                if(cost!=Integer.MAX_VALUE){
+                    res+=cost;
+                    str.append(c);
+                }
+                else{
+                    out.println(-1);
+                    return;
+                }
+            }else{
+                str.append(s.charAt(i));
+            }
+        }
+        out.println(res);
+        out.println(str.toString());
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
+//[111111111 444444444 111111111 222222222 222222222]
