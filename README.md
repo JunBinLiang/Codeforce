@@ -311,8 +311,8 @@ My Codeforce Practice<br/>
 
 ### Prefix/Left-Right DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
-1278C.[  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt) <br/>  
-21C.[ Stripe 2 (2000) (Dp)  ](./code/21C.txt)<br/>  
+1278C.[  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt) <br/>
+21C.[ Stripe 2 (2000) (Dp)  ](./code/21C.txt)<br/>
 1474D.[ Cleaning (2200) (Thinking + Left/Right DP) ](./code/1474D.txt)<br/>
 224D. [Two Strings (1900) (left-right DP +Binary Search) ](./code/224D.txt)<br/>
 
