@@ -292,6 +292,7 @@ My Codeforce Practice<br/>
 |  224C |[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)   |2021/05/31|
 |  224D |[Two Strings (1900) (left-right DP +Binary Search) ](./code/224D.txt)   |2021/05/31|
 |  224E |[Partial Sums (1900) (Combination) ](./code/224E.txt)   |2021/05/31|
+|  279D |[The Minimum Number of Variables(2200) (Bit DP) ](./code/279D.txt)   |2021/05/31|
 
 # 分类
 
@@ -322,6 +323,7 @@ My Codeforce Practice<br/>
 
 ### Bit DP
 1185G1. [Playlist for Polycarp (easy version) (2100) (Bitmask DP )  ](./code/1185G1.txt)  <br/>
+279D.[The Minimum Number of Variables(2200) (Bit DP) ](./code/279D.txt)<br/>
 
 ### 区间DP
 1509C. [The Sports Festival (1800) (DP) ](./code/1509C.txt)  <br/>
