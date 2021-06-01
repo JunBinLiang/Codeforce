@@ -1,0 +1,197 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+            StringBuilder str=new StringBuilder(s);
+            str.reverse();
+            Solution sol=new Solution(out);
+            sol.solution(str.toString());
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(String s){
+        char A[]=s.toCharArray();
+        int n=A.length;
+        int cnt=0;
+        int pre[]=new int[n];
+        for(int i=0;i<A.length;i++){
+            if(A[i]=='0')cnt++;
+            pre[i]=cnt;
+        }
+
+        int dp[]=new int[n];
+        int j=-1;
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            return a[0]-b[0];
+        });
+
+
+        for(int i=0;i<A.length;i++){
+            if(A[i]=='1'){
+                j=i+1;
+                dp[i]=1;
+                pq.add(new int[]{dp[i]+pre[n-1]-pre[i],i});
+                while(j<n&&A[j]=='1'){
+                    dp[j]=Math.min(2,dp[j-1]+1);
+                    pq.add(new int[]{dp[j]+pre[n-1]-pre[j],j});
+                    j++;
+                }
+                pq.add(new int[]{pre[n-1]-i,-1});
+                break;
+            }
+        }
+
+
+        for(int i=j;i<n;i++){
+            if(A[i]=='1'){
+                int top[]=pq.peek();
+                int dif=pre[n-1]-pre[i];
+                if(top[1]==-1)dp[i]=Math.min(dp[i-1]+1,2+top[0]-dif);
+                else dp[i]=Math.min(1+dp[i-1],2+(top[0]-dif));
+                pq.add(new int[]{dp[i]+pre[n-1]-pre[i],i});
+            }
+            else{
+                int k=i;
+                int zero=0;
+                while(k<n&&A[k]=='0'){
+                    zero++;
+                    k++;
+                }
+                pq.add(new int[]{dp[i-1]-zero+(pre[n-1]-pre[i-1]),i-1});
+                dp[k-1]=dp[i-1];
+                i=k-1;
+
+            }
+            //System.out.println(Arrays.toString(dp));
+        }
+        out.println(dp[n-1]);
+    }
+
+}
+
+//111111000100
+
+
+//1101011001101110000000010000011111110100010000100011101010110100010010011110101001011111111001100011
+
+//110110011010110101101010111010010010101001001010000110111111000100 24
+
+//111111000100 : 3
+
+
+
+
+
+
+/*
+                             ;\
+                            |' \
+         _                  ; : ;
+        / `-.              /: : |
+       |  ,-.`-.          ,': : |
+       \  :  `. `.       ,'-. : |
+        \ ;    ;  `-.__,'    `-.|
+         \ ;   ;  :::  ,::'`:.  `.
+          \ `-. :  `    :.    `.  \
+           \   \    ,   ;   ,:    (\
+            \   :., :.    ,'o)): ` `-.
+           ,/,' ;' ,::"'`.`---'   `.  `-._
+         ,/  :  ; '"      `;'          ,--`.
+        ;/   :; ;             ,:'     (   ,:)
+          ,.,:.    ; ,:.,  ,-._ `.     \""'/
+          '::'     `:'`  ,'(  \`._____.-'"'
+             ;,   ;  `.  `. `._`-.  \\
+             ;:.  ;:       `-._`-.\  \`.
+              '`:. :        |' `. `\  ) \
+      -hrr-      ` ;:       |    `--\__,'
+                   '`      ,'
+                        ,-'
+
+
+                      free bug dog
+*/
+
