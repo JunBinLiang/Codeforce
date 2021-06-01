@@ -1,0 +1,72 @@
+#include<bits/stdc++.h>
+#include<vector>
+using namespace std;
+
+
+int main(){
+    int n;
+    cin>>n;
+    int res=INT_MAX;
+    int A[23];
+    for(int i=0;i<n;i++){
+        cin>>A[i];
+    }
+    if(n==1){
+        cout<<1<<endl;
+        return 0;
+    }
+    
+    vector<int>dp(1<<23,INT_MAX);
+    dp[1]=1;
+    for(int state=1;state<(1<<(n-1));state++){
+        if(dp[state]>=res)continue;
+        int cnt=0;
+        int last=-1;//highest bit
+        for(int i=1,j=0;i<=state;i*=2,j++){
+            if((state&(i))!=0){
+                cnt++;
+                last=j;
+            }
+        }
+        
+        int next=A[last+1];
+        bool found=false;
+        
+        for(int i=0;i<=last;i++){
+            if(found)break;
+            if((state&(1<<i))==0)continue;
+            for(int j=i;j>=0;j--){
+                if(found)break;
+                if((state&(1<<j))==0)continue;
+                if(A[i]+A[j]!=next)continue;
+                found=true;
+                break;
+            }
+        }
+        
+        
+         if(found){
+            if(last==n-2){
+                res=min(res,max(cnt,dp[state]));                
+                continue;
+            } 
+            dp[state|(1<<(last+1))]=min(dp[state|(1<<(last+1))],max(1+cnt,dp[state]));
+            for(int i=0;i<=last;i++){
+                if((state&(1<<last))!=0){
+                    int newstate=state;
+                    newstate=newstate|(1<<(last+1));
+                    newstate=newstate^(1<<i);
+                    dp[newstate]=min(dp[newstate],max(cnt,dp[state]));
+                }
+            }
+        }
+    }
+    
+    
+    if(res>n){
+        cout<<-1<<endl;
+    }
+    else{
+        cout<<res<<endl;
+    }
+}
