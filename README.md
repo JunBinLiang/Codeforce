@@ -293,6 +293,8 @@ My Codeforce Practice<br/>
 |  224D |[Two Strings (1900) (left-right DP +Binary Search) ](./code/224D.txt)   |2021/05/31|
 |  224E |[Partial Sums (1900) (Combination) ](./code/224E.txt)   |2021/05/31|
 |  279D |[The Minimum Number of Variables(2200) (Bit DP) ](./code/279D.txt)   |2021/05/31|
+|  279E |[Beautiful Decomposition(1900) (Bit + DP) ](./code/279E.txt)   |2021/06/01|
+
 
 # 分类
 
@@ -310,6 +312,7 @@ My Codeforce Practice<br/>
 31E. [TV Game (2400) (DP) ](./code/31E.txt)<br/>
 1529D.[ Kavi on Pairing Duty (1700) (Thinking + DP) ](./code/1529D.txt)<br/>
 1527C.[ Sequence Pair Weight (1600) (DP) ](./code/1527C.txt)<br/>
+279E.[Beautiful Decomposition(1900) (Bit + DP) ](./code/279E.txt)<br/>
 
 ### Prefix/Left-Right DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
@@ -502,6 +505,7 @@ My Codeforce Practice<br/>
 1338B. [Edge Weight Assignment (1800) （Greedy + Bit + Tree） ](./code/1338B.txt)   <br/>
 1234D. [Distinct Characters Queriese (1600) (TreeSet) ](./code/1234D.txt)<br/>
 276D.[ Little Girl and Maximum XOR (1700) (Bit + Greedy)  ](./code/276D.txt)<br/>
+
 
 ### Divide Conquer
 652D. [Nested Segments (1800) （Sort + Divide Conquer + Thinking） ](./code/652D.txt)   <br/> 
