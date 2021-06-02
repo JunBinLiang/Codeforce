@@ -294,7 +294,7 @@ My Codeforce Practice<br/>
 |  224E |[Partial Sums (1900) (Combination) ](./code/224E.txt)   |2021/05/31|
 |  279D |[The Minimum Number of Variables(2200) (Bit DP) ](./code/279D.txt)   |2021/05/31|
 |  279E |[Beautiful Decomposition(1900) (Bit + DP) ](./code/279E.txt)   |2021/06/01|
-
+|  279C |[ Ladder (1700) (Segment Tree +Left-right DP) ](./code/279C.txt)   |2021/06/02|
 
 # 分类
 
@@ -320,6 +320,7 @@ My Codeforce Practice<br/>
 21C.[ Stripe 2 (2000) (Dp)  ](./code/21C.txt)<br/>
 1474D.[ Cleaning (2200) (Thinking + Left/Right DP) ](./code/1474D.txt)<br/>
 224D. [Two Strings (1900) (left-right DP +Binary Search) ](./code/224D.txt)<br/>
+279C.[ Ladder (1700) (Segment Tree +Left-right DP) ](./code/279C.txt)<br/>
 
 ### 树DP
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)<br/>
