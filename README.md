@@ -295,6 +295,7 @@ My Codeforce Practice<br/>
 |  279D |[The Minimum Number of Variables(2200) (Bit DP) ](./code/279D.txt)   |2021/05/31|
 |  279E |[Beautiful Decomposition(1900) (Bit + DP) ](./code/279E.txt)   |2021/06/01|
 |  279C |[ Ladder (1700) (Segment Tree +Left-right DP) ](./code/279C.txt)   |2021/06/02|
+|  46E |[ Comb (1900) ( DP) ](./code/46E.txt)   |2021/06/02|
 
 # 分类
 
@@ -313,6 +314,7 @@ My Codeforce Practice<br/>
 1529D.[ Kavi on Pairing Duty (1700) (Thinking + DP) ](./code/1529D.txt)<br/>
 1527C.[ Sequence Pair Weight (1600) (DP) ](./code/1527C.txt)<br/>
 279E.[Beautiful Decomposition(1900) (Bit + DP) ](./code/279E.txt)<br/>
+46E. [ Comb (1900) ( DP) ](./code/46E.txt)<br/>
 
 ### Prefix/Left-Right DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
