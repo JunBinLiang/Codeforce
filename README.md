@@ -297,6 +297,8 @@ My Codeforce Practice<br/>
 |  279C |[ Ladder (1700) (Segment Tree +Left-right DP) ](./code/279C.txt)   |2021/06/02|
 |  46E |[ Comb (1900) ( DP) ](./code/46E.txt)   |2021/06/02|
 |  1294E |[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)   |2021/06/02|
+|  888G |[ Xor-MST (2300) (MST + Trie + Bit + Divide Conquer + Boruvka's algorithm) ](./code/888G.txt)   |2021/06/02|
+
 
 # 分类
 
@@ -441,6 +443,9 @@ My Codeforce Practice<br/>
 
 ### MST
 125E. [ MST Company (2400) (MST + Thinking)  ](./code/125E.txt)<br/>
+
+### Boruvka's algorithm
+888G. [ Xor-MST (2300) (MST + Trie + Bit + Divide Conquer + Boruvka's algorithm) ](./code/888G.txt)<br/>
 
 ### Dynamic Connectivity
 1140F.[Extending Set of Points (2600) （Dynamic Connectivity） ](./code/1140F.txt)<br/>
