@@ -296,6 +296,7 @@ My Codeforce Practice<br/>
 |  279E |[Beautiful Decomposition(1900) (Bit + DP) ](./code/279E.txt)   |2021/06/01|
 |  279C |[ Ladder (1700) (Segment Tree +Left-right DP) ](./code/279C.txt)   |2021/06/02|
 |  46E |[ Comb (1900) ( DP) ](./code/46E.txt)   |2021/06/02|
+|  1294E |[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)   |2021/06/02|
 
 # 分类
 
@@ -457,6 +458,7 @@ My Codeforce Practice<br/>
 1500A. [Going Home (1800) （Brute Force） ](./code/1500A.txt)<br/>
 1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
 962D. [ Merge Equals (1600) (Implementation)  ](./code/962D.txt)<br/>
+1294E.[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)<br/>
 
 ### 枚举 (暴力)
 1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
