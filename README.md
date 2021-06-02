@@ -349,6 +349,7 @@ My Codeforce Practice<br/>
 1508A. [Binary Literature (1900) (Greedy) (Thumb) ](./code/1508A.txt)<br/>
 313E. [ Ilya and Two Numbers (2300) (Greedy + Thinking + Sort)  ](./code/313E.txt)<br/>
 45E. [Director (2000) (Greedy + Implementation) ](./code/45E.txt)<br/>
+1294E.[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)<br/>
 
 ### 思维/Thinking/Observation
 540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking)  ](./code/540E.txt)<br/>
@@ -458,7 +459,7 @@ My Codeforce Practice<br/>
 1500A. [Going Home (1800) （Brute Force） ](./code/1500A.txt)<br/>
 1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
 962D. [ Merge Equals (1600) (Implementation)  ](./code/962D.txt)<br/>
-1294E.[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)<br/>
+
 
 ### 枚举 (暴力)
 1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
