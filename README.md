@@ -300,6 +300,7 @@ My Codeforce Practice<br/>
 |  888G |[ Xor-MST (2300) (MST + Trie + Bit + Divide Conquer + Boruvka's algorithm) ](./code/888G.txt)   |2021/06/02|
 |  988D |[ Points and Powers of Two (1800) (Observation + Thinking + Brute Force) ](./code/988D.txt)   |2021/06/02|
 |  988E |[ Divisibility by 25 (2100) ( Brute Force) ](./code/988E.txt)   |2021/06/03|
+|  988F |[  Rain and Umbrellas (2100) ( DP) ](./code/988F.txt)   |2021/06/03|
 
 # 分类
 
@@ -319,6 +320,7 @@ My Codeforce Practice<br/>
 1527C.[ Sequence Pair Weight (1600) (DP) ](./code/1527C.txt)<br/>
 279E.[Beautiful Decomposition(1900) (Bit + DP) ](./code/279E.txt)<br/>
 46E. [ Comb (1900) ( DP) ](./code/46E.txt)<br/>
+988F.[  Rain and Umbrellas (2100) ( DP) ](./code/988F.txt)<br/>
 
 ### Prefix/Left-Right DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
