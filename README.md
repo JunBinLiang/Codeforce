@@ -298,7 +298,7 @@ My Codeforce Practice<br/>
 |  46E |[ Comb (1900) ( DP) ](./code/46E.txt)   |2021/06/02|
 |  1294E |[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)   |2021/06/02|
 |  888G |[ Xor-MST (2300) (MST + Trie + Bit + Divide Conquer + Boruvka's algorithm) ](./code/888G.txt)   |2021/06/02|
-
+|  988D |[ Points and Powers of Two (1800) (Observation + Thinking + Brute Force) ](./code/988D.txt)   |2021/06/02|
 
 # 分类
 
@@ -365,6 +365,7 @@ My Codeforce Practice<br/>
 1156B. [Ugly Pair	 (1800) (Greedy) ](./code/1156B.txt)<br/>
 1468H. [K and Medians	 (2200) (Greedy + Reverse Thinking) ](./code/1468H.txt)<br/>
 5E.[ Bindian Signalizing (2400) (Stack + Thinking + Observation) ](./code/5E.txt)<br/>
+988D. [ Points and Powers of Two (1800) (Observation + Thinking + Brute Force) ](./code/988D.txt)<br/>
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
 78C. [ Beaver Game (2000) (Game) ](./code/78C.txt)<br/>
