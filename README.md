@@ -299,6 +299,7 @@ My Codeforce Practice<br/>
 |  1294E |[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)   |2021/06/02|
 |  888G |[ Xor-MST (2300) (MST + Trie + Bit + Divide Conquer + Boruvka's algorithm) ](./code/888G.txt)   |2021/06/02|
 |  988D |[ Points and Powers of Two (1800) (Observation + Thinking + Brute Force) ](./code/988D.txt)   |2021/06/02|
+|  988E |[ Divisibility by 25 (2100) ( Brute Force) ](./code/988E.txt)   |2021/06/03|
 
 # 分类
 
@@ -353,6 +354,27 @@ My Codeforce Practice<br/>
 45E. [Director (2000) (Greedy + Implementation) ](./code/45E.txt)<br/>
 1294E.[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)<br/>
 
+### Constructive 
+1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
+1493C. [K-beautiful Strings (2000) （Greedy + Constructive） ](./code/1493C.txt)   <br/> 
+1234C. [Pipes (1500) (Implementation) ](./code/1234C.txt)   <br/> 
+66D. [ Petya and His Friends (1700) (Constructive)  ](./code/66D.txt)<br/>
+125C. [ Hobbits' Party (1600) (Constructive)  ](./code/125C.txt)<br/>
+45J. [ Planting Trees (1800) (Constructive) ](./code/45J.txt)<br/>
+
+### Brute Force
+1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
+910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
+1500A. [Going Home (1800) （Brute Force） ](./code/1500A.txt)<br/>
+1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
+962D. [ Merge Equals (1600) (Implementation)  ](./code/962D.txt)<br/>
+988E.[ Divisibility by 25 (2100) ( Brute Force) ](./code/988E.txt)<br/>
+
+
+### 枚举 (暴力)
+1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
+1359D. [Yet Another Yet Another Task  (2000) (Brute Force )  ](./code/1359D.txt)<br/>
+
 ### 思维/Thinking/Observation
 540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking)  ](./code/540E.txt)<br/>
 1208D.[ Restore Permutation	 (1900) (Constructive + Thinking + Fenwick Tree)](./code/1208D.txt)<br/>
@@ -366,6 +388,7 @@ My Codeforce Practice<br/>
 1468H. [K and Medians	 (2200) (Greedy + Reverse Thinking) ](./code/1468H.txt)<br/>
 5E.[ Bindian Signalizing (2400) (Stack + Thinking + Observation) ](./code/5E.txt)<br/>
 988D. [ Points and Powers of Two (1800) (Observation + Thinking + Brute Force) ](./code/988D.txt)<br/>
+
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
 78C. [ Beaver Game (2000) (Game) ](./code/78C.txt)<br/>
@@ -450,26 +473,6 @@ My Codeforce Practice<br/>
 
 ### Dynamic Connectivity
 1140F.[Extending Set of Points (2600) （Dynamic Connectivity） ](./code/1140F.txt)<br/>
-
-### Constructive 
-1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
-1493C. [K-beautiful Strings (2000) （Greedy + Constructive） ](./code/1493C.txt)   <br/> 
-1234C. [Pipes (1500) (Implementation) ](./code/1234C.txt)   <br/> 
-66D. [ Petya and His Friends (1700) (Constructive)  ](./code/66D.txt)<br/>
-125C. [ Hobbits' Party (1600) (Constructive)  ](./code/125C.txt)<br/>
-45J. [ Planting Trees (1800) (Constructive) ](./code/45J.txt)<br/>
-
-### Brute Force
-1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
-910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
-1500A. [Going Home (1800) （Brute Force） ](./code/1500A.txt)<br/>
-1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
-962D. [ Merge Equals (1600) (Implementation)  ](./code/962D.txt)<br/>
-
-
-### 枚举 (暴力)
-1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
-1359D. [Yet Another Yet Another Task  (2000) (Brute Force )  ](./code/1359D.txt)<br/>
 
 
 ### DFS/剪枝
