@@ -301,6 +301,7 @@ My Codeforce Practice<br/>
 |  988D |[ Points and Powers of Two (1800) (Observation + Thinking + Brute Force) ](./code/988D.txt)   |2021/06/02|
 |  988E |[ Divisibility by 25 (2100) ( Brute Force) ](./code/988E.txt)   |2021/06/03|
 |  988F |[  Rain and Umbrellas (2100) ( DP) ](./code/988F.txt)   |2021/06/03|
+|  32C |[ Flea (1700) ( Math ) ](./code/32C.txt)   |2021/06/04|
 
 # 分类
 
@@ -407,6 +408,9 @@ My Codeforce Practice<br/>
 1108E2. [Array and Segments (Hard version) (2100) (差分 + DP + Prefix) ](./code/1108E2.txt)  <br/>
 174C. [Range Increments(1800) （差分 + Constructive） ](./code/174C.txt)   <br/>  
 
+### Math
+32C. [ Flea (1700) ( Math ) ](./code/32C.txt)<br/>
+
 ### Number Theory
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
 1512G. [Short Task (1700) （Brute Force + 打表） ](./code/1512G.txt)   <br/>
@@ -418,6 +422,7 @@ My Codeforce Practice<br/>
 
 ### Geometry
 31D.[Chocolate (2000) (Brute Force + Implementation + Geometry) ](./code/31D.txt)<br/>
+
 ### Combination
 1185G2. [Playlist for Polycarp (Hard version) (2600) (DP + Combination  )  ](./code/1185G2.txt)<br/>
 1516E. [ Baby Ehab Plays with Permutations (2500) (超难 Combination + DP + 容斥 + Permutation)  ](./code/1516E.txt)<br/>
