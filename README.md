@@ -303,6 +303,7 @@ My Codeforce Practice<br/>
 |  988F |[  Rain and Umbrellas (2100) ( DP) ](./code/988F.txt)   |2021/06/03|
 |  32C |[ Flea (1700) ( Math ) ](./code/32C.txt)   |2021/06/04|
 |  1183H |[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)   |2021/06/04|
+|  1183G |[ Candy Box (hard version) (hard version) (2000) ( Sort + Greedy ) ](./code/1183G.txt)   |2021/06/04|
 
 # 分类
 
@@ -544,6 +545,7 @@ My Codeforce Practice<br/>
 
 ### Sort 
 45D. [ Event Dates (1900) (Sort) ](./code/45D.txt)<br/>
+1183G.[ Candy Box (hard version) (hard version) (2000) ( Sort + Greedy ) ](./code/1183G.txt)<br/>
 
 ### Two Pointer
 190D. [ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)<br/>
