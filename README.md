@@ -302,6 +302,7 @@ My Codeforce Practice<br/>
 |  988E |[ Divisibility by 25 (2100) ( Brute Force) ](./code/988E.txt)   |2021/06/03|
 |  988F |[  Rain and Umbrellas (2100) ( DP) ](./code/988F.txt)   |2021/06/03|
 |  32C |[ Flea (1700) ( Math ) ](./code/32C.txt)   |2021/06/04|
+|  1183H |[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)   |2021/06/04|
 
 # 分类
 
@@ -322,6 +323,9 @@ My Codeforce Practice<br/>
 279E.[Beautiful Decomposition(1900) (Bit + DP) ](./code/279E.txt)<br/>
 46E. [ Comb (1900) ( DP) ](./code/46E.txt)<br/>
 988F.[  Rain and Umbrellas (2100) ( DP) ](./code/988F.txt)<br/>
+
+### DP - Distinct Subsequence
+1183H.[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)<br/>
 
 ### Prefix/Left-Right DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
