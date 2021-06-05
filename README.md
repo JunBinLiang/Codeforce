@@ -304,6 +304,7 @@ My Codeforce Practice<br/>
 |  32C |[ Flea (1700) ( Math ) ](./code/32C.txt)   |2021/06/04|
 |  1183H |[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)   |2021/06/04|
 |  1183G |[ Candy Box (hard version) (hard version) (2000) ( Sort + Greedy ) ](./code/1183G.txt)   |2021/06/04|
+|  1183F |[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)   |2021/06/04|
 
 # 分类
 
@@ -377,6 +378,9 @@ My Codeforce Practice<br/>
 1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
 962D. [ Merge Equals (1600) (Implementation)  ](./code/962D.txt)<br/>
 988E.[ Divisibility by 25 (2100) ( Brute Force) ](./code/988E.txt)<br/>
+
+### Time Complexity
+1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
 
 
 ### 枚举 (暴力)
