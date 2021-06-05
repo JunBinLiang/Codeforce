@@ -305,6 +305,7 @@ My Codeforce Practice<br/>
 |  1183H |[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)   |2021/06/04|
 |  1183G |[ Candy Box (hard version) (hard version) (2000) ( Sort + Greedy ) ](./code/1183G.txt)   |2021/06/04|
 |  1183F |[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)   |2021/06/04|
+|  15C |[ Industrial Nim (2000) ( Nim Game + Bit ) ](./code/15C.txt)   |2021/06/04|
 
 # 分类
 
@@ -406,6 +407,7 @@ My Codeforce Practice<br/>
 78C. [ Beaver Game (2000) (Game) ](./code/78C.txt)<br/>
 1527B1.[ Palindrome Game (easy version) (1200) (Game) ](./code/1527B1.txt)<br/>
 1527B2.[ Palindrome Game (hard version) (1900) (Game) ](./code/1527B2.txt)<br/>
+15C.[ Industrial Nim (2000) ( Nim Game + Bit ) ](./code/15C.txt)<br/>
 
 ### MinMax
 39E.[ What Has Dirichlet Got to Do with That?(2000) (DP + Game + Optimization + MinMax) ](./code/39E.txt)<br/>
