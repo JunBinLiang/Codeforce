@@ -407,7 +407,10 @@ My Codeforce Practice<br/>
 78C. [ Beaver Game (2000) (Game) ](./code/78C.txt)<br/>
 1527B1.[ Palindrome Game (easy version) (1200) (Game) ](./code/1527B1.txt)<br/>
 1527B2.[ Palindrome Game (hard version) (1900) (Game) ](./code/1527B2.txt)<br/>
-15C.[ Industrial Nim (2000) ( Nim Game + Bit ) ](./code/15C.txt)<br/>
+
+
+### Nim Game
+15C.[ Industrial Nim (2000) ( Nim Game + Bit + Xor ) ](./code/15C.txt)<br/>
 
 ### MinMax
 39E.[ What Has Dirichlet Got to Do with That?(2000) (DP + Game + Optimization + MinMax) ](./code/39E.txt)<br/>
