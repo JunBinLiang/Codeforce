@@ -304,8 +304,8 @@ My Codeforce Practice<br/>
 |  32C |[ Flea (1700) ( Math ) ](./code/32C.txt)   |2021/06/04|
 |  1183H |[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)   |2021/06/04|
 |  1183G |[ Candy Box (hard version) (hard version) (2000) ( Sort + Greedy ) ](./code/1183G.txt)   |2021/06/04|
-|  1183F |[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)   |2021/06/04|
-|  15C |[ Industrial Nim (2000) ( Nim Game + Bit ) ](./code/15C.txt)   |2021/06/04|
+|  1183F |[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)   |2021/06/05|
+|  15C |[ Industrial Nim (2000) ( Nim Game + Bit ) ](./code/15C.txt)   |2021/06/05|
 
 # 分类
 
