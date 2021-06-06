@@ -1,0 +1,137 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int v=Int();
+
+            Solution sol=new Solution(out);
+            sol.solution(n,m,v);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(int n,int m,int v){
+        if(m<n-1){
+            out.println(-1);
+            return;
+        }
+
+
+        int vcnt=n-1;
+        long a=n-2;
+        long b=n-3;
+        if(m-vcnt>(a)*(b)/2){
+            out.println("-1");
+        }
+        else{
+            for(int i=1;i<=n;i++){
+                if(v==i)continue;
+                out.println((i)+" "+(v));
+            }
+            int block=1;
+            if(v==1)block++;
+            m-=vcnt;
+            for(int i=1;i<=n;i++){
+                if(i==v||i==block)continue;
+                for(int j=i+1;j<=n;j++){
+                    if(j==v||j==block)continue;
+                    if(m==0)break;
+                    m--;
+                    out.println(i+" "+j);
+                }
+                if(m==0)break;
+            }
+
+
+        }
+
+    }
+
+
+
+
+}
