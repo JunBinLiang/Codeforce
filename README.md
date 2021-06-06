@@ -308,6 +308,7 @@ My Codeforce Practice<br/>
 |  15C |[ Industrial Nim (2000) ( Nim Game + Bit ) ](./code/15C.txt)   |2021/06/05|
 |  27D |[ Ring Road 2(2200) ( Bipartile Graph) ](./code/27D.txt)   |2021/06/06|
 |  22C |[ System Administrator (1700) ( Constructive + Graph) ](./code/22C.txt)   |2021/06/06|
+|  1536C |[ Diluc and Kaeya (1500) ( DP + HashMap) ](./code/1536C.txt)   |2021/06/06|
 
 # 分类
 
@@ -328,6 +329,7 @@ My Codeforce Practice<br/>
 279E.[Beautiful Decomposition(1900) (Bit + DP) ](./code/279E.txt)<br/>
 46E. [ Comb (1900) ( DP) ](./code/46E.txt)<br/>
 988F.[  Rain and Umbrellas (2100) ( DP) ](./code/988F.txt)<br/>
+1536C.[ Diluc and Kaeya (1500) ( DP + HashMap) ](./code/1536C.txt)<br/>
 
 ### DP - Distinct Subsequence
 1183H.[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)<br/>
