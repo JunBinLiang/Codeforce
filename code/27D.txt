@@ -1,0 +1,170 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int A[][]=new int[m][3];
+            for(int i=0;i<m;i++){
+                int a=Int();
+                int b=Int();
+                A[i][0]=Math.min(a,b);
+                A[i][1]=Math.max(a,b);
+                A[i][2]=i;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,n);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    int colors[];
+    boolean flag=true;
+    public void solution(int A[][],int N){
+        int n=A.length;
+        colors=new int[n];
+        List<Integer>graph[]=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        Arrays.sort(A,(a,b)->{
+            if(a[0]==b[0])return a[1]-b[1];
+            return a[0]-b[0];
+        });
+
+        for(int i=0;i<A.length;i++){
+            int l1=A[i][0],r1=A[i][1];
+            int u=A[i][2];
+            for(int j=i+1;j<A.length;j++){
+                int l2=A[j][0],r2=A[j][1];
+                int v=A[j][2];
+
+                if(r1>l2&&l2>l1&&r1<r2){
+                    graph[u].add(v);
+                    graph[v].add(u);
+                }
+
+            }
+        }
+
+
+
+
+        for(int i=0;i<n;i++){
+            if(colors[i]==0){
+                dfs(graph,i,1);
+            }
+        }
+
+       // for(List<Integer>list:graph)System.out.println(list);
+        //System.out.println(Arrays.toString(colors));
+
+        if(!flag){
+            out.println("Impossible");
+        }
+        else{
+            for(int i=0;i<n;i++){
+                if(colors[i]==1)out.print("o");
+                else out.print("i");
+            }
+        }
+    }
+
+    public void dfs(List<Integer>graph[],int root,int color){
+        int nextc=1;
+        if(color==1)nextc=2;
+        colors[root]=color;
+        for(int next:graph[root]){
+            if(colors[next]==0){
+                dfs(graph,next,nextc);
+            }
+            else{
+                if(colors[next]==color){
+                    flag=false;
+                }
+            }
+        }
+    }
+
+
+}
