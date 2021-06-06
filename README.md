@@ -307,7 +307,7 @@ My Codeforce Practice<br/>
 |  1183F |[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)   |2021/06/05|
 |  15C |[ Industrial Nim (2000) ( Nim Game + Bit ) ](./code/15C.txt)   |2021/06/05|
 |  27D |[ Ring Road 2(2200) ( Bipartile Graph) ](./code/27D.txt)   |2021/06/06|
-
+|  22C |[ System Administrator (1700) ( Constructive + Graph) ](./code/22C.txt)   |2021/06/06|
 
 # 分类
 
@@ -458,6 +458,7 @@ My Codeforce Practice<br/>
 1133F2. [Spanning Tree with One Fixed Degree	 (1900) (Greedy + Graph + UF + Strongly Connect)  ](./code/1133F2.txt) <br/>
 1472G. [Moving to the Capital		 (2100) ( Graph + DP) ](./code/1472G.txt)   <br/>
 1334D. [ Minimum Euler Cycle (1800) (Graph + Greedy + Constructive + Math)  ](./code/1334D.txt)<br/>
+22C.[ System Administrator (1700) ( Constructive + Graph) ](./code/22C.txt)<br/>
 
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
