@@ -306,6 +306,8 @@ My Codeforce Practice<br/>
 |  1183G |[ Candy Box (hard version) (hard version) (2000) ( Sort + Greedy ) ](./code/1183G.txt)   |2021/06/04|
 |  1183F |[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)   |2021/06/05|
 |  15C |[ Industrial Nim (2000) ( Nim Game + Bit ) ](./code/15C.txt)   |2021/06/05|
+|  27D |[ Ring Road 2(2200) ( Bipartile Graph) ](./code/27D.txt)   |2021/06/06|
+
 
 # 分类
 
@@ -462,6 +464,7 @@ My Codeforce Practice<br/>
 
 ### Bipartite Graph
 1354E. [ Graph Coloring (2100) (DP + Bipartite Graph)  ](./code/1354E.txt)<br/>
+27D.[ Ring Road 2(2200) ( Bipartile Graph) ](./code/27D.txt)<br/>
 
 ### Shortest Path
 416E. [President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   <br/>
