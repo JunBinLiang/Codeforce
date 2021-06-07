@@ -310,6 +310,7 @@ My Codeforce Practice<br/>
 |  22C |[ System Administrator (1700) ( Constructive + Graph) ](./code/22C.txt)   |2021/06/06|
 |  1536C |[ Diluc and Kaeya (1500) ( DP + HashMap) ](./code/1536C.txt)   |2021/06/06|
 |  1536D |[ Omkar and Medians (2000) ( Thinking + Observation) ](./code/1536D.txt)   |2021/06/07|
+|  1536E |[ Omkar and Forest (2300) (Combination + Multiple BFS) ](./code/1536E.txt)   |2021/06/07|
 
 # 分类
 
@@ -451,6 +452,7 @@ My Codeforce Practice<br/>
 57C. [ Array (1900) (Combination) (Thumb)  ](./code/57C.txt)<br/>
 52B.[Right Triangles (1600) (Combination) ](./code/52B.txt)<br/>
 224E.[Partial Sums (1900) (Combination) ](./code/224E.txt)<br/>
+1536E.[ Omkar and Forest (2300) (Combination + Multiple BFS) ](./code/1536E.txt)<br/>
 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
