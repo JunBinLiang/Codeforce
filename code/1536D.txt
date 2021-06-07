@@ -1,0 +1,143 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(int A[]){
+        if(A.length==1){
+            yes();
+            return;
+        }
+
+        TreeSet<Integer>tree=new TreeSet<>();
+        tree.add(A[0]);
+
+        for(int i=1;i<A.length;i++){
+            int preMed=A[i-1];
+            if(A[i]==preMed)continue;
+            int cur=A[i];
+            if(cur>preMed){
+                Integer hi=tree.higher(preMed);
+                if(hi!=null&&hi<cur){
+                    no();
+                    return;
+                }
+            }
+            else{
+                Integer low=tree.lower(preMed);
+                if(low!=null&&low>cur){
+                    no();
+                    return;
+                }
+            }
+            tree.add(cur);
+        }
+
+        yes();
+    }
+    
+
+    public void sort(int A[]){
+        PriorityQueue<Integer>pq=new PriorityQueue<>();
+        for(int i:A)pq.add(i);
+        for(int i=0;i<A.length;i++)A[i]=pq.poll();
+    }
+
+    public void yes(){
+        out.println("YES");
+    }
+    public void no(){
+        out.println("NO");
+    }
+
+}
