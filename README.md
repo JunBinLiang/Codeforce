@@ -309,6 +309,7 @@ My Codeforce Practice<br/>
 |  27D |[ Ring Road 2(2200) ( Bipartile Graph) ](./code/27D.txt)   |2021/06/06|
 |  22C |[ System Administrator (1700) ( Constructive + Graph) ](./code/22C.txt)   |2021/06/06|
 |  1536C |[ Diluc and Kaeya (1500) ( DP + HashMap) ](./code/1536C.txt)   |2021/06/06|
+|  1536D |[ Omkar and Medians (2000) ( Thinking + Observation) ](./code/1536D.txt)   |2021/06/07|
 
 # 分类
 
@@ -405,6 +406,7 @@ My Codeforce Practice<br/>
 1468H. [K and Medians	 (2200) (Greedy + Reverse Thinking) ](./code/1468H.txt)<br/>
 5E.[ Bindian Signalizing (2400) (Stack + Thinking + Observation) ](./code/5E.txt)<br/>
 988D. [ Points and Powers of Two (1800) (Observation + Thinking + Brute Force) ](./code/988D.txt)<br/>
+1536D. [ Omkar and Medians (2000) ( Thinking + Observation) ](./code/1536D.txt)<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
