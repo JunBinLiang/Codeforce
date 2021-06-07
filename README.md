@@ -311,6 +311,7 @@ My Codeforce Practice<br/>
 |  1536C |[ Diluc and Kaeya (1500) ( DP + HashMap) ](./code/1536C.txt)   |2021/06/06|
 |  1536D |[ Omkar and Medians (2000) ( Thinking + Observation) ](./code/1536D.txt)   |2021/06/07|
 |  1536E |[ Omkar and Forest (2300) (Combination + Multiple BFS) ](./code/1536E.txt)   |2021/06/07|
+|  24A |[ Ring Road (1400) (Graph) ](./code/24A.txt)   |2021/06/07|
 
 # 分类
 
@@ -465,6 +466,7 @@ My Codeforce Practice<br/>
 1472G. [Moving to the Capital		 (2100) ( Graph + DP) ](./code/1472G.txt)   <br/>
 1334D. [ Minimum Euler Cycle (1800) (Graph + Greedy + Constructive + Math)  ](./code/1334D.txt)<br/>
 22C.[ System Administrator (1700) ( Constructive + Graph) ](./code/22C.txt)<br/>
+24A.[ Ring Road (1400) (Graph) ](./code/24A.txt)<br/>
 
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
