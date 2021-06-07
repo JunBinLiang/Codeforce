@@ -1,0 +1,169 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            char A[][]=new char[n][m];
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<m;j++){
+                    A[i][j]=s.charAt(j);
+                }
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(char A[][]){
+        //hint : multiple source BFS, Source : 0
+        //nC1+nC2+... nCn
+        int cnt=0;
+        int n=A.length,m=A[0].length;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]=='#')cnt++;
+            }
+        }
+
+
+
+        long a=cnt;
+        long b=1;
+        long res=0;
+        for(int i=1;i<=cnt;i++){
+            long com=divide(a,b);
+            res+=com;
+            res%=MOD;
+            a=a*(cnt-i);
+            a%=MOD;
+            b*=(i+1);
+            b%=MOD;
+        }
+        if(cnt!=n*m)res++;
+        out.println(res);
+    }
+
+    public long divide(long a,long b){
+        long binverse=modInverse(b,MOD);
+        return ((a)*(binverse%MOD))%MOD;
+    }
+
+    static long modInverse(long a, long m)
+    {
+        long m0 = m;
+        long y = 0, x = 1;
+
+        if (m == 1)
+            return 0;
+
+        while (a > 1) {
+            // q is quotient
+            long q = a / m;
+
+            long t = m;
+
+            // m is remainder now, process
+            // same as Euclid's algo
+            m = a % m;
+            a = t;
+            t = y;
+
+            // Update x and y
+            y = x - q * y;
+            x = t;
+        }
+
+        // Make x positive
+        if (x < 0)
+            x += m0;
+
+        return x;
+    }
+
+}
