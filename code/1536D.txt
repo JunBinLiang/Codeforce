@@ -1,3 +1,5 @@
+每一次新添的数字要成为中间的话，他必须相邻于前一个中间数
+
 // Don't place your source in a package
 import javax.swing.*;
 import java.lang.reflect.Array;
