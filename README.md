@@ -312,6 +312,7 @@ My Codeforce Practice<br/>
 |  1536D |[ Omkar and Medians (2000) ( Thinking + Observation) ](./code/1536D.txt)   |2021/06/07|
 |  1536E |[ Omkar and Forest (2300) (Combination + Multiple BFS) ](./code/1536E.txt)   |2021/06/07|
 |  24A |[ Ring Road (1400) (Graph) ](./code/24A.txt)   |2021/06/07|
+|  479E |[ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)   |2021/06/08|
 
 # 分类
 
@@ -334,6 +335,9 @@ My Codeforce Practice<br/>
 988F.[  Rain and Umbrellas (2100) ( DP) ](./code/988F.txt)<br/>
 1536C.[ Diluc and Kaeya (1500) ( DP + HashMap) ](./code/1536C.txt)<br/>
 
+### DP Optimization I (Prefix on DP)
+479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
+
 ### DP - Distinct Subsequence
 1183H.[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)<br/>
 
@@ -344,6 +348,7 @@ My Codeforce Practice<br/>
 1474D.[ Cleaning (2200) (Thinking + Left/Right DP) ](./code/1474D.txt)<br/>
 224D. [Two Strings (1900) (left-right DP +Binary Search) ](./code/224D.txt)<br/>
 279C.[ Ladder (1700) (Segment Tree +Left-right DP) ](./code/279C.txt)<br/>
+
 
 ### 树DP
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)<br/>
