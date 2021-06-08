@@ -313,6 +313,7 @@ My Codeforce Practice<br/>
 |  1536E |[ Omkar and Forest (2300) (Combination + Multiple BFS) ](./code/1536E.txt)   |2021/06/07|
 |  24A |[ Ring Road (1400) (Graph) ](./code/24A.txt)   |2021/06/07|
 |  479E |[ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)   |2021/06/08|
+|  450B |[ Jzzhu and Sequences (1300) (Matrix) ](./code/450B.txt)   |2021/06/08|
 
 # 分类
 
@@ -365,6 +366,7 @@ My Codeforce Practice<br/>
 
 ### Matrix
 621E. [Wet Shark and Blocks (2000) (Matrix Exponent + DP) ](./code/341E.txt)   <br/>
+450B.[ Jzzhu and Sequences (1300) (Matrix) ](./code/450B.txt) <br/>
 
 
 ### Greedy
