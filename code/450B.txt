@@ -1,0 +1,175 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int a=Int();
+            int b=Int();int n=Int();
+
+
+            Solution sol=new Solution(out);
+            sol.solution(a,b,n);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(long x,long y,long n){
+        if(n==1){
+            if(x<0)x+=MOD;
+            out.println(x);return;
+        }
+        if(n==2){
+            if(y<0)y+=MOD;
+            out.println(y);
+            return;
+        }
+        //f[1]=x f[2]=y
+        //f[2]=f[1]+f[3]
+        //f[3]=f[2]-f[1]  f[n]=f[n-1]-f[n-2]
+
+        //M.matrixPower(mat,b-1,1000000007);
+        long mat[][]=new long[2][2];
+        mat[0][0]=0;
+        mat[0][1]=1;
+        mat[1][0]=-1;
+        mat[1][1]=1;
+        Matrix M=new Matrix();
+        mat=M.matrixPower(mat,n-2,MOD);
+
+        long res=0;
+        res=mat[1][0]*x+mat[1][1]*y;
+        res%=MOD;
+        if(res<0)res+=MOD;
+        res%=MOD;
+        out.println(res);
+
+    }
+
+    class Matrix {
+        //int mod=1000000007;
+        /**
+         * compute pow(base, pow)
+         * O(N^3) * logN
+         **/
+        public long[][] matrixPower(long [][] base, long pow,int mod)	{
+            int N = base.length;
+            long [][] ans = new long [N][N];
+            // generate identity matrix
+            for (int i = 0; i < N; i++)	ans[i][i] = 1;
+
+            // binary exponentiation
+            while ( pow != 0 )	{
+                if	( (pow&1) != 0 )	ans = multiplyMatrix(ans, base,mod);
+
+                base = multiplyMatrix(base, base,mod);
+
+                pow >>= 1;
+            }
+
+            return	ans;
+        }
+
+        /**
+         * compute m * m2
+         * O(N^3)
+         **/
+        public long [][] multiplyMatrix(long [][] m, long [][] m2,int mod)	{
+            int N = m.length;
+            long [][] ans = new long [N][N];
+            for (int i = 0; i < N; i++)	for (int j = 0; j < N; j++)	{
+                ans[i][j] = 0;
+                for (int k = 0; k < N; k++)	{
+                    ans[i][j] += m[i][k] * m2[k][j];
+                    ans[i][j] %= mod;
+                }
+            }
+
+            return	ans;
+        }
+
+    }
+
+
+}
