@@ -1,0 +1,209 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int k=Int();
+            int A[][]=new int[m][3];
+            int B[][]=new int[k][2];
+
+            for(int i=0;i<m;i++){
+                A[i][0]=Int()-1;
+                A[i][1]=Int()-1;
+                A[i][2]=Int();
+            }
+
+            for(int i=0;i<k;i++){
+                B[i][0]=Int()-1;
+                B[i][1]=Int();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(n,A,B);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(int n,int A[][],int B[][]){
+        long dis[]=new long[n];
+        Arrays.fill(dis,Long.MAX_VALUE);
+        dis[0]=0;
+        List<Edge>g[]=new ArrayList[n];
+        Arrays.setAll(g,e->new ArrayList<>());
+
+
+        for(int p[]:A){
+            int u=p[0],v=p[1],w=p[2];
+            Edge edge1=new Edge(u,v,w);
+            Edge edge2=new Edge(v,u,w);
+            g[u].add(edge1);
+            g[v].add(edge2);
+        }
+
+        for(int i=0;i<B.length;i++){
+            int p[]=B[i];
+            int u=0,v=p[0],w=p[1];
+            Edge edge1=new Edge(u,v,w);
+            Edge edge2=new Edge(v,u,w);
+            edge1.id=i;edge2.id=i;
+            g[u].add(edge1);
+            g[v].add(edge2);
+        }
+
+        int cnt[]=new int[B.length];
+        int pre[]=new int[n];
+        Arrays.fill(pre,-1);
+
+        PriorityQueue<long[]>pq=new PriorityQueue<>((a,b)->{
+            return Long.compare(a[1],b[1]);
+        });
+        pq.add(new long[]{0,0});
+
+
+        while(pq.size()!=0){
+            long top[]=pq.poll();
+            int root=(int)(top[0]);
+            long d=top[1];
+            if(dis[root]!=d)continue;
+
+            for(Edge edge:g[root]){
+                int next=edge.v;
+                int w=edge.w;
+                if(dis[root]+w<dis[next]){
+                    dis[next]=dis[root]+w;
+                    if(pre[next]!=-1){
+                        cnt[pre[next]]--;
+                    }
+
+                    if(edge.id!=-1){
+                        cnt[edge.id]++;
+                        pre[next]=edge.id;
+                    }
+                    else{
+                        pre[next]=-1;
+                    }
+
+                    pq.add(new long[]{next,dis[next]});
+                }
+                else if(dis[root]+w==dis[next]){
+                    if(pre[next]!=-1){
+                        cnt[pre[next]]--;
+                        if(edge.id!=-1){
+                            cnt[edge.id]++;
+                            pre[next]=edge.id;
+                        }
+                        else{
+                            pre[next]=-1;
+                        }
+                    }
+                    else{
+
+                    }
+                }
+            }
+        }
+
+        int res=0;
+        for(int i:cnt){//no need
+            if(i==0)res++;
+        }
+        out.println(res);
+    }
+
+    class Edge{
+        int u,v,w;
+        int id=-1;
+        public Edge(int u,int v,int w){
+            this.u=u;
+            this.v=v;
+            this.w=w;
+        }
+    }
+
+
+
+}
