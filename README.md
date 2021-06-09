@@ -315,6 +315,7 @@ My Codeforce Practice<br/>
 |  479E |[ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)   |2021/06/08|
 |  450B |[ Jzzhu and Sequences (1300) (Matrix) ](./code/450B.txt)   |2021/06/08|
 |  450D |[ Jzzhu and Cities (2000) (Shortest Path + Thinking)  (Thumb)](./code/450D.txt)   |2021/06/09|
+|  450E |[ Jzzhu and Apples (2500) (Greedy)](./code/450E.txt)   |2021/06/09|
 
 # 分类
 
@@ -378,6 +379,7 @@ My Codeforce Practice<br/>
 313E. [ Ilya and Two Numbers (2300) (Greedy + Thinking + Sort)  ](./code/313E.txt)<br/>
 45E. [Director (2000) (Greedy + Implementation) ](./code/45E.txt)<br/>
 1294E.[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)<br/>
+450E.[ Jzzhu and Apples (2500) (Greedy)](./code/450E.txt)<br/>
 
 ### Constructive 
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
