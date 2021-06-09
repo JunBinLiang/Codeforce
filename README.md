@@ -314,6 +314,7 @@ My Codeforce Practice<br/>
 |  24A |[ Ring Road (1400) (Graph) ](./code/24A.txt)   |2021/06/07|
 |  479E |[ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)   |2021/06/08|
 |  450B |[ Jzzhu and Sequences (1300) (Matrix) ](./code/450B.txt)   |2021/06/08|
+|  450D |[ Jzzhu and Cities (2000) (Shortest Path + Thinking)  (Thumb)](./code/450D.txt)   |2021/06/09|
 
 # 分类
 
@@ -488,6 +489,7 @@ My Codeforce Practice<br/>
 1520G. [To Go Or Not To Go?  (2200) (Graph + Shortest Path )  ](./code/1520G.txt)<br/>
 1473E.[ Minimum Path (2400) (Shortest Path)  ](./code/1473E.txt)<br/>
 37E.[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)<br/>
+450D.[ Jzzhu and Cities (2000) (Shortest Path + Thinking) (Thumb) ](./code/450D.txt)<br/>
 
 ### Floy
 33B [ String Problem (1800) (Shortest Path) ](./code/33B.txt)<br/>
