@@ -316,6 +316,7 @@ My Codeforce Practice<br/>
 |  450B |[ Jzzhu and Sequences (1300) (Matrix) ](./code/450B.txt)   |2021/06/08|
 |  450D |[ Jzzhu and Cities (2000) (Shortest Path + Thinking)  (Thumb)](./code/450D.txt)   |2021/06/09|
 |  450E |[ Jzzhu and Apples (2500) (Greedy)](./code/450E.txt)   |2021/06/09|
+|  978G |[ Petya's Exams (1700) (Greedy + Sort)](./code/978G.txt)   |2021/06/09|
 
 # 分类
 
@@ -578,6 +579,7 @@ My Codeforce Practice<br/>
 ### Sort 
 45D. [ Event Dates (1900) (Sort) ](./code/45D.txt)<br/>
 1183G.[ Candy Box (hard version) (hard version) (2000) ( Sort + Greedy ) ](./code/1183G.txt)<br/>
+978G.[ Petya's Exams (1700) (Greedy + Sort)](./code/978G.txt)<br/>
 
 ### Two Pointer
 190D. [ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)<br/>
