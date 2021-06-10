@@ -319,6 +319,7 @@ My Codeforce Practice<br/>
 |  978G |[ Petya's Exams (1700) (Greedy + Sort)](./code/978G.txt)   |2021/06/09|
 |  222E |[ Decoding Genome (1900) (DP + Matrix)](./code/222E.txt)   |2021/06/10|
 |  222A |[ Shooshuns and Sequence (1200) (Observation + Thinking)](./code/222A.txt)   |2021/06/10|
+|  222C |[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)   |2021/06/10|
 # 分类
 
 ### DP
@@ -452,6 +453,10 @@ My Codeforce Practice<br/>
 1512G. [Short Task (1700) （Brute Force + 打表） ](./code/1512G.txt)   <br/>
 1359E.[Modular Stability (2000) (Thinking + Number Theory + Combination)  ](./code/1359E.txt)<br/>
 45G.[ Prime Problem (2200) (Number Theory + Constructive) ](./code/45G.txt) <br/>
+
+### Optimize 打表
+222C.[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)<br/>
+
 
 ### 欧拉定理
 1295D.[ ame GCDs (1800) (GCD + Euler)  ](./code/1295D.txt)<br/>
