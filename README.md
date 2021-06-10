@@ -318,6 +318,7 @@ My Codeforce Practice<br/>
 |  450E |[ Jzzhu and Apples (2500) (Greedy)](./code/450E.txt)   |2021/06/09|
 |  978G |[ Petya's Exams (1700) (Greedy + Sort)](./code/978G.txt)   |2021/06/09|
 |  222E |[ Decoding Genome (1900) (DP + Matrix)](./code/222E.txt)   |2021/06/10|
+|  222A |[ Shooshuns and Sequence (1200) (Observation + Thinking)](./code/222A.txt)   |2021/06/10|
 # 分类
 
 ### DP
@@ -421,6 +422,7 @@ My Codeforce Practice<br/>
 5E.[ Bindian Signalizing (2400) (Stack + Thinking + Observation) ](./code/5E.txt)<br/>
 988D. [ Points and Powers of Two (1800) (Observation + Thinking + Brute Force) ](./code/988D.txt)<br/>
 1536D. [ Omkar and Medians (2000) ( Thinking + Observation) ](./code/1536D.txt)<br/>
+222A.[ Shooshuns and Sequence (1200) (Observation + Thinking)](./code/222A.txt)<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
