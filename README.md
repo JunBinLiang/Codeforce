@@ -317,7 +317,7 @@ My Codeforce Practice<br/>
 |  450D |[ Jzzhu and Cities (2000) (Shortest Path + Thinking)  (Thumb)](./code/450D.txt)   |2021/06/09|
 |  450E |[ Jzzhu and Apples (2500) (Greedy)](./code/450E.txt)   |2021/06/09|
 |  978G |[ Petya's Exams (1700) (Greedy + Sort)](./code/978G.txt)   |2021/06/09|
-
+|  222E |[ Decoding Genome (1900) (DP + Matrix)](./code/222E.txt)   |2021/06/10|
 # 分类
 
 ### DP
@@ -370,6 +370,7 @@ My Codeforce Practice<br/>
 ### Matrix
 621E. [Wet Shark and Blocks (2000) (Matrix Exponent + DP) ](./code/341E.txt)   <br/>
 450B.[ Jzzhu and Sequences (1300) (Matrix) ](./code/450B.txt) <br/>
+222E.[ Decoding Genome (1900) (DP + Matrix)](./code/222E.txt)<br/>
 
 
 ### Greedy
