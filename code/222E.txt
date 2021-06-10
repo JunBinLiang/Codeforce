@@ -1,0 +1,200 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            long n=Long();
+            int m=Int();
+            int k=Int();
+            String A[]=new String[k];
+            for(int i=0;i<A.length;i++){
+                A[i]=Str();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,n,m);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+
+    public void solution(String A[],long n,int m){
+        if(n==1){
+            out.println(m);
+            return;
+        }
+        //dp[i][c]= dp[i-1][] + dp[i-1][] ...
+        List<Integer>g[]=new ArrayList[52];
+        Arrays.setAll(g,e->new ArrayList<>());
+
+
+
+        long mat[][]=new long[m][m];
+        for(String p:A){
+            char c1=p.charAt(0),c2=p.charAt(1);
+            int d1=to(c1);
+            int d2=to(c2);
+            g[d2].add(d1);
+        }
+
+
+        for(int i=0;i<m;i++){
+            for(int j=0;j<m;j++){
+                mat[i][j]=1;
+            }
+
+            List<Integer>pre=g[i];
+            for(int j:pre){
+                mat[i][j]=0;
+            }
+        }
+
+        mat=Matrix.matrixPower(mat,n-1,MOD);
+
+        long res=0;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<m;j++){
+                res+=mat[i][j]*1;
+                res%=MOD;
+            }
+        }
+        out.println(res);
+    }
+
+    public int to(char c){
+        if(Character.isUpperCase(c))return c-'A'+26;
+        else return c-'a';
+    }
+
+}
+
+class Matrix {
+
+
+    //int mod=1000000007;
+    /**
+     * compute pow(base, pow)
+     * O(N^3) * logN
+     **/
+    public static long[][] matrixPower(long [][] base, long pow,int mod)	{
+        int N = base.length;
+        long [][] ans = new long [N][N];
+        // generate identity matrix
+        for (int i = 0; i < N; i++)	ans[i][i] = 1;
+
+        // binary exponentiation
+        while ( pow != 0 )	{
+            if	( (pow&1) != 0 )	ans = multiplyMatrix(ans, base,mod);
+
+            base = multiplyMatrix(base, base,mod);
+
+            pow >>= 1;
+        }
+
+        return	ans;
+    }
+
+    /**
+     * compute m * m2
+     * O(N^3)
+     **/
+    public static long [][] multiplyMatrix(long [][] m, long [][] m2,int mod)	{
+        int N = m.length;
+        long [][] ans = new long [N][N];
+
+        for (int i = 0; i < N; i++)	for (int j = 0; j < N; j++)	{
+            ans[i][j] = 0;
+            for (int k = 0; k < N; k++)	{
+                ans[i][j] += m[i][k] * m2[k][j];
+                ans[i][j] %= mod;
+            }
+        }
+
+        return	ans;
+    }
+
+}
+
+
+
