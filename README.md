@@ -321,6 +321,8 @@ My Codeforce Practice<br/>
 |  222A |[ Shooshuns and Sequence (1200) (Observation + Thinking)](./code/222A.txt)   |2021/06/10|
 |  222C |[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)   |2021/06/10|
 |  1015D |[ Walking Between Houses (1600) (Constructive) ](./code/1015D.txt)   |2021/06/10|
+|  1015F |[ Bracket Substring (2300) (DP + KMP) ](./code/1015F.txt)   |2021/06/10|
+
 # 分类
 
 ### DP
@@ -559,7 +561,12 @@ My Codeforce Practice<br/>
 448D. [Multiplication Table (1800) (Binary Search ) ](./code/448D.txt)  <br/>
 
 ### String Algorithm
+
+### Z-Algorithm
 126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) <br/>
+
+### KMP
+1015F.[ Bracket Substring (2300) (DP + KMP) ](./code/1015F.txt) <br/>
 
 ### Suffix Array (LCP)
 123D. [ String (2300) (Suffix Array LCP + Stack) ](./code/123D.txt)<br/>
