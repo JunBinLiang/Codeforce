@@ -1,0 +1,264 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            char A[][]=new char[n][m];
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<m;j++){
+                    A[i][j]=s.charAt(j);
+                }
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    List<int[]>res=new ArrayList<>();
+    public void solution(char A[][]){
+        int n=A.length,m=A[0].length;
+        int dp1[][]=new int[n][m];
+        int dp2[][]=new int[n][m];
+        int dp3[][]=new int[n][m];
+        int dp4[][]=new int[n][m];
+
+        for(int i=0;i<n;i++){
+            int sum=0;
+            for(int j=0;j<m;j++){
+                if(A[i][j]=='*'){
+                    sum++;
+                }
+                else{
+                    sum=0;
+                }
+                dp1[i][j]=sum;
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            int sum=0;
+            for(int j=m-1;j>=0;j--){
+                if(A[i][j]=='*'){
+                    sum++;
+                }
+                else{
+                    sum=0;
+                }
+                dp2[i][j]=sum;
+            }
+        }
+
+
+        for(int j=0;j<m;j++){
+            int sum=0;
+            for(int i=0;i<n;i++){
+                if(A[i][j]=='*'){
+                    sum++;
+                }
+                else{
+                    sum=0;
+                }
+                dp3[i][j]=sum;
+            }
+        }
+
+        for(int j=0;j<m;j++){
+            int sum=0;
+            for(int i=n-1;i>=0;i--){
+                if(A[i][j]=='*'){
+                    sum++;
+                }
+                else{
+                    sum=0;
+                }
+                dp4[i][j]=sum;
+            }
+        }
+
+
+        List<int[]>rows[]=new ArrayList[n];
+        List<int[]>cols[]=new ArrayList[m];
+        Arrays.setAll(rows,e->new ArrayList<>());
+        Arrays.setAll(cols,e->new ArrayList<>());
+
+        for(int i=1;i<n-1;i++){
+            for(int j=1;j<m-1;j++){
+                if(A[i][j]=='*'){
+                    int a=dp1[i][j-1];
+                    int b=dp2[i][j+1];
+                    int c=dp3[i-1][j];
+                    int d=dp4[i+1][j];
+                    int mn=Math.min(a,Math.min(b,Math.min(c,d)));
+                    if(mn!=0){
+                        rows[i].add(new int[]{j-mn,j+mn});
+                        cols[j].add(new int[]{i-mn,i+mn});
+                        res.add(new int[]{i+1,j+1,mn});
+                    }
+                }
+            }
+        }
+
+        for(List<int[]>list:rows){
+            merge(list);
+        }
+        for(List<int[]>list:cols){
+            merge(list);
+        }
+
+
+        boolean seen[][]=new boolean[n][m];
+        for(int i=0;i<rows.length;i++) {
+            List<int[]>list=rows[i];
+            for(int p[]:list){
+                for(int j=p[0];j<=p[1];j++){
+                    seen[i][j]=true;
+                }
+            }
+        }
+
+        for(int i=0;i<cols.length;i++) {
+            List<int[]>list=cols[i];
+            for(int p[]:list){
+                for(int j=p[0];j<=p[1];j++){
+                    seen[j][i]=true;
+                }
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]=='*'){
+                    if(!seen[i][j]){
+                        out.println(-1);
+                        return;
+                    }
+                }
+            }
+        }
+
+
+        out.println(res.size());
+        for(int p[]:res){
+            out.println(p[0]+" "+p[1]+" "+p[2]);
+        }
+
+    }
+
+    public void merge(List<int[]>list){
+        Collections.sort(list,(a,b)->{
+            return a[0]-b[0];
+        });
+
+        Stack<int[]>sta=new Stack<>();
+        for(int i=0;i<list.size();i++){
+            int p[]=list.get(i);
+            if(sta.size()==0)sta.push(p);
+            else{
+                if(p[0]<=sta.peek()[1]){
+                    sta.peek()[1]=Math.max(sta.peek()[1],p[1]);
+                }
+                else{
+                    sta.push(p);
+                }
+            }
+        }
+        list=new ArrayList<>();
+        while(sta.size()>0){
+            list.add(sta.pop());
+        }
+    }
+
+
+
+
+}
+
+
+
+
