@@ -322,6 +322,7 @@ My Codeforce Practice<br/>
 |  222C |[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)   |2021/06/10|
 |  1015D |[ Walking Between Houses (1600) (Constructive) ](./code/1015D.txt)   |2021/06/10|
 |  1015F |[ Bracket Substring (2300) (DP + KMP) ](./code/1015F.txt)   |2021/06/10|
+|  1015E2 |[Stars Drawing (Hard Edition) (1900) (DP) ](./code/1015E2.txt)   |2021/06/11|
 
 # 分类
 
@@ -357,6 +358,7 @@ My Codeforce Practice<br/>
 1474D.[ Cleaning (2200) (Thinking + Left/Right DP) ](./code/1474D.txt)<br/>
 224D. [Two Strings (1900) (left-right DP +Binary Search) ](./code/224D.txt)<br/>
 279C.[ Ladder (1700) (Segment Tree +Left-right DP) ](./code/279C.txt)<br/>
+1015E2.[Stars Drawing (Hard Edition) (1900) (DP) ](./code/1015E2.txt)<br/>
 
 
 ### 树DP
