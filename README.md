@@ -323,6 +323,7 @@ My Codeforce Practice<br/>
 |  1015D |[ Walking Between Houses (1600) (Constructive) ](./code/1015D.txt)   |2021/06/10|
 |  1015F |[ Bracket Substring (2300) (DP + KMP) ](./code/1015F.txt)   |2021/06/10|
 |  1015E2 |[Stars Drawing (Hard Edition) (1900) (DP) ](./code/1015E2.txt)   |2021/06/11|
+|  27E |[Number With The Given Amount Of Divisors (2000) (DFS) ](./code/27E.txt)   |2021/06/12|
 
 # 分类
 
@@ -406,6 +407,7 @@ My Codeforce Practice<br/>
 1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
 962D. [ Merge Equals (1600) (Implementation)  ](./code/962D.txt)<br/>
 988E.[ Divisibility by 25 (2100) ( Brute Force) ](./code/988E.txt)<br/>
+27E.[Number With The Given Amount Of Divisors (2000) (DFS) ](./code/27E.txt)   |2021/06/12|
 
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
