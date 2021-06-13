@@ -325,6 +325,7 @@ My Codeforce Practice<br/>
 |  1015E2 |[Stars Drawing (Hard Edition) (1900) (DP) ](./code/1015E2.txt)   |2021/06/11|
 |  27E |[Number With The Given Amount Of Divisors (2000) (DFS) ](./code/27E.txt)   |2021/06/12|
 |  316C1 |[Tidying Up (2200) (Maximum Flow Minimum Cost) ](./code/316C1.txt)   |2021/06/13|
+|  1029D |[Concatenated Multiples (1900) (Hash + Mod) ](./code/1029D.txt)   |2021/06/13|
 
 # 分类
 
@@ -462,6 +463,7 @@ My Codeforce Practice<br/>
 1512G. [Short Task (1700) （Brute Force + 打表） ](./code/1512G.txt)   <br/>
 1359E.[Modular Stability (2000) (Thinking + Number Theory + Combination)  ](./code/1359E.txt)<br/>
 45G.[ Prime Problem (2200) (Number Theory + Constructive) ](./code/45G.txt) <br/>
+1029D.[Concatenated Multiples (1900) (Hash + Mod) ](./code/1029D.txt)<br/>
 
 ### Optimize 打表
 222C.[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)<br/>
