@@ -324,6 +324,7 @@ My Codeforce Practice<br/>
 |  1015F |[ Bracket Substring (2300) (DP + KMP) ](./code/1015F.txt)   |2021/06/10|
 |  1015E2 |[Stars Drawing (Hard Edition) (1900) (DP) ](./code/1015E2.txt)   |2021/06/11|
 |  27E |[Number With The Given Amount Of Divisors (2000) (DFS) ](./code/27E.txt)   |2021/06/12|
+|  316C1 |[Tidying Up (2200) (Maximum Flow Minimum Cost) ](./code/316C1.txt)   |2021/06/13|
 
 # 分类
 
@@ -519,6 +520,7 @@ My Codeforce Practice<br/>
 
 ### Min Cost Maximum Flow
 237E. [Build String (2000) （Minimum Cost Max Flow ） ](./code/237E.txt)    <br/>
+316C1.[Tidying Up (2200) (Maximum Flow Minimum Cost) ](./code/316C1.txt)<br/>
 
 ### 2-Sat
 776D. [The Door Problem (2000) (2 Sat) ](https://github.com/JunBinLiang/Leetcode-Complete-Guide/blob/master/code/776D.txt)    <br/>
