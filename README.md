@@ -326,6 +326,7 @@ My Codeforce Practice<br/>
 |  27E |[Number With The Given Amount Of Divisors (2000) (DFS) ](./code/27E.txt)   |2021/06/12|
 |  316C1 |[Tidying Up (2200) (Maximum Flow Minimum Cost) ](./code/316C1.txt)   |2021/06/13|
 |  1029D |[Concatenated Multiples (1900) (Hash + Mod) ](./code/1029D.txt)   |2021/06/13|
+|  1029E |[Tree with Small Distances (2100) (Tree DP) ](./code/1029D.txt)   |2021/06/14|
 
 # 分类
 
@@ -366,6 +367,7 @@ My Codeforce Practice<br/>
 
 ### 树DP
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)<br/>
+1029E.[Tree with Small Distances (2100) (Tree DP) ](./code/1029D.txt)<br/>
 
 ### Bit DP
 1185G1. [Playlist for Polycarp (easy version) (2100) (Bitmask DP )  ](./code/1185G1.txt)  <br/>
