@@ -327,6 +327,7 @@ My Codeforce Practice<br/>
 |  316C1 |[Tidying Up (2200) (Maximum Flow Minimum Cost) ](./code/316C1.txt)   |2021/06/13|
 |  1029D |[Concatenated Multiples (1900) (Hash + Mod) ](./code/1029D.txt)   |2021/06/13|
 |  1029E |[Tree with Small Distances (2100) (Tree DP) ](./code/1029D.txt)   |2021/06/14|
+|  1029F |[Multicolored Markers (2000) (Two Pointer) ](./code/1029F.txt)   |2021/06/14|
 
 # 分类
 
@@ -611,6 +612,7 @@ My Codeforce Practice<br/>
 ### Two Pointer
 190D. [ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)<br/>
 224B.[ Array (1500) (Two Pointer + Thinking) ](./code/224B.txt)<br/>
+1029F.[Multicolored Markers (2000) (Two Pointer) ](./code/1029F.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
