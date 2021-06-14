@@ -1,0 +1,183 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            List<Integer>tree[]=new ArrayList[n];
+            Arrays.setAll(tree,e->new ArrayList<>());
+            for(int i=0;i<n-1;i++){
+                int v=Int()-1;
+                int u=Int()-1;
+                tree[v].add(u);
+                tree[u].add(v);
+            }
+
+
+            Solution sol=new Solution(out);
+            sol.solution(tree);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    List<Integer>graph[];
+    int dp[][];
+    int INF1=10000000;
+    public void solution(List<Integer>graph[]){
+        this.graph=graph;
+        int n=graph.length;
+
+        dp=new int[n+1][4];
+        for(int i=0;i<dp.length;i++){
+            Arrays.fill(dp[i],-1);
+        }
+
+        List<Integer>level1=graph[0];
+        int res=0;
+        for(int root:level1){
+            res+=dfs(0,root,1);
+        }
+        out.println(res);
+    }
+
+    public int dfs(int pre,int root,int dis){
+        if(dp[root][dis]!=-1)return dp[root][dis];
+
+        int res=0;
+
+        if(dis==3){
+            int sum=0;
+            boolean leave=true;
+            int mndif=INF;
+            for(int next:graph[root]){
+                if(next!=pre){
+                    leave=false;
+                    int a=1+dfs(root,next,1);
+                    int c=dfs(root,next,3);
+                    sum+=Math.min(a,c);
+                    mndif=Math.min(mndif,-Math.min(a,c)+a);
+                }
+
+            }
+            if(leave){
+                res=1;
+            }
+            else{
+                res=sum+mndif;
+            }
+
+        }
+        else if(dis==1){
+            for(int next:graph[root]){
+                if(next!=pre){
+                    int mn=INF1;
+                    mn=Math.min(mn,dfs(root,next,2));
+                    mn=Math.min(mn,1+dfs(root,next,1));
+                    res+=mn;
+                }
+            }
+        }
+        else{
+            int sum=0;
+            for(int next:graph[root]){
+                if(next!=pre){
+                    int a=1+dfs(root,next,1);
+                    int c=dfs(root,next,3);
+                    sum+=Math.min(a,c);
+                }
+            }
+            res=sum;
+        }
+        dp[root][dis]=res;
+        return res;
+    }
+
+
+}
+
+
+
+
+
+
