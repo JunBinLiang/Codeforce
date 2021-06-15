@@ -1,8 +1,7 @@
 # CF
 
 My Codeforce Practice<br/>
-慢慢刷，细水长流\
-做不出来不要紧，题得补和学会
+
 
 
  # 每日刷题挑战
