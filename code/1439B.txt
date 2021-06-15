@@ -1,0 +1,197 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int k=Int();
+            int edges[][]=new int[m][2];
+            for(int i=0;i<m;i++){
+                int a=Int()-1;int b=Int()-1;
+                edges[i][0]=a;
+                edges[i][1]=b;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(n,k,edges,t+1);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(int n,long k,int edges[][],int t){
+        if((k)*(k-1)/2>edges.length){
+            out.println(-1);
+            return;
+        }
+
+        int in[]=new int[n];
+        int m=edges.length;
+        boolean remove[]=new boolean[n];
+        List<Integer>graph[]=new ArrayList[n];
+        Set<Integer>gcheck[]=new HashSet[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        Arrays.setAll(gcheck,e->new HashSet<>());
+
+
+        for(int edge[]:edges){
+            int u=edge[0],v=edge[1];
+            in[u]++;in[v]++;
+            graph[u].add(v);
+            graph[v].add(u);
+            int mn=Math.min(edge[0],edge[1]);
+            int mx=Math.max(edge[0],edge[1]);
+            gcheck[mn].add(mx);
+        }
+
+        Queue<Integer>q=new LinkedList<>();
+        for(int i=0;i<n;i++){
+            if(in[i]<=k-1){
+                q.add(i);
+            }
+        }
+
+
+        while(q.size()>0){
+            int root=q.poll();
+            if(in[root]==k-1){
+                List<Integer>groups=new ArrayList<>();
+                groups.add(root);
+                for(int next:graph[root]){
+                    if(remove[next])continue;
+                    groups.add(next);
+                }
+                boolean clique =true;
+                for(int x=0;x<groups.size();x++){
+                    if(!clique)break;
+                    int u=groups.get(x);
+                    for(int y=x+1;y<groups.size();y++){
+                        int v=groups.get(y);
+                        int mn=Math.min(u,v);
+                        int mx=Math.max(u,v);
+                        if(!gcheck[mn].contains(mx)){
+                            clique =false;
+                            break;
+                        }
+                    }
+                }
+                if(clique){
+                    out.println(2);
+                    for(int j:groups){
+                        out.print((j+1)+" ");
+                    }
+                    out.println();
+                    return;
+                }
+            }
+
+            remove[root]=true;
+            for(int next:graph[root]){
+                in[next]--;
+                if(in[next]==k-1){
+                    q.add(next);
+                }
+            }
+        }
+
+
+        //jude one
+        List<Integer>res=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            if(in[i]>=k)res.add(i);
+        }
+        if(res.size()==0){
+            out.println(-1);
+        }
+        else{
+            out.println(1+" "+res.size());
+            for(int i:res)out.print((i+1)+" ");
+            out.println();
+        }
+    }
+}
+
+
+
+
+
+
