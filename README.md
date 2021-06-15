@@ -329,6 +329,8 @@ My Codeforce Practice<br/>
 |  1029F |[Multicolored Markers (2000) (Two Pointer) ](./code/1029F.txt)   |2021/06/14|
 |  1029C |[Maximal Intersection (1600) (Left/Right DP + Interval Problem) ](./code/1029C.txt)   |2021/06/15|
 |  1029A |[Many Equal Substrings (1300) (KMP) ](./code/1029A.txt)   |2021/06/15|
+|  1439B |[Graph Subset Problems (2600) (Graph) ](./code/1439B.txt)   |2021/06/16|
+
 # 分类
 
 ### DP
@@ -500,6 +502,7 @@ My Codeforce Practice<br/>
 1334D. [ Minimum Euler Cycle (1800) (Graph + Greedy + Constructive + Math)  ](./code/1334D.txt)<br/>
 22C.[ System Administrator (1700) ( Constructive + Graph) ](./code/22C.txt)<br/>
 24A.[ Ring Road (1400) (Graph) ](./code/24A.txt)<br/>
+1439B.[Graph Subset Problems (2600) (Graph) ](./code/1439B.txt)<br/>
 
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
