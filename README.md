@@ -328,7 +328,7 @@ My Codeforce Practice<br/>
 |  1029E |[Tree with Small Distances (2100) (Tree DP) ](./code/1029D.txt)   |2021/06/14|
 |  1029F |[Multicolored Markers (2000) (Two Pointer) ](./code/1029F.txt)   |2021/06/14|
 |  1029C |[Maximal Intersection (1600) (Left/Right DP + Interval Problem) ](./code/1029C.txt)   |2021/06/15|
-
+|  1029A |[Many Equal Substrings (1300) (KMP) ](./code/1029A.txt)   |2021/06/15|
 # 分类
 
 ### DP
@@ -578,6 +578,7 @@ My Codeforce Practice<br/>
 
 ### KMP
 1015F.[ Bracket Substring (2300) (DP + KMP) ](./code/1015F.txt) <br/>
+1029A.[Many Equal Substrings (1300) (KMP) ](./code/1029A.txt)<br/>
 
 ### Suffix Array (LCP)
 123D. [ String (2300) (Suffix Array LCP + Stack) ](./code/123D.txt)<br/>
