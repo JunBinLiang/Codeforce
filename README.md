@@ -330,6 +330,7 @@ My Codeforce Practice<br/>
 |  1029C |[Maximal Intersection (1600) (Left/Right DP + Interval Problem) ](./code/1029C.txt)   |2021/06/15|
 |  1029A |[Many Equal Substrings (1300) (KMP) ](./code/1029A.txt)   |2021/06/15|
 |  1439B |[Graph Subset Problems (2600) (Graph) ](./code/1439B.txt)   |2021/06/16|
+|  341D |[ Iahub and Xors(2500) (二维差分+2D Fenwick) ](./code/341D.txt)   |2021/06/16|
 
 # 分类
 
@@ -458,7 +459,10 @@ My Codeforce Practice<br/>
 
 ### 差分
 1108E2. [Array and Segments (Hard version) (2100) (差分 + DP + Prefix) ](./code/1108E2.txt)  <br/>
-174C. [Range Increments(1800) （差分 + Constructive） ](./code/174C.txt)   <br/>  
+174C. [Range Increments(1800) （差分 + Constructive） ](./code/174C.txt)   <br/> 
+
+### 二维差分
+341D.[ Iahub and Xors(2500) (二维差分+2D Fenwick) ](./code/341D.txt)<br/>
 
 ### Math
 32C. [ Flea (1700) ( Math ) ](./code/32C.txt)<br/>
