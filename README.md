@@ -331,6 +331,7 @@ My Codeforce Practice<br/>
 |  1029A |[Many Equal Substrings (1300) (KMP) ](./code/1029A.txt)   |2021/06/15|
 |  1439B |[Graph Subset Problems (2600) (Graph) ](./code/1439B.txt)   |2021/06/16|
 |  341D |[ Iahub and Xors(2500) (二维差分+2D Fenwick) ](./code/341D.txt)   |2021/06/16|
+|  1439C |[ Greedy Shopping (2600) (Segment Tree Range Update + Segment Tree Binay Search) ](./code/1439C.txt)   |2021/06/16|
 
 # 分类
 
@@ -571,6 +572,9 @@ My Codeforce Practice<br/>
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
 52C. [Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   <br/>
+
+### Segment Tree Range Update
+1439C.[ Greedy Shopping (2600) (Segment Tree Range Update + Segment Tree Binay Search) ](./code/1439C.txt)<br/>
 
 
 ### Binary Search
