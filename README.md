@@ -332,6 +332,7 @@ My Codeforce Practice<br/>
 |  1439B |[Graph Subset Problems (2600) (Graph) ](./code/1439B.txt)   |2021/06/16|
 |  341D |[ Iahub and Xors(2500) (二维差分+2D Fenwick) ](./code/341D.txt)   |2021/06/16|
 |  1439C |[ Greedy Shopping (2600) (Segment Tree Range Update + Segment Tree Binay Search) ](./code/1439C.txt)   |2021/06/16|
+|  58C |[ Trees (1800) (Implentation) ](./code/58C.txt)   |2021/06/17|
 
 # 分类
 
@@ -416,7 +417,8 @@ My Codeforce Practice<br/>
 1217C. [The Number Of Good Substrings  (1700) (Brute Force )  ](./code/1217C.txt)<br/>
 962D. [ Merge Equals (1600) (Implementation)  ](./code/962D.txt)<br/>
 988E.[ Divisibility by 25 (2100) ( Brute Force) ](./code/988E.txt)<br/>
-27E.[Number With The Given Amount Of Divisors (2000) (DFS) ](./code/27E.txt)   |2021/06/12|
+27E.[Number With The Given Amount Of Divisors (2000) (DFS) ](./code/27E.txt) <br/>
+58C.[ Trees (1800) (Implentation) ](./code/58C.txt) <br/>
 
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
