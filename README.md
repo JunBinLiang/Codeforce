@@ -333,6 +333,7 @@ My Codeforce Practice<br/>
 |  341D |[ Iahub and Xors(2500) (二维差分+2D Fenwick) ](./code/341D.txt)   |2021/06/16|
 |  1439C |[ Greedy Shopping (2600) (Segment Tree Range Update + Segment Tree Binay Search) ](./code/1439C.txt)   |2021/06/16|
 |  58C |[ Trees (1800) (Implentation) ](./code/58C.txt)   |2021/06/17|
+|  61D |[ Eternal Victory (1800) (Tree) ](./code/61D.txt)   |2021/06/17|
 
 # 分类
 
@@ -558,6 +559,7 @@ My Codeforce Practice<br/>
 
 ### Tree
 1528A.[ Parsa's Humongous Tree (1600) (Tree + DP) ](./code/1528A.txt)<br/>
+61D.[ Eternal Victory (1800) (Tree) ](./code/61D.txt) <br/>
 
 ### TreeSet/TreeMap
 926J.[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   <br/>
