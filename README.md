@@ -335,6 +335,7 @@ My Codeforce Practice<br/>
 |  58C |[ Trees (1800) (Implentation) ](./code/58C.txt)   |2021/06/17|
 |  61D |[ Eternal Victory (1800) (Tree) ](./code/61D.txt)   |2021/06/17|
 |  1066E |[ Binary Numbers AND Sum (1700) (Prefix) ](./code/1066E.txt)   |2021/06/18|
+|  1066D |[ Boxes Packing (1800) (Binary Search) ](./code/1066D.txt)   |2021/06/18|
 
 # 分类
 
@@ -587,6 +588,7 @@ My Codeforce Practice<br/>
 1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
 1177B. [Digits Sequence (Hard Edition) (1800) (Binary Search + Math) ](./code/1177B.txt)  <br/>
 448D. [Multiplication Table (1800) (Binary Search ) ](./code/448D.txt)  <br/>
+1066D.[ Boxes Packing (1800) (Binary Search) ](./code/1066D.txt) <br/>
 
 ### String Algorithm
 
