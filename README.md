@@ -334,6 +334,7 @@ My Codeforce Practice<br/>
 |  1439C |[ Greedy Shopping (2600) (Segment Tree Range Update + Segment Tree Binay Search) ](./code/1439C.txt)   |2021/06/16|
 |  58C |[ Trees (1800) (Implentation) ](./code/58C.txt)   |2021/06/17|
 |  61D |[ Eternal Victory (1800) (Tree) ](./code/61D.txt)   |2021/06/17|
+|  1066E |[ Binary Numbers AND Sum (1700) (Prefix) ](./code/1066E.txt)   |2021/06/18|
 
 # 分类
 
@@ -370,6 +371,7 @@ My Codeforce Practice<br/>
 224D. [Two Strings (1900) (left-right DP +Binary Search) ](./code/224D.txt)<br/>
 279C.[ Ladder (1700) (Segment Tree +Left-right DP) ](./code/279C.txt)<br/>
 1015E2.[Stars Drawing (Hard Edition) (1900) (DP) ](./code/1015E2.txt)<br/>
+1066E.[ Binary Numbers AND Sum (1700) (Prefix) ](./code/1066E.txt)<br/>
 
 
 ### 树DP
