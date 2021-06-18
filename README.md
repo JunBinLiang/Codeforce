@@ -336,6 +336,7 @@ My Codeforce Practice<br/>
 |  61D |[ Eternal Victory (1800) (Tree) ](./code/61D.txt)   |2021/06/17|
 |  1066E |[ Binary Numbers AND Sum (1700) (Prefix) ](./code/1066E.txt)   |2021/06/18|
 |  1066D |[ Boxes Packing (1800) (Binary Search) ](./code/1066D.txt)   |2021/06/18|
+|  1066F |[ Yet another 2D Walking (2100) (DP + Math) ](./code/1066F.txt)   |2021/06/18|
 
 # 分类
 
@@ -357,6 +358,7 @@ My Codeforce Practice<br/>
 46E. [ Comb (1900) ( DP) ](./code/46E.txt)<br/>
 988F.[  Rain and Umbrellas (2100) ( DP) ](./code/988F.txt)<br/>
 1536C.[ Diluc and Kaeya (1500) ( DP + HashMap) ](./code/1536C.txt)<br/>
+1066F.[ Yet another 2D Walking (2100) (DP + Math) ](./code/1066F.txt)<br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
