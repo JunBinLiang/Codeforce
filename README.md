@@ -338,7 +338,7 @@ My Codeforce Practice<br/>
 |  1066D |[ Boxes Packing (1800) (Binary Search) ](./code/1066D.txt)   |2021/06/18|
 |  1066F |[ Yet another 2D Walking (2100) (DP + Math) ](./code/1066F.txt)   |2021/06/18|
 |  1538G |[ Gift Set (2100) (BinarySearch + Math) ](./code/1538G.txt)   |2021/06/19|
-
+|  1260E |[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)   |2021/06/19|
 # 分类
 
 ### DP
@@ -407,6 +407,9 @@ My Codeforce Practice<br/>
 45E. [Director (2000) (Greedy + Implementation) ](./code/45E.txt)<br/>
 1294E.[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)<br/>
 450E.[ Jzzhu and Apples (2500) (Greedy)](./code/450E.txt)<br/>
+
+### Greedy+Heap
+1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
 
 ### Constructive 
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
