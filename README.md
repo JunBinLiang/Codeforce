@@ -337,6 +337,7 @@ My Codeforce Practice<br/>
 |  1066E |[ Binary Numbers AND Sum (1700) (Prefix) ](./code/1066E.txt)   |2021/06/18|
 |  1066D |[ Boxes Packing (1800) (Binary Search) ](./code/1066D.txt)   |2021/06/18|
 |  1066F |[ Yet another 2D Walking (2100) (DP + Math) ](./code/1066F.txt)   |2021/06/18|
+|  1538G |[ Gift Set (2100) (BinarySearch + Math) ](./code/1538G.txt)   |2021/06/19|
 
 # 分类
 
@@ -591,6 +592,7 @@ My Codeforce Practice<br/>
 1177B. [Digits Sequence (Hard Edition) (1800) (Binary Search + Math) ](./code/1177B.txt)  <br/>
 448D. [Multiplication Table (1800) (Binary Search ) ](./code/448D.txt)  <br/>
 1066D.[ Boxes Packing (1800) (Binary Search) ](./code/1066D.txt) <br/>
+1538G.[ Gift Set (2100) (BinarySearch + Math) ](./code/1538G.txt)<br/>
 
 ### String Algorithm
 
