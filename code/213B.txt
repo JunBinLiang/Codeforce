@@ -1,0 +1,159 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int num=Int();
+            int A[]=Arr(10);
+
+            Solution sol=new Solution(out);
+            sol.solution(num,A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(int n,int A[]) {
+        long ncr[][]=new long[210][210];
+        ncr[0][0]=1;
+        for (int i=1;i<ncr.length;i++) {
+            ncr[i][0]=1;
+            for (int j=1;j<ncr[0].length;j++) {
+                ncr[i][j]=(ncr[i-1][j]+ncr[i-1][j-1])%MOD;
+            }
+        }
+
+
+
+        long res=0;
+        long dp[][]=new long[11][n+1];
+        reverse(A);
+
+        dp[0][0]=1;
+        for(int i=1;i<A.length;i++){
+            for(int len=0;len<dp[0].length;len++){
+                for(int N=A[i-1];N<=n;N++){
+                    if(len-N<0)break;
+                    int last=len-N;
+                    int M=(len-N)+1;
+                    //put N ball into N emptyBox
+                    long ways=ncr[N+M-1][N];
+                    dp[i][len]+=ways*dp[i-1][last];
+                    dp[i][len]%=MOD;
+                }
+            }
+        }
+
+
+        //handle the special case 0
+        int cnt=A[A.length-1];
+        for(int len=0;len<dp[0].length;len++){
+            for(int N=cnt;N<=n;N++){
+                if(len-N<0)break;
+                int last=len-N;
+                int M=(len-N)+1;
+                if(N+M-2>=0){
+                    long ways=ncr[N+M-2][N];
+                    dp[A.length][len]+=ways*dp[A.length-1][last];
+                    dp[A.length][len]%=MOD;
+                }
+            }
+        }
+
+
+        for(int i=0;i<dp[0].length;i++){
+            res+=dp[A.length][i];
+            res%=MOD;
+        }
+
+        out.println(res);
+    }
+
+    public void reverse(int A[]){
+        int l=0,r=A.length-1;
+        while(l<r){
+            int t=A[l];
+            A[l]=A[r];
+            A[r]=t;
+            l++;r--;
+        }
+    }
+}
+
