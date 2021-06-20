@@ -339,6 +339,7 @@ My Codeforce Practice<br/>
 |  1066F |[ Yet another 2D Walking (2100) (DP + Math) ](./code/1066F.txt)   |2021/06/18|
 |  1538G |[ Gift Set (2100) (BinarySearch + Math) ](./code/1538G.txt)   |2021/06/19|
 |  1260E |[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)   |2021/06/19|
+|  89C |[ Chip Play (2300) (DFS + 十字linkedlist) ](./code/89C.txt)   |2021/06/20|
 # 分类
 
 ### DP
@@ -649,5 +650,10 @@ My Codeforce Practice<br/>
 
 ### Stack
 224C.[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)<br/>
+
+### LinkedList
+
+### 十字链表
+89C.[ Chip Play (2300) (DFS + 十字linkedlist) ](./code/89C.txt)<br/>
 
 
