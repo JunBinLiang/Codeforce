@@ -340,6 +340,7 @@ My Codeforce Practice<br/>
 |  1538G |[ Gift Set (2100) (BinarySearch + Math) ](./code/1538G.txt)   |2021/06/19|
 |  1260E |[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)   |2021/06/19|
 |  89C |[ Chip Play (2300) (DFS + 十字linkedlist) ](./code/89C.txt)   |2021/06/20|
+|  213B |[ Numbers (1900) (DP + Combination) ](./code/213B.txt)   |2021/06/20|
 # 分类
 
 ### DP
@@ -507,6 +508,9 @@ My Codeforce Practice<br/>
 52B.[Right Triangles (1600) (Combination) ](./code/52B.txt)<br/>
 224E.[Partial Sums (1900) (Combination) ](./code/224E.txt)<br/>
 1536E.[ Omkar and Forest (2300) (Combination + Multiple BFS) ](./code/1536E.txt)<br/>
+
+### Combination : Push N balls into M boxs -> C(N+M-1,N)
+213B.[ Numbers (1900) (DP + Combination) ](./code/213B.txt)<br/>
 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
