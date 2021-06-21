@@ -1,0 +1,311 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            String names[]=new String[n];
+
+            for(int i=0;i<n;i++){
+                String name=Str();
+                int w=Int();
+
+                names[i]=name;
+                A[i]=w;
+            }
+
+            int m=Int();
+            int B[]=Arr(m);
+            String s=Str();
+            Solution sol=new Solution(out);
+            sol.solution(A,B,names,s);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(int A[],int B[],String names[],String s) {
+        Person f[]=new Person[A.length];
+        for(int i=0;i<A.length;i++){
+            Person p=new Person(A[i],names[i]);
+            f[i]=p;
+
+        }
+        sort1(f);
+
+
+        int pos=find(f,s);
+        if(B.length==0){//no point can award
+            out.println((A.length-(pos+1)+1)+" "+(A.length-(pos+1)+1));
+            return;
+        }
+
+
+        int res1=-1,res2=-1;//
+        TreeMap<Integer,Integer>tree1=new TreeMap<>();
+        TreeMap<Integer,Integer>tree2=new TreeMap<>();
+        for(int i:B){
+            add(tree1,i);
+            add(tree2,i);
+        }
+
+
+
+
+        //lowest place
+        int cnt=0;
+        if(B.length==A.length){
+            int first= tree1.firstKey();
+            f[pos].mock+=first;
+            del(tree1,first);
+        }
+        for(int i=A.length-1;i>=0;i--){
+            if(i==pos)continue;
+            if(tree1.size()==0)break;
+            if(f[i].score<=f[pos].mock){
+                if(f[i].score==f[pos].mock){
+                    if(f[i].name.compareTo(f[pos].name)>0){
+                        int need=0;
+                        Integer  hi=tree1.higherKey(need);
+                        if(hi!=null){
+                            del(tree1,hi);
+                            f[i].mock+=hi;
+                        }
+                    }
+                }
+                else{//smaller
+                    int need=f[pos].mock-f[i].score;
+                    if(f[i].name.compareTo(f[pos].name)<0){
+                        need--;
+                    }
+                    Integer  hi=tree1.higherKey(need);
+                    if(hi!=null){
+                        del(tree1,hi);
+                        f[i].mock+=hi;
+                    }
+                }
+            }else{
+                //alread larger
+            }
+
+        }
+        sort2(f);
+        int pos1=find(f,s);
+        res2=(A.length-(pos1+1)+1);
+
+
+
+
+
+        //highest
+        reset(f);
+        int last=tree2.lastKey();
+        f[pos].mock+=last;
+        del(tree2,last);
+        for(int i=A.length-1;i>=0;i--){
+            if(f[i].name.equals(s))continue;
+            if(tree2.size()==0)break;
+
+            if(f[i].score>=f[pos].mock){
+                if(f[i].score==f[pos].score){
+                    if(f[i].name.compareTo(f[pos].name)<0){
+                        last=tree2.lastKey();
+                        f[i].mock+=last;
+                        del(tree2,last);
+                    }
+                    else{
+
+                    }
+                }
+                else{//large
+                    last=tree2.lastKey();
+                    f[i].mock+=last;
+                    del(tree2,last);
+                }
+
+            }
+            else{
+
+            }
+        }
+
+
+        for(int i=0;i<f.length;i++){
+            if(f[i].name.equals(s))continue;
+            if(tree2.size()==0)break;
+
+            if(f[i].mock<=f[pos].mock){
+                if(f[i].mock==f[pos].mock){
+                    if(f[i].name.compareTo(s)>0){
+                        last=tree2.lastKey();
+                        f[i].mock+=last;
+                        del(tree2,last);
+                    }
+                }
+                else{
+                    int mx=f[pos].mock-f[i].score-1;
+                    if(f[i].name.compareTo(s)>0)mx++;
+                    Integer fl=tree2.floorKey(mx);
+                    if(fl==null){
+                        last=tree2.lastKey();
+                        f[i].mock+=last;
+                        del(tree2,last);
+                    }
+                    else{
+                        f[i].mock+=fl;
+                        del(tree2,fl);
+                    }
+                }
+            }
+            else{
+               //
+            }
+        }
+
+
+        sort2(f);
+        int pos2=find(f,s);
+        res1=(A.length-(pos2+1)+1);
+        out.println(res1+" "+res2);
+    }
+
+    public int find(Person f[],String s){
+        for(int i=0;i<f.length;i++){
+            if(f[i].name.equals(s)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void reset(Person f[]){
+        for(int i=0;i<f.length;i++){
+            f[i].mock=f[i].score;
+        }
+        sort1(f);
+    }
+
+    public void add(TreeMap<Integer,Integer>f,int key){
+        if(!f.containsKey(key))f.put(key,0);
+        f.put(key,f.get(key)+1);
+    }
+
+    public void del(TreeMap<Integer,Integer>f,int k){
+        f.put(k,f.get(k)-1);
+        if(f.get(k)==0)f.remove(k);
+    }
+
+    public void sort1(Person f[]){
+        PriorityQueue<Person>pq=new PriorityQueue<>((a,b)->{
+            if(a.score==b.score){
+                return b.name.compareTo(a.name);
+            }
+            return a.score- b.score;
+        });
+        for(Person p:f)pq.add(p);
+        for(int i=0;i<f.length;i++)f[i]=pq.poll();
+    }
+
+    public void sort2(Person f[]){
+        PriorityQueue<Person>pq=new PriorityQueue<>((a,b)->{
+            if(a.mock==b.mock){
+                return b.name.compareTo(a.name);
+            }
+            return a.mock- b.mock;
+        });
+        for(Person p:f)pq.add(p);
+        for(int i=0;i<f.length;i++)f[i]=pq.poll();
+    }
+
+    class Person{
+        int score;
+        int mock;//mock score
+        String name;
+        public Person(int score,String name){
+            this.score=score;
+            this.mock=score;
+            this.name=name;
+        }
+    }
+
+
+}
+
