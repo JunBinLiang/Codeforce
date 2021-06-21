@@ -342,6 +342,7 @@ My Codeforce Practice<br/>
 |  89C |[ Chip Play (2300) (DFS + 十字linkedlist) ](./code/89C.txt)   |2021/06/20|
 |  213B |[ Numbers (1900) (DP + Combination) ](./code/213B.txt)   |2021/06/20|
 |  55C |[  Pie or die (1900) (Game) ](./code/55C.txt)   |2021/06/20|
+|  73B |[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)   |2021/06/21|
 
 # 分类
 
@@ -411,6 +412,7 @@ My Codeforce Practice<br/>
 45E. [Director (2000) (Greedy + Implementation) ](./code/45E.txt)<br/>
 1294E.[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)<br/>
 450E.[ Jzzhu and Apples (2500) (Greedy)](./code/450E.txt)<br/>
+73B.[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
@@ -643,6 +645,7 @@ My Codeforce Practice<br/>
 45D. [ Event Dates (1900) (Sort) ](./code/45D.txt)<br/>
 1183G.[ Candy Box (hard version) (hard version) (2000) ( Sort + Greedy ) ](./code/1183G.txt)<br/>
 978G.[ Petya's Exams (1700) (Greedy + Sort)](./code/978G.txt)<br/>
+73B.[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)<br/>
 
 ### Interval Problem
 1029C.[Maximal Intersection (1600) (Left/Right DP + Interval Problem) ](./code/1029C.txt)<br/>
