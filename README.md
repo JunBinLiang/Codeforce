@@ -341,6 +341,8 @@ My Codeforce Practice<br/>
 |  1260E |[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)   |2021/06/19|
 |  89C |[ Chip Play (2300) (DFS + 十字linkedlist) ](./code/89C.txt)   |2021/06/20|
 |  213B |[ Numbers (1900) (DP + Combination) ](./code/213B.txt)   |2021/06/20|
+|  55C |[  Pie or die (1900) (Game) ](./code/55C.txt)   |2021/06/20|
+
 # 分类
 
 ### DP
@@ -461,6 +463,7 @@ My Codeforce Practice<br/>
 78C. [ Beaver Game (2000) (Game) ](./code/78C.txt)<br/>
 1527B1.[ Palindrome Game (easy version) (1200) (Game) ](./code/1527B1.txt)<br/>
 1527B2.[ Palindrome Game (hard version) (1900) (Game) ](./code/1527B2.txt)<br/>
+55C.[  Pie or die (1900) (Game) ](./code/55C.txt)<br/>
 
 
 ### Nim Game
