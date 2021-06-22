@@ -344,6 +344,7 @@ My Codeforce Practice<br/>
 |  55C |[  Pie or die (1900) (Game) ](./code/55C.txt)   |2021/06/20|
 |  73B |[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)   |2021/06/21|
 |  1537D |[ Deleting Divisors (1700) (Game + Number Theory) ](./code/1537D.txt)   |2021/06/21|
+|  1537E2 |[ Erase and Extend (Hard Version)	 (2200) (Suffix Structure + Z-algorithm) ](./code/1537E2.txt)   |2021/06/21|
 
 # 分类
 
@@ -613,6 +614,7 @@ My Codeforce Practice<br/>
 
 ### Z-Algorithm
 126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) <br/>
+1537E2.[ Erase and Extend (Hard Version)	 (2200) (Suffix Structure + Z-algorithm) ](./code/1537E2.txt)<br/>
 
 ### KMP
 1015F.[ Bracket Substring (2300) (DP + KMP) ](./code/1015F.txt) <br/>
