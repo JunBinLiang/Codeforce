@@ -344,7 +344,7 @@ My Codeforce Practice<br/>
 |  55C |[  Pie or die (1900) (Game) ](./code/55C.txt)   |2021/06/20|
 |  73B |[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)   |2021/06/21|
 |  1537D |[ Deleting Divisors (1700) (Game + Number Theory) ](./code/1537D.txt)   |2021/06/21|
-|  1537E2 |[ Erase and Extend (Hard Version)	 (2200) (Suffix Structure + Z-algorithm) ](./code/1537E2.txt)   |2021/06/21|
+|  1537E2 |[ Erase and Extend (Hard Version)	 (2200) (Suffix Structure + Z-algorithm) ](./code/1537E2.txt)   |2021/06/22|
 
 # 分类
 
