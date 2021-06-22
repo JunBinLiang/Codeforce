@@ -343,6 +343,7 @@ My Codeforce Practice<br/>
 |  213B |[ Numbers (1900) (DP + Combination) ](./code/213B.txt)   |2021/06/20|
 |  55C |[  Pie or die (1900) (Game) ](./code/55C.txt)   |2021/06/20|
 |  73B |[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)   |2021/06/21|
+|  1537D |[ Deleting Divisors (1700) (Game + Number Theory) ](./code/1537D.txt)   |2021/06/21|
 
 # 分类
 
@@ -493,6 +494,7 @@ My Codeforce Practice<br/>
 1359E.[Modular Stability (2000) (Thinking + Number Theory + Combination)  ](./code/1359E.txt)<br/>
 45G.[ Prime Problem (2200) (Number Theory + Constructive) ](./code/45G.txt) <br/>
 1029D.[Concatenated Multiples (1900) (Hash + Mod) ](./code/1029D.txt)<br/>
+1537D.[ Deleting Divisors (1700) (Game + Number Theory) ](./code/1537D.txt)<br/>
 
 ### Optimize 打表
 222C.[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)<br/>
