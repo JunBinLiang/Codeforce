@@ -1,0 +1,141 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int k=Int();
+            int x=Int();
+            int A[]=Arr(n);
+
+            Solution sol=new Solution(out);
+            sol.solution(A,k,x);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(int A[],int k,int x) {
+        //take x picture
+        long dp[][]=new long[A.length][x+1];//[how many picture,pos]
+        for(int i=0;i<dp.length;i++)Arrays.fill(dp[i],-1);
+        LinkedList<long[]>monos[]=new LinkedList[x+1];
+        Arrays.setAll(monos,e->new LinkedList<>());
+
+
+
+        monos[0].add(new long[]{-1,0});
+        for(int i=0;i<A.length;i++){
+            int take=A[i];
+            for(int j=1;j<=x;j++){
+                LinkedList<long[]>mono=monos[j-1];
+                while(mono.size()>0&&mono.getFirst()[0]<i-k)mono.removeFirst();
+                if(mono.size()>0){
+                    dp[i][j]=take+mono.getFirst()[1];
+                }
+                else{
+
+                }
+            }
+
+            for(int j=1;j<=x;j++){
+                if(dp[i][j]==-1)continue;
+                LinkedList<long[]>curmono=monos[j];
+                while(curmono.size()>0&&dp[i][j]>=curmono.getLast()[1])curmono.removeLast();
+                curmono.add(new long[]{i,dp[i][j]});
+            }
+        }
+
+
+        long res=-1;
+        for(int i=A.length-k;i<A.length;i++){
+            res=Math.max(res,dp[i][x]);
+        }
+        out.println(res);
+    }
+
+
+    
+}
+
+
+
+
