@@ -346,6 +346,7 @@ My Codeforce Practice<br/>
 |  1537D |[ Deleting Divisors (1700) (Game + Number Theory) ](./code/1537D.txt)   |2021/06/21|
 |  1537E2 |[ Erase and Extend (Hard Version)	 (2200) (Suffix Structure + Z-algorithm) ](./code/1537E2.txt)   |2021/06/22|
 |  1537F |[ Figure Fixing (2200) (Graph + Bipartile) ](./code/1537F.txt)   |2021/06/22|
+|  1077F2 |[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)   |2021/06/23|
 
 # 分类
 
