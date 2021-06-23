@@ -345,6 +345,7 @@ My Codeforce Practice<br/>
 |  73B |[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)   |2021/06/21|
 |  1537D |[ Deleting Divisors (1700) (Game + Number Theory) ](./code/1537D.txt)   |2021/06/21|
 |  1537E2 |[ Erase and Extend (Hard Version)	 (2200) (Suffix Structure + Z-algorithm) ](./code/1537E2.txt)   |2021/06/22|
+|  1537F |[ Figure Fixing (2200) (Graph + Bipartile) ](./code/1537F.txt)   |2021/06/22|
 
 # 分类
 
@@ -540,6 +541,7 @@ My Codeforce Practice<br/>
 ### Bipartite Graph
 1354E. [ Graph Coloring (2100) (DP + Bipartite Graph)  ](./code/1354E.txt)<br/>
 27D.[ Ring Road 2(2200) ( Bipartile Graph) ](./code/27D.txt)<br/>
+1537F.[ Figure Fixing (2200) (Graph + Bipartile) ](./code/1537F.txt)<br/>
 
 ### Shortest Path
 416E. [President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   <br/>
