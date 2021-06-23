@@ -1,0 +1,163 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+            List<Integer>graph[]=new ArrayList[n];
+            Arrays.setAll(graph,e->new ArrayList<>());
+
+            for(int i=0;i<n-1;i++){
+                int u=Int()-1;
+                int v=Int()-1;
+                graph[u].add(v);
+                graph[v].add(u);
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,graph);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    List<Integer>graph[];int A[];
+    long res=0;long sum=0;
+    boolean seen[];
+
+    long vals[];
+    long sub[];
+    public void solution(int A[],List<Integer>graph[]) {
+        this.graph=graph;this.A=A;
+        seen=new boolean[graph.length];
+        vals=new long[graph.length];
+        sub=new long[graph.length];
+
+        for(int i:A)sum+=i;
+
+        seen[0]=true;
+        dfs1(0,0);
+
+
+        Arrays.fill(seen,false);
+        seen[0]=true;
+        dfs2(-1,0);
+
+        for(long i:vals){
+            res=Math.max(res,i);
+        }
+        out.println(res);
+    }
+
+    public long dfs1(int root,int level){
+        vals[0]+=(A[root]*(level+0l));
+        sub[root]=A[root];
+        for(int next:graph[root]){
+            if(!seen[next]){
+                seen[next]=true;
+                sub[root]+=dfs1(next,level+1);
+            }
+        }
+        return sub[root];
+    }
+
+    public void dfs2(int parent,int root){
+        if(parent!=-1){
+            long last=vals[parent];
+            last-=sub[root];
+            last+=(sum-sub[root]);
+            vals[root]=last;
+        }
+
+        for(int next:graph[root]){
+            if(!seen[next]){
+                seen[next]=true;
+                dfs2(root,next);
+            }
+        }
+    }
+
+
+}
+
+
+
+
