@@ -348,6 +348,7 @@ My Codeforce Practice<br/>
 |  1537F |[ Figure Fixing (2200) (Graph + Bipartile) ](./code/1537F.txt)   |2021/06/22|
 |  1077F2 |[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)   |2021/06/23|
 |  1487F |[Ones (2900) (DP + Observation) ](./code/1487F.txt)   |2021/06/23|
+|  1092F |[ Tree with Maximum Cost (Tree DP) ](./code/1092F.txt)   |2021/06/23|
 
 # 分类
 
@@ -392,6 +393,7 @@ My Codeforce Practice<br/>
 ### 树DP
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)<br/>
 1029E.[Tree with Small Distances (2100) (Tree DP) ](./code/1029D.txt)<br/>
+1092F.[ Tree with Maximum Cost (Tree DP) ](./code/1092F.txt)<br/>
 
 ### Bit DP
 1185G1. [Playlist for Polycarp (easy version) (2100) (Bitmask DP )  ](./code/1185G1.txt)  <br/>
