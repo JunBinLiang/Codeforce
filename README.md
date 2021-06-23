@@ -349,6 +349,7 @@ My Codeforce Practice<br/>
 |  1077F2 |[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)   |2021/06/23|
 |  1487F |[Ones (2900) (DP + Observation) ](./code/1487F.txt)   |2021/06/23|
 |  1092F |[ Tree with Maximum Cost (Tree DP) ](./code/1092F.txt)   |2021/06/23|
+|  1092E |[ Minimal Diameter Forest (Tree + Greedy) ](./code/1092E.txt)   |2021/06/23|
 
 # 分类
 
@@ -592,6 +593,7 @@ My Codeforce Practice<br/>
 ### Tree
 1528A.[ Parsa's Humongous Tree (1600) (Tree + DP) ](./code/1528A.txt)<br/>
 61D.[ Eternal Victory (1800) (Tree) ](./code/61D.txt) <br/>
+1092E.[ Minimal Diameter Forest (Tree + Greedy) ](./code/1092E.txt)<br/>
 
 ### TreeSet/TreeMap
 926J.[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   <br/>
