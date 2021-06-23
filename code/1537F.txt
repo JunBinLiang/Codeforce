@@ -1,0 +1,177 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int A[]=Arr(n);
+            int B[]=Arr(n);
+            List<Integer>graph[]=new ArrayList[n];
+            Arrays.setAll(graph,e->new ArrayList<>());
+            for(int i=0;i<m;i++){
+                int u=Int()-1;int v=Int()-1;
+                graph[u].add(v);
+                graph[v].add(u);
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,B,graph);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    List<Integer>graph[];
+    int dif[];
+    int colors[];
+    boolean bi=true;
+    long odd=0,even=0;
+    public void solution(int A[],int B[],List<Integer>graph[]) {
+        this.graph=graph;
+        int n=A.length;
+        dif=new int[n];
+        colors=new int[n];
+        Arrays.fill(colors,-1);
+        for(int i=0;i<B.length;i++){
+            dif[i]=B[i]-A[i];
+        }
+
+        dfs(0,0);
+        if(bi){
+            long sum1=0,sum2=0;
+            for(int i=0;i<n;i++){
+                if(colors[i]==0)sum1+=dif[i];
+                else sum2+=dif[i];
+            }
+
+            if(sum1==sum2){
+                out.println("YES");
+            }
+            else{
+                out.println("NO");
+            }
+        }
+        else{
+            boolean seen[]=new boolean[n];
+            seen[0]=true;
+            dfs1(0,seen,0);
+            if(Math.abs(even-odd)%2==0){
+                out.println("YES");
+            }
+            else{
+                out.println("NO");
+            }
+        }
+
+    }
+
+    public void dfs(int root,int col){
+        int nextcol=(col+1)%2;
+        colors[root]=col;
+        for(int next:graph[root]){
+            if(colors[next]==-1){
+                dfs(next,nextcol);
+            }
+            else{
+                if(colors[next]==col){
+                    bi=false;
+                }
+            }
+        }
+    }
+
+    public void dfs1(int root,boolean seen[],int level){
+        if(level%2==0)even+=dif[root];
+        else odd+=dif[root];
+
+        for(int next:graph[root]){
+            if(!seen[next]){
+                seen[next]=true;
+                dfs1(next,seen,level+1);
+            }
+        }
+    }
+
+    
+}
+
+
+
+
