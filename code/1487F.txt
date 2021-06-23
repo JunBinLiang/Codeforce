@@ -1,0 +1,128 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+
+            Solution sol=new Solution(out);
+            sol.solution(s);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    long dp[][][];
+    public void solution(String s) {
+        dp=new long[s.length()+1][800][800];
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++)Arrays.fill(dp[i][j],-1);
+        }
+        long res=dfs("0"+s,0,0,0);
+        out.println(res);
+
+    }
+
+    public long dfs(String s,int pos,int diff,int chunk){
+        if(pos>=s.length()){
+            if(diff!=0)return INF;
+            return 0;
+        }
+        if(chunk>350||Math.abs(diff)>350){
+            return INF;
+        }
+        if(dp[pos][diff+400][chunk+400]!=-1)return dp[pos][diff+400][chunk+400];
+
+
+        int d=s.charAt(pos)-'0';
+        long res=INF;
+        int newdiff=diff*10+chunk-d;
+        for(int i=-6;i<=6;i++){
+            long cnt=Math.abs(i)*(s.length()-pos);
+            res=Math.min(res,cnt+dfs(s,pos+1,newdiff+i,chunk+i));
+        }
+        dp[pos][diff+400][chunk+400]=res;
+        return res;
+    }
+}
+
+
+
+
