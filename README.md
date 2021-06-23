@@ -347,6 +347,7 @@ My Codeforce Practice<br/>
 |  1537E2 |[ Erase and Extend (Hard Version)	 (2200) (Suffix Structure + Z-algorithm) ](./code/1537E2.txt)   |2021/06/22|
 |  1537F |[ Figure Fixing (2200) (Graph + Bipartile) ](./code/1537F.txt)   |2021/06/22|
 |  1077F2 |[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)   |2021/06/23|
+|  1487F |[Ones (2900) (DP + Observation) ](./code/1487F.txt)   |2021/06/23|
 
 # 分类
 
@@ -369,6 +370,7 @@ My Codeforce Practice<br/>
 988F.[  Rain and Umbrellas (2100) ( DP) ](./code/988F.txt)<br/>
 1536C.[ Diluc and Kaeya (1500) ( DP + HashMap) ](./code/1536C.txt)<br/>
 1066F.[ Yet another 2D Walking (2100) (DP + Math) ](./code/1066F.txt)<br/>
+1487F.[Ones (2900) (DP + Observation) ](./code/1487F.txt)<br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
