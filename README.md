@@ -398,6 +398,9 @@ My Codeforce Practice<br/>
 ### 区间DP
 1509C. [The Sports Festival (1800) (DP) ](./code/1509C.txt)  <br/>
 
+### DP + Monoqueue
+1077F2.[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)<br/>
+
 ## 概率DP
 540D. [Bad Luck Island (1900) (DP)  ](./code/540D.txt)<br/>
 
