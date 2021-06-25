@@ -1,0 +1,173 @@
+#include <cstdio>
+#include <iostream>
+#include <cmath>
+#include <cstring>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <unordered_set>
+using namespace std;
+
+const double PI = acos(-1.0);
+struct Complex{
+    double x, y;    
+    Complex(double _x = 0.0, double _y = 0.0){
+        x = _x;
+        y = _y;
+    }
+    Complex operator - (const Complex &b) const{
+        return Complex(x - b.x, y - b.y);
+    }
+    Complex operator + (const Complex &b) const{
+        return Complex(x + b.x, y + b.y);
+    }
+    Complex operator * (const Complex &b) const{
+        return Complex(x*b.x - y*b.y, x*b.y + y*b.x);
+    }
+};
+
+
+void change(Complex y[], int N){
+    int i,j;
+    for(i=1,j=0;i<N;i++){
+        for(int d=N;j^=d>>=1,~j&d;);
+        if(i<j)
+            swap(y[i],y[j]);
+    }
+}
+
+
+void fft(Complex y[], int len, int on){
+    change(y, len);
+    for(int h = 2; h <= len; h *= 2){
+        Complex wn(cos(-on * 2*PI / h), sin(-on * 2*PI / h));
+        for(int j = 0; j < len; j += h){
+            Complex w(1, 0);
+            for(int k = j; k < j + h/2; k++){
+                Complex u = y[k];
+                Complex t = w * y[k + h/2];
+                y[k] = u + t;
+                y[k + h/2] = u - t;
+                w = w * wn;
+            }
+        }
+    }
+    if(on == -1)
+        for(int i = 0; i < len; i++)
+            y[i].x /= len;
+}
+
+const int MAXN = 300010;
+Complex x1[MAXN], x2[MAXN];
+int sum[MAXN];
+
+int find(vector<int>&nums,int x){
+    if(nums[x]==x)return x;
+    int root=find(nums,nums[x]);
+    nums[x]=root;
+    return root;
+}
+
+int main(){
+        string str1,str2;
+        cin>>str1>>str2;
+        int len1 = str1.size();
+        int len2 = str2.size();
+        int len = 1;
+        while(len < len1 * 2 || len < len2 * 2) len *= 2;
+        vector<vector<int>>nums(str1.size()-str2.size()+1,vector<int>(6,0));
+        for(int i=0;i<nums.size();i++){
+            for(int j=0;j<nums[0].size();j++){
+                nums[i][j]=j;
+            }
+        }
+        
+        for(int u=0;u<6;u++){
+            for(int v=0;v<6;v++){
+                if(u==v)continue;
+                for(int i = 0; i < len1; i++){
+                    int d= str1[i]-'a';
+                    x1[i] = Complex(d == u, 0);
+                }
+            
+                for(int i = len1; i < len; i++){
+                    x1[i] = Complex(0, 0);
+                }
+                for(int i = 0; i < len2; i++){
+                    int d= str2[i]-'a';
+                    x2[str2.size()-i-1] = Complex(d==v, 0);
+                }
+                for(int i = len2; i < len; i++){
+                    x2[i] = Complex(0, 0);
+                }
+                
+                
+                
+                /*if(u==0&&v==3){
+                    for(int i=0;i<len;i++){
+                        cout<<x1[i].x<<" ";
+                    }cout<<endl;
+                    
+                    for(int i=0;i<len;i++){
+                        cout<<x2[i].x<<" ";
+                    }cout<<endl;
+                }*/
+                
+                
+                fft(x1, len, 1);
+                fft(x2, len, 1);
+                
+                for(int i = 0; i < len; i++){
+                    x1[i] = x1[i] * x2[i];
+                }
+                fft(x1, len, -1);
+                
+                
+                for(int i = 0; i < len; i++){
+                    sum[i] = (int)(x1[i].x + 0.5);
+                }
+            
+                /*for(int i = 0; i < len; i++){
+                    sum[i+1] += sum[i] / 10;
+                    sum[i] %= 10;
+                }
+                int length = len1 + len2 - 1;
+                while(sum[length] <= 0 && length > 0) length--;*/
+                
+                for(int i = 0; i <= len; i++){
+                    int block=i-str2.size()+1;
+                    if(block<0||block+str2.length()-1>=str1.length())continue;
+                    if(sum[i]>0){
+                        int r1=find(nums[block],u);
+                        int r2=find(nums[block],v);
+                        if(r1!=r2){
+                            nums[block][r1]=r2;
+                        }
+                    }
+                }
+                
+                /*if(u==0&&v==3){
+                    for(int i=0;i<length;i++){
+                        cout<<sum[i]<<" ";
+                    }cout<<endl;
+                }*/
+            }
+            
+        }
+        
+
+            
+        
+            for(int i=0;i<str1.size();i++){
+                if(i+1<str2.size())continue;
+                unordered_set<int>se;
+                for(int j=0;j<6;j++){
+                    int r=find(nums[i-str2.size()+1],j);
+                    se.insert(r);
+                }
+                cout<<6-se.size()<<endl;
+            }
+
+    
+    return 0;
+}
