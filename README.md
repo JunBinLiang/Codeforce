@@ -351,6 +351,7 @@ My Codeforce Practice<br/>
 |  1092F |[ Tree with Maximum Cost (1900) (Tree DP) ](./code/1092F.txt)   |2021/06/23|
 |  1092E |[ Minimal Diameter Forest (2000)(Tree + Greedy) ](./code/1092E.txt)   |2021/06/23|
 |  954I |[ Yet Another String Matching Problem (2200) (FFT) ](./code/954I.txt)   |2021/06/25|
+|  1092C |[Prefixes and Suffixes (1700) (Brute Force) ](./code/1092C.txt)   |2021/06/25|
 
 # 分类
 
@@ -456,6 +457,7 @@ My Codeforce Practice<br/>
 ### 枚举 (暴力)
 1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
 1359D. [Yet Another Yet Another Task  (2000) (Brute Force )  ](./code/1359D.txt)<br/>
+1092C.[Prefixes and Suffixes (1700) (Brute Force) ](./code/1092C.txt)<br/>
 
 ### 思维/Thinking/Observation
 540E.[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking)  ](./code/540E.txt)<br/>
