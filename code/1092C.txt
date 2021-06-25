@@ -1,0 +1,202 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            String A[]=new String[n*2-2];
+            for(int i=0;i<A.length;i++){
+                A[i]=Str();
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(String A[]) {
+        if(A.length==2){
+            out.println("PS");
+            return;
+        }
+
+
+        Node B[]=new Node[A.length];
+        for(int i=0;i<A.length;i++){
+            B[i]=new Node(A[i],i);
+        }
+
+        Arrays.sort(B,(a,b)->{
+            return a.s.length()-b.s.length();
+        });
+
+
+
+        int n=A.length-1;
+
+        String last=B[n-1].s;
+
+        String s1=B[0].s+last;
+        String s2=last+B[0].s;
+
+        String s3=B[1].s+last;
+        String s4=last+B[1].s;
+
+        String res1=check(B,s1,A[0]);
+        String res2=check(B,s2,A[0]);
+        String res3=check(B,s3,A[0]);
+        String res4=check(B,s4,A[0]);
+
+        if(res1.length()==A.length){
+            out.println(res1);return;
+        }
+        if(res2.length()==A.length){
+            out.println(res2);return;
+        }
+        if(res3.length()==A.length){
+            out.println(res3);return;
+        }
+        if(res4.length()==A.length){
+            out.println(res4);return;
+        }
+
+    }
+
+    public String check(Node A[],String s,String t){
+        String res[]=new String[A.length];
+        StringBuilder str=new StringBuilder();
+        for(int i=0;i<A.length;i+=2){
+            Node a=A[i],b=A[i+1];
+            int len=a.s.length();
+            int index1=a.i;
+            int index2=b.i;
+
+            if(a.s.equals(s.substring(0,len))&&b.s.equals(s.substring(s.length()-len,s.length()))){
+                res[index1]="P";
+                res[index2]="S";
+            }
+            else if(b.s.equals(s.substring(0,len))&&a.s.equals(s.substring(s.length()-len,s.length()))){
+                res[index2]="P";
+                res[index1]="S";
+            }
+            else{
+                return str.toString();
+            }
+
+        }
+
+        for(String tt:res)str.append(tt);
+        return str.toString();
+    }
+
+
+    class Node{
+        String s;
+        int i;
+        public Node(String s,int i){
+            this.s=s;
+            this.i=i;
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
