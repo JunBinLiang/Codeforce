@@ -348,8 +348,9 @@ My Codeforce Practice<br/>
 |  1537F |[ Figure Fixing (2200) (Graph + Bipartile) ](./code/1537F.txt)   |2021/06/22|
 |  1077F2 |[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)   |2021/06/23|
 |  1487F |[Ones (2900) (DP + Observation) ](./code/1487F.txt)   |2021/06/23|
-|  1092F |[ Tree with Maximum Cost (Tree DP) ](./code/1092F.txt)   |2021/06/23|
-|  1092E |[ Minimal Diameter Forest (Tree + Greedy) ](./code/1092E.txt)   |2021/06/23|
+|  1092F |[ Tree with Maximum Cost (1900) (Tree DP) ](./code/1092F.txt)   |2021/06/23|
+|  1092E |[ Minimal Diameter Forest (2000)(Tree + Greedy) ](./code/1092E.txt)   |2021/06/23|
+|  954I |[ Yet Another String Matching Problem (2200) (FFT) ](./code/954I.txt)   |2021/06/25|
 
 # 分类
 
@@ -653,6 +654,9 @@ My Codeforce Practice<br/>
 1156E. [Special Segments of Permutation (2200) (Divide Conquer + Segment Tree) (Thumb) ](./code/1156E.txt)<br/>
 888E. [ Maximum Subsequence (1800) （Divide Conquer + Meet in Middle ） ](./code/888E.txt)<br/>
 1520F2. [Guess the K-th Zero (Hard version) (2200) (Binary Search+ Divide Conquer)  ](./code/1520F2.txt)<br/>
+
+### FFT
+954I.[ Yet Another String Matching Problem (2200) (FFT) ](./code/954I.txt)<br/>
 
 ### Interactive
 1520F1. [Guess the K-th Zero (Easy version) (1600) (Binary Search)  ](./code/1520F1.txt)<br/>
