@@ -352,7 +352,7 @@ My Codeforce Practice<br/>
 |  1092E |[ Minimal Diameter Forest (2000)(Tree + Greedy) ](./code/1092E.txt)   |2021/06/23|
 |  954I |[ Yet Another String Matching Problem (2200) (FFT) ](./code/954I.txt)   |2021/06/25|
 |  1092C |[Prefixes and Suffixes (1700) (Brute Force) ](./code/1092C.txt)   |2021/06/25|
-
+|  1095F |[Make It Connected (1900) (MST + Greedy) ](./code/1095F.txt)   |2021/06/26|
 # 分类
 
 ### DP
@@ -582,6 +582,7 @@ My Codeforce Practice<br/>
 
 ### MST
 125E. [ MST Company (2400) (MST + Thinking)  ](./code/125E.txt)<br/>
+1095F.[Make It Connected (1900) (MST + Greedy) ](./code/1095F.txt)<br/>
 
 ### Boruvka's algorithm
 888G. [ Xor-MST (2300) (MST + Trie + Bit + Divide Conquer + Boruvka's algorithm) ](./code/888G.txt)<br/>
