@@ -353,6 +353,8 @@ My Codeforce Practice<br/>
 |  954I |[ Yet Another String Matching Problem (2200) (FFT) ](./code/954I.txt)   |2021/06/25|
 |  1092C |[Prefixes and Suffixes (1700) (Brute Force) ](./code/1092C.txt)   |2021/06/25|
 |  1095F |[Make It Connected (1900) (MST + Greedy) ](./code/1095F.txt)   |2021/06/26|
+|  1095C |[Powers Of Two (1400) (Induction) ](./code/1095C.txt)   |2021/06/26|
+
 # 分类
 
 ### DP
@@ -536,6 +538,9 @@ My Codeforce Practice<br/>
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
 125D. [ Two progressions (2200) (Greedy + 鸽子)  ](./code/125D.txt)<br/>
+
+### Induction
+1095C.[Powers Of Two (1400) (Induction) ](./code/1095C.txt)<br/>
 
 ### Graph 
 1196F. [ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt) <br/>
