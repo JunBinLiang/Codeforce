@@ -355,7 +355,7 @@ My Codeforce Practice<br/>
 |  1095F |[Make It Connected (1900) (MST + Greedy) ](./code/1095F.txt)   |2021/06/26|
 |  1095C |[Powers Of Two (1400) (Induction) ](./code/1095C.txt)   |2021/06/26|
 |  1095D |[Circular Dance (1600) (Implementation) ](./code/1095D.txt)   |2021/06/26|
-
+|  1095E |[Almost Regular Bracket Sequence (1900) (Implementation) ](./code/1095E.txt)   |2021/06/26|
 
 # 分类
 
@@ -696,5 +696,8 @@ My Codeforce Practice<br/>
 
 ### 十字链表
 89C.[ Chip Play (2300) (DFS + 十字linkedlist) ](./code/89C.txt)<br/>
+
+### Regular Bracket 
+1095E.[Almost Regular Bracket Sequence (1900) (Implementation) ](./code/1095E.txt)<br/>
 
 
