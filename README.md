@@ -354,6 +354,8 @@ My Codeforce Practice<br/>
 |  1092C |[Prefixes and Suffixes (1700) (Brute Force) ](./code/1092C.txt)   |2021/06/25|
 |  1095F |[Make It Connected (1900) (MST + Greedy) ](./code/1095F.txt)   |2021/06/26|
 |  1095C |[Powers Of Two (1400) (Induction) ](./code/1095C.txt)   |2021/06/26|
+|  1095D |[Circular Dance (1600) (Implementation) ](./code/1095D.txt)   |2021/06/26|
+
 
 # 分类
 
@@ -451,6 +453,7 @@ My Codeforce Practice<br/>
 988E.[ Divisibility by 25 (2100) ( Brute Force) ](./code/988E.txt)<br/>
 27E.[Number With The Given Amount Of Divisors (2000) (DFS) ](./code/27E.txt) <br/>
 58C.[ Trees (1800) (Implentation) ](./code/58C.txt) <br/>
+1095D.[Circular Dance (1600) (Implementation) ](./code/1095D.txt)<br/>
 
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
