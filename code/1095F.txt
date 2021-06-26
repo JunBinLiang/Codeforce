@@ -1,0 +1,173 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            long A[][]=new long[n][2];
+            for(int i=0;i<n;i++){
+                A[i][0]=Long();
+                A[i][1]=i;
+            }
+
+
+            long B[][]=new long[m][3];
+            for(int i=0;i<m;i++){
+                B[i][0]=Long()-1;
+                B[i][1]=Long()-1;
+                B[i][2]=Long();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,B);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(long A[][],long B[][]) {
+        PriorityQueue<long[]>pq=new PriorityQueue<>((a,b)->{
+            return Long.compare(a[2],b[2]);
+        });
+        for(long p[]:B)pq.add(p);
+
+        Arrays.sort(A,(a,b)->{
+            return Long.compare(a[0],b[0]);
+        });
+        for(int i=1;i<A.length;i++){
+            pq.add(new long[]{A[0][1],A[i][1],A[0][0]+A[i][0]});
+        }
+
+        int n=A.length;
+        int nums[]=new int[n];
+        for(int i=0;i<n;i++){
+            nums[i]=i;
+        }
+
+
+        long res=0;
+        while(pq.size()>0){
+            long top[]=pq.poll();
+            int u=(int)(top[0]);
+            int v=(int)(top[1]);
+            int r1=find(nums,u);
+            int r2=find(nums,v);
+            if(r1!=r2){
+                nums[r1]=r2;
+                res+=top[2];
+            }
+        }
+
+        out.println(res);
+
+
+    }
+
+    public int find(int nums[],int x){
+        if(nums[x]==x)return x;
+        int root=find(nums,nums[x]);
+        nums[x]=root;
+        return root;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
