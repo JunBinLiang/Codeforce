@@ -358,6 +358,7 @@ My Codeforce Practice<br/>
 |  1095E |[Almost Regular Bracket Sequence (1900) (Implementation) ](./code/1095E.txt)   |2021/06/26|
 |  1151E |[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)   |2021/06/28|
 |  1151B |[Dima and a Bad XOR (1600) (Thinking + Observation) ](./code/1151B.txt)   |2021/06/28|
+|  1151C |[Problem for Nazar (1800) (Math) ](./code/1151C.txt)   |2021/06/28|
 
 # 分类
 
@@ -512,6 +513,7 @@ My Codeforce Practice<br/>
 
 ### Math
 32C. [ Flea (1700) ( Math ) ](./code/32C.txt)<br/>
+1151C.[Problem for Nazar (1800) (Math) ](./code/1151C.txt)<br/>
 
 ### Number Theory
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
