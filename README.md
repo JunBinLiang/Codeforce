@@ -356,7 +356,7 @@ My Codeforce Practice<br/>
 |  1095C |[Powers Of Two (1400) (Induction) ](./code/1095C.txt)   |2021/06/26|
 |  1095D |[Circular Dance (1600) (Implementation) ](./code/1095D.txt)   |2021/06/26|
 |  1095E |[Almost Regular Bracket Sequence (1900) (Implementation) ](./code/1095E.txt)   |2021/06/26|
-|  1151E |[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)   |2021/06/27|
+|  1151E |[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)   |2021/06/28|
 
 # 分类
 
