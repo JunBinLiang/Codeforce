@@ -359,6 +359,7 @@ My Codeforce Practice<br/>
 |  1151E |[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)   |2021/06/28|
 |  1151B |[Dima and a Bad XOR (1600) (Thinking + Observation) ](./code/1151B.txt)   |2021/06/28|
 |  1151C |[Problem for Nazar (1800) (Math) ](./code/1151C.txt)   |2021/06/28|
+|  1151D |[Stas and the Queue at the Buffet (1600) (Sort + Greedy) ](./code/1151D.txt)   |2021/06/28|
 
 # 分类
 
@@ -685,6 +686,7 @@ My Codeforce Practice<br/>
 1183G.[ Candy Box (hard version) (hard version) (2000) ( Sort + Greedy ) ](./code/1183G.txt)<br/>
 978G.[ Petya's Exams (1700) (Greedy + Sort)](./code/978G.txt)<br/>
 73B.[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)<br/>
+1151D.[Stas and the Queue at the Buffet (1600) (Sort + Greedy) ](./code/1151D.txt)<br/>
 
 ### Interval Problem
 1029C.[Maximal Intersection (1600) (Left/Right DP + Interval Problem) ](./code/1029C.txt)<br/>
