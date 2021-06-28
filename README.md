@@ -158,7 +158,7 @@ My Codeforce Practice<br/>
 |  652C  |[Foe Pair (1800) （Two Pointer + Sort + Binay Search） ](./code/652C.txt)   |2021/04/14|
 |  652D  |[Nested Segments (1800) （Sort + Divide Conquer） ](./code/652D.txt)   |2021/04/14|
 |  919D  |[Substring (1700) （DP + Topological Sort + Direct Graph Cycle Detection） ](./code/919D.txt)   |2021/04/14|
-|  1151D  |[ Min Cost String (1600) （Constructive） ](./code/1151D.txt)   |2021/04/14|
+|  1511D  |[ Min Cost String (1600) （Constructive） ](./code/1511D.txt)   |2021/04/14|
 |  86D  |[ Powerful Array (2200) （莫队） ](./code/86D.txt)   |2021/04/14|
 |  940F  |[Machine Learning (2600) （莫队修改） ](./code/940F.txt)   |2021/04/15|
 |  1207D  |[Number Of Permutations (1800) （Combination + 容斥） ](./code/1207D.txt)   |2021/04/15|
