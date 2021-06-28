@@ -357,6 +357,7 @@ My Codeforce Practice<br/>
 |  1095D |[Circular Dance (1600) (Implementation) ](./code/1095D.txt)   |2021/06/26|
 |  1095E |[Almost Regular Bracket Sequence (1900) (Implementation) ](./code/1095E.txt)   |2021/06/26|
 |  1151E |[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)   |2021/06/28|
+|  1151B |[Dima and a Bad XOR (1600) (Thinking + Observation) ](./code/1151B.txt)   |2021/06/28|
 
 # 分类
 
@@ -483,6 +484,7 @@ My Codeforce Practice<br/>
 988D. [ Points and Powers of Two (1800) (Observation + Thinking + Brute Force) ](./code/988D.txt)<br/>
 1536D. [ Omkar and Medians (2000) ( Thinking + Observation) ](./code/1536D.txt)<br/>
 222A.[ Shooshuns and Sequence (1200) (Observation + Thinking)](./code/222A.txt)<br/>
+1151B.[Dima and a Bad XOR (1600) (Thinking + Observation) ](./code/1151B.txt)<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
