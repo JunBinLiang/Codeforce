@@ -1,0 +1,174 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            long l=Long();
+            long r=Long();
+            Solution sol=new Solution(out);
+            sol.solution(l,r);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    int mod=1000000007;
+    public void solution(long l,long r) {
+        long res=cal(r)-cal(l-1);
+        if(res<0)res+=mod;
+        out.println(res);
+    }
+
+    public long cal(long t){
+        long res=0;
+        long a=1;
+        long b=2;
+        long cnt=1;
+        int which=0;
+        while(t>0){
+            //System.out.println(t+" "+a+" "+b);
+            long terms=0;
+            if(t>=cnt){
+                terms=cnt;
+                t-=cnt;
+            }
+            else{
+                terms=t;
+                t=0;
+            }
+
+            if(which==0){
+                long last = (a+2*(terms-1));
+                BigInteger B1= BigInteger.valueOf(a+last);
+                BigInteger B2= BigInteger.valueOf(terms);
+                BigInteger B3=B1.multiply(B2).divide(BigInteger.valueOf(2)).mod(BigInteger.valueOf(mod));
+                long sum=B3.longValue();
+                res+=sum;
+                res%=mod;
+                a=last+2;
+            }
+            else{
+                long last = (b+2*(terms-1));
+                BigInteger B1 = BigInteger.valueOf(b+last);
+                BigInteger B2 = BigInteger.valueOf(terms);
+                BigInteger B3=B1.multiply(B2).divide(BigInteger.valueOf(2)).mod(BigInteger.valueOf(mod));
+                long sum=B3.longValue();
+                res+=sum;
+                res%=mod;
+                b=last+2;
+            }
+            which++;
+            which%=2;
+            cnt*=2;
+        }
+
+        //System.out.println(res);
+        //System.out.println();
+        return res;
+    }
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
