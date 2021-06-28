@@ -356,6 +356,7 @@ My Codeforce Practice<br/>
 |  1095C |[Powers Of Two (1400) (Induction) ](./code/1095C.txt)   |2021/06/26|
 |  1095D |[Circular Dance (1600) (Implementation) ](./code/1095D.txt)   |2021/06/26|
 |  1095E |[Almost Regular Bracket Sequence (1900) (Implementation) ](./code/1095E.txt)   |2021/06/26|
+|  1151E |[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)   |2021/06/27|
 
 # 分类
 
@@ -414,6 +415,9 @@ My Codeforce Practice<br/>
 
 ## 概率DP
 540D. [Bad Luck Island (1900) (DP)  ](./code/540D.txt)<br/>
+
+### Contribution
+1151E.[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)<br/>
 
 ### Matrix
 621E. [Wet Shark and Blocks (2000) (Matrix Exponent + DP) ](./code/341E.txt)   <br/>
