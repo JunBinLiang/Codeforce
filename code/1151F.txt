@@ -1,0 +1,275 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int k=Int();
+            int A[]=Arr(n);
+            Solution sol=new Solution(out);
+            sol.solution(A,k);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(int A[],int k) {
+        //non-decreasing order => 0000 11111111
+
+        int N=A.length;
+        int zero=0;
+        for(int i:A){
+            if(i==0){
+                zero++;
+            }
+        }
+        int one=N-zero;
+
+        if(zero==0||zero==A.length){
+            out.println(1);
+            return;
+        }
+
+
+        //init NCR
+        int ncr[][]=new int[N+5][N+5];
+        ncr[0][0]=1;
+        for (int i=1;i<ncr.length;i++) {
+            ncr[i][0]=1;
+            for (int j=1;j<ncr[0].length;j++) {
+                ncr[i][j]=(ncr[i-1][j]+ncr[i-1][j-1])%MOD;
+            }
+        }
+
+
+
+        long M[][]=new long[zero+1][zero+1];
+        for(int i=0;i<M.length;i++){
+
+            int lzero=i;
+            int lone=zero-lzero;
+            int rzero=zero-i;
+            int rone=N-zero-lone;
+
+            if(lone<0||lone>one||rone<0||rone>one||rzero>(N-zero))continue;
+           // System.out.println(lzero+" "+rzero+"  "+lone+"  "+rone);
+
+
+            M[i][i]+=(ncr[zero][2]+ncr[N-zero][2]);//not cross
+            M[i][i]%=MOD;
+
+
+            //0->0
+            M[i][i]+=(lzero*rzero);
+            M[i][i]%=MOD;
+
+            //1->1
+            M[i][i]+=(lone*rone);
+            M[i][i]%=MOD;
+
+
+
+            //0<-1 last:decrease zero
+            if(i+1<M.length&&lzero+1<=zero&&rzero-1>=0&&lone-1>=0&&rone+1<=one){//reverse back to last state
+                M[i][i+1]+=((lzero+1)*(rone+1));
+                M[i][i+1]%=MOD;
+            }
+
+            //1<-0
+            if(i-1>=0&&lzero-1>=0&&rzero+1<=one&&lone+1<=zero&&rone-1>=0){//reverse back to last state
+                M[i][i-1]+=((lone+1)*(rzero+1));
+                M[i][i-1]%=MOD;
+            }
+
+        }
+
+
+        M=Matrix.matrixPower(M,k);
+        /*System.out.println();
+        for(long p[]:M){
+            System.out.println(Arrays.toString(p));
+        }*/
+
+
+        int cnt=0;
+        for(int i=0;i<zero;i++){
+            if(A[i]==0)cnt++;
+        }
+        long f[]=new long[zero+1];
+        f[cnt]=1;
+
+
+        long ff[]=new long[zero+1];
+        for(int i=0;i<M.length;i++){
+            long sum=0;
+            for(int j=0;j<M[0].length;j++){
+                sum+=M[i][j]*f[j];
+                sum%=MOD;
+            }
+            ff[i]=sum;
+        }
+
+        //System.out.println();
+        //System.out.println(Arrays.toString(ff));
+
+        long a=ff[zero];
+        long b=0;
+        for(long i:ff){
+            b+=i;
+            b%=MOD;
+        }
+
+
+        long bin=inverse(b);
+        a*=bin;
+        a%=MOD;
+        out.println(a);
+    }
+
+    public long inverse(long val){
+        BigInteger B= BigInteger.valueOf(val);
+        long binverse=B.modInverse(BigInteger.valueOf(MOD)).longValue();
+        return binverse;
+    }
+
+}
+
+class Matrix {
+    static int mod=1000000007;
+    /**
+     * compute pow(base, pow)
+     * O(N^3) * logN
+     **/
+    public static long[][] matrixPower(long [][] base, long pow)	{
+        int N = base.length;
+        long [][] ans = new long [N][N];
+        // generate identity matrix
+        for (int i = 0; i < N; i++)	ans[i][i] = 1;
+
+        // binary exponentiation
+        while ( pow != 0 )	{
+            if	( (pow&1) != 0 )	ans = multiplyMatrix(ans, base);
+
+            base = multiplyMatrix(base, base);
+
+            pow >>= 1;
+        }
+        return	ans;
+    }
+
+    /**
+     * compute m * m2
+     * O(N^3)
+     **/
+    public static long [][] multiplyMatrix(long [][] m, long [][] m2)	{
+        int N = m.length;
+        long [][] ans = new long [N][N];
+
+        for (int i = 0; i < N; i++)	for (int j = 0; j < N; j++)	{
+            ans[i][j] = 0;
+            for (int k = 0; k < N; k++)	{
+                ans[i][j] += m[i][k] * m2[k][j];
+                ans[i][j] %= mod;
+            }
+        }
+
+        return	ans;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
