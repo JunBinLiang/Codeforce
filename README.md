@@ -360,7 +360,7 @@ My Codeforce Practice<br/>
 |  1151B |[Dima and a Bad XOR (1600) (Thinking + Observation) ](./code/1151B.txt)   |2021/06/28|
 |  1151C |[Problem for Nazar (1800) (Math) ](./code/1151C.txt)   |2021/06/28|
 |  1151D |[Stas and the Queue at the Buffet (1600) (Sort + Greedy) ](./code/1151D.txt)   |2021/06/28|
-
+|  1151F |[Sonya and Informatics (2300) (Matrix + DP + Probability) (Thunp) ](./code/1151F.txt)   |2021/06/29|
 # 分类
 
 ### DP
@@ -426,6 +426,7 @@ My Codeforce Practice<br/>
 621E. [Wet Shark and Blocks (2000) (Matrix Exponent + DP) ](./code/341E.txt)   <br/>
 450B.[ Jzzhu and Sequences (1300) (Matrix) ](./code/450B.txt) <br/>
 222E.[ Decoding Genome (1900) (DP + Matrix)](./code/222E.txt)<br/>
+1151F.[Sonya and Informatics (2300) (Matrix + DP + Probability) (Thunp) ](./code/1151F.txt)<br/>
 
 
 ### Greedy
