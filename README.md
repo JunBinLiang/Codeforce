@@ -361,6 +361,7 @@ My Codeforce Practice<br/>
 |  1151C |[Problem for Nazar (1800) (Math) ](./code/1151C.txt)   |2021/06/28|
 |  1151D |[Stas and the Queue at the Buffet (1600) (Sort + Greedy) ](./code/1151D.txt)   |2021/06/28|
 |  1151F |[Sonya and Informatics (2300) (Matrix + DP + Probability) (Thunp) ](./code/1151F.txt)   |2021/06/29|
+|  439D |[439D (1700) (Binary Search + Convex Line)  ](./code/439D.txt)   |2021/06/29|
 # 分类
 
 ### DP
@@ -643,6 +644,9 @@ My Codeforce Practice<br/>
 448D. [Multiplication Table (1800) (Binary Search ) ](./code/448D.txt)  <br/>
 1066D.[ Boxes Packing (1800) (Binary Search) ](./code/1066D.txt) <br/>
 1538G.[ Gift Set (2100) (BinarySearch + Math) ](./code/1538G.txt)<br/>
+
+### Binary Search in Convex Line
+439D.[439D (1700) (Binary Search + Convex Line)  ](./code/439D.txt)<br/>
 
 ### String Algorithm
 
