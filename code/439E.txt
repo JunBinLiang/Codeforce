@@ -1,0 +1,210 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int q[][]=new int[n][2];
+            int mx=0;
+            for(int i=0;i<n;i++){
+                q[i][0]=Int();
+                q[i][1]=Int();
+                mx=Math.max(mx,q[i][0]);
+            }
+            Solution sol=new Solution(out);
+            sol.solution(q,mx);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+    List<Integer>div[];//divisors
+    long fact[];
+    long inv[];
+    long dp[];
+    Map<String,Long>map=new HashMap<>();
+    public void solution(int q[][],int N) {
+        div=new ArrayList[N+3];
+        fact=new long[N+3];
+        inv=new long[N+3];
+        dp=new long[N+3];
+        Arrays.setAll(div,e->new ArrayList<>());
+        Arrays.fill(dp,-1);
+
+        for(int i=2;i<div.length;i++){
+            for(int j=1;j*j<=i;j++){
+                if(i%j==0){
+                    int a=j;
+                    int b=i/j;
+                    div[i].add(a);
+                    if(a!=b)div[i].add(b);
+                }
+            }
+        }
+
+        fact[0]=fact[1]=1;
+        for(int i=2;i<fact.length;i++){
+            fact[i]=fact[i-1]*i;
+            fact[i]%=MOD;
+        }
+        inv[0]=1;
+        inv[1]=1;
+        for (int i=2;i<inv.length;i++){
+            inv[i]=modInverse(i,MOD)*inv[i-1];
+            inv[i]%=MOD;
+        }
+
+
+        for(int p[]:q){
+            int n=p[0],f=p[1];
+            for(int divisor:div[n]){
+                dp[divisor]=-1;
+            }
+            long res = dfs(n,f);
+            out.println(res);
+        }
+    }
+
+    public long dfs(int n,int f){//sum n, f boxes
+        if(n-f<0)return 0;
+        String state=n+","+f;
+        if(map.containsKey(state))return map.get(state);
+        if(n==1&&f==1)return 1;
+
+
+        long res = C(n+f-1-f,f-1);
+
+        for(int g:div[n]){
+            if(g==1)continue;
+            res-=dfs(n/g,f);
+            res+=MOD;
+            res%=MOD;
+        }
+        map.put(state,res);
+        return res;
+    }
+
+    private long C(int n, int r) {
+        return ((fact[n] * inv[r] % MOD) * inv[n - r]) % MOD;
+    }
+
+    public long modInverse(long a, long m)
+    {
+        long m0 = m;
+        long y = 0, x = 1;
+
+        if (m == 1)
+            return 0;
+
+        while (a > 1) {
+            // q is quotient
+            long q = a / m;
+
+            long t = m;
+
+            // m is remainder now, process
+            // same as Euclid's algo
+            m = a % m;
+            a = t;
+            t = y;
+
+            // Update x and y
+            y = x - q * y;
+            x = t;
+        }
+
+        // Make x positive
+        if (x < 0)
+            x += m0;
+
+        return x;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
