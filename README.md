@@ -364,6 +364,7 @@ My Codeforce Practice<br/>
 |  439D |[Devu and his Brother (1700) (Binary Search + Convex Line)  ](./code/439D.txt)   |2021/06/29|
 |  439C |[Devu and Partitioning of the Array (1700) (Constructive)  ](./code/439C.txt)   |2021/06/29|
 |  439E |[ Devu and Birthday Celebration (2100) (Combination)  ](./code/439E.txt)   |2021/06/29|
+|  571B |[ Minimization (2000) (DP + k skip)  ](./code/571B.txt)   |2021/06/30|
 # 分类
 
 ### DP
@@ -386,6 +387,7 @@ My Codeforce Practice<br/>
 1536C.[ Diluc and Kaeya (1500) ( DP + HashMap) ](./code/1536C.txt)<br/>
 1066F.[ Yet another 2D Walking (2100) (DP + Math) ](./code/1066F.txt)<br/>
 1487F.[Ones (2900) (DP + Observation) ](./code/1487F.txt)<br/>
+571B.[ Minimization (2000) (DP + k skip)  ](./code/571B.txt) <br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
