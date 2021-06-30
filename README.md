@@ -549,7 +549,7 @@ My Codeforce Practice<br/>
 224E.[Partial Sums (1900) (Combination) ](./code/224E.txt)<br/>
 1536E.[ Omkar and Forest (2300) (Combination + Multiple BFS) ](./code/1536E.txt)<br/>
 
-### Combination : Push N balls into M boxs -> C(N+M-1,N)
+### Combination : Push N balls into M boxs -> C(N+M-1,N)  ||  C(N+M-1,M-1)
 213B.[ Numbers (1900) (DP + Combination) ](./code/213B.txt)<br/>
 
 ### 鸽子原理
