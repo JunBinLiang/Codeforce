@@ -721,4 +721,6 @@ My Codeforce Practice<br/>
 ### Regular Bracket 
 1095E.[Almost Regular Bracket Sequence (1900) (Implementation) ](./code/1095E.txt)<br/>
 
+### K-Skip (i+k)
+571B.[ Minimization (2000) (DP + k skip)  ](./code/571B.txt) <br/>
 
