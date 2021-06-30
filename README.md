@@ -361,7 +361,9 @@ My Codeforce Practice<br/>
 |  1151C |[Problem for Nazar (1800) (Math) ](./code/1151C.txt)   |2021/06/28|
 |  1151D |[Stas and the Queue at the Buffet (1600) (Sort + Greedy) ](./code/1151D.txt)   |2021/06/28|
 |  1151F |[Sonya and Informatics (2300) (Matrix + DP + Probability) (Thunp) ](./code/1151F.txt)   |2021/06/29|
-|  439D |[439D (1700) (Binary Search + Convex Line)  ](./code/439D.txt)   |2021/06/29|
+|  439D |[Devu and his Brother (1700) (Binary Search + Convex Line)  ](./code/439D.txt)   |2021/06/29|
+|  439C |[Devu and Partitioning of the Array (1700) (Constructive)  ](./code/439C.txt)   |2021/06/29|
+
 # 分类
 
 ### DP
@@ -452,6 +454,7 @@ My Codeforce Practice<br/>
 125C. [ Hobbits' Party (1600) (Constructive)  ](./code/125C.txt)<br/>
 45J. [ Planting Trees (1800) (Constructive) ](./code/45J.txt)<br/>
 1015D.[ Walking Between Houses (1600) (Constructive) ](./code/1015D.txt)<br/>
+439C.[Devu and Partitioning of the Array (1700) (Constructive)  ](./code/439C.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
@@ -646,7 +649,7 @@ My Codeforce Practice<br/>
 1538G.[ Gift Set (2100) (BinarySearch + Math) ](./code/1538G.txt)<br/>
 
 ### Binary Search in Convex Line
-439D.[439D (1700) (Binary Search + Convex Line)  ](./code/439D.txt)<br/>
+439D.[Devu and his Brother (1700) (Binary Search + Convex Line)  ](./code/439D.txt)<br/>
 
 ### String Algorithm
 
