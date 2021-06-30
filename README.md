@@ -365,6 +365,8 @@ My Codeforce Practice<br/>
 |  439C |[Devu and Partitioning of the Array (1700) (Constructive)  ](./code/439C.txt)   |2021/06/29|
 |  439E |[ Devu and Birthday Celebration (2100) (Combination)  ](./code/439E.txt)   |2021/06/29|
 |  571B |[ Minimization (2000) (DP + k skip)  ](./code/571B.txt)   |2021/06/30|
+|  571A |[ Lengthening Sticks (2100) (Combination + Ball in box)  ](./code/571A.txt)   |2021/06/30|
+
 # 分类
 
 ### DP
@@ -554,6 +556,7 @@ My Codeforce Practice<br/>
 ### Combination : Push N balls into M boxs -> C(N+M-1,N)  ||  C(N+M-1,M-1)
 213B.[ Numbers (1900) (DP + Combination) ](./code/213B.txt)<br/>
 439E.[ Devu and Birthday Celebration (2100) (Combination)  ](./code/439E.txt)<br/>
+571A.[ Lengthening Sticks (2100) (Combination + Ball in box)  ](./code/571A.txt)<br/>
 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
