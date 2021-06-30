@@ -1,0 +1,207 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int k=Int();int p=Int();
+            int A[]=new int[n];
+            for(int i=0;i<A.length;i++){
+                A[i]=(Int());
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A,k,p);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(int A[],int k,int p) {
+        //p : even sum
+        //k-p : odd sum
+
+        //even: even, odd + odd
+        //odd : odd, odd + even
+
+        int even=0,odd=0;
+        for(int i:A){
+            if(i%2==1)odd++;
+            else even++;
+        }
+
+        if(odd<k-p){
+            no();
+            return;
+        }
+
+
+
+        int oddRemain = odd-(k-p);
+        if(even+oddRemain/2<p||oddRemain%2==1){
+            no();
+            return;
+        }
+
+        List<List<Integer>>odds=new ArrayList<>();
+        List<List<Integer>>evens=new ArrayList<>();
+        List<Integer>extraEven=new ArrayList<>();
+        List<Integer>extraOdd=new ArrayList<>();
+        for(int i=0;i<A.length;i++){
+            List<Integer>list=new ArrayList<>();
+            if(A[i]%2==0){
+                if(evens.size()<p){
+                    list.add(A[i]);
+                    evens.add(list);
+                }
+                else{
+                    //extra
+                    extraEven.add(A[i]);
+                }
+            }
+            else{
+                if(odds.size()<k-p){
+                    list.add(A[i]);
+                    odds.add(list);
+                }
+                else{
+                    extraOdd.add(A[i]);
+                }
+            }
+        }
+
+        //System.out.println(evens);
+        //System.out.println(odds);
+        //System.out.println(extraEven);
+        //System.out.println(extraOdd);
+
+        int j=0;
+        while(evens.size()<p){
+            List<Integer>list=new ArrayList<>();
+            list.add(extraOdd.get(j++));
+            list.add(extraOdd.get(j++));
+            evens.add(list);
+        }
+
+        List<Integer>extra=new ArrayList<>();
+        for(int i=j;i<extraOdd.size();i++)extra.add(extraOdd.get(i));
+        extra.addAll(extraEven);
+
+
+        if(evens.size()>0){
+            evens.get(0).addAll(extra);
+        }
+        else{
+            odds.get(0).addAll(extra);
+        }
+
+
+        out.println("YES");
+        for(List<Integer>l:odds){
+            print(l);
+        }
+        for(List<Integer>l:evens){
+            print(l);
+        }
+    }
+
+    public void print(List<Integer>list){
+        out.print(list.size()+" ");
+        for(int i:list){
+            out.print(i+" ");
+        }
+        out.println();
+    }
+
+    public void no(){
+        out.println("NO");
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
