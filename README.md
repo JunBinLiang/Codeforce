@@ -368,6 +368,7 @@ My Codeforce Practice<br/>
 |  571A |[ Lengthening Sticks (2100) (Combination + Ball in box)  ](./code/571A.txt)   |2021/06/30|
 |  314C |[ Sereja and Subsequences (2100) (DP + Distince Subsequence + Fenwick Tree)  ](./code/314C.txt)   |2021/06/30|
 |  466C |[ SNumber of Ways (1700) (DP + rihgt/prefix)  ](./code/466C.txt)   |2021/06/30|
+|  466D |[ Increase Sequence (2100) (DP)  ](./code/466D.txt)   |2021/06/31|
 # 分类
 
 ### DP
@@ -391,6 +392,7 @@ My Codeforce Practice<br/>
 1066F.[ Yet another 2D Walking (2100) (DP + Math) ](./code/1066F.txt)<br/>
 1487F.[Ones (2900) (DP + Observation) ](./code/1487F.txt)<br/>
 571B.[ Minimization (2000) (DP + k skip)  ](./code/571B.txt) <br/>
+466D.[ Increase Sequence (2100) (DP)  ](./code/466D.txt) <br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
