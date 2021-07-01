@@ -367,7 +367,7 @@ My Codeforce Practice<br/>
 |  571B |[ Minimization (2000) (DP + k skip)  ](./code/571B.txt)   |2021/06/30|
 |  571A |[ Lengthening Sticks (2100) (Combination + Ball in box)  ](./code/571A.txt)   |2021/06/30|
 |  314C |[ Sereja and Subsequences (2100) (DP + Distince Subsequence + Fenwick Tree)  ](./code/314C.txt)   |2021/06/30|
-
+|  466C |[ SNumber of Ways (1700) (DP + rihgt/prefix)  ](./code/466C.txt)   |2021/06/30|
 # 分类
 
 ### DP
@@ -407,6 +407,7 @@ My Codeforce Practice<br/>
 279C.[ Ladder (1700) (Segment Tree +Left-right DP) ](./code/279C.txt)<br/>
 1015E2.[Stars Drawing (Hard Edition) (1900) (DP) ](./code/1015E2.txt)<br/>
 1066E.[ Binary Numbers AND Sum (1700) (Prefix) ](./code/1066E.txt)<br/>
+466C.[ SNumber of Ways (1700) (DP + rihgt/prefix)  ](./code/466C.txt)<br/>
 
 
 ### 树DP
