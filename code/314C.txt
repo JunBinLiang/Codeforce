@@ -1,0 +1,170 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            long A[]=new long[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(long A[]) {
+        long arr[]=new long[1000000+10];
+        FenWick fen = new FenWick(arr);
+        long res=0;
+
+        //distinct subsequence
+        for(int i=0;i<A.length;i++){
+            long sum = fen.sumRange(0,(int)(A[i]));
+            fen.update((int)(A[i]),(A[i]*sum+A[i])%MOD);
+        }
+
+        for(int i=0;i<arr.length;i++){
+            res+=fen.sumRange(i,i);
+            res%=MOD;
+        }
+
+        out.println(res);
+    }
+
+
+
+
+
+
+
+}
+
+class FenWick {
+    long tree[];//1-index based
+    long A[];
+    long arr[];
+    long MOD=1000000007;
+    public FenWick(long[] A) {
+        this.A=A;
+        arr=new long[A.length];
+        tree=new long[A.length+1];
+        int sum=0;
+        for(int i=0;i<A.length;i++){
+            update(i,A[i]);
+        }
+    }
+
+    public void update(int i, long val) {
+        long dif=val-arr[i];
+        arr[i]=val;
+        i++;
+        while(i<tree.length){
+            tree[i]+=dif;
+            tree[i]%=MOD;
+            i+=(i&-i);
+        }
+    }
+
+    public long sumRange(int i, int j) {
+        return ((pre(j+1)-pre(i))+MOD)%MOD;
+    }
+
+    public long pre(int i){
+        long sum=0;
+        while(i>0){
+            sum+=tree[i];
+            i-=(i&-i);
+            sum%=MOD;
+        }
+        return sum;
+    }
+}
+
+
+
+
+
+
+
+
+
