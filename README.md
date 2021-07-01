@@ -366,6 +366,7 @@ My Codeforce Practice<br/>
 |  439E |[ Devu and Birthday Celebration (2100) (Combination)  ](./code/439E.txt)   |2021/06/29|
 |  571B |[ Minimization (2000) (DP + k skip)  ](./code/571B.txt)   |2021/06/30|
 |  571A |[ Lengthening Sticks (2100) (Combination + Ball in box)  ](./code/571A.txt)   |2021/06/30|
+|  314C |[ Sereja and Subsequences (2100) (DP + Distince Subsequence + Fenwick Tree)  ](./code/314C.txt)   |2021/06/30|
 
 # 分类
 
@@ -396,7 +397,7 @@ My Codeforce Practice<br/>
 
 ### DP - Distinct Subsequence
 1183H.[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)<br/>
-
+314C.[ Sereja and Subsequences (2100) (DP + Distince Subsequence + Fenwick Tree)  ](./code/314C.txt)<br/>
 ### Prefix/Left-Right DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
 1278C.[  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt) <br/>
