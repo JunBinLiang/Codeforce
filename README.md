@@ -369,6 +369,7 @@ My Codeforce Practice<br/>
 |  314C |[ Sereja and Subsequences (2100) (DP + Distince Subsequence + Fenwick Tree)  ](./code/314C.txt)   |2021/06/30|
 |  466C |[ SNumber of Ways (1700) (DP + rihgt/prefix)  ](./code/466C.txt)   |2021/06/30|
 |  466D |[ Increase Sequence (2100) (DP)  ](./code/466D.txt)   |2021/06/31|
+|  466B |[ Wonder Room (2000) (Brute Force + Time Complexity)  ](./code/466B.txt)   |2021/06/31|
 # 分类
 
 ### DP
@@ -477,6 +478,7 @@ My Codeforce Practice<br/>
 
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
+466B.[ Wonder Room (2000) (Brute Force + Time Complexity)  ](./code/466B.txt)<br/>
 
 
 ### 枚举 (暴力)
