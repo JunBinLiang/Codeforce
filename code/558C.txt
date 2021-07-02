@@ -1,0 +1,176 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(int A[]) {
+        int mx=0;
+        for(int i:A){
+            mx=Math.max(mx,i);
+        }
+
+        List<Integer>list=new ArrayList<>();
+        Queue<Integer>q=new LinkedList<>();
+        boolean seen[]=new boolean[mx+1];
+        q.add(A[0]);
+        seen[A[0]]=true;
+        while(q.size()>0){
+            int root=q.poll();
+            list.add(root);
+            if(root*2<=mx&&!seen[root*2]){
+                seen[root*2]=true;
+                q.add(root*2);
+            }
+            if(!seen[root/2]){
+                seen[root/2]=true;
+                q.add(root/2);
+            }
+        }
+
+
+        int res=Integer.MAX_VALUE;
+        for(int reach:list){
+            int bitCount=Integer.bitCount(reach);
+            int sum=0;
+            boolean good=true;
+            int dis[]=new int[mx+1];
+            for(int i:A){
+                int old=i;
+                if(dis[i]!=0){
+                    sum+=(dis[i]-1);
+                    continue;
+                }
+
+                if(Integer.bitCount(i)<bitCount){
+                    good=false;
+                    break;
+                }
+                int x=0;
+                while(Integer.bitCount(i)>bitCount){
+                    i/=2;
+                    x++;
+                }
+                while(i>reach){
+                    x++;
+                    i/=2;
+                }
+                while(i<reach){
+                    i*=2;
+                    x++;
+                }
+
+                if(i==reach){
+                    dis[old]=x+1;
+                    sum+=x;
+                }
+                else{
+                    good=false;
+                    break;
+                }
+            }
+            if(good){
+                res=Math.min(res,sum);
+            }
+        }
+        out.println(res);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
