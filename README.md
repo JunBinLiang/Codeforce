@@ -372,7 +372,7 @@ My Codeforce Practice<br/>
 |  466B |[ Wonder Room (2000) (Brute Force + Time Complexity)  ](./code/466B.txt)   |2021/07/01|
 |  466E |[ Information Graph	 (2100) (OffLine + Sparse Table + Tree)  ](./code/466E.txt)   |2021/07/2|
 |  558E |[ A Simple Task	 (2300) (Segment Tree Range Update)  ](./code/558E.txt)   |2021/07/2|
-
+|  558C |[ Amr and Chemistry	 (1900) (Thinking + Time Complexity)  ](./code/558C.txt)   |2021/07/2|
 # 分类
 
 ### DP
@@ -505,6 +505,7 @@ My Codeforce Practice<br/>
 1536D. [ Omkar and Medians (2000) ( Thinking + Observation) ](./code/1536D.txt)<br/>
 222A.[ Shooshuns and Sequence (1200) (Observation + Thinking)](./code/222A.txt)<br/>
 1151B.[Dima and a Bad XOR (1600) (Thinking + Observation) ](./code/1151B.txt)<br/>
+558C.[ Amr and Chemistry	 (1900) (Thinking + Time Complexity)  ](./code/558C.txt)<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
