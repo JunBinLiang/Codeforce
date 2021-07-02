@@ -1,0 +1,227 @@
+// Don't place your source in a package
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            String s=Str();
+            int q[][]=new int[m][3];
+            for(int i=0;i<m;i++){
+                q[i][0]=Int();
+                q[i][1]=Int();
+                q[i][2]=Int();
+            }
+            Solution sol=new Solution(out);
+            sol.solution(s,q);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution{
+    PrintWriter out;
+    int INF=Integer.MAX_VALUE;
+    int MOD=1000000007;
+    public Solution(PrintWriter out){
+        this.out=out;
+    }
+
+
+    public void solution(String s,int q[][]) {
+        int N=s.length();
+        StringBuilder str=new StringBuilder();
+        Seg segs[]=new Seg[26];
+        Arrays.setAll(segs,e->new Seg(0,N));
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            segs[c-'a'].update(i,i,1);
+        }
+
+        for(int p[]:q){
+            int l=p[0]-1,r=p[1]-1,opt=p[2];
+            int j=l;
+            if(opt==1){//increase
+                for(int i=0;i<segs.length;i++){
+                    int sum=segs[i].query2(l,r);
+                    if(sum==0)continue;
+                    segs[i].update(l,r,0);
+                    segs[i].update(j,j+sum-1,1);
+                    j+=sum;
+                }
+            }
+            else{
+                for(int i=segs.length-1;i>=0;i--){
+                    int sum=segs[i].query2(l,r);
+                    if(sum==0)continue;
+                    segs[i].update(l,r,0);
+                    segs[i].update(j,j+sum-1,1);
+                    j+=sum;
+                }
+            }
+        }
+
+        for(int i=0;i<s.length();i++){
+            for(int j=0;j<segs.length;j++){
+                int sum=(int)(segs[j].query2(i,i));
+                if(sum!=0){
+                    char c=(char)(j+'a');
+                    str.append(c);
+                    break;
+                }
+            }
+        }
+        out.println(str.toString());
+    }
+
+    class Seg{
+        int l,r;
+        int sum=0;
+        int setTo=-1;
+        Seg left=null,right=null;
+        public Seg(int l,int r){
+            this.l=l;
+            this.r=r;
+        }
+
+
+        public int query2(int s,int e){//sum
+            if(e<0||s<0)return 0;
+
+
+            if(l==s&&r==e){
+                return this.sum();
+            }
+
+            int mid=l+(r-l)/2; //left :  to mid-1,
+            if(this.left==null)this.left=new Seg(l,mid);
+            if(this.right==null)this.right=new Seg(mid+1,r);
+            if(setTo!=-1){
+                left.update(l,mid,setTo);
+                right.update(mid+1,r,setTo);
+            }
+            if(this.sum()==0)return 0;
+            if(e<=mid){
+                return left.query2(s,e);
+            }
+            else if(s>=mid+1){
+                return right.query2(s,e);
+            }else{
+                return left.query2(s,mid)+right.query2(mid+1,e);
+            }
+        }
+
+
+        public void update(int s,int e,int val){
+            if(e<0||s<0||s>e)return;
+            if(l==s&&r==e){//whole subtree : setTo
+                this.setTo=val;
+                return;
+            }
+            int mid=l+(r-l)/2;
+            if(this.left==null)this.left=new Seg(l,mid);
+            if(this.right==null)this.right=new Seg(mid+1,r);
+            if(setTo!=-1){
+                left.update(l,mid,setTo);
+                right.update(mid+1,r,setTo);
+            }
+            if(e<=mid){
+                left.update(s,e,val);
+            }
+            else if(s>=mid+1){
+                right.update(s,e,val);
+            }else{
+                left.update(s,mid,val);
+                right.update(mid+1,e,val);
+            }
+            this.sum=left.sum()+right.sum();
+            this.setTo=-1;
+        }
+        public int sum() {
+            if (setTo!=-1) return (r-l+1)*(setTo);
+            return sum;
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
