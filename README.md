@@ -369,7 +369,8 @@ My Codeforce Practice<br/>
 |  314C |[ Sereja and Subsequences (2100) (DP + Distince Subsequence + Fenwick Tree)  ](./code/314C.txt)   |2021/06/30|
 |  466C |[ SNumber of Ways (1700) (DP + rihgt/prefix)  ](./code/466C.txt)   |2021/06/30|
 |  466D |[ Increase Sequence (2100) (DP)  ](./code/466D.txt)   |2021/06/31|
-|  466B |[ Wonder Room (2000) (Brute Force + Time Complexity)  ](./code/466B.txt)   |2021/06/31|
+|  466B |[ Wonder Room (2000) (Brute Force + Time Complexity)  ](./code/466B.txt)   |2021/07/01|
+|  466E |[ Information Graph	 (2100) (OffLine + Sparse Table + Tree)  ](./code/466E.txt)   |2021/07/2|
 # 分类
 
 ### DP
@@ -644,6 +645,7 @@ My Codeforce Practice<br/>
 ### Sparse Table
 1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
 45B.[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)<br/>
+466E.[ Information Graph	 (2100) (OffLine + Sparse Table + Tree)  ](./code/466E.txt)<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
