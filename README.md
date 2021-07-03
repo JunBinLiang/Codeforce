@@ -373,6 +373,7 @@ My Codeforce Practice<br/>
 |  466E |[ Information Graph	 (2100) (OffLine + Sparse Table + Tree)  ](./code/466E.txt)   |2021/07/2|
 |  558E |[ A Simple Task	 (2300) (Segment Tree Range Update)  ](./code/558E.txt)   |2021/07/2|
 |  558C |[ Amr and Chemistry	 (1900) (Thinking + Time Complexity)  ](./code/558C.txt)   |2021/07/2|
+|  484D |[ Kindergarten	 (2400) (DP + Greedy + Observation)  ](./code/484D.txt)   |2021/07/3|
 # 分类
 
 ### DP
@@ -454,6 +455,7 @@ My Codeforce Practice<br/>
 1294E.[ Obtain a Permutation (1900) (Implementation) ](./code/1294E.txt)<br/>
 450E.[ Jzzhu and Apples (2500) (Greedy)](./code/450E.txt)<br/>
 73B.[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)<br/>
+484D.[ Kindergarten	 (2400) (DP + Greedy + Observation)  ](./code/484D.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
