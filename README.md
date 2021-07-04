@@ -374,6 +374,7 @@ My Codeforce Practice<br/>
 |  558E |[ A Simple Task	 (2300) (Segment Tree Range Update)  ](./code/558E.txt)   |2021/07/2|
 |  558C |[ Amr and Chemistry	 (1900) (Thinking + Time Complexity)  ](./code/558C.txt)   |2021/07/2|
 |  484D |[ Kindergarten	 (2400) (DP + Greedy + Observation)  ](./code/484D.txt)   |2021/07/3|
+|  1155D |[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt)   |2021/07/4|
 # 分类
 
 ### DP
@@ -398,6 +399,7 @@ My Codeforce Practice<br/>
 1487F.[Ones (2900) (DP + Observation) ](./code/1487F.txt)<br/>
 571B.[ Minimization (2000) (DP + k skip)  ](./code/571B.txt) <br/>
 466D.[ Increase Sequence (2100) (DP)  ](./code/466D.txt) <br/>
+1155D.[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt)<br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
