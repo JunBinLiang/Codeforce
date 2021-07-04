@@ -375,6 +375,9 @@ My Codeforce Practice<br/>
 |  558C |[ Amr and Chemistry	 (1900) (Thinking + Time Complexity)  ](./code/558C.txt)   |2021/07/2|
 |  484D |[ Kindergarten	 (2400) (DP + Greedy + Observation)  ](./code/484D.txt)   |2021/07/3|
 |  1155D |[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt)   |2021/07/4|
+
+
+
 # 分类
 
 ### DP
@@ -439,6 +442,9 @@ My Codeforce Practice<br/>
 
 ### Contribution
 1151E.[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)<br/>
+
+### Kadane
+1155D.[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt) <br/>
 
 ### Matrix
 621E. [Wet Shark and Blocks (2000) (Matrix Exponent + DP) ](./code/341E.txt)   <br/>
