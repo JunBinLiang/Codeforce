@@ -375,7 +375,7 @@ My Codeforce Practice<br/>
 |  558C |[ Amr and Chemistry	 (1900) (Thinking + Time Complexity)  ](./code/558C.txt)   |2021/07/2|
 |  484D |[ Kindergarten	 (2400) (DP + Greedy + Observation)  ](./code/484D.txt)   |2021/07/3|
 |  1155D |[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt)   |2021/07/4|
-
+|  484E |[  Sign on Fence	 (2500) (Persistant Segment Tree + Segment Tree Merge Interval + Binary Search)  ](./code/484E.txt)   |2021/07/4|
 
 
 # 分类
@@ -668,6 +668,8 @@ My Codeforce Practice<br/>
 1439C.[ Greedy Shopping (2600) (Segment Tree Range Update + Segment Tree Binay Search) ](./code/1439C.txt)<br/>
 558E.[ A Simple Task	 (2300) (Segment Tree Range Update)  ](./code/558E.txt)<br/>
 
+### Persistant Segment Tree
+484E.[  Sign on Fence	 (2500) (Persistant Segment Tree + Segment Tree Merge Interval + Binary Search)  ](./code/484E.txt) <br/>
 
 ### Binary Search
 1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
