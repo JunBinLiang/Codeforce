@@ -379,6 +379,7 @@ My Codeforce Practice<br/>
 |  1242B |[  0-1 MST	 (1900) (MST + Graph)  ](./code/1242B.txt)   |2021/07/4|
 |  414A |[  Mashmokh and Numbers (1500) (GCD (a,a+1) == 1)  ](./code/414A.txt)   |2021/07/4|
 |  903D |[  Almost Difference (2200) (Contribution)  ](./code/903D.txt)   |2021/07/5|
+|  374B |[  Inna and Nine (1500) (Observation + Combination)  ](./code/374B.txt)   |2021/07/5|
 # 分类
 
 ### DP
@@ -574,6 +575,7 @@ My Codeforce Practice<br/>
 52B.[Right Triangles (1600) (Combination) ](./code/52B.txt)<br/>
 224E.[Partial Sums (1900) (Combination) ](./code/224E.txt)<br/>
 1536E.[ Omkar and Forest (2300) (Combination + Multiple BFS) ](./code/1536E.txt)<br/>
+374B.[  Inna and Nine (1500) (Observation + Combination)  ](./code/374B.txt)<br/>
 
 ### Combination : Push N balls into M boxs -> C(N+M-1,N)  ||  C(N+M-1,M-1)
 213B.[ Numbers (1900) (DP + Combination) ](./code/213B.txt)<br/>
