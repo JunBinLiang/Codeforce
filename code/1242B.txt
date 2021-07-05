@@ -1,0 +1,176 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int A[][]=new int[m][2];
+            for(int i=0;i<A.length;i++){
+                A[i][0]=Int()-1;
+                A[i][1]=Int()-1;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(n,A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(int n,int edges[][]) {// edges: weight 1
+        Set<Integer>vertexs=new HashSet<>();
+        for(int i=0;i<n;i++){
+            vertexs.add(i);
+        }
+
+
+        boolean seen[]=new boolean[n];
+        List<Integer>graph[]=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int edge[]:edges){
+            int u=edge[0],v=edge[1];
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+
+        int res=0;
+        for(int i=0;i<n;i++){
+            if(seen[i])continue;
+            Queue<Integer>q=new LinkedList<>();
+            res++;
+            vertexs.remove(i);
+            seen[i]=true;
+            q.add(i);
+            while(q.size()>0){
+                int root=q.poll();
+                List<Integer>ban=graph[root];
+                for(int j:ban)vertexs.remove(j);
+
+                List<Integer>add=new ArrayList<>();
+                for(int next:vertexs){
+                    seen[next]=true;
+                    q.add(next);
+                    add.add(next);
+                }
+
+                for(int remove:add){
+                    vertexs.remove(remove);
+                }
+
+                for(int j:ban){
+                    if(!seen[j]){
+                        vertexs.add(j);//add back the ban edges
+                    }
+                }
+            }
+        }
+        out.println(res-1);
+    }
+
+    public int find(int nums[],int x){
+        if(nums[x]==x)return x;
+        int root=find(nums,nums[x]);
+        nums[x]=root;
+        return root;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
