@@ -1,0 +1,161 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int k=Int();
+            Solution sol=new Solution(out);
+            sol.solution(n,k);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+    //gcd(a,a+1)=1
+    public void solution(int n,int k) {// edges: weight 1
+        int pairs=n/2;
+        List<Integer>res=new ArrayList<>();
+        if(pairs>k){
+            out.println(-1);
+            return;
+        }
+
+        if(pairs==0){
+            if(k!=0){
+                out.println(-1);
+                return;
+            }
+            else{
+                out.println(1);
+            }
+            return;
+        }
+
+
+        int a=k-(pairs-1);
+        int b=a*2;
+        res.add(a);res.add(b);
+        int i=1,j=2;
+        while(res.size()!=pairs*2){
+            if(i==a||b==j||i==b||j==a){
+
+            }
+            else{
+                res.add(i);
+                res.add(j);
+            }
+            i+=2;
+            j+=2;
+        }
+
+
+
+        if(res.size()<n){
+            res.add(1000000000);
+        }
+        for(int x:res){
+            out.print(x+" ");
+        }
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
