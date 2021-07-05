@@ -376,7 +376,7 @@ My Codeforce Practice<br/>
 |  484D |[ Kindergarten	 (2400) (DP + Greedy + Observation)  ](./code/484D.txt)   |2021/07/3|
 |  1155D |[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt)   |2021/07/4|
 |  484E |[  Sign on Fence	 (2500) (Persistant Segment Tree + Segment Tree Merge Interval + Binary Search)  ](./code/484E.txt)   |2021/07/4|
-
+|  1242B |[  0-1 MST	 (1900) (MST + Graph)  ](./code/1242B.txt)   |2021/07/4|
 
 # 分类
 
@@ -631,6 +631,7 @@ My Codeforce Practice<br/>
 ### MST
 125E. [ MST Company (2400) (MST + Thinking)  ](./code/125E.txt)<br/>
 1095F.[Make It Connected (1900) (MST + Greedy) ](./code/1095F.txt)<br/>
+1242B.[  0-1 MST	 (1900) (MST + Graph)  ](./code/1242B.txt) <br/>
 
 ### Boruvka's algorithm
 888G. [ Xor-MST (2300) (MST + Trie + Bit + Divide Conquer + Boruvka's algorithm) ](./code/888G.txt)<br/>
