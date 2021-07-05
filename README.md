@@ -377,7 +377,7 @@ My Codeforce Practice<br/>
 |  1155D |[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt)   |2021/07/4|
 |  484E |[  Sign on Fence	 (2500) (Persistant Segment Tree + Segment Tree Merge Interval + Binary Search)  ](./code/484E.txt)   |2021/07/4|
 |  1242B |[  0-1 MST	 (1900) (MST + Graph)  ](./code/1242B.txt)   |2021/07/4|
-
+|  414A |[  Mashmokh and Numbers (1500) (GCD (a,a+1) == 1)  ](./code/414A.txt)   |2021/07/4|
 # 分类
 
 ### DP
@@ -477,7 +477,7 @@ My Codeforce Practice<br/>
 45J. [ Planting Trees (1800) (Constructive) ](./code/45J.txt)<br/>
 1015D.[ Walking Between Houses (1600) (Constructive) ](./code/1015D.txt)<br/>
 439C.[Devu and Partitioning of the Array (1700) (Constructive)  ](./code/439C.txt)<br/>
-
+414A.[  Mashmokh and Numbers (1500) (GCD (a,a+1) == 1)  ](./code/414A.txt)<br/>
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
