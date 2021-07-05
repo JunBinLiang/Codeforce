@@ -381,6 +381,7 @@ My Codeforce Practice<br/>
 |  903D |[  Almost Difference (2200) (Contribution)  ](./code/903D.txt)   |2021/07/5|
 |  374B |[  Inna and Nine (1500) (Observation + Combination)  ](./code/374B.txt)   |2021/07/5|
 |  1542C |[  Strange Function (1600) (Thinking + Math)  ](./code/1542C.txt)   |2021/07/5|
+|  1542B |[  Plus and Multiply (1500) (Thinking + Math)  ](./code/1542B.txt)   |2021/07/5|
 # 分类
 
 ### DP
@@ -521,6 +522,7 @@ My Codeforce Practice<br/>
 1151B.[Dima and a Bad XOR (1600) (Thinking + Observation) ](./code/1151B.txt)<br/>
 558C.[ Amr and Chemistry	 (1900) (Thinking + Time Complexity)  ](./code/558C.txt)<br/>
 1542C.[  Strange Function (1600) (Thinking + Math)  ](./code/1542C.txt)<br/>
+1542B.[  Plus and Multiply (1500) (Thinking + Math)  ](./code/1542B.txt)<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
