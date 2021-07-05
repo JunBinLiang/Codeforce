@@ -378,6 +378,7 @@ My Codeforce Practice<br/>
 |  484E |[  Sign on Fence	 (2500) (Persistant Segment Tree + Segment Tree Merge Interval + Binary Search)  ](./code/484E.txt)   |2021/07/4|
 |  1242B |[  0-1 MST	 (1900) (MST + Graph)  ](./code/1242B.txt)   |2021/07/4|
 |  414A |[  Mashmokh and Numbers (1500) (GCD (a,a+1) == 1)  ](./code/414A.txt)   |2021/07/4|
+|  903D |[  Almost Difference (2200) (Contribution)  ](./code/903D.txt)   |2021/07/5|
 # 分类
 
 ### DP
@@ -442,6 +443,7 @@ My Codeforce Practice<br/>
 
 ### Contribution
 1151E.[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)<br/>
+903D.[  Almost Difference (2200) (Contribution)  ](./code/903D.txt)<br/>
 
 ### Kadane
 1155D.[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt) <br/>
