@@ -384,6 +384,7 @@ My Codeforce Practice<br/>
 |  1542B |[  Plus and Multiply (1500) (Thinking + Math)  ](./code/1542B.txt)   |2021/07/5|
 |  117C |[  Cycle (2000) (Graph)  ](./code/117C.txt)   |2021/07/6|
 |  1285E |[  Delete a Segment (2300) (Interval Problem + TreeMap + BinarySearch + left/right DP + Segment Tree)  ](./code/1285E.txt)   |2021/07/6|
+|  1285C |[  Fadi and LCM (1400) (Math)  ](./code/1285C.txt)   |2021/07/6|
 # 分类
 
 ### DP
@@ -561,6 +562,7 @@ My Codeforce Practice<br/>
 45G.[ Prime Problem (2200) (Number Theory + Constructive) ](./code/45G.txt) <br/>
 1029D.[Concatenated Multiples (1900) (Hash + Mod) ](./code/1029D.txt)<br/>
 1537D.[ Deleting Divisors (1700) (Game + Number Theory) ](./code/1537D.txt)<br/>
+1285C.[  Fadi and LCM (1400) (Math)  ](./code/1285C.txt) <br/>
 
 ### Optimize 打表
 222C.[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)<br/>
