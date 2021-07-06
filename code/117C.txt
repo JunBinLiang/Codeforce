@@ -1,0 +1,172 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[][]=new int[n][n];
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<n;j++){
+                    A[i][j]=s.charAt(j)-'0';
+                }
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    int levels[];
+    List<Integer>res=new ArrayList<>();
+    int A[][];
+    public void solution(int A[][]) {
+        //every pair of vertexes is connected by exactly one directed edge
+        this.A=A;
+        int N=A.length;
+        levels=new int[N];
+
+
+        for(int i=0;i<N;i++){
+            if(levels[i]!=0)continue;
+            levels[i]=1;
+            dfs(-1,i,1);
+        }
+
+        if(res.size()==0){
+            out.println(-1);
+        }
+        else{
+            for(int j:res){
+                out.print(j+" ");
+            }
+        }
+
+    }
+
+    public void dfs(int parent,int root,int level){
+        if(res.size()!=0)return;
+
+
+        for(int next=0;next<A.length;next++){
+            if(res.size()!=0)return;
+            if(A[root][next]==0)continue;
+            if(levels[next]==0){
+                levels[next]=level;
+                dfs(root,next,level+1);
+            }
+            else{
+                if(parent!=-1){
+                    if(A[next][parent]==1){
+                        if(res.size()==0){
+                            res.add(parent+1);
+                            res.add(root+1);
+                            res.add(next+1);
+                        }
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
