@@ -386,6 +386,7 @@ My Codeforce Practice<br/>
 |  1285E |[  Delete a Segment (2300) (Interval Problem + TreeMap + BinarySearch + left/right DP + Segment Tree)  ](./code/1285E.txt)   |2021/07/6|
 |  1285C |[  Fadi and LCM (1400) (Math)  ](./code/1285C.txt)   |2021/07/6|
 |  1285D |[ Dr. Evil Underscores (1900) (Bit + Trie)  ](./code/1285D.txt)   |2021/07/6|
+|  626F |[ Group Projects (2400) (DP + Thinking)  ](./code/626F.txt)   |2021/07/7|
 # 分类
 
 ### DP
@@ -411,6 +412,7 @@ My Codeforce Practice<br/>
 571B.[ Minimization (2000) (DP + k skip)  ](./code/571B.txt) <br/>
 466D.[ Increase Sequence (2100) (DP)  ](./code/466D.txt) <br/>
 1155D.[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt)<br/>
+626F.[ Group Projects (2400) (DP + Thinking)  ](./code/626F.txt) <br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
