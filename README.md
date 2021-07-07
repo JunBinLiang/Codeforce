@@ -385,6 +385,7 @@ My Codeforce Practice<br/>
 |  117C |[  Cycle (2000) (Graph)  ](./code/117C.txt)   |2021/07/6|
 |  1285E |[  Delete a Segment (2300) (Interval Problem + TreeMap + BinarySearch + left/right DP + Segment Tree)  ](./code/1285E.txt)   |2021/07/6|
 |  1285C |[  Fadi and LCM (1400) (Math)  ](./code/1285C.txt)   |2021/07/6|
+|  1285D |[ Dr. Evil Underscores (1900) (Bit + Trie)  ](./code/1285D.txt)   |2021/07/6|
 # 分类
 
 ### DP
@@ -751,6 +752,7 @@ My Codeforce Practice<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
+1285D.[ Dr. Evil Underscores (1900) (Bit + Trie)  ](./code/1285D.txt)<br/>
 
 ### Stack
 224C.[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)<br/>
