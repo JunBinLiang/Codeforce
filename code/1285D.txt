@@ -1,0 +1,158 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+
+
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    Node Root = new Node();
+    public void solution(int A[]) {
+        for(int i:A){
+            insert(Root,i,30);
+        }
+        long res = dfs(Root,31);
+        out.println(res);
+    }
+
+    public long dfs(Node root,int i){
+        if(i == 0){//leaf
+            return 0;
+        }
+
+        if(root.childs[0]!=null&&root.childs[1]!=null){
+            long a = dfs(root.childs[0],i-1);
+            long b = dfs(root.childs[1],i-1);
+            int shift = 1<<(i - 1);
+            return Math.min(Math.max(a,shift+b),Math.max(a+shift,b));
+        }
+        else if(root.childs[0]!=null&&root.childs[1]==null){
+            return dfs(root.childs[0],i-1);
+        }
+        else{//0 null, 1 != null
+            return dfs(root.childs[1],i-1);
+        }
+    }
+
+
+    public void insert(Node root,int val,int i){
+        if(i<0)return;
+        int bit = 1;
+        if((val&(1<<i))==0)bit=0;
+        if(root.childs[bit]==null){
+            root.childs[bit]=new Node();
+        }
+        insert(root.childs[bit],val,i-1);
+    }
+
+    class Node{
+        Node childs[]=new Node[2];
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
