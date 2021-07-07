@@ -1,0 +1,160 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    public void solution(int A[]) {
+        Arrays.sort(A);
+        int n =A.length;
+        long cnt = (n)*(n-1)/2;//for a single round
+
+        long round[]=new long[5002];
+        for(int i = 0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                int dif=A[j]-A[i];
+                round[dif]++;
+            }
+        }
+        
+
+
+
+        long second[]=new long[5002*2];
+        for(int i=0;i<round.length;i++){
+            if(round[i]==0)continue;
+            for(int j=0;j<round.length;j++){
+                if(round[j]==0)continue;
+                second[i+j]+=round[i]*round[j];
+            }
+        }
+
+
+
+        long pre[]=new long[second.length];
+        pre[0]=second[0];
+        for(int i=1;i<second.length;i++){
+            pre[i]=pre[i-1]+second[i];
+        }
+
+
+        //last round
+        long res = 0;
+        for(int bwin=0;bwin<round.length;bwin++){
+            if(round[bwin]==0)continue;
+            res+=pre[bwin-1]*round[bwin];
+        }
+
+
+        long total=cnt*cnt*cnt;
+        out.println((res+0.0)/(total));
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
