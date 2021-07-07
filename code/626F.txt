@@ -1,0 +1,162 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int k=Int();
+            int A[]=Arr(n);
+            Solution sol=new Solution(out);
+            sol.solution(A,k);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    long dp[][][];
+    int K;
+    public void solution(int A[],int K) {
+        this.K=K;
+        Arrays.sort(A);
+        int n =A.length;
+        dp=new long[n/2+2][n+2][K+1];
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++){
+                Arrays.fill(dp[i][j],-1);
+            }
+        }
+
+        long res = dfs(A,0,0,0);
+        out.println(res);
+    }
+
+    public long dfs(int A[],int left,int i,int k){
+        if(k>this.K || left >= dp.length){
+            return 0;
+        }
+        if(i>=A.length){
+            if(left==0)return 1;
+            else return 0;
+        }
+        if(dp[left][i][k]!=-1)return dp[left][i][k];
+
+        long res =0;
+        if(left==0){
+            res+=dfs(A,1,i+1,k);//open
+            res%=MOD;
+            res+=dfs(A,0,i+1,k);//close on itself
+            res%=MOD;
+        }
+        else{
+            int cost = (A[i]-A[i-1])*left;
+            //open
+            res+=dfs(A,left+1,i+1,k+cost);
+            res%=MOD;
+            //close
+            res+=left*dfs(A,left-1,i+1,k+cost);
+            res%=MOD;
+            //regular
+            res+=(left + 1)*dfs(A,left,i+1,k+cost);
+            res%=MOD;
+        }
+        dp[left][i][k]=res;
+        return res;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
