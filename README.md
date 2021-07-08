@@ -387,7 +387,7 @@ My Codeforce Practice<br/>
 |  1285C |[  Fadi and LCM (1400) (Math)  ](./code/1285C.txt)   |2021/07/6|
 |  1285D |[ Dr. Evil Underscores (1900) (Bit + Trie)  ](./code/1285D.txt)   |2021/07/6|
 |  626F |[ Group Projects (2400) (DP + Thinking)  ](./code/626F.txt)   |2021/07/7|
-|  626D |[ Group Projects (1800) (Combination + Probability)  ](./code/626D.txt)   |2021/07/7|
+|  626D |[ Jerry's Protest (1800) (Combination + Probability)  ](./code/626D.txt)   |2021/07/7|
 
 # 分类
 
@@ -596,7 +596,7 @@ My Codeforce Practice<br/>
 571A.[ Lengthening Sticks (2100) (Combination + Ball in box)  ](./code/571A.txt)<br/>
 
 ### Probability
-|  626D |[ Group Projects (1800) (Combination + Probability)  ](./code/626D.txt)<br/>
+|  626D |[ Jerry's Protest (1800) (Combination + Probability)  ](./code/626D.txt)<br/>
 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
