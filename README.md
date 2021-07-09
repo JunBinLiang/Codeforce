@@ -390,6 +390,7 @@ My Codeforce Practice<br/>
 |  626D |[ Jerry's Protest (1800) (Combination + Probability)  ](./code/626D.txt)   |2021/07/7|
 |  1188C |[ Array Beauty (2500) (DP + Brute Force + Time Complexity)  ](./code/1188C.txt)   |2021/07/8|
 |  1108F |[ MST Unification (2100) (MST + Thinking)  ](./code/1108F.txt)   |2021/07/8|
+|  895C |[ Square Subsets (2000) (DP + Combination + BitMask)  ](./code/895C.txt)   |2021/07/8|
 # 分类
 
 ### DP
@@ -417,6 +418,7 @@ My Codeforce Practice<br/>
 1155D.[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt)<br/>
 626F.[ Group Projects (2400) (DP + Thinking)  ](./code/626F.txt) <br/>
 1188C.[ Array Beauty (2500) (DP + Brute Force + Time Complexity)  ](./code/1188C.txt)<br/>
+895C.[ Square Subsets (2000) (DP + Combination + BitMask)  ](./code/895C.txt) C(n,0) + C(n,2) + ... == C(n,1) + C(n,3) = C(n,5) + ... == 2^(n-1)<br/> 
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
