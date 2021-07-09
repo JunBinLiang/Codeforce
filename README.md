@@ -419,6 +419,7 @@ My Codeforce Practice<br/>
 626F.[ Group Projects (2400) (DP + Thinking)  ](./code/626F.txt) <br/>
 1188C.[ Array Beauty (2500) (DP + Brute Force + Time Complexity)  ](./code/1188C.txt)<br/>
 895C.[ Square Subsets (2000) (DP + Combination + BitMask)  ](./code/895C.txt) C(n,0) + C(n,2) + ... == C(n,1) + C(n,3) = C(n,5) + ... == 2^(n-1)<br/> 
+1025D.[ Recovering BST (2000) (TreeDP)  ](./code/1025D.txt)<br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
@@ -442,6 +443,7 @@ My Codeforce Practice<br/>
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)<br/>
 1029E.[Tree with Small Distances (2100) (Tree DP) ](./code/1029D.txt)<br/>
 1092F.[ Tree with Maximum Cost (Tree DP) ](./code/1092F.txt)<br/>
+1025D.[ Recovering BST (2000) (TreeDP)  ](./code/1025D.txt)<br/>
 
 ### Bit DP
 1185G1. [Playlist for Polycarp (easy version) (2100) (Bitmask DP )  ](./code/1185G1.txt)  <br/>
