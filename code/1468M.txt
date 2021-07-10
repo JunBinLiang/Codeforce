@@ -1,0 +1,227 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            List<int[]>list=new ArrayList<>();
+            for(int i=0;i<n;i++){
+                int k=Int();
+                int A[]=new int[k];
+                for(int j=0;j<k;j++){
+                    A[j]=Int();
+                }
+                list.add(A);
+            }
+            Solution sol=new Solution(out);
+            sol.solution(list);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    public void solution(List<int[]>list) {
+        //https://blog.csdn.net/qq_30361651/article/details/113556981 reference
+        //https://blog.csdn.net/weixin_43466755/article/details/112985722?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.control
+
+        int n =list.size();
+        int id=0;
+        Map<Integer,Integer>f=new HashMap<>();
+        for(int p[]:list){
+            for(int j:p){
+                if(!f.containsKey(j)){
+                    f.put(j,id++);
+                }
+            }
+        }
+
+        List<Integer>graph1[]=new ArrayList[id+n];
+        List<Integer>graph2[]=new ArrayList[id+n];
+        Arrays.setAll(graph1,e->new ArrayList<>());
+        Arrays.setAll(graph2,e->new ArrayList<>());
+        int deg[]=new int[id+n];
+
+        for(int i=0;i<list.size();i++){
+            int p[]=list.get(i);
+            for(int j:p){
+                int index=f.get(j);
+                graph1[id+i].add(index);
+                graph1[index].add(id+i);
+                deg[id+i]++;
+                deg[index]++;
+            }
+        }
+
+        for(int u=0;u<graph1.length;u++){
+            for(int v:graph1[u]){
+                if(deg[u]<deg[v]||(deg[u]==deg[v]&&u<v)){
+                    graph2[u].add(v);
+                }
+            }
+        }
+
+        /*List<Integer>ids=new ArrayList<>();
+        int rank[]=new int[graph1.length];
+        for(int i=0;i<ids.size();i++){
+            ids.add(i);
+        }
+
+        Collections.sort(ids,(a,b)->{
+            if(deg[a]==deg[b]){
+                return a-b;
+            }
+            else{
+                return deg[a]-deg[b];
+            }
+        });
+
+        for(int i=0;i<rank.length;i++){
+            rank[ids.get(i)]=i;
+        }*/
+        //System.out.println(f);
+        List<Integer>res=new ArrayList<>();
+
+
+        int g[]=new int[graph1.length];
+        Arrays.fill(g,-1);
+
+        //System.out.println(f);
+        for(int u=0;u<graph1.length;u++){
+            for(int v:graph1[u]){
+                for(int w:graph2[v]){
+                    if(deg[w]>deg[u]||(deg[w]==deg[u]&&w>u)){
+                        if(g[w]==-1){
+                            g[w]=v;
+                        }
+                        else{
+                            res.add(u);
+                            res.add(v);
+                            res.add(w);
+                            res.add(g[w]);
+                            for(Integer x:res){
+                                if(x>=id){
+                                    out.print((x-id+1)+" ");
+                                }
+                            }
+                            //System.out.println(res);
+                            return;
+                        }
+                    }
+                }
+            }
+
+            for(int v:graph1[u]){
+                for(int w:graph2[v]){
+                    if(deg[w]>deg[u]||(deg[w]==deg[u]&&w>u)){
+                        g[w]=-1;
+                    }
+                }
+            }
+        }
+
+
+        out.println(-1);
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
