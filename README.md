@@ -623,7 +623,7 @@ My Codeforce Practice<br/>
 1439B.[Graph Subset Problems (2600) (Graph) ](./code/1439B.txt)<br/>
 117C.[  Cycle (2000) (Graph)  ](./code/117C.txt) <br/>
 
-### 三环/四环图 https://blog.csdn.net/weixin_43466755/article/details/112985722?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.control
+### 三环/四环图 
 1468M.[ Similar Sets (2300) (Graph + 四环图)  ](./code/1468M.txt)<br/>
 
 
