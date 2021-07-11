@@ -1,0 +1,287 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int edges[][]=new int[n-1][2];
+            for(int i=0;i<n-1;i++){
+                int u=Int()-1;
+                int v=Int()-1;
+                edges[i][0]=u;
+                edges[i][1]=v;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(n,edges);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    List<Integer>graph[];
+    int deg[];
+    boolean seen[];
+    int p1=-1;int p2=-1;
+    int dia=0;
+    int r=-1;
+    int dep=0;
+    public void solution(int n,int edges[][]) {
+        deg=new int[n];
+        seen=new boolean[n];
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int edge[]:edges){
+            int u=edge[0];int v=edge[1];
+            graph[u].add(v);
+            graph[v].add(u);
+            deg[u]++;
+            deg[v]++;
+        }
+
+        seen[0]=true;
+        dfs(0);
+        dfs1(-1,r,0);
+
+
+        //System.out.println(dia);
+        //System.out.println(r+1);
+        //System.out.println(p1+1);
+
+        int dis1[]=new int[n];
+        Arrays.fill(dis1,INF);
+        bfs(p1,dis1);
+        for(int i=0;i<n;i++){
+            if(dis1[i]==dia){
+                p2=i;
+            }
+        }
+
+
+        int dis2[]=new int[n];
+        Arrays.fill(dis2,INF);
+        bfs(p2,dis2);
+
+
+        //System.out.println(p2+1);
+        //System.out.println(Arrays.toString(dis1));
+        //System.out.println(Arrays.toString(dis2));
+
+
+        long sum=0;
+        List<int[]>res=new ArrayList<>();
+        Queue<Integer>q=new LinkedList<>();
+        for(int i=0;i<n;i++){
+            if(i==p1||i==p2)continue;
+            if(deg[i]==1){
+                q.add(i);
+            }
+        }
+
+        while(q.size()!=0){
+            int root=q.poll();
+            int a=dis1[root];
+            int b=dis2[root];
+            if(a>b){
+                sum+=a;
+                res.add(new int[]{root+1,p1+1,root+1});
+            }
+            else{
+                sum+=b;
+                res.add(new int[]{root+1,p2+1,root+1});
+            }
+            for(int next:graph[root]){
+                deg[next]--;
+                if(deg[next]==1){
+                    q.add(next);
+                }
+            }
+        }
+
+        q.add(p2);
+        while(q.size()>0){
+            int root=q.poll();
+            int a=dis1[root];
+            sum+=a;
+            res.add(new int[]{root+1,p1+1,root+1});
+            for(int next:graph[root]){
+                deg[next]--;
+                if(deg[next]==1){
+                    q.add(next);
+                }
+            }
+        }
+
+
+        out.println(sum);
+        for(int p[]:res){
+            out.println(p[0]+" "+p[1]+" "+p[2]);
+        }
+
+    }
+
+    public void bfs(int s,int dis[]){
+        int n =dis.length;
+        Queue<Integer>q=new LinkedList<>();
+        q.add(s);
+        dis[s]=0;
+        while(q.size()!=0){
+            int root=q.poll();
+            for(int next:graph[root]){
+                if(dis[next]>1+dis[root]){
+                    dis[next]=1+dis[root];
+                    q.add(next);
+                }
+            }
+        }
+    }
+
+    public void dfs1(int parent,int root,int level){
+        if(level>dep){
+            dep=level;
+            p1=root;
+        }
+        for(int next:graph[root]){
+            if(next!=parent){
+                dfs1(root,next,level+1);
+            }
+        }
+    }
+
+    public int dfs(int root){
+        List<Integer>list=new ArrayList<>();
+        for(int next:graph[root]){
+            if(!seen[next]){
+                seen[next]=true;
+                int l=dfs(next);
+                list.add(l);
+            }
+        }
+
+        Collections.sort(list);
+        Collections.reverse(list);
+        if(list.size()==0){
+            if(1>dia){
+                dia=1;
+                r=root;
+            }
+            return 1;
+        }
+        else if(list.size()==1){
+            int a=list.get(0);
+            if(a>dia){
+                dia=a;
+                r=root;
+            }
+            return 1+a;
+        }
+        else{
+            int a=list.get(0);int b=list.get(1);
+            if(a+b>dia){
+                dia=a+b;
+                r=root;
+            }
+            return 1+a;
+        }
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
