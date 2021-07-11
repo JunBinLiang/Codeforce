@@ -393,6 +393,11 @@ My Codeforce Practice<br/>
 |  895C |[ Square Subsets (2000) (DP + Combination + BitMask)  ](./code/895C.txt)   |2021/07/9|
 |  1468M |[ Similar Sets (2300) (Graph + 四环图)  ](./code/1468M.txt)   |2021/07/10|
 |  911E |[ Stack Sorting (2000) (Constructive + Stack)  ](./code/911E.txt)|2021/07/10|
+|  911D |[ Inversion Counting (1800) (逆数对)  ](./code/911D.txt)|2021/07/11|
+
+
+
+
 # 分类
 
 ### DP
@@ -542,6 +547,7 @@ My Codeforce Practice<br/>
 
 ### 逆数对
 987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
+911D.[ Inversion Counting (1800) (逆数对)  ](./code/911D.txt)<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
