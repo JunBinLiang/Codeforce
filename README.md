@@ -527,7 +527,6 @@ My Codeforce Practice<br/>
 977D.[ Divide by three, multiply by two (1400) (Sort + Greedy)  ](./code/977D.txt)<br/> 
 1355C.[ Count Triangles (1800) (Binary Search + Sliding Window)  ](./code/1355C.txt)<br/> 
 1334C.[ Circle of Monsters (1600) (思维 + Brute Force)  ](./code/1334C.txt)<br/>
-987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
 1519D. [Maximum Sum of Products	 (1600) (Observation)  ](./code/1519D.txt) <br/>
 176B. [Word Cut (1700) (DP + Observation) ](./code/176B.txt)<br/>
 1156B. [Ugly Pair	 (1800) (Greedy) ](./code/1156B.txt)<br/>
@@ -540,6 +539,9 @@ My Codeforce Practice<br/>
 558C.[ Amr and Chemistry	 (1900) (Thinking + Time Complexity)  ](./code/558C.txt)<br/>
 1542C.[  Strange Function (1600) (Thinking + Math)  ](./code/1542C.txt)<br/>
 1542B.[  Plus and Multiply (1500) (Thinking + Math)  ](./code/1542B.txt)<br/>
+
+### 逆数对
+987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
