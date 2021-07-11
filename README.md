@@ -394,6 +394,7 @@ My Codeforce Practice<br/>
 |  1468M |[ Similar Sets (2300) (Graph + 四环图)  ](./code/1468M.txt)   |2021/07/10|
 |  911E |[ Stack Sorting (2000) (Constructive + Stack)  ](./code/911E.txt)|2021/07/10|
 |  911D |[ Inversion Counting (1800) (逆数对)  ](./code/911D.txt)|2021/07/11|
+|  744F |[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)|2021/07/11|
 
 
 
@@ -690,6 +691,9 @@ My Codeforce Practice<br/>
 1528A.[ Parsa's Humongous Tree (1600) (Tree + DP) ](./code/1528A.txt)<br/>
 61D.[ Eternal Victory (1800) (Tree) ](./code/61D.txt) <br/>
 1092E.[ Minimal Diameter Forest (Tree + Greedy) ](./code/1092E.txt)<br/>
+
+### Tree Diameter
+744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
 
 ### TreeSet/TreeMap
 926J.[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   <br/>
