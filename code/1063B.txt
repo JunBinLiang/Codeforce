@@ -1,0 +1,164 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int r=Int()-1;
+            int c=Int()-1;
+            int x=Int();
+            int y=Int();
+            char A[][]=new char[n][m];
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<m;j++){
+                    A[i][j]=s.charAt(j);
+                }
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,r,c,x,y);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    public void solution(char A[][],int sr,int sc,int x,int y) {
+        int n=A.length,m=A[0].length;
+        int dis[][]=new int[n][m];
+        for(int i=0;i<n;i++){
+            Arrays.fill(dis[i],INF);
+        }
+
+        Queue<int[]>q=new LinkedList<>();
+        q.add(new int[]{sr,sc});
+        dis[sr][sc]=0;
+        int dir[][]=new int[][]{{0,1,0},{0,-1,1},{1,0,0},{-1,0,0}};
+        while(q.size()>0){
+            int top[]=q.poll();
+            int r=top[0],c=top[1];
+            for(int p[]:dir){
+                int xx=p[0]+r;
+                int yy=p[1]+c;
+                if(xx<0||xx>=n||yy<0||yy>=m||A[r][c]=='*')continue;
+                if(dis[r][c]+p[2]<dis[xx][yy]){
+                    dis[xx][yy]=dis[r][c]+p[2];
+                    q.add(new int[]{xx,yy});
+                }
+            }
+        }
+
+        int res=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]=='*'||dis[i][j]==INF)continue;
+                int left=dis[i][j];
+                int right=j-sc+left;
+                if(left<=x&&right<=y){
+                    res++;
+                }
+            }
+        }
+        out.println(res);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
