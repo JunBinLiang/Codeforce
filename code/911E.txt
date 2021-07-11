@@ -1,0 +1,190 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int k=Int();
+            int A[]=Arr(k);
+            Solution sol=new Solution(out);
+            sol.solution(n,A);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    public void solution(int n,int A[]) {
+        List<Integer>res=new ArrayList<>();
+        Stack<Integer>sta=new Stack<>();
+        boolean seen[]=new boolean[n+1];
+        int j = 1;
+        for(int i:A){
+            seen[i]=true;
+            if(sta.size()==0){
+                sta.push(i);
+                res.add(i);
+            }
+            else{
+                if(i>sta.peek()){
+                    out.println(-1);
+                    return;
+                }
+                else{
+                    res.add(i);
+                    sta.push(i);
+                }
+            }
+            while(sta.size()>0&&sta.peek()==j){
+                j++;sta.pop();
+            }
+        }
+
+        //print lexically max
+
+        while(j<=n){
+
+            if(sta.size()>0&&sta.peek()==j){
+                sta.pop();
+                j++;
+            }
+            else{
+                if(sta.size()==0){
+                    List<Integer>list=new ArrayList<>();
+                    while(j<=n){
+                        list.add(j++);
+                    }
+                    Collections.reverse(list);
+                    res.addAll(list);
+                    break;
+                }
+                else{
+                    int x = j;
+                    List<Integer>list=new ArrayList<>();
+                    while(j<=n&&j<sta.peek()){
+                        list.add(j++);
+                    }
+                    Collections.reverse(list);
+                    for(int i:list){
+                        res.add(i);
+                        sta.push(i);
+                    }
+                    j=x;
+                }
+
+            }
+
+        }
+
+        print(res);
+    }
+    public void print(List<Integer>res){
+        if(res.size()==0){
+            out.println(-1);
+        }
+        else{
+            for(int i:res){
+                out.print(i+" ");
+            }
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
