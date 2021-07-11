@@ -395,6 +395,7 @@ My Codeforce Practice<br/>
 |  911E |[ Stack Sorting (2000) (Constructive + Stack)  ](./code/911E.txt)|2021/07/10|
 |  911D |[ Inversion Counting (1800) (逆数对)  ](./code/911D.txt)|2021/07/11|
 |  744F |[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)|2021/07/11|
+|  1063B |[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)|2021/07/11|
 
 
 
@@ -653,6 +654,9 @@ My Codeforce Practice<br/>
 1473E.[ Minimum Path (2400) (Shortest Path)  ](./code/1473E.txt)<br/>
 37E.[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)<br/>
 450D.[ Jzzhu and Cities (2000) (Shortest Path + Thinking) (Thumb) ](./code/450D.txt)<br/>
+
+### 0-1 BFS
+1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
 
 ### Floy
 33B [ String Problem (1800) (Shortest Path) ](./code/33B.txt)<br/>
