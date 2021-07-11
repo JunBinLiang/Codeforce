@@ -392,6 +392,7 @@ My Codeforce Practice<br/>
 |  1108F |[ MST Unification (2100) (MST + Thinking)  ](./code/1108F.txt)   |2021/07/8|
 |  895C |[ Square Subsets (2000) (DP + Combination + BitMask)  ](./code/895C.txt)   |2021/07/9|
 |  1468M |[ Similar Sets (2300) (Graph + 四环图)  ](./code/1468M.txt)   |2021/07/10|
+|  911E |[ Stack Sorting (2000) (Constructive + Stack)  ](./code/911E.txt)|2021/07/10|
 # 分类
 
 ### DP
@@ -498,6 +499,7 @@ My Codeforce Practice<br/>
 1015D.[ Walking Between Houses (1600) (Constructive) ](./code/1015D.txt)<br/>
 439C.[Devu and Partitioning of the Array (1700) (Constructive)  ](./code/439C.txt)<br/>
 414A.[  Mashmokh and Numbers (1500) (GCD (a,a+1) == 1)  ](./code/414A.txt)<br/>
+911E.[ Stack Sorting (2000) (Constructive + Stack)  ](./code/911E.txt)<br/>
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
