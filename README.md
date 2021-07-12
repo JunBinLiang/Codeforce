@@ -398,7 +398,7 @@ My Codeforce Practice<br/>
 |  1063B |[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)|2021/07/11|
 |  1025C |[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)|2021/07/12|
 |  1547G |[ How Many Paths? (2100) (Direct Graph Cycle + DP )  ](./code/1547G.txt)|2021/07/12|
-
+|  1547F |[ Array Stabilization (GCD version) (2100) (Math + BinarySearch + Segment Tree + GCD )  ](./code/1547F.txt)<br/>
 
 # 分类
 
@@ -731,6 +731,7 @@ My Codeforce Practice<br/>
 448D. [Multiplication Table (1800) (Binary Search ) ](./code/448D.txt)  <br/>
 1066D.[ Boxes Packing (1800) (Binary Search) ](./code/1066D.txt) <br/>
 1538G.[ Gift Set (2100) (BinarySearch + Math) ](./code/1538G.txt)<br/>
+1547F.[ Array Stabilization (GCD version) (2100) (Math + BinarySearch + Segment Tree + GCD )  ](./code/1547F.txt)<br/>
 
 ### Binary Search in Convex Line
 439D.[Devu and his Brother (1700) (Binary Search + Convex Line)  ](./code/439D.txt)<br/>
