@@ -397,7 +397,7 @@ My Codeforce Practice<br/>
 |  744F |[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)|2021/07/11|
 |  1063B |[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)|2021/07/11|
 |  1025C |[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)|2021/07/12|
-
+|  1547G |[ How Many Paths? (2100) (Direct Graph Cycle + DP )  ](./code/1547G.txt)|2021/07/12|
 
 
 # 分类
@@ -642,6 +642,7 @@ My Codeforce Practice<br/>
 
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
+1547G.[ How Many Paths? (2100) (Direct Graph Cycle + DP )  ](./code/1547G.txt)<br/>
 
 ### Bipartite Graph
 1354E. [ Graph Coloring (2100) (DP + Bipartite Graph)  ](./code/1354E.txt)<br/>
