@@ -398,7 +398,7 @@ My Codeforce Practice<br/>
 |  1063B |[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)|2021/07/11|
 |  1025C |[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)|2021/07/12|
 |  1547G |[ How Many Paths? (2100) (Direct Graph Cycle + DP )  ](./code/1547G.txt)|2021/07/12|
-|  1547F |[ Array Stabilization (GCD version) (2100) (Math + BinarySearch + Segment Tree + GCD )  ](./code/1547F.txt)<br/>
+|  1547F |[ Array Stabilization (GCD version) (1900) (Math + BinarySearch + Segment Tree + GCD )  ](./code/1547F.txt)|2021/07/12|
 
 # 分类
 
