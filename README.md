@@ -396,7 +396,7 @@ My Codeforce Practice<br/>
 |  911D |[ Inversion Counting (1800) (逆数对)  ](./code/911D.txt)|2021/07/11|
 |  744F |[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)|2021/07/11|
 |  1063B |[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)|2021/07/11|
-
+|  1025C |[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)|2021/07/12|
 
 
 
@@ -546,6 +546,7 @@ My Codeforce Practice<br/>
 558C.[ Amr and Chemistry	 (1900) (Thinking + Time Complexity)  ](./code/558C.txt)<br/>
 1542C.[  Strange Function (1600) (Thinking + Math)  ](./code/1542C.txt)<br/>
 1542B.[  Plus and Multiply (1500) (Thinking + Math)  ](./code/1542B.txt)<br/>
+1025C.[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)<br/>
 
 ### 逆数对
 987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
