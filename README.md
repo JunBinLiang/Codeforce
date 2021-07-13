@@ -402,7 +402,7 @@ My Codeforce Practice<br/>
 |  487B |[ Strip (2000) (DP + Monoqueue)  ](./code/487B.txt)|2021/07/12|
 |  1547E |[ Air Conditioners (1500) (left/right dp + sort)  ](./code/1547E.txt)|2021/07/13|
 |  1400E |[ Clear the Multiset (2200) (Greedy + Divide Conquer)  ](./code/1400E.txt)|2021/07/13|
-
+|  12E |[ Start of the session(2100) (Constructive)  ](./code/12E.txt)|2021/07/13|
 
 
 
@@ -524,6 +524,8 @@ My Codeforce Practice<br/>
 439C.[Devu and Partitioning of the Array (1700) (Constructive)  ](./code/439C.txt)<br/>
 414A.[  Mashmokh and Numbers (1500) (GCD (a,a+1) == 1)  ](./code/414A.txt)<br/>
 911E.[ Stack Sorting (2000) (Constructive + Stack)  ](./code/911E.txt)<br/>
+12E.[ Start of the session(2100) (Constructive)  ](./code/12E.txt)<br/>
+
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
