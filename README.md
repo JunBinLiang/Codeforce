@@ -399,6 +399,7 @@ My Codeforce Practice<br/>
 |  1025C |[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)|2021/07/12|
 |  1547G |[ How Many Paths? (2100) (Direct Graph Cycle + DP )  ](./code/1547G.txt)|2021/07/12|
 |  1547F |[ Array Stabilization (GCD version) (1900) (Math + BinarySearch + Segment Tree + GCD )  ](./code/1547F.txt)|2021/07/12|
+|  487B |[ Strip (2000) (DP + Monoqueue)  ](./code/487B.txt)|2021/07/12|
 
 # 分类
 
