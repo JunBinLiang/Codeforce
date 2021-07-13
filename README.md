@@ -400,7 +400,7 @@ My Codeforce Practice<br/>
 |  1547G |[ How Many Paths? (2100) (Direct Graph Cycle + DP )  ](./code/1547G.txt)|2021/07/12|
 |  1547F |[ Array Stabilization (GCD version) (1900) (Math + BinarySearch + Segment Tree + GCD )  ](./code/1547F.txt)|2021/07/12|
 |  487B |[ Strip (2000) (DP + Monoqueue)  ](./code/487B.txt)|2021/07/12|
-
+|  1547E |[ Air Conditioners (1500) (left/right dp + sort)  ](./code/1547E.txt)|2021/07/13|
 # 分类
 
 ### DP
@@ -784,6 +784,7 @@ My Codeforce Practice<br/>
 978G.[ Petya's Exams (1700) (Greedy + Sort)](./code/978G.txt)<br/>
 73B.[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)<br/>
 1151D.[Stas and the Queue at the Buffet (1600) (Sort + Greedy) ](./code/1151D.txt)<br/>
+1547E.[ Air Conditioners (1500) (left/right dp + sort)  ](./code/1547E.txt)<br/>
 
 ### Interval Problem
 1029C.[Maximal Intersection (1600) (Left/Right DP + Interval Problem) ](./code/1029C.txt)<br/>
