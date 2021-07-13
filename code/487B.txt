@@ -1,0 +1,177 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int s=Int();
+            int l=Int();
+            int A[]=Arr(n);
+
+            Solution sol=new Solution(out);
+            sol.solution(A,l,s);
+        }
+        out.close();
+
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    public void solution(int A[],int k,int s) {
+        int n =A.length;
+        int dp[]=new int[n];
+        Arrays.fill(dp,INF);
+        LinkedList<int[]>mins=new LinkedList<>();
+        LinkedList<int[]>maxs=new LinkedList<>();
+
+        for(int i=0,j=0;i<A.length;i++){
+            int cur=A[i];
+            while(mins.size()>0&&cur<mins.getLast()[1])mins.removeLast();
+            mins.addLast(new int[]{i,cur});
+            while(maxs.size()>0&&cur>maxs.getLast()[1])maxs.removeLast();
+            maxs.addLast(new int[]{i,cur});
+
+            while(j<i){
+                while(mins.size()>0&&mins.getFirst()[0]<j)mins.removeFirst();
+                while(maxs.size()>0&&maxs.getFirst()[0]<j)maxs.removeFirst();
+                int min=mins.getFirst()[1];
+                int max=maxs.getFirst()[1];
+                int dif=max-min;
+                if(dif>s){
+                    j++;
+                }
+                else{
+                    if(get(dp,j-1)==INF){
+                        j++;
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }
+
+            if(i-j+1>=k&&get(dp,j-1)!=INF){
+                dp[i]=1+get(dp,j-1);
+            }
+
+            /*System.out.println(j+"  "+i);
+            System.out.println(Arrays.toString(dp));
+            System.out.println();*/
+        }
+
+
+
+
+
+        if(dp[A.length-1]==INF){
+            out.println(-1);
+        }
+        else{
+            out.println(dp[A.length-1]);
+        }
+
+    }
+
+    public int get(int dp[],int i){
+        if(i<0)return 0;
+        return dp[i];
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
