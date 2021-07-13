@@ -437,6 +437,8 @@ My Codeforce Practice<br/>
 ### DP - Distinct Subsequence
 1183H.[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)<br/>
 314C.[ Sereja and Subsequences (2100) (DP + Distince Subsequence + Fenwick Tree)  ](./code/314C.txt)<br/>
+
+
 ### Prefix/Left-Right DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
 1278C.[  Berry Jam (1700) (DP + Left Right)  ](./code/1278C.txt) <br/>
@@ -464,6 +466,7 @@ My Codeforce Practice<br/>
 
 ### DP + Monoqueue
 1077F2.[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)<br/>
+487B.[ Strip (2000) (DP + Monoqueue)  ](./code/487B.txt)<br/>
 
 ## 概率DP
 540D. [Bad Luck Island (1900) (DP)  ](./code/540D.txt)<br/>
