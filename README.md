@@ -401,6 +401,19 @@ My Codeforce Practice<br/>
 |  1547F |[ Array Stabilization (GCD version) (1900) (Math + BinarySearch + Segment Tree + GCD )  ](./code/1547F.txt)|2021/07/12|
 |  487B |[ Strip (2000) (DP + Monoqueue)  ](./code/487B.txt)|2021/07/12|
 |  1547E |[ Air Conditioners (1500) (left/right dp + sort)  ](./code/1547E.txt)|2021/07/13|
+|  1400E |[ Clear the Multiset (2200) (Greedy + Divide Conquer)  ](./code/1400E.txt)|2021/07/13|
+
+
+
+
+
+
+
+
+
+
+
+
 # 分类
 
 ### DP
@@ -771,6 +784,7 @@ My Codeforce Practice<br/>
 1156E. [Special Segments of Permutation (2200) (Divide Conquer + Segment Tree) (Thumb) ](./code/1156E.txt)<br/>
 888E. [ Maximum Subsequence (1800) （Divide Conquer + Meet in Middle ） ](./code/888E.txt)<br/>
 1520F2. [Guess the K-th Zero (Hard version) (2200) (Binary Search+ Divide Conquer)  ](./code/1520F2.txt)<br/>
+1400E.[ Clear the Multiset (2200) (Greedy + Divide Conquer) (Thumb) ](./code/1400E.txt)<br/>
 
 ### FFT
 954I.[ Yet Another String Matching Problem (2200) (FFT) ](./code/954I.txt)<br/>
