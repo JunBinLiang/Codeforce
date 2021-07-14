@@ -404,7 +404,7 @@ My Codeforce Practice<br/>
 |  1400E |[ Clear the Multiset (2200) (Greedy + Divide Conquer)  ](./code/1400E.txt)|2021/07/13|
 |  12E |[ Start of the session(2100) (Constructive)  ](./code/12E.txt)|2021/07/13|
 |  12D |[ Ball (2400) (Sort + Segment Tree)  ](./code/12D.txt)|2021/07/14|
-
+|  359D |[ Pair of Numbers (2000) (Binary Search + Sparse Table)  ](./code/359D.txt)|2021/07/14|
 
 
 
@@ -732,6 +732,7 @@ My Codeforce Practice<br/>
 1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
 45B.[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)<br/>
 466E.[ Information Graph	 (2100) (OffLine + Sparse Table + Tree)  ](./code/466E.txt)<br/>
+359D.[ Pair of Numbers (2000) (Binary Search + Sparse Table)  ](./code/359D.txt)<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
