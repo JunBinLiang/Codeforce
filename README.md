@@ -405,7 +405,7 @@ My Codeforce Practice<br/>
 |  12E |[ Start of the session(2100) (Constructive)  ](./code/12E.txt)|2021/07/13|
 |  12D |[ Ball (2400) (Sort + Segment Tree)  ](./code/12D.txt)|2021/07/14|
 |  359D |[ Pair of Numbers (2000) (Binary Search + Sparse Table)  ](./code/359D.txt)|2021/07/14|
-
+|  359B |[ Permutations (1400) (Constructive)  ](./code/359B.txt)|2021/07/14|
 
 
 
@@ -525,7 +525,7 @@ My Codeforce Practice<br/>
 414A.[  Mashmokh and Numbers (1500) (GCD (a,a+1) == 1)  ](./code/414A.txt)<br/>
 911E.[ Stack Sorting (2000) (Constructive + Stack)  ](./code/911E.txt)<br/>
 12E.[ Start of the session(2100) (Constructive)  ](./code/12E.txt)<br/>
-
+359B.[ Permutations (1400) (Constructive)  ](./code/359B.txt)<br/>
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
