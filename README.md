@@ -403,7 +403,7 @@ My Codeforce Practice<br/>
 |  1547E |[ Air Conditioners (1500) (left/right dp + sort)  ](./code/1547E.txt)|2021/07/13|
 |  1400E |[ Clear the Multiset (2200) (Greedy + Divide Conquer)  ](./code/1400E.txt)|2021/07/13|
 |  12E |[ Start of the session(2100) (Constructive)  ](./code/12E.txt)|2021/07/13|
-
+|  12D |[ Ball (2400) (Sort + Segment Tree)  ](./code/12D.txt)|2021/07/14|
 
 
 
@@ -801,6 +801,7 @@ My Codeforce Practice<br/>
 73B.[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)<br/>
 1151D.[Stas and the Queue at the Buffet (1600) (Sort + Greedy) ](./code/1151D.txt)<br/>
 1547E.[ Air Conditioners (1500) (left/right dp + sort)  ](./code/1547E.txt)<br/>
+12D.[ Ball (2400) (Sort + Segment Tree)  ](./code/12D.txt)<br/>
 
 ### Interval Problem
 1029C.[Maximal Intersection (1600) (Left/Right DP + Interval Problem) ](./code/1029C.txt)<br/>
