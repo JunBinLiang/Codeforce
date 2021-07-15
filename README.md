@@ -407,7 +407,7 @@ My Codeforce Practice<br/>
 |  359D |[ Pair of Numbers (2000) (Binary Search + Sparse Table)  ](./code/359D.txt)|2021/07/14|
 |  359B |[ Permutations (1400) (Constructive)  ](./code/359B.txt)|2021/07/14|
 |  1217D |[ Coloring Edges (2100) (Direct - Graph + Thinking)  ](./code/1217D.txt)|2021/07/14|
-
+|  360B  |[ Levko and Array (2000) (DP)  ](./code/360B.txt)<br/>
 
 
 
@@ -443,6 +443,7 @@ My Codeforce Practice<br/>
 1188C.[ Array Beauty (2500) (DP + Brute Force + Time Complexity)  ](./code/1188C.txt)<br/>
 895C.[ Square Subsets (2000) (DP + Combination + BitMask)  ](./code/895C.txt) C(n,0) + C(n,2) + ... == C(n,1) + C(n,3) = C(n,5) + ... == 2^(n-1)<br/> 
 1025D.[ Recovering BST (2000) (TreeDP)  ](./code/1025D.txt)<br/>
+360B.[ Levko and Array (2000) (DP)  ](./code/360B.txt)<br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
