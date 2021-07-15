@@ -408,7 +408,7 @@ My Codeforce Practice<br/>
 |  359B |[ Permutations (1400) (Constructive)  ](./code/359B.txt)|2021/07/14|
 |  1217D |[ Coloring Edges (2100) (Direct - Graph + Thinking)  ](./code/1217D.txt)|2021/07/14|
 |  360B  |[ Levko and Array (2000) (DP)  ](./code/360B.txt)<br/>
-
+|  1550D  |[ Excellent Arrays (?) (Combination) (Thumb)  ](./code/1550D.txt)<br/>
 
 
 
@@ -629,6 +629,7 @@ My Codeforce Practice<br/>
 224E.[Partial Sums (1900) (Combination) ](./code/224E.txt)<br/>
 1536E.[ Omkar and Forest (2300) (Combination + Multiple BFS) ](./code/1536E.txt)<br/>
 374B.[  Inna and Nine (1500) (Observation + Combination)  ](./code/374B.txt)<br/>
+1550D.[ Excellent Arrays (?) (Combination) (Thumb)  ](./code/1550D.txt)<br/>
 
 ### Combination : Push N balls into M boxs -> C(N+M-1,N)  ||  C(N+M-1,M-1)
 213B.[ Numbers (1900) (DP + Combination) ](./code/213B.txt)<br/>
