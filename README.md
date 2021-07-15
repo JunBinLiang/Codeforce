@@ -409,7 +409,7 @@ My Codeforce Practice<br/>
 |  1217D |[ Coloring Edges (2100) (Direct - Graph + Thinking)  ](./code/1217D.txt)|2021/07/14|
 |  360B  |[ Levko and Array (2000) (DP)  ](./code/360B.txt)<br/>
 |  1550D  |[ Excellent Arrays (?) (Combination) (Thumb)  ](./code/1550D.txt)<br/>
-
+|  1311E  |[ Construct the Binary Tree (2200) (Constructive + Induction) (Thumb)  ](./code/1311E.txt)<br/>
 
 
 
@@ -645,6 +645,7 @@ My Codeforce Practice<br/>
 
 ### Induction
 1095C.[Powers Of Two (1400) (Induction) ](./code/1095C.txt)<br/>
+1311E.[ Construct the Binary Tree (2200) (Constructive + Induction) (Thumb)  ](./code/1311E.txt)<br/>
 
 ### Graph 
 1196F. [ K-th Path (2200) (思维 + Shortest Path + Floy + Brute Force)  ](./code/1196F.txt) <br/>
