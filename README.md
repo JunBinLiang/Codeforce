@@ -406,7 +406,7 @@ My Codeforce Practice<br/>
 |  12D |[ Ball (2400) (Sort + Segment Tree)  ](./code/12D.txt)|2021/07/14|
 |  359D |[ Pair of Numbers (2000) (Binary Search + Sparse Table)  ](./code/359D.txt)|2021/07/14|
 |  359B |[ Permutations (1400) (Constructive)  ](./code/359B.txt)|2021/07/14|
-
+|  1217D |[ Coloring Edges (2100) (Direct - Graph + Thinking)  ](./code/1217D.txt)|2021/07/14|
 
 
 
@@ -635,7 +635,7 @@ My Codeforce Practice<br/>
 571A.[ Lengthening Sticks (2100) (Combination + Ball in box)  ](./code/571A.txt)<br/>
 
 ### Probability
-|  626D |[ Jerry's Protest (1800) (Combination + Probability)  ](./code/626D.txt)<br/>
+626D.[ Jerry's Protest (1800) (Combination + Probability)  ](./code/626D.txt)<br/>
 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
@@ -662,6 +662,7 @@ My Codeforce Practice<br/>
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
 1547G.[ How Many Paths? (2100) (Direct Graph Cycle + DP )  ](./code/1547G.txt)<br/>
+1217D.[ Coloring Edges (2100) (Direct - Graph + Thinking)  ](./code/1217D.txt)<br/>
 
 ### Bipartite Graph
 1354E. [ Graph Coloring (2100) (DP + Bipartite Graph)  ](./code/1354E.txt)<br/>
