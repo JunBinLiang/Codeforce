@@ -1,0 +1,223 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int d=Int();
+            Solution sol=new Solution(out);
+            sol.solution(n,d);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    int res[];
+    Queue<Integer>next=new LinkedList<>();
+    public void solution(int n,int d) {
+        int p[]=cal(2,1,n-1);
+        //System.out.println(Arrays.toString(p));
+        if(d<p[0]||d>p[1]){
+            out.println("NO");
+            return;
+        }
+        res=new int[n];
+        for(int i=1;i<n;i++){
+            next.add(i);
+        }
+
+
+
+
+
+        Queue<Integer>q=new LinkedList<>();
+        q.add(0);
+        int level=0;
+
+        while(next.size()>0){
+            int size=q.size();
+            n-=size;
+            level++;
+            List<Integer>list=new ArrayList<>();
+            for(int i=0;i<size;i++){
+                int root=q.poll();
+                list.add(root);
+            }
+
+            int j = -1;
+            for(int i=1;i<=list.size()*2;i++){
+                int pair[]=cal((i)*2,level+1,n-(i));
+
+                int D=d-(i*level);
+                if(D>=pair[0]&&D<=pair[1]){
+                    j=i;
+                    break;
+                }
+            }
+
+            
+
+            d-=level*j;
+
+            for(int i=0;i<list.size();i++){
+                if(j==0)break;
+                int root=list.get(i);
+
+                if(j>0){
+                    int child=next();
+                    add(root,child);
+                    q.add(child);
+                    j--;
+                }
+
+                if(j>0){
+                    int child=next();
+                    add(root,child);
+                    q.add(child);
+                    j--;
+                }
+            }
+        }
+
+
+
+
+        out.println("YES");
+        for(int i=1;i<res.length;i++){
+            out.print((res[i]+1)+" ");
+        }
+        out.println();
+
+    }
+
+    public int next(){
+        return next.poll();
+    }
+
+    public int[] cal(int cnt,int level,int n){
+        int lo=0;
+        int hi=(level+level+ n - 1)*(n) / 2;
+        while(true){
+            if(n>cnt){
+                lo+=cnt*level;
+                n-=cnt;
+            }
+            else{
+                lo+=n*level;
+                n=0;
+                break;
+            }
+            level++;
+            cnt*=2;
+        }
+
+        return new int[]{lo,hi};
+    }
+
+    public void add(int parent,int child){
+        res[child]=parent;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
