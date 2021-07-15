@@ -1,0 +1,239 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        //init
+        int mod=1000000007;
+        long fact[]=new long[200000+10];
+        long inv[]=new long[fact.length];
+        fact[0]=fact[1]=1;
+        inv[0]=inv[1]=1;
+
+        for(int i=2;i<fact.length;i++){
+            fact[i]=fact[i-1]*i;fact[i]%=mod;
+            inv[i]=modInverse(i,mod)*inv[i-1];
+            inv[i]%=mod;
+        }
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int l=Int();
+            int r=Int();
+            Solution sol=new Solution(out);
+            sol.solution(n,l,r,fact,inv);
+        }
+        out.close();
+
+    }
+
+    static long modInverse(long a, long m)
+    {
+        long m0 = m;
+        long y = 0, x = 1;
+
+        if (m == 1)
+            return 0;
+
+        while (a > 1) {
+            // q is quotient
+            long q = a / m;
+
+            long t = m;
+
+            // m is remainder now, process
+            // same as Euclid's algo
+            m = a % m;
+            a = t;
+            t = y;
+
+            // Update x and y
+            y = x - q * y;
+            x = t;
+        }
+
+        // Make x positive
+        if (x < 0)
+            x += m0;
+
+        return x;
+    }
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    long fact[];
+    long inv[];
+    public void solution(int n,int l,int r,long fact[],long inv[]) {
+        this.fact=fact;
+        this.inv=inv;
+        long res = 0;
+        int mn = Math.min(1-l,r-n);
+        int mx=Math.max(1-l,r-n);
+        if(n%2==0){
+            res+=C(n,n/2)*mn;
+            res%=MOD;
+            int mxcnt=n;
+            for(int i=1;i<n;i++){
+                int mncnt=n-i;
+                if(mncnt<n/2)break;
+                if(mn+i>mx){
+                    mxcnt--;
+                    int common=mncnt+mxcnt-n;
+                    if(common<0)break;
+                    res+=C(common,(n/2)-(mncnt-common));
+                    res%=MOD;
+                }
+                else{
+                    res+=C(mncnt,n/2);
+                    res%=MOD;
+                }
+
+            }
+
+        }
+        else{
+            res+=C(n,n/2)*mn;
+            res%=MOD;
+            res+=C(n,n/2+1)*mn;
+            res%=MOD;
+
+
+            int mxcnt=n;
+            for(int i=1;i<n;i++){
+                int mncnt=n-i;
+                if(mncnt<n/2)break;
+                if(mn+i>mx){
+                    mxcnt--;
+                    int common=mncnt+mxcnt-n;
+                    if(common<0)break;
+                    res+=C(common,(n/2)-(mncnt-common));
+                    res%=MOD;
+                }
+                else{
+                    res+=C(mncnt,n/2);
+                    res%=MOD;
+                }
+            }
+
+            mxcnt=n;
+            for(int i=1;i<n;i++){
+                int mncnt=n-i;
+                if(mncnt<(n+1)/2)break;
+                if(mn+i>mx){
+                    mxcnt--;
+                    int common=mncnt+mxcnt-n;
+                    if(common<0)break;
+                    res+=C(common,(n/2+1)-(mncnt-common));
+                    res%=MOD;
+                }
+                else{
+                    res+=C(mncnt,(n+1)/2);
+                    res%=MOD;
+                }
+            }
+        }
+        out.println(res);
+    }
+
+    private long C(int n, int r) {
+        if(n==0)return 1;
+        return ((fact[n] * inv[r] % MOD) * inv[n - r]) % MOD;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
