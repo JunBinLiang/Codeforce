@@ -410,7 +410,7 @@ My Codeforce Practice<br/>
 |  360B  |[ Levko and Array (2000) (DP)  ](./code/360B.txt)<br/>
 |  1550D  |[ Excellent Arrays (?) (Combination) (Thumb)  ](./code/1550D.txt)<br/>
 |  1311E  |[ Construct the Binary Tree (2200) (Constructive + Induction) (Thumb)  ](./code/1311E.txt)<br/>
-
+|  1443D  |[ Extreme Subtraction (1800) (差分)   ](./code/1443D.txt)<br/>
 
 
 
@@ -591,7 +591,8 @@ My Codeforce Practice<br/>
 
 ### 差分
 1108E2. [Array and Segments (Hard version) (2100) (差分 + DP + Prefix) ](./code/1108E2.txt)  <br/>
-174C. [Range Increments(1800) （差分 + Constructive） ](./code/174C.txt)   <br/> 
+174C. [Range Increments(1800) （差分 + Constructive） ](./code/174C.txt)   <br/>
+1443D.[ Extreme Subtraction (1800) (差分)   ](./code/1443D.txt)<br/>
 
 ### 二维差分
 341D.[ Iahub and Xors(2500) (二维差分+2D Fenwick) ](./code/341D.txt)<br/>
