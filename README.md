@@ -412,7 +412,7 @@ My Codeforce Practice<br/>
 |  1311E  |[ Construct the Binary Tree (2200) (Constructive + Induction) (Thumb)  ](./code/1311E.txt)<br/>
 |  1443D  |[ Extreme Subtraction (1800) (差分)   ](./code/1443D.txt)<br/>
 |  863E  |[ Turn Off The TV (2000) (Interval Problem)   ](./code/863E.txt)<br/>
-
+|  863D |[ Yet Another Array Queries Problem (1800) (Reverse + Thinking)  ](./code/863D.txt)|2021/07/16|
 
 # 分类
 
@@ -567,6 +567,10 @@ My Codeforce Practice<br/>
 1542C.[  Strange Function (1600) (Thinking + Math)  ](./code/1542C.txt)<br/>
 1542B.[  Plus and Multiply (1500) (Thinking + Math)  ](./code/1542B.txt)<br/>
 1025C.[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)<br/>
+
+
+### Reverse Thinking
+863D.[ Yet Another Array Queries Problem (1800) (Reverse + Thinking)  ](./code/863D.txt)<br/>
 
 ### 逆数对
 987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
