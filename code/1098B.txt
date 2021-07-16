@@ -1,0 +1,341 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            char A[][]=new char[n][m];
+
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<m;j++){
+                    A[i][j]=s.charAt(j);
+                }
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    char f[]=new char[]{'A','G','C','T'};
+    public void solution(char A[][]) {
+        int n =A.length,m=A[0].length;
+        int B[][]=new int[n][m];
+        int res[][]=new int[n][m];
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]=='A'){
+                    B[i][j]=0;
+                }
+                if(A[i][j]=='G'){
+                    B[i][j]=1;
+                }
+                if(A[i][j]=='C'){
+                    B[i][j]=2;
+                }
+                if(A[i][j]=='T'){
+                    B[i][j]=3;
+                }
+            }
+        }
+
+
+        int mn =Integer.MAX_VALUE;
+        List<int[]>all=permutation();
+        //System.out.println(all.size());
+
+        for(int p[]:all){
+            int col1[]=new int[m];
+            int col2[]=new int[m];
+            int col3[]=new int[m];
+            int col4[]=new int[m];
+
+            for(int i=0;i<m;i++){
+                if(i%2==0){
+                    col1[i]=p[0];
+                    col2[i]=p[1];
+                    col3[i]=p[2];
+                    col4[i]=p[3];
+                }
+                else{
+                    col1[i]=p[1];
+                    col2[i]=p[0];
+                    col3[i]=p[3];
+                    col4[i]=p[2];
+                }
+            }
+
+            int cost=0;
+            int C[][]=new int[n][m];
+            for(int i=0;i<n;i++){
+                if(cost>mn)break;
+                if(i%2==0) {//col1, col2
+                    int c1 = change(col1, B[i]);
+                    int c2 = change(col2, B[i]);
+                    if (c1 < c2) {
+                        cost += c1;
+                        C[i] = col1;
+                    } else {
+                        cost += c2;
+                        C[i] = col2;
+                    }
+                }
+                else{//col2,col3
+                    int c1 = change(col3, B[i]);
+                    int c2 = change(col4, B[i]);
+                    if (c1 < c2) {
+                        cost += c1;
+                        C[i] = col3;
+                    } else {
+                        cost += c2;
+                        C[i] = col4;
+                    }
+                }
+            }
+            if(cost<mn){
+                mn=cost;
+                res=C;
+            }
+
+        }
+
+
+
+
+        for(int p[]:all){
+            int row1[]=new int[n];
+            int row2[]=new int[n];
+            int row3[]=new int[n];
+            int row4[]=new int[n];
+
+            for(int i=0;i<n;i++){
+                if(i%2==0){
+                    row1[i]=p[0];
+                    row2[i]=p[1];
+                    row3[i]=p[2];
+                    row4[i]=p[3];
+                }
+                else{
+                    row1[i]=p[1];
+                    row2[i]=p[0];
+                    row3[i]=p[3];
+                    row4[i]=p[2];
+                }
+            }
+
+            List<Integer>opt=new ArrayList<>();
+            int cost=0;
+
+            for(int i=0;i<m;i++){
+                if(cost>mn)break;
+                if(i%2==0){
+                    int c1=0,c2=0;
+                    for(int j=0;j<n;j++){
+                        if(B[j][i]!=row1[j])c1++;
+                        if(B[j][i]!=row2[j])c2++;
+                    }
+
+                    if(c1<c2){
+                        cost+=c1;
+                        opt.add(0);
+
+                    }
+                    else{
+                        cost+=c2;
+                        opt.add(1);
+                    }
+
+                }
+                else{
+                    int c1=0,c2=0;
+                    for(int j=0;j<n;j++){
+                        if(B[j][i]!=row3[j])c1++;
+                        if(B[j][i]!=row4[j])c2++;
+                    }
+
+                    if(c1<c2){
+                        cost+=c1;
+                        opt.add(2);
+                    }
+                    else{
+                        cost+=c2;
+                        opt.add(3);
+                    }
+                }
+            }
+
+            if(cost<mn){
+                mn=cost;
+
+                for(int c=0;c<m;c++){
+                    int o=opt.get(c);
+                    for(int r=0;r<n;r++){
+                        if(o==0){
+                            res[r][c]=row1[r];
+                        }
+                        if(o==1){
+                            res[r][c]=row2[r];
+                        }
+                        if(o==2){
+                            res[r][c]=row3[r];
+                        }
+                        if(o==3){
+                            res[r][c]=row4[r];
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        print(res);
+
+    }
+
+
+    public int change(int A[],int B[]){
+        int cnt=0;
+        for(int i=0;i<A.length;i++){
+            if(A[i]!=B[i])cnt++;
+        }
+        return cnt;
+    }
+
+    public List<int[]> permutation(){
+        List<int[]>list=new ArrayList<>();
+        for(int i=0;i<4;i++){
+            for(int j=0;j<4;j++){
+                for(int x=0;x<4;x++){
+                    for(int y=0;y<4;y++){
+                        Set<Integer>set=new HashSet<>();
+                        set.add(i);set.add(j);set.add(x);set.add(y);
+                        if(set.size()==4){
+                            list.add(new int[]{i,j,x,y});
+                        }
+                    }
+                }
+            }
+        }
+        return list;
+    }
+
+
+
+    public void print(int A[][]){
+        for(int i=0;i<A.length;i++){
+            for(int j=0;j<A[0].length;j++){
+                out.print(f[A[i][j]]);
+            }out.println();
+        }
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
