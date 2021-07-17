@@ -848,3 +848,4 @@ My Codeforce Practice<br/>
 # ACWing 专题
 ACW 103.[ 电影 (E） （HashMap）  ](./code/acw103.txt) <br/>
 ACW 214.[ Devu和鲜花 (M） （容斥 + 组合）  ](./code/acw214.txt) <br/>
+ACW 244.[ 谜一样的牛 (E） （二分法 + BIT）  ](./code/acw244.txt) <br/>
