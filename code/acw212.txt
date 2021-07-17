@@ -1,0 +1,211 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000009;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    public void solution(int A[]) {
+        for(int i=0;i<A.length;i++){
+            A[i]--;
+        }
+
+        long fact[]=new long[A.length+10];
+        fact[0]=fact[1]=1;
+        for(int i = 2;i<fact.length;i++){
+            fact[i]=fact[i-1]*i;
+            fact[i]%=MOD;
+        }
+
+        List<Integer>list=new ArrayList<>();
+        int sum = 0;
+        for(int i = 0;i<A.length;i++){
+            if(A[i]==i)continue;
+            int cnt=0;
+            while(A[i]!=i){
+                cnt++;
+                int t = A[A[i]];
+                A[A[i]]=A[i];
+                A[i]=t;
+            }
+            sum+=cnt;
+            list.add(cnt);
+        }
+
+        long res = fact[sum];
+        for(int i:list){
+            res=divide(res,fact[i]);
+            res=(res+mod)%mod;
+        }
+
+        for(int i:list){
+            if(i==1){
+                continue;
+            }
+            res*=quick(i+1,i+1-2,mod);
+            res%=MOD;
+        }
+
+        out.println(res);
+    }
+
+    public long divide(long a,long b){
+        long binverse=modInverse(b,mod);
+        return ((a%mod)*(binverse%mod))%mod;
+    }
+
+    public long modInverse(long a, long m)
+    {
+        long m0 = m;
+        long y = 0, x = 1;
+
+        if (m == 1)
+            return 0;
+
+        while (a > 1) {
+            // q is quotient
+            long q = a / m;
+
+            long t = m;
+
+            // m is remainder now, process
+            // same as Euclid's algo
+            m = a % m;
+            a = t;
+            t = y;
+
+            // Update x and y
+            y = x - q * y;
+            x = t;
+        }
+
+        // Make x positive
+        if (x < 0)
+            x += m0;
+
+        return x;
+    }
+
+    public long quick(long a,long b,long mod){
+        long res=1;
+        long pow=a;
+        for(int i=0;i<64;i++){
+            if((b&(1l<<i))!=0){
+                res*=pow;
+                res%=mod;
+            }
+            pow*=pow;
+            pow%=mod;
+        }
+        return res%mod;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
