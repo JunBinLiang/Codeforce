@@ -1,0 +1,195 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int k=Int();
+            int A[][]=new int[n][2];
+            for(int i=0;i<n;i++){
+                A[i][0]=Int();
+                A[i][1]=i;
+            }
+            Solution sol=new Solution(out);
+            sol.solution(n,k,A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    public void solution(int n,int k,int A[][]) {
+        sort(A);
+        int cnt =0;
+        for(int i=0;i<A.length;i++){
+            if(A[i][0]==0){
+                cnt++;
+            }
+        }
+
+        if(cnt!=1){
+            out.println(-1);
+            return;
+        }
+
+        List<int[]>res=new ArrayList<>();
+        Queue<int[]>q=new LinkedList<>();
+        q.add(A[0]);
+
+
+        for(int i=1;i<n;i++){
+            int j=i;
+            Queue<Integer>vertexs=new LinkedList<>();
+            while(j<A.length&&A[j][0]==A[i][0]){
+                vertexs.add(A[j][1]);
+                j++;
+            }
+
+            if(A[i][0]-1!=q.peek()[0]){
+                out.println(-1);
+                return;
+            }
+            long size=q.size();
+
+            if((q.peek()[0]==0&&k<(j-i))||(q.peek()[0]!=0&&size*(k-1)<(j-i))){
+                out.println(-1);
+                return;
+            }
+
+            for(int x=0;x<size;x++){
+                int pair[]=q.poll();
+                if(vertexs.size()==0){
+                    continue;
+                }
+                int K=k;
+                if(pair[0]!=0)K--;
+                for(int y=0;y<K&&vertexs.size()>0;y++){
+                    if(vertexs.size()>0){
+                        int v=vertexs.poll();
+                        res.add(new int[]{pair[1],v});
+                    }
+                }
+            }
+
+            for(int x=i;x<j;x++){
+                q.add(A[x]);
+            }
+            i=j-1;
+        }
+
+
+
+        out.println(res.size());
+        for(int p[]:res){
+            out.println((p[0]+1)+" "+(p[1]+1));
+        }
+    }
+    public void sort(int A[][]){
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            return a[0]-b[0];
+        });
+        for(int p[]:A)pq.add(p);
+        for(int i=0;i<A.length;i++)A[i]=pq.poll();
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
