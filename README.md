@@ -847,6 +847,7 @@ My Codeforce Practice<br/>
 <br/><br/>
 # ACWing 专题
 ACW 103.[ 电影 (E） （HashMap）  ](./code/acw103.txt) <br/>
+ACW 122.[ 糖果传递 (M） （思维 + 中位数）  ](./code/acw122.txt) <br/>
 ACW 214.[ Devu和鲜花 (M） （容斥 + 组合）  ](./code/acw214.txt) <br/>
 ACW 244.[ 谜一样的牛 (E） （二分法 + BIT）  ](./code/acw244.txt) <br/>
 ACW 255.[ 第K小数 (M） （二分法 + 主席树）  ](./code/acw255.txt) <br/>
