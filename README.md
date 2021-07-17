@@ -414,6 +414,7 @@ My Codeforce Practice<br/>
 |  863E  |[ Turn Off The TV (2000) (Interval Problem)   ](./code/863E.txt)<br/>
 |  863D |[ Yet Another Array Queries Problem (1800) (Reverse + Thinking)  ](./code/863D.txt)|2021/07/16|
 |  1098B |[Nice table (2100) (Constructive + Brute Force)  ](./code/1098B.txt)|2021/07/16|
+|  404C |[Restore Graph (1800) (Constructive + Graph)  ](./code/404C.txt)|2021/07/17|
 
 # 分类
 
@@ -529,6 +530,7 @@ My Codeforce Practice<br/>
 12E.[ Start of the session(2100) (Constructive)  ](./code/12E.txt)<br/>
 359B.[ Permutations (1400) (Constructive)  ](./code/359B.txt)<br/>
 1098B.[Nice table (2100) (Constructive + Brute Force)  ](./code/1098B.txt)<br/>
+404C.[Restore Graph (1800) (Constructive + Graph)  ](./code/404C.txt)<br/>
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
