@@ -415,6 +415,7 @@ My Codeforce Practice<br/>
 |  863D |[ Yet Another Array Queries Problem (1800) (Reverse + Thinking)  ](./code/863D.txt)|2021/07/16|
 |  1098B |[Nice table (2100) (Constructive + Brute Force)  ](./code/1098B.txt)|2021/07/16|
 |  404C |[Restore Graph (1800) (Constructive + Graph)  ](./code/404C.txt)|2021/07/17|
+|  509C |[Sums of Digits (2000) (Constructive + Greedy)  ](./code/509C.txt)|2021/07/17|
 
 # 分类
 
@@ -512,6 +513,7 @@ My Codeforce Practice<br/>
 450E.[ Jzzhu and Apples (2500) (Greedy)](./code/450E.txt)<br/>
 73B.[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)<br/>
 484D.[ Kindergarten	 (2400) (DP + Greedy + Observation)  ](./code/484D.txt)<br/>
+509C.[Sums of Digits (2000) (Constructive + Greedy)  ](./code/509C.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
