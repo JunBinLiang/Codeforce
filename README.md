@@ -449,6 +449,7 @@ My Codeforce Practice<br/>
 895C.[ Square Subsets (2000) (DP + Combination + BitMask)  ](./code/895C.txt) C(n,0) + C(n,2) + ... == C(n,1) + C(n,3) = C(n,5) + ... == 2^(n-1)<br/> 
 1025D.[ Recovering BST (2000) (TreeDP)  ](./code/1025D.txt)<br/>
 360B.[ Levko and Array (2000) (DP)  ](./code/360B.txt)<br/>
+597C.[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)<br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
@@ -456,7 +457,7 @@ My Codeforce Practice<br/>
 ### DP - Distinct Subsequence
 1183H.[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)<br/>
 314C.[ Sereja and Subsequences (2100) (DP + Distince Subsequence + Fenwick Tree)  ](./code/314C.txt)<br/>
-597C.[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)|2021/07/18|
+
 
 
 ### Prefix/Left-Right DP
@@ -536,6 +537,7 @@ My Codeforce Practice<br/>
 359B.[ Permutations (1400) (Constructive)  ](./code/359B.txt)<br/>
 1098B.[Nice table (2100) (Constructive + Brute Force)  ](./code/1098B.txt)<br/>
 404C.[Restore Graph (1800) (Constructive + Graph)  ](./code/404C.txt)<br/>
+
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
