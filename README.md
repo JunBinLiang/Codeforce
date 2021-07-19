@@ -866,4 +866,5 @@ ACW 212.[ 计数交换 (E） （组合）  ](./code/acw212.txt) <br/>
 ACW 214.[ Devu和鲜花 (M） （容斥 + 组合）  ](./code/acw214.txt) <br/>
 ACW 244.[ 谜一样的牛 (E） （二分法 + BIT）  ](./code/acw244.txt) <br/>
 ACW 255.[ 第K小数 (M） （二分法 + 主席树）  ](./code/acw255.txt) <br/>
+ACW 256.[ 最大异或和 (M） （可持续Trie）  ](./code/acw256.txt) <br/>
 ACW 257.[ 关押罪犯 (M） （二分 + 二分图染色）  ](./code/acw257.txt) <br/>
