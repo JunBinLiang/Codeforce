@@ -859,6 +859,7 @@ My Codeforce Practice<br/>
 
 <br/><br/>
 # ACWing 专题
+ACW 92.[ 递归实现指数型枚举 (E） （枚举）  ](https://github.com/JunBinLiang/Acwing/blob/main/code/92.md) <br/>
 ACW 103.[ 电影 (E） （HashMap）  ](./code/acw103.txt) <br/>
 ACW 104.[ 货仓选址 (E） （中位数）  ](./code/acw104.txt) <br/>
 ACW 122.[ 糖果传递 (M） （思维 + 中位数）  ](./code/acw122.txt) <br/>
@@ -868,3 +869,4 @@ ACW 244.[ 谜一样的牛 (E） （二分法 + BIT）  ](./code/acw244.txt) <br/
 ACW 255.[ 第K小数 (M） （二分法 + 主席树）  ](./code/acw255.txt) <br/>
 ACW 256.[ 最大异或和 (M） （可持续Trie）  ](./code/acw256.txt) <br/>
 ACW 257.[ 关押罪犯 (M） （二分 + 二分图染色）  ](./code/acw257.txt) <br/>
+
