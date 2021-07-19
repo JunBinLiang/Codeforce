@@ -419,7 +419,7 @@ My Codeforce Practice<br/>
 |  292D |[Connected Components (1900) (UF + Graph + Thinking)  ](./code/292D.txt)|2021/07/18|
 |  597C |[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)|2021/07/18|
 |  597B |[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)|2021/07/19|
-|  597A |[Divisibility (1600) (Math)  ](./code/597A.txt)|2021/07/17|
+|  597A |[Divisibility (1600) (Math)  ](./code/597A.txt)|2021/07/19|
 # 分类
 
 ### DP
