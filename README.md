@@ -418,7 +418,8 @@ My Codeforce Practice<br/>
 |  509C |[Sums of Digits (2000) (Constructive + Greedy)  ](./code/509C.txt)|2021/07/17|
 |  292D |[Connected Components (1900) (UF + Graph + Thinking)  ](./code/292D.txt)|2021/07/18|
 |  597C |[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)|2021/07/18|
-|  597B |[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)|2021/07/17|
+|  597B |[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)|2021/07/19|
+|  597A |[Divisibility (1600) (Math)  ](./code/597A.txt)|2021/07/17|
 # 分类
 
 ### DP
@@ -616,6 +617,7 @@ My Codeforce Practice<br/>
 ### Math
 32C. [ Flea (1700) ( Math ) ](./code/32C.txt)<br/>
 1151C.[Problem for Nazar (1800) (Math) ](./code/1151C.txt)<br/>
+597A.[Divisibility (1600) (Math)  ](./code/597A.txt)<br/>
 
 ### Number Theory
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
