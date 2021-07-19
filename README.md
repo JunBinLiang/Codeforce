@@ -417,6 +417,8 @@ My Codeforce Practice<br/>
 |  404C |[Restore Graph (1800) (Constructive + Graph)  ](./code/404C.txt)|2021/07/17|
 |  509C |[Sums of Digits (2000) (Constructive + Greedy)  ](./code/509C.txt)|2021/07/17|
 |  292D |[Connected Components (1900) (UF + Graph + Thinking)  ](./code/292D.txt)|2021/07/18|
+|  597C |[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)|2021/07/18|
+
 # 分类
 
 ### DP
@@ -454,6 +456,7 @@ My Codeforce Practice<br/>
 ### DP - Distinct Subsequence
 1183H.[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)<br/>
 314C.[ Sereja and Subsequences (2100) (DP + Distince Subsequence + Fenwick Tree)  ](./code/314C.txt)<br/>
+597C.[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)|2021/07/18|
 
 
 ### Prefix/Left-Right DP
