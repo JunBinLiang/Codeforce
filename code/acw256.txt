@@ -615,6 +615,292 @@ class Trie{
 
 
 
+//version 3, insert + query iterative
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int A[]=Arr(n);
+            int q[][]=new int[m][];
+            int cnt = 0;
+            for(int i=0;i<q.length;i++){
+                String s=Str();
+                if(s.equals("A")){
+                    q[i]=new int[2];
+                    q[i][0]=1;
+                    q[i][1]=Int();
+                    cnt++;
+                }
+                else{
+                    q[i]=new int[4];
+                    q[i][0]=2;
+                    q[i][1]=Int();
+                    q[i][2]=Int();
+                    q[i][3]=Int();
+                }
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,q,cnt);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000009;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    int val=0;
+    public void solution(int A[],int q[][],int cnt) {
+        int xor=0;
+        Trie tries[]=new Trie[A.length+1+cnt];
+        tries[0]=new Trie();
+        for(int i=1;i<=A.length;i++){
+            tries[i]=new Trie();
+            Trie.insert(tries[i-1],tries[i],xor,23);
+            xor^=A[i-1];
+        }
+        int j = A.length+1;
+
+        for(int p[]:q){
+            int opt=p[0];
+            if(opt==1){
+                tries[j]=new Trie();
+                Trie.insert(tries[j-1],tries[j],xor,23);
+                xor^=p[1];
+                j++;
+            }
+            else{
+                int l=p[1]-1,r=p[2]-1,x=p[3];
+                x^=xor;
+                val=0;
+                query(tries[l],tries[r+1],x);
+                out.println((val));
+            }
+        }
+    }
+
+    public void query(Trie pre,Trie cur, int value){
+        for(int i=23;i>=0;i--){
+            int bit=0;
+            if((value&(1<<i))!=0)bit=1;
+            if(bit==0){//1 first,
+                if(cur.right!=null){
+                    if(pre==null||pre.right==null||(cur.right.cnt>pre.right.cnt)){
+                        if(pre==null){
+                            cur=cur.right;
+                        }
+                        else{
+                            pre=pre.right;
+                            cur=cur.right;
+                        }
+                        val=val|(1<<i);
+                    }
+                    else{
+                        if(pre==null){
+                            cur=cur.left;
+                        }
+                        else{
+                            pre=pre.left;
+                            cur=cur.left;
+                        }
+                    }
+                }
+                else{
+                    if(pre==null){
+                        cur=cur.left;
+                    }
+                    else{
+                        pre=pre.left;
+                        cur=cur.left;
+                    }
+                }
+            }
+            else{//0 first
+                if(cur.left!=null){
+                    if(pre==null||pre.left==null||(cur.left.cnt>pre.left.cnt)){
+                        if(pre==null){
+                            cur=cur.left;
+                        }
+                        else{
+                           pre=pre.left;
+                           cur=cur.left;
+                        }
+                        val=val|(1<<i);
+                    }
+                    else{
+                        if(pre==null){
+                            cur=cur.right;
+                        }
+                        else{
+                            pre=pre.right;
+                            cur=cur.right;
+                        }
+                    }
+                }
+                else{
+                    if(pre==null){
+                        cur=cur.right;
+                    }
+                    else{
+                        pre=pre.right;
+                        cur=cur.right;
+                    }
+                }
+            }
+        }
+    }
+
+}
+class Trie{
+    int cnt =0;
+    Trie left=null;
+    Trie right=null;
+
+    public static void insert(Trie pre,Trie cur,int val,int i){
+        if(i<0){
+            return;
+        }
+        
+        for(;i>=0;i--){
+            int bit=0;
+            if((val&(1<<i))!=0)bit=1;
+
+            if(bit==0){
+                cur.left=new Trie();
+                cur.left.cnt++;
+                if(pre!=null&&pre.left!=null){
+                    cur.left.cnt+=pre.left.cnt;
+                }
+
+                if(pre!=null){
+                    cur.right=pre.right;
+                    pre=pre.left;
+                    cur=cur.left;
+                }
+                else{
+                    cur=cur.left;
+                }
+            }
+            else{
+                cur.right=new Trie();
+                cur.right.cnt++;
+                if(pre!=null&&pre.right!=null){
+                    cur.right.cnt+=pre.right.cnt;
+                }
+
+                if(pre!=null){
+                    cur.left=pre.left;
+                    pre=pre.right;
+                    cur=cur.right;
+                }
+                else{
+                    cur=cur.right;
+                }
+            }
+        }
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
