@@ -418,7 +418,7 @@ My Codeforce Practice<br/>
 |  509C |[Sums of Digits (2000) (Constructive + Greedy)  ](./code/509C.txt)|2021/07/17|
 |  292D |[Connected Components (1900) (UF + Graph + Thinking)  ](./code/292D.txt)|2021/07/18|
 |  597C |[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)|2021/07/18|
-
+|  597B |[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)|2021/07/17|
 # 分类
 
 ### DP
@@ -450,6 +450,7 @@ My Codeforce Practice<br/>
 1025D.[ Recovering BST (2000) (TreeDP)  ](./code/1025D.txt)<br/>
 360B.[ Levko and Array (2000) (DP)  ](./code/360B.txt)<br/>
 597C.[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)<br/>
+597B.[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)<br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
