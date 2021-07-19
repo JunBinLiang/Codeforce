@@ -615,7 +615,7 @@ class Trie{
 
 
 
-//version 3, insert + query iterative
+//version 3, insert + query iterative   10/11 pass
 // Don't place your source in a package
 
 
