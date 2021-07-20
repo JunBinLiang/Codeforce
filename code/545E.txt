@@ -1,0 +1,187 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int edges[][]=new int[m][4];
+            for(int i=0;i<edges.length;i++){
+                edges[i][0]=Int()-1;
+                edges[i][1]=Int()-1;
+                edges[i][2]=Int();
+                edges[i][3]=i+1;
+            }
+            int start=Int()-1;
+
+            Solution sol=new Solution(out);
+            sol.solution(n,edges,start);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000009;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    List<int[]>graph[];
+    List<Integer>res=new ArrayList<>();
+    long sum =0;
+    public void solution(int n,int edges[][],int root) {
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int edge[]:edges){
+            int u=edge[0],v=edge[1];
+            int w=edge[2],i=edge[3];
+            graph[u].add(new int[]{v,w,i});
+            graph[v].add(new int[]{u,w,i});
+        }
+
+        long dis[][]=new long[n][3];
+        for(int i=0;i<dis.length;i++){
+            Arrays.fill(dis[i],Long.MAX_VALUE);
+        }
+
+        dis[root][0]=0;
+        dis[root][1]=0;
+        PriorityQueue<long[]>q=new PriorityQueue<>((a,b)->{
+            return Long.compare(a[1],b[1]);
+        });
+        q.add(new long[]{root,0});
+
+        while(q.size()>0){
+            long pair[]=q.poll();
+            int top=(int)(pair[0]);
+            if(dis[top][0]!=pair[1])continue;
+
+            for(int edge[]:graph[top]){
+                int u=edge[0];
+                int w=edge[1];
+                if(dis[top][0]+w<=dis[u][0]){
+                    if(dis[top][0]+w==dis[u][0]){
+                        if(w<dis[u][1]){
+                            dis[u][1]=w;
+                            dis[u][2]=edge[2];
+                        }
+                    }
+                    else{
+                        dis[u][0]=dis[top][0]+w;
+                        dis[u][1]=w;
+                        dis[u][2]=edge[2];
+                        q.add(new long[]{u,dis[u][0]});
+                    }
+
+                }
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            if(i==root)continue;
+            sum+=dis[i][1];
+            res.add((int)(dis[i][2]));
+        }
+
+        out.println(sum);
+        for(int i:res){
+            out.print(i+" ");
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
