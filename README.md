@@ -874,3 +874,4 @@ ACW 256.[ 最大异或和 (M） （可持续Trie）  ](./code/acw256.txt) <br/>
 ACW 257.[ 关押罪犯 (M） （二分 + 二分图染色）  ](./code/acw257.txt) <br/>
 ACW 300.[ 任务安排1 (M） （DP + Thinking）  ](./code/acw300.txt) <br/>
 ACW 301.[ 任务安排2 (H） （DP + 斜率优化模板）  ](./code/acw301.txt) <br/>
+ACW 302.[ 任务安排3 (H） （DP + 非单调斜率优化模板）  ](./code/acw302.txt) <br/>
