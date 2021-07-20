@@ -420,6 +420,7 @@ My Codeforce Practice<br/>
 |  597C |[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)|2021/07/18|
 |  597B |[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)|2021/07/19|
 |  597A |[Divisibility (1600) (Math)  ](./code/597A.txt)|2021/07/19|
+|  545E |[Paths and Trees (2000) (shortest path + thinking)  ](./code/545E.txt)2021/07/19|
 # 分类
 
 ### DP
@@ -452,6 +453,7 @@ My Codeforce Practice<br/>
 360B.[ Levko and Array (2000) (DP)  ](./code/360B.txt)<br/>
 597C.[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)<br/>
 597B.[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)<br/>
+
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
@@ -698,6 +700,7 @@ My Codeforce Practice<br/>
 1473E.[ Minimum Path (2400) (Shortest Path)  ](./code/1473E.txt)<br/>
 37E.[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)<br/>
 450D.[ Jzzhu and Cities (2000) (Shortest Path + Thinking) (Thumb) ](./code/450D.txt)<br/>
+545E.[Paths and Trees (2000) (shortest path + thinking)  ](./code/545E.txt)<br/>
 
 ### 0-1 BFS
 1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
