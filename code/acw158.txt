@@ -1,0 +1,190 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+            String ss=Str();
+
+            Solution sol=new Solution(out);
+            sol.solution(s,ss);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000009;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+
+    public void solution(String s,String t) {
+        String ss=s+s;
+        int index=strStr(ss,t);
+        if(index==-1){
+            out.println("No");
+            return;
+        }
+
+        int n = t.length();
+        int pre[]=pre(ss);
+        int i = 0;int cnt = 0;
+        for(int j=1;j<ss.length();j++){
+            int c1=ss.charAt(i+cnt);
+            int c2=ss.charAt(j);
+            if(c2>c1){
+                cnt=0;
+                continue;
+            }
+
+            if(c2<c1){
+                i=j-cnt;
+                if(c2<ss.charAt(i))i=j;
+                cnt=0;
+            }
+            else{
+                cnt++;
+            }
+        }
+
+        out.println("Yes");
+        out.println(ss.substring(i,i+n));
+    }
+
+    public int strStr(String s, String pattern) {
+        if(s.equals(pattern))return 0;
+        if(pattern.length()==0)return 0;
+        int pre[]=pre(pattern);
+        int i=0,pi=0;
+        int res=-1;
+        while(i<s.length()){
+            if(s.charAt(i)==pattern.charAt(pi)){
+                i++;pi++;
+            }else{
+                if(pi==0)i++;
+                else pi=pre[pi-1];
+            }
+            if(pi>=pattern.length()){
+                res=i-pattern.length();
+                break;
+            }
+        }
+        return res;
+
+    }
+
+    public int[] pre(String pattern){
+        int pre[]=new int[pattern.length()];
+        int l=0,r=1;
+        while(r<pattern.length()){
+            if(pattern.charAt(r)==pattern.charAt(l)){
+                pre[r]=l+1;
+                l++;
+                r++;
+            }else{
+                if(l==0)r++;
+                else{
+                    l=pre[l-1];
+                }
+            }
+        }
+        return pre;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
