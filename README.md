@@ -874,6 +874,7 @@ ACW 92.[ 递归实现指数型枚举 (E） （枚举）  ](https://github.com/Ju
 ACW 103.[ 电影 (E） （HashMap）  ](./code/acw103.txt) <br/>
 ACW 104.[ 货仓选址 (E） （中位数）  ](./code/acw104.txt) <br/>
 ACW 122.[ 糖果传递 (M） （思维 + 中位数）  ](./code/acw122.txt) <br/>
+ACW 158.[ 项链 (E） （string 最小表示法）  ](./code/acw158.txt) <br/>
 ACW 201.[ 可见的点 (E） （欧拉函数模板）  ](./code/acw201.txt) <br/>
 ACW 212.[ 计数交换 (E） （组合）  ](./code/acw212.txt) <br/>
 ACW 214.[ Devu和鲜花 (M） （容斥 + 组合）  ](./code/acw214.txt) <br/>
