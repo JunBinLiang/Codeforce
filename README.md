@@ -423,7 +423,7 @@ My Codeforce Practice<br/>
 |  545E |[Paths and Trees (2000) (shortest path + thinking)  ](./code/545E.txt)|2021/07/19|
 |  960F |[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)|2021/07/21|
 |  960D |[Full Binary Tree Queries (2100) (Math + Tree)  ](./code/960D.txt)|2021/07/21|
-
+|  960C |[Subsequence Counting (1700) (Constructive)  ](./code/960C.txt)|2021/07/21|
 # 分类
 
 ### DP
@@ -544,6 +544,7 @@ My Codeforce Practice<br/>
 359B.[ Permutations (1400) (Constructive)  ](./code/359B.txt)<br/>
 1098B.[Nice table (2100) (Constructive + Brute Force)  ](./code/1098B.txt)<br/>
 404C.[Restore Graph (1800) (Constructive + Graph)  ](./code/404C.txt)<br/>
+960C.[Subsequence Counting (1700) (Constructive)  ](./code/960C.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
