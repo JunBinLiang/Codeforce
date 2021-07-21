@@ -422,6 +422,7 @@ My Codeforce Practice<br/>
 |  597A |[Divisibility (1600) (Math)  ](./code/597A.txt)|2021/07/19|
 |  545E |[Paths and Trees (2000) (shortest path + thinking)  ](./code/545E.txt)|2021/07/19|
 |  960F |[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)|2021/07/21|
+|  960D |[Full Binary Tree Queries (2100) (Math + Tree)  ](./code/960D.txt)|2021/07/21|
 
 # 分类
 
@@ -745,6 +746,7 @@ My Codeforce Practice<br/>
 1528A.[ Parsa's Humongous Tree (1600) (Tree + DP) ](./code/1528A.txt)<br/>
 61D.[ Eternal Victory (1800) (Tree) ](./code/61D.txt) <br/>
 1092E.[ Minimal Diameter Forest (Tree + Greedy) ](./code/1092E.txt)<br/>
+960D.[Full Binary Tree Queries (2100) (Math + Tree)  ](./code/960D.txt)<br/>
 
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
