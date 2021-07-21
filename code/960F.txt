@@ -1,0 +1,183 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int edges[][]=new int[m][4];
+            for(int i=0;i<edges.length;i++){
+                edges[i][0]=Int();
+                edges[i][1]=Int();
+                edges[i][2]=Int()+1;
+                edges[i][3]=i;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(n,edges);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000009;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+
+    public void solution(int n,int edges[][]) {
+        Seg segs[]=new Seg[n+1];
+        Arrays.setAll(segs,e->new Seg(0,100000+10));
+        int res=0;
+        for(int i=0;i<edges.length;i++){
+            int l=edges[i][0],r=edges[i][1],w=edges[i][2];
+            int mx = segs[l].query(0,w-1);
+            segs[r].update(w,mx+1);
+            res=Math.max(res,mx+1);
+        }
+        out.println(res);
+    }
+
+    class Seg{
+        int l,r;
+        int max=0;
+        Seg left=null,right=null;
+        public Seg(int l,int r){
+            this.l=l;
+            this.r=r;
+        }
+        public int query(int s,int e){
+            if(l==s&&r==e){
+                return max;
+            }
+            int mid=l+(r-l)/2; //left :  to mid-1,
+            if(e<=mid){
+                if(left!=null)return left.query(s,e);
+                else return 0;
+            }
+            else if(s>=mid+1){
+                if(right!=null)return right.query(s,e);
+                else return 0;
+            }else{
+                int mx = 0;
+                if(left!=null)mx=Math.max(mx,left.query(s,mid));
+                if(right!=null)mx=Math.max(mx,right.query(mid+1,e));
+                return mx;
+            }
+        }
+
+        public void update(int index,int val){
+            if(l==r){
+                max=Math.max(max,val);
+                return;
+            }
+            int mid=l+(r-l)/2;
+            if(index<=mid){
+                if(this.left==null)left=new Seg(l,mid);
+                this.left.update(index,val);
+            }else{
+                if(this.right==null)this.right=new Seg(mid+1,r);
+                right.update(index,val);
+            }
+            if(left!=null)this.max=Math.max(this.max,left.max);
+            if(right!=null)this.max=Math.max(this.max,right.max);
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
