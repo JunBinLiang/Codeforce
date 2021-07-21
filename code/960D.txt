@@ -1,0 +1,226 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            long q[][]=new long[n][3];
+            for(int i=0;i<n;i++){
+                q[i][0]=Long();
+                if(q[i][0]==3){
+                    q[i][1]=Long();
+                }
+                else{
+                    q[i][1]=Long();
+                    q[i][2]=Long();
+                }
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(q);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000009;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+
+    public void solution(long q[][]) {
+        long dp1[]=new long[63];
+
+        for(long p[]:q){
+            long opt=p[0];
+            if(opt==3){//print value
+                //System.out.println(Arrays.toString(dp1));
+                long x=p[1];
+                int level=level(x);
+
+                //find the position of x
+                long cnt=(1l<<level);
+                long start=cnt;
+
+
+                long pos = x;
+                long shift1=dp1[level];
+                if(shift1>=0){
+                    pos+=shift1;
+                    pos%=cnt;
+                }
+                else{
+                    pos+=shift1;
+                    pos+=cnt;
+                    pos%=cnt;
+                }
+                pos+=cnt;
+
+
+
+                List<Long>res=new ArrayList<>();
+                for(int cur=level;cur>=0;cur--){
+                    //who is in pos
+                    long shift=dp1[cur];
+                    long count = (1l<<cur);
+                    long ith = pos%count;
+
+                    //System.out.println(pos+"  "+ith);
+
+                    if(shift>=0){
+                        ith-=shift;
+                        ith+=count;
+                        ith%=count;
+                        ith+=count;
+                    }
+                    else{
+                        ith-=shift;
+                        ith%=count;
+                        ith+=count;
+                    }
+
+                    res.add(ith);
+                    pos/=2;
+                }
+
+                for(long i : res){
+                    out.print(i+" ");
+                }out.println();
+
+            }
+            else{
+                long x = p[1],shift=p[2];
+                int level=level(x);
+
+                if(opt==1){
+                    long k =(1l<<level);
+                    dp1[level]+=shift;
+                    dp1[level]=(dp1[level]+k)%k;
+                }
+                else{
+                    for(int i=level;i<dp1.length;i++){
+                        long k = (1l<<(i));
+                        shift%=k;
+                        dp1[i]+=shift;
+                        dp1[i]%=k;
+                        shift*=2;
+                    }
+                }
+            }
+        }
+    }
+
+    public int level(long x){
+        long total=0;
+        long level=1;
+        int res=1;
+        while(total<x){
+            total+=level;
+            if(total>=x){
+                break;
+            }
+            level*=2;
+            res++;
+        }
+        return res-1;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
