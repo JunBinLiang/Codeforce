@@ -420,7 +420,9 @@ My Codeforce Practice<br/>
 |  597C |[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)|2021/07/18|
 |  597B |[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)|2021/07/19|
 |  597A |[Divisibility (1600) (Math)  ](./code/597A.txt)|2021/07/19|
-|  545E |[Paths and Trees (2000) (shortest path + thinking)  ](./code/545E.txt)2021/07/19|
+|  545E |[Paths and Trees (2000) (shortest path + thinking)  ](./code/545E.txt)|2021/07/19|
+|  960F |[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)|2021/07/21|
+
 # 分类
 
 ### DP
@@ -764,6 +766,9 @@ My Codeforce Practice<br/>
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
 52C. [Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   <br/>
+
+### Lazy Segment Tree
+960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
 
 ### Segment Tree Range Update
 1439C.[ Greedy Shopping (2600) (Segment Tree Range Update + Segment Tree Binay Search) ](./code/1439C.txt)<br/>
