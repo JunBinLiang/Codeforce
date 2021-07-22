@@ -887,3 +887,4 @@ ACW 257.[ 关押罪犯 (M） （二分 + 二分图染色）  ](./code/acw257.txt
 ACW 300.[ 任务安排1 (M） （DP + Thinking）  ](./code/acw300.txt) <br/>
 ACW 301.[ 任务安排2 (H） （DP + 斜率优化模板）  ](./code/acw301.txt) <br/>
 ACW 302.[ 任务安排3 (H） （DP + 非单调斜率优化模板）  ](./code/acw302.txt) <br/>
+ACW 345.[ 牛站 (M） （倍增 + 最短路）  ](./code/acw345.txt) <br/>
