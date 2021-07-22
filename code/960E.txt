@@ -131,7 +131,6 @@ class Solution {
 
         seen=new boolean[n];
         seen[0]=true;
-        System.out.println();
         dfs2(0,0,0);
 
 
@@ -167,7 +166,7 @@ class Solution {
         if(res<0)res+=MOD;
         res%=MOD;
 
-        res=res-(A[root]+0l)*(inn+cnt[root][1]);
+        res=res-((A[root]+0l)*(inn+cnt[root][1])%MOD);
         if(res<0)res+=MOD;
         res%=MOD;
 
@@ -187,7 +186,8 @@ class Solution {
                 //must cross
                 long p1 = (A[root]+0l)*(po-1)*(total2);
                 long n1 = (A[root]+0l)*neg*(total2);
-
+                p1%=MOD;
+                n1%=MOD;
 
 
                 /*System.out.println((root+1)+" "+"go1");
@@ -217,6 +217,9 @@ class Solution {
                 System.out.println(po+" "+neg+" "+cnt[next][0]+"  "+cnt[next][1]);
                 System.out.println(p1+"  "+n1+"  ");
                 System.out.println();*/
+
+                p1%=MOD;
+                n1%=MOD;
 
                 res+=p1;if(res<0)res+=MOD;
                 res%=MOD;
