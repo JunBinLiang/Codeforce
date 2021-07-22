@@ -873,6 +873,7 @@ My Codeforce Practice<br/>
 ACW 92.[ 递归实现指数型枚举 (E） （枚举）  ](https://github.com/JunBinLiang/Acwing/blob/main/code/92.md) <br/>
 ACW 103.[ 电影 (E） （HashMap）  ](./code/acw103.txt) <br/>
 ACW 104.[ 货仓选址 (E） （中位数）  ](./code/acw104.txt) <br/>
+ACW 107.[ 超快速排序 (E） （逆序对 + 树状数组）  ](./code/acw107.txt) <br/>
 ACW 109.[ 天才ACM (H） （倍增 + 时间判断）  ](./code/acw109.txt) <br/>
 ACW 122.[ 糖果传递 (M） （思维 + 中位数）  ](./code/acw122.txt) <br/>
 ACW 158.[ 项链 (E） （string 最小表示法）  ](./code/acw158.txt) <br/>
