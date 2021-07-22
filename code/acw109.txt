@@ -1,0 +1,199 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            long k=Long();
+            long A[]=new long[n];
+            for(int i=0;i<n;i++)A[i]=Long();
+
+            Solution sol=new Solution(out);
+            sol.solution(m,k,A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000009;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    long T;
+    int m;
+    public void solution(int m,long T,long A[]) {
+        this.T=T;
+        this.m=m;
+
+        int l=0;
+        int res = 0;
+        int n=A.length;
+        while(l<n){
+            int r=l;
+            int extend=1;
+            while(extend>0){
+                if(check(A,l,r,Math.min(r+extend,n-1))){
+                    r+=extend;
+                    if(r>=A.length-1)break;
+                    extend*=2;
+                }
+                else{
+                    extend=extend/2;
+                }
+            }
+            res++;
+            l=r+1;
+        }
+        out.println(res);
+    }
+
+    public boolean check(long A[],int l,int mid,int r){
+        List<Long>list=new ArrayList<>();
+        for(int i=mid+1;i<=r;i++){
+            list.add(A[i]);
+        }
+        Collections.sort(list);
+
+        List<Long>ll=new ArrayList<>();
+        int i = l, j = 0;
+        while(i<=mid&&j<list.size()){
+            if(A[i]>list.get(j)){
+                ll.add(list.get(j++));
+            }
+            else{
+                ll.add(A[i++]);
+            }
+        }
+        while(i<=mid){
+            ll.add(A[i++]);
+        }
+        while(j<list.size()){
+            ll.add(list.get(j++));
+        }
+
+        i=0;j=ll.size()-1;
+        int cnt=0;
+        long sum=0;
+
+        while(i<j){
+            sum+=(ll.get(j)-ll.get(i))*(ll.get(j)-ll.get(i));
+            i++;j--;
+            cnt++;
+            if(cnt==m)break;
+        }
+
+        //System.out.println(l+"  "+mid+"  "+r+"  "+ll+"  "+sum);
+
+        if(sum<=T){
+            for(i=0;i<ll.size();i++){
+                A[l+i]=ll.get(i);
+            }
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
