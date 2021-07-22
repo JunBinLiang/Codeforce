@@ -1,0 +1,215 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int s=Int();
+            int e=Int();
+            int edges[][]=new int[m][3];
+            for(int i=0;i<edges.length;i++){
+                edges[i][0]=Int();
+                edges[i][1]=Int();
+                edges[i][2]=Int();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(n,s,e,edges);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000009;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    long dis[][][];
+    List<int[]>graph[];
+    int n;
+    int E;
+    int cnt =1;
+    long dp[][];
+    public void solution(int N,int S,int E,int edges[][]) {
+        int id  = 0;
+        Map<Integer,Integer>f=new HashMap<>();
+        for(int edge[]:edges){
+            int u=edge[1],v=edge[2];
+            if(!f.containsKey(u))f.put(u,id++);
+            if(!f.containsKey(v))f.put(v,id++);
+            edge[1]=f.get(u);
+            edge[2]=f.get(v);
+        }
+
+        this.E=f.get(E);
+        S=f.get(S);
+
+        int len=1;
+        while(len<N){
+            len=len*2;
+            cnt++;
+        }
+
+        graph=new ArrayList[id];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int edge[]:edges){
+            int u =edge[1],v=edge[2],w=edge[0];
+            graph[u].add(new int[]{v,w});
+            graph[v].add(new int[]{u,w});
+        }
+
+        n = id;
+        dis=new long[cnt][n][n];
+        for(int i=0;i<dis.length;i++){
+            for(int j=0;j<dis[0].length;j++){
+                Arrays.fill(dis[i][j],Long.MAX_VALUE);
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int next[]:graph[i]){
+                dis[0][i][next[0]]=next[1];
+            }
+        }
+
+
+
+        for(int k=1;k<dis.length;k++){
+            for(int i=0;i<n;i++){
+                for(int j=0;j<n;j++){
+                    for(int mid=0;mid<n;mid++){
+                        if(dis[k-1][i][mid]!=Long.MAX_VALUE&&dis[k-1][mid][j]!=Long.MAX_VALUE){
+                            dis[k][i][j]=Math.min(dis[k][i][j],dis[k-1][i][mid]+dis[k-1][mid][j]);
+                        }
+                    }
+                }
+            }
+        }
+        dp=new long[n+1][30];
+        for(int i=0;i<dp.length;i++){
+            Arrays.fill(dp[i],-1);
+        }
+
+        //System.out.println(S+"  "+E);
+        //System.out.println(f);
+        //System.out.println();
+        long res=dfs(S,N);
+        out.println(res);
+    }
+
+
+    public long dfs(int root,int length){
+
+        if(length==0){
+            if(root==E)return 0;
+            else return 10000000000000000l;
+        }
+
+        int bitcnt=Integer.bitCount(length);
+        if(dp[root][bitcnt]!=-1)return dp[root][bitcnt];
+
+        long res=10000000000000000l;
+        int bit=-1;
+        for(int j=0;j<cnt;j++){
+            if((length&(1<<j))!=0){
+                bit=j;
+                break;
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            if(dis[bit][root][i]!=Long.MAX_VALUE){
+                res=Math.min(res,dis[bit][root][i]+dfs(i,length^(1<<bit)));
+            }
+        }
+        dp[root][bitcnt]=res;
+        return res;
+    }
+
+
+}
+
+
+
+
