@@ -1,0 +1,235 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n =Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            int edges[][]=new int[n-1][2];
+            for(int i=0;i< edges.length;i++){
+                edges[i][0]=Int()-1;
+                edges[i][1]=Int()-1;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,edges);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    List<Integer>graph[];
+    boolean seen[];
+    int cnt[][];
+    long res = 0;
+    int A[];
+    public void solution(int A[],int edges[][]) {
+        this.A=A;
+        int n = A.length;
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int edge[]:edges){
+            int u =edge[0],v=edge[1];
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        seen=new boolean[n];
+        cnt=new int[n][2];
+
+        seen[0]=true;
+        dfs1(0);
+
+
+        seen=new boolean[n];
+        seen[0]=true;
+        System.out.println();
+        dfs2(0,0,0);
+
+
+        out.println(res);
+    }
+
+    public int[] dfs1(int root){
+        int res[]=new int[2];//[pos,neg]
+        res[0]=1;
+        for(int next:graph[root]){
+            if(!seen[next]){
+                seen[next]=true;
+                int pair[]=dfs1(next);
+                res[0]+=pair[1];
+                res[1]+=pair[0];
+            }
+        }
+        cnt[root]=res;
+        return res;
+    }
+
+    public void dfs2(int root,int inp,int inn){
+        int child = 0;
+        res+=A[root];
+        if(res<0)res+=MOD;
+        res%=MOD;
+
+        res=res+(A[root]+0l)*(inp+inn+cnt[root][0]+cnt[root][1]-1);
+        if(res<0)res+=MOD;
+        res%=MOD;
+
+        res=res+(A[root]+0l)*(inp+cnt[root][0]-1);
+        if(res<0)res+=MOD;
+        res%=MOD;
+
+        res=res-(A[root]+0l)*(inn+cnt[root][1]);
+        if(res<0)res+=MOD;
+        res%=MOD;
+
+        //System.out.println((root+1)+"  "+((A[root]+0l)*(inp+inn+cnt[root][0]+cnt[root][1]-1))+"  "+((A[root]+0l)*(inp+cnt[root][0]-1))+"  "+((A[root]+0l)*(inn+cnt[root][1])));
+
+        for(int next:graph[root]){
+            if(!seen[next]){
+                seen[next]=true;
+                int po=cnt[root][0]-cnt[next][1]+inp;
+                int neg=cnt[root][1]-cnt[next][0]+inn;
+                dfs2(next,neg,po);
+
+
+                long total1=(po+neg-1);
+                long total2=(cnt[next][0]+cnt[next][1]);
+
+                //must cross
+                long p1 = (A[root]+0l)*(po-1)*(total2);
+                long n1 = (A[root]+0l)*neg*(total2);
+
+
+
+                /*System.out.println((root+1)+" "+"go1");
+                System.out.println(po+" "+neg+" "+cnt[next][0]+"  "+cnt[next][1]);
+                System.out.println(p1+"  "+n1+"  ");
+                System.out.println();*/
+
+                res+=p1;if(res<0)res+=MOD;
+                res%=MOD;
+
+                res-=n1;if(res<0)res+=MOD;
+                res%=MOD;
+
+            }
+            else{//come from patent
+                int po=cnt[root][0];
+                int neg=cnt[root][1];
+
+                //long total1=(po+neg-1);
+                long total2=(inp+inn);
+
+                //must cross
+                long p1 = (A[root]+0l)*(po-1)*(total2);
+                long n1 = (A[root]+0l)*neg*(total2);
+
+                /*System.out.println((root+1)+" "+"go2");
+                System.out.println(po+" "+neg+" "+cnt[next][0]+"  "+cnt[next][1]);
+                System.out.println(p1+"  "+n1+"  ");
+                System.out.println();*/
+
+                res+=p1;if(res<0)res+=MOD;
+                res%=MOD;
+
+                res-=n1;if(res<0)res+=MOD;
+                res%=MOD;
+            }
+        }
+    }
+
+
+}
+
+
+
+
