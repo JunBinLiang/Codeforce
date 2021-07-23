@@ -1,0 +1,242 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int p1=Int()-1;
+            int p2=Int()-1;
+            int p3=Int()-1;
+            char A[][]=new char[n][n];
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<n;j++){
+                    A[i][j]=s.charAt(j);
+                }
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A,p1,p2,p3);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+
+    public void solution(char A[][],int p1,int p2,int p3) {
+        int n =A.length;
+        int dis[][][]=new int[n][n][n];
+        int pre[][][][]=new int[n][n][n][2];
+        for(int i=0;i<dis.length;i++){
+            for(int j=0;j<dis[0].length;j++){
+                Arrays.fill(dis[i][j],INF);
+            }
+        }
+
+        Queue<int[]>q=new LinkedList<>();
+        q.add(new int[]{p1,p2,p3});
+        dis[p1][p2][p3]=0;
+
+        while(q.size()>0){
+            int tuple[]=q.poll();
+            int pp1=tuple[0],pp2=tuple[1],pp3=tuple[2];
+            if(pp1==pp2||pp1==pp3||pp2==pp3)continue;
+            //System.out.println(Arrays.toString(tuple)+"  "+dis[pp1][pp2][pp3]);
+            //move pp1
+
+            for(int next=0;next<n;next++){
+                if(A[pp1][next]==A[pp2][pp3]){
+                    if(dis[pp1][pp2][pp3]+1<dis[next][pp2][pp3]){
+                        dis[next][pp2][pp3]=dis[pp1][pp2][pp3]+1;
+                        pre[next][pp2][pp3]=new int[]{pp1,next,0};
+                        q.add(new int[]{next,pp2,pp3});
+                    }
+                }
+            }
+
+
+            //move pp2
+            for(int next=0;next<n;next++){
+                if(A[pp2][next]==A[pp1][pp3]){
+                    if(dis[pp1][pp2][pp3]+1<dis[pp1][next][pp3]){
+                        dis[pp1][next][pp3]=1+dis[pp1][pp2][pp3];
+                        pre[pp1][next][pp3]=new int[]{pp2,next,1};
+                        q.add(new int[]{pp1,next,pp3});
+                    }
+                }
+            }
+
+            //move pp3
+            for(int next=0;next<n;next++){
+                if(A[pp3][next]==A[pp1][pp2]){
+                    if(dis[pp1][pp2][pp3]+1<dis[pp1][pp2][next]){
+                        dis[pp1][pp2][next]=1+dis[pp1][pp2][pp3];
+                        pre[pp1][pp2][next]=new int[]{pp3,next,2};
+                        q.add(new int[]{pp1,pp2,next});
+                    }
+                }
+            }
+        }
+
+        int mn=INF;
+        int pair[]=new int[]{-1,-1,-1};
+        if(mn>dis[0][1][2]){
+            mn=dis[0][1][2];
+            pair[0]=0;
+            pair[1]=1;
+            pair[2]=2;
+        }
+
+        if(mn>dis[0][2][1]){
+            mn=dis[0][2][1];
+            pair[0]=0;
+            pair[1]=2;
+            pair[2]=1;
+        }
+
+        if(mn>dis[1][2][0]){
+            mn=dis[1][2][0];
+            pair[0]=1;
+            pair[1]=2;
+            pair[2]=0;
+        }
+
+        if(mn>dis[1][0][2]){
+            mn=dis[1][0][2];
+            pair[0]=1;
+            pair[1]=0;
+            pair[2]=2;
+        }
+
+        if(mn>dis[2][0][1]){
+            mn=dis[2][0][1];
+            pair[0]=2;
+            pair[1]=0;
+            pair[2]=1;
+        }
+
+        if(mn>dis[2][1][0]){
+            mn=dis[2][1][0];
+            pair[0]=2;
+            pair[1]=1;
+            pair[2]=0;
+        }
+
+
+        if(mn==INF){
+            out.println(-1);
+            return;
+        }
+
+        //System.out.println(Arrays.toString(pair)+"  "+Arrays.toString(pre[pair[0]][pair[1]][pair[2]]));
+
+        List<int[]>res=new ArrayList<>();
+        while(pair[0]!=p1||pair[1]!=p2||pair[2]!=p3){
+            int p[]=pre[pair[0]][pair[1]][pair[2]];
+            res.add(new int[]{p[0]+1,p[1]+1});
+            if(p[2]==0){
+                pair[0]=p[0];
+            }
+
+            if(p[2]==1){
+                pair[1]=p[0];
+            }
+
+            if(p[2]==2){
+                pair[2]=p[0];
+            }
+        }
+
+        out.println(mn);
+        Collections.reverse(res);
+        for(int p[]:res){
+            out.println(p[0]+" "+p[1]);
+        }
+
+    }
+
+
+}
