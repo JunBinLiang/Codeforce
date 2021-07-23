@@ -879,6 +879,7 @@ ACW 104.[ 货仓选址 (E） （中位数）  ](./code/acw104.txt) <br/>
 ACW 107.[ 超快速排序 (E） （逆序对 + 树状数组）  ](./code/acw107.txt) <br/>
 ACW 109.[ 天才ACM (H） （倍增 + 时间判断）  ](./code/acw109.txt) <br/>
 ACW 122.[ 糖果传递 (M） （思维 + 中位数）  ](./code/acw122.txt) <br/>
+ACW 147.[ 数据备份 (H） （思维 + 贪心 + 堆）  ](./code/acw147.txt) <br/>
 ACW 158.[ 项链 (E） （string 最小表示法）  ](./code/acw158.txt) <br/>
 ACW 201.[ 可见的点 (E） （欧拉函数模板）  ](./code/acw201.txt) <br/>
 ACW 212.[ 计数交换 (E） （组合）  ](./code/acw212.txt) <br/>
