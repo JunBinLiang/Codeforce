@@ -426,7 +426,7 @@ My Codeforce Practice<br/>
 |  960C |[Subsequence Counting (1700) (Constructive)  ](./code/960C.txt)|2021/07/21|
 |  960E |[Alternating Tree (2300) (Tree DP + Combination + Contribution)  ](./code/960E.txt)|2021/07/22|
 |  386C |[Diverse Substrings (2000) (Two Pointer)  ](./code/386C.txt)|2021/07/23|
-
+|  386D |[Game with Points (2100) (Shortest Path)  ](./code/386D.txt)|2021/07/23|
 
 # 分类
 
@@ -710,6 +710,7 @@ My Codeforce Practice<br/>
 37E.[ Trial for Chief(2600) (Shortest Path + Thinking) (Thumb)  ](./code/37E.txt)<br/>
 450D.[ Jzzhu and Cities (2000) (Shortest Path + Thinking) (Thumb) ](./code/450D.txt)<br/>
 545E.[Paths and Trees (2000) (shortest path + thinking)  ](./code/545E.txt)<br/>
+386D.[Game with Points (2100) (Shortest Path)  ](./code/386D.txt)<br/>
 
 ### 0-1 BFS
 1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
