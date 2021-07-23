@@ -1,0 +1,184 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n =Int();int k=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+
+            Solution sol=new Solution(out);
+            sol.solution(A,k);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    int f[][];
+    public void solution(int A[],int k) {
+        long res = 0;
+        long dif[]=new long[A.length-1];
+        for(int i=0;i<dif.length;i++){
+            dif[i]=A[i+1]-A[i];
+        }
+
+        f=new int[dif.length][2];
+        for(int i=0;i<dif.length;i++){
+            f[i][0]=i-1;
+            f[i][1]=i+1;
+        }
+
+        PriorityQueue<long[]>pq=new PriorityQueue<>((a,b)->{
+            return Long.compare(a[0],b[0]);
+        });
+        for(int i=0;i<dif.length;i++){
+            pq.add(new long[]{dif[i],i});
+        }
+
+
+        boolean erase[]=new boolean[dif.length+10];
+        boolean a =false;
+        boolean b=false;
+
+        for(int i=0;i<k;i++){
+            long pair[]=pq.poll();
+            long val=pair[0];
+            int index=(int)(pair[1]);
+            if(erase[index]){
+                i--;
+                continue;
+            }
+
+            res+=val;
+
+            //System.out.println(res+"   "+Arrays.toString(pair));
+
+            int pre=f[index][0];
+            int next=f[index][1];
+            dif[index]=-dif[index];
+
+            if(pre>=0){
+                dif[index]+=dif[pre];
+                erase[pre]=true;
+            }
+            else{
+                dif[index]+=10000000000l;
+            }
+
+
+            if(next<dif.length){
+                dif[index]+=dif[next];
+                erase[next]=true;
+            }
+            else{
+                dif[index]+=10000000000l;
+            }
+
+            pq.add(new long[]{dif[index],index});
+
+            if(pre>=0){
+                f[index][0]=f[pre][0];
+                if(f[pre][0]>=0)f[f[pre][0]][1]=index;
+            }
+            if(next<dif.length){
+                f[index][1]=f[next][1];
+                if(f[next][1]<dif.length)f[f[next][1]][0]=index;
+            }
+        }
+        out.println(res);
+    }
+
+
+
+}
+
+
+
+
