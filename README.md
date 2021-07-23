@@ -425,6 +425,8 @@ My Codeforce Practice<br/>
 |  960D |[Full Binary Tree Queries (2100) (Math + Tree)  ](./code/960D.txt)|2021/07/21|
 |  960C |[Subsequence Counting (1700) (Constructive)  ](./code/960C.txt)|2021/07/21|
 |  960E |[Alternating Tree (2300) (Tree DP + Combination + Contribution)  ](./code/960E.txt)|2021/07/22|
+|  386C |[Diverse Substrings (2000) (Two Pointer)  ](./code/386C.txt)|2021/07/23|
+
 
 # 分类
 
@@ -851,6 +853,7 @@ My Codeforce Practice<br/>
 190D. [ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)<br/>
 224B.[ Array (1500) (Two Pointer + Thinking) ](./code/224B.txt)<br/>
 1029F.[Multicolored Markers (2000) (Two Pointer) ](./code/1029F.txt)<br/>
+386C.[Diverse Substrings (2000) (Two Pointer)  ](./code/386C.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
