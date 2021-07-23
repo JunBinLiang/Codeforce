@@ -1,0 +1,134 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+
+
+            Solution sol=new Solution(out);
+            sol.solution(s);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+
+    public void solution(String s) {
+        char A[]=s.toCharArray();
+        Set<Character>set=new HashSet<>();
+        for(char c:A)set.add(c);
+        out.println(set.size());
+        long dp[]=new long[28];
+        dp[1]=least(A,1);
+        for(int i=1;i<=set.size();i++){
+            dp[i+1]=least(A,i+1);
+            long res=dp[i]-dp[i+1];
+            out.println(res);
+        }
+    }
+
+    public long least(char A[],int k) {//how many substring with at least k distince character
+        int n = A.length;
+        long res = 0;
+        Map<Character, Integer> f = new HashMap<>();
+        for (int i = 0, j = 0; i < A.length; i++) {
+            char c = A[i];
+            if (!f.containsKey(c)) f.put(c, 0);
+            f.put(c, f.get(c) + 1);
+
+            while (f.size() >= k) {
+                res += (n - i);
+                char front = A[j];
+                j++;
+                f.put(front, f.get(front) - 1);
+                if (f.get(front) == 0) f.remove(front);
+            }
+        }
+        return res;
+    }
+}
