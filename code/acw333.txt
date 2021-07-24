@@ -1,0 +1,209 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n=sc.nextInt(),m= sc.nextInt();
+            char A[][]=new char[n][m];
+            for(int i=0;i<n;i++){
+                String s=sc.next();
+                //System.out.println(s);
+                for(int j=0;j<m;j++){
+                    A[i][j]=s.charAt(j);
+                }
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+
+
+        int T=0;
+        for(int t=0;t<T;t++){
+            int n =Int(),m=Int();
+            char A[][]=new char[n][m];
+
+            for(int i=0;i<n;i++){
+                String s=Str();
+                for(int j=0;j<m;j++){
+                    A[i][j]=s.charAt(j);
+                }
+            }
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+
+    public void solution(char A[][]) {
+        //w : a b
+        //x:  b c
+        //y:  a c
+        //z:  a b c
+        int n=A.length,m=A[0].length;
+        int res = 0;
+
+        int mat[][][]=new int[n][m][3];// a b c
+        for(int i  =0;i<n;i++){
+            for(int j=0;j<m;j++){
+                char c=A[i][j];
+                if(c=='a'||c=='w'||c=='y'||c=='z'){
+                    mat[i][j][0]=1;
+                }
+                if(c=='b'||c=='w'||c=='x'||c=='z'){
+                    mat[i][j][1]=1;
+                }
+
+                if(c=='c'||c=='x'||c=='y'||c=='z'){
+                    mat[i][j][2]=1;
+                }
+            }
+        }
+
+
+        for(int j =0;j<m;j++){
+            int sum1  = 0;int sum2=0;int sum3=0;
+            for(int i=0;i<n;i++){
+                if(mat[i][j][0]==0){
+                    sum1=0;
+                }
+                else{
+                    sum1++;
+                }
+                if(mat[i][j][1]==0){
+                    sum2=0;
+                }
+                else{
+                    sum2++;
+                }
+                if(mat[i][j][2]==0){
+                    sum3=0;
+                }
+                else{
+                    sum3++;
+                }
+                mat[i][j][0]=sum1;
+                mat[i][j][1]=sum2;
+                mat[i][j][2]=sum3;
+            }
+        }
+
+        for(int i =0;i<n;i++){
+            for(int k=0;k<3;k++){
+                Stack<int[]>sta=new Stack<>();
+                for(int j=0;j<m;j++){
+                    int cnt = 0;
+                    int height=mat[i][j][k];
+
+
+
+                    while(sta.size()>0&&height<=sta.peek()[0]){
+                        int top[]=sta.pop();
+                        cnt+=top[1];
+                        res=Math.max(res,top[0]*cnt);
+                    }
+                    sta.push(new int[]{height,cnt+1});
+                }
+                int cnt=0;
+                while(sta.size()>0){
+                    int top[]=sta.pop();
+                    cnt+=top[1];
+                    res=Math.max(res,cnt*top[0]);
+                }
+            }
+        }
+        System.out.println(res);
+
+    }
+
+
+
+
+
+
+}
+
