@@ -427,6 +427,8 @@ My Codeforce Practice<br/>
 |  960E |[Alternating Tree (2300) (Tree DP + Combination + Contribution)  ](./code/960E.txt)|2021/07/22|
 |  386C |[Diverse Substrings (2000) (Two Pointer)  ](./code/386C.txt)|2021/07/23|
 |  386D |[Game with Points (2100) (Shortest Path)  ](./code/386D.txt)|2021/07/23|
+|  609E |[Minimum spanning tree for each edge (2100) (MST + Thinking + LCA)  ](./code/609E.txt)|2021/07/24|
+
 
 # 分类
 
@@ -767,10 +769,13 @@ My Codeforce Practice<br/>
 1354D.[Multiset (1900) (Fenwick Tree)  ](./code/1354D.txt)<br/>
 
 ### Sparse Table
-1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
 45B.[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)<br/>
 466E.[ Information Graph	 (2100) (OffLine + Sparse Table + Tree)  ](./code/466E.txt)<br/>
 359D.[ Pair of Numbers (2000) (Binary Search + Sparse Table)  ](./code/359D.txt)<br/>
+
+### LCA
+1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
+609E.[Minimum spanning tree for each edge (2100) (MST + Thinking + LCA Template)  ](./code/609E.txt)<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
