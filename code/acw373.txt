@@ -1,0 +1,218 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int k=Int();
+            int A[][]=new int[k][2];
+            for(int i=0;i<k;i++){
+                A[i][0]=Int()-1;
+                A[i][1]=Int()-1;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,n,m);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+
+    public void solution(int A[][],int N,int M) {
+
+        int grid[][]=new int[N][M];
+        for(int e[]:A){
+            grid[e[0]][e[1]]=-1;
+        }
+
+        int S=N+M;
+        int T=N+M+1;
+        List<Edge>[] graph = MaxFlow.createGraph(N+M+2);
+
+        Set<Integer>set=new HashSet<>();
+
+        for(int i=0;i<grid.length;i++){
+            MaxFlow.addEdge(graph,S,i,1);
+            for(int j=0;j<grid[0].length;j++){
+                if(grid[i][j]==-1)continue;
+                int row = i;
+                int col = N+j;
+                MaxFlow.addEdge(graph,row,col,1);
+                if(!set.contains(col)){
+                    MaxFlow.addEdge(graph,col,T,1);
+                    set.add(col);
+                }
+            }
+        }
+        int flow=MaxFlow.maxFlow(graph,S,T);
+        out.println(flow);
+
+    }
+
+
+
+}
+
+class Edge {
+    int t, rev, cap, f;
+
+    public Edge(int t, int rev, int cap) {
+        this.t = t;
+        this.rev = rev;
+        this.cap = cap;
+    }
+}
+
+class MaxFlow {
+
+
+
+    public static List<Edge>[] createGraph(int nodes) {
+        List<Edge>[] graph = new List[nodes];
+        for (int i = 0; i < nodes; i++)
+            graph[i] = new ArrayList<>();
+        return graph;
+    }
+
+    public static void addEdge(List<Edge>[] graph, int s, int t, int cap) {
+        graph[s].add(new Edge(t, graph[t].size(), cap));
+        graph[t].add(new Edge(s, graph[s].size() - 1, 0));
+    }
+
+    static boolean dinicBfs(List<Edge>[] graph, int src, int dest, int[] dist) {
+        Arrays.fill(dist, -1);
+        dist[src] = 0;
+        int[] Q = new int[graph.length];
+        int sizeQ = 0;
+        Q[sizeQ++] = src;
+        for (int i = 0; i < sizeQ; i++) {
+            int u = Q[i];
+            for (Edge e : graph[u]) {
+                if (dist[e.t] < 0 && e.f < e.cap) {
+                    dist[e.t] = dist[u] + 1;
+                    Q[sizeQ++] = e.t;
+                }
+            }
+        }
+        return dist[dest] >= 0;
+    }
+
+    static int dinicDfs(List<Edge>[] graph, int[] ptr, int[] dist, int dest, int u, int f) {
+        if (u == dest)
+            return f;
+        for (; ptr[u] < graph[u].size(); ++ptr[u]) {
+            Edge e = graph[u].get(ptr[u]);
+            if (dist[e.t] == dist[u] + 1 && e.f < e.cap) {
+                int df = dinicDfs(graph, ptr, dist, dest, e.t, Math.min(f, e.cap - e.f));
+                if (df > 0) {
+                    e.f += df;
+                    graph[e.t].get(e.rev).f -= df;
+                    return df;
+                }
+            }
+        }
+        return 0;
+    }
+
+    public static int maxFlow(List<Edge>[] graph, int src, int dest) {
+        int flow = 0;
+        int[] dist = new int[graph.length];
+        while (dinicBfs(graph, src, dest, dist)) {
+            int[] ptr = new int[graph.length];
+            while (true) {
+                int df = dinicDfs(graph, ptr, dist, dest, src, Integer.MAX_VALUE);
+                if (df == 0)
+                    break;
+                flow += df;
+            }
+        }
+        return flow;
+    }
+
+}
+
