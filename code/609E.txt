@@ -1,0 +1,253 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int edges[][]=new int[m][4];
+
+
+            for(int i=0;i<m;i++){
+                edges[i][0]=Int()-1;
+                edges[i][1]=Int()-1;
+                edges[i][2]=Int();
+                edges[i][3]=i;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(edges,n);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    List<int[]>graph[];
+    long cost = 0;
+    List<int[]>query=new ArrayList<>();
+    int levels[];
+    int f[][][];
+    long res[];
+
+    public void solution(int edges[][],int n) {
+        Arrays.sort(edges,(a,b)->{
+            return a[2]-b[2];
+        });
+        res=new long[edges.length];
+        int nums[]=new int[n];
+        for(int i=0;i<n;i++){
+            nums[i]=i;
+        }
+
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        levels=new int[n];
+        f=new int[n][19][2];
+
+        for(int i=0;i<f.length;i++){
+            for(int j=0;j<f[0].length;j++){
+                Arrays.fill(f[i][j],-1);
+            }
+        }
+
+
+        boolean seen[]=new boolean[edges.length];
+        for(int i=0;i<edges.length;i++){
+            int u=edges[i][0],v=edges[i][1],w=edges[i][2];
+            int r1=find(nums,u);
+            int r2=find(nums,v);
+            if(r1!=r2){
+                cost+=w;
+                seen[edges[i][3]]=true;//edge of the orginal MST
+                nums[r1]=r2;
+                graph[u].add(new int[]{v,w});
+                graph[v].add(new int[]{u,w});
+            }
+            else{
+               query.add(new int[]{u,v,w,edges[i][3]});
+            }
+        }
+
+
+        for(int i=0;i<seen.length;i++){
+            if(seen[i]){
+                res[i]=cost;
+            }
+        }
+
+
+        solve(n,graph,query);
+        for(long i:res){
+            out.println(i);
+        }
+
+    }
+
+    public void solve(int n,List<int[]>graph[],List<int[]>query){
+        dfs(-1,0,0);
+
+        for(int i=1;i<f[0].length;i++){//construc sparse table
+            for(int j=0;j<n;j++){
+                int parent=f[j][i-1][0];
+                if(parent!=-1&&f[parent][i-1][0]!=-1){
+                    f[j][i][0]=f[parent][i-1][0];
+                    f[j][i][1]=Math.max(f[j][i-1][1],f[parent][i-1][1]);
+                }
+            }
+        }
+
+        for(int q[]:query){
+            int mx =LCA(q[0],q[1]);
+            int w=q[2];
+            int index=q[3];
+            res[index]=cost+w-mx;
+        }
+
+    }
+
+    public int LCA(int x,int y){
+        if(levels[x]<levels[y]){
+            return LCA(y,x);
+        }
+
+
+        int mx = 0;
+        for(int i=18; i>=0; i--) {
+            if(f[x][i][0]!=-1&&levels[f[x][i][0]] >= levels[y]) {
+                mx=Math.max(mx,f[x][i][1]);
+                x = f[x][i][0];
+            }
+        }
+
+
+
+        if(x == y) return mx;
+
+
+        for(int i=18; i>=0; i--)//不重合，x 和 y 一起往上跳
+        {
+            if(f[x][i][0] != f[y][i][0]) //只要父亲不同，就跳，父亲相同，就停了
+            {                    // 最后一次，是没有跳上去的
+
+                mx=Math.max(mx,f[x][i][1]);
+                mx=Math.max(mx,f[y][i][1]);
+                x = f[x][i][0];
+                y = f[y][i][0];
+            }
+        }
+
+        mx=Math.max(mx,f[x][0][1]);//one more jump
+        mx=Math.max(mx,f[y][0][1]);//one more jump
+        return mx;
+    }
+
+    public void dfs(int parent,int root,int level){
+        levels[root]=level;
+        for(int pair[]:graph[root]){
+            int next=pair[0],w=pair[1];
+            if(next!=parent){
+                f[next][0][0]=root;
+                f[next][0][1]=w;
+                dfs(root,next,level+1);
+            }
+        }
+    }
+
+
+
+
+    public int find(int nums[],int x){
+        if(nums[x]==x)return x;
+        int root=find(nums,nums[x]);
+        nums[x]=root;
+        return root;
+    }
+
+
+
+}
+
