@@ -882,6 +882,7 @@ My Codeforce Practice<br/>
 
 <br/><br/>
 # ACWing 专题
+ACW 89.[ a ^ b (E） （快速幂）  ](https://github.com/JunBinLiang/Acwing/blob/main/code/89.md) <br/>
 ACW 92.[ 递归实现指数型枚举 (E） （枚举）  ](https://github.com/JunBinLiang/Acwing/blob/main/code/92.md) <br/>
 ACW 103.[ 电影 (E） （HashMap）  ](./code/acw103.txt) <br/>
 ACW 104.[ 货仓选址 (E） （中位数）  ](./code/acw104.txt) <br/>
