@@ -408,7 +408,7 @@ My Codeforce Practice<br/>
 |  359B |[ Permutations (1400) (Constructive)  ](./code/359B.txt)|2021/07/14|
 |  1217D |[ Coloring Edges (2100) (Direct - Graph + Thinking)  ](./code/1217D.txt)|2021/07/14|
 |  360B  |[ Levko and Array (2000) (DP)  ](./code/360B.txt)<br/>
-|  1550D  |[ Excellent Arrays (?) (Combination) (Thumb)  ](./code/1550D.txt)<br/>
+|  1550D  |[ Excellent Arrays (2300) (Combination) (Thumb)  ](./code/1550D.txt)<br/>
 |  1311E  |[ Construct the Binary Tree (2200) (Constructive + Induction) (Thumb)  ](./code/1311E.txt)<br/>
 |  1443D  |[ Extreme Subtraction (1800) (差分)   ](./code/1443D.txt)<br/>
 |  863E  |[ Turn Off The TV (2000) (Interval Problem)   ](./code/863E.txt)<br/>
@@ -428,7 +428,7 @@ My Codeforce Practice<br/>
 |  386C |[Diverse Substrings (2000) (Two Pointer)  ](./code/386C.txt)|2021/07/23|
 |  386D |[Game with Points (2100) (Shortest Path)  ](./code/386D.txt)|2021/07/23|
 |  609E |[Minimum spanning tree for each edge (2100) (MST + Thinking + LCA)  ](./code/609E.txt)|2021/07/24|
-
+|  900D |[Unusual Sequences (2000) (Combination + Math)  ](./code/900D.txt)|2021/07/25|
 
 # 分类
 
@@ -661,7 +661,8 @@ My Codeforce Practice<br/>
 224E.[Partial Sums (1900) (Combination) ](./code/224E.txt)<br/>
 1536E.[ Omkar and Forest (2300) (Combination + Multiple BFS) ](./code/1536E.txt)<br/>
 374B.[  Inna and Nine (1500) (Observation + Combination)  ](./code/374B.txt)<br/>
-1550D.[ Excellent Arrays (?) (Combination) (Thumb)  ](./code/1550D.txt)<br/>
+1550D.[ Excellent Arrays (2300) (Combination) (Thumb)  ](./code/1550D.txt)<br/>
+900D.[Unusual Sequences (2000) (Combination + Math)  ](./code/900D.txt)<br/>
 
 ### Combination : Push N balls into M boxs -> C(N+M-1,N)  ||  C(N+M-1,M-1)
 213B.[ Numbers (1900) (DP + Combination) ](./code/213B.txt)<br/>
