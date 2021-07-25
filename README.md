@@ -429,7 +429,7 @@ My Codeforce Practice<br/>
 |  386D |[Game with Points (2100) (Shortest Path)  ](./code/386D.txt)|2021/07/23|
 |  609E |[Minimum spanning tree for each edge (2100) (MST + Thinking + LCA)  ](./code/609E.txt)|2021/07/24|
 |  900D |[Unusual Sequences (2000) (Combination + Math)  ](./code/900D.txt)|2021/07/25|
-
+|  900C |[Remove Extra One (1700) (Thinking + Left/Right DP)  ](./code/900C.txt)|2021/07/25|
 # 分类
 
 ### DP
@@ -483,6 +483,7 @@ My Codeforce Practice<br/>
 1015E2.[Stars Drawing (Hard Edition) (1900) (DP) ](./code/1015E2.txt)<br/>
 1066E.[ Binary Numbers AND Sum (1700) (Prefix) ](./code/1066E.txt)<br/>
 466C.[ SNumber of Ways (1700) (DP + rihgt/prefix)  ](./code/466C.txt)<br/>
+900C.[Remove Extra One (1700) (Thinking + Left/Right DP)  ](./code/900C.txt)<br/>
 
 
 ### 树DP
