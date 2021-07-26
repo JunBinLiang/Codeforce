@@ -430,6 +430,7 @@ My Codeforce Practice<br/>
 |  609E |[Minimum spanning tree for each edge (2100) (MST + Thinking + LCA)  ](./code/609E.txt)|2021/07/24|
 |  900D |[Unusual Sequences (2000) (Combination + Math)  ](./code/900D.txt)|2021/07/25|
 |  900C |[Remove Extra One (1700) (Thinking + Left/Right DP)  ](./code/900C.txt)|2021/07/25|
+|  1270G |[Subset with Zero Sum (2700) (Thinking + Graph + Sort + Math)  ](./code/1270G.txt)|2021/07/25|
 # 分类
 
 ### DP
@@ -881,6 +882,8 @@ My Codeforce Practice<br/>
 ### K-Skip (i+k)
 571B.[ Minimization (2000) (DP + k skip)  ](./code/571B.txt) <br/>
 
+### 特训
+1270G.[Subset with Zero Sum (2700) (Thinking + Graph + Sort + Math)  ](./code/1270G.txt)<br/>
 
 <br/><br/>
 # ACWing 专题
