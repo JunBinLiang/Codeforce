@@ -434,6 +434,9 @@ My Codeforce Practice<br/>
 |  1551D2 |[D2 - Domino (hard version) (2100) (Constructive)  ](./code/1551D2.txt)|2021/07/26|
 |  1551E |[Fixed Points (2000) (DP + Binary Search)  ](./code/1551E.txt)|2021/07/26|
 |  1551F|[Equidistant Vertices (2200) (DP + Tree)  ](./code/1551F.txt)|2021/07/26|
+|  1551B2.|[Wonderful Coloring - 2 (1400) (Greedy + Binary Search)  ](./code/1551B2.txt)|2021/07/26|
+
+
 # 分类
 
 ### DP
@@ -539,6 +542,7 @@ My Codeforce Practice<br/>
 73B.[  Need For Brake (2000) (Greedy + Sort) ](./code/73B.txt)<br/>
 484D.[ Kindergarten	 (2400) (DP + Greedy + Observation)  ](./code/484D.txt)<br/>
 509C.[Sums of Digits (2000) (Constructive + Greedy)  ](./code/509C.txt)<br/>
+1551B2.[Wonderful Coloring - 2 (1400) (Greedy + Binary Search)  ](./code/1551B2.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
