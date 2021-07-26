@@ -1,0 +1,214 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            int k=Int();
+            Solution sol=new Solution(out);
+            sol.solution(n,m,k);
+        }
+        out.close();
+
+    }
+
+
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    int mod = MOD;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    char A[]=new char[]{'a','b','c','d'};
+    int index=0;
+    public void solution(int n,int m,int k) {
+        if(n*m%2!=0){
+            out.println("NO");
+            return;
+        }
+
+        if(n%2==0){
+            if(k%2!=0){
+                out.println("NO");
+                return;
+            }
+            char res[][]=get1(n,m,k);
+            if(res[0][0]=='e'){
+                out.println("NO");
+                return;
+            }
+            print(res);
+            return;
+        }
+        else{
+            k = n*m/2-k;
+            if(k%2!=0){
+                out.println("NO");
+                return;
+            }
+            char res[][]=get1(m,n,k);
+            if(res[0][0]=='e'){
+                out.println("NO");
+                return;
+            }
+
+            char res1[][]=new char[n][m];
+            for(int x=0;x<n;x++){
+                for(int y=0;y<m;y++){
+                    res1[x][y]=res[y][x];
+                }
+            }
+
+            print(res1);
+            return;
+        }
+    }
+
+    public char[][] get1(int n,int m,int k){
+        char res[][]=new char[n][m];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                res[i][j]='e';
+            }
+        }
+
+        for(int c=0;c+1<m;c+=2){
+            for(int r=0;r<n;r+=2){
+                if(k==0)break;
+                char c1=get(res,r,c-1);
+                char c2=get(res,r-1,c);
+                char c3=get(res,r+1,c-1);
+                while(A[index]==c1||A[index]==c2||A[index]==c3){
+                    index++;
+                    index%=4;
+                }
+                res[r][c]=A[index];
+                res[r][c+1]=A[index];
+
+                c1=get(res,r,c);
+                c2=get(res,r+1,c-1);
+                c3=get(res,r+1,c-1);
+                while(A[index]==c1||A[index]==c2||A[index]==c3){
+                    index++;
+                    index%=4;
+                }
+                res[r+1][c]=A[index];
+                res[r+1][c+1]=A[index];
+                k-=2;
+            }
+            if(k==0)break;
+        }
+
+        if(k!=0){
+            res[0][0]='e';
+            return res;
+        }
+
+
+        for(int c=0;c<m;c++){
+            for(int r=0;r<n;r++){
+                if(res[r][c]!='e')continue;
+                char c1=get(res,r,c-1);
+                char c2=get(res,r-1,c);
+                char c3=get(res,r+1,c-1);
+                while(A[index]==c1||A[index]==c2||A[index]==c3){
+                    index++;
+                    index%=4;
+                }
+                res[r][c]=A[index];
+                res[r+1][c]=A[index];r++;
+            }
+        }
+        return res;
+    }
+
+    public char get(char mat[][],int i,int j){
+        if(i<0||j<0||i>=mat.length||j>=mat[0].length)return 'e';
+        return mat[i][j];
+    }
+
+    public void print(char mat[][]){
+        out.println("YES");
+    }
+
+
+
+}
