@@ -431,6 +431,7 @@ My Codeforce Practice<br/>
 |  900D |[Unusual Sequences (2000) (Combination + Math)  ](./code/900D.txt)|2021/07/25|
 |  900C |[Remove Extra One (1700) (Thinking + Left/Right DP)  ](./code/900C.txt)|2021/07/25|
 |  1270G |[Subset with Zero Sum (2700) (Thinking + Graph + Sort + Math)  ](./code/1270G.txt)|2021/07/25|
+|  1551D2 |[D2 - Domino (hard version) (2100) (Constructive)  ](./code/1551D2.txt)|2021/07/26|
 # 分类
 
 ### DP
@@ -554,6 +555,7 @@ My Codeforce Practice<br/>
 1098B.[Nice table (2100) (Constructive + Brute Force)  ](./code/1098B.txt)<br/>
 404C.[Restore Graph (1800) (Constructive + Graph)  ](./code/404C.txt)<br/>
 960C.[Subsequence Counting (1700) (Constructive)  ](./code/960C.txt)<br/>
+1551D2.[D2 - Domino (hard version) (2100) (Constructive)  ](./code/1551D2.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
