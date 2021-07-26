@@ -433,7 +433,7 @@ My Codeforce Practice<br/>
 |  1270G |[Subset with Zero Sum (2700) (Thinking + Graph + Sort + Math)  ](./code/1270G.txt)|2021/07/25|
 |  1551D2 |[D2 - Domino (hard version) (2100) (Constructive)  ](./code/1551D2.txt)|2021/07/26|
 |  1551E |[Fixed Points (2000) (DP + Binary Search)  ](./code/1551E.txt)|2021/07/26|
-
+|  1551F|[Equidistant Vertices (2200) (DP + Tree)  ](./code/1551F.txt)|2021/07/26|
 # 分类
 
 ### DP
@@ -765,7 +765,7 @@ My Codeforce Practice<br/>
 61D.[ Eternal Victory (1800) (Tree) ](./code/61D.txt) <br/>
 1092E.[ Minimal Diameter Forest (Tree + Greedy) ](./code/1092E.txt)<br/>
 960D.[Full Binary Tree Queries (2100) (Math + Tree)  ](./code/960D.txt)<br/>
-
+1551F.[Equidistant Vertices (2200) (DP + Tree)  ](./code/1551F.txt)<br/>
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
 
