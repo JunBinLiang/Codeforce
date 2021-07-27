@@ -435,7 +435,8 @@ My Codeforce Practice<br/>
 |  1551E |[Fixed Points (2000) (DP + Binary Search)  ](./code/1551E.txt)|2021/07/26|
 |  1551F|[Equidistant Vertices (2200) (DP + Tree)  ](./code/1551F.txt)|2021/07/26|
 |  1551B2.|[Wonderful Coloring - 2 (1400) (Greedy + Binary Search)  ](./code/1551B2.txt)|2021/07/26|
-|  1542D.|[Priority Queue - 2 (2200) (DP + Contribution)  ](./code/1542D.txt)|2021/07/26|
+|  1542D.|[Priority Queue  (2200) (DP + Contribution)  ](./code/1542D.txt)|2021/07/27|
+|  514C.|[Watto and Mechanism (2000) (String Polynomial Hash)  ](./code/514C.txt)|2021/07/27|
 
 # 分类
 
@@ -818,7 +819,8 @@ My Codeforce Practice<br/>
 
 ### String Algorithm
 
-### String Polynominal Hash
+### String Polynominal Hash / Rolling Hash
+514C.[Watto and Mechanism (2000) (String Polynomial Hash)  ](./code/514C.txt)<br/>
 
 ### Z-Algorithm
 126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) <br/>
