@@ -435,7 +435,7 @@ My Codeforce Practice<br/>
 |  1551E |[Fixed Points (2000) (DP + Binary Search)  ](./code/1551E.txt)|2021/07/26|
 |  1551F|[Equidistant Vertices (2200) (DP + Tree)  ](./code/1551F.txt)|2021/07/26|
 |  1551B2.|[Wonderful Coloring - 2 (1400) (Greedy + Binary Search)  ](./code/1551B2.txt)|2021/07/26|
-
+|  1542D.|[Priority Queue - 2 (2200) (DP + Contribution)  ](./code/1542D.txt)|2021/07/26|
 
 # 分类
 
@@ -519,6 +519,7 @@ My Codeforce Practice<br/>
 1151E.[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)<br/>
 903D.[  Almost Difference (2200) (Contribution)  ](./code/903D.txt)<br/>
 960E.[Alternating Tree (2300) (Tree DP + Combination)  ](./code/960E.txt)<br/>
+1542D.[Priority Queue - 2 (2200) (DP + Contribution)  ](./code/1542D.txt)<br/>
 
 ### Kadane
 1155D.[ Beautiful Array	 (1900) (DP + Kadane)  ](./code/1155D.txt) <br/>
