@@ -1,0 +1,177 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            String A[]=new String[n];
+            String q[]=new String[m];
+            for(int i=0;i<n;i++){
+                A[i]=Str();
+            }
+            for(int i=0;i<m;i++){
+                q[i]=Str();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A,q);
+        }
+        out.close();
+
+    }
+
+
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1618964990108856391L;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+    long pow[];
+    int base=5;
+    public void solution(String A[],String q[]) {
+        int mx = 0;
+        for(String s:A){
+            mx=Math.max(mx,s.length());
+        }
+
+        pow=new long[655360];
+        pow[0]=1l;
+        for(int i=1;i<pow.length;i++){
+            pow[i]=pow[i-1]*base;
+            pow[i]%=mod;
+        }
+
+
+        Set<Long>f=new HashSet<>();
+        for(String s:A){
+            int len=s.length();
+            long hash=0;
+            for(int i=0;i<s.length();i++){
+                int c=s.charAt(i)-'a'+1;
+                hash=hash+c*pow[i];
+                hash%=mod;
+            }
+
+            f.add(hash);
+        }
+
+        //System.out.println();
+
+        for(int i=0;i<q.length;i++){
+            String s=q[i];
+            int len=s.length();
+
+            boolean flag=false;
+            long hash=0;
+
+            for(int j = 0;j<s.length();j++){
+                hash=hash+(s.charAt(j)-'a'+1)*pow[j];
+                hash%=mod;
+            }
+
+            for(int j = 0;j<s.length()&&(!flag);j++){
+                for(int x=1;x<=3;x++){//replace
+                    if(s.charAt(j)-'a'+1==x)continue;
+                    long newhash=((hash-(((s.charAt(j)-'a'+1)*pow[j])%mod)+mod))%mod;
+                    newhash+=((x)*pow[j])%mod;
+                    newhash%=mod;
+                    if(f.contains(newhash)){
+                        flag=true;
+                    }
+                }
+            }
+            if(flag)out.println("YES");
+            else out.println("NO");
+        }
+
+    }
+
+    public long gethash(long hash[],int left,int right){
+        if(left>=hash.length||right<0)return 0;
+        if(left==0)return hash[right];
+        long res=(hash[right]-hash[left-1]*pow[right-left+1])%mod;
+        if(res<0)res+=mod;
+        res%=mod;
+        return res;
+    }
+}
