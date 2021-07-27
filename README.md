@@ -818,6 +818,8 @@ My Codeforce Practice<br/>
 
 ### String Algorithm
 
+### String Polynominal Hash
+
 ### Z-Algorithm
 126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) <br/>
 1537E2.[ Erase and Extend (Hard Version)	 (2200) (Suffix Structure + Z-algorithm) ](./code/1537E2.txt)<br/>
