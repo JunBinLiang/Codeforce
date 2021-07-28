@@ -435,9 +435,9 @@ My Codeforce Practice<br/>
 |  1551E |[Fixed Points (2000) (DP + Binary Search)  ](./code/1551E.txt)|2021/07/26|
 |  1551F|[Equidistant Vertices (2200) (DP + Tree)  ](./code/1551F.txt)|2021/07/26|
 |  1551B2.|[Wonderful Coloring - 2 (1400) (Greedy + Binary Search)  ](./code/1551B2.txt)|2021/07/26|
-|  1542D.|[Priority Queue  (2200) (DP + Contribution)  ](./code/1542D.txt)|2021/07/27|
-|  514C.|[Watto and Mechanism (2000) (String Polynomial Hash)  ](./code/514C.txt)|2021/07/27|
-
+|  1542D |[Priority Queue  (2200) (DP + Contribution)  ](./code/1542D.txt)|2021/07/27|
+|  514C |[Watto and Mechanism (2000) (String Polynomial Hash)  ](./code/514C.txt)|2021/07/27|
+|  514D |[R2D2 and Droid Army (2000) (Two Pointer + Segment Tree)  ](./code/514D.txt)|2021/07/28|
 # 分类
 
 ### DP
@@ -878,6 +878,7 @@ My Codeforce Practice<br/>
 224B.[ Array (1500) (Two Pointer + Thinking) ](./code/224B.txt)<br/>
 1029F.[Multicolored Markers (2000) (Two Pointer) ](./code/1029F.txt)<br/>
 386C.[Diverse Substrings (2000) (Two Pointer)  ](./code/386C.txt)<br/>
+514D.[R2D2 and Droid Army (2000) (Two Pointer + Segment Tree)  ](./code/514D.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
