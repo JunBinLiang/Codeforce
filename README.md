@@ -438,6 +438,8 @@ My Codeforce Practice<br/>
 |  1542D |[Priority Queue  (2200) (DP + Contribution)  ](./code/1542D.txt)|2021/07/27|
 |  514C |[Watto and Mechanism (2000) (String Polynomial Hash)  ](./code/514C.txt)|2021/07/27|
 |  514D |[R2D2 and Droid Army (2000) (Two Pointer + Segment Tree)  ](./code/514D.txt)|2021/07/28|
+|  514E |[Darth Vader and Tree (2200) (Matrix + DP)  ](./code/514E.txt)|2021/07/28|
+
 # 分类
 
 ### DP
@@ -530,6 +532,7 @@ My Codeforce Practice<br/>
 450B.[ Jzzhu and Sequences (1300) (Matrix) ](./code/450B.txt) <br/>
 222E.[ Decoding Genome (1900) (DP + Matrix)](./code/222E.txt)<br/>
 1151F.[Sonya and Informatics (2300) (Matrix + DP + Probability) (Thunp) ](./code/1151F.txt)<br/>
+514E.[Darth Vader and Tree (2200) (Matrix + DP)  ](./code/514E.txt)<br/>
 
 
 ### Greedy
