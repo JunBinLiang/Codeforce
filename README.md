@@ -439,7 +439,7 @@ My Codeforce Practice<br/>
 |  514C |[Watto and Mechanism (2000) (String Polynomial Hash)  ](./code/514C.txt)|2021/07/27|
 |  514D |[R2D2 and Droid Army (2000) (Two Pointer + Segment Tree)  ](./code/514D.txt)|2021/07/28|
 |  514E |[Darth Vader and Tree (2200) (Matrix + DP)  ](./code/514E.txt)|2021/07/28|
-
+|  519D |[A and B and Interesting Substrings (1800) (Prefix Sum)  ](./code/519D.txt)|2021/07/29|
 # 分类
 
 ### DP
@@ -496,6 +496,7 @@ My Codeforce Practice<br/>
 1066E.[ Binary Numbers AND Sum (1700) (Prefix) ](./code/1066E.txt)<br/>
 466C.[ SNumber of Ways (1700) (DP + rihgt/prefix)  ](./code/466C.txt)<br/>
 900C.[Remove Extra One (1700) (Thinking + Left/Right DP)  ](./code/900C.txt)<br/>
+519D.[A and B and Interesting Substrings (1800) (Prefix Sum)  ](./code/519D.txt)<br/>
 
 
 ### 树DP
