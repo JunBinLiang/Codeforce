@@ -440,6 +440,8 @@ My Codeforce Practice<br/>
 |  514D |[R2D2 and Droid Army (2000) (Two Pointer + Segment Tree)  ](./code/514D.txt)|2021/07/28|
 |  514E |[Darth Vader and Tree (2200) (Matrix + DP)  ](./code/514E.txt)|2021/07/28|
 |  519D |[A and B and Interesting Substrings (1800) (Prefix Sum)  ](./code/519D.txt)|2021/07/29|
+|  519E |[A and B and Lecture Rooms (2100) (Tree + LCA)  ](./code/519E.txt)|2021/07/29|
+
 # 分类
 
 ### DP
@@ -795,6 +797,7 @@ My Codeforce Practice<br/>
 ### LCA
 1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
 609E.[Minimum spanning tree for each edge (2100) (MST + Thinking + LCA Template)  ](./code/609E.txt)<br/>
+519E.[A and B and Lecture Rooms (2100) (Tree + LCA)  ](./code/519E.txt)<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
