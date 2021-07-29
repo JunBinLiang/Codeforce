@@ -441,6 +441,10 @@ My Codeforce Practice<br/>
 |  514E |[Darth Vader and Tree (2200) (Matrix + DP)  ](./code/514E.txt)|2021/07/28|
 |  519D |[A and B and Interesting Substrings (1800) (Prefix Sum)  ](./code/519D.txt)|2021/07/29|
 |  519E |[A and B and Lecture Rooms (2100) (Tree + LCA)  ](./code/519E.txt)|2021/07/29|
+|  983B |[XOR-pyramid (1800) (Interval DP)  ](./code/983B.txt)|2021/07/29|
+
+
+
 
 # 分类
 
@@ -513,6 +517,7 @@ My Codeforce Practice<br/>
 
 ### 区间DP
 1509C. [The Sports Festival (1800) (DP) ](./code/1509C.txt)  <br/>
+983B.[XOR-pyramid (1800) (Interval DP)  ](./code/983B.txt)<br/>
 
 ### DP + Monoqueue
 1077F2.[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)<br/>
