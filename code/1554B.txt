@@ -1,0 +1,147 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int k=Int();
+            int A[]=Arr(n);
+
+            Solution sol=new Solution(out);
+            sol.solution(A,k);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+
+
+    public void solution(int A[],long k) {
+        // 2 * n at most
+        int n =A.length;
+        long res =Long.MIN_VALUE;
+        int N =Integer.numberOfTrailingZeros(Integer.highestOneBit(n))+1;
+        int mask[][]=new int[(1<<N)][2];
+
+
+
+        for(int i = 0;i<A.length;i++){
+            mask[A[i]]=combine(mask[A[i]],new int[]{i+1,0});
+        }
+
+        for(int i = 0;i < N; ++i) {
+            for(int bit = 0; bit < (mask.length); bit++){
+                if((bit & (1<<i)) !=0){
+                    mask[bit]=combine(mask[bit],mask[bit^(1<<i)]);
+                }
+            }
+        }
+
+
+
+        for(int i=0;i<mask.length;i++){
+            if(mask[i][0]>0&&mask[i][1]>0){
+                res=Math.max(res,(mask[i][0] + 0l)*mask[i][1]-k*(i));
+            }
+        }
+        out.println(res);
+    }
+
+    public int[] combine(int A[],int B[]){
+        int C[]=new int[]{A[0],A[1],B[0],B[1]};
+        Arrays.sort(C);
+        return new int[]{C[2],C[3]};
+    }
+
+
+}
+
+
+
+
+
+
+
+
