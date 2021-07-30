@@ -442,7 +442,7 @@ My Codeforce Practice<br/>
 |  519D |[A and B and Interesting Substrings (1800) (Prefix Sum)  ](./code/519D.txt)|2021/07/29|
 |  519E |[A and B and Lecture Rooms (2100) (Tree + LCA)  ](./code/519E.txt)|2021/07/29|
 |  983B |[XOR-pyramid (1800) (Interval DP)  ](./code/983B.txt)|2021/07/29|
-
+|  1554D |[Diane (1800) (Constructive + Thinking)  ](./code/1554D.txt)|2021/07/30|
 
 
 
@@ -577,6 +577,7 @@ My Codeforce Practice<br/>
 404C.[Restore Graph (1800) (Constructive + Graph)  ](./code/404C.txt)<br/>
 960C.[Subsequence Counting (1700) (Constructive)  ](./code/960C.txt)<br/>
 1551D2.[D2 - Domino (hard version) (2100) (Constructive)  ](./code/1551D2.txt)<br/>
+1554D.[Diane (1800) (Constructive + Thinking)  ](./code/1554D.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
