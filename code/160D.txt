@@ -1,0 +1,216 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m = Int();
+            int edges[][]=new int[m][4];
+            for(int i=0;i<edges.length;i++){
+                edges[i][0]=Int()-1;
+                edges[i][1]=Int()-1;
+                edges[i][2]=Int();
+                edges[i][3]=i;
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(n,edges);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+    String x ="any";
+    String y ="at least one";
+    String z ="none";
+
+    int dis[];int low[];
+    boolean seen[];
+    int t=0;
+    boolean bridge[];
+    public void solution(int n, int edges[][]) {
+        Arrays.sort(edges,(a,b)->{
+            return a[2]-b[2];
+        });
+
+        int nums[]=new int[n];
+        dis=new int[n];
+        low=new int[n];
+        seen=new boolean[n];
+        bridge=new boolean[edges.length];
+        String res[]=new String[edges.length];
+        for(int i=0;i<nums.length;i++){
+            nums[i]=i;
+        }
+
+        for(int i=0;i<edges.length;i++){
+            int j = i;
+            while(j<edges.length&&edges[j][2]==edges[i][2]){
+                j++;
+            }
+
+
+            Map<Integer,List<int[]>>graph=new HashMap<>();
+            for(int k=i;k<j;k++){
+                int u=edges[k][0],v=edges[k][1];
+                int index=edges[k][3];
+                int r1=find(nums,u);
+                int r2=find(nums,v);
+                if(r1==r2){
+                    res[index]=z;
+                }
+                else{
+                    if(!graph.containsKey(r1))graph.put(r1,new ArrayList<>());
+                    if(!graph.containsKey(r2))graph.put(r2,new ArrayList<>());
+                    graph.get(r1).add(new int[]{r2,index});
+                    graph.get(r2).add(new int[]{r1,index});
+                }
+            }
+
+            for(Integer key:graph.keySet()){
+                if(!seen[key]){
+                    dfs(graph,-1,key,-1);
+                }
+            }
+
+
+
+            for(int k=i;k<j;k++){
+                int index=edges[k][3];
+                int u =edges[k][0],v=edges[k][1];
+                int r1=find(nums,u);
+                int r2=find(nums,v);
+                seen[r1]=false;
+                seen[r2]=false;
+                if(r1!=r2){
+                    nums[r1]=r2;
+                }
+                if(bridge[index]){
+                    res[index]=x;
+                }
+                else{//in cycle, can be replace by other
+                    if(res[index]==null){
+                        res[index]=y;
+                    }
+                }
+            }
+            i=j-1;
+        }
+
+
+        for(String s:res){
+            out.println(s);
+        }
+
+    }
+
+    public int find(int nums[],int x){
+        if(nums[x]==x)return x;
+        int root=find(nums,nums[x]);
+        nums[x]=root;
+        return root;
+    }
+
+    public void dfs(Map<Integer,List<int[]>>graph, int parent,int root,int edge){
+        dis[root]=low[root]=t++;
+        seen[root]=true;
+        for(int pair[]:graph.get(root)){
+            int next=pair[0],index=pair[1];
+            if(!seen[next]){
+                dfs(graph,root,next,index);
+                low[root]=Math.min(low[root],low[next]);
+                if(low[next]>dis[root]){//bridge
+                    bridge[index]=true;//any
+                }
+            }else{
+                if(index!=edge){
+                    low[root]=Math.min(low[root],low[next]);
+                }
+            }
+        }
+    }
+
+}
+
