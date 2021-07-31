@@ -445,6 +445,7 @@ My Codeforce Practice<br/>
 |  1554D |[Diane (1800) (Constructive + Thinking)  ](./code/1554D.txt)|2021/07/30|
 |  1554B |[Cobb (1700) (Submask + DP)  ](./code/1554B.txt)|2021/07/30|
 |  165E |[Compatible Numbers	 (2200) (Submask + DP + Bitmask)  ](./code/165E.txt)|2021/07/30|
+|  160D |[Edges in MST (2300) (Graph + MST + Tarjan)  ](./code/160D.txt)|2021/07/31|
 
 # 分类
 
@@ -724,6 +725,8 @@ My Codeforce Practice<br/>
 ### 三环/四环图 
 1468M.[ Similar Sets (2300) (Graph + 四环图)  ](./code/1468M.txt)<br/>
 
+### Tarjan (Bridge)
+160D.[Edges in MST (2300) (Graph + MST + Tarjan)  ](./code/160D.txt)<br/>
 
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
