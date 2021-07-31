@@ -1,0 +1,180 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol=new Solution(out);
+            sol.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(int A[]) {
+        int N = 22;
+        int dp[] = new int[1 << N];
+        Arrays.fill(dp, -1);
+        for (int i : A) {
+            dp[i] = i;
+        }
+
+
+        for (int i = N - 1; i >= 0; i--) {
+            int cur[] = new int[dp.length];
+            Arrays.fill(cur, -1);
+
+            for (int mask = 0; mask < dp.length; mask++) {
+                if ((mask & (1 << i)) != 0) {
+                    int newmask = mask ^ (1 << i);
+                    int a = dp[newmask];
+                    if(a!=-1)cur[mask]=a;
+                } else {
+                    int newmask1 = mask | (1 << i);
+                    int newmask2 = mask;
+                    int a = dp[newmask1];
+                    int b = dp[newmask2];
+                    if(a!=-1)cur[mask]=a;
+                    if(b!=-1)cur[mask]=b;
+
+                }
+            }
+            dp = cur;
+        }
+
+        for (int i : A) {
+            if ((dp[i] & i) != 0) {
+                out.print(-1 + " ");
+            } else {
+                out.print(dp[i] + " ");
+            }
+        }
+    }
+
+
+    /*public int dfs(int state,int i){
+        if(i>=22){
+            if(seen[state]){
+                return state;
+            }
+            else{
+                return -1;
+            }
+        }
+        String s = state+" "+i;
+        if(f.containsKey(s))return f.get(s);
+
+        int res = -1;
+        if((state&(1<<i))!=0){//1a
+            res = dfs(state^(1<<i),i+1);
+        }
+        else{
+            int a = dfs(state|(1<<i),i+1);
+            int b = dfs(state,i+1);
+            if(a!=-1)res=a;
+            if(b!=-1)res=b;
+        }
+        f.put(s,res);
+        return res;
+    }*/
+
+}
+
+
+
+
+
+
+//00
+//10
+//01
+//11
+
