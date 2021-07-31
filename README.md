@@ -444,7 +444,7 @@ My Codeforce Practice<br/>
 |  983B |[XOR-pyramid (1800) (Interval DP)  ](./code/983B.txt)|2021/07/29|
 |  1554D |[Diane (1800) (Constructive + Thinking)  ](./code/1554D.txt)|2021/07/30|
 |  1554B |[Cobb (1700) (Submask + DP)  ](./code/1554B.txt)|2021/07/30|
-
+|  165E |[Compatible Numbers	 (2200) (Submask + DP + Bitmask)  ](./code/165E.txt)|2021/07/30|
 
 # 分类
 
@@ -517,6 +517,7 @@ My Codeforce Practice<br/>
 
 ### Submask DP (SOS)
 1554B.[Cobb (1700) (Submask + DP)  ](./code/1554B.txt)<br/>
+165E.[Compatible Numbers	 (2200) (Submask + DP + Bitmask)  ](./code/165E.txt)<br/>
 
 ### 区间DP
 1509C. [The Sports Festival (1800) (DP) ](./code/1509C.txt)  <br/>
