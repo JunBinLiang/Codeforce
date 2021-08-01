@@ -447,6 +447,7 @@ My Codeforce Practice<br/>
 |  165E |[Compatible Numbers	 (2200) (Submask + DP + Bitmask)  ](./code/165E.txt)|2021/07/30|
 |  160D |[Edges in MST (2300) (Graph + MST + Tarjan)  ](./code/160D.txt)|2021/07/31|
 |  55D |[Beautiful numbers (2500) (Digit DP)  ](./code/55D.txt)|2021/08/01|
+|  899E |[Segments Removal (2000) (UF + Double LinkedList)  ](./code/899E.txt)|2021/08/01|
 # 分类
 
 ### DP
@@ -911,6 +912,7 @@ My Codeforce Practice<br/>
 224C.[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)<br/>
 
 ### LinkedList
+899E.[Segments Removal (2000) (UF + Double LinkedList)  ](./code/899E.txt)<br/>
 
 ### 十字链表
 89C.[ Chip Play (2300) (DFS + 十字linkedlist) ](./code/89C.txt)<br/>
