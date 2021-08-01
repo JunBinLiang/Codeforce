@@ -1,0 +1,192 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+        int id[]=new int[2561];
+        int x=0;
+        for(int i=1;i<=2523;i++){
+            if(2520%i==0){
+                id[i]=x++;
+            }
+        }
+
+        int T=Int();
+        Solution sol1=new Solution(out);
+        for(int t=0;t<T;t++){
+            long l=Long();
+            long r=Long();
+            out.println(sol1.solution(r,id)-sol1.solution(l-1,id));
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+        dp=new long[20][55][2530];
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++){
+                Arrays.fill(dp[i][j],-1);
+            }
+        }
+    }
+
+    int id[];
+    long dp[][][];
+    public long solution(long N,int id[]) {
+        String s = N+"";
+        this.id=id;
+        StringBuilder str=new StringBuilder(s);
+        s=str.reverse().toString();
+        long a= dfs(s,s.length()-1,1,0,1);
+        return a;
+    }
+
+    public long dfs(String num,int index,int lcm,int sum,int same){
+        if(index<0){
+            if(sum%lcm==0){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
+
+        if(same==0&&dp[index][id[lcm]][sum]!=-1){
+            return dp[index][id[lcm]][sum];
+        }
+
+        int d=num.charAt(index)-'0';
+        long res = 0;
+        if(same==1){
+            for(int i=0;i<d;i++){
+                if(i==0){
+                    long newsum=sum*10+i;
+                    newsum%=2520;
+                    res+=dfs(num,index-1,lcm,(int)(newsum),0);
+                }
+                else{
+                    long newsum=sum*10+i;
+                    newsum%=2520;
+                    int g=gcd(lcm,i);
+                    res+=dfs(num,index-1,lcm*i/g,(int)(newsum),0);
+                }
+            }
+
+            if(d==0){
+                long newsum=sum*10+d;
+                newsum%=2520;
+                res+=dfs(num,index-1,lcm,(int)(newsum),1);
+            }
+            else{
+                long newsum=sum*10+d;
+                newsum%=2520;
+                int g=gcd(lcm,d);
+                res+=dfs(num,index-1,lcm*d/g,(int)(newsum),1);
+            }
+        }
+        else{
+            for(int i=0;i<10;i++){
+                if(i==0){
+                    long newsum=sum*10+i;
+                    newsum%=2520;
+                    res+=dfs(num,index-1,lcm,(int)(newsum),0);
+                }
+                else{
+                    long newsum=sum*10+i;
+                    newsum%=2520;
+                    int g=gcd(lcm,i);
+                    res+=dfs(num,index-1,lcm*i/g,(int)(newsum),0);
+                }
+            }
+        }
+        if(same==0)dp[index][id[lcm]][sum]=res;
+        return res;
+    }
+
+    public int gcd(int num1, int num2) {
+        if (num2 != 0){
+            return gcd(num2, num1 % num2);
+        } else{
+            return num1;
+        }
+    }
+
+}
+
