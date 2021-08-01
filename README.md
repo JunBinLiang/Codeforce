@@ -448,6 +448,7 @@ My Codeforce Practice<br/>
 |  160D |[Edges in MST (2300) (Graph + MST + Tarjan)  ](./code/160D.txt)|2021/07/31|
 |  55D |[Beautiful numbers (2500) (Digit DP)  ](./code/55D.txt)|2021/08/01|
 |  899E |[Segments Removal (2000) (UF + Double LinkedList)  ](./code/899E.txt)|2021/08/01|
+|  899D |[Shovel Sale (1800) (Math + Thinking)  ](./code/899D.txt)|2021/08/01|
 # 分类
 
 ### DP
@@ -628,6 +629,7 @@ My Codeforce Practice<br/>
 1542C.[  Strange Function (1600) (Thinking + Math)  ](./code/1542C.txt)<br/>
 1542B.[  Plus and Multiply (1500) (Thinking + Math)  ](./code/1542B.txt)<br/>
 1025C.[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)<br/>
+899D.[Shovel Sale (1800) (Math + Thinking)  ](./code/899D.txt)<br/>
 
 
 ### Reverse Thinking
