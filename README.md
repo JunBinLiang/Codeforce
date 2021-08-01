@@ -446,7 +446,7 @@ My Codeforce Practice<br/>
 |  1554B |[Cobb (1700) (Submask + DP)  ](./code/1554B.txt)|2021/07/30|
 |  165E |[Compatible Numbers	 (2200) (Submask + DP + Bitmask)  ](./code/165E.txt)|2021/07/30|
 |  160D |[Edges in MST (2300) (Graph + MST + Tarjan)  ](./code/160D.txt)|2021/07/31|
-
+|  55D |[Beautiful numbers (2500) (Digit DP)  ](./code/55D.txt)|2021/08/01|
 # 分类
 
 ### DP
@@ -511,6 +511,9 @@ My Codeforce Practice<br/>
 1029E.[Tree with Small Distances (2100) (Tree DP) ](./code/1029D.txt)<br/>
 1092F.[ Tree with Maximum Cost (Tree DP) ](./code/1092F.txt)<br/>
 1025D.[ Recovering BST (2000) (TreeDP)  ](./code/1025D.txt)<br/>
+
+### Digit DP
+55D.[Beautiful numbers (2500) (Digit DP)  ](./code/55D.txt)<br/>
 
 ### Bit DP
 1185G1. [Playlist for Polycarp (easy version) (2100) (Bitmask DP )  ](./code/1185G1.txt)  <br/>
