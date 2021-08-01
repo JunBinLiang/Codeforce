@@ -1,0 +1,196 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+
+        for(int t=0;t<T;t++){
+            int n =Int();
+            int A[]=Arr(n);
+            Solution sol1=new Solution(out);
+            sol1.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+
+    public void solution(int A[]) {
+        int dis[]=new int[A.length+10];
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            if(a[1]==b[1])return a[0]-b[0];
+            return b[1]-a[1];
+        });
+        ListNode head = new ListNode(0,-1,-1);
+        ListNode tail = new ListNode(0,-1,-2);
+        ListNode pre = head;
+        Map<Integer,ListNode>f=new HashMap<>();
+        for(int i=0;i<A.length;i++){
+            int j =i;
+            int cnt=0;
+            while(j<A.length&&A[j]==A[i]){
+                cnt++;
+                j++;
+            }
+            ListNode node = new ListNode(cnt,i,A[i]);
+            f.put(i,node);
+            pq.add(new int[]{i,cnt});
+            dis[i]=cnt;
+            pre.next=node;
+            node.pre=pre;
+            pre=node;
+            i=j-1;
+        }
+
+        pre.next=tail;
+        tail.pre=pre;
+
+        //System.out.println(Arrays.toString(dis));
+
+        int res=0;
+        while(pq.size()>0){
+            int top[]=pq.poll();
+            int l=top[0];
+            int cnt=top[1];
+            if(!f.containsKey(l)||cnt!=dis[l]){
+                continue;
+            }
+            else{
+                res++;
+                ListNode node=f.get(l);
+                f.remove(l);
+                ListNode pren=node.pre;
+                ListNode nextn=node.next;
+                node.pre=null;node.next=null;
+
+                if(pren.val==nextn.val){//merge
+                    ListNode nnext = nextn.next;
+                    pren.cnt+=nextn.cnt;
+                    pren.next=nnext;
+                    nnext.pre=pren;
+                    nextn.next=null;
+                    nextn.pre=null;
+                    f.remove(nextn.l);
+                    pq.add(new int[]{pren.l,pren.cnt});
+                    dis[pren.l]=pren.cnt;
+                }
+                else{
+                    pren.next=nextn;
+                    nextn.pre=pren;
+                }
+
+                /*System.out.println("g"+node);
+                ListNode cur = head.next;
+                while(cur!=tail){
+                    System.out.println(cur);
+                    cur=cur.next;
+                }System.out.println();*/
+            }
+        }
+
+        out.println(res);
+    }
+
+
+    class ListNode{
+        int cnt = 0;
+        int l =0;
+        int val=0;
+        ListNode next=null;
+        ListNode pre = null;
+
+        public ListNode(int cnt,int l,int val){
+            this.cnt=cnt;
+            this.l=l;
+            this.val=val;
+        }
+
+        public String toString(){
+            return l+"  "+cnt+"  "+val;
+        }
+    }
+}
+
