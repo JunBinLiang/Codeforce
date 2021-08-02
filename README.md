@@ -449,6 +449,7 @@ My Codeforce Practice<br/>
 |  55D |[Beautiful numbers (2500) (Digit DP)  ](./code/55D.txt)|2021/08/01|
 |  899E |[Segments Removal (2000) (UF + Double LinkedList)  ](./code/899E.txt)|2021/08/01|
 |  899D |[Shovel Sale (1800) (Math + Thinking)  ](./code/899D.txt)|2021/08/01|
+|  899F |[Letters Removing (2100) (BinarySearch + Fenwick)  ](./code/899F.txt)|2021/08/02|
 # 分类
 
 ### DP
@@ -807,6 +808,7 @@ My Codeforce Practice<br/>
 ### Fenwick Tree
 1364C. [Ehab and Prefix MEXs	 (1600) (Greedy + BIT) ](./code/1364C.txt)<br/>
 1354D.[Multiset (1900) (Fenwick Tree)  ](./code/1354D.txt)<br/>
+899F.[Letters Removing (2100) (BinarySearch + Fenwick)  ](./code/899F.txt)<br/>
 
 ### Sparse Table
 45B.[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)<br/>
