@@ -450,6 +450,8 @@ My Codeforce Practice<br/>
 |  899E |[Segments Removal (2000) (UF + Double LinkedList)  ](./code/899E.txt)|2021/08/01|
 |  899D |[Shovel Sale (1800) (Math + Thinking)  ](./code/899D.txt)|2021/08/01|
 |  899F |[Letters Removing (2100) (BinarySearch + Fenwick)  ](./code/899F.txt)|2021/08/02|
+|  687C |[The Values You Can Make (1900) (背包DP)  ](./code/687C.txt)|2021/08/02|
+
 # 分类
 
 ### DP
@@ -484,7 +486,8 @@ My Codeforce Practice<br/>
 597B.[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)<br/>
 1551E.[Fixed Points (2000) (DP + Binary Search)  ](./code/1551E.txt)<br/>
 
-
+### KnapSack
+687C.[The Values You Can Make (1900) (背包DP)  ](./code/687C.txt)<br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
