@@ -1,0 +1,209 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+
+        for(int t=0;t<T;t++){
+            int n =Int();int m=Int();
+            String s=Str();
+            int q[][]=new int[m][3];
+            for(int i=0;i<m;i++){
+                q[i][0]=Int();
+                q[i][1]=Int();
+                String c=Str();
+                q[i][2]=c.charAt(0);
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(s,q);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+
+    public void solution(String s,int q[][]) {
+        char A[]=s.toCharArray();
+        boolean seen[]=new boolean[A.length];
+        TreeSet<Integer>sets[]=new TreeSet[256];
+        Arrays.setAll(sets,e->new TreeSet<>());
+        for(int i=0;i<A.length;i++){
+            sets[A[i]].add(i);
+        }
+
+        FenWick fen=new FenWick(A.length+1);
+        for(int i=0;i<A.length;i++){
+            fen.update(i,1);
+        }
+
+        for(int p[]:q){
+            int l=p[0]-1,r=p[1]-1;
+            char c=(char)(p[2]);
+
+            TreeSet<Integer>tree=sets[c];
+            l=find(fen,A.length,l);
+            r=find(fen,A.length,r);
+
+            //System.out.println(l+" "+r+"  "+tree);
+
+            Integer ceil=tree.ceiling(l);
+            while(ceil!=null&&ceil<=r){
+                fen.update(ceil,-1);
+                tree.remove(ceil);
+                ceil=tree.ceiling(ceil);
+            }
+
+        }
+
+        char res[]=new char[A.length];
+
+        for(int i=0;i<sets.length;i++){
+            char c = (char)(i);
+            TreeSet<Integer>tree=sets[i];
+            for(Integer index:tree){
+                seen[index]=true;
+                res[index]=c;
+            }
+        }
+        StringBuilder str=new StringBuilder();
+        for(int i=0;i<res.length;i++){
+            if(seen[i]){
+                str.append(res[i]);
+            }
+        }
+        out.println(str.toString());
+    }
+
+    public int find(FenWick fen,int n,int cnt){
+        int l = 0, r=n;
+        int pos = -1;
+        while(l<=r){
+            int mid = l+(r-l)/2;
+            int sum=fen.sumRange(0,mid);
+            if(sum>=cnt+1){
+                pos=mid;
+                r=mid-1;
+            }
+            else{
+                l=mid+1;
+            }
+        }
+        return pos;
+    }
+
+
+    class FenWick {
+        int tree[];//1-index based
+        public FenWick(int n) {
+            tree=new int[n+1];
+            int sum=0;
+        }
+
+        public void update(int i, int val) {
+            i++;
+            while(i<tree.length){
+                tree[i]+=val;
+                i+=(i&-i);
+            }
+        }
+
+        public int sumRange(int i, int j) {
+            return pre(j+1)-pre(i);
+        }
+
+        public int pre(int i){
+            int sum=0;
+            while(i>0){
+                sum+=tree[i];
+                i-=(i&-i);
+            }
+            return sum;
+        }
+    }
+
+}
+
