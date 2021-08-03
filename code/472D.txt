@@ -1,0 +1,212 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+
+        for(int t=0;t<T;t++){
+            int n =Int();
+            int A[][]=new int[n][n];
+            for(int i =0;i<n;i++){
+                for(int j=0;j<n;j++){
+                    A[i][j]=Int();
+                }
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+    List<int[]>graph[];
+    int A[][];
+    boolean flag=true;
+    public void solution(int A[][]) {
+        int n = A.length;
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        this.A=A;
+
+        List<int[]>edges=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            if(A[i][i]!=0){
+                out.println("NO");
+                return;
+            }
+            for(int j=0;j<n;j++){
+                if(A[i][j]!=A[j][i]){
+                    out.println("NO");
+                    return;
+                }
+                if(i!=j){
+                    if(A[i][j]==0){
+                        out.println("NO");
+                        return;
+                    }
+                    if(i<j){
+                        edges.add(new int[]{i,j,A[i][j]});
+                    }
+                }
+            }
+        }
+
+
+        //edges=sort(edges);
+        Collections.sort(edges,(a,b)->{
+            return a[2]-b[2];
+        });
+
+
+        int nums[]=new int[n];
+        for(int i=0;i<n;i++){
+            nums[i]=i;
+        }
+
+
+
+        for(int edge[]:edges){
+            int u=edge[0],v=edge[1];
+            int r1=find(nums,u);int r2=find(nums,v);
+            if(r1!=r2){
+                nums[r1]=r2;
+                graph[u].add(new int[]{v,edge[2]});
+                graph[v].add(new int[]{u,edge[2]});
+            }
+        }
+
+
+
+        int pre=-1;
+        for(int i=0;i<n;i++){
+            int r=find(nums,i);
+            if(pre==-1){
+                pre=r;
+            }
+            else{
+                if(r!=pre){
+                    out.println("NO");
+                    return;
+                }
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            int dis[]=new int[n];
+            dfs(dis,i,-1,i,0);
+            if(!flag){
+                out.println("NO");
+                return;
+            }
+        }
+        out.println("YES");
+
+    }
+    public int find(int nums[],int x){
+        if(nums[x]==x)return x;
+        int root=find(nums,nums[x]);
+        nums[x]=root;
+        return root;
+    }
+
+    public void dfs(int dis[],int i,int parent,int root,int level){
+        if(level>1000000000||level!=A[i][root]||!flag){
+            flag=false;
+            return;
+        }
+        dis[root]=level;
+        for(int p[]:graph[root]){
+            int next=p[0],w=p[1];
+            if(parent!=next){
+                dfs(dis,i,root,next,level+w);
+            }
+        }
+    }
+
+
+}
+
