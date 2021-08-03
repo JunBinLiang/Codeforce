@@ -453,6 +453,9 @@ My Codeforce Practice<br/>
 |  687C |[The Values You Can Make (1900) (背包DP)  ](./code/687C.txt)|2021/08/02|
 |  472D |[Design Tutorial: Inverse the Problem(1900) (MST + Tree + Greedy)  ](./code/472D.txt)|2021/08/03|
 
+ # 上班了！！
+ |  665E |[Beautiful Subarrays (2100) (Trie + XOR)  ](./code/665E.txt)|2021/08/03|
+
 # 分类
 
 ### DP
@@ -916,6 +919,7 @@ My Codeforce Practice<br/>
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
 1285D.[ Dr. Evil Underscores (1900) (Bit + Trie)  ](./code/1285D.txt)<br/>
+665E.[Beautiful Subarrays (2100) (Trie + XOR)  ](./code/665E.txt)<br/>
 
 ### Stack
 224C.[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)<br/>
