@@ -454,6 +454,9 @@ My Codeforce Practice<br/>
 |  472D |[Design Tutorial: Inverse the Problem(1900) (MST + Tree + Greedy)  ](./code/472D.txt)|2021/08/03|
 
  # 上班了！！
+ 
+ |  #  | Title           |    Date  | 
+ |-----|---------------- | --------------- |
  |  665E |[Beautiful Subarrays (2100) (Trie + XOR)  ](./code/665E.txt)|2021/08/03|
 
 # 分类
