@@ -451,6 +451,7 @@ My Codeforce Practice<br/>
 |  899D |[Shovel Sale (1800) (Math + Thinking)  ](./code/899D.txt)|2021/08/01|
 |  899F |[Letters Removing (2100) (BinarySearch + Fenwick)  ](./code/899F.txt)|2021/08/02|
 |  687C |[The Values You Can Make (1900) (背包DP)  ](./code/687C.txt)|2021/08/02|
+|  472D |[Design Tutorial: Inverse the Problem(1900) (MST + Tree + Greedy)  ](./code/472D.txt)|2021/08/03|
 
 # 分类
 
@@ -801,6 +802,7 @@ My Codeforce Practice<br/>
 1092E.[ Minimal Diameter Forest (Tree + Greedy) ](./code/1092E.txt)<br/>
 960D.[Full Binary Tree Queries (2100) (Math + Tree)  ](./code/960D.txt)<br/>
 1551F.[Equidistant Vertices (2200) (DP + Tree)  ](./code/1551F.txt)<br/>
+472D.[Design Tutorial: Inverse the Problem(1900) (MST + Tree + Greedy)  ](./code/472D.txt)<br/>
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
 
