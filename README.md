@@ -458,6 +458,7 @@ My Codeforce Practice<br/>
  |  #  | Title           |    Date  | 
  |-----|---------------- | --------------- |
  |  665E |[Beautiful Subarrays (2100) (Trie + XOR)  ](./code/665E.txt)|2021/08/03|
+ |  665D |[Simple Subset (1800) (Constructive + 打表)  ](./code/665D.txt)|2021/08/04|
 
 # 分类
 
@@ -599,6 +600,7 @@ My Codeforce Practice<br/>
 960C.[Subsequence Counting (1700) (Constructive)  ](./code/960C.txt)<br/>
 1551D2.[D2 - Domino (hard version) (2100) (Constructive)  ](./code/1551D2.txt)<br/>
 1554D.[Diane (1800) (Constructive + Thinking)  ](./code/1554D.txt)<br/>
+665D.[Simple Subset (1800) (Constructive + 打表)  ](./code/665D.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
