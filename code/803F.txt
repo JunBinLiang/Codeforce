@@ -1,0 +1,153 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+
+        for(int t=0;t<T;t++){
+            int n =Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            Solution sol1=new Solution(out);
+            sol1.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+    long pow[];
+    int cnt[];
+    long dp[];
+    long com[];
+    public void solution(int A[]) {
+        Arrays.sort(A);
+        int n =A.length;int mx=A[n-1];
+        pow=new long[n+10];cnt=new int[mx+1];dp=new long[mx+1];com=new long[mx+10];
+
+        Arrays.fill(dp,-1);
+
+        pow[0]=1;
+        for(int i=1;i<pow.length;i++){
+            pow[i]=2*pow[i-1];
+            pow[i]%=mod;
+        }
+
+        for(int i:A){
+            cnt[i]++;
+        }
+
+        for(int g=1;g<=mx;g++){
+            int sum=0;
+            for(int j=g;j<=mx;j+=g){
+                sum+=cnt[j];
+            }
+            com[g]=pow[sum]-1;
+        }
+
+        long res=dfs(mx,1);
+        out.println(res);
+
+
+    }
+
+    public long dfs(int mx,int g){
+        if(dp[g]!=-1){
+            return dp[g];
+        }
+        long res = com[g];
+        for(int i=g+g;i<=mx;i+=g){
+            res-=dfs(mx,i);
+            res+=mod;
+            res%=mod;
+        }
+        dp[g]=res;
+        return res;
+    }
+
+}
+
