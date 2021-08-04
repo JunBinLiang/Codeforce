@@ -922,7 +922,7 @@ My Codeforce Practice<br/>
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
 1285D.[ Dr. Evil Underscores (1900) (Bit + Trie)  ](./code/1285D.txt)<br/>
-665E.[Beautiful Subarrays (2100) (Trie + XOR)  ](./code/665E.txt)<br/>
+665E.[Beautiful Subarrays (2100) (Trie + XOR + Array Implementation)  ](./code/665E.txt)<br/>
 
 ### Stack
 224C.[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)<br/>
