@@ -1,0 +1,175 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+
+        for(int t=0;t<T;t++){
+            int n =Int();int k=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A,k);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+
+
+    public void solution(int A[],int k) {
+        Trie root=new Trie();
+        int xor=0;
+        long res=0;
+        for(int i=0;i<A.length;i++){
+            xor=xor^A[i];
+            if(xor>=k)res++;
+            res+=find(root,k,xor);
+            insert(root,xor);
+        }
+        out.println(res);
+    }
+
+    public int find(Trie root,int k,int xor){
+
+        Trie cur =root;
+        int res=0;
+        for(int i=30;i>=0&&cur!=null;i--){
+            if((k&(1<<i))!=0){//k = 1
+                if((xor&(1<<i))!=0){
+                    cur=cur.left;
+                }
+                else{
+                    cur=cur.right;
+                }
+            }
+            else{//k = 0
+                if((xor&(1<<i))!=0){
+                    if(cur.left!=null)res+=cur.left.cnt;
+                    cur=cur.right;
+                }
+                else{
+                    if(cur.right!=null)res+=cur.right.cnt;
+                    cur=cur.left;
+                }
+            }
+        }
+        if(cur!=null)res+=cur.cnt;
+        return res;
+    }
+
+    class Trie{
+        Trie left;
+        Trie right;
+        int cnt = 0;
+    }
+
+
+    public void insert(Trie root,int n){
+        Trie cur = root;
+        for(int i=30;i>=0;i--){
+            if((n&(1<<i))!=0){
+                if(cur.right==null){
+                    cur.right=new Trie();
+                }
+                cur=cur.right;
+                cur.cnt++;
+            }
+            else{
+                if(cur.left==null){
+                    cur.left=new Trie();
+                }
+                cur=cur.left;
+                cur.cnt++;
+            }
+        }
+    }
+
+}
+
