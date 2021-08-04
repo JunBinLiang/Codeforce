@@ -459,6 +459,7 @@ My Codeforce Practice<br/>
  |-----|---------------- | --------------- |
  |  665E |[Beautiful Subarrays (2100) (Trie + XOR)  ](./code/665E.txt)|2021/08/03|
  |  665D |[Simple Subset (1800) (Constructive + 打表)  ](./code/665D.txt)|2021/08/04|
+ |  803F |[Coprime Subsequences (2000) (DP + 容斥 + Number Theory)  ](./code/803F.txt)|2021/08/04|
 
 # 分类
 
@@ -722,6 +723,9 @@ My Codeforce Practice<br/>
 ### Probability
 626D.[ Jerry's Protest (1800) (Combination + Probability)  ](./code/626D.txt)<br/>
 
+### 容斥
+ 803F.[Coprime Subsequences (2000) (DP + 容斥 + Number Theory)  ](./code/803F.txt)<br/>
+ 
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
 125D. [ Two progressions (2200) (Greedy + 鸽子)  ](./code/125D.txt)<br/>
