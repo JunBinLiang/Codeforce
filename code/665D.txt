@@ -1,0 +1,175 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+
+        for(int t=0;t<T;t++){
+            int n =Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+            Solution sol1=new Solution(out);
+            sol1.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+
+
+    public void solution(int A[]) {
+        boolean primes[]=new boolean[2000000+10];
+        boolean isp[]=new boolean[primes.length];
+        for(int i=2;i<primes.length;i++){
+            if(primes[i])continue;
+            isp[i]=true;
+            for(int j=i;j<primes.length;j+=i){
+                primes[j]=true;
+            }
+        }
+
+        int cnt = 0;
+        for(int i=0;i<A.length;i++){
+            if(A[i]==1){
+                cnt++;
+            }
+        }
+
+        if(cnt>0){
+            if(cnt>1){
+                List<Integer>res=new ArrayList<>();
+                for(int i:A){
+                    if(i!=1&&isp[i+1]){
+                        res.add(i);
+                        break;
+                    }
+                }
+                for(int i=0;i<cnt;i++){
+                    res.add(1);
+                }
+                print(res);
+            }
+            else{
+                for(int i=0;i<A.length;i++){
+                    for(int j=i+1;j<A.length;j++){
+                        if(isp[A[i]+A[j]]){
+                            out.println(2);
+                            out.println(A[i]+" "+A[j]);
+                            return;
+                        }
+                    }
+                }
+                out.println(1);
+                out.println(A[0]);
+            }
+        }
+        else{
+            for(int i=0;i<A.length;i++){
+                for(int j=i+1;j<A.length;j++){
+                    if(isp[A[i]+A[j]]){
+                        out.println(2);
+                        out.println(A[i]+" "+A[j]);
+                        return;
+                    }
+                }
+            }
+            out.println(1);
+            out.println(A[0]);
+        }
+    }
+
+
+    public void print(List<Integer>res){
+        out.println(res.size());
+        for(int i:res){
+            out.print(i+" ");
+        }
+    }
+
+}
+
