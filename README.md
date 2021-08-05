@@ -461,6 +461,7 @@ My Codeforce Practice<br/>
  |  665D |[Simple Subset (1800) (Constructive + 打表)  ](./code/665D.txt)|2021/08/04|
  |  803F |[Coprime Subsequences (2000) (DP + 容斥 + Number Theory)  ](./code/803F.txt)|2021/08/04|
  |  675D |[Tree Construction (1800) (Binary Search Tree + Observation)  ](./code/675D.txt)|2021/08/05|
+ |  675E |[Trains and Statistic (2300) (DP + Greedy + Segment Tree)  ](./code/675E.txt)|2021/08/05|
 
 # 分类
 
@@ -495,6 +496,9 @@ My Codeforce Practice<br/>
 597C.[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)<br/>
 597B.[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)<br/>
 1551E.[Fixed Points (2000) (DP + Binary Search)  ](./code/1551E.txt)<br/>
+
+### DP With Greedy Property
+ 675E.[Trains and Statistic (2300) (DP + Greedy + Segment Tree)  ](./code/675E.txt)<br/>
 
 ### KnapSack
 687C.[The Values You Can Make (1900) (背包DP)  ](./code/687C.txt)<br/>
