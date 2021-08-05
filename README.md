@@ -460,6 +460,7 @@ My Codeforce Practice<br/>
  |  665E |[Beautiful Subarrays (2100) (Trie + XOR)  ](./code/665E.txt)|2021/08/03|
  |  665D |[Simple Subset (1800) (Constructive + 打表)  ](./code/665D.txt)|2021/08/04|
  |  803F |[Coprime Subsequences (2000) (DP + 容斥 + Number Theory)  ](./code/803F.txt)|2021/08/04|
+ |  675D |[Tree Construction (1800) (Binary Search Tree + Observation)  ](./code/675D.txt)|2021/08/05|
 
 # 分类
 
@@ -817,6 +818,9 @@ My Codeforce Practice<br/>
 472D.[Design Tutorial: Inverse the Problem(1900) (MST + Tree + Greedy)  ](./code/472D.txt)<br/>
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
+
+### Binary Search Tree
+675D.[Tree Construction (1800) (Binary Search Tree + Observation)  ](./code/675D.txt)<br/>
 
 ### TreeSet/TreeMap
 926J.[Segments  (2100) (Tree Set + Merge Set  )  ](./code/926J.txt)   <br/>
