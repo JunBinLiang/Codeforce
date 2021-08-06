@@ -1,0 +1,191 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+            int m=Int();
+            int q[]=Arr(m);
+            Solution sol1=new Solution(out);
+            sol1.solution(A,q);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+    int sparse[][];
+    int log[];
+    public void solution(int A[],int q[]) {
+        Map<Integer,Long>f=new HashMap<>();
+        log = new int[A.length+1];
+        sparse=new int[A.length][17];
+        for(int i=0;i<A.length;i++){
+            sparse[i][0]=A[i];
+        }
+
+        for(int i=1;i<sparse[0].length;i++){
+            for(int j=0;j<sparse.length;j++){
+                if(j+(1<<i)-1<A.length){
+                    sparse[j][i]=gcd(sparse[j][i-1],sparse[j+(1<<(i-1))][i-1]);
+                }
+            }
+        }
+
+        for(int i=1;i<log.length;i++){
+            for(int j=17;j>=0;j--){
+                if((i&(1<<j))!=0){
+                    log[i]=j;
+                    break;
+                }
+            }
+        }
+
+
+        //System.out.println(search(0,0));
+        //System.out.println(search(0,1));
+       // System.out.println(search(0,2));
+       // System.out.println(search(1,2));
+
+
+        for(int i=0;i<A.length;i++){
+            int l=i;
+            while(l<A.length){
+                int g=search(i,l);
+                int pos = -1;
+                int left=l,right=A.length-1;
+                while(left<=right){
+                    int mid=left+(right-left)/2;
+                    int gcd=search(i,mid);
+                    if(gcd==g){
+                        pos=mid;
+                        left=mid+1;
+                    }
+                    else{
+                        right=mid-1;
+                    }
+                }
+                int cnt = pos-l+1;
+                if(!f.containsKey(g))f.put(g,0l);
+                f.put(g,f.get(g)+cnt);
+                l=pos+1;
+            }
+        }
+
+        for(int i:q){
+            if(f.containsKey(i)){
+                out.println(f.get(i));
+            }
+            else{
+                out.println(0);
+            }
+        }
+
+    }
+
+    public int search(int l,int r){
+        int size = r-l+1;
+        //System.out.println(size);
+        //System.out.println(size+"  "+log[size]+"  "+l+" "+r);
+        return gcd(sparse[l][log[size]],sparse[r-(1<<log[size])+1][log[size]]);
+    }
+
+    static int gcd(int a, int b) {
+        int tmp = 0;
+        while (b != 0) {
+            tmp = b;
+            b = a % b;
+            a = tmp;
+        }
+        return a;
+    }
+
+
+}
+
+
+
