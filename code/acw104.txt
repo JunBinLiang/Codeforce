@@ -1,3 +1,9 @@
+断开之后则可以看成是排成一行，引用上面的引理
+则相当于求|S[k + 1] - S[k]| + |S[k + 2] - S[k]| + … + |S[n] - S[k]| + |S[n] - S[k] + S[1]| + |S[n] - S[k] + S[2]| +…+|S[n] - S[k] + S[k]|的最小值，由于S[n] = 0
+则相当于求|S[1] - S[k]| + |S[2] - S[k]| +…+ |S[k] - S[k]| + |S[k + 1] - S[k]| +…+ |S[n] - S[k]| 的最小值，其中k∈ [1,n]
+
+
+
 // Don't place your source in a package
 import java.text.DecimalFormat;
 import java.util.*;
