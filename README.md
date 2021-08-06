@@ -464,6 +464,8 @@ My Codeforce Practice<br/>
  |  675E |[Trains and Statistic (2300) (DP + Greedy + Segment Tree)  ](./code/675E.txt)|2021/08/05|
  |  600C |[Trains and Statistic (1800) (Greedy + Constructive)  ](./code/600C.txt)|2021/08/06|
  |  675C |[Money Transfers (2100) (Thinking + Prefix Sum + Transfer)  ](./code/675C.txt)|2021/08/06|
+ |  475D |[CGCDSSQ (2000) (GCD + Sparse Table)  ](./code/475D.txt)|2021/08/06|
+ 
 # 分类
 
 ### DP
@@ -844,6 +846,7 @@ My Codeforce Practice<br/>
 45B.[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)<br/>
 466E.[ Information Graph	 (2100) (OffLine + Sparse Table + Tree)  ](./code/466E.txt)<br/>
 359D.[ Pair of Numbers (2000) (Binary Search + Sparse Table)  ](./code/359D.txt)<br/>
+475D.[CGCDSSQ (2000) (GCD + Sparse Table)  ](./code/475D.txt)<br/>
 
 ### LCA
 1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
