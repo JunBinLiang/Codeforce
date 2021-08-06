@@ -1,0 +1,178 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+            Solution sol1=new Solution(out);
+            sol1.solution(s);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+
+    public void solution(String s) {
+        char A[]=s.toCharArray();
+        int f[]=new int[26];
+        for(char c:A){
+            f[c-'a']++;
+        }
+
+        int cnt=0;
+        for(int i=0;i<26;i++){
+            if(f[i]%2==1){
+                cnt++;
+            }
+        }
+
+        if(A.length%2==1){
+            int x=0;
+            for(int i=25;i>=0;i--){
+                if(f[i]%2==1&&x<cnt/2){
+                    f[i]--;
+                    x++;
+                }
+            }
+
+            x=0;
+            for(int i=0;i<f.length;i++){
+                if(f[i]%2==1&&x<cnt/2){
+                    f[i]++;
+                    x++;
+                }
+            }
+        }
+        else{
+            //System.out.println(Arrays.toString(f)+" ");
+            int x=0;
+            for(int i=25;i>=0;i--){
+                if(f[i]%2==1&&x<cnt/2){
+                    f[i]--;
+                    x++;
+                }
+            }
+
+            x=0;
+            for(int i=0;i<f.length;i++){
+                if(f[i]%2==1&&x<cnt/2){
+                    f[i]++;
+                    x++;
+                }
+            }
+        }
+
+
+        //construct the result
+        int l=0,r=A.length-1;
+        char res[]=new char[A.length];
+        for(int i=0;i<26;i++){
+            if(f[i]==0)continue;
+            if(f[i]%2==0){
+                for(int j=0;j<f[i];j+=2){
+                    res[l++]=(char)(i+'a');
+                    res[r--]=(char)(i+'a');
+                }
+            }
+            else{
+                for(int j=0;j<f[i]-1;j+=2){
+                    res[l++]=(char)(i+'a');
+                    res[r--]=(char)(i+'a');
+                }
+                res[A.length/2]=(char)(i+'a');
+            }
+        }
+
+        out.println(new String(res));
+    }
+
+
+
+}
+
+
+
