@@ -462,6 +462,7 @@ My Codeforce Practice<br/>
  |  803F |[Coprime Subsequences (2000) (DP + 容斥 + Number Theory)  ](./code/803F.txt)|2021/08/04|
  |  675D |[Tree Construction (1800) (Binary Search Tree + Observation)  ](./code/675D.txt)|2021/08/05|
  |  675E |[Trains and Statistic (2300) (DP + Greedy + Segment Tree)  ](./code/675E.txt)|2021/08/05|
+ |  600C |[Trains and Statistic (1800) (Greedy + Constructive)  ](./code/600C.txt)|2021/08/06|
 
 # 分类
 
@@ -584,6 +585,7 @@ My Codeforce Practice<br/>
 484D.[ Kindergarten	 (2400) (DP + Greedy + Observation)  ](./code/484D.txt)<br/>
 509C.[Sums of Digits (2000) (Constructive + Greedy)  ](./code/509C.txt)<br/>
 1551B2.[Wonderful Coloring - 2 (1400) (Greedy + Binary Search)  ](./code/1551B2.txt)<br/>
+600C.[Trains and Statistic (1800) (Greedy + Constructive)  ](./code/600C.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
