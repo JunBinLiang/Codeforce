@@ -463,7 +463,7 @@ My Codeforce Practice<br/>
  |  675D |[Tree Construction (1800) (Binary Search Tree + Observation)  ](./code/675D.txt)|2021/08/05|
  |  675E |[Trains and Statistic (2300) (DP + Greedy + Segment Tree)  ](./code/675E.txt)|2021/08/05|
  |  600C |[Trains and Statistic (1800) (Greedy + Constructive)  ](./code/600C.txt)|2021/08/06|
-
+ |  675C |[Money Transfers (2100) (Thinking + Prefix Sum + Transfer)  ](./code/675C.txt)|2021/08/06|
 # 分类
 
 ### DP
@@ -651,6 +651,9 @@ My Codeforce Practice<br/>
 1542B.[  Plus and Multiply (1500) (Thinking + Math)  ](./code/1542B.txt)<br/>
 1025C.[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)<br/>
 899D.[Shovel Sale (1800) (Math + Thinking)  ](./code/899D.txt)<br/>
+
+### Thinking : Transfer
+675C.[Money Transfers (2100) (Thinking + Prefix Sum + Transfer)  ](./code/675C.txt)<br/>
 
 
 ### Reverse Thinking
