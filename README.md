@@ -465,6 +465,7 @@ My Codeforce Practice<br/>
  |  600C |[Trains and Statistic (1800) (Greedy + Constructive)  ](./code/600C.txt)|2021/08/06|
  |  675C |[Money Transfers (2100) (Thinking + Prefix Sum + Transfer)  ](./code/675C.txt)|2021/08/06|
  |  475D |[CGCDSSQ (2000) (GCD + Sparse Table)  ](./code/475D.txt)|2021/08/06|
+ |  965D |[Single-use Stones (1900) (Thinking + Two Pointer + Greedy)  ](./code/475D.txt)|2021/08/07|
  
 # 分类
 
@@ -588,6 +589,7 @@ My Codeforce Practice<br/>
 509C.[Sums of Digits (2000) (Constructive + Greedy)  ](./code/509C.txt)<br/>
 1551B2.[Wonderful Coloring - 2 (1400) (Greedy + Binary Search)  ](./code/1551B2.txt)<br/>
 600C.[Trains and Statistic (1800) (Greedy + Constructive)  ](./code/600C.txt)<br/>
+965D.[Single-use Stones (1900) (Thinking + Two Pointer + Greedy)  ](./code/475D.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
