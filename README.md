@@ -469,6 +469,10 @@ My Codeforce Practice<br/>
  |  475D |[CGCDSSQ (2000) (GCD + Sparse Table)  ](./code/475D.txt)|2021/08/06|
  |  965D |[Single-use Stones (1900) (Thinking + Two Pointer + Greedy)  ](./code/475D.txt)|2021/08/07|
  |  965E |[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)|2021/08/07|
+ |  920F |[SUM and REPLACE (2000) (LinkedList + UF + Fenwick)  ](./code/920F.txt)|2021/08/08|
+ 
+ 
+ 
  
 # 分类
 
@@ -959,6 +963,7 @@ My Codeforce Practice<br/>
 
 ### LinkedList
 899E.[Segments Removal (2000) (UF + Double LinkedList)  ](./code/899E.txt)<br/>
+920F.[SUM and REPLACE (2000) (Double LinkedList + UF)  ](./code/920F.txt)|2021/08/08|
 
 ### 十字链表
 89C.[ Chip Play (2300) (DFS + 十字linkedlist) ](./code/89C.txt)<br/>
