@@ -1,0 +1,215 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int A[]=Arr(n);
+            int q[][]=new int[m][3];
+            for(int i=0;i<m;i++){
+                for(int j=0;j<3;j++){
+                    q[i][j]=Int();
+                }
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A,q);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+    TreeMap<Integer,Node>f=new TreeMap<>();
+    public void solution(int A[],int q[][]) {
+        int cnt[]=new int[1000000+1];
+        for(int i=1;i<cnt.length;i++){
+            for(int j=i;j<cnt.length;j+=i){
+                cnt[j]++;
+            }
+        }
+
+        FenWick fen=new FenWick(A.length);
+        for(int i=0;i<A.length;i++){
+            fen.update(i,A[i]);
+        }
+
+        Node head=new Node(-1);
+        Node tail=new Node(-2);
+        tail.pos=-1;
+        head.pos=-1;
+        head.next=tail;tail.pre=head;
+        Node cur = head;
+        for(int i=0;i<A.length;i++){
+            Node node=new Node(A[i]);
+            node.pos=i;
+            f.put(i,node);
+            node.next=cur.next;
+            cur.next.pre=node;
+
+            cur.next=node;
+            node.pre=cur;
+            cur=node;
+        }
+
+
+        for(int p[]:q){
+            int opt=p[0];
+            int l=p[1]-1,r=p[2]-1;
+            if(opt==1){//update
+                Integer ceil=f.ceilingKey(l);
+                if(ceil!=null){
+                    Node node=f.get(ceil);
+                    while(node!=null&&node.pos<=r&&node.pos>=0){
+                        int old=node.val;
+                        int newval=cnt[old];
+                        fen.update(node.pos,-(old-newval));
+                        node.val=newval;
+                        Node next=node.next;
+                        if(node.val==1||node.val==2)del(node);
+                        node=next;
+                    }
+                }
+            }
+            else{
+                out.println(fen.sumRange(l,r));
+            }
+        }
+    }
+
+    public void del(Node node){
+        Node pre=node.pre;
+        Node next=node.next;
+        node.next=null;node.pre=null;
+        pre.next=next;
+        next.pre=pre;
+        f.remove(node.pos);
+    }
+
+    class Node{
+        Node next=null;
+        Node pre=null;
+        int val=0;
+        int pos=-1;
+        public Node(int val){
+            this.val=val;
+        }
+    }
+
+
+}
+
+class FenWick {
+    long tree[];//1-index based
+    public FenWick(int n) {
+        tree=new long[n+1];
+    }
+
+    public void update(int i, int val) {
+        i++;
+        while(i<tree.length){
+            tree[i]+=val;
+            i+=(i&-i);
+        }
+    }
+
+    public long sumRange(int i, int j) {
+        return pre(j+1)-pre(i);
+    }
+
+    public long pre(int i){
+        long sum=0;
+        while(i>0){
+            sum+=tree[i];
+            i-=(i&-i);
+        }
+        return sum;
+    }
+}
+
+
+
