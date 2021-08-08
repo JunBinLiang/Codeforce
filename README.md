@@ -453,6 +453,8 @@ My Codeforce Practice<br/>
 |  687C |[The Values You Can Make (1900) (背包DP)  ](./code/687C.txt)|2021/08/02|
 |  472D |[Design Tutorial: Inverse the Problem(1900) (MST + Tree + Greedy)  ](./code/472D.txt)|2021/08/03|
 
+
+
  # 上班了！！
  
  |  #  | Title           |    Date  | 
@@ -466,6 +468,7 @@ My Codeforce Practice<br/>
  |  675C |[Money Transfers (2100) (Thinking + Prefix Sum + Transfer)  ](./code/675C.txt)|2021/08/06|
  |  475D |[CGCDSSQ (2000) (GCD + Sparse Table)  ](./code/475D.txt)|2021/08/06|
  |  965D |[Single-use Stones (1900) (Thinking + Two Pointer + Greedy)  ](./code/475D.txt)|2021/08/07|
+ |  965E |[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)|2021/08/07|
  
 # 分类
 
@@ -628,6 +631,9 @@ My Codeforce Practice<br/>
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
 466B.[ Wonder Room (2000) (Brute Force + Time Complexity)  ](./code/466B.txt)<br/>
+
+### 启发式合并
+ 965E.[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)<br/>
 
 
 ### 枚举 (暴力)
