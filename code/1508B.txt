@@ -1,0 +1,147 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            long k=Long();
+            Solution sol1=new Solution(out);
+            sol1.solution(n,k);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+
+    public void solution(int n,long k) {
+        if(n<63&&k>(1l<<(n-1))){
+            out.println(-1);
+            return;
+        }
+
+
+        List<Integer>res=new ArrayList<>();
+        //constructive
+        for(int i=1;i<=n;i++){
+            int remain=n-i;
+            if(remain>=63||(1l<<(remain-1))>=k){
+                res.add(i);
+            }
+            else{
+                //current : i
+                int j = i;
+                while(j<=n){
+                    if(j==n)break;
+                    int r=n-j;
+                    long cnt=(1l<<(r-1));
+                    if(k<=cnt){
+                        break;
+                    }
+                    else{
+                        k-=cnt;
+                    }
+                    j++;
+                }
+
+                for(int x=j;x>=i;x--){
+                    res.add(x);
+                }
+                i=j;
+            }
+        }
+
+        for(int i:res){
+            out.print(i+" ");
+        }
+        out.println();
+    }
+
+}
+
+
+
+
