@@ -471,7 +471,7 @@ My Codeforce Practice<br/>
  |  965E |[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)|2021/08/07|
  |  920F |[SUM and REPLACE (2000) (LinkedList + UF + Fenwick)  ](./code/920F.txt)|2021/08/08|
  |  1508B |[Almost Sorted (1800) (Observation + Construtive + Math)  ](./code/1508B.txt)|2021/08/09|
- 
+ |  920E |[Connected Components?	 (2100) (Graph)  ](./code/920E.txt)|2021/08/09|
  
  
 # 分类
@@ -769,6 +769,7 @@ My Codeforce Practice<br/>
 24A.[ Ring Road (1400) (Graph) ](./code/24A.txt)<br/>
 1439B.[Graph Subset Problems (2600) (Graph) ](./code/1439B.txt)<br/>
 117C.[  Cycle (2000) (Graph)  ](./code/117C.txt) <br/>
+920E.[  Connected Components?	 (2100) (Graph)  ](./code/920E.txt) <br/>
 
 ### 三环/四环图 
 1468M.[ Similar Sets (2300) (Graph + 四环图)  ](./code/1468M.txt)<br/>
