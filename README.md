@@ -470,7 +470,7 @@ My Codeforce Practice<br/>
  |  965D |[Single-use Stones (1900) (Thinking + Two Pointer + Greedy)  ](./code/475D.txt)|2021/08/07|
  |  965E |[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)|2021/08/07|
  |  920F |[SUM and REPLACE (2000) (LinkedList + UF + Fenwick)  ](./code/920F.txt)|2021/08/08|
- 
+ |  1508B |[Almost Sorted (1800) (Observation + Construtive + Math)  ](./code/1508B.txt)|2021/08/09|
  
  
  
@@ -620,6 +620,7 @@ My Codeforce Practice<br/>
 1551D2.[D2 - Domino (hard version) (2100) (Constructive)  ](./code/1551D2.txt)<br/>
 1554D.[Diane (1800) (Constructive + Thinking)  ](./code/1554D.txt)<br/>
 665D.[Simple Subset (1800) (Constructive + 打表)  ](./code/665D.txt)<br/>
+1508B.[Almost Sorted (1800) (Observation + Construtive + Math)  ](./code/1508B.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
