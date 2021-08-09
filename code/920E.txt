@@ -1,0 +1,192 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int disconnect[][]=new int[m][2];
+            for(int i=0;i<m;i++){
+                for(int j=0;j<2;j++){
+                    disconnect[i][j]=Int()-1;
+                }
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(n,disconnect);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+    Set<Integer>sets[];
+    boolean seen[];
+    public void solution(int n,int disconnect[][]) {
+        seen=new boolean[n];
+        sets=new HashSet[n];
+        Arrays.setAll(sets,e->new HashSet<>());
+        for(int p[]:disconnect){
+            int u=p[0],v=p[1];
+            sets[u].add(v);
+            sets[v].add(u);
+        }
+
+
+        Node head=new Node(-1);
+        Node tail=new Node(-1);
+        head.next=tail;tail.pre=head;
+        Node cur=head;
+        for(int i=0;i<n;i++){
+            Node node=new Node(i);
+            Node next=cur.next;
+            cur.next=node;
+            node.pre=cur;
+            node.next=next;
+            next.pre=node;
+            cur=node;
+        }
+
+
+
+        List<Integer>res=new ArrayList<>();
+
+        for(int i=0;i<n;i++){
+            if(!seen[i]){
+                int cnt=0;
+                Queue<Integer>q=new LinkedList<>();
+                seen[i]=true;
+                q.add(i);
+                while(q.size()>0){
+                    int top=q.poll();
+                    cnt++;
+                    List<Integer>list=new ArrayList<>();
+
+                    Node go = head.next;
+                    while(go.vertex!=-1){
+                        if(sets[top].contains(go.vertex)||seen[go.vertex]){
+                            go=go.next;
+                        }
+                        else{
+                            seen[go.vertex]=true;
+                            q.add(go.vertex);
+                            Node pre=go.pre;
+                            Node next=go.next;
+                            pre.next=next;
+                            next.pre=pre;
+                            go.next=null;
+                            go.pre=null;
+                            go=next;
+                        }
+                    }
+                }
+                res.add(cnt);
+            }
+        }
+
+
+
+        Collections.sort(res);
+        out.println(res.size());
+        for(int i:res){
+            out.print(i+" ");
+        }
+    }
+
+    class Node{
+        Node next=null;
+        Node pre=null;
+        int vertex=-1;
+        public Node(int v){
+            this.vertex=v;
+        }
+    }
+
+}
+
+
+
+
