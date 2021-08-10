@@ -472,7 +472,7 @@ My Codeforce Practice<br/>
  |  920F |[SUM and REPLACE (2000) (LinkedList + UF + Fenwick)  ](./code/920F.txt)|2021/08/08|
  |  1508B |[Almost Sorted (1800) (Observation + Construtive + Math)  ](./code/1508B.txt)|2021/08/09|
  |  920E |[Connected Components?	 (2100) (Graph)  ](./code/920E.txt)|2021/08/09|
- 
+ |  963B |[Destruction of a Tree	 (2000) (Tree)  ](./code/963B.txt)|2021/08/10|
  
 # 分类
 
@@ -841,6 +841,7 @@ My Codeforce Practice<br/>
 960D.[Full Binary Tree Queries (2100) (Math + Tree)  ](./code/960D.txt)<br/>
 1551F.[Equidistant Vertices (2200) (DP + Tree)  ](./code/1551F.txt)<br/>
 472D.[Design Tutorial: Inverse the Problem(1900) (MST + Tree + Greedy)  ](./code/472D.txt)<br/>
+963B.[Destruction of a Tree	 (2000) (Tree)  ](./code/963B.txt)<br/>
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
 
