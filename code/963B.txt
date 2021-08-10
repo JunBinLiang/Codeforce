@@ -1,0 +1,168 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n];
+            for(int i=0;i<n;i++){
+                A[i]=Int();
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+
+    }
+
+    List<Integer>graph[];
+    int cnts[];
+    public void solution(int A[]) {
+        int n=A.length;
+        if(n%2==0){
+            out.println("NO");
+            return;
+        }
+
+        cnts=new int[n];
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+
+        for(int i=0;i<n;i++){
+            if(A[i]==0)continue;
+            int u =i;
+            int v=A[i]-1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        dfs1(-1,0);
+
+
+        out.println("YES");
+        dfs2(-1,0);
+    }
+
+    public int dfs1(int p,int root){
+        int res=1;
+        for(int next:graph[root]){
+            if(next!=p){
+                res+=dfs1(root,next);
+            }
+        }
+        cnts[root]=res;
+        return res;
+    }
+
+    public void dfs2(int p,int root){
+        for(int next:graph[root]){
+            if(next!=p){
+                if(cnts[next]%2==0){
+                    dfs2(root,next);
+                }
+            }
+        }
+
+        out.println(root+1);
+
+        for(int next:graph[root]){
+            if(next!=p){
+                if(cnts[next]%2==1){
+                    dfs2(root,next);
+                }
+            }
+        }
+    }
+
+
+
+}
+
+
+
+
