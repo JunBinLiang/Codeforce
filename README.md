@@ -473,6 +473,7 @@ My Codeforce Practice<br/>
  |  1508B |[Almost Sorted (1800) (Observation + Construtive + Math)  ](./code/1508B.txt)|2021/08/09|
  |  920E |[Connected Components?	 (2100) (Graph)  ](./code/920E.txt)|2021/08/09|
  |  963B |[Destruction of a Tree	 (2000) (Tree)  ](./code/963B.txt)|2021/08/10|
+ |  1557C |[Moamen and XOR	 (1700) (Combination)  ](./code/1557C.txt)|2021/08/10|
  
 # 分类
 
@@ -739,6 +740,7 @@ My Codeforce Practice<br/>
 374B.[  Inna and Nine (1500) (Observation + Combination)  ](./code/374B.txt)<br/>
 1550D.[ Excellent Arrays (2300) (Combination) (Thumb)  ](./code/1550D.txt)<br/>
 900D.[Unusual Sequences (2000) (Combination + Math)  ](./code/900D.txt)<br/>
+1557C.[Moamen and XOR	 (1700) (Combination)  ](./code/1557C.txt)<br/>
 
 ### Combination : Push N balls into M boxs -> C(N+M-1,N)  ||  C(N+M-1,M-1)
 213B.[ Numbers (1900) (DP + Combination) ](./code/213B.txt)<br/>
