@@ -476,6 +476,7 @@ My Codeforce Practice<br/>
  |  1557C |[Moamen and XOR	 (1700) (Combination)  ](./code/1557C.txt)|2021/08/10|
  |  1555E |[Boring Segments	 (2100) (Seg + Range Update)  ](./code/1555E.txt)|2021/08/11|
  |  914C |[Travelling Salesman and Special Numbers (1800) (Digit DP)  ](./code/914C.txt)|2021/08/12|
+ |  453B |[Little Pony and Harmony Chest (2000) (Bitmask DP)  ](./code/453B.txt)|2021/08/13|
 # 分类
 
 ### DP
@@ -552,6 +553,7 @@ My Codeforce Practice<br/>
 ### Bit DP
 1185G1. [Playlist for Polycarp (easy version) (2100) (Bitmask DP )  ](./code/1185G1.txt)  <br/>
 279D.[The Minimum Number of Variables(2200) (Bit DP) ](./code/279D.txt)<br/>
+453B.[Little Pony and Harmony Chest (2000) (Bitmask DP)  ](./code/453B.txt)<br/>
 
 ### Submask DP (SOS)
 1554B.[Cobb (1700) (Submask + DP)  ](./code/1554B.txt)<br/>
