@@ -872,14 +872,16 @@ My Codeforce Practice<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
-52C. [Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   <br/>
 
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
 
-### Segment Tree Range Update
+### Segment Tree Set Range 
 1439C.[ Greedy Shopping (2600) (Segment Tree Range Update + Segment Tree Binay Search) ](./code/1439C.txt)<br/>
 558E.[ A Simple Task	 (2300) (Segment Tree Range Update)  ](./code/558E.txt)<br/>
+
+### Segment Tree  Range Update 
+52C. [Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   <br/>
 
 ### Persistant Segment Tree
 484E.[  Sign on Fence	 (2500) (Persistant Segment Tree + Segment Tree Merge Interval + Binary Search)  ](./code/484E.txt) <br/>
