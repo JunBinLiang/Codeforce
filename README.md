@@ -474,7 +474,7 @@ My Codeforce Practice<br/>
  |  920E |[Connected Components?	 (2100) (Graph)  ](./code/920E.txt)|2021/08/09|
  |  963B |[Destruction of a Tree	 (2000) (Tree)  ](./code/963B.txt)|2021/08/10|
  |  1557C |[Moamen and XOR	 (1700) (Combination)  ](./code/1557C.txt)|2021/08/10|
- 
+ |  1555E |[Boring Segments	 (2100) (Seg + Range Update)  ](./code/1555E.txt)|2021/08/11|
 # 分类
 
 ### DP
@@ -882,6 +882,7 @@ My Codeforce Practice<br/>
 
 ### Segment Tree  Range Update 
 52C. [Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   <br/>
+1555E.[Boring Segments	 (2100) (Seg + Range Update)  ](./code/1555E.txt)<br/>
 
 ### Persistant Segment Tree
 484E.[  Sign on Fence	 (2500) (Persistant Segment Tree + Segment Tree Merge Interval + Binary Search)  ](./code/484E.txt) <br/>
