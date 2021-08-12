@@ -182,11 +182,6 @@ class Solution {
             }
 
             int mid=l+(r-l)/2;
-            if(setTo!=0){
-                left.update(l,mid,setTo);
-                right.update(mid+1,r,setTo);
-                this.setTo=0;
-            }
             if(e<=mid){
                 left.update(s,e,val);
             }
