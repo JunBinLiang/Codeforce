@@ -1,0 +1,175 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+            Solution sol1=new Solution(out);
+            sol1.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+        //System.out.println(15^6);
+    }
+
+    int prime[] = new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53};
+
+    int dp[][][];
+    int states[]=new int[61];
+    public void solution(int A[]) {
+        for(int i=2;i<=60;i++){
+            int val = i;
+            for(int j=0;j< prime.length;j++){
+                int p=prime[j];
+                while(val>1&&val%p==0){
+                    val/=p;
+                    states[i]=states[i]|(1<<j);
+                }
+            }
+        }
+
+
+
+        dp=new int[A.length+1][(1<<16)+1][2];
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++){
+                Arrays.fill(dp[i][j],-1);
+            }
+        }
+
+
+        for(int i=A.length-1;i>=0;i--){
+            for(int state=0;state<(1<<16);state++){
+                if(i+1>=A.length){
+                    dp[i][state][0]=Math.abs(A[i]-1);
+                    dp[i][state][1]=1;
+                }
+                else{
+                    dp[i][state][0]=Math.abs(A[i]-1)+dp[i+1][state][0];
+                    dp[i][state][1]=1;
+                }
+
+                for(int j=2;j<=60;j++){
+                    if(((state&states[j])==states[j]) && ((state|states[j])==state)){
+                        int newstate=state^(states[j]);
+                        int val=-1;
+                        if(i+1>=A.length){
+                            val=Math.abs(A[i]-j);
+                        }
+                        else{
+                            if(dp[i+1][newstate][0]!=-1)val=Math.abs(A[i]-j)+dp[i+1][newstate][0];
+
+                        }
+                        if(val!=-1&&val<dp[i][state][0]){
+                            dp[i][state][0]=val;
+                            dp[i][state][1]=j;
+                        }
+                    }
+
+                }
+            }
+        }
+        //System.out.println(dp[0][(1<<16)-1][0]);
+
+        int state=(1<<16)-1;
+        for(int i=0;i<A.length;i++){
+            int val=dp[i][state][1];
+            if(val==1){
+                out.print(1+" ");
+            }
+            else{
+                int s=states[val];
+                state = state^s;
+                out.print(val+" ");
+            }
+        }
+    }
+
+}
+
+//1111
+//0110
