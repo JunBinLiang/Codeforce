@@ -478,6 +478,7 @@ My Codeforce Practice<br/>
  |  914C |[Travelling Salesman and Special Numbers (1800) (Digit DP)  ](./code/914C.txt)|2021/08/12|
  |  453B |[Little Pony and Harmony Chest (2000) (Bitmask DP)  ](./code/453B.txt)|2021/08/13|
  |  893D |[Credit Card (1900) (Greedy)  ](./code/893D.txt)|2021/08/13|
+ |  700B |[Connecting Universities (1800) (Greedy + Tree)  ](./code/700B.txt)|2021/08/14|
 # 分类
 
 ### DP
@@ -850,6 +851,8 @@ My Codeforce Practice<br/>
 1551F.[Equidistant Vertices (2200) (DP + Tree)  ](./code/1551F.txt)<br/>
 472D.[Design Tutorial: Inverse the Problem(1900) (MST + Tree + Greedy)  ](./code/472D.txt)<br/>
 963B.[Destruction of a Tree	 (2000) (Tree)  ](./code/963B.txt)<br/>
+700B.[Connecting Universities (1800) (Greedy + Tree)  ](./code/700B.txt)<br/>
+
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
 
