@@ -1,0 +1,189 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int k=Int()*2;
+            int A[]=Arr(k);
+
+            int edges[][]=new int[n-1][2];
+            for(int i=0;i<edges.length;i++){
+                edges[i][0]=Int()-1;
+                edges[i][1]=Int()-1;
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(n,A,edges);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+    boolean has[];
+    List<Integer>graph[];
+    int dis[];
+    int cnts[];
+    long cur=0;
+    long res=0;
+    public void solution(int n,int A[],int edges[][]) {
+        has=new boolean[n];
+        dis=new int[n];
+        cnts=new int[n];
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i:A){
+            has[i-1]=true;
+        }
+
+        for(int edge[]:edges){
+            int u=edge[0],v=edge[1];
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        dfs(-1,0,0);
+        for(int i=0;i<dis.length;i++){
+            if(has[i]){
+                res+=dis[i];
+            }
+        }
+
+        dfs1(-1,0);
+        out.println(res);
+    }
+
+    public int dfs(int parent,int root,int level){
+        dis[root]=level;
+        int cnt=0;
+        if(has[root])cnt++;
+        for(int next:graph[root]){
+            if(next!=parent){
+                cnt+=dfs(root,next,level+1);
+            }
+        }
+        cnts[root]=cnt;
+        return cnt;
+    }
+
+
+    public void dfs1(int parent,int root){
+        int cnt=0;
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            return b[0]-a[0];
+        });
+
+        if(has[root]){
+            cnt++;
+            pq.add(new int[]{1,root});
+        }
+
+
+        int sum=cnt;
+        for(int next:graph[root]){
+            if(next!=parent){
+                pq.add(new int[]{cnts[next],next});
+                sum+=cnts[next];
+            }
+        }
+
+        sum-=cur;
+        int first[]=pq.poll();
+        int mx=first[0];
+        if((mx-cur)*2<=sum){
+            res=res-(dis[root]+0l)*sum;
+            cur=0;
+            return;
+        }
+        else{
+            mx-=cur;
+            int other = sum-mx;
+            cur+=other;
+            res=res-(dis[root]+0l)*(2)*other;
+            dfs1(root,first[1]);
+        }
+    }
+
+}
