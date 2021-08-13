@@ -477,6 +477,7 @@ My Codeforce Practice<br/>
  |  1555E |[Boring Segments	 (2100) (Seg + Range Update)  ](./code/1555E.txt)|2021/08/11|
  |  914C |[Travelling Salesman and Special Numbers (1800) (Digit DP)  ](./code/914C.txt)|2021/08/12|
  |  453B |[Little Pony and Harmony Chest (2000) (Bitmask DP)  ](./code/453B.txt)|2021/08/13|
+ |  893D |[Credit Card (1900) (Greedy)  ](./code/893D.txt)|2021/08/13|
 # 分类
 
 ### DP
@@ -602,6 +603,7 @@ My Codeforce Practice<br/>
 1551B2.[Wonderful Coloring - 2 (1400) (Greedy + Binary Search)  ](./code/1551B2.txt)<br/>
 600C.[Trains and Statistic (1800) (Greedy + Constructive)  ](./code/600C.txt)<br/>
 965D.[Single-use Stones (1900) (Thinking + Two Pointer + Greedy)  ](./code/475D.txt)<br/>
+893D.[Credit Card (1900) (Greedy)  ](./code/893D.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
