@@ -482,7 +482,7 @@ My Codeforce Practice<br/>
  |  486E |[LIS of Sequence (2200) (DP + Implementation)  ](./code/486E.txt)|2021/08/14|
  |  486D |[Valid Sets (2100) (Tree + Combination + DP)  ](./code/486D.txt)|2021/08/14|
  |  459D |[Pashmak and Parmida's problem (1800) (Fenwick Tree)  ](./code/459D.txt)|2021/08/14|
- 
+ |  459C |[Pashmak and Buses (1900) (Greedy + Constructive)  ](./code/459C.txt)|2021/08/14|
  
 # 分类
 
@@ -634,6 +634,7 @@ My Codeforce Practice<br/>
 1554D.[Diane (1800) (Constructive + Thinking)  ](./code/1554D.txt)<br/>
 665D.[Simple Subset (1800) (Constructive + 打表)  ](./code/665D.txt)<br/>
 1508B.[Almost Sorted (1800) (Observation + Construtive + Math)  ](./code/1508B.txt)<br/>
+459C.[Pashmak and Buses (1900) (Greedy + Constructive)  ](./code/459C.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
