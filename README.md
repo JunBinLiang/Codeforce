@@ -479,6 +479,7 @@ My Codeforce Practice<br/>
  |  453B |[Little Pony and Harmony Chest (2000) (Bitmask DP)  ](./code/453B.txt)|2021/08/13|
  |  893D |[Credit Card (1900) (Greedy)  ](./code/893D.txt)|2021/08/13|
  |  700B |[Connecting Universities (1800) (Greedy + Tree)  ](./code/700B.txt)|2021/08/14|
+ |  486E |[LIS of Sequence (2200) (DP + Implementation)  ](./code/486E.txt)|2021/08/14|
 # 分类
 
 ### DP
@@ -512,7 +513,7 @@ My Codeforce Practice<br/>
 597C.[Subsequences (1900) (DP + Fenwick)  ](./code/597C.txt)<br/>
 597B.[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)<br/>
 1551E.[Fixed Points (2000) (DP + Binary Search)  ](./code/1551E.txt)<br/>
-
+486E.[LIS of Sequence (2200) (DP + Implementation)  ](./code/486E.txt)<br/>
 ### DP With Greedy Property
  675E.[Trains and Statistic (2300) (DP + Greedy + Segment Tree)  ](./code/675E.txt)<br/>
 
