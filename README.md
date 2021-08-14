@@ -480,6 +480,9 @@ My Codeforce Practice<br/>
  |  893D |[Credit Card (1900) (Greedy)  ](./code/893D.txt)|2021/08/13|
  |  700B |[Connecting Universities (1800) (Greedy + Tree)  ](./code/700B.txt)|2021/08/14|
  |  486E |[LIS of Sequence (2200) (DP + Implementation)  ](./code/486E.txt)|2021/08/14|
+ |  486D |[Valid Sets (2100) (Tree + Combination)  ](./code/486D.txt)|2021/08/15|
+ 
+ 
 # 分类
 
 ### DP
@@ -749,6 +752,7 @@ My Codeforce Practice<br/>
 1550D.[ Excellent Arrays (2300) (Combination) (Thumb)  ](./code/1550D.txt)<br/>
 900D.[Unusual Sequences (2000) (Combination + Math)  ](./code/900D.txt)<br/>
 1557C.[Moamen and XOR	 (1700) (Combination)  ](./code/1557C.txt)<br/>
+486D.[Valid Sets (2100) (Tree + Combination)  ](./code/486D.txt)<br/>
 
 ### Combination : Push N balls into M boxs -> C(N+M-1,N)  ||  C(N+M-1,M-1)
 213B.[ Numbers (1900) (DP + Combination) ](./code/213B.txt)<br/>
