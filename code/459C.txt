@@ -1,0 +1,148 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int k=Int();
+            int d=Int();
+            Solution sol1=new Solution(out);
+            sol1.solution(n,k,d);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(int n,int k,int d) {
+        List<int[]>res=new ArrayList<>();
+        List<List<Integer>>last=new ArrayList<>();
+        List<Integer>l=new ArrayList<>();
+        for(int i=0;i<n;i++)l.add(i);
+        last.add(l);
+
+
+        for(int i=0;i<d;i++){
+            int A[]=new int[n];
+            res.add(A);
+            List<List<Integer>>cur=new ArrayList<>();
+
+            for(List<Integer>list:last){
+                int x = 0;
+                Map<Integer,List<Integer>>f=new HashMap<>();
+                for(int index:list){
+                    A[index]=(x%k)+1;
+                    if(!f.containsKey((x%k)))f.put(x%k,new ArrayList<>());
+                    f.get(x%k).add(index);
+                    x++;
+                }
+
+                for(Integer key:f.keySet()){
+                    cur.add(f.get(key));
+                }
+            }
+            last=cur;
+        }
+
+
+        if(last.size()!=n){
+            out.println(-1);
+            return;
+        }
+        print(res);
+    }
+
+    public void print(List<int[]>res){
+        for(int p[]:res){
+            for(int i:p){
+                out.print(i+" ");
+            }
+            out.println();
+        }
+    }
+
+
+}
