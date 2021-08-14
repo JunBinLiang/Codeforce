@@ -480,7 +480,8 @@ My Codeforce Practice<br/>
  |  893D |[Credit Card (1900) (Greedy)  ](./code/893D.txt)|2021/08/13|
  |  700B |[Connecting Universities (1800) (Greedy + Tree)  ](./code/700B.txt)|2021/08/14|
  |  486E |[LIS of Sequence (2200) (DP + Implementation)  ](./code/486E.txt)|2021/08/14|
- |  486D |[Valid Sets (2100) (Tree + Combination)  ](./code/486D.txt)|2021/08/15|
+ |  486D |[Valid Sets (2100) (Tree + Combination + DP)  ](./code/486D.txt)|2021/08/14|
+ |  459D |[Pashmak and Parmida's problem (1800) (Fenwick Tree)  ](./code/459D.txt)|2021/08/14|
  
  
 # 分类
@@ -872,6 +873,7 @@ My Codeforce Practice<br/>
 1364C. [Ehab and Prefix MEXs	 (1600) (Greedy + BIT) ](./code/1364C.txt)<br/>
 1354D.[Multiset (1900) (Fenwick Tree)  ](./code/1354D.txt)<br/>
 899F.[Letters Removing (2100) (BinarySearch + Fenwick)  ](./code/899F.txt)<br/>
+459D.[Pashmak and Parmida's problem (1800) (Fenwick Tree)  ](./code/459D.txt)<br/>
 
 ### Sparse Table
 45B.[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)<br/>
