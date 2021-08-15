@@ -655,9 +655,11 @@ My Codeforce Practice<br/>
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
 466B.[ Wonder Room (2000) (Brute Force + Time Complexity)  ](./code/466B.txt)<br/>
 
-### 启发式合并
+### 优雅暴力1 : 启发式合并
  965E.[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)<br/>
 
+
+### 优雅暴力2 : 分块
 
 ### 枚举 (暴力)
 1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
