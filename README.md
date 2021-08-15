@@ -483,6 +483,7 @@ My Codeforce Practice<br/>
  |  486D |[Valid Sets (2100) (Tree + Combination + DP)  ](./code/486D.txt)|2021/08/14|
  |  459D |[Pashmak and Parmida's problem (1800) (Fenwick Tree)  ](./code/459D.txt)|2021/08/14|
  |  459C |[Pashmak and Buses (1900) (Greedy + Constructive)  ](./code/459C.txt)|2021/08/14|
+ |  459E |[Pashmak and Graph (1900) (DP)  ](./code/459E.txt)|2021/08/15|
  
 # 分类
 
@@ -518,6 +519,9 @@ My Codeforce Practice<br/>
 597B.[Restaurant (1600) (DP + Binary Search)  ](./code/597B.txt)<br/>
 1551E.[Fixed Points (2000) (DP + Binary Search)  ](./code/1551E.txt)<br/>
 486E.[LIS of Sequence (2200) (DP + Implementation)  ](./code/486E.txt)<br/>
+459E.[Pashmak and Graph (1900) (DP)  ](./code/459E.txt)<br/>
+
+
 ### DP With Greedy Property
  675E.[Trains and Statistic (2300) (DP + Greedy + Segment Tree)  ](./code/675E.txt)<br/>
 
