@@ -484,6 +484,7 @@ My Codeforce Practice<br/>
  |  459D |[Pashmak and Parmida's problem (1800) (Fenwick Tree)  ](./code/459D.txt)|2021/08/14|
  |  459C |[Pashmak and Buses (1900) (Greedy + Constructive)  ](./code/459C.txt)|2021/08/14|
  |  459E |[Pashmak and Graph (1900) (DP)  ](./code/459E.txt)|2021/08/15|
+ |  785E |[Anton and Permutation (2200) (分块 + 逆序对)  ](./code/785E.txt)|2021/08/15|
  
 # 分类
 
@@ -660,6 +661,7 @@ My Codeforce Practice<br/>
 
 
 ### 优雅暴力2 : 分块
+785E.[Anton and Permutation (2200) (分块 + 逆序对)  ](./code/785E.txt)<br/>
 
 ### 枚举 (暴力)
 1108E1. [Array and Segments (Easy version)	 (1800) (Brute Force)  ](./code/1108E1.txt) <br/>
