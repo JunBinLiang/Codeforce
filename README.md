@@ -695,6 +695,7 @@ My Codeforce Practice<br/>
 ### 逆数对
 987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
 911D.[ Inversion Counting (1800) (逆数对)  ](./code/911D.txt)<br/>
+540E[Infinite Inversions  (2100) (无限逆序对+ Fenwick Tree + Thinking )  ](./code/540E.txt)<br/>
 
 ### Game
 1363C. [Game On Tree (1600) ( Game + Greedy) ](./code/1363C.txt)   <br/>
