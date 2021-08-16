@@ -1,0 +1,134 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            String s=Str();
+            int q[][]=new int[m][2];
+            for(int i=0;i<m;i++){
+                q[i][0]=Int()-1;
+                q[i][1]=Int()-1;
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(s,q);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(String s,int q[][]) {
+        char A[]=s.toCharArray();
+        char[][] check= new char[][]{{'a','b','c'},{'a','c','b'},{'b','a','c'},{'b','c','a'},{'c','a','b'},{'c','b','a'}};
+
+        int pre[][]=new int[6][A.length];
+        for(int i=0;i<check.length;i++){
+            char B[]=check[i];
+            int cost = 0;
+            for(int j=0;j<A.length;j++){
+                if(B[j%3]!=A[j])cost++;
+                pre[i][j]=cost;
+            }
+        }
+
+
+        for(int p[]:q){
+            int l=p[0],r=p[1];
+            int res=Integer.MAX_VALUE;
+            for(int i=0;i<6;i++){
+                int cost = pre[i][r];
+                if(l-1>=0)cost-=pre[i][l-1];
+                res=Math.min(res,cost);
+            }
+            out.println(res);
+        }
+
+    }
+
+
+}
