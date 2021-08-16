@@ -485,6 +485,13 @@ My Codeforce Practice<br/>
  |  459C |[Pashmak and Buses (1900) (Greedy + Constructive)  ](./code/459C.txt)|2021/08/14|
  |  459E |[Pashmak and Graph (1900) (DP)  ](./code/459E.txt)|2021/08/15|
  |  785E |[Anton and Permutation (2200) (分块 + 逆序对)  ](./code/785E.txt)|2021/08/15|
+ |  327C |[Magic Five (1700) (Geometric Progression)  ](./code/327C.txt)|2021/08/16|
+ 
+ 
+ 
+ 
+ 
+ 
  
 # 分类
 
@@ -764,6 +771,9 @@ My Codeforce Practice<br/>
 900D.[Unusual Sequences (2000) (Combination + Math)  ](./code/900D.txt)<br/>
 1557C.[Moamen and XOR	 (1700) (Combination)  ](./code/1557C.txt)<br/>
 486D.[Valid Sets (2100) (Tree + Combination)  ](./code/486D.txt)<br/>
+
+### Geometric Progression
+327C.[Magic Five (1700) (Geometric Progression)  ](./code/327C.txt)<br/>
 
 ### Combination : Push N balls into M boxs -> C(N+M-1,N)  ||  C(N+M-1,M-1)
 213B.[ Numbers (1900) (DP + Combination) ](./code/213B.txt)<br/>
