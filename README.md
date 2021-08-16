@@ -486,7 +486,7 @@ My Codeforce Practice<br/>
  |  459E |[Pashmak and Graph (1900) (DP)  ](./code/459E.txt)|2021/08/15|
  |  785E |[Anton and Permutation (2200) (分块 + 逆序对)  ](./code/785E.txt)|2021/08/15|
  |  327C |[Magic Five (1700) (Geometric Progression)  ](./code/327C.txt)|2021/08/16|
- 
+ |  1555D |[Say No to Palindromes (1600) (Observation + Brute Force + Prefix Sum)  ](./code/1555D.txt)|2021/08/16|
  
  
  
@@ -695,7 +695,7 @@ My Codeforce Practice<br/>
 1542B.[  Plus and Multiply (1500) (Thinking + Math)  ](./code/1542B.txt)<br/>
 1025C.[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)<br/>
 899D.[Shovel Sale (1800) (Math + Thinking)  ](./code/899D.txt)<br/>
-
+1555D.[Say No to Palindromes (1600) (Observation + Brute Force + Prefix Sum)  ](./code/1555D.txt)<br/>
 ### Thinking : Transfer
 675C.[Money Transfers (2100) (Thinking + Prefix Sum + Transfer)  ](./code/675C.txt)<br/>
 
