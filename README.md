@@ -487,7 +487,7 @@ My Codeforce Practice<br/>
  |  785E |[Anton and Permutation (2200) (分块 + 逆序对)  ](./code/785E.txt)|2021/08/15|
  |  327C |[Magic Five (1700) (Geometric Progression)  ](./code/327C.txt)|2021/08/16|
  |  1555D |[Say No to Palindromes (1600) (Observation + Brute Force + Prefix Sum)  ](./code/1555D.txt)|2021/08/16|
- 
+ |  1132F |[Clear the String (2000) (区间 DP)  ](./code/1132F.txt)|2021/08/17|
  
  
  
@@ -581,6 +581,7 @@ My Codeforce Practice<br/>
 ### 区间DP
 1509C. [The Sports Festival (1800) (DP) ](./code/1509C.txt)  <br/>
 983B.[XOR-pyramid (1800) (Interval DP)  ](./code/983B.txt)<br/>
+1132F.[Clear the String (2000) (区间 DP)  ](./code/1132F.txt)<br/>
 
 ### DP + Monoqueue
 1077F2.[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)<br/>
