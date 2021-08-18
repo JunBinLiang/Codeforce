@@ -1,0 +1,217 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int k=Int();
+            String s=Str();
+            String opt=Str();
+
+            Solution sol1=new Solution(out);
+            sol1.solution(s,opt,k);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(String s,String opt,int pos) {
+        char A[]=s.toCharArray();
+        Node head = new Node();
+        Node tail=new Node();
+        head.next=tail;
+        tail.pre=head;
+
+        //print(head);
+
+        int match[]=new int[A.length];
+        Stack<Integer>sta=new Stack<>();
+        for(int i=0;i<A.length;i++){
+            if(A[i]=='('){
+                sta.push(i);
+            }
+            else{
+                int peek=sta.pop();
+                match[peek]=i;
+                match[i]=peek;
+            }
+        }
+
+        Node nodes[]=new Node[A.length];
+        Node cur = head;
+        for(int i=0;i<A.length;i++){
+            nodes[i]=new Node();
+            nodes[i].c=A[i];
+            Node next=cur.next;
+            cur.next=nodes[i];
+            nodes[i].pre=cur;
+            nodes[i].next=next;
+            next.pre=nodes[i];
+            cur=cur.next;
+        }
+
+        for(int i=0;i<nodes.length;i++){
+            nodes[i].match=nodes[match[i]];
+        }
+
+        cur = nodes[pos-1];
+
+        for(char c : opt.toCharArray()){
+            //print(head);
+            if(c=='R'){
+                cur = cur.next;
+            }
+            else if(c=='L'){
+                cur=cur.pre;
+            }
+            else{
+                Node mat = cur.match;
+                if(mat.c=='('){
+                    Node pre = mat.pre;
+                    Node next = cur.next;
+                    pre.next=next;
+                    next.pre=pre;
+                    cur.next=null;
+                    mat.pre=null;
+
+                    if(next==tail){
+                        cur=pre;
+                    }
+                    else{
+                        cur=next;
+                    }
+                }
+                else{
+                    Node pre = cur.pre;
+                    Node next=mat.next;
+
+                    pre.next=next;
+                    next.pre=pre;
+                    cur.pre=null;
+                    mat.next=null;
+
+                    if(next==tail){
+                        cur=pre;
+                    }
+                    else{
+                        cur=next;
+                    }
+                }
+            }
+        }
+
+
+        //print(head);
+
+        StringBuilder str=new StringBuilder();
+        cur =head.next;
+        while(cur!=tail){
+            str.append(cur.c);
+            cur=cur.next;
+        }
+        out.println(str.toString());
+    }
+
+    public void print(Node head){
+        StringBuilder str=new StringBuilder();
+        while(head!=null){
+            str.append(head.c);
+            head=head.next;
+        }
+        System.out.println(str.toString());
+    }
+
+    class Node{
+        Node next=null;
+        Node pre=null;
+        Node match = null;
+        char c = 'x';
+    }
+
+}
+
