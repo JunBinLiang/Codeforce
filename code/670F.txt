@@ -1,0 +1,290 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+            String ss=Str();
+
+            Solution sol1=new Solution(out);
+            sol1.solution(s,ss);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+    int cnt1[]=new int[10];
+    int cnt2[]=new int[10];
+    public void solution(String s,String t) {
+        char A[]=s.toCharArray();
+        char B[]=t.toCharArray();
+
+        for(char c:A){
+            cnt1[c-'0']++;
+        }
+
+        for(char c:B){
+            cnt2[c-'0']++;
+        }
+
+        int len = t.length();
+
+
+        for(int j=len;j<=s.length();j++){
+            if(check(j)){
+                len=j;
+                break;
+            }
+        }
+
+
+        //System.out.println(len);
+
+        for(char c:B){
+            cnt1[c-'0']--;
+        }
+        while(len>0){
+            cnt1[len%10]--;
+            len/=10;
+        }
+
+
+        StringBuilder res=new StringBuilder();
+        //System.out.println(Arrays.toString(cnt1));
+
+        if(B[0]=='0'){
+            for(int i=1;i<cnt1.length;i++){
+                if(cnt1[i]>0){
+                    res.append(i+"");
+                    cnt1[i]--;
+                    break;
+                }
+            }
+
+            for(int j = 0; j <cnt1[0];j++){
+                res.append("0");
+            }
+            res.append(t);
+
+            for(int i=1;i<cnt1.length;i++){
+                for(int x=0;x<cnt1[i];x++){
+                    res.append(i+"");
+                }
+            }
+
+        }
+        else{
+            int d = -1;
+            for(int i=1;i<cnt1.length;i++){
+                if(cnt1[i]>0){
+                    d=i;
+                    break;
+                }
+            }
+
+            if(d>B[0]-'0'){
+                res.append(t);
+                for(int i=0;i<cnt1.length;i++){
+                    for(int x=0;x<cnt1[i];x++){
+                        res.append(i+"");
+                    }
+                }
+            }
+            else{
+                if(d!=-1){
+                    boolean use = false;
+                    StringBuilder res1 = new StringBuilder();
+                    res.append(t);
+
+
+
+                    for(int i=0;i<cnt1.length;i++){
+                        if(i==B[0]-'0'&&!use){
+                            for(int x=0;x<cnt1[i];x++){
+                                res.append(i+"");
+                            }
+                        }
+                        else{
+                            for(int x=0;x<cnt1[i];x++){
+                                res.append(i+"");
+                            }
+                        }
+                    }
+
+
+                    res1.append(d+"");
+                    cnt1[d]--;
+
+
+                    for(int i=0;i<cnt1.length;i++){
+                        if(i==B[0]-'0'){
+                            if(check1(t)){
+                                res1.append(t);
+                                for(int x=0;x<cnt1[i];x++){
+                                    res1.append(i+"");
+                                }
+                            }
+                            else{
+                                for(int x=0;x<cnt1[i];x++){
+                                    res1.append(i+"");
+                                }
+                                res1.append(t);
+                            }
+                        }
+                        else{
+                            for(int x=0;x<cnt1[i];x++){
+                                res1.append(i+"");
+                            }
+                        }
+                    }
+
+
+                    //System.out.println(res1.toString());
+                    //System.out.println(res.toString());
+                    out.println(com(res1.toString(),res.toString()));
+                    return;
+                }
+                else{
+                    res.append(t);
+                    for(int i=0;i<cnt1.length;i++){
+                        for(int x=0;x<cnt1[i];x++){
+                            res.append(i+"");
+                        }
+                    }
+                }
+
+            }
+
+        }
+        out.println(res.toString());
+    }
+
+    public boolean check(int len){
+        int d[]=new int[10];
+        int l = len;
+        while(l!=0){
+            d[l%10]++;
+            l/=10;
+        }
+
+
+        int sum = 0;
+        for(int i=0;i<cnt1.length;i++){
+            if(cnt1[i]<d[i])return false;
+            sum+=cnt1[i]-d[i];
+        }
+
+        for(int i=0;i<10;i++){
+            if(cnt1[i]-d[i]<cnt2[i]){
+                return false;
+            }
+        }
+        return sum == len;
+    }
+
+    public boolean check1(String s){
+        char c = s.charAt(0);
+        int i = 1;
+        while(i<s.length()){
+            if(s.charAt(i)==c)i++;
+            else{
+                if(s.charAt(i)<c){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+    public String com(String a,String b){
+        if(a.compareTo(b)<0)return a;
+        else return b;
+    }
+}
+
+
