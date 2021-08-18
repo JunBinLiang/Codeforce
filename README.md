@@ -488,7 +488,7 @@ My Codeforce Practice<br/>
  |  327C |[Magic Five (1700) (Geometric Progression)  ](./code/327C.txt)|2021/08/16|
  |  1555D |[Say No to Palindromes (1600) (Observation + Brute Force + Prefix Sum)  ](./code/1555D.txt)|2021/08/16|
  |  1132F |[Clear the String (2000) (区间 DP)  ](./code/1132F.txt)|2021/08/17|
- 
+ |  1132E |[Knapsack (2300) (DP + 背包 + 拆背包)  ](./code/1132E.txt)|2021/08/17|
  
  
  
@@ -535,6 +535,7 @@ My Codeforce Practice<br/>
 
 ### KnapSack
 687C.[The Values You Can Make (1900) (背包DP)  ](./code/687C.txt)<br/>
+1132E.[Knapsack (2300) (DP + 背包 + 拆背包)  ](./code/1132E.txt)<br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
