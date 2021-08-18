@@ -490,7 +490,7 @@ My Codeforce Practice<br/>
  |  1132F |[Clear the String (2000) (区间 DP)  ](./code/1132F.txt)|2021/08/17|
  |  1132E |[Knapsack (2300) (DP + 背包 + 拆背包)  ](./code/1132E.txt)|2021/08/17|
  |  670E |[Correct Bracket Sequence Editor (1700) (LinkedList)  ](./code/670E.txt)|2021/08/18|
- 
+ |  670F |[Restore a Number (2300) (Constructive)  ](./code/670F.txt)|2021/08/18|
  
  
 # 分类
@@ -649,6 +649,7 @@ My Codeforce Practice<br/>
 665D.[Simple Subset (1800) (Constructive + 打表)  ](./code/665D.txt)<br/>
 1508B.[Almost Sorted (1800) (Observation + Construtive + Math)  ](./code/1508B.txt)<br/>
 459C.[Pashmak and Buses (1900) (Greedy + Constructive)  ](./code/459C.txt)<br/>
+670F.[Restore a Number (2300) (Constructive)  ](./code/670F.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
