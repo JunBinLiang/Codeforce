@@ -489,7 +489,7 @@ My Codeforce Practice<br/>
  |  1555D |[Say No to Palindromes (1600) (Observation + Brute Force + Prefix Sum)  ](./code/1555D.txt)|2021/08/16|
  |  1132F |[Clear the String (2000) (区间 DP)  ](./code/1132F.txt)|2021/08/17|
  |  1132E |[Knapsack (2300) (DP + 背包 + 拆背包)  ](./code/1132E.txt)|2021/08/17|
- 
+ |  670E |[Correct Bracket Sequence Editor (1700) (LinkedList)  ](./code/670E.txt)|2021/08/18|
  
  
  
@@ -1009,7 +1009,8 @@ My Codeforce Practice<br/>
 
 ### LinkedList
 899E.[Segments Removal (2000) (UF + Double LinkedList)  ](./code/899E.txt)<br/>
-920F.[SUM and REPLACE (2000) (Double LinkedList + UF)  ](./code/920F.txt)|2021/08/08|
+920F.[SUM and REPLACE (2000) (Double LinkedList + UF)  ](./code/920F.txt)<br/>
+670E.[Correct Bracket Sequence Editor (1700) (LinkedList)  ](./code/670E.txt)<br/>
 
 ### 十字链表
 89C.[ Chip Play (2300) (DFS + 十字linkedlist) ](./code/89C.txt)<br/>
