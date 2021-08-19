@@ -492,6 +492,7 @@ My Codeforce Practice<br/>
  |  670E |[Correct Bracket Sequence Editor (1700) (LinkedList)  ](./code/670E.txt)|2021/08/18|
  |  670F |[Restore a Number (2300) (Constructive)  ](./code/670F.txt)|2021/08/18|
  |  118E |[ Bertown roads (2000) (Graph + Tarjan + SCC)  ](./code/118E.txt)|2021/08/19|
+ |  1560E |[ Polycarp and String Transformation (1800) (Sort + Binary Search + Construtive)  ](./code/1560E.txt)|2021/08/19|
  
 # 分类
 
@@ -650,6 +651,7 @@ My Codeforce Practice<br/>
 1508B.[Almost Sorted (1800) (Observation + Construtive + Math)  ](./code/1508B.txt)<br/>
 459C.[Pashmak and Buses (1900) (Greedy + Constructive)  ](./code/459C.txt)<br/>
 670F.[Restore a Number (2300) (Constructive)  ](./code/670F.txt)<br/>
+1560E.[ Polycarp and String Transformation (1800) (Sort + Binary Search + Construtive)  ](./code/1560E.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
