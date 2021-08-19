@@ -491,7 +491,7 @@ My Codeforce Practice<br/>
  |  1132E |[Knapsack (2300) (DP + 背包 + 拆背包)  ](./code/1132E.txt)|2021/08/17|
  |  670E |[Correct Bracket Sequence Editor (1700) (LinkedList)  ](./code/670E.txt)|2021/08/18|
  |  670F |[Restore a Number (2300) (Constructive)  ](./code/670F.txt)|2021/08/18|
- 
+ |  118E |[ Bertown roads (2000) (Graph + Tarjan + SCC)  ](./code/118E.txt)|2021/08/19|
  
 # 分类
 
@@ -868,6 +868,8 @@ My Codeforce Practice<br/>
 ### Dynamic Connectivity
 1140F.[Extending Set of Points (2600) （Dynamic Connectivity） ](./code/1140F.txt)<br/>
 
+### SCC (Strong Connected Component)
+118E.[ Bertown roads (2000) (Graph + Tarjan + SCC)  ](./code/118E.txt)<br/>
 
 ### DFS/剪枝
 448E. [ Divisor (2200) (DFS + 剪枝)  ](./code/448E.txt)<br/>
