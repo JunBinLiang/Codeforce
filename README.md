@@ -493,6 +493,7 @@ My Codeforce Practice<br/>
  |  670F |[Restore a Number (2300) (Constructive)  ](./code/670F.txt)|2021/08/18|
  |  118E |[ Bertown roads (2000) (Graph + Tarjan + SCC)  ](./code/118E.txt)|2021/08/19|
  |  1560E |[ Polycarp and String Transformation (1800) (Sort + Binary Search + Construtive)  ](./code/1560E.txt)|2021/08/19|
+ |  1560F2 |[ Nearest Beautiful Number (hard version) (2100) (Greedy + Construtive)  ](./code/1560F2.txt)|2021/08/19|
  
 # 分类
 
@@ -652,6 +653,7 @@ My Codeforce Practice<br/>
 459C.[Pashmak and Buses (1900) (Greedy + Constructive)  ](./code/459C.txt)<br/>
 670F.[Restore a Number (2300) (Constructive)  ](./code/670F.txt)<br/>
 1560E.[ Polycarp and String Transformation (1800) (Sort + Binary Search + Construtive)  ](./code/1560E.txt)<br/>
+1560F2.[ Nearest Beautiful Number (hard version) (2100) (Greedy + Construtive)  ](./code/1560F2.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
