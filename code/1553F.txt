@@ -1,0 +1,195 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            //int n=Int();
+            //int k=Int();
+            int n=Int();
+            int A[]=Arr(n);
+            Solution sol1=new Solution(out);
+            sol1.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(int A[]) {
+        int n=A.length;
+        long res[]=new long[n];
+
+
+        int MAX=300000+10;
+        FenWick fen1=new FenWick(300000+10);
+        FenWick fen2=new FenWick(300000+10);
+        FenWick fen3=new FenWick(300000+10);
+
+
+        fen1.update(A[0],A[0]);
+        fen2.update(A[0],1);
+
+        for(int i=A[0];i<MAX;i+=A[0]){
+            fen3.update(i,A[0]);
+        }
+
+
+        for(int i=1;i<A.length;i++){
+            int cur = A[i];
+            long sum = res[i-1];
+            //less
+            sum+=fen1.sumRange(0,cur-1);
+
+            long cnt1= fen2.sumRange(0,cur);
+            sum+=(cnt1*cur);
+            sum-=fen3.sumRange(0,cur);
+
+
+
+            //large
+            long cnt2=fen2.sumRange(cur+1,MAX-1);
+            sum+=cnt2*cur;
+
+            if(cur!=1){
+                long mul=1;
+                for(int j=cur;j<MAX;j+=cur){
+                    cnt2=fen2.sumRange(j+1,Math.min(MAX-1,j+cur-1));
+                    long sum2=fen1.sumRange(j+1,Math.min(MAX-1,j+cur-1));
+                    sum+=(sum2-(cur*mul*cnt2));
+                    //if(cur==2)System.out.println((j) +"  "+sum2 +"  "+(sum2-(cur*mul*cnt2))+"   "+mul+"   "+cnt2);
+                    mul++;
+                }
+            }
+
+            for(int j=cur;j<MAX;j+=cur){
+                fen3.update(j,cur);
+            }
+
+            res[i]=sum;
+            fen1.update(cur,cur);
+            fen2.update(cur,1);
+        }
+
+
+
+
+        for(long i:res){
+            out.print(i+" ");
+        }
+    }
+
+
+}
+
+
+class FenWick {
+    long tree[];//1-index based
+    public FenWick(int n) {
+        tree=new long[n+1];
+        int sum=0;
+    }
+
+    public void update(int i, int val) {
+        i++;
+        while(i<tree.length){
+            tree[i]+=val;
+            i+=(i&-i);
+        }
+    }
+
+    public long sumRange(int i, int j) {
+        return pre(j+1)-pre(i);
+    }
+
+    public long pre(int i){
+        long sum=0;
+        while(i>0){
+            sum+=tree[i];
+            i-=(i&-i);
+        }
+        return sum;
+    }
+}
