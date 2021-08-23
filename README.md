@@ -495,6 +495,7 @@ My Codeforce Practice<br/>
  |  1560E |[ Polycarp and String Transformation (1800) (Sort + Binary Search + Construtive)  ](./code/1560E.txt)|2021/08/19|
  |  1560F2 |[ Nearest Beautiful Number (hard version) (2100) (Greedy + Construtive)  ](./code/1560F2.txt)|2021/08/19|
  |  1553F |[ Pairwise Modulo (2300) (Fenwick + Math + Thinking)  ](./code/1553F.txt)|2021/08/21|
+ |  1415E |[ New Game Plus! (2200) (Thinking Greedy)  ](./code/1415E.txt)|2021/08/22|
  
 # 分类
 
@@ -627,6 +628,7 @@ My Codeforce Practice<br/>
 600C.[Trains and Statistic (1800) (Greedy + Constructive)  ](./code/600C.txt)<br/>
 965D.[Single-use Stones (1900) (Thinking + Two Pointer + Greedy)  ](./code/475D.txt)<br/>
 893D.[Credit Card (1900) (Greedy)  ](./code/893D.txt)<br/>
+1415E.[ New Game Plus! (2200) (Thinking Greedy)  ](./code/1415E.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
