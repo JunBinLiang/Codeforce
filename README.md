@@ -496,6 +496,7 @@ My Codeforce Practice<br/>
  |  1560F2 |[ Nearest Beautiful Number (hard version) (2100) (Greedy + Construtive)  ](./code/1560F2.txt)|2021/08/19|
  |  1553F |[ Pairwise Modulo (2300) (Fenwick + Math + Thinking)  ](./code/1553F.txt)|2021/08/21|
  |  1415E |[ New Game Plus! (2200) (Thinking Greedy)  ](./code/1415E.txt)|2021/08/22|
+ |  1553E |[ Permutation Shift (2100) (Thinking  + Observation)  ](./code/1553E.txt)|2021/08/23|
  
 # 分类
 
@@ -706,8 +707,14 @@ My Codeforce Practice<br/>
 1025C.[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)<br/>
 899D.[Shovel Sale (1800) (Math + Thinking)  ](./code/899D.txt)<br/>
 1555D.[Say No to Palindromes (1600) (Observation + Brute Force + Prefix Sum)  ](./code/1555D.txt)<br/>
+
+
 ### Thinking : Transfer
 675C.[Money Transfers (2100) (Thinking + Prefix Sum + Transfer)  ](./code/675C.txt)<br/>
+
+
+### Thinking : Sort Array Connect Component
+1553E.[ Permutation Shift (2100) (Thinking  + Observation)  ](./code/1553E.txt)<br/>
 
 
 ### Reverse Thinking
