@@ -1,0 +1,177 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            //int n=Int();
+            //int k=Int();
+            int n=Int();int m=Int();
+            int A[]=Arr(n);
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A,m);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(int A[],int m) {
+
+        for(int i=0;i<A.length;i++){
+            A[i]--;
+        }
+
+        int change[]=new int[A.length];
+        for(int i=0;i<A.length;i++){
+            int cur = A[i];
+            int k = -1;
+            if(cur>=i){
+                k = A.length-(cur - i);
+            }
+            else{
+                k = i -cur;
+            }
+
+            change[i]=k;
+        }
+
+
+
+        //System.out.println(Arrays.toString(change));
+
+
+        Map<Integer,Integer>f=new HashMap<>();
+        for(int k:change){
+            if(!f.containsKey(k))f.put(k,0);
+            f.put(k,f.get(k)+1);
+        }
+
+        List<Integer>res=new ArrayList<>();
+        for(Integer k:f.keySet()){
+            if(m*2+f.get(k)<A.length)continue;
+            if(check(A,k,m)){
+                res.add(k%A.length);
+            }
+        }
+        Collections.sort(res);
+
+
+        out.print(res.size()+" ");
+        for(int i:res)out.print((i % A.length)+" ");
+        out.println();
+    }
+
+
+    public boolean check(int A[],int k,int m){
+        int B[]=new int[A.length];
+        int n = A.length;
+        for(int i=0;i<B.length;i++){
+            B[i]=A[i];
+        }
+
+        int swap = 0;
+        for(int i=0;i<B.length;i++){
+            while(true){
+                int cur =B[i];
+                int pos = (cur + k) % n;
+                if(B[pos]==cur)break;
+                int t=B[pos];
+                B[pos]=cur;
+                B[i]=t;
+                swap++;
+            }
+        }
+        return swap<=m;
+    }
+
+}
+
+
+//0 1 2 3
+//3 0 1 2
+//2 3 0 1
+//1 2 3 0
