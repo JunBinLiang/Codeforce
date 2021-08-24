@@ -1,0 +1,185 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+
+            long B[][]=new long[n][2];
+            for(int i=0;i<B.length;i++){
+                for(int j=0;j<B[0].length;j++){
+                    B[i][j]=Long();
+                }
+            }
+
+            long A[]=new long[m];
+            for(int i=0;i<A.length;i++){
+                A[i]=Long();
+            }
+
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A,B,t+1);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(long A[],long B[][],int t) {
+        TreeMap<Long,Long>tree=new TreeMap<>();
+        for(long e[]:B){
+            long l=e[0],r=e[1];
+            tree.put(l,r);
+        }
+
+        List<Long>res=new ArrayList<>();
+        for(long i:A){
+            Long lo = tree.floorKey(i);
+            if(lo!=null){
+                long end = tree.get(lo);
+                if(i>end){
+                    Long ceil=tree.ceilingKey(i);
+                    if(ceil==null||Math.abs(i-end)<=Math.abs(i-ceil)){
+                        res.add(end);
+                        if(end==lo)tree.remove(lo);
+                        else tree.put(lo,end-1);
+                    }
+                    else{
+                        res.add(ceil);
+                        long e = tree.get(ceil);
+                        tree.remove(ceil);
+                        if(ceil+1<=e){
+                            tree.put(ceil+1,e);
+                        }
+                    }
+                }
+                else{
+                    long l = i-1;
+                    long r = i+1;
+                    tree.remove(lo);
+                    res.add(i);
+                    if(lo<=l){
+                        tree.put(lo,l);
+                    }
+                    if(r<=end){
+                        tree.put(r,end);
+                    }
+                }
+            }
+            else{
+                Long hi = tree.ceilingKey(i);
+                res.add(hi);
+                long ee = tree.get(hi);
+
+                if(hi+1>ee){
+                    tree.remove(hi);
+                }
+                else{
+                    tree.remove(hi);
+                    tree.put(hi+1,ee);
+                }
+            }
+        }
+        print(res,t);
+    }
+
+
+
+    public void print(List<Long>res,int t){
+        out.print("Case #"+t+": ");
+        for(long i:res)out.print(i+" ");
+        out.println();
+    }
+
+}
+
+
+//0 1 2 3
+//3 0 1 2
+//2 3 0 1
+//1 2 3 0
