@@ -497,7 +497,7 @@ My Codeforce Practice<br/>
  |  1553F |[ Pairwise Modulo (2300) (Fenwick + Math + Thinking)  ](./code/1553F.txt)|2021/08/21|
  |  1415E |[ New Game Plus! (2200) (Thinking Greedy)  ](./code/1415E.txt)|2021/08/22|
  |  1553E |[ Permutation Shift (2100) (Thinking  + Observation)  ](./code/1553E.txt)|2021/08/23|
- 
+ |  797E |[ Array Queries (2000) (DP + Brute Force)  ](./code/797E.txt)|2021/08/24|
 # 分类
 
 ### DP
@@ -533,6 +533,7 @@ My Codeforce Practice<br/>
 1551E.[Fixed Points (2000) (DP + Binary Search)  ](./code/1551E.txt)<br/>
 486E.[LIS of Sequence (2200) (DP + Implementation)  ](./code/486E.txt)<br/>
 459E.[Pashmak and Graph (1900) (DP)  ](./code/459E.txt)<br/>
+797E.[ Array Queries (2000) (DP + Brute Force)  ](./code/797E.txt)<br/>
 
 
 ### DP With Greedy Property
