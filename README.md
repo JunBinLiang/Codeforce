@@ -499,6 +499,7 @@ My Codeforce Practice<br/>
  |  1553E |[ Permutation Shift (2100) (Thinking  + Observation)  ](./code/1553E.txt)|2021/08/23|
  |  797E |[ Array Queries (2000) (DP + Brute Force)  ](./code/797E.txt)|2021/08/24|
  |  463D |[ Gargari and Permutations(1900) (DP )  ](./code/463D.txt)|2021/08/25|
+ |  808D |[ Array Division (1900) (Binary Search + Prefix Sum )  ](./code/808D.txt)|2021/08/25|
  
 # 分类
 
@@ -954,6 +955,7 @@ My Codeforce Practice<br/>
 1066D.[ Boxes Packing (1800) (Binary Search) ](./code/1066D.txt) <br/>
 1538G.[ Gift Set (2100) (BinarySearch + Math) ](./code/1538G.txt)<br/>
 1547F.[ Array Stabilization (GCD version) (2100) (Math + BinarySearch + Segment Tree + GCD )  ](./code/1547F.txt)<br/>
+808D.[ Array Division (1900) (Binary Search + Prefix Sum )  ](./code/808D.txt)<br/>
 
 ### Binary Search in Convex Line
 439D.[Devu and his Brother (1700) (Binary Search + Convex Line)  ](./code/439D.txt)<br/>
