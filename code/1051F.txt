@@ -1,0 +1,251 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int edges[][]=new int[m][3];
+            for(int i=0;i<m;i++){
+                edges[i][0]=Int();
+                edges[i][1]=Int();
+                edges[i][2]=Int();
+            }
+
+            m=Int();
+            int q[][]=new int[m][2];
+            for(int i=0;i<q.length;i++){
+                q[i][0]=Int();
+                q[i][1]=Int();
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(n,edges,q);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+    List<int[]>graph[];
+    List<int[]>tree[];
+    long dis[];
+    Map<Integer,long[]>f=new HashMap<>();
+    int sparse[][];
+    int levels[];
+    public void solution(int n,int edges[][],int q[][]) {
+        graph=new ArrayList[n];
+        tree=new ArrayList[n];
+        int nums[]=new int[n];
+        sparse=new int[n][19];
+        dis=new long[n];
+        levels=new int[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        Arrays.setAll(tree,e->new ArrayList<>());
+
+        for(int i=0;i<nums.length;i++){
+            nums[i]=i;
+        }
+
+
+        for(int edge[]:edges){
+            int u=edge[0]-1,v=edge[1]-1,w=edge[2];
+            graph[u].add(new int[]{v,w});
+            graph[v].add(new int[]{u,w});
+            int r1=find(nums,u);
+            int r2=find(nums,v);
+            if(r1!=r2){
+                nums[r1]=r2;
+                tree[u].add(new int[]{v,w});
+                tree[v].add(new int[]{u,w});
+            }
+            else{
+                if(!f.containsKey(u))f.put(u,new long[n]);
+                if(!f.containsKey(v))f.put(v,new long[n]);
+            }
+        }
+
+        dfs(-1,0,0,0);
+        for(int i=1;i<sparse[0].length;i++){
+            for(int j=0;j<sparse.length;j++){
+                if(sparse[j][i-1]==-1||sparse[sparse[j][i-1]][i-1]==-1)continue;
+                sparse[j][i]=sparse[sparse[j][i-1]][i-1];
+            }
+        }
+
+
+        for(Integer key:f.keySet()){
+            dij(key);
+            //System.out.println(key+"  "+Arrays.toString(f.get(key)));
+        }
+
+
+        for(int pair[]:q){
+            int u=pair[0]-1,v=pair[1]-1;
+            long res = Long.MAX_VALUE;
+            int lca = LCA(u,v);
+            long dis1=dis[u]+dis[v]-2*dis[lca];
+
+            //System.out.println(u+" "+v+"  "+lca);
+            //System.out.println(dis1);
+
+            res=dis1;
+            for(Integer to:f.keySet()){
+                long d[]=f.get(to);
+                //u -> to -> v
+                int lca1 = LCA(u,to);
+                long dis2 = dis[u]+dis[to]-2*dis[lca1]+d[v];
+                res=Math.min(dis2,res);
+
+                //v -> to ->u
+                int lca2 = LCA(v,to);
+                dis2=dis[v]+dis[to]-2*dis[lca2]+d[u];
+                res=Math.min(res,dis2);
+            }
+            out.println(res);
+        }
+    }
+
+    public void dfs(int fa,int root,long level,int dep){
+        levels[root]=dep;
+        dis[root]=level;
+        sparse[root][0]=fa;
+        for(int next[]:tree[root]){
+            if(next[0]!=fa){
+                dfs(root,next[0],level+next[1],dep+1);
+            }
+        }
+    }
+
+    public int LCA(int x,int y){
+        if(levels[x]<levels[y]){
+            return LCA(y,x);
+        }
+
+
+        for(int i=18; i>=0; i--) {
+            if(sparse[x][i]!=-1&&levels[sparse[x][i]] >= levels[y]) {
+                x = sparse[x][i];
+            }
+        }
+        if(x == y) return x;
+
+
+        for(int i=18; i>=0; i--)//不重合，x 和 y 一起往上跳
+        {
+            if(sparse[x][i] != sparse[y][i]) //只要父亲不同，就跳，父亲相同，就停了
+            {                    // 最后一次，是没有跳上去的
+
+                x = sparse[x][i];
+                y = sparse[y][i];
+            }
+        }
+        return sparse[x][0];
+    }
+
+    public void dij(int s){
+        long d[]=f.get(s);
+        Arrays.fill(d,Long.MAX_VALUE);
+        d[s]=0;
+        Queue<Integer>q=new LinkedList<>();
+        q.add(s);
+        while(q.size()>0){
+            int root=q.poll();
+            for(int next[]:graph[root]){
+                if(d[root]+next[1]<d[next[0]]){
+                    d[next[0]]=d[root]+next[1];
+                    q.add(next[0]);
+                }
+            }
+        }
+    }
+
+    public int find(int nums[],int x){
+        if(nums[x]==x)return x;
+        int root=find(nums,nums[x]);
+        nums[x]=root;
+        return root;
+    }
+}
