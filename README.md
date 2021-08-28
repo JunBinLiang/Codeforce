@@ -503,7 +503,7 @@ My Codeforce Practice<br/>
  |  463E |[ Caisa and Tree (2100) (Tree )  ](./code/463E.txt)|2021/08/25|
  |  891B |[ Gluttony (2000) (Constructive )  ](./code/891B.txt)|2021/08/26|
  |  859E |[ Desk Disorder (2100) (Combination + Tree + Graph )  ](./code/859E.txt)|2021/08/27|
- 
+ |  911G |[ Mass Change Queries	 (2500) (Segment Tree Tag )  ](./code/911G.txt)|2021/08/28|
  
 # 分类
 
@@ -940,7 +940,7 @@ My Codeforce Practice<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
-
+911G.[ Mass Change Queries	 (2500) (Segment Tree Tag )  ](./code/911G.txt)<br/>
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
 
