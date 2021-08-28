@@ -504,6 +504,7 @@ My Codeforce Practice<br/>
  |  891B |[ Gluttony (2000) (Constructive )  ](./code/891B.txt)|2021/08/26|
  |  859E |[ Desk Disorder (2100) (Combination + Tree + Graph )  ](./code/859E.txt)|2021/08/27|
  |  911G |[ Mass Change Queries	 (2500) (Segment Tree Tag )  ](./code/911G.txt)|2021/08/28|
+ |  1051F |[ The Shortest Statement	 (2400) (LCA + Shortest Path + Tree + Thinking )  ](./code/1051F.txt)|2021/08/28|
  
 # 分类
 
@@ -858,6 +859,7 @@ My Codeforce Practice<br/>
 450D.[ Jzzhu and Cities (2000) (Shortest Path + Thinking) (Thumb) ](./code/450D.txt)<br/>
 545E.[Paths and Trees (2000) (shortest path + thinking)  ](./code/545E.txt)<br/>
 386D.[Game with Points (2100) (Shortest Path)  ](./code/386D.txt)<br/>
+1051F.[ The Shortest Statement	 (2400) (LCA + Shortest Path + Tree + Thinking )  ](./code/1051F.txt)<br/>
 
 ### 0-1 BFS
 1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
