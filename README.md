@@ -505,7 +505,7 @@ My Codeforce Practice<br/>
  |  859E |[ Desk Disorder (2100) (Combination + Tree + Graph )  ](./code/859E.txt)|2021/08/27|
  |  911G |[ Mass Change Queries	 (2500) (Segment Tree Tag )  ](./code/911G.txt)|2021/08/28|
  |  1051F |[ The Shortest Statement	 (2400) (LCA + Shortest Path + Tree + Thinking )  ](./code/1051F.txt)|2021/08/28|
- 
+ |  999D |[ Equalize the Remainders	 (1900) (Greedy + TreeSet )  ](./code/999D.txt)|2021/08/29|
 # 分类
 
 ### DP
@@ -640,6 +640,7 @@ My Codeforce Practice<br/>
 965D.[Single-use Stones (1900) (Thinking + Two Pointer + Greedy)  ](./code/475D.txt)<br/>
 893D.[Credit Card (1900) (Greedy)  ](./code/893D.txt)<br/>
 1415E.[ New Game Plus! (2200) (Thinking Greedy)  ](./code/1415E.txt)<br/>
+999D.[ Equalize the Remainders	 (1900) (Greedy + TreeSet )  ](./code/999D.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
