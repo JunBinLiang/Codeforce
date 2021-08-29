@@ -506,6 +506,7 @@ My Codeforce Practice<br/>
  |  911G |[ Mass Change Queries	 (2500) (Segment Tree Tag )  ](./code/911G.txt)|2021/08/28|
  |  1051F |[ The Shortest Statement	 (2400) (LCA + Shortest Path + Tree + Thinking )  ](./code/1051F.txt)|2021/08/28|
  |  999D |[ Equalize the Remainders	 (1900) (Greedy + TreeSet )  ](./code/999D.txt)|2021/08/29|
+ |  999E |[Reachability from the Capital	 (2000) (Graph)  ](./code/999E.txt)|2021/08/29|
 # 分类
 
 ### DP
@@ -834,6 +835,7 @@ My Codeforce Practice<br/>
 1439B.[Graph Subset Problems (2600) (Graph) ](./code/1439B.txt)<br/>
 117C.[  Cycle (2000) (Graph)  ](./code/117C.txt) <br/>
 920E.[  Connected Components?	 (2100) (Graph)  ](./code/920E.txt) <br/>
+999E.[Reachability from the Capital	 (2000) (Graph)  ](./code/999E.txt)<br/>
 
 ### 三环/四环图 
 1468M.[ Similar Sets (2300) (Graph + 四环图)  ](./code/1468M.txt)<br/>
