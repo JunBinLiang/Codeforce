@@ -1,0 +1,167 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int A[]=Arr(n);
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A,m);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(int A[],int m) {
+        int n =A.length;
+        int B[]=new int[n];
+        long res = 0;
+        for(int i=0;i<A.length;i++){
+            B[i]=A[i];
+            B[i]%=m;
+        }
+
+        TreeMap<Integer,Queue<Integer>>tree=new TreeMap<>();
+
+        int cnt[]=new int[m+1];
+        for(int i=0;i<B.length;i++){
+            int mod =B[i];
+            if(cnt[mod]==n/m){
+                //need to deal with
+                if(!tree.containsKey(mod))tree.put(mod,new LinkedList<>());
+                tree.get(mod).add(i);
+            }
+            else{
+                cnt[mod]++;
+            }
+        }
+
+        for(int i=0;i<m;i++){
+            int t = n/m-cnt[i];
+            while(t>0){
+                t--;
+                Integer lo = tree.floorKey(i);
+                if(lo!=null){
+                    Queue<Integer>q=tree.get(lo);
+                    int index = q.poll();
+                    if(q.size()==0)tree.remove(lo);
+                    int add = (i - (B[index]));
+                    res+=add;
+                    A[index]+=add;
+                }
+                else{
+                    Integer hi = tree.lastKey();
+                    Queue<Integer>q=tree.get(hi);
+                    int index=q.poll();
+                    if(q.size()==0)tree.remove(hi);
+                    int add = i+m-B[index];
+                    res+=add;
+                    A[index]+=add;
+
+                }
+            }
+        }
+
+
+
+        out.println(res);
+        StringBuilder str=new StringBuilder();
+        for(int i:A){
+            str.append(i+" ");
+        }
+        out.println(str.toString());
+
+    }
+
+
+
+
+
+
+}
