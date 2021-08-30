@@ -507,6 +507,7 @@ My Codeforce Practice<br/>
  |  1051F |[ The Shortest Statement	 (2400) (LCA + Shortest Path + Tree + Thinking )  ](./code/1051F.txt)|2021/08/28|
  |  999D |[ Equalize the Remainders	 (1900) (Greedy + TreeSet )  ](./code/999D.txt)|2021/08/29|
  |  999E |[Reachability from the Capital	 (2000) (Graph)  ](./code/999E.txt)|2021/08/29|
+ |  999F |[Cards and Joy	 (2000) (DP)  ](./code/999F.txt)|2021/08/30|
 # 分类
 
 ### DP
@@ -544,6 +545,7 @@ My Codeforce Practice<br/>
 459E.[Pashmak and Graph (1900) (DP)  ](./code/459E.txt)<br/>
 797E.[ Array Queries (2000) (DP + Brute Force)  ](./code/797E.txt)<br/>
 463D.[ Gargari and Permutations(1900) (DP )  ](./code/463D.txt)<br/>
+999F.[Cards and Joy	 (2000) (DP)  ](./code/999F.txt)<br/>
 
 
 ### DP With Greedy Property
