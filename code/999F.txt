@@ -1,0 +1,154 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int k=Int();
+            int A[]=Arr(n*k);
+            int B[]=Arr(n);
+            int C[]=Arr(k);
+
+            Solution sol1=new Solution(out);
+            sol1.solution(n,k,A,B,C);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+    int C[];
+    int k;
+    public void solution(int n,int k,int A[],int B[],int C[]) {
+        //A:all cards
+        //B:favorite numbers
+        //C: C[i-1] : player i has i favorite number
+        this.C=C;
+        this.k=k;
+        int res = 0;
+        Arrays.sort(B);
+        int cnts[]=new int[100000+100];
+        for(int i:A){
+            cnts[i]++;
+        }
+
+        for(int i=0;i<B.length;i++){
+            int j = i;
+            int cnt = 0;
+            while(j<B.length&&B[j]==B[i]){
+                j++;
+                cnt++;
+            }
+            int dp[][]=new int[cnt+1][cnts[B[i]]+2];
+
+            for(int x=0;x<dp.length;x++){
+                Arrays.fill(dp[x],-1);
+            }
+            //distribute number amont 'cnt' peopele with same favorite number
+            res+=dfs(dp,cnt,0,cnts[B[i]]);
+            i=j-1;
+        }
+        out.println(res);
+    }
+
+    public int dfs(int dp[][],int n,int ith,int cards){
+        if(ith>=n){
+            return 0;
+        }
+        if(dp[ith][cards]!=-1){
+            return dp[ith][cards];
+        }
+
+        int res = 0;
+        for(int take=1;take<=this.k;take++){
+            if(cards>=take){
+                res =Math.max(res,C[take-1]+dfs(dp,n,ith+1,cards-take));
+            }
+        }
+        dp[ith][cards]=res;
+        return res;
+    }
+
+
+}
