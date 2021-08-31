@@ -1,0 +1,179 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int k=Int();
+            int edges[][]=new int[m][2];
+            for(int i=0;i<m;i++){
+                edges[i][0]=Int();
+                edges[i][1]=Int();
+            }
+
+            int ban[][]=new int[k][3];
+            for(int i=0;i<ban.length;i++){
+                ban[i][0]=Int();
+                ban[i][1]=Int();
+                ban[i][2]=Int();
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(n,edges,ban);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+    List<Integer>graph[];
+    public void solution(int n,int edges[][],int ban[][]) {
+        graph=new ArrayList[n+1];
+        int path[][]=new int[n+1][n+1];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        Set<String>set=new HashSet<>();
+        for(int p[]:ban){
+            set.add(p[0]+" "+p[1]+" "+p[2]);
+        }
+
+        for(int edge[]:edges){
+            int u = edge[0],v=edge[1];
+            graph[u].add(v);graph[v].add(u);
+        }
+
+        int dis[][]=new int[n+1][n+1];
+        for(int i=0;i<dis.length;i++){
+            Arrays.fill(dis[i],INF);
+        }
+
+        dis[0][1]=0;
+        Queue<int[]>q=new LinkedList<>();
+        q.add(new int[]{0,1});
+        while(q.size()>0){
+            int pair[]=q.poll();
+            for(int next:graph[pair[1]]){
+                String s = pair[0] +" "+pair[1]+" "+next;
+                if(set.contains(s))continue;
+                if(dis[pair[0]][pair[1]]+1<dis[pair[1]][next]){
+                    dis[pair[1]][next]=dis[pair[0]][pair[1]]+1;
+                    path[pair[1]][next]=pair[0];
+                    q.add(new int[]{pair[1],next});
+                }
+            }
+        }
+        int res =INF;
+        int a = -1, b = -1;
+        for(int i=0;i<dis.length;i++){
+            if(dis[i][n]<res){
+                res=Math.min(res,dis[i][n]);
+                a=i;
+                b=n;
+            }
+
+        }
+
+        if(res==INF){
+            out.println(-1);
+        }
+        else {
+            List<Integer>list=new ArrayList<>();
+            out.println(res);
+            list.add(b);
+            while(res>0){
+                int t = a;
+                a = path[a][b];
+                b=t;
+                list.add(b);
+                res--;
+            }
+            for(int i=list.size()-1;i>=0;i--){
+                out.print(list.get(i)+" ");
+            }
+        }
+    }
+
+
+}
