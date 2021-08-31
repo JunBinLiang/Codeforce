@@ -509,6 +509,7 @@ My Codeforce Practice<br/>
  |  999E |[Reachability from the Capital	 (2000) (Graph)  ](./code/999E.txt)|2021/08/29|
  |  999F |[Cards and Joy	 (2000) (DP)  ](./code/999F.txt)|2021/08/30|
  |  59E |[Shortest Path	 (2000) (Shortest Path)  ](./code/59E.txt)|2021/08/30|
+ |  59D |[Team Arrangement	 (2000) (Implementation + Greedy + Thinking)  ](./code/59D.txt)|2021/08/31|
 # 分类
 
 ### DP
@@ -723,6 +724,7 @@ My Codeforce Practice<br/>
 1025C.[ Plasticine zebra (1600) (Observation )  ](./code/1025C.txt)<br/>
 899D.[Shovel Sale (1800) (Math + Thinking)  ](./code/899D.txt)<br/>
 1555D.[Say No to Palindromes (1600) (Observation + Brute Force + Prefix Sum)  ](./code/1555D.txt)<br/>
+59D.[Team Arrangement	 (2000) (Implementation + Greedy + Thinking)  ](./code/59D.txt)<br/>
 
 
 ### Thinking : Transfer
