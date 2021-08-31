@@ -508,6 +508,7 @@ My Codeforce Practice<br/>
  |  999D |[ Equalize the Remainders	 (1900) (Greedy + TreeSet )  ](./code/999D.txt)|2021/08/29|
  |  999E |[Reachability from the Capital	 (2000) (Graph)  ](./code/999E.txt)|2021/08/29|
  |  999F |[Cards and Joy	 (2000) (DP)  ](./code/999F.txt)|2021/08/30|
+ |  59E |[Shortest Path	 (2000) (Shortest Path)  ](./code/59E.txt)|2021/08/30|
 # 分类
 
 ### DP
@@ -865,7 +866,7 @@ My Codeforce Practice<br/>
 545E.[Paths and Trees (2000) (shortest path + thinking)  ](./code/545E.txt)<br/>
 386D.[Game with Points (2100) (Shortest Path)  ](./code/386D.txt)<br/>
 1051F.[ The Shortest Statement	 (2400) (LCA + Shortest Path + Tree + Thinking )  ](./code/1051F.txt)<br/>
-
+59E.[Shortest Path	 (2000) (Shortest Path)  ](./code/59E.txt)<br/>
 ### 0-1 BFS
 1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
 
