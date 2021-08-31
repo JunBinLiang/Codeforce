@@ -1,0 +1,171 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(3*n);
+            int team[][]=new int[n][3];
+            for(int i=0;i<team.length;i++){
+                team[i][0]=Int();
+                team[i][1]=Int();
+                team[i][2]=Int();
+            }
+
+            int k=Int();
+
+            Solution sol1=new Solution(out);
+            sol1.solution(n,A,team,k);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(int n,int A[],int team[][],int k) {
+        List<Integer>res=new ArrayList<>();
+        List<Integer>list=new ArrayList<>();
+
+        int rank[]=new int[A.length+1];
+        for(int i=0;i<A.length;i++){
+            rank[A[i]]=i;
+        }
+
+        for(int i=0;i<team.length;i++){
+            int a = team[i][0],b = team[i][1],c=team[i][2];
+            if(a==k||k==b||k==c){
+                if(rank[k]<=rank[a]&&rank[k]<=rank[b]&&rank[k]<=rank[c]){
+                    if(a!=k)list.add(a);
+                    if(b!=k)list.add(b);
+                    if(c!=k)list.add(c);
+                    Collections.sort(list);
+
+
+                    List<Integer>l=new ArrayList<>();
+                    for(int j=i+1;j<team.length;j++){
+                        l.add(team[j][0]);l.add(team[j][1]);l.add(team[j][2]);
+                    }
+
+                    int index=-1;
+                    for(int j=list.size()-1;j>=0;j--){
+                        int v = list.get(j);
+                        if(v==a||v==b||v==c){
+                            index=j;
+                            break;
+                        }
+                        else{
+                            l.add(v);
+                        }
+                    }
+                    for(int j=0;j<=index;j++){
+                        res.add(list.get(j));
+                    }
+                    Collections.sort(l);
+                    res.addAll(l);
+                    break;
+                }
+                else{
+                    for(int j = 1;j<=A.length;j++){
+                        if(j==k)continue;
+                        out.print(j+" ");
+                    }
+                    return;
+                }
+            }
+            else{
+                list.add(a);
+                list.add(b);
+                list.add(c);
+            }
+        }
+
+        for(int i:res){
+            out.print(i+" ");
+        }
+    }
+
+
+}
