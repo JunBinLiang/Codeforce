@@ -510,6 +510,8 @@ My Codeforce Practice<br/>
  |  999F |[Cards and Joy	 (2000) (DP)  ](./code/999F.txt)|2021/08/30|
  |  59E |[Shortest Path	 (2000) (Shortest Path)  ](./code/59E.txt)|2021/08/30|
  |  59D |[Team Arrangement	 (2000) (Implementation + Greedy + Thinking)  ](./code/59D.txt)|2021/08/31|
+ |  201C |[Fragile Bridges(2000) (Left-Right DP + Thinking + Sort)  ](./code/201C.txt)|2021/09/01|
+ 
 # 分类
 
 ### DP
@@ -578,6 +580,7 @@ My Codeforce Practice<br/>
 466C.[ SNumber of Ways (1700) (DP + rihgt/prefix)  ](./code/466C.txt)<br/>
 900C.[Remove Extra One (1700) (Thinking + Left/Right DP)  ](./code/900C.txt)<br/>
 519D.[A and B and Interesting Substrings (1800) (Prefix Sum)  ](./code/519D.txt)<br/>
+201C.[Fragile Bridges(2000) (Left-Right DP + Thinking + Sort)  ](./code/201C.txt)<br/>
 
 
 ### 树DP
