@@ -511,6 +511,7 @@ My Codeforce Practice<br/>
  |  59E |[Shortest Path	 (2000) (Shortest Path)  ](./code/59E.txt)|2021/08/30|
  |  59D |[Team Arrangement	 (2000) (Implementation + Greedy + Thinking)  ](./code/59D.txt)|2021/08/31|
  |  201C |[Fragile Bridges(2000) (Left-Right DP + Thinking + Sort)  ](./code/201C.txt)|2021/09/01|
+ |  1030E |[Vasya and Good Sequences	 (2000) (Thinking + Brute Force + Bit)  ](./code/1030E.txt)|2021/09/02|
  
 # 分类
 
@@ -729,6 +730,8 @@ My Codeforce Practice<br/>
 1555D.[Say No to Palindromes (1600) (Observation + Brute Force + Prefix Sum)  ](./code/1555D.txt)<br/>
 59D.[Team Arrangement	 (2000) (Implementation + Greedy + Thinking)  ](./code/59D.txt)<br/>
 
+### Thinking : MAX * 2 <= SUM 
+1030E.[Vasya and Good Sequences	 (2000) (Thinking + Brute Force + Bit)  ](./code/1030E.txt)<br/>
 
 ### Thinking : Transfer
 675C.[Money Transfers (2100) (Thinking + Prefix Sum + Transfer)  ](./code/675C.txt)<br/>
