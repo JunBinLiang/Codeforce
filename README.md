@@ -512,7 +512,7 @@ My Codeforce Practice<br/>
  |  59D |[Team Arrangement	 (2000) (Implementation + Greedy + Thinking)  ](./code/59D.txt)|2021/08/31|
  |  201C |[Fragile Bridges(2000) (Left-Right DP + Thinking + Sort)  ](./code/201C.txt)|2021/09/01|
  |  1030E |[Vasya and Good Sequences	 (2000) (Thinking + Brute Force + Bit)  ](./code/1030E.txt)|2021/09/02|
- 
+ |  729E |[Subordinates (1900) (Greedy)  ](./code/729E.txt)|2021/09/02|
 # 分类
 
 ### DP
@@ -650,6 +650,7 @@ My Codeforce Practice<br/>
 893D.[Credit Card (1900) (Greedy)  ](./code/893D.txt)<br/>
 1415E.[ New Game Plus! (2200) (Thinking Greedy)  ](./code/1415E.txt)<br/>
 999D.[ Equalize the Remainders	 (1900) (Greedy + TreeSet )  ](./code/999D.txt)<br/>
+729E.[Subordinates (1900) (Greedy)  ](./code/729E.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
