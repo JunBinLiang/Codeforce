@@ -513,6 +513,7 @@ My Codeforce Practice<br/>
  |  201C |[Fragile Bridges(2000) (Left-Right DP + Thinking + Sort)  ](./code/201C.txt)|2021/09/01|
  |  1030E |[Vasya and Good Sequences	 (2000) (Thinking + Brute Force + Bit)  ](./code/1030E.txt)|2021/09/02|
  |  729E |[Subordinates (1900) (Greedy)  ](./code/729E.txt)|2021/09/02|
+ |  1438D |[Powerful Ksenia (2200) (Thinking)  ](./code/1438D.txt)|2021/09/03|
 # 分类
 
 ### DP
@@ -730,6 +731,7 @@ My Codeforce Practice<br/>
 899D.[Shovel Sale (1800) (Math + Thinking)  ](./code/899D.txt)<br/>
 1555D.[Say No to Palindromes (1600) (Observation + Brute Force + Prefix Sum)  ](./code/1555D.txt)<br/>
 59D.[Team Arrangement	 (2000) (Implementation + Greedy + Thinking)  ](./code/59D.txt)<br/>
+1438D.[Powerful Ksenia (2200) (Thinking)  ](./code/1438D.txt)<br/>
 
 ### Thinking : MAX * 2 <= SUM 
 1030E.[Vasya and Good Sequences	 (2000) (Thinking + Brute Force + Bit)  ](./code/1030E.txt)<br/>
