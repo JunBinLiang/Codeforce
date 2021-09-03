@@ -514,6 +514,7 @@ My Codeforce Practice<br/>
  |  1030E |[Vasya and Good Sequences	 (2000) (Thinking + Brute Force + Bit)  ](./code/1030E.txt)|2021/09/02|
  |  729E |[Subordinates (1900) (Greedy)  ](./code/729E.txt)|2021/09/02|
  |  1438D |[Powerful Ksenia (2200) (Thinking)  ](./code/1438D.txt)|2021/09/03|
+ |  597C |[Duff in the Army (2200) (LCA)  ](./code/597C.txt)|2021/09/03|
 # 分类
 
 ### DP
@@ -956,6 +957,7 @@ My Codeforce Practice<br/>
 1328E. [ Tree Queries 	 (1900) （LCA + Sprase Table + Thinking）Thumb up! ](./code/1328E.txt)<br/>
 609E.[Minimum spanning tree for each edge (2100) (MST + Thinking + LCA Template)  ](./code/609E.txt)<br/>
 519E.[A and B and Lecture Rooms (2100) (Tree + LCA)  ](./code/519E.txt)<br/>
+597C.[Duff in the Army (2200) (LCA)  ](./code/597C.txt)<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
