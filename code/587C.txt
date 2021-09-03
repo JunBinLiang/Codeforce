@@ -1,0 +1,267 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();int k=Int();
+            int edges[][]=new int[n-1][2];
+            for(int i=0;i<edges.length;i++){
+                edges[i][0]=Int();
+                edges[i][1]=Int();
+            }
+
+            int A[]=new int[m];
+            for(int i=0;i<m;i++){
+                A[i]=Int()-1;
+            }
+
+            int q[][]=new int[k][3];
+            for(int i=0;i<q.length;i++){
+                q[i][0]=Int();
+                q[i][1]=Int();
+                q[i][2]=Int();
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(edges,A,q);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+    List<Integer>graph[];
+    int f[][];
+    int levels[];
+    List<Integer>Q[][];
+    public void solution(int edges[][],int A[],int q[][]) {
+        int n = edges.length+1;
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int edge[]:edges){
+            int u =edge[0]-1,v=edge[1]-1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        f=new int[n][18];
+        Q=new ArrayList[n][18];
+        levels=new int[n];
+        for(int i=0;i<f.length;i++){
+            Arrays.fill(f[i],-1);
+        }
+
+        for(int i=0;i<Q.length;i++){
+            Q[i][0]=new ArrayList<>();
+        }
+
+
+
+        dfs(-1,0,0);
+        for(int i=0;i<A.length;i++){
+            List<Integer>l=new ArrayList<>();
+            l.add(i);
+            Q[A[i]][0]=merge(Q[A[i]][0],l,10);
+        }
+
+
+        for(int i=1;i<f[0].length;i++){//construc sparse table
+            for(int j=0;j<n;j++){
+                int parent=f[j][i-1];
+                if(parent!=-1&&f[parent][i-1]!=-1){
+                    f[j][i]=f[parent][i-1];
+                    List<Integer>l1=Q[j][i-1];
+                    List<Integer>l2=Q[parent][i-1];
+                    Q[j][i]=merge(l1,l2,10);
+                }
+            }
+        }
+
+
+
+
+
+        for(int p[]:q){
+            int u =p[0]-1,v=p[1]-1,k=p[2];
+            List<Integer>res=LCA(u,v,k);
+            out.print(Math.min(res.size(),k)+" ");
+            for(int i=0;i<Math.min(res.size(),k);i++){
+                out.print((res.get(i)+1)+" ");
+            }
+            out.println();
+        }
+    }
+
+    public void dfs(int parent,int root,int level){
+        levels[root]=level;
+        for(int next:graph[root]){
+            if(next!=parent){
+                f[next][0]=root;
+                dfs(root,next,level+1);
+            }
+        }
+    }
+
+
+    public List<Integer> LCA(int x,int y,int k){
+        if(levels[x]<levels[y]){
+            return LCA(y,x,k);
+        }
+
+        List<Integer>res=new ArrayList<>();
+        for(int i=17; i>=0; i--) {
+            if(f[x][i]!=-1&&levels[f[x][i]] >= levels[y]) {
+                res=merge(res,Q[x][i],k);
+                x = f[x][i];
+            }
+        }
+
+
+        if(x == y){
+            return merge(res,Q[x][0],k);
+        }
+
+
+
+        for(int i=17; i>=0; i--)//不重合，x 和 y 一起往上跳
+        {
+            if(f[x][i] != f[y][i]) //只要父亲不同，就跳，父亲相同，就停了
+            {                    // 最后一次，是没有跳上去的
+
+                res=merge(Q[x][i],res,k);
+                res=merge(Q[y][i],res,k);
+                x = f[x][i];
+                y = f[y][i];
+            }
+        }
+        res=merge(res,Q[x][0],k);
+        res=merge(res,Q[y][0],k);
+        res=merge(res,Q[f[x][0]][0],k);
+        return res;
+    }
+
+    public List<Integer>merge(List<Integer>a,List<Integer>b,int k){
+        List<Integer>res=new ArrayList<>();
+        int i=0,j=0;
+
+        while(i<a.size()&&j<b.size()&&res.size()<k){
+            int x =a.get(i);
+            int y=b.get(j);
+            if(x<y){
+                res.add(x);i++;
+            }
+            else{
+                res.add(y);j++;
+            }
+        }
+
+        while(i<a.size()&&res.size()<k){
+            int x=a.get(i);
+            res.add(x);
+            i++;
+        }
+        while(j<b.size()&&res.size()<k){
+            int x=b.get(j);
+            res.add(x);
+            j++;
+        }
+        return res;
+    }
+
+    public List<Integer> sort(List<Integer>list){
+        PriorityQueue<Integer>pq=new PriorityQueue<>((a,b)->{
+            return b-a;
+        });
+        for(int i:list){
+            pq.add(i);
+            while(pq.size()>10)pq.poll();
+        }
+        List<Integer>res=new ArrayList<>();
+        while(pq.size()>0)res.add(pq.poll());
+        Collections.reverse(res);
+        return res;
+    }
+}
