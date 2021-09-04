@@ -1,0 +1,155 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            List<List<Integer>>A=new ArrayList<>();
+            for(int i=0;i<n;i++){
+                List<Integer>list=new ArrayList<>();
+                int k=Int();
+                for(int j=0;j<2*k;j++){
+                    int a=Int();
+                    list.add(a);
+                }
+                A.add(list);
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+    long sums[];
+    public void solution(List<List<Integer>>A) {
+        int n =A.size();
+        int nums[]=new int[n];
+        for(int i=0;i<nums.length;i++){
+            nums[i]=i;
+        }
+
+        sums=new long[n];
+
+        long res = 0;
+        for(int i=0;i<A.size();i++){
+            int u = i;
+            int r1 = find(nums,u,0);
+            List<Integer>list=A.get(i);
+            if(list.size()==0)continue;
+            for(int j=0;j<list.size();j+=2){
+                int v=list.get(j)-1;
+                int w=list.get(j+1);
+                int r2=find(nums,v,0);
+
+                long val = sums[v]+w;
+                val+=mod;
+                val%=mod;
+                sums[r2]=val;
+                res+=val;
+                res%=mod;
+                nums[r2]=r1;
+
+            }
+        }
+
+        out.println(res);
+    }
+
+    public int find(int nums[],int x,int w){
+        if(nums[x]==x)return x;
+        int root=find(nums,nums[x],w);
+        int oldroot = nums[x];
+        sums[x]+=sums[oldroot];
+        sums[x]+=mod;
+        sums[x]%=mod;
+        nums[x]=root;
+        return root;
+    }
+
+}
