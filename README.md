@@ -515,6 +515,8 @@ My Codeforce Practice<br/>
  |  729E |[Subordinates (1900) (Greedy)  ](./code/729E.txt)|2021/09/02|
  |  1438D |[Powerful Ksenia (2200) (Thinking)  ](./code/1438D.txt)|2021/09/03|
  |  597C |[Duff in the Army (2200) (LCA)  ](./code/597C.txt)|2021/09/03|
+ |  195E |[Building Forest (2000) (UF + Tree) (Thumb)  ](./code/195E.txt)|2021/09/04|
+
 # 分类
 
 ### DP
@@ -899,6 +901,7 @@ My Codeforce Practice<br/>
 
 ### UF
 292D.[Connected Components (1900) (UF + Graph + Thinking)  ](./code/292D.txt)|2021/07/18|
+195E.[Building Forest (2000) (UF + Tree) (Thumb)  ](./code/195E.txt)<br/>
 
 ### MST
 125E. [ MST Company (2400) (MST + Thinking)  ](./code/125E.txt)<br/>
