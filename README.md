@@ -517,6 +517,7 @@ My Codeforce Practice<br/>
  |  597C |[Duff in the Army (2200) (LCA)  ](./code/597C.txt)|2021/09/03|
  |  195E |[Building Forest (2000) (UF + Tree) (Thumb)  ](./code/195E.txt)|2021/09/04|
  |  933B |[A Determined Cleanup (2000) (Math + Constructive) (Thumb)  ](./code/933B.txt)|2021/09/05|
+ |  980E |[The Number Games (2200) (Tree + Sparse + Greedy) (Thumb)  ](./code/980E.txt)|2021/09/05|
 
 # 分类
 
@@ -936,6 +937,7 @@ My Codeforce Practice<br/>
 700B.[Connecting Universities (1800) (Greedy + Tree)  ](./code/700B.txt)<br/>
 463E.[ Caisa and Tree (2100) (Tree )  ](./code/463E.txt)<br/>
 859E.[ Desk Disorder (2100) (Combination + Tree + Graph )  ](./code/859E.txt)<br/>
+980E.[The Number Games (2200) (Tree + Sparse + Greedy) (Thumb)  ](./code/980E.txt)<br/>
 
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
