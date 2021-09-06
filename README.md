@@ -519,6 +519,7 @@ My Codeforce Practice<br/>
  |  933B |[A Determined Cleanup (2000) (Math + Constructive) (Thumb)  ](./code/933B.txt)|2021/09/05|
  |  980E |[The Number Games (2200) (Tree + Sparse + Greedy) (Thumb)  ](./code/980E.txt)|2021/09/05|
  |  846F |[Random Query (1800) (Two Pointer)  ](./code/846F.txt)|2021/09/06|
+ |  622E |[Ants in Leaves (2200) (Tree + Thinking + Greedy)  ](./code/622E.txt)|2021/09/06|
 
 # 分类
 
@@ -744,6 +745,7 @@ My Codeforce Practice<br/>
 
 ### Thinking : Transfer
 675C.[Money Transfers (2100) (Thinking + Prefix Sum + Transfer)  ](./code/675C.txt)<br/>
+622E.[Ants in Leaves (2200) (Tree + Thinking + Greedy)  ](./code/622E.txt)<br/>
 
 
 ### Thinking : Sort Array Connect Component
