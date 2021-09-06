@@ -518,6 +518,7 @@ My Codeforce Practice<br/>
  |  195E |[Building Forest (2000) (UF + Tree) (Thumb)  ](./code/195E.txt)|2021/09/04|
  |  933B |[A Determined Cleanup (2000) (Math + Constructive) (Thumb)  ](./code/933B.txt)|2021/09/05|
  |  980E |[The Number Games (2200) (Tree + Sparse + Greedy) (Thumb)  ](./code/980E.txt)|2021/09/05|
+ |  846F |[Random Query (1800) (Two Pointer)  ](./code/846F.txt)|2021/09/06|
 
 # 分类
 
@@ -1059,6 +1060,7 @@ My Codeforce Practice<br/>
 1029F.[Multicolored Markers (2000) (Two Pointer) ](./code/1029F.txt)<br/>
 386C.[Diverse Substrings (2000) (Two Pointer)  ](./code/386C.txt)<br/>
 514D.[R2D2 and Droid Army (2000) (Two Pointer + Segment Tree)  ](./code/514D.txt)<br/>
+846F.[Random Query (1800) (Two Pointer)  ](./code/846F.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
