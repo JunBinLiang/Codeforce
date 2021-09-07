@@ -1,0 +1,224 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+            int B[]=Arr(n);
+            int C[]=Arr(n);
+            int edges[][]=new int[n-1][2];
+            for(int i=0;i<edges.length;i++){
+                edges[i][0]=Int()-1;
+                edges[i][1]=Int()-1;
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A,B,C,edges,n);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    List<Integer>graph[];
+    int A[],B[],C[];
+    int D[][];
+    long dp[][][][];
+    int child[];
+    public void solution(int A[],int B[],int C[],int edges[][],int n) {
+        this.A=A;
+        this.B=B;
+        this.C=C;
+
+
+        child=new int[n];
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int edge[]:edges){
+            int u=edge[0],v=edge[1];
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        int root = -1;
+        for(int i=0;i<n;i++){
+            if(graph[i].size()>2){
+                out.println(-1);
+                return;
+            }
+            if(graph[i].size()==1){
+                root = i;
+            }
+        }
+
+
+
+        dp=new long[n][4][4][2];
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++){
+                for(int k=0;k<dp[0][0].length;k++){
+                    Arrays.fill(dp[i][j][k],-1);
+                }
+            }
+        }
+
+        long a=A[root]+dfs(-1,root,0,1);
+        long b=B[root]+dfs(-1,root,0,2);
+        long c=C[root]+dfs(-1,root,0,3);
+
+
+        int c1= 0;
+        long val =Long.MAX_VALUE;
+        int c2=-1;
+
+        if(a<val){
+            val=a;
+            c2=1;
+        }
+        if(b<val){
+            val=b;
+            c2=2;
+        }
+        if(c<val){
+            val=c;
+            c2=3;
+        }
+
+        List<int[]>res=new ArrayList<>();
+        while(res.size()!=n){
+            res.add(new int[]{root,c2});
+            int c3=(int)(dp[root][c1][c2][1]);
+            c1=c2;
+            c2=c3;
+            root=child[root];
+        }
+
+        out.println(val);
+
+        Collections.sort(res,(x,y)->{
+            return x[0]-y[0];
+        });
+        for(int p[]:res){
+            out.print((p[1])+" ");
+        }
+    }
+
+    public long dfs(int p,int root,int c1,int c2){
+        if(graph[root].size()==1&&p!=-1){
+
+            return 0;
+        }
+
+        long res=Long.MAX_VALUE;
+
+        for(int next:graph[root]){
+            if(next==p)continue;
+            child[root]=next;
+            for(int c=1;c<=3;c++){
+                if(c==c1||c==c2)continue;
+                int cost = 0;
+                if(c==1)cost=A[next];
+                if(c==2)cost=B[next];
+                if(c==3)cost=C[next];
+                long val = cost+dfs(root,next,c2,c);
+                if(val<res){
+                    res=val;
+                    dp[root][c1][c2][1]=c;
+                }
+            }
+
+        }
+
+        //System.out.println(root+"  "+c1+" "+c2+" "+res);
+
+        dp[root][c1][c2][0]=res;
+        return res;
+    }
+
+}
+
