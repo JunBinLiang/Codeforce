@@ -521,6 +521,7 @@ My Codeforce Practice<br/>
  |  846F |[Random Query (1800) (Two Pointer)  ](./code/846F.txt)|2021/09/06|
  |  622E |[Ants in Leaves (2200) (Tree + Thinking + Greedy)  ](./code/622E.txt)|2021/09/06|
  |  1244E |[Minimizing Difference (2000) (Two Pointer + Greedy)  ](./code/1244E.txt)|2021/09/07|
+ |  1244D |[Paint the Tree (1800) (DP + Tree)  ](./code/1244D.txt)|2021/09/07|
 
 # 分类
 
@@ -560,6 +561,7 @@ My Codeforce Practice<br/>
 797E.[ Array Queries (2000) (DP + Brute Force)  ](./code/797E.txt)<br/>
 463D.[ Gargari and Permutations(1900) (DP )  ](./code/463D.txt)<br/>
 999F.[Cards and Joy	 (2000) (DP)  ](./code/999F.txt)<br/>
+1244D.[Paint the Tree (1800) (DP + Tree)  ](./code/1244D.txt)<br/>
 
 
 ### DP With Greedy Property
