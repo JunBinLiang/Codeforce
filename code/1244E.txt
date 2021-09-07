@@ -1,0 +1,170 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            long k=Long();
+            int A[]=Arr(n);
+            Solution sol1=new Solution(out);
+            sol1.solution(A,k);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    public void solution(int A[],long k) {
+        long res =Long.MAX_VALUE;
+        Map<Integer,Integer>f=new HashMap<>();
+        for(int i:A){
+            if(!f.containsKey(i))f.put(i,0);
+            f.put(i,f.get(i)+1);
+        }
+
+        List<int[]>list=new ArrayList<>();
+        for(Integer key:f.keySet()){
+            list.add(new int[]{key,f.get(key)});
+        }
+
+        Collections.sort(list,(a,b)->{
+            return a[0]-b[0];
+        });
+
+        if(list.size()==1){
+            out.println(0);
+            return;
+        }
+
+
+        int l = 0, r = list.size()-1;
+        long lcnt=0,rcnt=0;
+
+        while(l<r){
+            int p1[]=list.get(l);
+            int p2[]=list.get(r);
+            res=Math.min(res,p2[0]-p1[0]);
+
+            //System.out.println(lcnt+"  "+rcnt+"  "+k);
+
+            if(lcnt+p1[1]<rcnt+p2[1]){
+                int dif = list.get(l+1)[0]-p1[0];
+                lcnt+=p1[1];
+                if(lcnt*dif<=k){
+                    k-=lcnt*dif;
+                    l++;
+                    res=Math.min(res,list.get(r)[0]-list.get(l)[0]);
+
+                }
+                else{
+                    long take = k/lcnt;
+                    res=Math.min(res,list.get(r)[0]-(p1[0]+take));
+                    break;
+                }
+            }
+            else{
+                int dif = p2[0]-list.get(r-1)[0];
+                rcnt+=p2[1];
+                if(rcnt*dif<=k){
+                    k-=rcnt*dif;
+                    r--;
+                    res=Math.min(res,list.get(r)[0]-list.get(l)[0]);
+
+                }
+                else{
+                    long take = k/rcnt;
+                    res=Math.min(res,(list.get(r)[0]-take)-p1[0]);
+                    break;
+                }
+            }
+        }
+        out.println(res);
+
+    }
+
+}
+
