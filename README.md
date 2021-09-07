@@ -520,6 +520,7 @@ My Codeforce Practice<br/>
  |  980E |[The Number Games (2200) (Tree + Sparse + Greedy) (Thumb)  ](./code/980E.txt)|2021/09/05|
  |  846F |[Random Query (1800) (Two Pointer)  ](./code/846F.txt)|2021/09/06|
  |  622E |[Ants in Leaves (2200) (Tree + Thinking + Greedy)  ](./code/622E.txt)|2021/09/06|
+ |  1244E |[Minimizing Difference (2000) (Two Pointer + Greedy)  ](./code/1244E.txt)|2021/09/07|
 
 # 分类
 
@@ -1063,6 +1064,7 @@ My Codeforce Practice<br/>
 386C.[Diverse Substrings (2000) (Two Pointer)  ](./code/386C.txt)<br/>
 514D.[R2D2 and Droid Army (2000) (Two Pointer + Segment Tree)  ](./code/514D.txt)<br/>
 846F.[Random Query (1800) (Two Pointer)  ](./code/846F.txt)<br/>
+1244E.[Minimizing Difference (2000) (Two Pointer + Greedy)  ](./code/1244E.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
