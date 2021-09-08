@@ -522,6 +522,7 @@ My Codeforce Practice<br/>
  |  622E |[Ants in Leaves (2200) (Tree + Thinking + Greedy)  ](./code/622E.txt)|2021/09/06|
  |  1244E |[Minimizing Difference (2000) (Two Pointer + Greedy)  ](./code/1244E.txt)|2021/09/07|
  |  1244D |[Paint the Tree (1800) (DP + Tree)  ](./code/1244D.txt)|2021/09/07|
+ |  1244C |[The Football Season (2000) (Math + Brute Force)  ](./code/1244C.txt)|2021/09/08|
 
 # 分类
 
@@ -702,6 +703,8 @@ My Codeforce Practice<br/>
 27E.[Number With The Given Amount Of Divisors (2000) (DFS) ](./code/27E.txt) <br/>
 58C.[ Trees (1800) (Implentation) ](./code/58C.txt) <br/>
 1095D.[Circular Dance (1600) (Implementation) ](./code/1095D.txt)<br/>
+1244C.[The Football Season (2000) (Math + Brute Force)  ](./code/1244C.txt)<br/>
+
 
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
