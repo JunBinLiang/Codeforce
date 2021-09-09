@@ -524,7 +524,7 @@ My Codeforce Practice<br/>
  |  1244D |[Paint the Tree (1800) (DP + Tree)  ](./code/1244D.txt)|2021/09/07|
  |  1244C |[The Football Season (2000) (Math + Brute Force)  ](./code/1244C.txt)|2021/09/08|
  |  1567F |[One-Four Overload (2700) (Thinking + Observation + Constructice)  ](./code/1567F.txt)|2021/09/09|
-
+ |  1567E |[Non-Decreasing Dilemma (2200) (Segment Tree + Divide Conquer)  ](./code/1567E.txt)|2021/09/09|
 # 分类
 
 ### DP
@@ -1043,6 +1043,9 @@ My Codeforce Practice<br/>
 888E. [ Maximum Subsequence (1800) （Divide Conquer + Meet in Middle ） ](./code/888E.txt)<br/>
 1520F2. [Guess the K-th Zero (Hard version) (2200) (Binary Search+ Divide Conquer)  ](./code/1520F2.txt)<br/>
 1400E.[ Clear the Multiset (2200) (Greedy + Divide Conquer) (Thumb) ](./code/1400E.txt)<br/>
+
+### Divide Conquer : Merge
+1567E.[Non-Decreasing Dilemma (2200) (Segment Tree + Divide Conquer)  ](./code/1567E.txt)<br/>
 
 ### FFT
 954I.[ Yet Another String Matching Problem (2200) (FFT) ](./code/954I.txt)<br/>
