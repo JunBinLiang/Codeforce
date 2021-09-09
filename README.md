@@ -523,6 +523,7 @@ My Codeforce Practice<br/>
  |  1244E |[Minimizing Difference (2000) (Two Pointer + Greedy)  ](./code/1244E.txt)|2021/09/07|
  |  1244D |[Paint the Tree (1800) (DP + Tree)  ](./code/1244D.txt)|2021/09/07|
  |  1244C |[The Football Season (2000) (Math + Brute Force)  ](./code/1244C.txt)|2021/09/08|
+ |  1567F |[One-Four Overload (2700) (Thinking + Observation + Constructice)  ](./code/1567F.txt)|2021/09/09|
 
 # 分类
 
@@ -745,6 +746,7 @@ My Codeforce Practice<br/>
 1555D.[Say No to Palindromes (1600) (Observation + Brute Force + Prefix Sum)  ](./code/1555D.txt)<br/>
 59D.[Team Arrangement	 (2000) (Implementation + Greedy + Thinking)  ](./code/59D.txt)<br/>
 1438D.[Powerful Ksenia (2200) (Thinking)  ](./code/1438D.txt)<br/>
+1567F.[One-Four Overload (2700) (Thinking + Observation + Constructice)  ](./code/1567F.txt)<br/>
 
 ### Thinking : MAX * 2 <= SUM 
 1030E.[Vasya and Good Sequences	 (2000) (Thinking + Brute Force + Bit)  ](./code/1030E.txt)<br/>
