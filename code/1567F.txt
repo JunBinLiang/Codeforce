@@ -1,0 +1,352 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();int m=Int();
+            char A[][]=new char[n][m];
+            for(int i=0;i<A.length;i++){
+                String s=Str();
+                A[i]=s.toCharArray();
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    int dir[][]=new int[][]{{-1,0},{0,-1},{1,0},{0,1}};
+    boolean seen[][];
+    int res[][];
+    public void solution(char A[][]) {
+
+        int n = A.length,m=A[0].length;
+
+
+        seen=new boolean[n][m];
+        res=new int[n][m];
+
+        for(int i =0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]!='X')continue;
+                int cnt = 0;
+                for(int k=0;k<4;k++){
+                    int p[]=dir[k];
+                    int x = i+p[0];
+                    int y = j +p[1];
+                    if(x<0||y<0||x>=n||y>=m)continue;
+                    if(A[x][y]=='.'){
+                        cnt++;
+                    }
+                }
+
+                if(cnt%2==1){
+                    out.println("NO");
+                    return;
+                }
+                dfs(A,i,j);
+            }
+        }
+
+
+        /*for(int p[]:res){
+            System.out.println(Arrays.toString(p));
+        }
+        System.out.println();*/
+
+
+
+        out.println("YES");
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]=='X'){
+                    int sum = 0;
+                    for(int p[]:dir){
+                        int x = i+p[0];
+                        int y = j +p[1];
+                        if(x<0||y<0||x>=n||y>=m||A[x][y]=='X')continue;
+                        sum+=res[x][y];
+                    }
+                    res[i][j]=sum;
+                }
+                if(A[i][j]=='.'&&res[i][j]==0){//assign random numberr
+                    res[i][j]=4;
+                }
+                out.print(res[i][j]+" ");
+            }
+            out.println();
+        }
+    }
+
+    public void dfs(char A[][],int i,int j){
+        int n =A.length,m=A[0].length;
+        if(i<0||j<0||i>=n||j>=m)return;
+        if(A[i][j]=='.'||seen[i][j])return;
+        seen[i][j]=true;
+
+
+        List<int[]>list=new ArrayList<>();
+        for(int k=0;k<4;k++){
+            int p[]=dir[k];
+            int x = i+p[0];
+            int y = j +p[1];
+            if(x<0||y<0||x>=n||y>=m)continue;
+            if(A[x][y]=='.'){
+                list.add(new int[]{x,y});
+            }
+        }
+
+
+
+        if(list.size()!=2&&list.size()!=4){
+            return;
+        }
+
+        if(list.size()==2){
+            int p1[]=list.get(0);
+            int p2[]=list.get(1);
+            if(res[p1[0]][p1[1]]!=0&&res[p2[0]][p2[1]]!=0){
+
+            }
+            else if(res[p1[0]][p1[1]]==0&&res[p2[0]][p2[1]]==0){
+                res[p1[0]][p1[1]]=1;
+                res[p2[0]][p2[1]]=4;
+            }
+            else if(res[p1[0]][p1[1]]==0&&res[p2[0]][p2[1]]==1){
+                res[p1[0]][p1[1]]=4;
+            }
+            else if(res[p1[0]][p1[1]]==0&&res[p2[0]][p2[1]]==4){
+                res[p1[0]][p1[1]]=1;
+            }
+            else if(res[p1[0]][p1[1]]==1&&res[p2[0]][p2[1]]==0){
+                res[p2[0]][p2[1]]=4;
+            }
+            else if(res[p1[0]][p1[1]]==4&&res[p2[0]][p2[1]]==0){
+                res[p2[0]][p2[1]]=1;
+            }
+
+            for(int p[]:list){
+                int x=p[0],y=p[1];
+                for(int pp[]:dir){
+                    int xx=x+pp[0];
+                    int yy=y+pp[1];
+                    dfs(A,xx,yy);
+                }
+            }
+        }
+        else{
+            boolean flag = true;
+            boolean a = false;
+            for(int k=0;k<list.size();k++){
+                int p[]=list.get(k);
+                if(res[p[0]][p[1]]!=0){
+                    flag=false;
+                    //1 4 1 4 or 4 1 4 1
+                    if(k%2==0){
+                        if(res[p[0]][p[1]]==1)a=true;
+                    }
+                    else{
+                        if(res[p[0]][p[1]]==4)a=true;
+                    }
+                }
+                else{
+
+                }
+            }
+
+            if(flag){
+                for(int k=0;k<list.size();k++){
+                    int p[]=list.get(k);
+                    if(k%2==0){
+                        res[p[0]][p[1]]=1;
+                    }
+                    else{
+                        res[p[0]][p[1]]=4;
+                    }
+                }
+            }
+            else{
+
+                for(int k=0;k<list.size();k++){
+                    int p[]=list.get(k);
+                    if(k%2==0){
+                        if(a)res[p[0]][p[1]]=1;
+                        else res[p[0]][p[1]]=4;
+                    }
+                    else{
+                        if(a)res[p[0]][p[1]]=4;
+                        else res[p[0]][p[1]]=1;
+                    }
+                }
+            }
+
+            for(int p[]:list){
+                int x=p[0],y=p[1];
+                for(int pp[]:dir){
+                    int xx=x+pp[0];
+                    int yy=y+pp[1];
+                    dfs(A,xx,yy);
+                }
+            }
+        }
+
+
+    }
+
+}
+
+/*
+.......................
+...XXXXX.XXX..XXXXXXX..
+...X...X.X.X..X.....X..
+.XXXXX.X.XXX..X.XXX.X..
+.X.X.X.X......X.X.X.X..
+.X.XXXXX..XXXXXXXXX.X..
+.X...X....X...X.X...X..
+.X.XXXXX..X.XXXXXXXXX..
+.X.X.X.X..X.X.X.X......
+.XXXXX.X..X.XXX.X.XX...
+...X...X..X.....X.XXX..
+...XXXXX..XXXXXXX..XXX.
+........XX..........XX.
+........XX.............
+.X.X.X.X..XXXXX.XXXXX..
+..X.X.X...X...X.X...X..
+.X.X.X.X..X.XXXXXXX.X..
+..X.X.X...X.X.X.X.X.X..
+.X.X.X.X..XXXXX.XXXXX..
+............x.....x....
+* */
+
+/*
+.......X...X...........
+.XXXXX.X.X.X.X.X.X.X...
+.X...X.X...X..X...X.X..
+.X.X.X.XXXXX...X...X...
+.X...X......XX.........
+* */
+
+
+/*
+....................... 1
+...XXXXX.XXX..XXXXXXX.. 2
+...X...X.X.X..X.....X.. 3
+.XXXXX.X.XXX..X.XXX.X.. 4
+.X.X.X.X......X.X.X.X.. 5
+.X.XXXXX..XXXXXXXXX.X.. 6
+.X...X....X...X.X...X.. 7
+.X.XXXXX..X.XXXXXXXXX.. 8
+.X.X.X.X..X.X.X.X...... 9
+.XXXXX.X..X.XXX.X.XX... 10
+...X...X..X.....X.XXX.. 11
+...XXXXX..XXXXXXX..XXX. 12
+........XX..........XX. 13
+........XX............. 14
+.X.X.X.X..XXXXX.XXXXX.. 15
+..X.X.X...X...X.X...X.. 16
+.X.X.X.X..X.XXXXXXX.X.. 17
+..X.X.X...X.X.X.X.X.X.. 18
+.X.X.X.X..XXXXX.XXXXX.. 19
+..X.X.X.....X.....X.... 20
+.X.X.X.X.X..XXXXXXX.... 21
+..X.X.X.X.............. 22
+
+
+
+....................... 1
+...X...XXXXX.X.X.X.X... 2
+.......X...X..X.X.X.X.. 3
+.XXXXX.X.X.X.X.X.X.X... 4
+.X...X.X...X..X...X.X.. 5
+.X.X.X.XXXXX...X...X... 6
+.X...X......XX..X.X.... 7
+.XXXXX...X..XX...X..... 8
+....................... 9
+* */
