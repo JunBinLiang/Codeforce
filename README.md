@@ -525,6 +525,7 @@ My Codeforce Practice<br/>
  |  1244C |[The Football Season (2000) (Math + Brute Force)  ](./code/1244C.txt)|2021/09/08|
  |  1567F |[One-Four Overload (2700) (Thinking + Observation + Constructice)  ](./code/1567F.txt)|2021/09/09|
  |  1567E |[Non-Decreasing Dilemma (2200) (Segment Tree + Divide Conquer)  ](./code/1567E.txt)|2021/09/09|
+ |  432D |[Prefixes and Suffixes (2000) (KMP + DP)  ](./code/1567E.txt)|2021/09/10|
 # 分类
 
 ### DP
@@ -1020,6 +1021,7 @@ My Codeforce Practice<br/>
 ### KMP
 1015F.[ Bracket Substring (2300) (DP + KMP) ](./code/1015F.txt) <br/>
 1029A.[Many Equal Substrings (1300) (KMP) ](./code/1029A.txt)<br/>
+432D.[Prefixes and Suffixes (2000) (KMP + DP)  ](./code/1567E.txt)<br/>
 
 ### Suffix Array (LCP)
 123D. [ String (2300) (Suffix Array LCP + Stack) ](./code/123D.txt)<br/>
