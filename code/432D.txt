@@ -1,0 +1,208 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            String s=Str();
+
+            Solution sol1=new Solution(out);
+            sol1.solution(s);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    int dp[];
+    int pre[];
+    public void solution(String s) {
+        //kmp
+        int n =s.length();
+        pre=pre(s);
+        dp=new int[s.length()+10];
+        Arrays.fill(dp,-1);
+        dp[0]=0;
+        boolean ans[]=new boolean[n+10];
+
+
+
+        int match = pre[n-1];
+        while(match!=0){
+            ans[match]=true;
+            dp[match]=match;
+            match=pre[match-1];
+        }
+
+        for(int i=0;i<pre.length;i++){
+            int ma=pre[i];
+            List<Integer>list=new ArrayList<>();
+            while(ma!=0&&dp[ma]==-1){
+                list.add(ma);
+                ma=pre[ma-1];
+            }
+            for(int j:list){
+                dp[j]=dp[ma];
+            }
+        }
+
+
+
+        int add[]=new int[n+10];
+        for(int i=0;i<pre.length;i++){
+            int ma=pre[i];
+            add[dp[ma]]++;
+        }
+
+        //System.out.println(Arrays.toString(pre));
+        //System.out.println(Arrays.toString(dp));
+        //System.out.println(Arrays.toString(add));
+
+
+        List<int[]>res=new ArrayList<>();
+        for(int i=add.length-2;i>=0;i--){
+            add[i]+=add[i+1];
+            if(ans[i]){
+                res.add(new int[]{i,add[i]});
+            }
+        }
+
+
+
+
+        Collections.sort(res,(a,b)->{
+            return a[0]-b[0];
+        });
+        out.println(res.size()+1);
+        for(int p[]:res){
+            out.println(p[0]+" "+(p[1]+1));
+        }
+        out.println(n+" "+1);
+    }
+
+    public int[] pre(String pattern){
+        int pre[]=new int[pattern.length()];
+        int l=0,r=1;
+        while(r<pattern.length()){
+            if(pattern.charAt(r)==pattern.charAt(l)){
+                pre[r]=l+1;
+                l++;
+                r++;
+            }else{
+                if(l==0)r++;
+                else{
+                    l=pre[l-1];
+                }
+            }
+        }
+        return pre;
+    }
+
+    public int[] z(int n,String A){
+        char s[] = A.toCharArray();
+        int z[]=new int[n];
+        int L = 0, R = 0;
+        for (int i = 1; i < n; i++) {
+            if (i > R) {
+                L = R = i;
+                while (R < n && s[R-L] == s[R]) R++;
+                z[i] = R-L; R--;
+            } else {
+                int k = i-L;
+                if (z[k] < R-i+1) z[i] = z[k];
+                else {
+                    L = i;
+                    while (R < n && s[R-L] == s[R]) R++;
+                    z[i] = R-L; R--;
+                }
+            }
+        }
+        return z;
+    }
+
+
+
+}
