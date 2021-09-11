@@ -527,6 +527,7 @@ My Codeforce Practice<br/>
  |  1567E |[Non-Decreasing Dilemma (2200) (Segment Tree + Divide Conquer)  ](./code/1567E.txt)|2021/09/09|
  |  432D |[Prefixes and Suffixes (2000) (KMP + DP)  ](./code/1567E.txt)|2021/09/10|
  |  432E |[Square Tiling (2300) (Constructive + Greedy)  ](./code/432E.txt)|2021/09/11|
+ |  842C |[Ilya And The Tree (2000) (DP Set)  ](./code/842C.txt)|2021/09/11|
 # 分类
 
 ### DP
@@ -582,6 +583,8 @@ My Codeforce Practice<br/>
 1183H.[ Subsequences (hard version) (2000) ( DP + Distinct Subsequence ) ](./code/1183H.txt)<br/>
 314C.[ Sereja and Subsequences (2100) (DP + Distince Subsequence + Fenwick Tree)  ](./code/314C.txt)<br/>
 
+### DP Set
+842C.[Ilya And The Tree (2000) (DP Set)  ](./code/842C.txt)<br/>
 
 
 ### Prefix/Left-Right DP
