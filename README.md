@@ -526,6 +526,7 @@ My Codeforce Practice<br/>
  |  1567F |[One-Four Overload (2700) (Thinking + Observation + Constructice)  ](./code/1567F.txt)|2021/09/09|
  |  1567E |[Non-Decreasing Dilemma (2200) (Segment Tree + Divide Conquer)  ](./code/1567E.txt)|2021/09/09|
  |  432D |[Prefixes and Suffixes (2000) (KMP + DP)  ](./code/1567E.txt)|2021/09/10|
+ |  432E |[Square Tiling (2300) (Constructive + Greedy)  ](./code/432E.txt)|2021/09/11|
 # 分类
 
 ### DP
@@ -694,6 +695,7 @@ My Codeforce Practice<br/>
 1560E.[ Polycarp and String Transformation (1800) (Sort + Binary Search + Construtive)  ](./code/1560E.txt)<br/>
 1560F2.[ Nearest Beautiful Number (hard version) (2100) (Greedy + Construtive)  ](./code/1560F2.txt)<br/>
  891B.[ Gluttony (2000) (Constructive )  ](./code/891B.txt)<br/>
+ 432E.[Square Tiling (2300) (Constructive + Greedy)  ](./code/432E.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
