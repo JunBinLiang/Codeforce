@@ -1,0 +1,165 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=Arr(n);
+            int edges[][]=new int[n-1][2];
+            for(int i=0;i<edges.length;i++){
+                edges[i][0]=Int()-1;
+                edges[i][1]=Int()-1;
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A,edges);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    List<Integer>graph[];
+    int A[];
+    int g[];
+    int res[];
+    Set<Integer>sets[];
+    public void solution(int A[],int edges[][]) {
+        int n =A.length;
+        this.A=A;
+        res=new int[n];
+        g=new int[200000+100];
+
+        sets=new HashSet[n];
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        Arrays.setAll(sets,e->new HashSet<>());
+        for(int edge[]:edges){
+            int u=edge[0],v=edge[1];
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+
+        dfs(-1,0,0);
+        res[0]=A[0];
+        for(int i:res){
+            out.print(i+" ");
+        }
+    }
+
+
+    public void dfs(int pa,int root,int g){
+        int mx = 0;
+        if(pa!=-1){
+            for(Integer i:sets[pa]){
+                int ng = gcd(A[root],i);
+                sets[root].add(ng);
+                mx=Math.max(mx,ng);
+            }
+        }
+        sets[root].add(g);
+        int ng=gcd(g,A[root]);
+        mx=Math.max(mx,ng);
+        mx=Math.max(mx,g);
+
+        res[root]=mx;
+        for(int next:graph[root]){
+            if(next==pa)continue;
+            dfs(root,next,ng);
+        }
+    }
+
+
+    public int gcd(int num1, int num2) {
+        if (num2 != 0){
+            return gcd(num2, num1 % num2);
+        } else{
+            return num1;
+        }
+    }
+}
