@@ -529,6 +529,7 @@ My Codeforce Practice<br/>
  |  432E |[Square Tiling (2300) (Constructive + Greedy)  ](./code/432E.txt)|2021/09/11|
  |  842C |[Ilya And The Tree (2000) (DP Set)  ](./code/842C.txt)|2021/09/11|
  |  842D |[Vitya and Strange Lesson (2000) (Trie + Bitmask + Thinking)  ](./code/842D.txt)|2021/09/12|
+ |  1146F |[Leaf Partition (2500) (Hard DP)  ](./code/1146F.txt)|2021/09/12|
 # 分类
 
 ### DP
@@ -568,6 +569,7 @@ My Codeforce Practice<br/>
 463D.[ Gargari and Permutations(1900) (DP )  ](./code/463D.txt)<br/>
 999F.[Cards and Joy	 (2000) (DP)  ](./code/999F.txt)<br/>
 1244D.[Paint the Tree (1800) (DP + Tree)  ](./code/1244D.txt)<br/>
+1146F.[Leaf Partition (2500) (Hard DP)  ](./code/1146F.txt)<br/>
 
 
 ### DP With Greedy Property
