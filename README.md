@@ -528,6 +528,7 @@ My Codeforce Practice<br/>
  |  432D |[Prefixes and Suffixes (2000) (KMP + DP)  ](./code/1567E.txt)|2021/09/10|
  |  432E |[Square Tiling (2300) (Constructive + Greedy)  ](./code/432E.txt)|2021/09/11|
  |  842C |[Ilya And The Tree (2000) (DP Set)  ](./code/842C.txt)|2021/09/11|
+ |  842D |[Vitya and Strange Lesson (2000) (Trie + Bitmask + Thinking)  ](./code/842D.txt)|2021/09/12|
 # 分类
 
 ### DP
@@ -1087,6 +1088,9 @@ My Codeforce Practice<br/>
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
 1285D.[ Dr. Evil Underscores (1900) (Bit + Trie)  ](./code/1285D.txt)<br/>
 665E.[Beautiful Subarrays (2100) (Trie + XOR + Array Implementation)  ](./code/665E.txt)<br/>
+
+### Trie Bitmask:
+842D.[Vitya and Strange Lesson (2000) (Trie + Bitmask + Thinking)  ](./code/842D.txt)<br/>
 
 ### Stack
 224C.[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)<br/>
