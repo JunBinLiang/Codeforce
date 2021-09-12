@@ -1,0 +1,166 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int A[]=Arr(n);
+            int q[]=Arr(m);
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A,q);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 1000000007;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    Node root = new Node();
+    int DEP = 23;
+    int res=0;
+    int cur = 0;
+    public void solution(int A[],int q[]) {
+        boolean seen[]=new boolean[600000+100];
+        for(int i:A){
+            seen[i]=true;
+            //add(root,i,DEP);
+        }
+
+        for(int i=0;i<seen.length;i++){
+            if(!seen[i]){
+                add(root,i,DEP);
+            }
+        }
+
+        int xor=0;
+        for(int i:q){
+            xor^=i;
+            res=0;
+            q(root,xor,DEP);
+            out.println(res);
+        }
+
+
+    }
+
+    public void q(Node root,int xor,int i){
+        if(i<0){
+            return;
+        }
+        int b = 0;
+        if((xor&(1<<i))!=0)b=1;
+
+        if(root.childs[b]!=null){
+            q(root.childs[b],xor,i-1);
+        }
+        else{
+            if(b==0)b=1;
+            else b=0;
+            res = res|(1<<i);
+            q(root.childs[b],xor,i-1);
+        }
+    }
+
+    public void add(Node root,int val,int i){
+        if(i<0){
+            return;
+        }
+        int b = 0;
+        if((val&(1<<i))!=0)b=1;
+        if(root.childs[b]==null)root.childs[b]=new Node();
+        add(root.childs[b],val,i-1);
+    }
+
+    class Node{
+        Node childs[]=new Node[2];
+    }
+
+
+
+
+}
