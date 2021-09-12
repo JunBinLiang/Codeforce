@@ -1,0 +1,170 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int A[]=new int[n-1];
+            for(int i=0;i<A.length;i++){
+                A[i]=Int()-1;
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(A);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    List<Integer>graph[];
+    public void solution(int A[]) {
+        int n =A.length+1;
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i=0;i<A.length;i++){
+            int u =i+1;
+            int v=A[i];
+            graph[v].add(u);
+        }
+
+        long res[]=dfs(0);
+        out.println((res[0]+res[2])%MOD);
+
+    }
+
+    public long[] dfs(int root){
+        if(graph[root].size()==0){
+            //leaf
+            return new long[]{0,0,1};//[no,request,complete]
+        }
+
+        long dp[]=new long[3];
+        dp[0]=1;
+        int m = MOD;
+        for(int next:graph[root]){
+            long p[]=dfs(next);
+            long a=p[0],b=p[1],c=p[2];
+
+            long newdp[]=new long[3];
+            //no
+            newdp[0] = dp[0] * (a+c);
+
+
+            //request
+            newdp[1] += dp[1] * a;//request, non
+            newdp[1] += dp[1]*c;//requst complete
+            newdp[1] += dp[0]*b;//non request
+            newdp[1] += dp[0]*c;//non complete
+
+
+            //complete
+            newdp[2] += (dp[1] * b);//request, request
+            newdp[2] += (dp[1] * c);//request, complete
+
+            newdp[2] += (dp[2] * a);//complete non
+            newdp[2] += (dp[2] * c);//complete complete
+
+            newdp[2] += dp[2] * b;
+            newdp[2] += dp[2]*c;
+
+            newdp[0] %= m;
+            newdp[1]%=m;
+            newdp[2]%=m;
+            dp=newdp;
+            //System.out.println(root+"  "+Arrays.toString(dp));
+        }
+
+
+        //System.out.println();
+        return dp;
+    }
+
+
+
+
+}
