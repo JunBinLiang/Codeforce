@@ -1,0 +1,235 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int m=Int();
+            int edges[][]=new int[n-1][2];
+            for(int i=0;i<edges.length;i++){
+                edges[i][0]=Int();
+                edges[i][1]=Int();
+            }
+
+            int q[][]=new int[m][2];
+            for(int i=0;i<q.length;i++){
+                q[i][0]=Int();
+                q[i][1]=Int();
+            }
+
+            Solution sol1=new Solution(out);
+            sol1.solution(edges,q);
+        }
+        out.close();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+
+    public Solution(PrintWriter out) {
+        this.out = out;
+    }
+
+
+    Set<Integer>graph[];
+    public void solution(int edges[][],int q[][]) {
+
+        int n = edges.length+2;
+        CentroidDecomposition ce = new CentroidDecomposition(n);
+
+        for(int edge[]:edges){
+            int u=edge[0],v=edge[1];
+            ce.add(u,v);
+        }
+
+        ce.dfs(0,1);
+        ce.build(1,0);
+        ce.update(1);
+
+        for(int pair[]:q){
+            int type=pair[0];
+            int u = pair[1];
+            if(type==1){
+                ce.update(u);
+            }
+            else{
+                int res = ce.query(u);
+                out.println(res);
+            }
+        }
+
+    }
+
+
+
+    class CentroidDecomposition{
+        //actually : rebuild the tree
+
+        /*
+        It costs O(n) to build each level of the centroid tree, and the height of the centroid tree is O(logn).
+        The deletion of edge is also O(nlogn),
+        as we only have O(n) edges to remove and each removal cost O(logn). Therefore, the total complexity is O(nlogn).
+        * */
+        int INF = 10000000;
+        Set<Integer>graph[];
+        Map<Integer,Integer>dis[];
+        int sz[];int pa[];
+        int ans[];
+        int n;
+        public CentroidDecomposition(int n){
+            this.n=n;
+            graph=new HashSet[n];
+            sz = new int[n];
+            pa=new int[n];
+            dis=new HashMap[n];
+            ans=new int[n];
+
+            Arrays.fill(ans,INF);
+            Arrays.setAll(graph,e->new HashSet<>());
+            Arrays.setAll(dis,e->new HashMap<>());
+        }
+
+        public void add(int u,int v){
+            graph[v].add(u);
+            graph[u].add(v);
+        }
+
+        public int dfs(int pa,int root) {//construct subtree size
+            sz[root] = 1;
+            for(int next : graph[root]){
+                if(next != pa) {
+                    sz[root] += dfs(root,next);
+                }
+            }
+            return sz[root];
+        }
+
+        public int centroid(int pa, int root) {
+            for(int next : graph[root]){
+                if(next == pa)continue;
+                if(sz[next] > n / 2) return centroid(root, next);
+            }
+            return root;
+        }
+
+        void dfs2(int u, int p, int c, int d) { // build distance
+            dis[c].put(u,d);
+            for(int v : graph[u]){
+                if(v != p) {
+                    dfs2(v, u, c, d + 1);
+                }
+            }
+        }
+
+        public void build(int u, int p) {//centroid decomposition of a tree T is another tree, build this other tree
+            //c:centroid
+
+            int c = centroid(p,u);
+            if(p == -1) p = c;
+            pa[c] = p;
+
+            //distance update
+            dfs2(c, p, c, 0);
+
+            List<Integer>temp=new ArrayList<>(graph[c]);
+            for(int v : temp) {
+                graph[c].remove(v);
+                graph[v].remove(c);
+                build(v, c);
+            }
+        }
+
+        public void update(int u) {
+            //System.out.println(u);
+            for(int v = u ; v != 0 ; v = pa[v]) ans[v] = Math.min(ans[v], dis[v].get(u));
+            //System.out.println(Arrays.toString(ans));
+        }
+
+        public int query(int u) {
+            int mn = INF;
+            for(int v = u ; v != 0 ; v = pa[v]) mn = Math.min(mn, ans[v] + dis[v].get(u));
+            return mn;
+        }
+
+    }
+
+
+}
