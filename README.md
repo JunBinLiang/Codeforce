@@ -530,6 +530,7 @@ My Codeforce Practice<br/>
  |  842C |[Ilya And The Tree (2000) (DP Set)  ](./code/842C.txt)|2021/09/11|
  |  842D |[Vitya and Strange Lesson (2000) (Trie + Bitmask + Thinking)  ](./code/842D.txt)|2021/09/12|
  |  1146F |[Leaf Partition (2500) (Hard DP)  ](./code/1146F.txt)|2021/09/12|
+ |  1567D |[Expression Evaluation Error (2000) (Greedy + Constructive)  ](./code/1567D.txt)|2021/09/12|
 # 分类
 
 ### DP
@@ -672,6 +673,10 @@ My Codeforce Practice<br/>
 1415E.[ New Game Plus! (2200) (Thinking Greedy)  ](./code/1415E.txt)<br/>
 999D.[ Equalize the Remainders	 (1900) (Greedy + TreeSet )  ](./code/999D.txt)<br/>
 729E.[Subordinates (1900) (Greedy)  ](./code/729E.txt)<br/>
+
+
+### Greedy : Number
+1567D.[Expression Evaluation Error (2000) (Greedy + Constructive)  ](./code/1567D.txt)<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
