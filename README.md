@@ -531,6 +531,7 @@ My Codeforce Practice<br/>
  |  842D |[Vitya and Strange Lesson (2000) (Trie + Bitmask + Thinking)  ](./code/842D.txt)|2021/09/12|
  |  1146F |[Leaf Partition (2500) (Hard DP)  ](./code/1146F.txt)|2021/09/12|
  |  1567D |[Expression Evaluation Error (2000) (Greedy + Constructive)  ](./code/1567D.txt)|2021/09/12|
+ |  342E |[Xenia and Tree (2400) (Centroid Decomposition)  ](./code/342E.txt)|2021/09/13|
 # 分类
 
 ### DP
@@ -967,6 +968,8 @@ My Codeforce Practice<br/>
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
 
+### Centroid Decomposition
+ 342E.[Xenia and Tree (2400) (Centroid Decomposition)  ](./code/342E.txt)<br/>
 ### Binary Search Tree
 675D.[Tree Construction (1800) (Binary Search Tree + Observation)  ](./code/675D.txt)<br/>
 
