@@ -534,6 +534,7 @@ My Codeforce Practice<br/>
  |  342E |[Xenia and Tree (2400) (Centroid Decomposition)  ](./code/342E.txt)|2021/09/13|
  |  354C |[Vasya and Beautiful Arrays (2100) (Thinking + Math Mod)  ](./code/354C.txt)|2021/09/14|
  |  1216F |[Wi-Fi (2100) (Line DP + Segment Tree)  ](./code/1216F.txt)|2021/09/14|
+ |  1216E2 |[ Numerical Sequence (hard version) (2200) (Binary Search + Math)  ](./code/1216E2.txt)|2021/09/14|
 # 分类
 
 ### DP
@@ -817,11 +818,14 @@ My Codeforce Practice<br/>
 1151C.[Problem for Nazar (1800) (Math) ](./code/1151C.txt)<br/>
 597A.[Divisibility (1600) (Math)  ](./code/597A.txt)<br/>
 
-### Equation
+### Math : Equation
 933B.[A Determined Cleanup (2000) (Math + Constructive) (Thumb)  ](./code/933B.txt)<br/>
 
-### Mod
+### Math : Mod
 354C.[Vasya and Beautiful Arrays (2100) (Thinking + Math Mod + 打表)  ](./code/354C.txt)<br/>
+
+### Math : Calculation
+1216E2.[ Numerical Sequence (hard version) (2200) (Binary Search + Math)  ](./code/1216E2.txt)<br/>
 
 ### Number Theory
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
