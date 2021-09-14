@@ -533,6 +533,7 @@ My Codeforce Practice<br/>
  |  1567D |[Expression Evaluation Error (2000) (Greedy + Constructive)  ](./code/1567D.txt)|2021/09/12|
  |  342E |[Xenia and Tree (2400) (Centroid Decomposition)  ](./code/342E.txt)|2021/09/13|
  |  354C |[Vasya and Beautiful Arrays (2100) (Thinking + Math Mod)  ](./code/354C.txt)|2021/09/14|
+ |  1216F |[Wi-Fi (2100) (Line DP + Segment Tree)  ](./code/1216F.txt)|2021/09/14|
 # 分类
 
 ### DP
@@ -592,6 +593,8 @@ My Codeforce Practice<br/>
 ### DP Set
 842C.[Ilya And The Tree (2000) (DP Set)  ](./code/842C.txt)<br/>
 
+### Line/Interval DP
+1216F.[Wi-Fi (2100) (Line DP + Segment Tree)  ](./code/1216F.txt)<br/>
 
 ### Prefix/Left-Right DP
 1185D.[Extra Element (1700) (Prefix DP )  ](./code/1185D.txt)<br/>
