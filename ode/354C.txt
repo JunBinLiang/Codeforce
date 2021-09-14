@@ -1,0 +1,161 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            int n=Int();
+            int k=Int();
+            int A[]=Arr(n);
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(A,k);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+
+    public void solution(int A[],int k) {
+        int n =A.length;
+        Arrays.sort(A);
+        int mn = A[0];
+
+
+        if(mn-1<=k){//mod : mx : mn - 1
+            out.println(mn);
+            return;
+        }
+
+        int pre[]=new int[2000000+1];
+        for(int i:A){
+            pre[i]=1;
+        }
+        for(int i=1;i<pre.length;i++){
+            pre[i]+=pre[i-1];
+        }
+
+
+        int res = k + 1;
+        for(int d = k+2;d<=mn;d++){
+            boolean flag = true;
+            int last = 0;
+            for(int j=d;j<=2000000;j+=d){
+                int sum = get(pre,last+k+1,j-1);
+                if(sum>0){
+                    flag=false;
+                    break;
+                }
+                last = j;
+            }
+
+            if(flag){
+                res=d;
+            }
+        }
+
+
+        out.println(res);
+    }
+
+    public int get(int A[],int l,int r){
+        if(l>r)return 0;
+        if(l==0)return A[r];
+        return A[r]-A[l-1];
+    }
+
+}
+
+//10 1
+//10 4 2
+//10 5 0
+//10 6 4
+//10 7 3
+//10 8 2
+
+
