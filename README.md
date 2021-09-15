@@ -536,6 +536,7 @@ My Codeforce Practice<br/>
  |  1216F |[Wi-Fi (2100) (Line DP + Segment Tree)  ](./code/1216F.txt)|2021/09/14|
  |  1216E2 |[ Numerical Sequence (hard version) (2200) (Binary Search + Math)  ](./code/1216E2.txt)|2021/09/14|
  |  1154G |[ Minimum Possible LCM (2200) (Brute Force, LCM)  ](./code/1154G.txt)|2021/09/15|
+ |  1154F |[ Shovels Shop (2100) (DP)  ](./code/1154F.txt)|2021/09/15|
 # 分类
 
 ### DP
@@ -576,6 +577,7 @@ My Codeforce Practice<br/>
 999F.[Cards and Joy	 (2000) (DP)  ](./code/999F.txt)<br/>
 1244D.[Paint the Tree (1800) (DP + Tree)  ](./code/1244D.txt)<br/>
 1146F.[Leaf Partition (2500) (Hard DP)  ](./code/1146F.txt)<br/>
+1154F.[ Shovels Shop (2100) (DP)  ](./code/1154F.txt)<br/>
 
 
 ### DP With Greedy Property
