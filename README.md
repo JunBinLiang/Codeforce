@@ -535,6 +535,7 @@ My Codeforce Practice<br/>
  |  354C |[Vasya and Beautiful Arrays (2100) (Thinking + Math Mod)  ](./code/354C.txt)|2021/09/14|
  |  1216F |[Wi-Fi (2100) (Line DP + Segment Tree)  ](./code/1216F.txt)|2021/09/14|
  |  1216E2 |[ Numerical Sequence (hard version) (2200) (Binary Search + Math)  ](./code/1216E2.txt)|2021/09/14|
+ |  1154G |[ Minimum Possible LCM (2200) (Brute Force, LCM)  ](./code/1154G.txt)|2021/09/15|
 # 分类
 
 ### DP
@@ -826,6 +827,9 @@ My Codeforce Practice<br/>
 
 ### Math : Calculation
 1216E2.[ Numerical Sequence (hard version) (2200) (Binary Search + Math)  ](./code/1216E2.txt)<br/>
+
+### Math : GCD / LCM
+1154G.[ Minimum Possible LCM (2200) (Brute Force, LCM)  ](./code/1154G.txt)<br/>
 
 ### Number Theory
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
