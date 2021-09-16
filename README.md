@@ -537,6 +537,7 @@ My Codeforce Practice<br/>
  |  1216E2 |[ Numerical Sequence (hard version) (2200) (Binary Search + Math)  ](./code/1216E2.txt)|2021/09/14|
  |  1154G |[ Minimum Possible LCM (2200) (Brute Force, LCM)  ](./code/1154G.txt)|2021/09/15|
  |  1154F |[ Shovels Shop (2100) (DP)  ](./code/1154F.txt)|2021/09/15|
+ |  1363E |[ Tree Shuffling (2000) (Tree + Greedy)  ](./code/1363E.txt)|2021/09/16|
 # 分类
 
 ### DP
@@ -981,6 +982,7 @@ My Codeforce Practice<br/>
 463E.[ Caisa and Tree (2100) (Tree )  ](./code/463E.txt)<br/>
 859E.[ Desk Disorder (2100) (Combination + Tree + Graph )  ](./code/859E.txt)<br/>
 980E.[The Number Games (2200) (Tree + Sparse + Greedy) (Thumb)  ](./code/980E.txt)<br/>
+1363E.[ Tree Shuffling (2000) (Tree + Greedy)  ](./code/1363E.txt)<br/>
 
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
