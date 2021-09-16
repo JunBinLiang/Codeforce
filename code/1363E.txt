@@ -1,0 +1,208 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+    List<Integer>graph[];
+    int x = 0, y = 0;
+    boolean seen[];
+    int A[][];
+    int B[][];
+    long res = 0;
+    int has[][];
+    int p[];
+    public void solution() {
+        int n =fs.Int();
+        A=new int[n][4];
+        p=new int[n];
+        int one = 0, zero = 0;
+        int a = 0, b = 0;
+
+        for(int i=0;i<A.length;i++){
+            for(int j=0;j<3;j++){
+                A[i][j]=fs.Int();
+            }
+            A[i][3]=i;
+            if(A[i][1]==0)zero++;
+            else one++;
+
+            if(A[i][2]==0)a++;
+            else b++;
+        }
+
+        B=new int[n][3];
+        for(int i=0;i<B.length;i++){
+            B[i][0]=A[i][0];
+            B[i][1]=A[i][1];
+            B[i][2]=A[i][2];
+        }
+
+        Arrays.sort(A,(aa,bb)->{
+            return aa[0]-bb[0];
+        });
+
+        if(zero!=a||one!=b){
+            out.println(-1);
+            return;
+        }
+
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i=0;i<n-1;i++){
+            int u=fs.Int()-1;
+            int v=fs.Int()-1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+
+        dfs1(-1,0);
+
+        seen=new boolean[n];
+        has=new int[n][2];
+        for(int i=0;i<A.length;i++){
+            int index=A[i][3];
+            if(seen[index])continue;
+            seen[index]=true;
+            x=0;y=0;
+            dfs(index);
+
+            //System.out.println(index+"  "+A[i][0]+"  "+x+"  "+y);
+
+            int mn =Math.min(x,y);
+
+            x-=mn;y-=mn;
+            res += (mn+0l) * A[i][0] * 2;
+            has[index][0]=x;
+            has[index][1]=y;
+            //System.out.println(Arrays.toString(has[index]));
+        }
+
+        out.println(res);
+    }
+
+    public void dfs1(int pa,int root){
+        p[root]=pa;
+        for(int next:graph[root]){
+            if(next==pa)continue;
+            dfs1(root,next);
+        }
+    }
+
+    public void dfs(int root){
+        if(B[root][1]!=B[root][2]){
+            if(B[root][1]==1)x++;
+            else y++;
+        }
+        for(int next:graph[root]){
+            if(next==p[root])continue;
+            if(seen[next]){
+                x+=has[next][0];
+                y+=has[next][1];
+                has[next][0]=0;
+                has[next][1]=0;
+                continue;
+            }
+            seen[next]=true;
+            dfs(next);
+        }
+    }
+
+
+}
+
+
+
+
