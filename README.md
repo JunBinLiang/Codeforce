@@ -539,6 +539,7 @@ My Codeforce Practice<br/>
  |  1154F |[ Shovels Shop (2100) (DP)  ](./code/1154F.txt)|2021/09/15|
  |  1363E |[ Tree Shuffling (2000) (Tree + Greedy)  ](./code/1363E.txt)|2021/09/16|
  |  1363F |[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)|2021/09/16|
+ |  229D |[ Towers (2100) (DP + Two Pointer)  ](./code/229D.txt)|2021/09/17|
 # 分类
 
 ### DP
@@ -580,6 +581,7 @@ My Codeforce Practice<br/>
 1244D.[Paint the Tree (1800) (DP + Tree)  ](./code/1244D.txt)<br/>
 1146F.[Leaf Partition (2500) (Hard DP)  ](./code/1146F.txt)<br/>
 1154F.[ Shovels Shop (2100) (DP)  ](./code/1154F.txt)<br/>
+229D.[ Towers (2100) (DP + Two Pointer)  ](./code/229D.txt)<br/>
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
