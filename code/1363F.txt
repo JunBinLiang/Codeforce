@@ -1,0 +1,170 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution() {
+        int n=fs.Int();
+        String s=fs.Str();
+        String t=fs.Str();
+        StringBuilder rev1=new StringBuilder(s);
+        StringBuilder rev2=new StringBuilder(t);
+        s=rev1.reverse().toString();
+        t=rev2.reverse().toString();
+        char A[]=s.toCharArray();
+        char B[]=t.toCharArray();
+
+        int cnt1[][]=new int[n][26];
+        int cnt2[][]=new int[n][26];
+        cnt1[0][A[0]-'a']++;
+        cnt2[0][B[0]-'a']++;
+        for(int i=1;i<n;i++){
+            for(int j=0;j<26;j++){
+                cnt1[i][j]=cnt1[i-1][j];
+                cnt2[i][j]=cnt2[i-1][j];
+            }
+            cnt1[i][A[i]-'a']++;
+            cnt2[i][B[i]-'a']++;
+        }
+
+        for(int i=0;i<26;i++){
+            if(cnt1[n-1][i]!=cnt2[n-1][i]){
+                out.println(-1);
+                return;
+            }
+        }
+
+        int dp[][]=new int[n+1][n+1];
+        for(int i=0;i<dp.length;i++){
+            Arrays.fill(dp[i],1000000);
+        }
+
+
+        for(int i=0;i<=n;i++){
+            dp[i][0]=0;
+        }
+
+        for(int j=1;j<=n;j++){
+            char c1=B[j-1];
+            for(int i=j;i<=n;i++){
+                if(!check(cnt1,cnt2,i,j))continue;
+                char c2 = A[i-1];
+                if(c1==c2){
+                    dp[i][j]=Math.min(dp[i-1][j-1],dp[i][j]);
+                }
+                dp[i][j]=Math.min(dp[i][j],dp[i-1][j]);
+                dp[i][j]=Math.min(dp[i][j],dp[i][j-1]+1);
+            }
+        }
+        out.println(dp[n][n]);
+    }
+
+    public boolean check(int cnt1[][],int cnt2[][],int index1,int index2){
+
+        for(int i=0;i<26;i++){
+            if(cnt1[index1-1][i]<cnt2[index2-1][i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+}
+
+
+
+
