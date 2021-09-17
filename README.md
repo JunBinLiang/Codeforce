@@ -538,6 +538,7 @@ My Codeforce Practice<br/>
  |  1154G |[ Minimum Possible LCM (2200) (Brute Force, LCM)  ](./code/1154G.txt)|2021/09/15|
  |  1154F |[ Shovels Shop (2100) (DP)  ](./code/1154F.txt)|2021/09/15|
  |  1363E |[ Tree Shuffling (2000) (Tree + Greedy)  ](./code/1363E.txt)|2021/09/16|
+ |  1363F |[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)|2021/09/16|
 # 分类
 
 ### DP
@@ -580,6 +581,8 @@ My Codeforce Practice<br/>
 1146F.[Leaf Partition (2500) (Hard DP)  ](./code/1146F.txt)<br/>
 1154F.[ Shovels Shop (2100) (DP)  ](./code/1154F.txt)<br/>
 
+### LCS Similar
+1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
 
 ### DP With Greedy Property
  675E.[Trains and Statistic (2300) (DP + Greedy + Segment Tree)  ](./code/675E.txt)<br/>
