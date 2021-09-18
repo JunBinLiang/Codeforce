@@ -540,6 +540,7 @@ My Codeforce Practice<br/>
  |  1363E |[ Tree Shuffling (2000) (Tree + Greedy)  ](./code/1363E.txt)|2021/09/16|
  |  1363F |[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)|2021/09/16|
  |  229D |[ Towers (2100) (DP + Two Pointer)  ](./code/229D.txt)|2021/09/17|
+ |  813E |[ Army Creation (2200) (Thinking + Persistant Tree)  ](./code/813E.txt)|2021/09/17|
 # 分类
 
 ### DP
@@ -1036,6 +1037,7 @@ My Codeforce Practice<br/>
 
 ### Persistant Segment Tree
 484E.[  Sign on Fence	 (2500) (Persistant Segment Tree + Segment Tree Merge Interval + Binary Search)  ](./code/484E.txt) <br/>
+813E.[ Army Creation (2200) (Thinking + Persistant Tree)  ](./code/813E.txt)<br/>
 
 ### Binary Search
 1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
