@@ -541,6 +541,7 @@ My Codeforce Practice<br/>
  |  1363F |[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)|2021/09/16|
  |  229D |[ Towers (2100) (DP + Two Pointer)  ](./code/229D.txt)|2021/09/17|
  |  813E |[ Army Creation (2200) (Thinking + Persistant Tree)  ](./code/813E.txt)|2021/09/17|
+ |  813F |[ Bipartite Checking (2500) (Dynamic Connectivity + Online Bipartile checking)  ](./code/813F.txt)|2021/09/19|
 # 分类
 
 ### DP
@@ -925,6 +926,9 @@ My Codeforce Practice<br/>
 27D.[ Ring Road 2(2200) ( Bipartile Graph) ](./code/27D.txt)<br/>
 1537F.[ Figure Fixing (2200) (Graph + Bipartile) ](./code/1537F.txt)<br/>
 
+### Online Bipartite Check
+813F.[ Bipartite Checking (2500) (Dynamic Connectivity + Online Bipartile checking)  ](./code/813F.txt)<br/>
+
 ### Shortest Path
 416E. [President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   <br/>
 1486E. [ Paired Payment (2200) （Graph + SPFA） ](./code/1486E.txt)   <br/>
@@ -969,6 +973,7 @@ My Codeforce Practice<br/>
 
 ### Dynamic Connectivity
 1140F.[Extending Set of Points (2600) （Dynamic Connectivity） ](./code/1140F.txt)<br/>
+813F.[ Bipartite Checking (2500) (Dynamic Connectivity + Online Bipartile checking)  ](./code/813F.txt)<br/>
 
 ### SCC (Strong Connected Component)
 118E.[ Bertown roads (2000) (Graph + Tarjan + SCC)  ](./code/118E.txt)<br/>
