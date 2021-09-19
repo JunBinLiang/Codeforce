@@ -955,7 +955,7 @@ My Codeforce Practice<br/>
 1475F. [Unusual Matrix (1900) (2 Sat) ](./code/1475F.txt)    <br/>
 
 ### UF
-292D.[Connected Components (1900) (UF + Graph + Thinking)  ](./code/292D.txt)|2021/07/18|
+292D.[Connected Components (1900) (UF + Graph + Thinking)  ](./code/292D.txt)<br/>
 195E.[Building Forest (2000) (UF + Tree) (Thumb)  ](./code/195E.txt)<br/>
 
 ### MST
