@@ -544,6 +544,9 @@ My Codeforce Practice<br/>
  |  813F |[ Bipartite Checking (2500) (Dynamic Connectivity + Online Bipartile checking)  ](./code/813F.txt)|2021/09/19|
  |  1204D2 |[ D2 - Kirk and a Binary String (hard version)(2100) (Observation)  ](./code/1204D2.txt)|2021/09/19|
  |  1070A |[ Find a Number(2200) (Shortest Path)  ](./code/1070A.txt)|2021/09/19|
+ |  1303E |[ Erase Subsequences(2200) (DP + Thinking)  ](./code/1303E.txt)|2021/09/19|
+ 
+ 
 # 分类
 
 ### DP
@@ -624,6 +627,9 @@ My Codeforce Practice<br/>
 519D.[A and B and Interesting Substrings (1800) (Prefix Sum)  ](./code/519D.txt)<br/>
 201C.[Fragile Bridges(2000) (Left-Right DP + Thinking + Sort)  ](./code/201C.txt)<br/>
 
+
+### DP 转换/Optimize
+1303E.[ Erase Subsequences(2200) (DP + Thinking)  ](./code/1303E.txt)<br/>
 
 ### 树DP
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)<br/>
