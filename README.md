@@ -543,6 +543,7 @@ My Codeforce Practice<br/>
  |  813E |[ Army Creation (2200) (Thinking + Persistant Tree)  ](./code/813E.txt)|2021/09/17|
  |  813F |[ Bipartite Checking (2500) (Dynamic Connectivity + Online Bipartile checking)  ](./code/813F.txt)|2021/09/19|
  |  1204D2 |[ D2 - Kirk and a Binary String (hard version)(2100) (Observation)  ](./code/1204D2.txt)|2021/09/19|
+ |  1070A |[ Find a Number(2200) (Shortest Path)  ](./code/1070A.txt)|2021/09/19|
 # 分类
 
 ### DP
@@ -942,6 +943,8 @@ My Codeforce Practice<br/>
 386D.[Game with Points (2100) (Shortest Path)  ](./code/386D.txt)<br/>
 1051F.[ The Shortest Statement	 (2400) (LCA + Shortest Path + Tree + Thinking )  ](./code/1051F.txt)<br/>
 59E.[Shortest Path	 (2000) (Shortest Path)  ](./code/59E.txt)<br/>
+1070A.[ Find a Number(2200) (Shortest Path)  ](./code/1070A.txt)<br/>
+
 ### 0-1 BFS
 1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
 
