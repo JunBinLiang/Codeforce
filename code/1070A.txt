@@ -1,0 +1,167 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution() {
+        int d = fs.Int();
+        int s=fs.Int();
+
+        boolean visit[][]=new boolean[d+5][s+5];
+        int pre[][][]=new int[d+5][s+5][3];
+
+
+        visit[0][0]=true;
+
+        Node start=new Node();
+        Queue<Node>q=new LinkedList<>();
+
+        q.add(start);
+        while(q.size()>0){
+            Node top=q.poll();
+            if(top.sum==s&&top.mod==0){
+                StringBuilder str=new StringBuilder();
+                int curs=s;
+                int curd = 0;
+                while(true){
+                    int pair[]=pre[curd][curs];
+                    str.append(pair[2]);
+                    curd=pair[0];
+                    curs=pair[1];
+                    if(curd==0&&curs==0)break;
+                }
+                out.println(str.reverse().toString());
+                return;
+            }
+
+            for(int i=0;i<10;i++){
+                if(i==0&&top.sum==0)continue;
+                Node next =new Node();
+                int newmod=(top.mod*10+i)%d;
+                int newsum=top.sum+i;
+                if(newsum>s)continue;
+                if(visit[newmod][newsum]){
+                    continue;
+                }
+                pre[newmod][newsum]=new int[]{top.mod,top.sum,i};
+
+                //System.out.println(newmod+"  "+newsum+"  "+Arrays.toString(pre[newmod][newsum]));
+
+                visit[newmod][newsum]=true;
+                Node newnode=new Node();
+                newnode.sum=newsum;
+                newnode.mod=newmod;
+                q.add(newnode);
+            }
+        }
+        out.println(-1);
+
+    }
+
+    class Node{
+        int mod = 0;
+        int sum=0;
+    }
+
+}
+
+
+
+
+
+
+
+
