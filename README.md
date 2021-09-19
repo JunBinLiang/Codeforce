@@ -542,6 +542,7 @@ My Codeforce Practice<br/>
  |  229D |[ Towers (2100) (DP + Two Pointer)  ](./code/229D.txt)|2021/09/17|
  |  813E |[ Army Creation (2200) (Thinking + Persistant Tree)  ](./code/813E.txt)|2021/09/17|
  |  813F |[ Bipartite Checking (2500) (Dynamic Connectivity + Online Bipartile checking)  ](./code/813F.txt)|2021/09/19|
+ |  1204D2 |[ D2 - Kirk and a Binary String (hard version)(2100) (Observation)  ](./code/1204D2.txt)|2021/09/19|
 # 分类
 
 ### DP
@@ -724,6 +725,7 @@ My Codeforce Practice<br/>
 1560F2.[ Nearest Beautiful Number (hard version) (2100) (Greedy + Construtive)  ](./code/1560F2.txt)<br/>
  891B.[ Gluttony (2000) (Constructive )  ](./code/891B.txt)<br/>
  432E.[Square Tiling (2300) (Constructive + Greedy)  ](./code/432E.txt)<br/>
+ 1204D2.[ D2 - Kirk and a Binary String (hard version)(2100) (Observation)  ](./code/1204D2.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
