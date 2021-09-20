@@ -545,7 +545,7 @@ My Codeforce Practice<br/>
  |  1204D2 |[ D2 - Kirk and a Binary String (hard version)(2100) (Observation)  ](./code/1204D2.txt)|2021/09/19|
  |  1070A |[ Find a Number(2200) (Shortest Path)  ](./code/1070A.txt)|2021/09/19|
  |  1303E |[ Erase Subsequences(2200) (DP + Thinking)  ](./code/1303E.txt)|2021/09/19|
- 
+ |  877D |[ Olya and Energy Drinks (2100) (BFS + Thinking)  ](./code/877D.txt)|2021/09/20|
  
 # 分类
 
