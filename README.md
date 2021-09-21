@@ -546,6 +546,7 @@ My Codeforce Practice<br/>
  |  1070A |[ Find a Number(2200) (Shortest Path)  ](./code/1070A.txt)|2021/09/19|
  |  1303E |[ Erase Subsequences(2200) (DP + Thinking)  ](./code/1303E.txt)|2021/09/19|
  |  877D |[ Olya and Energy Drinks (2100) (BFS + Thinking)  ](./code/877D.txt)|2021/09/20|
+ |  877E |[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)|2021/09/20|
  
 # 分类
 
@@ -1040,6 +1041,10 @@ My Codeforce Practice<br/>
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
 911G.[ Mass Change Queries	 (2500) (Segment Tree Tag )  ](./code/911G.txt)<br/>
+
+### PushDown
+877E.[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)<br/>
+
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
 
