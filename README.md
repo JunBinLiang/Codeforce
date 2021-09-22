@@ -547,6 +547,7 @@ My Codeforce Practice<br/>
  |  1303E |[ Erase Subsequences(2200) (DP + Thinking)  ](./code/1303E.txt)|2021/09/19|
  |  877D |[ Olya and Energy Drinks (2100) (BFS + Thinking)  ](./code/877D.txt)|2021/09/20|
  |  877E |[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)|2021/09/20|
+ |  75D |[ Big Maximum Sum (2000) (Left Right DP)  ](./code/75D.txt)|2021/09/21|
  
 # 分类
 
@@ -627,6 +628,7 @@ My Codeforce Practice<br/>
 900C.[Remove Extra One (1700) (Thinking + Left/Right DP)  ](./code/900C.txt)<br/>
 519D.[A and B and Interesting Substrings (1800) (Prefix Sum)  ](./code/519D.txt)<br/>
 201C.[Fragile Bridges(2000) (Left-Right DP + Thinking + Sort)  ](./code/201C.txt)<br/>
+75D.[ Big Maximum Sum (2000) (Left Right DP)  ](./code/75D.txt)<br/>
 
 
 ### DP 转换/Optimize
