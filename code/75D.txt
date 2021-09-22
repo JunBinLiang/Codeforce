@@ -1,0 +1,189 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution() {
+        int n=fs.Int();
+        int m=fs.Int();
+        long res = Long.MIN_VALUE;
+
+        long sums[]=new long[n];
+        long maxs1[]=new long[n];
+        long maxs2[]=new long[n];
+        long f[]=new long[n];
+
+
+        int A[][]=new int[n][];
+        for(int i=0;i<n;i++){
+            int k = fs.Int();
+            A[i]=new int[k];
+            long sum=0;
+            for(int j=0;j<k;j++){
+                A[i][j]=fs.Int();
+                sum+=A[i][j];
+            }
+            sums[i]=sum;
+
+            f[i]=cal(A[i]);
+
+            long mx1 = Long.MIN_VALUE;
+            long t=0;
+            for(int j=0;j<A[i].length;j++){
+                t+=A[i][j];
+                mx1=Math.max(mx1,t);
+            }
+            maxs1[i]=mx1;
+
+            long mx2=Long.MIN_VALUE;
+            t=0;
+            for(int j=A[i].length-1;j>=0;j--){
+                t+=A[i][j];
+                mx2=Math.max(mx2,t);
+            }
+            maxs2[i]=mx2;
+        }
+
+
+
+
+        int B[]=new int[m];
+        for(int i=0;i<m;i++){
+            B[i]=fs.Int();
+        }
+
+
+        long a=0;
+
+        for(int i=0;i<B.length;i++){
+            int index=B[i]-1;
+            res=Math.max(res,f[index]);
+
+            long all =sums[index];
+            long back=maxs2[index];
+            long front = maxs1[index];
+
+            res=Math.max(res,front+a);
+
+            long mx = all;
+            mx=Math.max(mx,back);
+            mx=Math.max(mx,a+all);
+            a=mx;
+            res=Math.max(res,mx);
+
+        }
+
+
+        out.println(res);
+
+    }
+
+    public long cal(int A[]){
+        long mx = Long.MIN_VALUE;
+        long sum=0;
+        for(int i:A){
+            sum+=i;
+            mx=Math.max(mx,sum);
+            if(sum<0)sum=0;
+        }
+        return mx;
+    }
+
+
+}
+
+
+
