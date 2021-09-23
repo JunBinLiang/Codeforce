@@ -548,7 +548,8 @@ My Codeforce Practice<br/>
  |  877D |[ Olya and Energy Drinks (2100) (BFS + Thinking)  ](./code/877D.txt)|2021/09/20|
  |  877E |[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)|2021/09/20|
  |  75D |[ Big Maximum Sum (2000) (Left Right DP)  ](./code/75D.txt)|2021/09/21|
-  |  833B |[ The Bakery (2200) (DP + Seg push down)  ](./code/833B.txt)|2021/09/22|
+ |  833B |[ The Bakery (2200) (DP + Seg push down)  ](./code/833B.txt)|2021/09/22|
+ |  196B |[ Infinite Maze (2000) (Graph + Thinking + Matrix)  ](./code/196B.txt)|2021/09/23|
 # 分类
 
 ### DP
@@ -921,7 +922,7 @@ My Codeforce Practice<br/>
 117C.[  Cycle (2000) (Graph)  ](./code/117C.txt) <br/>
 920E.[  Connected Components?	 (2100) (Graph)  ](./code/920E.txt) <br/>
 999E.[Reachability from the Capital	 (2000) (Graph)  ](./code/999E.txt)<br/>
-
+196B.[ Infinite Maze (2000) (Graph + Thinking + Matrix)  ](./code/196B.txt)<br/>
 ### 三环/四环图 
 1468M.[ Similar Sets (2300) (Graph + 四环图)  ](./code/1468M.txt)<br/>
 
