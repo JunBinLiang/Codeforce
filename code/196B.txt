@@ -1,0 +1,184 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    int dir[][]=new int[][]{{0,1},{0,-1},{1,0},{-1,0}};
+    public void solution() {
+        int n =fs.Int();
+        int m=fs.Int();
+        char A[][]=new char[n][m];
+
+
+        int r = -1, c = -1;
+        for(int i=0;i<n;i++){
+            String s=fs.Str();
+            A[i]=s.toCharArray();
+            for(int j=0;j<m;j++){
+                if(A[i][j]=='S'){
+                    A[i][j]='.';
+                    r=i;
+                    c=j;
+                }
+            }
+        }
+
+        boolean ans = bfs(A,r,c);
+        if(ans){
+            out.println("YES");
+        }
+        else{
+            out.println("NO");
+        }
+
+
+    }
+
+    public boolean bfs(char A[][],int i,int j){
+        int n =A.length,m=A[0].length;
+        int seen[][][]=new int[n][m][2];
+
+        for(int x =0;x<seen.length;x++){
+            for(int y=0;y<seen[0].length;y++){
+                Arrays.fill(seen[x][y],-1);
+            }
+        }
+
+
+        Queue<int[]>q=new LinkedList<>();
+        q.add(new int[]{i + n * (n + m + 1),j + m * (n + m + 1)});
+        List<int[]>list=new ArrayList<>();
+        seen[i][j] = new int[]{i + n * (n + m + 1),j + m * (n + m + 1)};
+
+
+        while(q.size()>0){
+            int top[]=q.poll();
+            int r=top[0],c=top[1];
+
+            for(int p[]:dir){
+                int x =r+p[0];
+                int y=c+p[1];
+                if(A[x%n][y%m]=='#')continue;
+                if(seen[x%n][y%m][0] == x && seen[x%n][y%m][1] == y)continue;
+
+                if(seen[x%n][y%m][0]==-1){
+                    q.add(new int[]{x,y});
+                    seen[x%n][y%m][0] = x;
+                    seen[x%n][y%m][1] = y;
+                }
+                else{
+                    //System.out.println(seen[x%n][y%m][0]+"    "+seen[x%n][y%m][1] + "       "+(seen[x%n][y%m][0]%n) +"  "+(seen[x%n][y%m][1]%m));
+                    return true;
+                }
+            }
+        }
+
+
+        return false;
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
