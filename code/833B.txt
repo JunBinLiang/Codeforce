@@ -1,0 +1,251 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution() {
+        int n =fs.Int();
+        int K=fs.Int();
+        int res = 0;
+        int A[]=new int[n];
+        for(int i=0;i<n;i++){
+            A[i]=fs.Int();
+        }
+
+        int pre[]=new int[n];
+        int pos[]=new int[35010];
+        Arrays.fill(pos,-1);
+        for(int i = 0;i<n;i++){
+            int cur = A[i];
+            pre[i]=pos[cur];
+            pos[cur]=i;
+        }
+
+        //System.out.println(Arrays.toString(pre));
+
+        Seg segs[]=new Seg[K+1];
+        for(int i=1;i<segs.length;i++){
+            segs[i]=new Seg(0,n-1);
+        }
+
+
+        int dp[][]=new int[n][K+1];
+
+        Set<Integer>set=new HashSet<>();
+        for(int i = 0 ; i < n;i++){
+            set.add(A[i]);
+            segs[1].update(i,i,set.size());
+            res=Math.max(res,set.size());
+
+            dp[i][1]=set.size();
+
+            int p = pre[i];
+            for(int k=2;k<=K;k++){
+                if(k>i+1)break;
+                Seg seg = segs[k - 1];
+                if(p==-1){
+                    seg.update(0,i-1,1);
+                }
+                else{
+                    seg.update(p,i-1,1);
+                }
+
+                int mx = seg.query(0,i-1);
+
+                //System.out.println(p+"  "+i+"  "+k+"  "+mx);
+               // System.out.println();
+
+                segs[k].update(i,i,mx);
+                dp[i][k]=mx;
+                if(k==K){
+                    res=Math.max(res,mx);
+                }
+            }
+
+        }
+
+        //for(int p[]:dp){
+            //System.out.println(Arrays.toString(p));
+       // }
+
+        out.println(res);
+
+    }
+
+
+    class Seg{
+        int l,r;
+        int max=0;
+        int setTo=0;
+        Seg left=null,right=null;
+        public Seg(int l,int r){
+            this.l=l;
+            this.r=r;
+            if(l!=r){
+                int mid=l+(r-l)/2;
+                if(l<=mid)left=new Seg(l,mid);
+                if(r>=mid+1)right=new Seg(mid+1,r);
+            }else{
+
+            }
+        }
+
+        public int query(int s,int e){
+            if(e<0||s<0)return 0;
+            if(l==s&&r==e){
+                return this.max;
+            }
+
+            int mid=l+(r-l)/2; //left :  to mid-1,
+            if(setTo!=0){//push down
+                left.update(l,mid,setTo);
+                right.update(mid+1,r,setTo);
+                this.max=Math.max(left.max,right.max);
+                this.setTo=0;
+            }
+
+            if(e<=mid){
+                return left.query(s,e);
+            }
+            else if(s>=mid+1){
+                return right.query(s,e);
+            }else{
+                return Math.max(left.query(s,mid),right.query(mid+1,e));
+            }
+        }
+
+        public void update(int s,int e,int add){
+            if(l==s&&r==e){
+                this.setTo+=add;
+                this.max+=add;
+                return;
+            }
+            int mid=l+(r-l)/2;
+
+            if(setTo!=0){//push down
+                left.update(l,mid,setTo);
+                right.update(mid+1,r,setTo);
+                this.setTo=0;
+            }
+
+            if(e<=mid){
+                left.update(s,e,add);
+            }
+            else if(s>=mid+1){
+                right.update(s,e,add);
+            }else{
+                left.update(s,mid,add);
+                right.update(mid+1,e,add);
+            }
+            this.max=Math.max(left.max,right.max);
+
+        }
+
+        public int get(){
+            return this.setTo;
+        }
+
+    }
+
+
+}
+
+
+
+
+
+
+
