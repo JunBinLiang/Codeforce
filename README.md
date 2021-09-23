@@ -548,7 +548,7 @@ My Codeforce Practice<br/>
  |  877D |[ Olya and Energy Drinks (2100) (BFS + Thinking)  ](./code/877D.txt)|2021/09/20|
  |  877E |[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)|2021/09/20|
  |  75D |[ Big Maximum Sum (2000) (Left Right DP)  ](./code/75D.txt)|2021/09/21|
- 
+  |  833B |[ The Bakery (2200) (DP + Seg push down)  ](./code/833B.txt)|2021/09/22|
 # 分类
 
 ### DP
@@ -1046,6 +1046,7 @@ My Codeforce Practice<br/>
 
 ### PushDown
 877E.[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)<br/>
+833B.[ The Bakery (2200) (DP + Seg push down)  ](./code/833B.txt)<br/>
 
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
