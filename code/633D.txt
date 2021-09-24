@@ -1,0 +1,54 @@
+import java.util.*;
+import java.math.*;
+ 
+public class Template {
+ 
+    static long maxlen = 0;
+    static Map<Long, Integer> nums = new HashMap<Long, Integer>();
+    static long[] arr;
+    static Set<String> memo = new HashSet<String>();
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        int n = sc.nextInt();
+ 
+        long[] arr = new long[n];
+        for (int i = 0; i < n; i++) {
+            long a = sc.nextLong();
+            if (nums.containsKey(a)) {
+                nums.put(a, nums.get(a)+1);
+            } else {
+                nums.put(a, 1);
+            }
+            arr[i] = a;
+        }
+        sc.close();
+ 
+        for (int i = 0; i < n-1; i++) {
+            for (int j = i+1; j < n; j++) {
+		if (memo.contains(arr[i] + " " + arr[j])) continue;
+		memo.add(arr[i] + " " + arr[j]);
+                nums.put(arr[i], nums.get(arr[i])-1);
+                nums.put(arr[j], nums.get(arr[j])-1);
+                solve(arr[j], arr[i]+arr[j],2);
+                solve(arr[i], arr[j]+arr[i],2);
+                nums.put(arr[i], nums.get(arr[i])+1);
+                nums.put(arr[j], nums.get(arr[j])+1);
+            }
+        }
+ 
+        System.out.println(maxlen);
+    }
+ 
+    static void solve(long last, long lookingfor, long len) {
+        maxlen = Math.max(maxlen, len);
+        if (nums.containsKey(lookingfor)) {
+            if (nums.get(lookingfor) > 0) {
+                nums.put(lookingfor, nums.get(lookingfor)-1);
+                solve(lookingfor, last+lookingfor, len+1);
+                nums.put(lookingfor, nums.get(lookingfor)+1);
+            }
+        }
+    }
+}
