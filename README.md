@@ -552,6 +552,8 @@ My Codeforce Practice<br/>
  |  196B |[ Infinite Maze (2000) (Graph + Thinking + Matrix)  ](./code/196B.txt)|2021/09/23|
  |  633D |[ Fibonacci-ish (2000) (Brute Force)  ](./code/633D.txt)|2021/09/24|
  |  633F |[ The Chocolate Spree(2600) (Tree DP)  ](./code/633F.txt)|2021/09/25|
+ |  1530E |[ Minimax (2100) (Construvtice + String)  ](./code/1530E.txt)|2021/09/25|
+ 
 # 分类
 
 ### DP
@@ -740,6 +742,7 @@ My Codeforce Practice<br/>
  891B.[ Gluttony (2000) (Constructive )  ](./code/891B.txt)<br/>
  432E.[Square Tiling (2300) (Constructive + Greedy)  ](./code/432E.txt)<br/>
  1204D2.[ D2 - Kirk and a Binary String (hard version)(2100) (Observation)  ](./code/1204D2.txt)<br/>
+ 1530E.[ Minimax (2100) (Construvtice + String)  ](./code/1530E.txt)<br/>
 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
