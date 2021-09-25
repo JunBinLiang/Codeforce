@@ -551,6 +551,7 @@ My Codeforce Practice<br/>
  |  833B |[ The Bakery (2200) (DP + Seg push down)  ](./code/833B.txt)|2021/09/22|
  |  196B |[ Infinite Maze (2000) (Graph + Thinking + Matrix)  ](./code/196B.txt)|2021/09/23|
  |  633D |[ Fibonacci-ish (2000) (Brute Force)  ](./code/633D.txt)|2021/09/24|
+ |  633F |[ The Chocolate Spree(2600) (Tree DP)  ](./code/633F.txt)|2021/09/25|
 # 分类
 
 ### DP
@@ -641,6 +642,7 @@ My Codeforce Practice<br/>
 1029E.[Tree with Small Distances (2100) (Tree DP) ](./code/1029D.txt)<br/>
 1092F.[ Tree with Maximum Cost (Tree DP) ](./code/1092F.txt)<br/>
 1025D.[ Recovering BST (2000) (TreeDP)  ](./code/1025D.txt)<br/>
+633F.[ The Chocolate Spree(2600) (Tree DP)  ](./code/633F.txt)<br/>
 
 ### Digit DP
 55D.[Beautiful numbers (2500) (Digit DP)  ](./code/55D.txt)<br/>
