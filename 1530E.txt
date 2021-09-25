@@ -1,0 +1,251 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+        String s = fs.Str();
+        char A[]=s.toCharArray();
+        int cnt[]=new int[26];
+        Arrays.sort(A);
+        int n =A.length;
+        if(A[0]==A[n-1]){
+            out.println(s);
+            return;
+        }
+
+        Set<Integer>set=new HashSet<>();
+
+        for(char c:A){
+            cnt[c-'a']++;
+            set.add(c-'a');
+        }
+
+        boolean check=false;
+        for(int i:cnt){
+            if(i==1){
+                check=true;
+            }
+        }
+
+
+        if(check){
+            StringBuilder str=new StringBuilder();
+
+            for(int i=0;i<cnt.length;i++){
+                if(cnt[i]==1){
+                    cnt[i]=0;
+                    str.append((char)(i+'a'));
+                    break;
+                }
+            }
+            for(int i=0;i<cnt.length;i++){
+                int t = cnt[i];
+                char c = (char)(i+'a');
+                while(t>0){
+                    t--;
+                    str.append(c);
+                }
+            }
+            out.println(str.toString());
+            return;
+        }
+
+
+
+        int mncnt=cnt[A[0]-'a'];
+
+        if((mncnt-2)<=(n-mncnt)){
+            StringBuilder str=new StringBuilder();
+            int mn = -1;
+            for(int i=0;i<cnt.length;i++){
+                if(cnt[i]>0){
+                    mn = i;
+                    cnt[i]-=2;
+                    str.append((char)(i+'a'));
+                    str.append((char)(i+'a'));
+                    break;
+                }
+            }
+
+            for(int i = 0; i<cnt.length;i++){
+                if(i==mn)continue;
+                int t = cnt[i];
+                while(t>0){
+                    t--;
+                    str.append((char)(i+'a'));
+                    if(cnt[mn]>0){
+                        cnt[mn]--;
+                        str.append((char)(mn+'a'));
+                    }
+                }
+            }
+            out.println(str.toString());
+            return;
+        }
+
+
+
+
+        StringBuilder str=new StringBuilder();
+        str.append(A[0]);
+        cnt[A[0]-'a']--;
+
+        for(int i=0;i<cnt.length;i++){
+            if(i==A[0]-'a')continue;
+            int t = cnt[i];
+            if(cnt[i]>0){
+                cnt[i]--;
+                str.append((char)(i+'a'));
+                break;
+            }
+        }
+
+
+        if(set.size()==2){
+            for(int i=0;i<cnt.length;i++){
+                if(i==A[0]-'a')continue;
+                int t = cnt[i];
+                while(cnt[i]>0){
+                    cnt[i]--;
+                    str.append((char)(i+'a'));
+                }
+            }
+
+            while(cnt[A[0]-'a']>0){
+                cnt[A[0]-'a']--;
+                str.append(A[0]);
+            }
+        }
+        else{
+
+            while(cnt[A[0]-'a']>0){
+                cnt[A[0]-'a']--;
+                str.append(A[0]);
+            }
+            List<Integer>list=new ArrayList<>(set);
+            Collections.sort(list);
+            int next=list.get(2);
+            cnt[next]--;
+            str.append((char)(next+'a'));
+
+            for(int i=0;i<cnt.length;i++){
+                char c = (char)(i+'a');
+                int t=cnt[i];
+                while(t>0){
+                    t--;str.append(c);
+                }
+            }
+
+        }
+
+
+        out.println(str.toString());
+
+    }
+
+
+}
+
+
+
+
+
+//abaaaaaabb
+
+
+
