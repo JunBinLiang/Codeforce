@@ -1,0 +1,219 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    int A[];
+    long ans=0;
+    List<Integer>graph[];
+    public void solution() {
+        int n =fs.Int();
+        A=new int[n];
+        for(int i =0;i<n;i++){
+            A[i]=fs.Int();
+        }
+
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+
+        for(int i=0;i<n-1;i++){
+            int u =fs.Int()-1,v=fs.Int()-1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+
+        dfs(-1,0);
+        out.println(ans);
+    }
+
+    public long[] dfs(int pa,int root){
+        long res[]=new long[5];
+        Arrays.fill(res,A[root]);
+
+        List<long[]>one = new ArrayList<>();
+        List<long[]>two = new ArrayList<>();
+        List<long[]>three = new ArrayList<>();
+
+        for(int next:graph[root]){
+            if(pa==next)continue;
+            long p[]=dfs(root,next);
+            res[1]=Math.max(res[1],A[root]+p[1]);//single line from current to leaf
+            res[3]=Math.max(res[3],p[3]+A[root]);
+            res[2]=Math.max(res[2],p[2]);
+
+            one.add(new long[]{p[1],next});
+            two.add(new long[]{p[2],next});
+            three.add(new long[]{p[3],next});
+        }
+
+        Collections.sort(one,(a,b)->{
+            return Long.compare(b[0],a[0]);
+        });
+        Collections.sort(two,(a,b)->{
+            return Long.compare(b[0],a[0]);
+        });
+        Collections.sort(three,(a,b)->{
+            return Long.compare(b[0],a[0]);
+        });
+
+        if(one.size()>1){
+            long a[]=one.get(0);
+            long b[]=one.get(1);
+            res[2]=Math.max(res[2],a[0]+b[0]+A[root]);
+            res[3]=Math.max(res[3],a[0]+b[0]+A[root]);
+        }
+
+
+        if(two.size()>1){
+            long a[]=two.get(0);
+            long b[]=two.get(1);
+            res[4]=Math.max(res[4],a[0]+b[0]);
+        }
+
+
+        for(int i =0;i<Math.min(3,one.size());i++){
+            long p1[]=one.get(i);
+            for(int j = 0; j < Math.min(3,two.size());j++){
+                long p2[]=two.get(j);
+                if(p1[1]!=p2[1]){
+                    res[3]=Math.max(res[3],p2[0]+p1[0]+A[root]);
+                }
+            }
+        }
+
+        for(int i =0;i<Math.min(3,one.size());i++){
+            long p1[]=one.get(i);
+            for(int j = 0; j < Math.min(3,three.size());j++){
+                long p2[]=three.get(j);
+
+
+                if(p1[1]!=p2[1]){
+                    res[4]=Math.max(res[4],p2[0]+p1[0]+A[root]);
+                }
+            }
+        }
+
+        for(int i=0;i<Math.min(4,one.size());i++){
+            long p1[]=one.get(i);
+            for(int j=i+1;j<Math.min(4,one.size());j++){
+                long p2[]=one.get(j);
+                for(int k=0;k<Math.min(4,two.size());k++){
+                    long p3[]=two.get(k);
+                    //System.out.println(Arrays.toString(p1)+"  "+Arrays.toString(p2)+" "+Arrays.toString(p3));
+                    if(p1[1]==p2[1]||p1[1]==p3[1]||p2[1]==p3[1])continue;
+                    res[4]=Math.max(res[4],p1[0]+p2[0]+p3[0]+A[root]);
+                }
+            }
+        }
+
+        //System.out.println((root+1)+"  "+Arrays.toString(res));
+        for(long x:res){
+            ans=Math.max(ans,x);
+        }
+        return res;
+    }
+
+}
+
+
+
+
+
+
+
+
+
