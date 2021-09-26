@@ -553,6 +553,7 @@ My Codeforce Practice<br/>
  |  633D |[ Fibonacci-ish (2000) (Brute Force)  ](./code/633D.txt)|2021/09/24|
  |  633F |[ The Chocolate Spree(2600) (Tree DP)  ](./code/633F.txt)|2021/09/25|
  |  1530E |[ Minimax (2100) (Construvtice + String)  ](./code/1530E.txt)|2021/09/25|
+ |  1215E |[ Marbles (2200) (Bitmask DP)  ](./code/1215E.txt)|2021/09/26|
  
 # 分类
 
@@ -654,6 +655,7 @@ My Codeforce Practice<br/>
 1185G1. [Playlist for Polycarp (easy version) (2100) (Bitmask DP )  ](./code/1185G1.txt)  <br/>
 279D.[The Minimum Number of Variables(2200) (Bit DP) ](./code/279D.txt)<br/>
 453B.[Little Pony and Harmony Chest (2000) (Bitmask DP)  ](./code/453B.txt)<br/>
+1215E.[ Marbles (2200) (Bitmask DP)  ](./code/1215E.txt)<br/>
 
 ### Submask DP (SOS)
 1554B.[Cobb (1700) (Submask + DP)  ](./code/1554B.txt)<br/>
