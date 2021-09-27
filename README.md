@@ -555,6 +555,7 @@ My Codeforce Practice<br/>
  |  1530E |[ Minimax (2100) (Construvtice + String)  ](./code/1530E.txt)|2021/09/25|
  |  1215E |[ Marbles (2200) (Bitmask DP)  ](./code/1215E.txt)|2021/09/26|
  |  1176F |[ Destroy it! (2100) ( DP)  ](./code/1176F.txt)|2021/09/26|
+ |  1176E |[ Cover it! (1700) ( BFS)  ](./code/1176E.txt)|2021/09/27|
  
 # 分类
 
