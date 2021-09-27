@@ -554,6 +554,7 @@ My Codeforce Practice<br/>
  |  633F |[ The Chocolate Spree(2600) (Tree DP)  ](./code/633F.txt)|2021/09/25|
  |  1530E |[ Minimax (2100) (Construvtice + String)  ](./code/1530E.txt)|2021/09/25|
  |  1215E |[ Marbles (2200) (Bitmask DP)  ](./code/1215E.txt)|2021/09/26|
+ |  1176F |[ Destroy it! (2100) ( DP)  ](./code/1176F.txt)|2021/09/26|
  
 # 分类
 
@@ -597,6 +598,7 @@ My Codeforce Practice<br/>
 1146F.[Leaf Partition (2500) (Hard DP)  ](./code/1146F.txt)<br/>
 1154F.[ Shovels Shop (2100) (DP)  ](./code/1154F.txt)<br/>
 229D.[ Towers (2100) (DP + Two Pointer)  ](./code/229D.txt)<br/>
+1176F.[ Destroy it! (2100) ( DP)  ](./code/1176F.txt)<br/>
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
