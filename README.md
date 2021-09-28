@@ -556,6 +556,7 @@ My Codeforce Practice<br/>
  |  1215E |[ Marbles (2200) (Bitmask DP)  ](./code/1215E.txt)|2021/09/26|
  |  1176F |[ Destroy it! (2100) ( DP)  ](./code/1176F.txt)|2021/09/26|
  |  1176E |[ Cover it! (1700) ( BFS)  ](./code/1176E.txt)|2021/09/27|
+ |  1176D |[ Recover it! (1800) ( Greedy + Sort)  ](./code/1176D.txt)|2021/09/27|
  
 # 分类
 
@@ -712,6 +713,7 @@ My Codeforce Practice<br/>
 1415E.[ New Game Plus! (2200) (Thinking Greedy)  ](./code/1415E.txt)<br/>
 999D.[ Equalize the Remainders	 (1900) (Greedy + TreeSet )  ](./code/999D.txt)<br/>
 729E.[Subordinates (1900) (Greedy)  ](./code/729E.txt)<br/>
+1176D.[ Recover it! (1800) ( Greedy + Sort)  ](./code/1176D.txt)<br/>
 
 
 ### Greedy : Number
