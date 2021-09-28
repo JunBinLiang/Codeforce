@@ -1,0 +1,179 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution() {
+        int n =fs.Int() * 2;
+        int A[]=new int[n];
+        int f[]=new int[2750131+10];
+        int dp[]=new int[f.length];
+        int g[]=new int[f.length];
+        for(int i =0;i<n;i++){
+            A[i]=fs.Int();
+            f[A[i]]++;
+        }
+
+        int cnt=1;
+        boolean isp[]=new boolean[2750131+10];
+        List<Integer>primes=new ArrayList<>();
+        for(int i = 2;i<isp.length;i++){
+            if(isp[i])continue;
+            //primes.add(i);
+            g[i]=cnt++;
+            for(int j = i;j<isp.length;j+=i){
+                isp[j]=true;
+            }
+            isp[i]=false;
+        }
+
+
+
+
+        
+        sort(A);
+
+        for(int i=n-1;i>=0;i--){
+            if(f[A[i]]==0)continue;
+
+            if(!isp[A[i]]){
+                f[A[i]]--;
+                int which = g[A[i]];
+                f[which]--;
+                out.print(which+" ");
+            }
+            else{
+                out.print(A[i]+" ");
+                f[A[i]]--;
+                //find its maximum divisor
+                if(dp[A[i]]!=0){
+                    int x = dp[A[i]];
+                    f[x]--;
+                }
+                else{
+                    for(int x = 2; x*x<=A[i];x++){
+                        if(A[i]%x==0){
+                            dp[A[i]]=A[i]/x;
+                            f[A[i]/x]--;
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    public void sort(int A[]){
+        PriorityQueue<Integer>pq=new PriorityQueue<>();
+        for(int i:A)pq.add(i);
+        for(int i=0;i<A.length;i++)A[i]=pq.poll();
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
