@@ -1,0 +1,177 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    List<Integer>graph[];
+    int d[][];
+    int s1,s2,t1,t2,l1,l2;
+    int mx = 0;
+    public void solution() {
+        int n = fs.Int();
+        int m =fs.Int();
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i = 0;i<m;i++){
+            int u =fs.Int()-1;
+            int v=fs.Int()-1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        d=new int[n][n];
+        for(int p[]:d){
+            Arrays.fill(p,INF);
+        }
+
+        for(int i =0;i<n;i++){
+            Queue<Integer>q=new LinkedList<>();
+            q.add(i);
+            d[i][i]=0;
+            while(q.size()>0){
+                int root = q.poll();
+                for(int next:graph[root]){
+                    if(d[i][root]+1<d[i][next]){
+                        d[i][next]=1+d[i][root];
+                        q.add(next);
+                    }
+                }
+            }
+        }
+
+
+
+        int s1=fs.Int()-1,t1=fs.Int()-1,l1=fs.Int();
+        int s2=fs.Int()-1,t2=fs.Int()-1,l2=fs.Int();
+        this.s1=s1;
+        this.s2=s2;
+        this.l1=l1;
+        this.l2=l2;
+        this.t1=t1;
+        this.t2=t2;
+
+        if(d[s1][t1]>l1||d[s2][t2]>l2){
+            out.println(-1);
+            return;
+        }
+
+        int res = m - (d[s1][t1] + d[s2][t2]);
+        for(int i = 0;i<n;i++){
+            for(int j = i+1;j<n;j++){
+                int dis1 = Math.min(d[s1][i]+d[ i][j]+d[t1][j],d[s1][j]+d[i][j]+d[t1][i]);
+                int dis2 = Math.min(d[s2][i]+d[i][j]+d[t2][j],d[s2][j]+d[i][j]+d[t2][i]);
+                if(dis1<=l1&&dis2<=l2){
+                    res=Math.max(res,m-(dis1+dis2-d[i][j]));
+                }
+            }
+        }
+        out.println(res);
+    }
+
+
+
+}
+
+//1-2-3-4-5
+
+
+
+
+
+
+
+
+
