@@ -557,6 +557,7 @@ My Codeforce Practice<br/>
  |  1176F |[ Destroy it! (2100) ( DP)  ](./code/1176F.txt)|2021/09/26|
  |  1176E |[ Cover it! (1700) ( BFS)  ](./code/1176E.txt)|2021/09/27|
  |  1176D |[ Recover it! (1800) ( Greedy + Sort)  ](./code/1176D.txt)|2021/09/27|
+ |  954G |[ Castle Defense (2000) (Binary Search + Two Pointer)  ](./code/954G.txt)|2021/09/28|
  
 # 分类
 
@@ -1157,6 +1158,7 @@ My Codeforce Practice<br/>
 514D.[R2D2 and Droid Army (2000) (Two Pointer + Segment Tree)  ](./code/514D.txt)<br/>
 846F.[Random Query (1800) (Two Pointer)  ](./code/846F.txt)<br/>
 1244E.[Minimizing Difference (2000) (Two Pointer + Greedy)  ](./code/1244E.txt)<br/>
+954G.[ Castle Defense (2000) (Binary Search + Two Pointer)  ](./code/954G.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
