@@ -558,7 +558,7 @@ My Codeforce Practice<br/>
  |  1176E |[ Cover it! (1700) ( BFS)  ](./code/1176E.txt)|2021/09/27|
  |  1176D |[ Recover it! (1800) ( Greedy + Sort)  ](./code/1176D.txt)|2021/09/27|
  |  954G |[ Castle Defense (2000) (Binary Search + Two Pointer)  ](./code/954G.txt)|2021/09/28|
- 
+ |  543B |[ Destroying Roads (2100) (Shortes Path + Thinking) (Thumb) ](./code/543B.txt)|2021/09/29|
 # 分类
 
 ### DP
@@ -968,6 +968,7 @@ My Codeforce Practice<br/>
 1051F.[ The Shortest Statement	 (2400) (LCA + Shortest Path + Tree + Thinking )  ](./code/1051F.txt)<br/>
 59E.[Shortest Path	 (2000) (Shortest Path)  ](./code/59E.txt)<br/>
 1070A.[ Find a Number(2200) (Shortest Path)  ](./code/1070A.txt)<br/>
+543B.[ Destroying Roads (2100) (Shortes Path + Thinking) (Thumb) ](./code/543B.txt)<br/>
 
 ### 0-1 BFS
 1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
