@@ -560,6 +560,7 @@ My Codeforce Practice<br/>
  |  954G |[ Castle Defense (2000) (Binary Search + Two Pointer)  ](./code/954G.txt)|2021/09/28|
  |  543B |[ Destroying Roads (2100) (Shortes Path + Thinking) (Thumb) ](./code/543B.txt)|2021/09/29|
  |  617E |[ XOR and Favorite Number (2200) (莫队 + Prefix)  ](./code/617E.txt)|2021/09/29|
+ |  353D |[ Queue (2000) (观察)  ](./code/353D.txt)|2021/09/30|
 # 分类
 
 ### DP
