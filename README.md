@@ -563,6 +563,7 @@ My Codeforce Practice<br/>
  |  543B |[ Destroying Roads (2100) (Shortes Path + Thinking) (Thumb) ](./code/543B.txt)|2021/09/29|
  |  617E |[ XOR and Favorite Number (2200) (莫队 + Prefix)  ](./code/617E.txt)|2021/09/29|
  |  353D |[ Queue (2000) (观察)  ](./code/353D.txt)|2021/09/30|
+ |  893E |[ Counting Arrays (2000) (Combination)  ](./code/893E.txt)|2021/09/30|
 # 分类
 
 ### DP
@@ -913,6 +914,7 @@ My Codeforce Practice<br/>
 213B.[ Numbers (1900) (DP + Combination) ](./code/213B.txt)<br/>
 439E.[ Devu and Birthday Celebration (2100) (Combination)  ](./code/439E.txt)<br/>
 571A.[ Lengthening Sticks (2100) (Combination + Ball in box)  ](./code/571A.txt)<br/>
+893E.[ Counting Arrays (2000) (Combination)  ](./code/893E.txt)<br/>
 
 ### Probability
 626D.[ Jerry's Protest (1800) (Combination + Probability)  ](./code/626D.txt)<br/>
