@@ -2,6 +2,8 @@
 
 My Codeforce Practice<br/>
 
+1. https://blog.csdn.net/my_sunshine26/article/details/77385809 (组合数学:球问题)
+
 
 
  # 每日刷题挑战
