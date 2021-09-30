@@ -1,0 +1,178 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int mod = 1000000007;
+        long fact[]=new long[1000000+100];
+        fact[0]=fact[1]=1;
+        for(int i = 2;i<fact.length;i++){
+            fact[i]=fact[i-1]*i;
+            fact[i]%=mod;
+        }
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(fact);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution(long fact[]) {
+        int x = fs.Int();
+        int y = fs.Int();
+        long res = pow(2,y-1);//number of postive/ negative ways
+        for(int i = 2;i*i<=x;i++){
+            if(i>x)break;
+            int cnt = 0;
+            while(x%i==0){
+                x/=i;
+                cnt++;
+            }
+            //System.out.println(cnt);
+            if(cnt!=0){
+                res = res * C(fact,cnt + y - 1, cnt);
+                res%=mod;
+            }
+        }
+
+
+        if(x!=1){
+            res = res * y;
+            res%=mod;
+        }
+        out.println(res);
+
+    }
+
+
+
+    public long C(long fact[],int i,int j){ // C(20,3)=20!/(17!*3!)
+        long a=fact[i];
+        long b=((fact[i-j]%mod)*(fact[j]%mod))%mod;
+        BigInteger B= BigInteger.valueOf(b);
+        long binverse=B.modInverse(BigInteger.valueOf(mod)).longValue();
+        return ((a)*(binverse%mod))%mod;
+    }
+
+    public long pow(long a,long b){
+        long res=1;
+        long pow=a;
+        for(int i=0;i<32;i++){
+            if((b&(1<<i))!=0){
+                res*=pow;
+                res%=mod;
+            }
+            pow*=pow;
+            pow%=mod;
+        }
+
+        return res;
+    }
+
+
+}
+
+
+
+
+
+//2 3 x
+//2 x 3
+//x 2 3
+//x 3 2
+//3 x 2
+//3 2 x
+
+//(2 + 3 - 1, 2)
+
+// x o x o x
+
+
+
+
+
