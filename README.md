@@ -559,6 +559,7 @@ My Codeforce Practice<br/>
  |  1176D |[ Recover it! (1800) ( Greedy + Sort)  ](./code/1176D.txt)|2021/09/27|
  |  954G |[ Castle Defense (2000) (Binary Search + Two Pointer)  ](./code/954G.txt)|2021/09/28|
  |  543B |[ Destroying Roads (2100) (Shortes Path + Thinking) (Thumb) ](./code/543B.txt)|2021/09/29|
+ |  617E |[ XOR and Favorite Number (2200) (莫队 + Prefix)  ](./code/617E.txt)|2021/09/29|
 # 分类
 
 ### DP
@@ -1112,6 +1113,7 @@ My Codeforce Practice<br/>
 1514D. [Cut and Stick (2000) (Greedy + 莫队 + Update max) ](./code/1514D.txt)  <br/>
 86D. [ Powerful Array (2200) （莫队） ](./code/86D.txt)   <br/>
 940F. [Machine Learning (2600) （莫队修改） ](./code/940F.txt)  <br/> 
+617E.[ XOR and Favorite Number (2200) (莫队 + Prefix)  ](./code/617E.txt)<br/>
 
 ### Bit
 1174D.[Ehab and the Expected XOR Problem (1900) (bit + Thinking + Prefix )  ](./code/1174D.txt) <br/>
