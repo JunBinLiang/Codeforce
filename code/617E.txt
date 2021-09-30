@@ -1,0 +1,197 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+    int f[]=new int[2100000];
+    int cur = 0;
+    long cnt = 0;
+    int pre[];
+    int k;
+    public void solution() {
+        int n =fs.Int();
+        int m =fs.Int();
+        int k =fs.Int();
+        int A[]=new int[n];
+        this.k=k;
+        long res[] =new long[m];
+        pre=new int[n+1];
+        for(int i = 0; i < n; i++){
+            A[i]=fs.Int();
+            pre[i+1]=pre[i]^A[i];
+        }
+
+        int BLOCK=(int)(Math.sqrt(n));
+        List<Query> list = new ArrayList<>();
+        for(int i = 0; i < m; i++){
+            int l = fs.Int();
+            int r= fs.Int();
+            list.add(new Query(l,r,i));
+        }
+
+        Collections.sort(list,(q1,q2)->{
+            if(q1.l/BLOCK!=q2.l/BLOCK){
+                return (q1.l/BLOCK)-(q2.l/BLOCK);
+            }
+            else{
+                return q1.r-q2.r;
+            }
+        });
+
+
+        int l=1,r=0;
+        f[0]=1;
+
+
+        for(Query query : list){
+            int ll=query.l;
+            int rr=query.r;
+            int ol = l;
+            int or = r;
+
+
+            while( l > ll )
+                add(--l-1,ll);
+            while( r < rr )
+                add(++r,ll);
+
+            while( l < ll )
+                del(l++-1,ol);
+            while( r > rr )
+                del(r--,ol);
+
+            res[query.i]=cnt;
+        }
+
+
+        for(long i:res){
+            out.println(i);
+        }
+    }
+
+    public void add(int x,int bound){
+        cnt += f[pre[x]^k];
+        f[pre[x]]++;
+
+
+    }
+
+    public void del(int x,int bound){
+        f[pre[x]]--;
+        cnt-=f[pre[x]^k];
+    }
+
+    class Query{
+        int l,r,i;
+        public Query(int l,int r,int i){
+            this.l=l;
+            this.r=r;
+            this.i=i;
+        }
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
