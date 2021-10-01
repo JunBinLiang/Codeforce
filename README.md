@@ -566,6 +566,7 @@ My Codeforce Practice<br/>
  |  893E |[ Counting Arrays (2000) (Combination)  ](./code/893E.txt)|2021/09/30|
  |  369E |[ Valera and Queries(2200) (offline + Fenwick + Thinking + Line)  ](./code/369E.txt)|2021/09/30|
  |  369D |[ Valera and Fools (2200) (Thinking + Shortest Path + DP)  ](./code/369D.txt)|2021/09/30|
+ |  362C |[ Insertion Sort (1900) ( DP + Prefix)  ](./code/362C.txt)|2021/10/01|
 # 分类
 
 ### DP
@@ -647,6 +648,7 @@ My Codeforce Practice<br/>
 519D.[A and B and Interesting Substrings (1800) (Prefix Sum)  ](./code/519D.txt)<br/>
 201C.[Fragile Bridges(2000) (Left-Right DP + Thinking + Sort)  ](./code/201C.txt)<br/>
 75D.[ Big Maximum Sum (2000) (Left Right DP)  ](./code/75D.txt)<br/>
+362C.[ Insertion Sort (1900) ( DP + Prefix)  ](./code/362C.txt)<br/>
 
 
 ### DP 转换/Optimize
