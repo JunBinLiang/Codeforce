@@ -1,0 +1,190 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution() {
+        int n =fs.Int();
+        int A[]=new int[n];
+        for(int i =0;i<n;i++){
+            A[i]=fs.Int();
+        }
+
+
+        //steps : how many previous numbers larger than me
+        int res = 0;
+        int sum = 0;
+        int mn = 0;
+        for(int i = 0;i<n;i++){
+            for(int j = i-1;j>=0;j--){
+                if(A[j]>A[i]){
+                    sum++;
+                }
+            }
+        }
+        mn = sum;
+
+        int dp[][]=new int[n][n];
+        int dp2[][]=new int[n][n];
+        for(int i = 0; i < n; i++){
+            int cnt1=0;int cnt2=0;
+            for(int j = 0; j < i; j++){
+                if(A[j]>A[i])cnt1++;
+                dp[i][j]=cnt1;
+
+                if(A[j]<A[i])cnt2++;
+                dp2[i][j]=cnt2;
+            }
+        }
+
+
+        for(int i = 0 ; i < A.length;i++){
+            int cnt = 0;
+            int len = 0;
+            int cnt2=0;
+            for(int j = i + 1; j < n; j++){
+
+                if(A[j]>A[i]){
+                    cnt++;
+                }
+
+
+
+                int newsum = sum;
+                newsum += cnt;
+                newsum -= dp[j][j-1];
+                newsum -= cnt2;
+                int p[]=dp2[j];
+                newsum+=get(p,i,j-1);
+
+                /*if(i==0&&j==3){
+                    System.out.println(sum+"  "+cnt+"  "+dp[j][j-1]+"  "+(len-cnt)+"  "+get(p,i,j-1));
+                }*/
+
+                if(i-1>=0)newsum+=dp[j][i-1];
+
+                if(newsum<mn){
+                    mn = newsum;
+                    res=1;
+                }
+                else if(newsum == mn){
+                    res++;
+                }
+
+                if(A[j]<A[i])cnt2++;
+            }
+        }
+
+
+        out.println(mn +" " + res);
+
+
+    }
+
+    public int get(int A[],int l,int r){
+        if(l==0)return A[r];
+        return A[r]-A[l-1];
+    }
+
+    //4 0 3 1 2
+
+    //1 0 3 4 2
+    //0 1 2 3 4
+
+}
+
+
+
+
+
+
