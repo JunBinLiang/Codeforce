@@ -564,6 +564,7 @@ My Codeforce Practice<br/>
  |  617E |[ XOR and Favorite Number (2200) (莫队 + Prefix)  ](./code/617E.txt)|2021/09/29|
  |  353D |[ Queue (2000) (观察)  ](./code/353D.txt)|2021/09/30|
  |  893E |[ Counting Arrays (2000) (Combination)  ](./code/893E.txt)|2021/09/30|
+  |  369E |[ Valera and Queries(2200) (offline + Fenwick + Thinking + Line)  ](./code/369E.txt)|2021/09/30|
 # 分类
 
 ### DP
@@ -1157,6 +1158,7 @@ My Codeforce Practice<br/>
 1029C.[Maximal Intersection (1600) (Left/Right DP + Interval Problem) ](./code/1029C.txt)<br/>
 1285E.[  Delete a Segment (2300) (Interval Problem + TreeMap + BinarySearch + left/right DP + Segment Tree)  ](./code/1285E.txt)<br/>
 863E.[ Turn Off The TV (2000) (Interval Problem)   ](./code/863E.txt)<br/>
+369E.[ Valera and Queries(2200) (offline + Fenwick + Thinking + Line)  ](./code/369E.txt)<br/>
 
 ### Two Pointer
 190D. [ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)<br/>
