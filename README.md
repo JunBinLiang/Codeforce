@@ -564,7 +564,8 @@ My Codeforce Practice<br/>
  |  617E |[ XOR and Favorite Number (2200) (莫队 + Prefix)  ](./code/617E.txt)|2021/09/29|
  |  353D |[ Queue (2000) (观察)  ](./code/353D.txt)|2021/09/30|
  |  893E |[ Counting Arrays (2000) (Combination)  ](./code/893E.txt)|2021/09/30|
-  |  369E |[ Valera and Queries(2200) (offline + Fenwick + Thinking + Line)  ](./code/369E.txt)|2021/09/30|
+ |  369E |[ Valera and Queries(2200) (offline + Fenwick + Thinking + Line)  ](./code/369E.txt)|2021/09/30|
+ |  369D |[ Valera and Fools (2200) (Thinking + Shortest Path + DP)  ](./code/369D.txt)|2021/09/30|
 # 分类
 
 ### DP
@@ -976,6 +977,7 @@ My Codeforce Practice<br/>
 59E.[Shortest Path	 (2000) (Shortest Path)  ](./code/59E.txt)<br/>
 1070A.[ Find a Number(2200) (Shortest Path)  ](./code/1070A.txt)<br/>
 543B.[ Destroying Roads (2100) (Shortes Path + Thinking) (Thumb) ](./code/543B.txt)<br/>
+369D.[ Valera and Fools (2200) (Thinking + Shortest Path + DP)  ](./code/369D.txt)<br/>
 
 ### 0-1 BFS
 1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
