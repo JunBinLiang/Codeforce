@@ -567,6 +567,9 @@ My Codeforce Practice<br/>
  |  369E |[ Valera and Queries(2200) (offline + Fenwick + Thinking + Line)  ](./code/369E.txt)|2021/09/30|
  |  369D |[ Valera and Fools (2200) (Thinking + Shortest Path + DP)  ](./code/369D.txt)|2021/09/30|
  |  362C |[ Insertion Sort (1900) ( DP + Prefix)  ](./code/362C.txt)|2021/10/01|
+ |  369C |[Valera and Elections (1600) (Tree)  ](./code/369C.txt)|2021/10/01|
+ 
+ 
 # 分类
 
 ### DP
@@ -1035,6 +1038,7 @@ My Codeforce Practice<br/>
 859E.[ Desk Disorder (2100) (Combination + Tree + Graph )  ](./code/859E.txt)<br/>
 980E.[The Number Games (2200) (Tree + Sparse + Greedy) (Thumb)  ](./code/980E.txt)<br/>
 1363E.[ Tree Shuffling (2000) (Tree + Greedy)  ](./code/1363E.txt)<br/>
+369C.[Valera and Elections (1600) (Tree)  ](./code/369C.txt)<br/>
 
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
