@@ -1,0 +1,178 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution() {
+
+        int n =fs.Int();
+        int k =fs.Int();
+        int A[]=new int[n];
+        for(int i = 0;i<n;i++){
+            A[i]=fs.Int();
+        }
+
+        if(n==1){
+            out.println(1);
+            return;
+        }
+
+        boolean su1[]=new boolean[n];//all zero
+        boolean su2[]=new boolean[n];
+        for(int i = n-1;i>=0;i--){
+            //all zero
+            if(A[i]==0){
+                su1[i]=true;
+            }
+            else{
+                break;
+            }
+        }
+
+        for(int i = n-1;i>=0;i--){
+            //all 100
+            if(A[i]!=100){
+                su2[i]=true;
+            }
+            else{
+                break;
+            }
+        }
+
+        //System.out.println(Arrays.toString(su1));
+       // System.out.println(Arrays.toString(su2));
+
+        int res = 0;
+        boolean seen[][]=new boolean[n+5][n+5];
+        Queue<int[]>q=new LinkedList<>();
+        seen[0][1]=true;
+
+        q.add(new int[]{0,1,0});
+        while(q.size()>0){
+            int top[]=q.poll();
+            res++;
+            int a = top[0],b=top[1],level=top[2];//smallest, second
+            
+            if(level==k||b>=n)continue;
+
+            if(A[a]!=0&&su2[b]&&!seen[a][Math.min(n,b+1)]){//a not kill, b is kill
+                q.add(new int[]{a,Math.min(n,b+1),level+1});
+                seen[a][Math.min(n,b+1)]=true;
+            }
+
+            //a is kill, b not kill
+            if(A[a]!=100&&!su1[b]&&!seen[b][Math.min(n,b+1)]){
+                q.add(new int[]{b,Math.min(n,b+1),level+1});
+                seen[b][Math.min(n,b+1)]=true;
+            }
+
+            //a kill b kill
+            if(A[a]!=0 && !su1[b]&&!seen[Math.min(n,b+1)][Math.min(n,b+2)]){
+                seen[Math.min(n,b+1)][Math.min(n,b+2)]=true;
+                q.add(new int[]{Math.min(n,b+1),Math.min(n,b+2),level+1});
+            }
+
+        }
+
+        out.println(res);
+    }
+
+
+
+}
+
+
+
+
+
+
