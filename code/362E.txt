@@ -129,7 +129,7 @@ class Solution {
                     edgeCap[id] = 100000000;
                     id++;
 
-                    graph[j].add(new int[]{i,id,1});
+                    graph[j].add(new int[]{i,id,-1});
                     id++;
                 }
             }
@@ -147,21 +147,24 @@ class Solution {
             Arrays.fill(pa,-1);
             Arrays.fill(dis,INF);
             dis[0]=0;
+            boolean in[]=new boolean[n];
             boolean seen[]=new boolean[n];
             while(q.size()>0){
                 int root = q.poll();
+                in[root]=false;
                 for(int edge[]:graph[root]){
                     int to = edge[0];
                     //edge[1] ： cap id
                     //cost : edge[1]
-                    if(edgeCap[edge[1]]>0&&!seen[edge[0]]){
+                    if(edgeCap[edge[1]]>0){
                         if(dis[root]+edge[2]<dis[edge[0]]){
-
                             dis[edge[0]]=dis[root]+edge[2];
                             pa[edge[0]]=root;
                             lastE[edge[0]]=edge[1];
-
-                            q.add(edge[0]);
+                            if(!in[edge[0]]){
+                                q.add(edge[0]);
+                                in[edge[0]]=true;
+                            }
                         }
                     }
                 }
@@ -207,9 +210,3 @@ class Solution {
 
 
 }
-
-
-
-
-
-
