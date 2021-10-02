@@ -568,6 +568,7 @@ My Codeforce Practice<br/>
  |  369D |[ Valera and Fools (2200) (Thinking + Shortest Path + DP)  ](./code/369D.txt)|2021/09/30|
  |  362C |[ Insertion Sort (1900) ( DP + Prefix)  ](./code/362C.txt)|2021/10/01|
  |  369C |[Valera and Elections (1600) (Tree)  ](./code/369C.txt)|2021/10/01|
+ |  362E |[Petya and Pipes (2300) (mcmf)  ](./code/362E.txt)|2021/10/01|
  
  
 # 分类
@@ -1209,6 +1210,10 @@ My Codeforce Practice<br/>
 <br/><br/>
 
 # Geometry 
+
+
+### Flow
+362E.[Petya and Pipes (2300) (mcmf)  ](./code/362E.txt)<br/>
 
 <br/><br/>
 
