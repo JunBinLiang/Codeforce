@@ -1,0 +1,248 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution() {
+        int n =fs.Int();
+        int m =fs.Int();
+        int A[]=new int[n];
+        int B[]=new int[n];
+        int res[][]=new int[n][n];
+        int suma=0,sumb=0;
+        for(int i =0;i<n;i++){
+            A[i]=fs.Int();
+            suma+=A[i];
+        }
+
+        for(int i = 0;i<n;i++){
+            B[i]=fs.Int();
+            sumb+=B[i];
+        }
+
+        int s = 0;
+        int t = 2 * n + 1;
+        List<int[]>graph[]=new ArrayList[2*n+2];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        int edgeC[]=new int[10000];
+        int id = 0;
+
+
+        for(int i = 0;i<m;i++){
+            int u =fs.Int();
+            int v = fs.Int();
+            graph[u].add(new int[]{v+n,id});
+            edgeC[id]=INF;
+            id++;
+            graph[v+n].add(new int[]{u,id});
+            edgeC[id]=0;
+            id++;
+
+
+            graph[v].add(new int[]{u+n,id});
+            edgeC[id]=INF;
+            id++;
+            graph[u+n].add(new int[]{v,id});
+            edgeC[id]=0;
+            id++;
+        }
+
+
+        for(int i = 0;i<n;i++){
+            int u = i+1;
+            graph[s].add(new int[]{u,id});
+            edgeC[id]=A[i];
+            id++;
+            graph[u].add(new int[]{s,id});
+            edgeC[id]=0;
+            id++;
+
+
+            graph[u].add(new int[]{u+n,id});
+            edgeC[id]=INF;
+            id++;
+            graph[u+n].add(new int[]{u,id});
+            edgeC[id]=0;
+            id++;
+        }
+
+        for(int i=0;i<n;i++){
+            int u = i + 1 + n;
+            graph[u].add(new int[]{t,id});
+            edgeC[id]=B[i];
+            id++;
+
+            graph[t].add(new int[]{u,id});
+            edgeC[id]=0;
+            id++;
+        }
+
+        int flow = 0;
+        while(true){
+            Queue<Integer>q=new LinkedList<>();
+            q.add(s);
+            boolean seen[]=new boolean[2*n+10];
+            int pa[]=new int[2*n+10];
+            int lastE[]=new int[2*n+10];
+            pa[t]=-1;
+            while(q.size()>0){
+                int root = q.poll();
+                for(int edge[]:graph[root]){
+                    int to = edge[0];
+                    if(seen[to])continue;
+                    int eid = edge[1];
+                    if(edgeC[edge[1]]>0){
+                        seen[to]=true;
+                        pa[to]=root;
+                        lastE[to]=edge[1];
+                        q.add(to);
+                    }
+                }
+            }
+            if(pa[t]==-1)break;
+            int mnflow=INF;
+            int cur = t;
+
+            while(cur!=s){
+                int eId = lastE[cur];
+                mnflow =Math.min(mnflow,edgeC[eId]);
+                cur=pa[cur];
+            }
+
+            cur = t;
+            while(cur!=s){
+                int eId = lastE[cur];
+                edgeC[eId]-=mnflow;
+                if(eId % 2 == 0){
+                    eId++;
+                }
+                else{
+                    eId--;
+                }
+                edgeC[eId]+=mnflow;
+                cur=pa[cur];
+            }
+            flow+=mnflow;
+        }
+
+
+        if(flow!=suma || suma != sumb || flow != sumb){
+            out.println("NO");
+            return;
+        }
+
+        out.println("YES");
+
+        for(int u =1;u<=n;u++){
+            for(int p[]:graph[u]){
+                int v = p[0],eid = p[1];
+                eid++;
+                v-=n;
+                if(v>0&&v<=n){
+                    res[u-1][v-1]=edgeC[eid];
+                }
+            }
+        }
+
+
+        for(int i =0;i<res.length;i++){
+            for(int j = 0;j<res[0].length;j++){
+                out.print(res[i][j]+" ");
+            }out.println();
+        }
+
+
+    }
+
+
+}
