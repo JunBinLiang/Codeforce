@@ -569,6 +569,11 @@ My Codeforce Practice<br/>
  |  362C |[ Insertion Sort (1900) ( DP + Prefix)  ](./code/362C.txt)|2021/10/01|
  |  369C |[Valera and Elections (1600) (Tree)  ](./code/369C.txt)|2021/10/01|
  |  362E |[Petya and Pipes (2300) (mcmf)  ](./code/362E.txt)|2021/10/01|
+ |  546E |[Soldier and Traveling (2100) (flow + Graph Construct)  ](./code/546E.txt)|2021/10/03|
+ 
+ 
+ 
+ 
  
  
 # 分类
@@ -1214,6 +1219,7 @@ My Codeforce Practice<br/>
 
 ### Flow
 362E.[Petya and Pipes (2300) (mcmf)  ](./code/362E.txt)<br/>
+546E.[Soldier and Traveling (2100) (flow + Graph Construct)  ](./code/546E.txt)<br/>
 
 <br/><br/>
 
