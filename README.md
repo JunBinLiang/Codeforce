@@ -570,7 +570,7 @@ My Codeforce Practice<br/>
  |  369C |[Valera and Elections (1600) (Tree)  ](./code/369C.txt)|2021/10/01|
  |  362E |[Petya and Pipes (2300) (mcmf)  ](./code/362E.txt)|2021/10/01|
  |  546E |[Soldier and Traveling (2100) (flow + Graph Construct)  ](./code/546E.txt)|2021/10/03|
- 
+ |  546D |[Soldier and Number Game (1700) (打表 + Prefix Sum)  ](./code/546D.txt)|2021/10/04|
  
  
  
@@ -897,6 +897,7 @@ My Codeforce Practice<br/>
 
 ### Optimize 打表
 222C.[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)<br/>
+546D.[Soldier and Number Game (1700) (打表 + Prefix Sum)  ](./code/546D.txt)<br/>
 
 
 ### 欧拉定理
