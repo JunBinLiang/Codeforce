@@ -571,7 +571,7 @@ My Codeforce Practice<br/>
  |  362E |[Petya and Pipes (2300) (mcmf)  ](./code/362E.txt)|2021/10/01|
  |  546E |[Soldier and Traveling (2100) (flow + Graph Construct)  ](./code/546E.txt)|2021/10/03|
  |  546D |[Soldier and Number Game (1700) (打表 + Prefix Sum)  ](./code/546D.txt)|2021/10/04|
- 
+ |  1213E |[Two Small Strings (1900) (Constructive + Brute Force)  ](./code/1213E.txt)|2021/10/05|
  
  
  
@@ -769,7 +769,7 @@ My Codeforce Practice<br/>
  432E.[Square Tiling (2300) (Constructive + Greedy)  ](./code/432E.txt)<br/>
  1204D2.[ D2 - Kirk and a Binary String (hard version)(2100) (Observation)  ](./code/1204D2.txt)<br/>
  1530E.[ Minimax (2100) (Construvtice + String)  ](./code/1530E.txt)<br/>
-
+ 1213E.[Two Small Strings (1900) (Constructive + Brute Force)  ](./code/1213E.txt)<br/>
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
