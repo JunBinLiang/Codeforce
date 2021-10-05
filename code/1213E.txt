@@ -1,0 +1,269 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    String s;
+    String t;
+    String A[]=new String[]{"abc","acb","bac","bca","cab","cba"};
+    public void solution() {
+        int n = fs.Int();
+        s=fs.Str();
+        t=fs.Str();
+        char C1[]=s.toCharArray();
+        char C2[]=t.toCharArray();
+
+        if(n==1){
+            for(String x:A){
+                if(check(x,s,t)){
+                    out.println("YES");
+                    out.println(x);
+                    return;
+                }
+            }
+        }
+
+        if(C1[1]==C2[1]){
+            if(C1[1]==C1[0]||C2[1]==C2[0]){
+                char last = '1';
+                StringBuilder str=new StringBuilder();
+                for(String x:A){
+                    if(check(x,s,t)){
+                        str.append(x);
+                        last=x.charAt(2);
+                        break;
+                    }
+                }
+
+
+                for(int i=1;i<n;i++){
+                    for(String x:A){
+                        if(check(x,s,t)){
+                            String pre = last +""+ x.charAt(0);
+                            if(pre.equals(s)||pre.equals(t)){
+                                continue;
+                            }
+                            last = x.charAt(2);
+                            str.append(x);
+                            break;
+                        }
+                    }
+                }
+                out.println("YES");
+                out.println(str.toString());
+            }
+            else{
+                StringBuilder str=new StringBuilder();
+                for(int j =0;j<n;j++){
+                    str.append(C1[1]);
+                }
+
+                for(int i=0;i<3;i++){
+                    if(i==C1[1]-'a'){
+
+                    }
+                    else{
+                        for(int j=0;j<n;j++){
+                            char c = (char)(i+'a');
+                            str.append(c);
+                        }
+                    }
+                }
+
+
+                out.println("YES");
+                out.println(str.toString());
+            }
+        }
+        else if(C1[0]==C2[0]){
+            if(C1[1]==C1[0]||C2[1]==C2[0]){
+                char last = '1';
+                StringBuilder str=new StringBuilder();
+                for(String x:A){
+                    if(check(x,s,t)){
+                        str.append(x);
+                        last=x.charAt(2);
+                        break;
+                    }
+                }
+
+
+                for(int i=1;i<n;i++){
+                    for(String x:A){
+                        if(check(x,s,t)){
+                            String pre = last +""+ x.charAt(0);
+                            if(pre.equals(s)||pre.equals(t)){
+                                continue;
+                            }
+                            last = x.charAt(2);
+                            str.append(x);
+                            break;
+                        }
+                    }
+                }
+                out.println("YES");
+                out.println(str.toString());
+            }
+            else{
+                StringBuilder str=new StringBuilder();
+                for(int i=0;i<3;i++){
+                    if(i==C1[0]-'a'){
+
+                    }
+                    else{
+                        for(int j=0;j<n;j++){
+                            char c = (char)(i+'a');
+                            str.append(c);
+                        }
+                    }
+                }
+
+                for(int j =0;j<n;j++){
+                    str.append(C1[0]);
+                }
+                out.println("YES");
+                out.println(str.toString());
+            }
+        }
+        else{
+            char last = '1';
+            StringBuilder str=new StringBuilder();
+            for(String x:A){
+                if(check(x,s,t)){
+                    str.append(x);
+                    last=x.charAt(2);
+                    break;
+                }
+            }
+
+
+            for(int i=1;i<n;i++){
+                for(String x:A){
+                    if(check(x,s,t)){
+                        String pre = last +""+ x.charAt(0);
+                        if(pre.equals(s)||pre.equals(t)){
+                            continue;
+                        }
+                        last = x.charAt(2);
+                        str.append(x);
+                        break;
+                    }
+                }
+            }
+            out.println("YES");
+            out.println(str.toString());
+        }
+
+    }
+
+    public boolean check(String s,String s1,String s2){
+        if(s.contains(s1)){
+            return false;
+        }
+        if(s.contains(s2)){
+            return false;
+        }
+        return true;
+    }
+
+
+}
+
+//ab
+//ba
+//
+
+
+
+
+
