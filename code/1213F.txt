@@ -1,0 +1,233 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    List<Integer>graph[];
+    int dis[];
+    int low[];
+    int assign[];
+    int time = 1;
+    int scc=0;
+    Set<Integer>total=new HashSet<>();
+    Map<Integer,List<Integer>>f=new HashMap<>();
+    int cnt = 0;
+    public void solution() {
+        int n =fs.Int();
+        int k =fs.Int();
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        int A[]=new int[n];
+        int B[]=new int[n];
+        dis=new int[n];
+        low=new int[n];
+        assign=new int[n];
+
+        for(int i=0;i<n;i++){
+            A[i]=fs.Int()-1;
+        }
+
+        for(int i=0;i<n;i++){
+            B[i]=fs.Int()-1;
+        }
+
+        for(int i=1;i<n;i++){
+            graph[A[i-1]].add(A[i]);
+            graph[B[i-1]].add(B[i]);
+        }
+
+
+        for(int i=0;i<n;i++){
+            if(dis[i]==0){//not visit
+                tarjan(i,new HashSet<>(),new Stack<>());
+            }
+        }
+
+
+
+
+
+        if(total.size()<k){
+            out.println("NO");
+            return;
+        }
+        out.println("YES");
+
+
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            return a[0]-b[0];
+        });
+
+        //System.out.println(Arrays.toString(assign));
+
+        int x = 0;
+        boolean seen[]=new boolean[n];
+        for(int i = 0;i<n;i++){
+            if(seen[A[i]])continue;
+            int id = assign[A[i]];
+            List<Integer>list=f.get(id);
+            for(int index:list){
+                seen[index]=true;
+                pq.add(new int[]{x,index});
+            }
+            x++;
+        }
+
+
+
+        char c = 'a';
+        char res[]=new char[n];
+        Arrays.fill(res,'.');
+        for(int i=0;i<k;i++){
+            int peek[]=pq.peek();
+            while(pq.size()>0&&pq.peek()[0]==peek[0]){
+                int top[]=pq.poll();
+                int index=top[1];
+                res[index]=c;
+            }
+            c++;
+        }
+
+        if(c-'a'>=26){
+            c--;
+        }
+        while(pq.size()>0){
+            int peek[]=pq.peek();
+            while(pq.size()>0&&pq.peek()[0]==peek[0]){
+                int top[]=pq.poll();
+                int index=top[1];
+                res[index]=c;
+            }
+        }
+        
+
+        out.println(new String(res));
+    }
+
+    public void tarjan(int root,Set<Integer>set,Stack<Integer>stack){//tarjan for direct
+        dis[root]=low[root]=time;
+        set.add(root);
+        stack.push(root);
+        time++;
+
+        //core for tarjan
+        for(int c:graph[root]){
+            if(dis[c]==0){
+                tarjan(c,set,stack);
+                low[root]=Math.min(low[root],low[c]);
+            }else if(set.contains(c)){
+                low[root]=Math.min(low[root],dis[c]);
+            }
+        }
+        //decide where each strong connect component belong
+        if(low[root]==dis[root]){//start
+            scc++;
+            total.add(scc);
+            int v=-1;
+            while(v!=root){
+                v=stack.pop();
+                assign[v]=scc;
+                if(!f.containsKey(scc))f.put(scc,new ArrayList<>());
+                f.get(scc).add(v);
+                cnt++;
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
