@@ -572,7 +572,7 @@ My Codeforce Practice<br/>
  |  546E |[Soldier and Traveling (2100) (flow + Graph Construct)  ](./code/546E.txt)|2021/10/03|
  |  546D |[Soldier and Number Game (1700) (打表 + Prefix Sum)  ](./code/546D.txt)|2021/10/04|
  |  1213E |[Two Small Strings (1900) (Constructive + Brute Force)  ](./code/1213E.txt)|2021/10/05|
- 
+ |  1213F |[Unstable String Sort (2100) (Direct Graph Tarjan + Constructive)  ](./code/1213F.txt)|2021/10/05|
  
  
  
@@ -962,6 +962,9 @@ My Codeforce Practice<br/>
 
 ### Tarjan (Bridge)
 160D.[Edges in MST (2300) (Graph + MST + Tarjan)  ](./code/160D.txt)<br/>
+
+### Direct Tarjan (SCC)
+1213F.[Unstable String Sort (2100) (Direct Graph Tarjan + Constructive)  ](./code/1213F.txt)<br/>
 
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
