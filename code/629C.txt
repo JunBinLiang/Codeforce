@@ -1,0 +1,178 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+        int n =fs.Int();
+        int m=fs.Int();
+        String s= fs.Str();
+        char A[]=s.toCharArray();
+
+        //p + s + q == valid
+
+        //open == close
+        //any prefix : open >=close
+
+        int cnt = 0;
+        int mn = 0;
+        for(int i = 0;i<A.length;i++){
+            if(A[i]=='('){
+                cnt++;
+            }
+            else{
+                cnt--;
+            }
+            mn=Math.min(mn,cnt);
+        }
+
+        if(cnt>2000){
+            out.println(0);
+            return;
+        }
+
+
+
+        long dp[][]=new long[2010][2010];//[open, close]
+        for(int i=0;i<dp.length;i++){
+            dp[i][0]=1;
+        }
+
+        for(int open = 1;open<dp.length;open++){
+            for(int close = 1; close <=open;close++){
+
+               if(open>close){
+                   dp[open][close]+=dp[open][close-1];
+                   dp[open][close]%=mod;
+                   dp[open][close]+=dp[open-1][close];
+                   dp[open][close]%=mod;
+               }
+               else{
+                   dp[open][close]+=dp[open][close-1];
+                   dp[open][close]%=mod;
+               }
+            }
+        }
+
+
+        int gap = n - m;
+        long res = 0;
+        for(int open = Math.abs(mn);open<=2000;open++){//how many open in the left side
+            for(int close = open; close>=0;close--){
+                if(open-close>=Math.abs(mn)){
+                   if(open+close+m<=n){
+                       int remain = n - m - open -close;
+                       int left = open-close+cnt;
+                       int right = left;//right close
+                       if(remain>=right&&(remain-right)%2==0){
+                           int base = (remain-right)/2;
+                           res += dp[open][close] * dp[base + right][base];
+                           res%=mod;
+                       }
+                   }
+                }
+            }
+        }
+
+        out.println(res);
+    }
+
+
+}
+
+
+
+
+
+
