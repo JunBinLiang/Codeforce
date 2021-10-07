@@ -573,7 +573,7 @@ My Codeforce Practice<br/>
  |  546D |[Soldier and Number Game (1700) (打表 + Prefix Sum)  ](./code/546D.txt)|2021/10/04|
  |  1213E |[Two Small Strings (1900) (Constructive + Brute Force)  ](./code/1213E.txt)|2021/10/05|
  |  1213F |[Unstable String Sort (2100) (Direct Graph Tarjan + Constructive)  ](./code/1213F.txt)|2021/10/05|
- 
+ |  1213D2 |[Equalizing by Division (hard version) (1600) (Sort)  ](./code/1213D2.txt)|2021/10/07|
  
  
 # 分类
@@ -1171,6 +1171,7 @@ My Codeforce Practice<br/>
 1151D.[Stas and the Queue at the Buffet (1600) (Sort + Greedy) ](./code/1151D.txt)<br/>
 1547E.[ Air Conditioners (1500) (left/right dp + sort)  ](./code/1547E.txt)<br/>
 12D.[ Ball (2400) (Sort + Segment Tree)  ](./code/12D.txt)<br/>
+1213D2.[Equalizing by Division (hard version) (1600) (Sort)  ](./code/1213D2.txt)<br/>
 
 ### Interval Problem
 1029C.[Maximal Intersection (1600) (Left/Right DP + Interval Problem) ](./code/1029C.txt)<br/>
