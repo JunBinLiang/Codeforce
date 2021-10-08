@@ -575,6 +575,7 @@ My Codeforce Practice<br/>
  |  1213F |[Unstable String Sort (2100) (Direct Graph Tarjan + Constructive)  ](./code/1213F.txt)|2021/10/05|
  |  1213D2 |[Equalizing by Division (hard version) (1600) (Sort)  ](./code/1213D2.txt)|2021/10/07|
  |  629C |[Famil Door and Brackets (2000) (DP + Bracket)  ](./code/629C.txt)|2021/10/07|
+ |  777E |[Hanoi Factory (2000) (DP + Seg + sort)  ](./code/777E.txt)|2021/10/08|
  
 # 分类
 
@@ -620,6 +621,7 @@ My Codeforce Practice<br/>
 229D.[ Towers (2100) (DP + Two Pointer)  ](./code/229D.txt)<br/>
 1176F.[ Destroy it! (2100) ( DP)  ](./code/1176F.txt)<br/>
 629C.[Famil Door and Brackets (2000) (DP + Bracket)  ](./code/629C.txt)<br/>
+777E.[Hanoi Factory (2000) (DP + Seg + sort)  ](./code/777E.txt)<br/>
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
