@@ -1,0 +1,223 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+       String s = fs.Str();
+       Parser par = new Parser();
+       long res = 0;
+       Node r = par.expTree(s);
+       res=dfs(r);
+
+
+       for(int i = 1;i<s.length()-1;i+=2){
+           if(s.charAt(i)=='*'){
+               String pre = s.substring(0,i+1);
+               String newss = pre+"("+s.substring(i+1)+")";
+               Node roott = par.expTree(newss);
+               long val1 = dfs(roott);
+               res=Math.max(res,val1);
+
+               String pre1 = s.substring(0,i);
+               newss = "("+pre1+")"+s.substring(i);
+               roott = par.expTree(newss);
+               val1 = dfs(roott);
+               res=Math.max(res,val1);
+
+               for(int j = i+2;j<s.length();j++){
+                    if(s.charAt(j)=='*'){
+                        String mid = s.substring(i+1,j);
+                        String post = s.substring(j);
+                        String news = pre+"("+mid+")"+post;
+                        Node root = par.expTree(news);
+                        long val = dfs(root);
+                        res=Math.max(res,val);
+                    }
+               }
+           }
+
+       }
+       out.println(res);
+    }
+
+    public long dfs(Node root){
+        if(root.left==null&&root.right==null){
+            return root.c-'0';
+        }
+
+        long l = dfs(root.left);
+        long r = dfs(root.right);
+        if(root.c=='+'){
+            return l+r;
+        }
+        else{
+            return l * r;
+        }
+    }
+
+    class Node{
+        Node left=null;
+        Node right=null;
+        char c;
+        public Node(char c){
+            this.c=c;
+        }
+    }
+
+    class Parser {
+        public Node expTree(String s) {
+            //System.out.println(s);
+            Stack<Character>stack=new Stack<>();
+            Map<Character,Integer>map=new HashMap<>();
+            map.put('+',0);map.put('-',0);
+            map.put('*',1);map.put('/',1);
+            map.put('(',-1);
+
+            StringBuilder str=new StringBuilder();
+            //convert infix to postfix
+
+            for(int i=0;i<s.length();i++){
+                char c=s.charAt(i);
+
+                if(Character.isDigit(c)){
+                    str.append(c+"");
+                }else{
+                    if(c=='('){
+                        stack.push(c);
+                    }
+                    else{
+                        if(c==')'){
+                            while(stack.size()>0&&stack.peek()!='('){
+                                str.append(stack.pop()+"");
+                            }
+                            stack.pop();
+                        }
+                        else{
+                            while(stack.size()>0&&map.get(c)<=map.get(stack.peek())){
+                                str.append(stack.pop()+"");
+                            }
+                            stack.push(c);
+                        }
+                    }
+                }
+            }
+            while(stack.size()>0)str.append(stack.pop()+"");
+            return convert(str.toString());
+        }
+
+
+        public Node convert(String post){
+            Stack<Node>stack=new Stack<>();
+            for(int i=0;i<post.length();i++){
+                char c=post.charAt(i);
+                Node node=new Node(c);
+                if(Character.isDigit(c)){
+
+                }else{
+                    Node right=stack.pop();
+                    Node left=stack.pop();
+                    node.left=left;
+                    node.right=right;
+                }
+                stack.push(node);
+            }
+
+            while(stack.size()>1)stack.pop();
+            return stack.pop();
+        }
+    }
+
+}
+
