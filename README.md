@@ -576,6 +576,7 @@ My Codeforce Practice<br/>
  |  1213D2 |[Equalizing by Division (hard version) (1600) (Sort)  ](./code/1213D2.txt)|2021/10/07|
  |  629C |[Famil Door and Brackets (2000) (DP + Bracket)  ](./code/629C.txt)|2021/10/07|
  |  777E |[Hanoi Factory (2000) (DP + Seg + sort)  ](./code/777E.txt)|2021/10/08|
+ |  1592E |[Bored Bakry (2400) (Two Pointer + Bit + Prefix + Thinking)  ](./code/1592E.txt)|2021/10/08|
  
 # 分类
 
@@ -841,6 +842,9 @@ My Codeforce Practice<br/>
 
 ### Reverse Thinking
 863D.[ Yet Another Array Queries Problem (1800) (Reverse + Thinking)  ](./code/863D.txt)<br/>
+
+### Bit
+1592E.[Bored Bakry (2400) (Two Pointer + Bit + Prefix + Thinking)  ](./code/1592E.txt)<br/>
 
 ### 逆数对
 987E.[ Petr and Permutations (1800) (思维 + 逆数对)  ](./code/987E.txt)<br/>
