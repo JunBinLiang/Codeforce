@@ -1,0 +1,185 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+        int n =fs.Int();
+        int A[]=new int[n];
+        for(int i=0;i<n;i++){
+            A[i]=fs.Int();
+        }
+
+        //len must be even
+
+        int res = 0;
+        int pre[]=new int[n];
+        int xors[]=new int[n];
+
+        int next[]=new int[(1<<21)+1];
+        int cur[]=new int[(1<<21)+1];
+
+        int oddI[]=new int[(1<<21)+1];
+        int evenI[]=new int[(1<<21)+1];
+
+        for(int i=20;i>=0;i--){
+            int sum =0;
+            int xor = 0;
+            Arrays.fill(cur,-1);
+            for(int j =0;j<n;j++){
+                xor = xor^pre[j];
+                xors[j]=xor;
+                if(cur[xor]!=-1){
+                    next[cur[xor]]=j;
+                }
+                else{
+                    oddI[xor]=j;
+                    evenI[xor]=j;
+                }
+                cur[xor]=j;
+            }
+
+
+
+            for(int j=0;j<n;j++){
+                int curX = xors[j];
+
+                if((A[j]&(1<<i))!=0){
+                    sum++;
+                    if(curX==0&&sum>=j+1 && sum % 2 ==0){
+                        res=Math.max(res,sum);
+                    }
+
+                    if(j%2==0){
+                        while(evenI[curX]<j){
+                            if(xors[evenI[curX]]==curX&&(j - evenI[curX]) <=sum&&evenI[curX]%2==0){
+                                break;
+                            }
+                            else{
+                                evenI[curX]=next[evenI[curX]];
+                            }
+                        }
+
+                        if(xors[evenI[curX]]==curX && evenI[curX] % 2 ==0){
+                            res=Math.max(res,j-evenI[curX]);
+                        }
+                    }
+                    else{
+                        while(oddI[curX]<j){
+                            if(xors[oddI[curX]]==curX&&(j - oddI[curX]) <=sum && oddI[curX]%2==1){
+                                break;
+                            }
+                            else{
+                                oddI[curX]=next[oddI[curX]];
+                            }
+                        }
+
+                        if(xors[oddI[curX]]==curX && oddI[curX]%2==1){
+                            res=Math.max(res,j-oddI[curX]);
+                        }
+                    }
+                    pre[j]|=(1<<i);
+                }
+                else{
+                    sum=0;
+                }
+
+            }
+        }
+
+        out.println(res);
+    }
+
+}
+
