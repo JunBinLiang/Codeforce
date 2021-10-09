@@ -577,6 +577,7 @@ My Codeforce Practice<br/>
  |  629C |[Famil Door and Brackets (2000) (DP + Bracket)  ](./code/629C.txt)|2021/10/07|
  |  777E |[Hanoi Factory (2000) (DP + Seg + sort)  ](./code/777E.txt)|2021/10/08|
  |  1592E |[Bored Bakry (2400) (Two Pointer + Bit + Prefix + Thinking)  ](./code/1592E.txt)|2021/10/08|
+  |  552E |[Vanya and Brackets (2100) (Expression Tree + Observation)  ](./code/552E.txt)|2021/10/09|
  
 # 分类
 
@@ -1141,6 +1142,7 @@ My Codeforce Practice<br/>
 123D. [ String (2300) (Suffix Array LCP + Stack) ](./code/123D.txt)<br/>
 
 ### Expression Tree
+ 552E.[Vanya and Brackets (2100) (Expression Tree + Observation)  ](./code/552E.txt)<br/>
 
 ### 莫队
 1514D. [Cut and Stick (2000) (Greedy + 莫队 + Update max) ](./code/1514D.txt)  <br/>
