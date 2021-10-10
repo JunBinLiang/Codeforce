@@ -577,7 +577,8 @@ My Codeforce Practice<br/>
  |  629C |[Famil Door and Brackets (2000) (DP + Bracket)  ](./code/629C.txt)|2021/10/07|
  |  777E |[Hanoi Factory (2000) (DP + Seg + sort)  ](./code/777E.txt)|2021/10/08|
  |  1592E |[Bored Bakry (2400) (Two Pointer + Bit + Prefix + Thinking)  ](./code/1592E.txt)|2021/10/08|
-  |  552E |[Vanya and Brackets (2100) (Expression Tree + Observation)  ](./code/552E.txt)|2021/10/09|
+ |  552E |[Vanya and Brackets (2100) (Expression Tree + Observation)  ](./code/552E.txt)|2021/10/09|
+ |  552C |[Vanya and Scales (1900) (进制)  ](./code/552C.txt)|2021/10/10|
  
 # 分类
 
@@ -893,6 +894,9 @@ My Codeforce Practice<br/>
 
 ### Math : GCD / LCM
 1154G.[ Minimum Possible LCM (2200) (Brute Force, LCM)  ](./code/1154G.txt)<br/>
+
+### Math : 进制
+552C.[Vanya and Scales (1900) (进制)  ](./code/552C.txt)<br/>
 
 ### Number Theory
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
