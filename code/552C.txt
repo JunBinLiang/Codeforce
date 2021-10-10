@@ -106,11 +106,13 @@ class Solution {
             list.add(mod);
         }
 
+
         int c = 0;
         for(int i = 0; i < list.size();i++){
             int b = list.get(i);
             if((b+ c) % w == 0 || (b+ c) % w == 1){
-                c = 0;
+                if(b+c>=w)c=1;
+                else c=0;
             }
             else if((b + c) % w == w - 1){
                 c = 1;
@@ -121,6 +123,7 @@ class Solution {
             }
         }
         out.println("YES");
+
 
 
     }
