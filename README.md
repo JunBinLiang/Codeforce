@@ -579,6 +579,7 @@ My Codeforce Practice<br/>
  |  1592E |[Bored Bakry (2400) (Two Pointer + Bit + Prefix + Thinking)  ](./code/1592E.txt)|2021/10/08|
  |  552E |[Vanya and Brackets (2100) (Expression Tree + Observation)  ](./code/552E.txt)|2021/10/09|
  |  552C |[Vanya and Scales (1900) (进制)  ](./code/552C.txt)|2021/10/10|
+ |  128D |[Numbers (2000) (Constructive + list)  ](./code/128D.txt)|2021/10/11|
  
 # 分类
 
@@ -776,6 +777,9 @@ My Codeforce Practice<br/>
  1204D2.[ D2 - Kirk and a Binary String (hard version)(2100) (Observation)  ](./code/1204D2.txt)<br/>
  1530E.[ Minimax (2100) (Construvtice + String)  ](./code/1530E.txt)<br/>
  1213E.[Two Small Strings (1900) (Constructive + Brute Force)  ](./code/1213E.txt)<br/>
+ 128D.[Numbers (2000) (Constructive + list)  ](./code/128D.txt)<br/>
+ 
+ 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
