@@ -580,6 +580,7 @@ My Codeforce Practice<br/>
  |  552E |[Vanya and Brackets (2100) (Expression Tree + Observation)  ](./code/552E.txt)|2021/10/09|
  |  552C |[Vanya and Scales (1900) (进制)  ](./code/552C.txt)|2021/10/10|
  |  128D |[Numbers (2000) (Constructive + list)  ](./code/128D.txt)|2021/10/11|
+ |  128B |[String (2100) (Constructive + kth substring)  ](./code/128B.txt)|2021/10/12|
  
 # 分类
 
@@ -778,6 +779,7 @@ My Codeforce Practice<br/>
  1530E.[ Minimax (2100) (Construvtice + String)  ](./code/1530E.txt)<br/>
  1213E.[Two Small Strings (1900) (Constructive + Brute Force)  ](./code/1213E.txt)<br/>
  128D.[Numbers (2000) (Constructive + list)  ](./code/128D.txt)<br/>
+ 128B.[String (2100) (Constructive + kth substring)  ](./code/128B.txt)<br/>
  
  
 ### Brute Force
