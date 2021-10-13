@@ -581,6 +581,7 @@ My Codeforce Practice<br/>
  |  552C |[Vanya and Scales (1900) (进制)  ](./code/552C.txt)|2021/10/10|
  |  128D |[Numbers (2000) (Constructive + list)  ](./code/128D.txt)|2021/10/11|
  |  128B |[String (2100) (Constructive + kth substring)  ](./code/128B.txt)|2021/10/12|
+ |  1600E |[Array Game (1900) (Thinking + Game)  ](./code/1600E.txt)|2021/10/13|
  
 # 分类
 
