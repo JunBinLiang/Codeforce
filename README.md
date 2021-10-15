@@ -584,6 +584,7 @@ My Codeforce Practice<br/>
  |  1600E |[Array Game (1900) (Thinking + Game)  ](./code/1600E.txt)|2021/10/13|
  |  264C |[ Choosing Balls (2000) (DP)  ](./code/264C.txt)|2021/10/14|
  |  1579G |[ Minimal Coverage (2200) (DP + Thinking)  ](./code/1579G.txt)|2021/10/15|
+ |  1579E2 |[Array Optimization by Deque (1700) (Fenwick)  ](./code/1579E2.txt)|2021/10/15|
  
  
 # 分类
@@ -1092,6 +1093,7 @@ My Codeforce Practice<br/>
 899F.[Letters Removing (2100) (BinarySearch + Fenwick)  ](./code/899F.txt)<br/>
 459D.[Pashmak and Parmida's problem (1800) (Fenwick Tree)  ](./code/459D.txt)<br/>
 1553F.[ Pairwise Modulo (2300) (Fenwick + Math + Thinking)  ](./code/1553F.txt)<br/>
+1579E2.[Array Optimization by Deque (1700) (Fenwick)  ](./code/1579E2.txt)<br/>
 
 ### Sparse Table
 45B.[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)<br/>
