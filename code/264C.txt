@@ -1,0 +1,208 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+
+         int n =fs.Int();
+         int m =fs.Int();
+         int A[]=new int[n];
+         int B[]=new int[n];
+         int C[]=new int[n];
+         for(int i = 0;i<n;i++){
+             A[i]=fs.Int();
+         }
+        for(int i = 0;i<n;i++){
+            B[i]=fs.Int();
+        }
+
+
+        while(m>0){
+            m--;
+            long a = fs.Int();
+            long b=  fs.Int();
+
+
+            long maxs[][]=new long[2][2];
+            long f[]=new long[n+1];
+            boolean seen[]=new boolean[n+1];
+            maxs[0][0]=-1;
+            maxs[1][0]=-1;
+
+
+
+            for(int i=0;i<A.length;i++){
+               if(seen[B[i]]){
+                   long mx = f[B[i]] + A[i] * a;
+
+                   for(int j = 0; j< 2;j++){
+                       if((int)(maxs[j][0])!=B[i]){
+                           mx = Math.max(mx,Math.max(maxs[j][1],0)+b*A[i]);
+                       }
+                       else{
+                           mx = Math.max(mx,Math.max(maxs[j][1],0)+a*A[i]);
+                       }
+                   }
+
+                   if(maxs[0][1]<maxs[1][1]){
+                       long t1 = maxs[1][0];
+                       long t2 = maxs[1][1];
+                       maxs[1][0]=maxs[0][0];
+                       maxs[1][1]=maxs[0][1];
+                       maxs[0][0]=t1;
+                       maxs[0][1]=t2;
+                   }
+
+                   boolean same = false;
+                   for(int j = 1;j>=0;j--){
+                       if((int)(maxs[j][0])==B[i]){
+                           maxs[j][1]=Math.max(maxs[j][1],mx);
+                           same = true;
+                           break;
+                       }
+                   }
+
+
+                   if(!same){
+                       for(int j = 1;j>=0;j--){
+                           if((int)(maxs[j][0])!=B[i] && mx > maxs[j][1]){
+                               maxs[j][0]=B[i];
+                               maxs[j][1]=mx;
+                               break;
+                           }
+                       }
+                   }
+                   f[B[i]]=Math.max(f[B[i]],mx);
+               }
+               else{
+                   seen[B[i]]=true;
+                   long add = 0;
+
+                   if(maxs[0][1]<maxs[1][1]){
+                       long t1 = maxs[1][0];
+                       long t2 = maxs[1][1];
+                       maxs[1][0]=maxs[0][0];
+                       maxs[1][1]=maxs[0][1];
+                       maxs[0][0]=t1;
+                       maxs[0][1]=t2;
+                   }
+
+                   add=Math.max(add,maxs[0][1]);
+                   add+=A[i]*b;
+
+
+                   if(add>maxs[1][1]){
+                       maxs[1][0]=B[i];
+                       maxs[1][1]=add;
+                   }
+
+                   f[B[i]]=add;
+               }
+
+               //System.out.println(maxs[0][0]+" "+maxs[0][1]+"      "+maxs[1][0]+" "+maxs[1][1]);
+            }
+            out.println(Math.max(0,Math.max(maxs[0][1],maxs[1][1])));
+        }
+    }
+}
+
+/*
+6 1
+-1 1 -1 1 -1 1
+a  b  a b a  b
+-2 2
+
+b a a b
+ */
