@@ -582,6 +582,8 @@ My Codeforce Practice<br/>
  |  128D |[Numbers (2000) (Constructive + list)  ](./code/128D.txt)|2021/10/11|
  |  128B |[String (2100) (Constructive + kth substring)  ](./code/128B.txt)|2021/10/12|
  |  1600E |[Array Game (1900) (Thinking + Game)  ](./code/1600E.txt)|2021/10/13|
+ |  264C |[ Choosing Balls (2000) (DP)  ](./code/264C.txt)|2021/10/14|
+ 
  
 # 分类
 
@@ -628,6 +630,7 @@ My Codeforce Practice<br/>
 1176F.[ Destroy it! (2100) ( DP)  ](./code/1176F.txt)<br/>
 629C.[Famil Door and Brackets (2000) (DP + Bracket)  ](./code/629C.txt)<br/>
 777E.[Hanoi Factory (2000) (DP + Seg + sort)  ](./code/777E.txt)<br/>
+264C.[ Choosing Balls (2000) (DP)  ](./code/264C.txt)<br/>
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
