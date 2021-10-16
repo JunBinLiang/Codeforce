@@ -1,0 +1,179 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    int a,b;
+    int dp[][][][];
+    int take[][][][];
+    public void solution() {
+
+        int n =fs.Int();
+        a = fs.Int();
+        b=fs.Int();
+        String s = fs.Str();
+        char A[]=s.toCharArray();
+
+        dp=new int[n+1][n+1][a+1][b+1];
+        take=new int[n+1][n+1][a+1][b+1];
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++){
+                for(int k =0;k<dp[0][0].length;k++){
+                    Arrays.fill(dp[i][j][k],-1);
+                }
+            }
+        }
+        int res = dfs(A,0,0,0,0);
+        if(res>50){
+            out.println(-1);
+        }
+        else{
+            int cnt1=0,cnt2=0,val1=0,val2=0;
+            StringBuilder str= new StringBuilder();
+            while(cnt1+cnt2<n){
+                int c = take[cnt1][cnt2][val1][val2];
+                int d = A[cnt1+cnt2]-'0';
+                if(c==0){
+                    str.append("R");
+                    cnt1++;
+                    val1=val1*10+d;
+                    val1%=a;
+                }
+                else{
+                    str.append("B");
+                    cnt2++;
+                    val2=val2*10+d;
+                    val2%=b;
+                }
+            }
+            out.println(str.toString());
+        }
+
+    }
+
+    public int dfs(char A[],int cnt1,int cnt2,int val1,int val2){
+
+        int i = cnt1 + cnt2;
+        if(i>=A.length){
+            if(val1==0&&val2==0){
+                return Math.abs(cnt1-cnt2);
+            }
+            else{
+                return 1000000;
+            }
+        }
+        if(dp[cnt1][cnt2][val1][val2]!=-1){
+            return dp[cnt1][cnt2][val1][val2];
+        }
+        int d = A[i] - '0';
+        int res = 1000000;
+        int x = dfs(A,cnt1+1,cnt2,(val1*10+d)%a,val2);
+        int y = dfs(A,cnt1,cnt2+1,(val1),(val2*10+d)%b);
+
+        if(x<y){
+            res=x;
+            take[cnt1][cnt2][val1][val2]=0;
+        }
+        else{
+            res=y;
+            take[cnt1][cnt2][val1][val2]=1;
+        }
+
+        dp[cnt1][cnt2][val1][val2]=res;
+        return res;
+    }
+
+
+}
+
+
