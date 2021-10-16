@@ -586,7 +586,7 @@ My Codeforce Practice<br/>
  |  1579G |[ Minimal Coverage (2200) (DP + Thinking)  ](./code/1579G.txt)|2021/10/15|
  |  1579E2 |[Array Optimization by Deque (1700) (Fenwick)  ](./code/1579E2.txt)|2021/10/15|
  |  1579F |[Array Stabilization (AND version)(1700) (BFS + Observation)  ](./code/1579F.txt)|2021/10/16|
- 
+ |  1593F |[Red-Black Number (2100) (DP)  ](./code/1593F.txt)|2021/10/16|
  
 # 分类
 
@@ -635,6 +635,7 @@ My Codeforce Practice<br/>
 777E.[Hanoi Factory (2000) (DP + Seg + sort)  ](./code/777E.txt)<br/>
 264C.[ Choosing Balls (2000) (DP)  ](./code/264C.txt)<br/>
 1579G.[ Minimal Coverage (2200) (DP + Thinking)  ](./code/1579G.txt)<br/>
+1593F.[Red-Black Number (2100) (DP)  ](./code/1593F.txt)<br/>
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
