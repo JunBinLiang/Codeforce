@@ -587,6 +587,7 @@ My Codeforce Practice<br/>
  |  1579E2 |[Array Optimization by Deque (1700) (Fenwick)  ](./code/1579E2.txt)|2021/10/15|
  |  1579F |[Array Stabilization (AND version)(1700) (BFS + Observation)  ](./code/1579F.txt)|2021/10/16|
  |  1593F |[Red-Black Number (2100) (DP)  ](./code/1593F.txt)|2021/10/16|
+ |  1593G |[Changing Brackets (2200) (Obsetvation)  ](./code/1593G.txt)|2021/10/17|
  
 # 分类
 
@@ -791,6 +792,7 @@ My Codeforce Practice<br/>
  128B.[String (2100) (Constructive + kth substring)  ](./code/128B.txt)<br/>
  
  
+ 
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
 910B. [Door Frames (1600) （ DFS ） ](./code/910B.txt)   <br/> 
@@ -844,6 +846,7 @@ My Codeforce Practice<br/>
 59D.[Team Arrangement	 (2000) (Implementation + Greedy + Thinking)  ](./code/59D.txt)<br/>
 1438D.[Powerful Ksenia (2200) (Thinking)  ](./code/1438D.txt)<br/>
 1567F.[One-Four Overload (2700) (Thinking + Observation + Constructice)  ](./code/1567F.txt)<br/>
+1593G.[Changing Brackets (2200) (Obsetvation)  ](./code/1593G.txt)<br/>
 
 ### Thinking : MAX * 2 <= SUM 
 1030E.[Vasya and Good Sequences	 (2000) (Thinking + Brute Force + Bit)  ](./code/1030E.txt)<br/>
