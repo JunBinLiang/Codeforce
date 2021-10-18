@@ -590,6 +590,7 @@ My Codeforce Practice<br/>
  |  1593G |[Changing Brackets (2200) (Obsetvation)  ](./code/1593G.txt)|2021/10/17|
  |  474E |[Pillars (2000) (Segment Tree + DP + TreeSet)  ](./code/474E.txt)|2021/10/17|
  |  474D |[Flowers (1700) (DP)  ](./code/474D.txt)|2021/10/18|
+ |  474F |[Ant colony (2100) (Segment Tree + GCD + Binary Search)  ](./code/474F.txt)|2021/10/18|
  
 # 分类
 
@@ -1118,7 +1119,7 @@ My Codeforce Practice<br/>
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
 911G.[ Mass Change Queries	 (2500) (Segment Tree Tag )  ](./code/911G.txt)<br/>
-
+474F.[Ant colony (2100) (Segment Tree + GCD + Binary Search)  ](./code/474F.txt)<br/>
 ### PushDown
 877E.[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)<br/>
 833B.[ The Bakery (2200) (DP + Seg push down)  ](./code/833B.txt)<br/>
