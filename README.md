@@ -589,6 +589,7 @@ My Codeforce Practice<br/>
  |  1593F |[Red-Black Number (2100) (DP)  ](./code/1593F.txt)|2021/10/16|
  |  1593G |[Changing Brackets (2200) (Obsetvation)  ](./code/1593G.txt)|2021/10/17|
  |  474E |[Pillars (2000) (Segment Tree + DP + TreeSet)  ](./code/474E.txt)|2021/10/17|
+ |  474D |[Flowers (1700) (DP)  ](./code/474D.txt)|2021/10/18|
  
 # 分类
 
