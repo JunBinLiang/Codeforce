@@ -591,6 +591,7 @@ My Codeforce Practice<br/>
  |  474E |[Pillars (2000) (Segment Tree + DP + TreeSet)  ](./code/474E.txt)|2021/10/17|
  |  474D |[Flowers (1700) (DP)  ](./code/474D.txt)|2021/10/18|
  |  474F |[Ant colony (2100) (Segment Tree + GCD + Binary Search)  ](./code/474F.txt)|2021/10/18|
+ |  1593D2 |[Half of Same (1900) (Time + Thinking)  ](./code/1593D2.txt)|2021/10/18|
  
 # 分类
 
@@ -813,6 +814,7 @@ My Codeforce Practice<br/>
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
 466B.[ Wonder Room (2000) (Brute Force + Time Complexity)  ](./code/466B.txt)<br/>
+ 1593D2.[Half of Same (1900) (Time + Thinking)  ](./code/1593D2.txt)<br/>
 
 ### 优雅暴力1 : 启发式合并
  965E.[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)<br/>
