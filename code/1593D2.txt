@@ -1,0 +1,195 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+
+        int n =fs.Int();
+        int A[]=new int[n];
+        Map<Integer,Integer>f=new HashMap<>();
+        for(int i = 0; i < n;i++){
+            A[i]=fs.Int();
+            if(!f.containsKey(A[i]))f.put(A[i],0);
+            f.put(A[i],f.get(A[i])+1);
+        }
+
+        List<Integer>list=new ArrayList<>();
+        for(Integer k:f.keySet()){
+            int val = f.get(k);
+            if(val*2>=n){
+                out.println(-1);
+                return;
+            }
+            list.add(k);
+        }
+        Collections.sort(list);
+        Map<Integer,Integer>maps[]=new HashMap[2000000+10];
+
+
+        for(int i = 0; i < list.size();i++){
+            int a = list.get(i);
+            int cnt1 = f.get(a);
+            boolean seen[]=new boolean[50];
+            for(int j = i + 1; j < list.size();j++){
+                int b = list.get(j);
+                int cnt2 = f.get(b);
+                int dif = b - a;
+
+                //System.out.println(a+" "+b);
+
+                for(int x = 1;x*x<=dif;x++){
+                    if(dif%x==0){
+                        if(maps[x]==null)maps[x]=new HashMap<>();
+                        Map<Integer,Integer>map1=maps[x];
+                        if(!map1.containsKey(a)){
+                            map1.put(a,cnt1);
+                        }
+                        if(!map1.containsKey(b)){
+                            map1.put(b,cnt2);
+                        }
+
+                        int y = dif/x;
+                        if(x!=y){
+                            if(maps[y]==null)maps[y]=new HashMap<>();
+                            map1=maps[y];
+                            if(!map1.containsKey(a)){
+                                map1.put(a,cnt1);
+                            }
+                            if(!map1.containsKey(b)){
+                                map1.put(b,cnt2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        int res = 1;
+        int cnt[]=new int[2000000+10];
+
+        boolean found =false;
+        for(int i = maps.length-1;  !found && i>=1;i--){
+            if(maps[i]==null)continue;
+            Map<Integer,Integer>map=maps[i];
+            for(Integer key:map.keySet()){
+                int m = key % i;
+                if(m<0)m+=i;
+                cnt[m]+=map.get(key);
+                if(cnt[m]*2>=n){
+                    res=i;
+                    found=true;
+                    break;
+                }
+            }
+
+            for(Integer key:map.keySet()){
+                int m = key % i;
+                if(m<0)m+=i;
+                cnt[m]=0;
+            }
+        }
+
+
+        out.println(res);
+
+    }
+
+
+
+
+
+}
+
+
