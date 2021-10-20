@@ -593,6 +593,7 @@ My Codeforce Practice<br/>
  |  474F |[Ant colony (2100) (Segment Tree + GCD + Binary Search)  ](./code/474F.txt)|2021/10/18|
  |  1593D2 |[Half of Same (1900) (Time + Thinking)  ](./code/1593D2.txt)|2021/10/18|
  |  1209G1 |[Into Blocks (easy version) (2000) (Line + Greedy)  ](./code/1209G1.txt)|2021/10/19|
+ |  1550C |[Manhattan Subarrays) (1700) (Observation + Brute Force)  ](./code/1550C.txt)|2021/10/20|
  
 # 分类
 
@@ -854,6 +855,7 @@ My Codeforce Practice<br/>
 1438D.[Powerful Ksenia (2200) (Thinking)  ](./code/1438D.txt)<br/>
 1567F.[One-Four Overload (2700) (Thinking + Observation + Constructice)  ](./code/1567F.txt)<br/>
 1593G.[Changing Brackets (2200) (Obsetvation)  ](./code/1593G.txt)<br/>
+1550C.[Manhattan Subarrays) (1700) (Observation + Brute Force)  ](./code/1550C.txt)<br/>
 
 ### Thinking : MAX * 2 <= SUM 
 1030E.[Vasya and Good Sequences	 (2000) (Thinking + Brute Force + Bit)  ](./code/1030E.txt)<br/>
