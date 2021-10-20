@@ -595,6 +595,7 @@ My Codeforce Practice<br/>
  |  1209G1 |[Into Blocks (easy version) (2000) (Line + Greedy)  ](./code/1209G1.txt)|2021/10/19|
  |  1550C |[Manhattan Subarrays (1700) (Observation + Brute Force)  ](./code/1550C.txt)|2021/10/20|
  |  349B |[Color the Fence (1700) (Greedy)  ](./code/349B.txt)|2021/10/20|
+ |  349C |[Mafia(1600) (Binary Search + Thinking)  ](./code/349C.txt)|2021/10/20|
  
 # 分类
 
@@ -1154,6 +1155,7 @@ My Codeforce Practice<br/>
 1538G.[ Gift Set (2100) (BinarySearch + Math) ](./code/1538G.txt)<br/>
 1547F.[ Array Stabilization (GCD version) (2100) (Math + BinarySearch + Segment Tree + GCD )  ](./code/1547F.txt)<br/>
 808D.[ Array Division (1900) (Binary Search + Prefix Sum )  ](./code/808D.txt)<br/>
+349C.[Mafia(1600) (Binary Search + Thinking)  ](./code/349C.txt)<br/>
 
 ### Binary Search in Convex Line
 439D.[Devu and his Brother (1700) (Binary Search + Convex Line)  ](./code/439D.txt)<br/>
