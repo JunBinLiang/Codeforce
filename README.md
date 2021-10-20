@@ -592,6 +592,7 @@ My Codeforce Practice<br/>
  |  474D |[Flowers (1700) (DP)  ](./code/474D.txt)|2021/10/18|
  |  474F |[Ant colony (2100) (Segment Tree + GCD + Binary Search)  ](./code/474F.txt)|2021/10/18|
  |  1593D2 |[Half of Same (1900) (Time + Thinking)  ](./code/1593D2.txt)|2021/10/18|
+ |  1209G1 |[Into Blocks (easy version) (2000) (Line + Greedy)  ](./code/1209G1.txt)|2021/10/19|
  
 # 分类
 
