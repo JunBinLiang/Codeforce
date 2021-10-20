@@ -593,7 +593,8 @@ My Codeforce Practice<br/>
  |  474F |[Ant colony (2100) (Segment Tree + GCD + Binary Search)  ](./code/474F.txt)|2021/10/18|
  |  1593D2 |[Half of Same (1900) (Time + Thinking)  ](./code/1593D2.txt)|2021/10/18|
  |  1209G1 |[Into Blocks (easy version) (2000) (Line + Greedy)  ](./code/1209G1.txt)|2021/10/19|
- |  1550C |[Manhattan Subarrays) (1700) (Observation + Brute Force)  ](./code/1550C.txt)|2021/10/20|
+ |  1550C |[Manhattan Subarrays (1700) (Observation + Brute Force)  ](./code/1550C.txt)|2021/10/20|
+ |  349B |[Color the Fence (1700) (Greedy)  ](./code/349B.txt)|2021/10/20|
  
 # 分类
 
@@ -758,6 +759,7 @@ My Codeforce Practice<br/>
 999D.[ Equalize the Remainders	 (1900) (Greedy + TreeSet )  ](./code/999D.txt)<br/>
 729E.[Subordinates (1900) (Greedy)  ](./code/729E.txt)<br/>
 1176D.[ Recover it! (1800) ( Greedy + Sort)  ](./code/1176D.txt)<br/>
+349B.[Color the Fence (1700) (Greedy)  ](./code/349B.txt)<br/>
 
 
 ### Greedy : Number
