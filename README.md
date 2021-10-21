@@ -596,6 +596,7 @@ My Codeforce Practice<br/>
  |  1550C |[Manhattan Subarrays (1700) (Observation + Brute Force)  ](./code/1550C.txt)|2021/10/20|
  |  349B |[Color the Fence (1700) (Greedy)  ](./code/349B.txt)|2021/10/20|
  |  349C |[Mafia(1600) (Binary Search + Thinking)  ](./code/349C.txt)|2021/10/20|
+ |  903E |[Swapping Characters (2200) (Brute Force + Observation)  ](./code/903E.txt)|2021/10/21|
  
 # 分类
 
@@ -814,7 +815,7 @@ My Codeforce Practice<br/>
 58C.[ Trees (1800) (Implentation) ](./code/58C.txt) <br/>
 1095D.[Circular Dance (1600) (Implementation) ](./code/1095D.txt)<br/>
 1244C.[The Football Season (2000) (Math + Brute Force)  ](./code/1244C.txt)<br/>
-
+903E.[Swapping Characters (2200) (Brute Force + Observation)  ](./code/903E.txt)<br/>
 
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
