@@ -1,0 +1,241 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+
+        int m = fs.Int();
+        int n = fs.Int();
+        String A[]=new String[m];
+        for(int i = 0; i < A.length;i++){
+            A[i] = fs.Str();
+        }
+        String res = "";
+        int cnt[]=new int[26];
+        char B[]=A[0].toCharArray();
+        for(char c : B){
+            cnt[c -'a']++;
+        }
+
+
+        for(int i = 1;i<A.length;i++){
+            int cnt1[]=new int[26];
+            String s = A[i];
+            for(int j = 0;j<s.length();j++){
+                cnt1[s.charAt(j)-'a']++;
+            }
+            if(!same(cnt,cnt1)){
+                out.println(-1);
+                return;
+            }
+        }
+
+        List<Integer>list=new ArrayList<>();
+        for(int i = 1; i < A.length;i++){
+            int dif = 0;
+            for(int j = 0;j<B.length;j++){
+                if(B[j]!=A[i].charAt(j)){
+                    list.add(j);
+                }
+            }
+            if(list.size()!=0){
+                if(list.size()>4){
+                    out.println(-1);
+                    return;
+                }
+                else{
+                    break;
+                }
+            }
+        }
+
+
+        if(list.size()==0){
+            char t = B[0];
+            B[0]=B[1];
+            B[1]=t;
+            out.println(new String(B));
+            return;
+        }
+
+        //if(B.length>100)System.out.println(list);
+
+
+        for(int pos1 : list){
+            for(int pos2 = 0; pos2<B.length;pos2++){
+                if(pos1==pos2)continue;
+
+                char t = B[pos1];
+                B[pos1]=B[pos2];
+                B[pos2]=t;
+
+                boolean flag = true;
+                for(int j = 1; j < A.length;j++){
+                    int cnt1[]=new int[26];
+                    String s = A[j];
+                    for(int x = 0;x<s.length();x++){
+                        cnt1[s.charAt(x)-'a']++;
+                    }
+
+
+                    List<Integer>list1=new ArrayList<>();
+
+                    for(int x = 0; x < s.length();x++){
+                        if(s.charAt(x)!=B[x]){
+                            list1.add(x);
+                        }
+                    }
+
+                    if(list1.size()!=2&&list1.size()!=0){
+                        flag = false;
+                        break;
+                    }
+
+                    if(list1.size()==0 &&check(cnt1))continue;
+
+                    if(list1.size()==0){
+                        flag=false;
+                        break;
+                    }
+
+                    int a = list1.get(0);
+                    int b = list1.get(1);
+                    if(B[a]!=s.charAt(b) || B[b]!=s.charAt(a)){
+                        flag=false;
+                        break;
+                    }
+
+                }
+
+                if(flag){
+                    res=new String(B);
+                    out.println(res);
+                    return;
+                }
+
+                t = B[pos1];
+                B[pos1]=B[pos2];
+                B[pos2]=t;
+            }
+        }
+
+
+        if(res.length()==0){
+            out.println(-1);
+        }
+        else{
+            out.println(res);
+        }
+    }
+
+    public boolean check(int A[]){
+        for(int i:A){
+            if(i>=2)return true;
+        }
+        return false;
+    }
+
+    public boolean same(int A[],int B[]){
+        for(int i = 0;i<A.length;i++){
+            if(A[i]!=B[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+}
