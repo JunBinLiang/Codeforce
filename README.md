@@ -597,6 +597,7 @@ My Codeforce Practice<br/>
  |  349B |[Color the Fence (1700) (Greedy)  ](./code/349B.txt)|2021/10/20|
  |  349C |[Mafia(1600) (Binary Search + Thinking)  ](./code/349C.txt)|2021/10/20|
  |  903E |[Swapping Characters (2200) (Brute Force + Observation)  ](./code/903E.txt)|2021/10/21|
+ |  1575L |[Longest Array Deconstruction(2100) (DP + LIS)  ](./code/1575L.txt)|2021/10/22|
  
 # 分类
 
@@ -650,6 +651,9 @@ My Codeforce Practice<br/>
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
+
+### LIS 
+1575L.[Longest Array Deconstruction(2100) (DP + LIS)  ](./code/1575L.txt)<br/>
 
 ### DP With Greedy Property
  675E.[Trains and Statistic (2300) (DP + Greedy + Segment Tree)  ](./code/675E.txt)<br/>
