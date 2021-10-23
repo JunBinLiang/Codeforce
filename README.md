@@ -598,6 +598,7 @@ My Codeforce Practice<br/>
  |  349C |[Mafia(1600) (Binary Search + Thinking)  ](./code/349C.txt)|2021/10/20|
  |  903E |[Swapping Characters (2200) (Brute Force + Observation)  ](./code/903E.txt)|2021/10/21|
  |  1575L |[Longest Array Deconstruction(2100) (DP + LIS)  ](./code/1575L.txt)|2021/10/22|
+  |  1575H |[Holiday Wall Ornaments(2200) (DP + KMP)  ](./code/1575L.txt)|2021/10/23|
  
 # 分类
 
@@ -727,6 +728,9 @@ My Codeforce Practice<br/>
 
 ## 概率DP
 540D. [Bad Luck Island (1900) (DP)  ](./code/540D.txt)<br/>
+
+## String Match KMP + DP
+1575H.[Holiday Wall Ornaments(2200) (DP + KMP)  ](./code/1575L.txt)<br/>
 
 ### Contribution
 1151E.[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)<br/>
