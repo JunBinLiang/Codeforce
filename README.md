@@ -598,7 +598,8 @@ My Codeforce Practice<br/>
  |  349C |[Mafia(1600) (Binary Search + Thinking)  ](./code/349C.txt)|2021/10/20|
  |  903E |[Swapping Characters (2200) (Brute Force + Observation)  ](./code/903E.txt)|2021/10/21|
  |  1575L |[Longest Array Deconstruction(2100) (DP + LIS)  ](./code/1575L.txt)|2021/10/22|
-  |  1575H |[Holiday Wall Ornaments(2200) (DP + KMP)  ](./code/1575L.txt)|2021/10/23|
+ |  1575H |[Holiday Wall Ornaments(2200) (DP + KMP)  ](./code/1575L.txt)|2021/10/23|
+ |  1575I |[Illusions of the Desert (2300) (Tree + LCS + Tree Euler + Tree Path Query)  ](./code/1575I.txt)|2021/10/23|
  
 # 分类
 
@@ -1105,7 +1106,7 @@ My Codeforce Practice<br/>
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
 
 ### Tree Euler Tour (Path Sum Query With Update)
-
+1575I.[Illusions of the Desert (2300) (Tree + LCS + Tree Euler + Tree Path Query)  ](./code/1575I.txt)<br/>
 
 
 ### Centroid Decomposition
