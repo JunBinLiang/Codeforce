@@ -1,0 +1,261 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    List<Integer>graph[];
+    int f[][];
+    int levels[];
+    int DEP = 19;
+    int id = 0;
+    int in[];
+    int ou[];
+    public void solution() {
+        int n =fs.Int();
+        int q =fs.Int();
+        int A[]=new int[n];
+        for(int i = 0; i < A.length;i++){
+            A[i]=Math.abs(fs.Int());
+        }
+
+        f=new int[n][DEP];
+        levels=new int[n];
+        in=new int[n];
+        ou=new int[n];
+        for(int p[]:f){
+            Arrays.fill(p,-1);
+        }
+
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i = 0; i < n - 1;i++){
+            int u =fs.Int()-1;
+            int v=fs.Int()-1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        dfs(-1,0,0);
+
+        for(int i = 1;i<f[0].length;i++){
+            for(int j = 0; j < f.length;j++){
+                if(f[j][i-1]==-1)continue;
+                f[j][i]=f[f[j][i-1]][i-1];
+            }
+        }
+
+
+        FenWick fen = new FenWick(2 * n);
+        for(int i = 0; i < A.length;i++){
+            int val = A[i];
+            fen.update(in[i],val);
+            fen.update(ou[i],-val);
+        }
+
+
+        while(q>0){
+            q--;
+            int opt = fs.Int();
+            if(opt==1){
+                int vertex = fs.Int()-1;
+                int val = Math.abs(fs.Int());
+                int old = A[vertex];
+                A[vertex]=val;
+                fen.update(in[vertex],-old+val);
+                fen.update(ou[vertex],old-val);
+
+            }
+            else{
+                int u = fs.Int()-1;
+                int v = fs.Int()-1;
+                if(u==v){
+                    out.println(0);
+                }
+                else{
+                    int lca = LCA(u,v);
+                    long path1 = fen.sumRange(in[lca],in[u]) * 2 - A[lca] - A[u];
+                    long path2 = fen.sumRange(in[lca],in[v]) * 2 - A[lca] - A[v];
+                    out.println(path1+path2);
+                }
+            }
+
+        }
+
+    }
+
+    public int walk(int root,int dis){
+        for(int i = DEP - 1; i>=0;i--){
+            if((dis&(1<<i))!=0){
+                root = f[root][i];
+            }
+        }
+        return root;
+    }
+
+    public void dfs(int pa,int root,int level){
+        f[root][0]=pa;
+        levels[root]=level;
+        in[root]=id;
+        id++;
+        for(int next:graph[root]){
+            if(next==pa)continue;
+            dfs(root,next,level+1);
+        }
+        ou[root]=id;
+        id++;
+    }
+
+
+
+    public int LCA(int x,int y){
+        if(levels[x]<levels[y]){
+            return LCA(y,x);
+        }
+
+        for(int i=DEP - 1; i>=0; i--) {
+            if(f[x][i]!=-1&&levels[f[x][i]] >= levels[y]) {
+                x = f[x][i];
+            }
+        }
+        if(x == y) return x;
+
+        for(int i=DEP - 1; i>=0; i--)//不重合，x 和 y 一起往上跳
+        {
+            if(f[x][i] != f[y][i]) //只要父亲不同，就跳，父亲相同，就停了
+            {                    // 最后一次，是没有跳上去的
+
+                x = f[x][i];
+                y = f[y][i];
+            }
+        }
+        return f[x][0];
+    }
+
+
+
+}
+
+class FenWick {
+    long tree[];//1-index based
+    public FenWick(int n) {
+        tree=new long[n+1];
+    }
+
+    public void update(int i, long val) {
+        i++;
+        while(i<tree.length){
+            tree[i]+=val;
+            i+=(i&-i);
+        }
+    }
+
+    public long sumRange(int i, int j) {
+        return pre(j+1)-pre(i);
+    }
+
+    public long pre(int i){
+        long sum=0;
+        while(i>0){
+            sum+=tree[i];
+            i-=(i&-i);
+        }
+        return sum;
+    }
+}
+
+
+
+
+
+
