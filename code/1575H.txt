@@ -1,0 +1,247 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    int dp[][][];
+    int pre[];
+    int change[];
+    public void solution() {
+        int n =fs.Int();
+        int m =fs.Int();
+        String s = fs.Str();
+        String t = fs.Str();
+        char A[]=s.toCharArray();
+        char B[]=t.toCharArray();
+        pre=pre(t);
+        change=new int[pre.length];
+
+        dp = new int[n][m][n - m + 2 + 1];
+        for(int i = 0; i < dp.length;i++){
+            for(int j = 0; j < dp[0].length;j++){
+                Arrays.fill(dp[i][j],-1);
+            }
+        }
+
+        //pre-processing
+        for(int i = 0; i < change.length;i++){
+            char c = B[i];
+            char d = c;
+            if(c=='0')d='1';
+            else d = '0';
+
+            int cur = i;
+            while(true){
+                if(B[cur] == d){
+                    change[i]=cur + 1;
+                    break;
+                }
+                if(cur==0)break;
+                cur=pre[cur-1];
+            }
+
+        }
+        //pre[0]=1;
+        //pre[0]=1;
+        //System.out.println(Arrays.toString(pre));
+       // System.out.println(Arrays.toString(change));
+
+
+        for(int k = 0; k < n - m + 2; k++){
+            int res = dfs(A,B,0,0,k);
+            if(res>n){
+                out.print(-1+" ");
+            }
+            else{
+                out.print(res+" ");
+            }
+           // break;
+        }
+
+    }
+
+    public int dfs(char A[],char B[],int i,int j,int k){
+        if(i >= A.length){
+            if(k!=0)return 1000000;
+            return 0;
+        }
+        if(dp[i][j][k]!=-1){
+            return dp[i][j][k];
+        }
+
+
+        int res = 1000000;
+        if(A[i]==B[j]){
+            if(j==B.length-1){//at the end
+                if(k==0){//must change
+                    if(j!=0){
+                        res=Math.min(res,1 + dfs(A,B,i+1,change[j],k));
+                    }else{
+                        res=Math.min(res,1 + dfs(A,B,i+1,0,k));
+                    }
+                }
+                else{
+                    //can change
+                    if(j!=0){
+                        res=Math.min(res,1 + dfs(A,B,i+1,change[j],k));
+                    }
+                    else{
+                        res=Math.min(res,1 + dfs(A,B,i+1,0,k));
+                    }
+                    res =Math.min(res,dfs(A,B,i+1,pre[j],k-1));//ok
+                }
+            }
+            else{
+                res = Math.min(res,dfs(A,B,i+1,j+1,k));
+                //change to
+                if(j!=0){
+                    res=Math.min(res,1 + dfs(A,B,i+1,change[j],k));
+                }
+                else{
+                    res=Math.min(res,1 + dfs(A,B,i+1,0,k));
+                }
+            }
+        }
+        else{//not same
+            if(j!=0){
+                //change to same
+                if(j==B.length-1){
+                    if(k!=0)res = Math.min(res,1 + dfs(A,B,i+1,pre[j],k-1));
+                }
+                else{
+                    res = Math.min(res,1 + dfs(A,B,i+1,j+1,k));
+                }
+
+                res=Math.min(res,dfs(A,B,i + 1,change[j],k));//pro
+            }
+            else{
+                //change to same
+                if(j==B.length-1){
+                    if(k!=0)res = Math.min(res,1 + dfs(A,B,i+1,0,k-1));
+                }
+                else{
+                    res = Math.min(res,1 + dfs(A,B,i+1,j+1,k));
+                }
+                res = Math.min(res,dfs(A,B,i+1,0,k));//just skip
+            }
+        }
+        
+        dp[i][j][k]=res;
+        return res;
+    }
+
+    public int[] pre(String pattern){
+        int pre[]=new int[pattern.length()];
+        int l=0,r=1;
+        while(r<pattern.length()){
+            if(pattern.charAt(r)==pattern.charAt(l)){
+                pre[r]=l+1;
+                l++;
+                r++;
+            }else{
+                if(l==0)r++;
+                else{
+                    l=pre[l-1];
+                }
+            }
+        }
+        return pre;
+    }
+
+}
+
+
+
+
+
