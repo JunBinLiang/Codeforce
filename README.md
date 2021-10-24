@@ -600,7 +600,8 @@ My Codeforce Practice<br/>
  |  1575L |[Longest Array Deconstruction(2100) (DP + LIS)  ](./code/1575L.txt)|2021/10/22|
  |  1575H |[Holiday Wall Ornaments(2200) (DP + KMP)  ](./code/1575L.txt)|2021/10/23|
  |  1575I |[Illusions of the Desert (2300) (Tree + LCS + Tree Euler + Tree Path Query)  ](./code/1575I.txt)|2021/10/23|
- |  1575G |[GCD Festival (2200) (GCD + PHI)  ](./code/1575G.txt)|2021/10/23|
+ |  1575G |[GCD Festival (2200) (GCD + PHI)  ](./code/1575G.txt)|2021/10/24|
+ |  598E |[Chocolate Bar (2000) (DP)  ](./code/598E.txt)|2021/10/24|
  
 # 分类
 
@@ -651,6 +652,7 @@ My Codeforce Practice<br/>
 1579G.[ Minimal Coverage (2200) (DP + Thinking)  ](./code/1579G.txt)<br/>
 1593F.[Red-Black Number (2100) (DP)  ](./code/1593F.txt)<br/>
 474E.[Pillars (2000) (Segment Tree + DP + TreeSet)  ](./code/474E.txt)<br/>
+598E.[Chocolate Bar (2000) (DP)  ](./code/598E.txt)<br/>
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
