@@ -600,6 +600,7 @@ My Codeforce Practice<br/>
  |  1575L |[Longest Array Deconstruction(2100) (DP + LIS)  ](./code/1575L.txt)|2021/10/22|
  |  1575H |[Holiday Wall Ornaments(2200) (DP + KMP)  ](./code/1575L.txt)|2021/10/23|
  |  1575I |[Illusions of the Desert (2300) (Tree + LCS + Tree Euler + Tree Path Query)  ](./code/1575I.txt)|2021/10/23|
+ |  1575G |[GCD Festival (2200) (GCD + PHI)  ](./code/1575G.txt)|2021/10/23|
  
 # 分类
 
@@ -946,6 +947,9 @@ My Codeforce Practice<br/>
 1029D.[Concatenated Multiples (1900) (Hash + Mod) ](./code/1029D.txt)<br/>
 1537D.[ Deleting Divisors (1700) (Game + Number Theory) ](./code/1537D.txt)<br/>
 1285C.[  Fadi and LCM (1400) (Math)  ](./code/1285C.txt) <br/>
+
+### PHI Function (GCD)
+1575G.[GCD Festival (2200) (GCD + PHI)  ](./code/1575G.txt)<br/>
 
 ### Optimize 打表
 222C.[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)<br/>
