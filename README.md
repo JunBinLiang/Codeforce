@@ -601,7 +601,8 @@ My Codeforce Practice<br/>
  |  1575H |[Holiday Wall Ornaments(2200) (DP + KMP)  ](./code/1575L.txt)|2021/10/23|
  |  1575I |[Illusions of the Desert (2300) (Tree + LCS + Tree Euler + Tree Path Query)  ](./code/1575I.txt)|2021/10/23|
  |  1575G |[GCD Festival (2200) (GCD + PHI)  ](./code/1575G.txt)|2021/10/24|
- |  598E |[Chocolate Bar (2000) (DP)  ](./code/598E.txt)|2021/10/24|
+ |  598E |[Chocolate Bar (2000) (DP)  ](./code/598E.txt)|2021/10/24|.
+ |  895B |[XK Segments (1700) (Binary Search)  ](./code/895B.txt)|2021/10/24|
  
 # 分类
 
