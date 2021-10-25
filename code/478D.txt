@@ -1,0 +1,64 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x;int y;
+    cin>>x>>y;
+    if(x==0||y==0){
+        cout<<1<<endl;
+        return 0;
+    }
+    
+    int dp[200000+10];
+    int dp1[200000+10];
+    dp[0]=1;
+    dp[1]=1;
+    
+    int res = 2;
+    int mod = 1000000007;
+    for(int i = 0; i <=x;i++){
+        dp[i]=0;
+    }
+    
+    dp[0]=1;
+    dp[1]=1;
+    
+    for(long long level=2;level<900;level++){
+        int total = (1 + level) * level/2;
+        if(total>x+y){
+            break;
+        }
+        int f = 0;
+        
+        for(int sum = 0; sum <= x;sum++){//x use
+            dp1[sum] = 0;
+            if(sum + y >= total){
+                dp1[sum] += dp[sum];
+                dp1[sum]%=mod;
+                if(sum>=level){
+                    dp1[sum]+=dp[sum-level];
+                    dp1[sum]%=mod;
+                }
+                f+=dp1[sum];
+                f%=mod;
+            }
+        }
+        
+        for(int sum = 0; sum <= x;sum++){//x use
+            dp[sum]=dp1[sum];
+        }
+        res=f;
+    }
+    cout<<res<<endl;
+    return 0;
+}
