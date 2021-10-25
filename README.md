@@ -604,6 +604,7 @@ My Codeforce Practice<br/>
  |  598E |[Chocolate Bar (2000) (DP)  ](./code/598E.txt)|2021/10/24|.
  |  895B |[XK Segments (1700) (Binary Search)  ](./code/895B.txt)|2021/10/24|
  |  862C |[Mahmoud and Ehab and the xor (1900) (Xor + Constructive)  ](./code/862C.txt)|2021/10/25|
+ |  478D |[Red-Green Towers (2000) (DP)  ](./code/478D.txt)|2021/10/25|
  
 # 分类
 
@@ -656,6 +657,7 @@ My Codeforce Practice<br/>
 474E.[Pillars (2000) (Segment Tree + DP + TreeSet)  ](./code/474E.txt)<br/>
 598E.[Chocolate Bar (2000) (DP)  ](./code/598E.txt)<br/>
 
+
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
 
@@ -668,6 +670,7 @@ My Codeforce Practice<br/>
 ### KnapSack
 687C.[The Values You Can Make (1900) (背包DP)  ](./code/687C.txt)<br/>
 1132E.[Knapsack (2300) (DP + 背包 + 拆背包)  ](./code/1132E.txt)<br/>
+478D.[Red-Green Towers (2000) (DP)  ](./code/478D.txt)<br/>
 
 ### DP Optimization I (Prefix on DP)
 479E. [ Riding in a Lift (1900) (DP + Prefix Sum) ](./code/479E.txt)<br/>
