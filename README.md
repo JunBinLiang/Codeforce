@@ -603,6 +603,7 @@ My Codeforce Practice<br/>
  |  1575G |[GCD Festival (2200) (GCD + PHI)  ](./code/1575G.txt)|2021/10/24|
  |  598E |[Chocolate Bar (2000) (DP)  ](./code/598E.txt)|2021/10/24|.
  |  895B |[XK Segments (1700) (Binary Search)  ](./code/895B.txt)|2021/10/24|
+ |  862C |[Mahmoud and Ehab and the xor (1900) (Xor + Constructive)  ](./code/862C.txt)|2021/10/25|
  
 # 分类
 
@@ -814,6 +815,7 @@ My Codeforce Practice<br/>
  1213E.[Two Small Strings (1900) (Constructive + Brute Force)  ](./code/1213E.txt)<br/>
  128D.[Numbers (2000) (Constructive + list)  ](./code/128D.txt)<br/>
  128B.[String (2100) (Constructive + kth substring)  ](./code/128B.txt)<br/>
+ 862C.[Mahmoud and Ehab and the xor (1900) (Xor + Constructive)  ](./code/862C.txt)<br/>
  
  
  
