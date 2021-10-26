@@ -605,6 +605,7 @@ My Codeforce Practice<br/>
  |  895B |[XK Segments (1700) (Binary Search)  ](./code/895B.txt)|2021/10/24|
  |  862C |[Mahmoud and Ehab and the xor (1900) (Xor + Constructive)  ](./code/862C.txt)|2021/10/25|
  |  478D |[Red-Green Towers (2000) (DP)  ](./code/478D.txt)|2021/10/25|
+ |  478C |[Table Decorations (1800) (Greedy)  ](./code/478C.txt)|2021/10/26|
  
 # 分类
 
