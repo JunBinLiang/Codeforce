@@ -606,6 +606,7 @@ My Codeforce Practice<br/>
  |  862C |[Mahmoud and Ehab and the xor (1900) (Xor + Constructive)  ](./code/862C.txt)|2021/10/25|
  |  478D |[Red-Green Towers (2000) (DP)  ](./code/478D.txt)|2021/10/25|
  |  478C |[Table Decorations (1800) (Greedy)  ](./code/478C.txt)|2021/10/26|
+ |  1129B |[Wrong Answer (2000) (Constructice + Math)  ](./code/1129B.txt)|2021/10/26|
  
 # 分类
 
@@ -820,6 +821,7 @@ My Codeforce Practice<br/>
  128D.[Numbers (2000) (Constructive + list)  ](./code/128D.txt)<br/>
  128B.[String (2100) (Constructive + kth substring)  ](./code/128B.txt)<br/>
  862C.[Mahmoud and Ehab and the xor (1900) (Xor + Constructive)  ](./code/862C.txt)<br/>
+ 1129B.[Wrong Answer (2000) (Constructice + Math)  ](./code/1129B.txt)<br/>
  
  
  
