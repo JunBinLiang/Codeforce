@@ -850,7 +850,7 @@ My Codeforce Practice<br/>
  965E.[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)<br/>
 
 
-### 优雅暴力2 : 分块
+### 优雅暴力2 : 分块 (Square Root Decomposition)
 785E.[Anton and Permutation (2200) (分块 + 逆序对)  ](./code/785E.txt)<br/>
 
 ### 枚举 (暴力)
