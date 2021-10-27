@@ -2,7 +2,8 @@
 
 My Codeforce Practice<br/>
 
-1. https://blog.csdn.net/my_sunshine26/article/details/77385809 (组合数学:球问题)
+1. https://a2oj.com/Categories.html
+
 
 
 
@@ -1339,3 +1340,6 @@ ACW 373.[ 車的放置 (E） （二分图最大匹配）  ](./code/acw373.txt) <
 # Kickstart
 2021 D3.[ Final Exam  (TreeSet) ](./code/2021D3.txt) <br/>
 2021 D2.[ Cutting Interval  (Line Sweep) ](./code/2021D2.txt) <br/>
+
+# Some Article
+1. https://blog.csdn.net/my_sunshine26/article/details/77385809 (组合数学:球问题)
