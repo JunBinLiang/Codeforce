@@ -1,0 +1,242 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    long mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+
+        int n = fs.Int();
+        int A[]=new int[n];
+        int B[]=new int[n];
+        for(int i = 0; i < n;i++){
+            A[i]=fs.Int();
+            B[i]=A[i];
+        }
+        Arrays.sort(B);
+        boolean done = true;
+        for(int i = 0; i < n;i++){
+            if(A[i]!=B[i]){
+                done = false;
+                break;
+            }
+        }
+        if(done){
+            out.println(0);
+            return;
+        }
+
+
+        int pos = -1;
+        for(int i = A.length-1; i >=0;i--){
+            if(check(A[i])){
+                pos=i;
+                break;
+            }
+        }
+
+        if(pos==-1){
+            out.println(-1);
+            return;
+        }
+
+
+        Map<Integer,TreeSet<Integer>>f=new HashMap<>();
+        for(int i = 0;i<A.length;i++){
+            if(i==pos)continue;
+            if(!f.containsKey(A[i]))f.put(A[i],new TreeSet<>());
+            f.get(A[i]).add(i);
+        }
+
+       // System.out.println(f);
+
+        List<int[]>res=new ArrayList<>();
+        for(int i = 0; i < A.length;i++){
+            if(A[i]==B[i])continue;
+
+            if(pos==i){
+
+            }
+            else{
+                //swap with pos first
+                TreeSet<Integer>t1=f.get(A[i]);
+                while(true){
+                    Integer first = t1.first();
+                    if(A[first]==B[first])t1.remove(first);
+                    else break;
+                }
+                t1.remove(i);
+                t1.add(pos);
+                int a = A[i];
+                int b = A[pos];
+                A[i] = b;
+                A[pos] = a;
+                res.add(new int[]{i,pos});
+                //System.out.println("a "+i+" "+pos);
+                pos = i;
+            }
+
+
+
+            TreeSet<Integer>t = f.get(B[i]);
+            if(t==null)continue;
+            while(t.size()>0){
+                Integer first = t.first();
+                if(A[first]==B[first])t.remove(first);
+                else break;
+            }
+
+            if(t.size()==0)continue;
+            Integer index = t.first();
+
+
+            t.remove(index);
+            int a = A[pos];
+            int b = A[index];
+
+            A[i] = b;
+            A[index] = a;
+            res.add(new int[]{pos,index});
+           // System.out.println("b "+pos+" "+index);
+            pos = index;
+
+
+            //System.out.println(Arrays.toString(A));
+            //System.out.println(f);
+
+        }
+
+
+        int last[]=new int[2];
+        int j = 0;
+        for(int i = 0; i< A.length;i++){
+            if(A[i]!=B[i]){
+                last[j++]=i;
+            }
+        }
+        if(j!=0){
+            int a = A[last[0]];
+            int b = A[last[1]];
+            A[last[0]]=b;
+            A[last[1]]=a;
+            res.add(last);
+        }
+
+
+        //System.out.println(Arrays.toString(A));
+
+        out.println(res.size());
+        for(int p[]:res){
+            out.println((p[0]+1)+" "+(p[1]+1));
+        }
+    }
+
+    public boolean check(int n){
+        while(n!=0){
+            int mod = n % 10;
+            if(mod!=4&&mod!=7)return false;
+            n/=10;
+        }
+        return true;
+    }
+
+}
+
+
+
+
+
+
+
+
