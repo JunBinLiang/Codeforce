@@ -610,6 +610,7 @@ My Codeforce Practice<br/>
  |  1129B |[Wrong Answer (2000) (Constructice + Math)  ](./code/1129B.txt)|2021/10/26|
  |  109D |[Lucky Sorting (2000) (Constructice + Brute Force)  ](./code/109D.txt)|2021/10/27|
  |  446C |[DZY Loves Fibonacci Numbers (2400) (Segment Tree push down + Fib Number Property)  ](./code/446C.txt)|2021/10/27|
+ |  446B |[DZY Loves Modification (2000) (Greedy)  ](./code/446B.txt)|2021/10/27|
  
 # 分类
 
@@ -784,6 +785,7 @@ My Codeforce Practice<br/>
 729E.[Subordinates (1900) (Greedy)  ](./code/729E.txt)<br/>
 1176D.[ Recover it! (1800) ( Greedy + Sort)  ](./code/1176D.txt)<br/>
 349B.[Color the Fence (1700) (Greedy)  ](./code/349B.txt)<br/>
+446B.[DZY Loves Modification (2000) (Greedy)  ](./code/446B.txt)<br/>
 
 
 ### Greedy : Number
