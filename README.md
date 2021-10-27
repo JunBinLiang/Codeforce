@@ -609,6 +609,7 @@ My Codeforce Practice<br/>
  |  478C |[Table Decorations (1800) (Greedy)  ](./code/478C.txt)|2021/10/26|
  |  1129B |[Wrong Answer (2000) (Constructice + Math)  ](./code/1129B.txt)|2021/10/26|
  |  109D |[Lucky Sorting (2000) (Constructice + Brute Force)  ](./code/109D.txt)|2021/10/27|
+ |  446C |[DZY Loves Fibonacci Numbers (2400) (Segment Tree push down + Fib Number Property)  ](./code/446C.txt)|2021/10/27|
  
 # 分类
 
@@ -969,6 +970,8 @@ My Codeforce Practice<br/>
 222C.[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)<br/>
 546D.[Soldier and Number Game (1700) (打表 + Prefix Sum)  ](./code/546D.txt)<br/>
 
+### Fib Number
+ 446C.[DZY Loves Fibonacci Numbers (2400) (Segment Tree push down + Fib Number Property)  ](./code/446C.txt)<br/>
 
 ### 欧拉定理
 1295D.[ ame GCDs (1800) (GCD + Euler)  ](./code/1295D.txt)<br/>
@@ -1160,9 +1163,11 @@ My Codeforce Practice<br/>
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
 911G.[ Mass Change Queries	 (2500) (Segment Tree Tag )  ](./code/911G.txt)<br/>
 474F.[Ant colony (2100) (Segment Tree + GCD + Binary Search)  ](./code/474F.txt)<br/>
+
 ### PushDown
 877E.[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)<br/>
 833B.[ The Bakery (2200) (DP + Seg push down)  ](./code/833B.txt)<br/>
+446C.[DZY Loves Fibonacci Numbers (2400) (Segment Tree push down + Fib Number Property)  ](./code/446C.txt)<br/>
 
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
