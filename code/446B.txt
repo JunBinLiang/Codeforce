@@ -1,0 +1,188 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    int mod = 1000000009;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+        int n =fs.Int();
+        int m =fs.Int();
+        int k =fs.Int();
+        int p = fs.Int();
+        int A[][]=new int[n][m];
+        for(int i =0;i<n;i++){
+            for(int j = 0;j<m;j++){
+                A[i][j]=fs.Int();
+            }
+        }
+
+
+        PriorityQueue<Long>pq1=new PriorityQueue<>((a,b)->{
+            return Long.compare(b,a);
+        });
+        PriorityQueue<Long>pq2=new PriorityQueue<>((a,b)->{
+            return Long.compare(b,a);
+        });
+
+        for(int i = 0; i < n;i++){
+            long sum = 0;
+            for(int j =0;j<m;j++){//row
+                sum+=A[i][j];
+            }
+            pq1.add(sum);
+        }
+
+        for(int j = 0; j < m;j++){
+            long sum = 0;
+            for(int i =0;i<n;i++){//column
+                sum+=A[i][j];
+            }
+            pq2.add(sum);
+        }
+
+
+        long dp1[]=new long[k];
+        long dp2[]=new long[k];
+        long sum1 =0;long sum2=0;
+        for(int i = 0;i<k;i++){
+            long t1=pq1.poll();
+            long t2=pq2.poll();
+            sum1+=t1;
+            sum2+=t2;
+            dp1[i]=sum1;
+            dp2[i]=sum2;
+            t1-=m*p;
+            t2-=n*p;
+            pq1.add(t1);
+            pq2.add(t2);
+        }
+
+        //System.out.println(Arrays.toString(dp1));
+        //System.out.println(Arrays.toString(dp2));
+
+        long res = Long.MIN_VALUE;
+        for(int i =1;i<=k;i++){
+            long l = i;
+            long r = k - l;
+            long sum = 0;
+            sum+=dp1[(int)(l-1)];
+            if(r>0)sum+=dp2[(int)(r-1)];
+            sum-=(l*r*p);
+            res=Math.max(res,sum);
+        }
+
+        for(int i =1;i<=k;i++){
+            long r= i;
+            long l = k - r;
+            long sum = 0;
+            sum+=dp2[(int)(r-1)];
+            if(l>0)sum+=dp1[(int)(l-1)];
+            sum-=(l*r*p);
+            res=Math.max(res,sum);
+        }
+
+        out.println(res);
+    }
+
+
+
+
+
+
+
+
+
+
+}
+
