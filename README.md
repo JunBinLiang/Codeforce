@@ -613,6 +613,7 @@ My Codeforce Practice<br/>
  |  446B |[DZY Loves Modification (2000) (Greedy)  ](./code/446B.txt)|2021/10/27|
  |  1373F |[Network Coverage (2400) (Binary Search)  ](./code/1373F.txt)|2021/10/27|
  |  1373E |[Sum of Digits (2200) (Greedy + Constructive)  ](./code/1373E.txt)|2021/10/28|
+ |  1003E |[Tree Constructing (2100) (Tree + Constructive)  ](./code/1003E.txt)|2021/10/28|
  
 # 分类
 
@@ -831,6 +832,7 @@ My Codeforce Practice<br/>
  1129B.[Wrong Answer (2000) (Constructice + Math)  ](./code/1129B.txt)<br/>
  109D.[Lucky Sorting (2000) (Constructice + Brute Force)  ](./code/109D.txt)<br/>
  1373E.[Sum of Digits (2200) (Greedy + Constructive)  ](./code/1373E.txt)<br/>
+ 1003E.[Tree Constructing (2100) (Tree + Constructive)  ](./code/1003E.txt)<br/>
  
  
  
