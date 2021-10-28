@@ -612,6 +612,7 @@ My Codeforce Practice<br/>
  |  446C |[DZY Loves Fibonacci Numbers (2400) (Segment Tree push down + Fib Number Property)  ](./code/446C.txt)|2021/10/27|
  |  446B |[DZY Loves Modification (2000) (Greedy)  ](./code/446B.txt)|2021/10/27|
  |  1373F |[Network Coverage (2400) (Binary Search)  ](./code/1373F.txt)|2021/10/27|
+ |  1373E |[Sum of Digits (2200) (Greedy + Constructive)  ](./code/1373E.txt)|2021/10/28|
  
 # 分类
 
@@ -829,6 +830,7 @@ My Codeforce Practice<br/>
  862C.[Mahmoud and Ehab and the xor (1900) (Xor + Constructive)  ](./code/862C.txt)<br/>
  1129B.[Wrong Answer (2000) (Constructice + Math)  ](./code/1129B.txt)<br/>
  109D.[Lucky Sorting (2000) (Constructice + Brute Force)  ](./code/109D.txt)<br/>
+ 1373E.[Sum of Digits (2200) (Greedy + Constructive)  ](./code/1373E.txt)<br/>
  
  
  
