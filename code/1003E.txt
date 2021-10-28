@@ -1,0 +1,179 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    int mod = 1000000009;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+       int n =fs.Int();
+       int d = fs.Int();
+       int k =fs.Int();
+
+       if(d>=n){
+            out.println("NO");
+            return;
+       }
+
+       if(k==1){
+           if(n>2){
+               out.println("NO");
+               return;
+           }else{
+               out.println("YES");
+               out.println("1 2");
+               return;
+           }
+       }
+
+
+       List<int[]>res=new ArrayList<>();
+       int in[]=new int[n];
+       Queue<int[]>q=new LinkedList<>();
+
+       //construct diameter
+       for(int i = 0; i < d ;i++){
+           res.add(new int[]{i,i+1});
+           in[i]=2;
+       }
+       in[0]=1;
+       in[d]=1;
+
+       for(int i = 1; i < d; i++) {
+           if(in[i]>=k)continue;
+           q.add(new int[]{i,Math.min(i,d-i)});
+       }
+
+
+       for(int i =d+1;i<n;i++){//non use vertex
+           if(q.size()==0){
+               out.println("NO");
+               return;
+           }
+           boolean add =false;
+           while(q.size()>0){
+               int top[]=q.peek();
+               int u = top[0];
+               int dep = top[1];
+
+               if(in[u]>=k||dep==0){
+                   q.poll();
+               }
+               else{
+                   in[u]++;
+                   res.add(new int[]{u,i});
+                   q.add(new int[]{i,dep-1});
+                   in[i]=1;
+                   add=true;
+                   break;
+               }
+           }
+           if(!add){
+               out.println("NO");
+               return;
+           }
+       }
+
+
+
+       out.println("YES");
+       for(int p[]:res){
+           out.println((p[0]+1)+" "+(p[1]+1));
+       }
+    }
+
+
+
+
+}
+
