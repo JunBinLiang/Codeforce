@@ -1,0 +1,185 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    int mod = 1000000009;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    int sums[][]=new int[10][10];
+    int ups[][]=new int[10][10];
+    public void solution() {
+        int t = fs.Int();
+
+        for(int d = 0; d<=9;d++){
+            int sum = 0;
+            int up = 0;
+            for(int k =0;k<=9;k++){
+                if(k+d>=10)up++;
+                sum+=((k+d)%10);
+                sums[d][k]=sum;
+                ups[d][k]=up;
+            }
+        }
+
+
+
+        while(t>0){
+            t--;
+            int n =fs.Int();
+            int k =fs.Int();
+            long res = Long.MAX_VALUE;
+
+            for(int first = 0;first<=9;first++){//first digit
+                int sum = sums[first][k];
+                int up = ups[first][k];
+                for(int second = 0; second <=9; second++){
+                    if(second == 9){
+                        //up not change
+                        int cursum = sum + up + 9 * (k+1-up);
+
+                        if(cursum<=n&&(n-cursum)%(k+1)==0){
+                            int need = (n - cursum) / (k+1);
+                            long base = 100;
+                            long val = first + second * 10;
+                            while(need>0){
+                                if(need>=9){
+                                    need-=9;
+                                    val += 9 * base;
+                                }
+                                else{
+                                    val += need*base;
+                                    need = 0;
+                                    break;
+                                }
+                                base*=10;
+                            }
+                            res = Math.min(res,val);
+                        }
+                    }
+                    else{
+                        int cursum = sum + up;
+                        cursum += second * (k + 1);
+                        if(cursum<=n&&(n-cursum)%(k+1)==0){
+                            int need = (n - cursum) / (k+1);
+                            long base = 100;
+                            long val = first + second * 10;
+                            while(need>0){
+                                if(need>=9){
+                                    need-=9;
+                                    val += 9 * base;
+                                }
+                                else{
+                                    val += need*base;
+                                    need = 0;
+                                    break;
+                                }
+                                base*=10;
+                            }
+                            res = Math.min(res,val);
+                        }
+                    }
+                }
+                //System.out.println(first+"  "+res+"  "+sum+"  "+up);
+            }
+
+            if(res == Long.MAX_VALUE){
+                out.println(-1);
+            }
+            else{
+                out.println(res);
+            }
+        }
+    }
+
+
+}
+
