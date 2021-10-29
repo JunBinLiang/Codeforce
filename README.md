@@ -614,6 +614,7 @@ My Codeforce Practice<br/>
  |  1373F |[Network Coverage (2400) (Binary Search)  ](./code/1373F.txt)|2021/10/27|
  |  1373E |[Sum of Digits (2200) (Greedy + Constructive)  ](./code/1373E.txt)|2021/10/28|
  |  1003E |[Tree Constructing (2100) (Tree + Constructive)  ](./code/1003E.txt)|2021/10/28|
+ |  1003F |[Abbreviation (2200) (DP)  ](./code/1003F.txt)|2021/10/28|
  
 # 分类
 
@@ -665,6 +666,7 @@ My Codeforce Practice<br/>
 1593F.[Red-Black Number (2100) (DP)  ](./code/1593F.txt)<br/>
 474E.[Pillars (2000) (Segment Tree + DP + TreeSet)  ](./code/474E.txt)<br/>
 598E.[Chocolate Bar (2000) (DP)  ](./code/598E.txt)<br/>
+1003F.[Abbreviation (2200) (DP)  ](./code/1003F.txt)<br/>
 
 
 ### LCS Similar
