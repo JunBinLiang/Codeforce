@@ -1,0 +1,187 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    int mod = 1000000009;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    int cnt[];long A[];long B[];
+    int res=Integer.MAX_VALUE;
+    public void solution() {
+       int n = fs.Int();
+       A=new long[n];
+       B=new long[n];
+       cnt=new int[n];
+       for(int i = 0; i < n; i++){
+           A[i]=fs.Long();
+           B[i]=A[i];
+       }
+
+
+
+       Arrays.sort(A);Arrays.sort(B);
+       for(int i = 0; i < cnt.length;i++){
+           cnt[i]=get(A[i]);
+       }
+
+        if(A.length==1){
+            int x =cnt[0];
+            if(x>1)x++;
+            out.println(x);
+            return;
+        }
+
+       //System.out.println(Arrays.toString(cnt));
+
+       boolean seen[]=new boolean[n];
+       dfs(A,seen,0);
+       out.println(res);
+    }
+
+    public void dfs(long A[],boolean seen[],int i){
+
+        if(i>=A.length){
+            int merge = 0;
+            int not = 0;
+            int sum = 0;
+            for(int j = 0; j < A.length;j++){
+                if(!seen[j]){
+                    sum+=cnt[j];
+                    not++;
+                    if(cnt[j]>1)sum++;
+                }
+                else{
+                    if(cnt[j]>1)merge++;
+                }
+            }
+
+
+            if(not==1){
+                res=Math.min(res,sum+merge);
+            }
+            else{
+                res=Math.min(res,sum+merge+1);
+            }
+
+
+            return;
+        }
+
+        dfs(A,seen,i+1);
+        for(int j = i+1;j<A.length;j++){
+            if(B[j]%A[i]==0){
+                B[j]/=A[i];
+                seen[i]=true;
+                dfs(A,seen,i+1);
+                seen[i]=false;
+                B[j]*=A[i];
+            }
+        }
+    }
+
+    public int get(long n){
+        long N = n;
+        int res = 0;
+        for(long i = 2; i*i<=n;i++){
+            if(i>n)break;
+            while(n%i==0){
+                n/=i;
+                res++;
+            }
+        }
+        if(n>1)res++;
+        return res;
+    }
+
+}
+
