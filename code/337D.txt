@@ -1,0 +1,247 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    int mod = 1000000009;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    List<Integer>graph[];
+    boolean is[];
+    int size[];
+    int ids[];
+    int dis[];
+    Seg seg;
+    int id = 0;
+    int res = 0;
+    int k;
+    public void solution() {
+       int n = fs.Int();
+       int m = fs.Int();
+       int k = fs.Int();
+       this.k=k;
+       is=new boolean[n];
+       dis=new int[n];
+       graph=new ArrayList[n];
+       size = new int[n];
+       ids=new int[n];
+       Arrays.setAll(graph,e->new ArrayList<>());
+       for(int i = 0; i < m;i++){
+           int v = fs.Int()-1;
+           is[v]=true;
+       }
+
+       for(int i = 0; i < n - 1;i++){
+           int u = fs.Int()-1;
+           int v = fs.Int()-1;
+           graph[u].add(v);
+           graph[v].add(u);
+       }
+
+
+
+       dfs(-1,0,0);
+
+       /*System.out.println(Arrays.toString(dis));
+       System.out.println(Arrays.toString(ids));*/
+
+       seg = new Seg(0,n-1);
+       for(int i = 0; i < is.length;i++){
+           if(is[i]){
+               seg.update(ids[i],dis[i]);
+           }
+       }
+
+       dfs1(-1,0,-1,0);
+       out.println(res);
+    }
+
+    public int dfs(int p,int root,int level){
+        //System.out.println(root);
+        size[root]=1;
+        if(is[root]){
+            dis[root]=level;
+        }
+        for(int next:graph[root]){
+            if(next==p)continue;
+            size[root]+=dfs(root,next,level+1);
+        }
+        ids[root]=id;
+        id++;
+        return size[root];
+    }
+
+    public void dfs1(int p,int root,int other,int level){
+        int r = ids[root];
+        int l = r - size[root]+1;
+        int d = dis[root];
+        int mx = seg.query(l,r);
+
+        /*System.out.println((root+1)+" [ "+l+"  "+r+"]  "+level);
+        System.out.println(mx+" "+other);
+        System.out.println();*/
+
+        if(mx-level<=k&&other<=k){
+            res++;
+        }
+
+
+        for(int next:graph[root]){
+            if(p==next)continue;
+            int r1 = ids[next];
+            int l1 = r1 - size[next]+1;
+            int mx1 = -1;
+            if(l<=l1-1){
+                mx1=Math.max(mx1,seg.query(l,l1-1));
+            }
+            if(r1+1<=r){
+                mx1=Math.max(mx1,seg.query(r1+1,r));
+            }
+
+
+
+            int newother=other;
+            if(other!=-1)newother++;
+            if(mx1!=-1)mx1-=(level-1);
+
+            dfs1(root,next,Math.max(newother,mx1),level+1);
+        }
+    }
+
+
+    class Seg{
+        int l,r;
+        int max=-1;
+        Seg left=null,right=null;
+        public Seg(int l,int r){
+            this.l=l;
+            this.r=r;
+            if(l!=r){
+                int mid=l+(r-l)/2;
+                if(l<=mid)left=new Seg(l,mid);
+                if(r>=mid+1)right=new Seg(mid+1,r);
+                if(left!=null)this.max=Math.max(max,left.max);
+                if(right!=null)this.max=Math.max(max,right.max);
+            }else{
+
+            }
+        }
+        public int query(int s,int e){
+            if(l==s&&r==e){
+                return max;
+            }
+            int mid=l+(r-l)/2; //left :  to mid-1,
+            if(e<=mid){
+                return left.query(s,e);
+            }
+            else if(s>=mid+1){
+                return right.query(s,e);
+            }else{
+                return Math.max(left.query(s,mid),right.query(mid+1,e));
+            }
+        }
+
+        public void update(int index,int val){
+            if(l==r){
+                max=val;
+                return;
+            }
+            int mid=l+(r-l)/2;
+            if(index<=mid){
+                left.update(index,val);
+            }else{
+                right.update(index,val);
+            }
+            this.max=Math.max(left.max,right.max);
+        }
+    }
+}
+
