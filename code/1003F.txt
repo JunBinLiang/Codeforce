@@ -1,0 +1,177 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353 ;
+    int mod = 1000000009;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution() {
+       int n =fs.Int();
+       String A[]=new String[n];
+       int B[]=new int[n];
+        int pre[]=new int[n];
+       int res = 0;
+       int total = 0;
+       int sum = 0;
+
+       for(int i = 0; i < n;i++){
+           A[i]= fs.Str();
+           total+=A[i].length();
+           sum += A[i].length();
+           pre[i]+=A[i].length();
+           if(i>0)pre[i]+=pre[i-1];
+       }
+
+       total += n - 1;
+       res = total;
+
+
+       int id = 0;
+       Map<String,Integer>f=new HashMap<>();
+       for(String s : A){
+           if(!f.containsKey(s)){
+               f.put(s,id++);
+           }
+       }
+       for(int i = 0; i < A.length;i++){
+           B[i]=f.get(A[i]);
+       }
+
+       int match[][]=new int[n][n];
+       for(int i = 0; i < n;i++){
+           for(int j = i + 1; j < n;j++){
+               int l =i;
+               int r = j;
+               int cnt = 0;
+               while(l>=0&&r>i){
+                   if(B[l]==B[r]){
+                       l--;r--;cnt++;
+                   }
+                   else{
+                       break;
+                   }
+               }
+               match[i][j]=cnt;
+           }
+       }
+       
+
+       for(int len = 1; len <= n; len++){
+           int dp[]=new int[n];
+           Arrays.fill(dp,1);
+
+           for(int r = 0; r < n; r++){
+               for(int l = r - 1; l >= 0; l--){
+                    if(match[l][r]>=len){
+                        dp[r]=Math.max(dp[r],1+dp[l]);
+                    }
+               }
+               if(dp[r]>1){
+                   int chunk = dp[r];
+                   int chCnt = get(pre,r-len+1,r);
+                   res=Math.min(res,sum+(n-chunk*len-1+chunk)+chunk * len -chCnt*chunk);
+               }
+           }
+       }
+        out.println(res);
+
+    }
+
+    public int get(int A[],int l,int r){
+        if(l==0)return A[r];
+        return A[r]-A[l-1];
+    }
+
+
+}
+//aa bb cc cc aa bb
