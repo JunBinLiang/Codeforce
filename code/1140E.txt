@@ -1,0 +1,223 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    long dp[][];
+    long dp1[][];
+    public void solution() {
+        int n = fs.Int();
+        int k =fs.Int();
+        List<Integer>A=new ArrayList<>();
+        List<Integer>B=new ArrayList<>();
+        for(int i =0;i<n;i++){
+            int x =fs.Int();
+            if(i%2==0)A.add(x);
+            else B.add(x);
+        }
+
+        dp=new long[n+1][2];
+        dp1=new long[n+1][2];
+
+        dp[1][0]=k-1;//not same
+        dp[0][0]=dp[0][1]=1;
+        for(int i = 2;i<dp.length;i++){
+            dp[i][0] = dp[i-1][1] * (k - 1) + dp[i-1][0] * (k - 2);
+            dp[i][1]=dp[i-1][0];
+            dp[i][0]%=MOD;
+            dp[i][1]%=MOD;
+        }
+
+
+        dp1[1][0]=k-2;//not same
+        dp1[1][1]=1;
+        for(int i =2;i<dp1.length;i++){
+            dp1[i][0] = dp1[i-1][1] * (k - 1) + dp1[i-1][0] * (k-2);
+            dp1[i][1] = dp1[i-1][0];
+
+            dp1[i][0]%=MOD;
+            dp1[i][1]%=MOD;
+        }
+
+
+        /*for(int i = 0; i < 4;i++){
+            System.out.println(Arrays.toString(dp1[i]));
+        }*/
+
+
+        long a = cal(A,k);
+        long b = cal(B,k);
+        //System.out.println("res "+a+" "+b);
+        out.println((a*b)%MOD);
+
+    }
+
+    //independent parity
+    public long cal(List<Integer>A,int k){
+        for(int i = 1;i<A.size();i++){
+            int a = A.get(i);
+            int b = A.get(i-1);
+            if(a==b&&A.get(i)!=-1)return 0;
+        }
+
+        //System.out.println(A);
+
+        long res = 1;
+        for(int i = 0;i<A.size();i++){
+            int cur = A.get(i);
+            if(cur!=-1)continue;
+            int cnt = 0;
+            int j = i;
+            while(j<A.size()&&A.get(j)==-1){
+                cnt++;
+                j++;
+            }
+
+            int x = 0;
+            if(i-1>=0)x++;
+            if(j<A.size())x++;
+
+
+            if(x==0){
+                res *= go(k-1,cnt-1) * k;
+                res%=MOD;
+            }
+            else if(x==1){
+                res*=go(k-1,cnt);
+                res%=MOD;
+            }
+            else{
+                int a = A.get(i-1);
+                int b = A.get(j);
+                if(a==b){//only not same
+                    if(cnt==1){
+                        res*=(k-1);
+                        res%=MOD;
+                        continue;
+                    }
+                    res*=dp[cnt][0];
+                }
+                else{
+                    if(cnt==1){
+                        res*=(k-2);
+                        res%=MOD;
+                        continue;
+                    }
+                    res*=dp1[cnt][0];
+                }
+                res%=MOD;
+            }
+            i = j - 1;
+        }
+        return res;
+    }
+
+    public long go(long x,int t){
+        long res = 1;
+        for(int i = 0;i<t;i++){
+            res*=x;
+            res%=MOD;
+        }
+        return res;
+    }
+}
+
+//1
+
+
+
+
+
+
