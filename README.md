@@ -617,6 +617,7 @@ My Codeforce Practice<br/>
  |  1003F |[Abbreviation (2200) (DP)  ](./code/1003F.txt)|2021/10/28|
  |  337D |[Book of Evil (2000) (Tree Re-Range)  ](./code/337D.txt)|2021/10/29|
  |  337E |[Divisor Tree (2200) (Brute Foce)  ](./code/337E.txt)|2021/10/29|
+ |  22E |[Scheme (2300) (Graph + Constructive)  ](./code/22E.txt)|2021/10/30|
  
 # 分类
 
@@ -837,6 +838,7 @@ My Codeforce Practice<br/>
  109D.[Lucky Sorting (2000) (Constructice + Brute Force)  ](./code/109D.txt)<br/>
  1373E.[Sum of Digits (2200) (Greedy + Constructive)  ](./code/1373E.txt)<br/>
  1003E.[Tree Constructing (2100) (Tree + Constructive)  ](./code/1003E.txt)<br/>
+ 22E.[Scheme (2300) (Graph + Constructive)  ](./code/22E.txt)<br/>
  
  
  
