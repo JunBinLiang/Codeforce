@@ -618,6 +618,7 @@ My Codeforce Practice<br/>
  |  337D |[Book of Evil (2000) (Tree Re-Range)  ](./code/337D.txt)|2021/10/29|
  |  337E |[Divisor Tree (2200) (Brute Foce)  ](./code/337E.txt)|2021/10/29|
  |  22E |[Scheme (2300) (Graph + Constructive)  ](./code/22E.txt)|2021/10/30|
+  |  1140E |[Palindrome-less Arrays (2200) (DP + Combination + Observation)  ](./code/1140E.txt)|2021/10/30|
  
 # 分类
 
@@ -670,6 +671,7 @@ My Codeforce Practice<br/>
 474E.[Pillars (2000) (Segment Tree + DP + TreeSet)  ](./code/474E.txt)<br/>
 598E.[Chocolate Bar (2000) (DP)  ](./code/598E.txt)<br/>
 1003F.[Abbreviation (2200) (DP)  ](./code/1003F.txt)<br/>
+ 1140E.[Palindrome-less Arrays (2200) (DP + Combination + Observation)  ](./code/1140E.txt)<br/>
 
 
 ### LCS Similar
