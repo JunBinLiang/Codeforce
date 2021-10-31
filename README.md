@@ -618,7 +618,8 @@ My Codeforce Practice<br/>
  |  337D |[Book of Evil (2000) (Tree Re-Range)  ](./code/337D.txt)|2021/10/29|
  |  337E |[Divisor Tree (2200) (Brute Foce)  ](./code/337E.txt)|2021/10/29|
  |  22E |[Scheme (2300) (Graph + Constructive)  ](./code/22E.txt)|2021/10/30|
-  |  1140E |[Palindrome-less Arrays (2200) (DP + Combination + Observation)  ](./code/1140E.txt)|2021/10/30|
+ |  1140E |[Palindrome-less Arrays (2200) (DP + Combination + Observation)  ](./code/1140E.txt)|2021/10/30|
+ |  1647D |[Coins and Queries (1600) (Greedy)  ](./code/1647D.txt)|2021/10/31|
  
 # 分类
 
