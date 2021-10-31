@@ -620,6 +620,7 @@ My Codeforce Practice<br/>
  |  22E |[Scheme (2300) (Graph + Constructive)  ](./code/22E.txt)|2021/10/30|
  |  1140E |[Palindrome-less Arrays (2200) (DP + Combination + Observation)  ](./code/1140E.txt)|2021/10/30|
  |  1647D |[Coins and Queries (1600) (Greedy)  ](./code/1647D.txt)|2021/10/31|
+ |  353B |[Two Heaps (1900) (Greedy + Thinking)  ](./code/353B.txt)|2021/10/31|
  
 # 分类
 
@@ -797,6 +798,7 @@ My Codeforce Practice<br/>
 1176D.[ Recover it! (1800) ( Greedy + Sort)  ](./code/1176D.txt)<br/>
 349B.[Color the Fence (1700) (Greedy)  ](./code/349B.txt)<br/>
 446B.[DZY Loves Modification (2000) (Greedy)  ](./code/446B.txt)<br/>
+353B.[Two Heaps (1900) (Greedy + Thinking)  ](./code/353B.txt)<br/>
 
 
 ### Greedy : Number
