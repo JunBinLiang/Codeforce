@@ -1,0 +1,152 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    List<Integer>graph[];
+    int A[];
+    public void solution() {
+        int n =fs.Int();
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i = 0; i < n -1;i++){
+            int u =fs.Int()-1;
+            int v=fs.Int()-1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+        A=new int[n];
+        for(int i = 0;i<n;i++){
+            A[i]=fs.Int();
+        }
+
+        long res[]=dfs(-1,0);
+        out.println(res[0]+res[1]);
+    }
+
+    public long[] dfs(int pa,int root){
+        long res[]=new long[2];
+        long l = 0;
+        long r = 0;
+        for(int next:graph[root]){
+            if(pa==next)continue;
+            long val[]=dfs(root,next);
+            l = Math.max(l,val[0]);
+            r = Math.max(r,val[1]);
+        }
+
+        long cur = A[root];
+        cur -= l;
+        cur += r;
+        res[0]=l;
+        res[1]=r;
+        if(cur>0){
+            res[0]+=Math.abs(cur);
+        }
+        else{
+            res[1]+=Math.abs(cur);
+        }
+
+        return res;
+    }
+
+}
+
+
+
+
+
+
+
