@@ -621,6 +621,7 @@ My Codeforce Practice<br/>
  |  1140E |[Palindrome-less Arrays (2200) (DP + Combination + Observation)  ](./code/1140E.txt)|2021/10/30|
  |  1647D |[Coins and Queries (1600) (Greedy)  ](./code/1647D.txt)|2021/10/31|
  |  353B |[Two Heaps (1900) (Greedy + Thinking)  ](./code/353B.txt)|2021/10/31|
+ |  274B |[Zero Tree (1800) (Tree DP )  ](./code/274B.txt)|2021/10/31|
  
 # 分类
 
@@ -729,6 +730,7 @@ My Codeforce Practice<br/>
 1092F.[ Tree with Maximum Cost (Tree DP) ](./code/1092F.txt)<br/>
 1025D.[ Recovering BST (2000) (TreeDP)  ](./code/1025D.txt)<br/>
 633F.[ The Chocolate Spree(2600) (Tree DP)  ](./code/633F.txt)<br/>
+274B.[Zero Tree (1800) (Tree DP )  ](./code/274B.txt)<br/>
 
 ### Digit DP
 55D.[Beautiful numbers (2500) (Digit DP)  ](./code/55D.txt)<br/>
