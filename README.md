@@ -622,7 +622,10 @@ My Codeforce Practice<br/>
  |  1647D |[Coins and Queries (1600) (Greedy)  ](./code/1647D.txt)|2021/10/31|
  |  353B |[Two Heaps (1900) (Greedy + Thinking)  ](./code/353B.txt)|2021/10/31|
  |  274B |[Zero Tree (1800) (Tree DP )  ](./code/274B.txt)|2021/10/31|
-  |  296B |[Yaroslav and Two Strings(2000) ( DP )  ](./code/296B.txt)|2021/11/01|
+ |  296B |[Yaroslav and Two Strings(2000) ( DP )  ](./code/296B.txt)|2021/11/01|
+ |  1311D |[ Three Integers (2000) ( Brute Force + 打表 )  ](./code/1311D.txt)|2021/11/02|
+ 
+ 
  
 # 分类
 
