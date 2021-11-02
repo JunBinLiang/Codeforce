@@ -865,6 +865,7 @@ My Codeforce Practice<br/>
 1095D.[Circular Dance (1600) (Implementation) ](./code/1095D.txt)<br/>
 1244C.[The Football Season (2000) (Math + Brute Force)  ](./code/1244C.txt)<br/>
 903E.[Swapping Characters (2200) (Brute Force + Observation)  ](./code/903E.txt)<br/>
+1311D.[ Three Integers (2000) ( Brute Force + 打表 )  ](./code/1311D.txt)<br/>
 
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
