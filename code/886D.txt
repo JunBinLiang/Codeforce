@@ -1,0 +1,263 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    boolean seen[];
+    public void solution() {
+        int n = fs.Int();
+        String A[]=new String[n];
+        for(int i = 0; i < A.length;i++){
+            A[i]= fs.Str();
+        }
+
+        for(String s:A){
+            int cnt[]=new int[26];
+            for(char c : s.toCharArray()){
+                cnt[c-'a']++;
+                if(cnt[c-'a']>1){
+                    out.println("NO");
+                    return;
+                }
+            }
+        }
+
+        Arrays.sort(A,(a,b)->{
+            return b.length()-a.length();
+        });
+
+        List<String>lists[]=new ArrayList[26];
+        Arrays.setAll(lists,e->new ArrayList<>());
+        for(String s:A){
+            char c = s.charAt(0);
+            lists[c-'a'].add(s);
+        }
+
+        for(int i = 0; i < lists.length;i++){
+            List<String>list=lists[i];
+            for(int j = 1; j < list.size(); j++){
+                if(!check(list.get(0),list.get(j))){
+                    out.println("NO");
+                    return;
+                }
+            }
+        }
+
+
+        A=new String[26];
+        for(int i = 0; i < lists.length;i++){
+            if(lists[i].size()==0){
+                A[i]=null;
+                continue;
+            }
+            A[i] = lists[i].get(0);
+        }
+
+
+
+
+
+        int in[]=new int[26];
+        for(int i = 0;i<A.length;i++){
+            if(A[i]==null)continue;
+            String s = A[i];
+            if(s.length()==1)continue;
+            char c1 = s.charAt(0);
+            char c2 = s.charAt(s.length()-1);
+            in[c2-'a']++;
+        }
+
+        List<String>res=new ArrayList<>();
+        for(int i = 0; i < A.length;i++){
+            if(A[i]==null)continue;
+            String s = A[i];
+            char c1 = s.charAt(0);
+            if(in[c1-'a']==0){
+                StringBuilder str = new StringBuilder();
+                str.append(A[i]);
+                boolean val = dfs(A,str,1);
+                A[i]=str.toString();
+                if(!val){
+                    out.println("NO");
+                    return;
+                }
+            }
+        }
+
+        for(int i = 0;i<A.length;i++){
+            if(A[i]!=null){
+                res.add(A[i]);
+            }
+        }
+
+        //System.out.println(s);
+
+        Collections.sort(res);
+        StringBuilder str = new StringBuilder();
+        for(String ss:res){
+            str.append(ss);
+        }
+
+        String s = str.toString();
+        if(!check1(s)){
+            out.println("NO");
+            return;
+        }
+
+        for(int i = 0; i < A.length;i++){
+            if(A[i]==null)continue;
+            if(s.indexOf(A[i])==-1){
+                out.println("NO");
+                return;
+            }
+        }
+
+        out.println(s);
+    }
+
+    public boolean dfs(String A[],StringBuilder str,int i){
+        String s = str.toString();
+        if(!check1(s))return false;
+        if(i>=s.length()){
+            return true;
+        }
+
+        char c = s.charAt(i);
+        if(A[c-'a']==null){
+            return dfs(A,str,i+1);
+        }
+        else{
+            String t = A[c-'a'];
+            A[c-'a']=null;
+            for(int j = 0; j < t.length();j++){
+                if(i+j>=s.length()){
+                    str.append(t.substring(j));
+                    break;
+                }
+                if(t.charAt(j)!=s.charAt(i+j)){
+                    return false;
+                }
+            }
+            return dfs(A,str,i+1);
+        }
+
+
+    }
+
+
+
+    public boolean check(String s,String t){
+        for(int i = 0;i < t.length();i++){
+            if(t.charAt(i)!=s.charAt(i))return false;
+        }
+        return true;
+    }
+
+    public boolean check1(String s){
+        int cnt[]=new int[26];
+        for(char c : s.toCharArray()){
+            cnt[c-'a']++;
+            if(cnt[c-'a']>1)return false;
+        }
+        return true;
+    }
+}
+
+
+
+
+
+
+
