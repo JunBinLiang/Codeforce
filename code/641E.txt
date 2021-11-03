@@ -1,0 +1,201 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+
+    public void solution() {
+        int n = fs.Int();
+        int q[][]=new int[n][5];
+        int ith=0;
+        List<Integer>times=new ArrayList<>();
+        for(int i = 0; i < n; i++){
+            q[i][0]=fs.Int();
+            q[i][1]=fs.Int();
+            q[i][2]=fs.Int();
+            times.add(q[i][1]);
+            q[i][3]=i;
+            if(q[i][0]==3){
+                q[i][4]=ith++;
+            }
+        }
+        Arrays.sort(q,(a,b)->{
+            if(a[2]==b[2])return a[3]-b[3];
+            return a[2]-b[2];
+        });
+
+        Collections.sort(times);
+        Map<Integer,Integer>f=new HashMap<>();
+        int id =0;
+        for(int t:times){
+            if(!f.containsKey(t)){
+                f.put(t,id);
+                id++;
+            }
+        }
+
+        int res[]=new int[ith];
+        FenWick fen = new FenWick(n+10);
+
+        for(int i = 0; i < q.length;i++){
+            int j = i;
+            while(j<q.length&&q[j][2]==q[i][2]){
+                int t = f.get(q[j][1]);
+                int opt = q[j][0];
+
+                if(opt==1){
+                    fen.update(t,1);
+                }
+                else if(opt==2){
+                    fen.update(t,-1);
+                }
+                else{
+                    res[q[j][4]]=fen.sumRange(0,t);
+                }
+                j++;
+            }
+
+            j = i;
+            while(j < q.length&&q[j][2]==q[i][2]){
+                int t = f.get(q[j][1]);
+                int old = fen.sumRange(t,t);
+                fen.update(t,-old);
+                j++;
+            }
+            i = j - 1;
+        }
+
+        for(int i:res){
+            out.println(i);
+        }
+    }
+
+
+    class FenWick {
+        int tree[];//1-index based
+        public FenWick(int n) {
+            tree=new int[n+1];
+            int sum=0;
+        }
+
+        public void update(int i, int val) {
+            i++;
+            while(i<tree.length){
+                tree[i]+=val;
+                i+=(i&-i);
+            }
+        }
+
+        public int sumRange(int i, int j) {
+            return pre(j+1)-pre(i);
+        }
+
+        public int pre(int i){
+            int sum=0;
+            while(i>0){
+                sum+=tree[i];
+                i-=(i&-i);
+            }
+            return sum;
+        }
+    }
+}
+
+
+
+
+
+
+
