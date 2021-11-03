@@ -626,6 +626,7 @@ My Codeforce Practice<br/>
  |  1311D |[ Three Integers (2000) ( Brute Force + 打表 )  ](./code/1311D.txt)|2021/11/02|
  |  886D |[ Restoration of string(2000) ( Graph + Construtive + String )  ](./code/886D.txt)|2021/11/02|
  |  641E |[ Little Artem and Time Machine	 (2000) ( Fenwick + offline )  ](./code/641E.txt)|2021/11/02|
+ |  1105E |[ Helping Hiasat (2200) ( Maximum Independent Set + DP )  ](./code/1105E.txt)|2021/11/03|
  
 # 分类
 
@@ -1059,6 +1060,8 @@ My Codeforce Practice<br/>
 ### Graph With String
  886D.[ Restoration of string(2000) ( Graph + Construtive + String )  ](./code/886D.txt)<br/>
  
+### Maximum Independent Set
+1105E.[ Helping Hiasat (2200) ( Maximum Independent Set + DP )  ](./code/1105E.txt)<br/>
  
 ### 三环/四环图 
 1468M.[ Similar Sets (2300) (Graph + 四环图)  ](./code/1468M.txt)<br/>
