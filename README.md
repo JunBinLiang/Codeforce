@@ -625,7 +625,7 @@ My Codeforce Practice<br/>
  |  296B |[Yaroslav and Two Strings(2000) ( DP )  ](./code/296B.txt)|2021/11/01|
  |  1311D |[ Three Integers (2000) ( Brute Force + 打表 )  ](./code/1311D.txt)|2021/11/02|
  |  886D |[ Restoration of string(2000) ( Graph + Construtive + String )  ](./code/886D.txt)|2021/11/02|
- 
+ |  641E |[ Little Artem and Time Machine	 (2000) ( Fenwick + offline )  ](./code/641E.txt)|2021/11/02|
  
 # 分类
 
