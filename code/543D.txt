@@ -1,0 +1,205 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    List<Integer>graph[];
+    long f[];
+    long res[];
+    Map<Integer,long[]>f1=new HashMap<>();
+    Map<Integer,long[]>f2=new HashMap<>();
+    int ith[];
+    public void solution() {
+        int n = fs.Int();
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList());
+        f=new long[n];
+        res=new long[n];
+        ith = new int[n];
+
+        for(int i = 0; i < n-1;i++){
+            int u =i + 1;
+            int v = fs.Int()-1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        dfs1(-1,0);
+        res[0]=f[0];
+
+
+        dfs2(-1,0,1l);
+
+        for(long i:res){
+            out.print(i+" ");
+        }
+    }
+
+    public void dfs1(int pa,int root){
+        f[root]=1;
+        int size = graph[root].size();
+        if(pa!=-1)size--;
+        long A[]=new long[size];
+        long r[] = new long[A.length];
+        long l[] = new long[A.length];
+
+        int i = 0;
+        for(int next:graph[root]){
+            if(next==pa){
+                continue;
+            }
+            dfs1(root,next);
+            A[i]=f[next]+1;
+            f[root]*=(f[next]+1);
+            f[root]%=mod;
+            l[i]=f[root];
+            ith[next]=i;
+            i++;
+        }
+
+        long p = 1;
+        for(int j = r.length-1;j>=0;j--){
+            p *= A[j];
+            p %= mod;
+            r[j]=p;
+        }
+        f1.put(root,l);
+        f2.put(root,r);
+    }
+
+    public void dfs2(int pa,int root,long push){
+        long l[]=f1.get(root);
+        long r[]=f2.get(root);
+        if(l.length==0)return;
+
+        for(int next:graph[root]){
+            if(pa==next)continue;
+            int index = ith[next];
+            long newpush = (((get(l,index-1) * get(r,index+1))%mod) * (push)) % mod;
+            newpush++;
+
+            res[next]=newpush*f[next];
+            if(l.length==1){
+                res[next]=newpush*f[next];
+            }
+            res[next]%=mod;
+            dfs2(root,next,newpush);
+        }
+    }
+
+    public long get(long A[],int i){
+        if(i<0||i>=A.length)return 1;
+        return A[i];
+    }
+
+    /*public void dfs2(int pa,int root){
+        res[root]=(divide(res[pa],f[root]+1) + 1) * f[root];
+        res[root]%=mod;
+
+        for(int next:graph[root]){
+            if(pa==next)continue;
+            dfs2(root,next);
+        }
+    }*/
+
+
+}
+
+
+
+
+
+
+
