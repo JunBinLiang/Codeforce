@@ -627,6 +627,7 @@ My Codeforce Practice<br/>
  |  886D |[ Restoration of string(2000) ( Graph + Construtive + String )  ](./code/886D.txt)|2021/11/02|
  |  641E |[ Little Artem and Time Machine	 (2000) ( Fenwick + offline )  ](./code/641E.txt)|2021/11/02|
  |  1105E |[ Helping Hiasat (2200) ( Maximum Independent Set + DP )  ](./code/1105E.txt)|2021/11/03|
+ |  1304E |[1-Trees and Queries (2000) ( LCA )  ](./code/1304E.txt)|2021/11/04|
  
 # 分类
 
@@ -1194,6 +1195,7 @@ My Codeforce Practice<br/>
 609E.[Minimum spanning tree for each edge (2100) (MST + Thinking + LCA Template)  ](./code/609E.txt)<br/>
 519E.[A and B and Lecture Rooms (2100) (Tree + LCA)  ](./code/519E.txt)<br/>
 597C.[Duff in the Army (2200) (LCA)  ](./code/597C.txt)<br/>
+1304E.[1-Trees and Queries (2000) ( LCA )  ](./code/1304E.txt)<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
