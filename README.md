@@ -632,6 +632,7 @@ My Codeforce Practice<br/>
  |  1558C |[Bottom-Tier Reversals	 (2000) ( Constructive )  ](./code/1558C.txt)|2021/11/04|
  |  623B |[Array GCD	 (2300) ( DP )  ](./code/623B.txt)|2021/11/05|
  |  494B |[Obsessive String	 (2000) ( DP + KMP + Prefix )  ](./code/494B.txt)|2021/11/05|
+ |  620D |[Professor GukiZ and Two Arrays (2200) ( Two Pointer )  ](./code/620D.txt)|2021/11/05|
  
 # 分类
 
@@ -1316,6 +1317,7 @@ My Codeforce Practice<br/>
 846F.[Random Query (1800) (Two Pointer)  ](./code/846F.txt)<br/>
 1244E.[Minimizing Difference (2000) (Two Pointer + Greedy)  ](./code/1244E.txt)<br/>
 954G.[ Castle Defense (2000) (Binary Search + Two Pointer)  ](./code/954G.txt)<br/>
+620D.[Professor GukiZ and Two Arrays (2200) ( Two Pointer )  ](./code/620D.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
