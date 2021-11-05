@@ -630,6 +630,7 @@ My Codeforce Practice<br/>
  |  1304E |[1-Trees and Queries (2000) ( LCA )  ](./code/1304E.txt)|2021/11/04|
  |  543D |[Road Improvement	 (2300) ( Tree DP + Left/Right DP )  ](./code/543D.txt)|2021/11/04|
  |  1558C |[Bottom-Tier Reversals	 (2000) ( Constructive )  ](./code/1558C.txt)|2021/11/04|
+ |  623B |[Array GCD	 (2300) ( DP )  ](./code/623B.txt)|2021/11/05|
  
 # 分类
 
