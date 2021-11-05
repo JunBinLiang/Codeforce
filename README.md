@@ -631,6 +631,7 @@ My Codeforce Practice<br/>
  |  543D |[Road Improvement	 (2300) ( Tree DP + Left/Right DP )  ](./code/543D.txt)|2021/11/04|
  |  1558C |[Bottom-Tier Reversals	 (2000) ( Constructive )  ](./code/1558C.txt)|2021/11/04|
  |  623B |[Array GCD	 (2300) ( DP )  ](./code/623B.txt)|2021/11/05|
+ |  494B |[Obsessive String	 (2000) ( DP + KMP + Prefix )  ](./code/494B.txt)|2021/11/05|
  
 # 分类
 
@@ -770,6 +771,7 @@ My Codeforce Practice<br/>
 
 ## String Match KMP + DP
 1575H.[Holiday Wall Ornaments(2200) (DP + KMP)  ](./code/1575L.txt)<br/>
+494B.[Obsessive String	 (2000) ( DP + KMP + Prefix )  ](./code/494B.txt)<br/>
 
 ### Contribution
 1151E.[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)<br/>
