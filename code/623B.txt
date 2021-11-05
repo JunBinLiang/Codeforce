@@ -1,0 +1,180 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    List<Integer>list=new ArrayList<>();
+    public void solution() {
+        int n =fs.Int();
+        int a = fs.Int();
+        int b = fs.Int();
+        int A[]=new int[n];
+        for(int i = 0; i < n;i++){
+            A[i]=fs.Int();
+        }
+        long res = Long.MAX_VALUE;
+        add(A[0]);
+        add(A[0]+1);
+        add(A[0]-1);
+
+        add(A[n-1]+1);
+        add(A[n-1]-1);
+        add(A[n-1]);
+
+        for(int d:list){
+            res=Math.min(res,cal(A,d,a,b));
+        }
+
+        out.println(res);
+    }
+
+    public long cal(int A[],int d,int a,int b){
+        int n = A.length;
+        long dp[][]=new long[3][n];
+        for(long p[]:dp){
+            Arrays.fill(p,2000000000000000l);
+        }
+
+        dp[1][0]=a;
+        if(A[0]%d==0){
+            dp[0][0]=0;
+        }
+        if((A[0]+1)%d==0||(A[0]-1)%d==0){
+            dp[0][0]=b;
+        }
+
+        for(int i = 1; i < n; i++){
+            //use
+
+            if(A[i]%d==0){
+                dp[0][i]=Math.min(dp[0][i],dp[0][i-1]);
+                dp[2][i]=Math.min(dp[2][i],dp[1][i-1]);
+                dp[2][i]=Math.min(dp[2][i],dp[2][i-1]);
+
+            }
+
+            if((A[i]+1)%d==0||(A[i]-1)%d==0){
+                dp[0][i]=Math.min(dp[0][i],dp[0][i-1]+b);
+                dp[2][i]=Math.min(dp[2][i],dp[1][i-1]+b);
+                dp[2][i]=Math.min(dp[2][i],dp[2][i-1]+b);
+            }
+
+            //delete
+            dp[1][i]=Math.min(dp[1][i],dp[0][i-1]+a);
+            dp[1][i]=Math.min(dp[1][i],dp[1][i-1]+a);
+        }
+
+
+        return Math.min(dp[0][n-1],Math.min(dp[1][n-1],dp[2][n-1]));
+    }
+
+
+
+    public void add(int n){
+        for(int i =2; i*i<=n;i++){
+            if(n==1)break;
+            if(n%i==0){
+                list.add(i);
+                while(n%i==0)n/=i;
+            }
+        }
+        if(n!=1)list.add(n);
+    }
+}
+
+
+
+
+//9+4
