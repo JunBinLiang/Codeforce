@@ -1,0 +1,224 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    boolean is[];
+    int n;
+    public void solution() {
+        String s = fs.Str();
+        String t = fs.Str();
+        this.n=t.length();
+
+        int j = 0;
+        int pre[]=pre(t);
+        is = new boolean[s.length()];
+        for(int i = 0; i < s.length();i++){
+            if(s.charAt(i)==t.charAt(j)){
+                j++;
+                if(j==t.length()){
+                    j = pre[j - 1];
+                    is[i]=true;
+                }
+                else{
+
+                }
+            }
+            else{
+                if(j!=0){
+                    j=pre[j - 1];
+                    i--;
+                }
+                else{
+
+                }
+            }
+        }
+
+        int last = -1;
+        long dp[]=new long[s.length()+1];
+        long p[]=new long[s.length()+1];
+        long pp[]=new long[p.length];
+       // dp[0]=1;
+        //p[0]=1;
+
+        long res = 0;
+        for(int i = 1; i < dp.length;i++){
+            if(last==-1){
+                if(is[i-1]){
+                    last = i;
+                    dp[i] = i - t.length() + 1;
+                    if(i>0)p[i]+=p[i-1];
+                    p[i]+=dp[i];
+                    res +=dp[i];
+                    res%=mod;
+                }
+                else{
+                    dp[i]=0;
+                    if(i>0)p[i]+=p[i-1];
+                    p[i]+=dp[i];
+                }
+            }
+            else{
+                if(is[i-1]){
+                    last = i;
+                }
+                dp[i] = get(pp,last-t.length()) + (last - t.length() + 1);
+                if(i>0)p[i]+=p[i-1];
+                p[i]+=dp[i];
+                res +=dp[i];
+                res%=mod;
+            }
+            p[i]%=mod;
+            pp[i]=pp[i-1]+p[i];
+            pp[i]%=mod;
+        }
+
+
+        out.println(res);
+    }
+
+    public long get(long A[],int i){
+        if(i<0)return 0;
+        return A[i];
+    }
+
+    public int[] pre(String pattern){
+        int pre[]=new int[pattern.length()];
+        int l=0,r=1;
+        while(r<pattern.length()){
+            if(pattern.charAt(r)==pattern.charAt(l)){
+                pre[r]=l+1;
+                l++;
+                r++;
+            }else{
+                if(l==0)r++;
+                else{
+                    l=pre[l-1];
+                }
+            }
+        }
+        return pre;
+    }
+
+    /*public long dfs(boolean is[],int i,int state){
+
+        if(i<0){
+            if(state==1)return 1;
+            else return 0;
+        }
+        if(dp[i][state]!=-1){
+            return dp[i][state];
+        }
+        long res = 0;
+        if(is[i]){
+            res += dfs(is,i-1,0);//cut
+            res%=mod;
+            res += dfs(is,i-n,1);//no cut
+            res%=mod;
+        }
+        else{
+            res += dfs(is, i - 1,0);
+            res%=mod;
+            res += dfs(is,i-1,state);
+            res%=mod;
+        }
+
+
+        System.out.println(i+" "+state+"  "+res);
+        return dp[i][state]=res;
+    }*/
+
+}
