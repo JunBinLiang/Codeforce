@@ -1,0 +1,189 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    List<int[]>graph[];
+    List<int[]>rev[];
+    List<String>res=new ArrayList<>();
+    int k;
+    Map<String,Integer>f=new HashMap<>();
+    public void solution() {
+        int n = fs.Int();
+        int m =fs.Int();
+        k = fs.Int();
+        graph=new ArrayList[n];
+        rev=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        Arrays.setAll(rev,e->new ArrayList<>());
+
+        for(int i =0;i<m;i++){
+            int u =fs.Int()-1;
+            int v = fs.Int()-1;
+            graph[u].add(new int[]{v,i});
+            graph[v].add(new int[]{u,i});
+        }
+
+        bfs();
+
+        /*for(int i =0;i<rev.length;i++){
+            List<int[]>l=rev[i];
+            System.out.println(i+1);
+            for(int p[]:l){
+                System.out.println(Arrays.toString(p));
+            }
+            System.out.println();
+        }*/
+
+
+
+        char state[]=new char[m];
+        Arrays.fill(state,'0');
+        dfs(0,state);
+        out.println(res.size());
+        for(String s :res){
+            out.println(s);
+        }
+    }
+
+    public void dfs(int i,char state[]){
+        if(res.size()==k)return;
+        if(i>=graph.length){
+            res.add(new String(state));
+            return;
+        }
+
+
+        for(int pair[]:rev[i]){
+            int fa = pair[0];
+            int e = pair[1];
+            state[e]='1';
+            dfs(i+1,state);
+            state[e]='0';
+        }
+        if(i==0)dfs(i+1,state);
+    }
+
+    public int[] bfs(){
+        Queue<Integer>q=new LinkedList<>();
+        int dis[]=new int[graph.length];
+        Arrays.fill(dis,INF);
+        dis[0]=0;
+        q.add(0);
+        while(q.size()>0){
+            int root = q.poll();
+            for(int pair[]:graph[root]){
+                int next=pair[0];
+                int e = pair[1];
+                if(dis[root]+1<dis[next]){
+                    dis[next]=dis[root]+1;
+                    q.add(next);
+                    rev[next]=new ArrayList<>();
+                    rev[next].add(new int[]{root,e});
+                }
+                else if(dis[root]+1==dis[next]){
+                    rev[next].add(new int[]{root,e});
+                }
+            }
+        }
+        return dis;
+    }
+
+
+}
+
+
+
+
