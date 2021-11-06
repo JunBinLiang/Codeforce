@@ -633,6 +633,7 @@ My Codeforce Practice<br/>
  |  623B |[Array GCD	 (2300) ( DP )  ](./code/623B.txt)|2021/11/05|
  |  494B |[Obsessive String	 (2000) ( DP + KMP + Prefix )  ](./code/494B.txt)|2021/11/05|
  |  620D |[Professor GukiZ and Two Arrays (2200) ( Two Pointer )  ](./code/620D.txt)|2021/11/05|
+ |  1005E2 |[Median on Segments (General Case Edition) (2400) ( Bound + Prefix )  ](./code/1005E2.txt)|2021/11/06|
  
 # 分类
 
@@ -919,6 +920,9 @@ My Codeforce Practice<br/>
 1567F.[One-Four Overload (2700) (Thinking + Observation + Constructice)  ](./code/1567F.txt)<br/>
 1593G.[Changing Brackets (2200) (Obsetvation)  ](./code/1593G.txt)<br/>
 1550C.[Manhattan Subarrays) (1700) (Observation + Brute Force)  ](./code/1550C.txt)<br/>
+
+### Thinking : Low High Bound
+1005E2.[Median on Segments (General Case Edition) (2400) ( Bound + Prefix )  ](./code/1005E2.txt)<br/>
 
 ### Thinking : MAX * 2 <= SUM 
 1030E.[Vasya and Good Sequences	 (2000) (Thinking + Brute Force + Bit)  ](./code/1030E.txt)<br/>
