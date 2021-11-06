@@ -634,6 +634,7 @@ My Codeforce Practice<br/>
  |  494B |[Obsessive String	 (2000) ( DP + KMP + Prefix )  ](./code/494B.txt)|2021/11/05|
  |  620D |[Professor GukiZ and Two Arrays (2200) ( Two Pointer )  ](./code/620D.txt)|2021/11/05|
  |  1005E2 |[Median on Segments (General Case Edition) (2400) ( Bound + Prefix )  ](./code/1005E2.txt)|2021/11/06|
+ |  1005F |[Berland and the Shortest Paths (2100) ( Graph + BFS )  ](./code/1005F.txt)|2021/11/06|
  
 # 分类
 
@@ -1068,6 +1069,7 @@ My Codeforce Practice<br/>
 920E.[  Connected Components?	 (2100) (Graph)  ](./code/920E.txt) <br/>
 999E.[Reachability from the Capital	 (2000) (Graph)  ](./code/999E.txt)<br/>
 196B.[ Infinite Maze (2000) (Graph + Thinking + Matrix)  ](./code/196B.txt)<br/>
+1005F.[Berland and the Shortest Paths (2100) ( Graph + BFS )  ](./code/1005F.txt)<br/>
 
 ### Graph With String
  886D.[ Restoration of string(2000) ( Graph + Construtive + String )  ](./code/886D.txt)<br/>
