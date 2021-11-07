@@ -637,6 +637,7 @@ My Codeforce Practice<br/>
  |  1005F |[Berland and the Shortest Paths (2100) ( Graph + BFS )  ](./code/1005F.txt)|2021/11/06|
  |  1582F2 |[Korney Korneevich and XOR (hard version) (2400) ( Thinking )  ](./code/1582F2.txt)|2021/11/07|
  |  1582E |[Pchelyonok and Segments(2000) ( DP )  ](./code/1582E.txt)|2021/11/07|
+ |  1582D |[Vupsen, Pupsen and 0 (1600) ( Constructive )  ](./code/1582D.txt)|2021/11/07|
  
 # 分类
 
@@ -865,7 +866,7 @@ My Codeforce Practice<br/>
  1003E.[Tree Constructing (2100) (Tree + Constructive)  ](./code/1003E.txt)<br/>
  22E.[Scheme (2300) (Graph + Constructive)  ](./code/22E.txt)<br/>
  1558C.[Bottom-Tier Reversals	 (2000) ( Constructive )  ](./code/1558C.txt)<br/>
- 
+ 1582D.[Vupsen, Pupsen and 0 (1600) ( Constructive )  ](./code/1582D.txt)<br/>
  
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
