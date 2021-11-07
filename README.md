@@ -636,6 +636,7 @@ My Codeforce Practice<br/>
  |  1005E2 |[Median on Segments (General Case Edition) (2400) ( Bound + Prefix )  ](./code/1005E2.txt)|2021/11/06|
  |  1005F |[Berland and the Shortest Paths (2100) ( Graph + BFS )  ](./code/1005F.txt)|2021/11/06|
  |  1582F2 |[Korney Korneevich and XOR (hard version) (2400) ( Thinking )  ](./code/1582F2.txt)|2021/11/07|
+ |  1582E |[Pchelyonok and Segments(2000) ( DP )  ](./code/1582E.txt)|2021/11/07|
  
 # 分类
 
@@ -688,7 +689,8 @@ My Codeforce Practice<br/>
 474E.[Pillars (2000) (Segment Tree + DP + TreeSet)  ](./code/474E.txt)<br/>
 598E.[Chocolate Bar (2000) (DP)  ](./code/598E.txt)<br/>
 1003F.[Abbreviation (2200) (DP)  ](./code/1003F.txt)<br/>
- 1140E.[Palindrome-less Arrays (2200) (DP + Combination + Observation)  ](./code/1140E.txt)<br/>
+1140E.[Palindrome-less Arrays (2200) (DP + Combination + Observation)  ](./code/1140E.txt)<br/>
+1582E.[Pchelyonok and Segments(2000) ( DP )  ](./code/1582E.txt)<br/>
 
 
 ### LCS Similar
