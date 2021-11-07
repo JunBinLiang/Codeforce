@@ -635,6 +635,7 @@ My Codeforce Practice<br/>
  |  620D |[Professor GukiZ and Two Arrays (2200) ( Two Pointer )  ](./code/620D.txt)|2021/11/05|
  |  1005E2 |[Median on Segments (General Case Edition) (2400) ( Bound + Prefix )  ](./code/1005E2.txt)|2021/11/06|
  |  1005F |[Berland and the Shortest Paths (2100) ( Graph + BFS )  ](./code/1005F.txt)|2021/11/06|
+ |  1582F2 |[Korney Korneevich and XOR (hard version) (2400) ( Thinking )  ](./code/1582F2.txt)|2021/11/07|
  
 # 分类
 
@@ -881,7 +882,8 @@ My Codeforce Practice<br/>
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
 466B.[ Wonder Room (2000) (Brute Force + Time Complexity)  ](./code/466B.txt)<br/>
- 1593D2.[Half of Same (1900) (Time + Thinking)  ](./code/1593D2.txt)<br/>
+1593D2.[Half of Same (1900) (Time + Thinking)  ](./code/1593D2.txt)<br/>
+1582F2.[Korney Korneevich and XOR (hard version) (2400) ( Thinking )  ](./code/1582F2.txt)<br/>
 
 ### 优雅暴力1 : 启发式合并
  965E.[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)<br/>
