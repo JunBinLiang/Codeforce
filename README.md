@@ -638,6 +638,7 @@ My Codeforce Practice<br/>
  |  1582F2 |[Korney Korneevich and XOR (hard version) (2400) ( Thinking )  ](./code/1582F2.txt)|2021/11/07|
  |  1582E |[Pchelyonok and Segments(2000) ( DP )  ](./code/1582E.txt)|2021/11/07|
  |  1582D |[Vupsen, Pupsen and 0 (1600) ( Constructive )  ](./code/1582D.txt)|2021/11/07|
+ |  301D |[Yaroslav and Divisors	 (2200) ( Thinking + Inteval )  ](./code/301D.txt)|2021/11/08|
  
 # 分类
 
