@@ -639,6 +639,7 @@ My Codeforce Practice<br/>
  |  1582E |[Pchelyonok and Segments(2000) ( DP )  ](./code/1582E.txt)|2021/11/07|
  |  1582D |[Vupsen, Pupsen and 0 (1600) ( Constructive )  ](./code/1582D.txt)|2021/11/07|
  |  301D |[Yaroslav and Divisors	 (2200) ( Thinking + Inteval )  ](./code/301D.txt)|2021/11/08|
+ |  762D |[Maximum path (2300) ( DP + State Representation )  ](./code/762D.txt)|2021/11/09|
  
 # 分类
 
@@ -693,6 +694,7 @@ My Codeforce Practice<br/>
 1003F.[Abbreviation (2200) (DP)  ](./code/1003F.txt)<br/>
 1140E.[Palindrome-less Arrays (2200) (DP + Combination + Observation)  ](./code/1140E.txt)<br/>
 1582E.[Pchelyonok and Segments(2000) ( DP )  ](./code/1582E.txt)<br/>
+762D.[Maximum path (2300) ( DP + State Representation )  ](./code/762D.txt)<br/>
 
 
 ### LCS Similar
