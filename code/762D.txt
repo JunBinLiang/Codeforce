@@ -1,0 +1,147 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+
+    public void solution() {
+        int n = fs.Int();
+        long A[][]=new long[3][n];
+        for(int i = 0; i < A.length;i++){
+            for(int j = 0; j < A[0].length;j++){
+                A[i][j]=fs.Int();
+            }
+        }
+
+        long dp[][][]=new long[3][n][3];
+        for(int i = 0; i < dp.length;i++){
+            for(int j = 0;j<dp[0].length;j++){
+                Arrays.fill(dp[i][j],-500000000000000l);
+            }
+        }
+
+        dp[0][0][0]=A[0][0];
+        dp[1][0][0]=A[0][0]+A[1][0];
+        dp[2][0][2] = A[0][0]+A[1][0] + A[2][0];
+
+        for(int i = 1;i<n;i++){
+            dp[0][i][0] = Math.max(dp[0][i][0], A[0][i] + Math.max(dp[0][i-1][0],Math.max(dp[0][i-1][1],dp[0][i-1][2])));
+            dp[0][i][1] = Math.max(dp[0][i][1], A[0][i] + A[1][i] + Math.max(dp[1][i-1][0],Math.max(dp[1][i-1][1],dp[1][i-1][2])));
+            dp[0][i][2] = Math.max(dp[0][i][2], A[0][i] + A[1][i] + A[2][i]+ Math.max(dp[2][i-1][0],Math.max(dp[2][i-1][1],dp[2][i-1][2])));
+            dp[0][i][2] = Math.max(dp[0][i][2], A[0][i] + A[1][i] + A[2][i]+ A[1][i-1]+A[0][i-1]+dp[2][i-1][0]);
+
+            dp[2][i][0] = Math.max(dp[2][i][0], A[2][i] + Math.max(dp[2][i-1][0],Math.max(dp[2][i-1][1],dp[2][i-1][2])));
+            dp[2][i][1] = Math.max(dp[2][i][1], A[2][i] + A[1][i] + Math.max(dp[1][i-1][0],Math.max(dp[1][i-1][1],dp[1][i-1][2])));
+            dp[2][i][2] = Math.max(dp[2][i][2], A[0][i] + A[1][i] + A[2][i]+ Math.max(dp[0][i-1][0],Math.max(dp[0][i-1][1],dp[0][i-1][2])));
+            dp[2][i][2] = Math.max(dp[2][i][2], A[0][i] + A[1][i] + A[2][i]+ A[1][i-1]+A[2][i-1]+dp[0][i-1][0]);
+
+            dp[1][i][1] = Math.max(dp[1][i][1], A[1][i] + Math.max(dp[1][i-1][1],Math.max(dp[1][i-1][0],dp[1][i-1][2])));
+            dp[1][i][0] = Math.max(dp[1][i][0], A[0][i] + A[1][i] + Math.max(dp[0][i-1][0],Math.max(dp[0][i-1][1],dp[0][i-1][2])));
+            dp[1][i][2] = Math.max(dp[1][i][2], A[2][i] + A[1][i] + Math.max(dp[2][i-1][0],Math.max(dp[2][i-1][1],dp[2][i-1][2])));
+        }
+
+
+        long res = Long.MIN_VALUE;
+        res = Math.max(res,dp[2][n-1][0]);
+        res = Math.max(res,dp[2][n-1][1]);
+        res = Math.max(res,dp[2][n-1][2]);
+        out.println(res);
+    }
+
+
+}
+
+
+
