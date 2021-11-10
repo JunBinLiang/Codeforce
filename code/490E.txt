@@ -1,0 +1,205 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+
+    public void solution() {
+        int n = fs.Int();
+        List<String>res=new ArrayList<>();
+        for(int i = 0; i < n;i++){
+            //System.out.println(i+"  "+res);
+            String s = fs.Str();
+            char A[]=s.toCharArray();
+            if(i==0){
+                for(int j = 0; j < A.length;j++){
+                    if(A[j]=='?'){
+                        if(j==0)A[j]='1';
+                        else A[j]='0';
+                    }
+                }
+            }
+            else{
+                String last = res.get(i-1);
+                if(s.length()<last.length()){
+                    out.println("NO");
+                    return;
+                }
+
+                if(s.length()>last.length()){
+                    for(int j = 0; j < A.length;j++){
+                        if(A[j]=='?'){
+                            if(j==0)A[j]='1';
+                            else A[j]='0';
+                        }
+                    }
+                }
+                else{
+                    boolean is = false;
+                    for(int j = 0; j < A.length;j++){
+                        if(A[j]=='?'){
+                            if(is){
+                                A[j]='0';
+                            }
+                            else{
+                                if(check(s,last,j+1)){
+                                    A[j]=last.charAt(j);
+                                }
+                                else{
+                                    if(last.charAt(j)=='9'){
+                                        out.println("NO");
+                                        return;
+                                    }
+                                    else{
+                                        is = true;
+                                        A[j]=(char)(last.charAt(j)+1);
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            if(A[j]>last.charAt(j)){
+                                is=true;
+                            }
+                            else if(A[j]<last.charAt(j)){
+                                if(!is){
+                                    out.println("NO");
+                                    return;
+                                }
+                            }
+                            else{
+
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+            String news = new String(A);
+            if(i>0){
+                String last = res.get(i-1);
+                if(last.length()==news.length()&&!check(news,last,0)){
+                    out.println("NO");
+                    return;
+                }
+            }
+
+            res.add(new String(news));
+        }
+
+        out.println("YES");
+        for(String s : res){
+            out.println(s);
+        }
+    }
+
+    public boolean check(String s,String t,int j){
+        for(int i = j; i < s.length();i++){
+            if(s.charAt(i)=='?'){
+                if(t.charAt(i)!='9'){
+                    return true;
+                }
+            }
+            else{
+                if(s.charAt(i)<t.charAt(i))return false;
+                if(s.charAt(i)>t.charAt(i))return true;
+            }
+        }
+        return false;
+    }
+
+}
