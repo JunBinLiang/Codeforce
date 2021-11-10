@@ -641,7 +641,8 @@ My Codeforce Practice<br/>
  |  301D |[Yaroslav and Divisors	 (2200) ( Thinking + Inteval )  ](./code/301D.txt)|2021/11/08|
  |  762D |[Maximum path (2300) ( DP + State Representation )  ](./code/762D.txt)|2021/11/09|
  |  258C |[Little Elephant and LCM (2000) ( Binary Search )  ](./code/258C.txt)|2021/11/09|
-  |  490E |[Restoring Increasing Sequence (2000) ( Constructive + Greedy)  ](./code/490E.txt)|2021/11/09|
+ |  490E |[Restoring Increasing Sequence (2000) ( Constructive + Greedy)  ](./code/490E.txt)|2021/11/09|
+ |  713C |[Sonya and Problem Wihtout a Legend (2300) (DP + Thinking)  ](./code/713C.txt)|2021/11/10|
  
 # 分类
 
