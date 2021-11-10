@@ -641,6 +641,7 @@ My Codeforce Practice<br/>
  |  301D |[Yaroslav and Divisors	 (2200) ( Thinking + Inteval )  ](./code/301D.txt)|2021/11/08|
  |  762D |[Maximum path (2300) ( DP + State Representation )  ](./code/762D.txt)|2021/11/09|
  |  258C |[Little Elephant and LCM (2000) ( Binary Search )  ](./code/258C.txt)|2021/11/09|
+  |  490E |[Restoring Increasing Sequence (2000) ( Constructive + Greedy)  ](./code/490E.txt)|2021/11/09|
  
 # 分类
 
@@ -871,6 +872,7 @@ My Codeforce Practice<br/>
  22E.[Scheme (2300) (Graph + Constructive)  ](./code/22E.txt)<br/>
  1558C.[Bottom-Tier Reversals	 (2000) ( Constructive )  ](./code/1558C.txt)<br/>
  1582D.[Vupsen, Pupsen and 0 (1600) ( Constructive )  ](./code/1582D.txt)<br/>
+ 490E.[Restoring Increasing Sequence (2000) ( Constructive + Greedy)  ](./code/490E.txt)<br/>
  
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
