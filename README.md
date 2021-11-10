@@ -640,6 +640,7 @@ My Codeforce Practice<br/>
  |  1582D |[Vupsen, Pupsen and 0 (1600) ( Constructive )  ](./code/1582D.txt)|2021/11/07|
  |  301D |[Yaroslav and Divisors	 (2200) ( Thinking + Inteval )  ](./code/301D.txt)|2021/11/08|
  |  762D |[Maximum path (2300) ( DP + State Representation )  ](./code/762D.txt)|2021/11/09|
+ |  258C |[Little Elephant and LCM (2000) ( Binary Search )  ](./code/258C.txt)|2021/11/09|
  
 # 分类
 
@@ -1252,6 +1253,7 @@ My Codeforce Practice<br/>
 1547F.[ Array Stabilization (GCD version) (2100) (Math + BinarySearch + Segment Tree + GCD )  ](./code/1547F.txt)<br/>
 808D.[ Array Division (1900) (Binary Search + Prefix Sum )  ](./code/808D.txt)<br/>
 349C.[Mafia(1600) (Binary Search + Thinking)  ](./code/349C.txt)<br/>
+258C.[Little Elephant and LCM (2000) ( Binary Search )  ](./code/258C.txt)<br/>
 
 ### Binary Search in Convex Line
 439D.[Devu and his Brother (1700) (Binary Search + Convex Line)  ](./code/439D.txt)<br/>
