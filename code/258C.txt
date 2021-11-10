@@ -1,0 +1,182 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+
+    public void solution() {
+        int n = fs.Int();
+        int A[]=new int[n];
+        for(int i = 0; i < n; i++){
+            A[i]=fs.Int();
+        }
+
+        Arrays.sort(A);
+        int mx = A[A.length-1];
+        TreeMap<Integer,Integer>tree=new TreeMap<>();
+        for(int i = 0; i < A.length;i++){
+            if(!tree.containsKey(A[i])){
+                tree.put(A[i],i);
+            }
+        }
+
+        long res = 0;
+        for(int i= 1; i<=mx;i++){
+            List<Integer>list=new ArrayList<>();
+            for(int j =1;j*j<=i;j++){
+                if(i%j==0){
+                    list.add(j);
+                    if(i/j!=j){
+                        list.add(i/j);
+                    }
+                }
+            }
+            Collections.sort(list);
+
+
+
+            Integer ceil = tree.ceilingKey(i);
+            long r = 1;
+            if(ceil!=null){
+                ceil = tree.get(ceil);
+                int c = (n - (ceil));
+                long all = pow(list.size(),c);
+                long no = pow((list.size()) - 1,c);
+                all -=no;
+                all+=mod;
+                all%=mod;
+                r=all;
+            }
+
+            long l = 1;
+            for(int j = 0; j < list.size() - 1; j++){
+                int a = list.get(j);
+                int b = list.get(j+1);
+                Integer c1 = tree.ceilingKey(a);
+                Integer c2 = tree.ceilingKey(b);
+                if(c1!=c2){
+                    long dif = tree.get(c2)-tree.get(c1);
+                    l = l * pow(j+1,dif);
+                    l%=mod;
+                }
+            }
+
+            res += l*r;
+            res%=mod;
+        }
+
+        out.println(res);
+
+    }
+
+
+    public long pow(long a,long b){
+        long res=1;
+        long pow=a;
+        for(int i=0;i<32;i++){
+            if((b&(1<<i))!=0){
+                res*=pow;
+                res%=mod;
+            }
+            pow*=pow;
+            pow%=mod;
+        }
+        return res;
+    }
+
+}
+
+
+//1 2 3 4
