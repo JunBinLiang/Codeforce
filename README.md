@@ -643,6 +643,7 @@ My Codeforce Practice<br/>
  |  258C |[Little Elephant and LCM (2000) ( Binary Search )  ](./code/258C.txt)|2021/11/09|
  |  490E |[Restoring Increasing Sequence (2000) ( Constructive + Greedy)  ](./code/490E.txt)|2021/11/09|
  |  713C |[Sonya and Problem Wihtout a Legend (2300) (DP + Thinking)  ](./code/713C.txt)|2021/11/10|
+ |  615D |[Multipliers (2000) (Combination + Math)  ](./code/615D.txt)|2021/11/10|
  
 # 分类
 
