@@ -644,6 +644,7 @@ My Codeforce Practice<br/>
  |  490E |[Restoring Increasing Sequence (2000) ( Constructive + Greedy)  ](./code/490E.txt)|2021/11/09|
  |  713C |[Sonya and Problem Wihtout a Legend (2300) (DP + Thinking)  ](./code/713C.txt)|2021/11/10|
  |  615D |[Multipliers (2000) (Combination + Math)  ](./code/615D.txt)|2021/11/10|
+ |  1268C |[K Integers (2300) (Thinking)  ](./code/1268C.txt)|2021/11/11|
  
 # 分类
 
@@ -944,6 +945,9 @@ My Codeforce Practice<br/>
 ### Thinking : Transfer
 675C.[Money Transfers (2100) (Thinking + Prefix Sum + Transfer)  ](./code/675C.txt)<br/>
 622E.[Ants in Leaves (2200) (Tree + Thinking + Greedy)  ](./code/622E.txt)<br/>
+
+### Thinking : Swap
+1268C.[K Integers (2300) (Thinking)  ](./code/1268C.txt)<br/>
 
 
 ### Thinking : Sort Array Connect Component
