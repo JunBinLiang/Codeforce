@@ -645,6 +645,7 @@ My Codeforce Practice<br/>
  |  713C |[Sonya and Problem Wihtout a Legend (2300) (DP + Thinking)  ](./code/713C.txt)|2021/11/10|
  |  615D |[Multipliers (2000) (Combination + Math)  ](./code/615D.txt)|2021/11/10|
  |  1268C |[K Integers (2300) (Thinking)  ](./code/1268C.txt)|2021/11/11|
+ |  476E |[Dreamoon and Strings (2200) (Thinking + DP)  ](./code/476E.txt)|2021/11/12|
  
 # 分类
 
@@ -700,6 +701,7 @@ My Codeforce Practice<br/>
 1140E.[Palindrome-less Arrays (2200) (DP + Combination + Observation)  ](./code/1140E.txt)<br/>
 1582E.[Pchelyonok and Segments(2000) ( DP )  ](./code/1582E.txt)<br/>
 762D.[Maximum path (2300) ( DP + State Representation )  ](./code/762D.txt)<br/>
+476E.[Dreamoon and Strings (2200) (Thinking + DP)  ](./code/476E.txt)<br/>
 
 
 ### LCS Similar
