@@ -1,0 +1,234 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution();
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = 10000000;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+
+    public void solution() {
+        int n = fs.Int();
+        int A[]=new int[n];
+        int pos[]=new int[n + 1];
+        long small[]=new long[n];
+        FenWick fen = new FenWick(n + 1);
+
+        for(int i = 0; i < n; i++){
+            A[i]=fs.Int();
+            pos[A[i]]=i;
+            fen.update(A[i],1);
+        }
+
+        for(int i = 0; i < A.length;i++){
+            long sum = fen.sumRange(0,A[i]-1);
+            small[i]=sum;
+            fen.update(A[i],-1);
+        }
+
+        FenWick fen1 = new FenWick(n);
+        FenWick fen2 = new FenWick(n);
+        MedianFinder finder = new MedianFinder();
+        long inverse = 0;
+        for(int i = 1; i <= n;i++){
+            fen1.update(pos[i],pos[i]);
+            fen2.update(pos[i],1);
+
+            finder.addNum(pos[i]);
+            int meIndex = finder.findMedian();
+
+
+
+            inverse += small[pos[i]];
+            long res = inverse;
+            long cnt1 = (fen2.sumRange(0,meIndex));
+            long x = (cnt1-1) * cnt1/2;
+            long cnt2 = (i) - cnt1;
+            long y = (1+cnt2)*cnt2/2;
+
+            long sum1 = fen1.sumRange(0,meIndex-1);
+            res += ((meIndex+0l) * (cnt1 - 1) - sum1 - x);
+
+
+            long sum2 = fen1.sumRange(meIndex+1,n - 1);
+            res += (sum2 - (meIndex+0l) * cnt2 - y);
+            
+
+            out.print(res+" ");
+
+        }
+    }
+
+
+
+
+    class FenWick {
+        long tree[];//1-index based
+        public FenWick(int n) {
+            tree=new long[n+1];
+            int sum=0;
+        }
+
+        public void update(int i, int val) {
+            i++;
+            while(i<tree.length){
+                tree[i]+=val;
+                i+=(i&-i);
+            }
+        }
+
+        public long sumRange(int i, int j) {
+            if(i>j)return 0;
+            return pre(j+1)-pre(i);
+        }
+
+        public long pre(int i){
+            long sum=0;
+            while(i>0){
+                sum+=tree[i];
+                i-=(i&-i);
+            }
+            return sum;
+        }
+    }
+
+    class MedianFinder {
+        PriorityQueue<Integer>minheap = new PriorityQueue<>();
+        PriorityQueue<Integer>maxheap = new PriorityQueue<>((a, b) ->{
+            return b - a;
+        });
+
+        public MedianFinder() {
+
+        }
+
+        public void addNum(int num) {
+            if(maxheap.size() == 0){//first time
+                maxheap.add(num);
+            }
+            else{
+                int leftmax = maxheap.peek();
+                if(num <= leftmax){
+                    maxheap.add(num);
+                }
+                else{
+                    minheap.add(num);
+                }
+            }
+
+            while(Math.abs(minheap.size() - maxheap.size()) > 1){
+                if(maxheap.size() > minheap.size()){
+                    minheap.add(maxheap.poll());
+                }
+                else{
+                    maxheap.add(minheap.poll());
+                }
+            }
+        }
+
+        public int findMedian() {
+            if(minheap.size() == maxheap.size()){
+                int left = maxheap.peek();
+                return left;
+            }
+            else{
+                if(maxheap.size() > minheap.size()){
+                    return maxheap.peek();
+                }
+                else{
+                    return minheap.peek();
+                }
+            }
+        }
+    }
+
+}
