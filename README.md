@@ -646,6 +646,7 @@ My Codeforce Practice<br/>
  |  615D |[Multipliers (2000) (Combination + Math)  ](./code/615D.txt)|2021/11/10|
  |  1268C |[K Integers (2300) (Thinking)  ](./code/1268C.txt)|2021/11/11|
  |  476E |[Dreamoon and Strings (2200) (Thinking + DP)  ](./code/476E.txt)|2021/11/12|
+ |  274D |[Lovely Matrix (2200) (Graph Model + Topo)  ](./code/274D.txt)|2021/11/12|
  
 # 分类
 
@@ -1093,6 +1094,10 @@ My Codeforce Practice<br/>
 196B.[ Infinite Maze (2000) (Graph + Thinking + Matrix)  ](./code/196B.txt)<br/>
 1005F.[Berland and the Shortest Paths (2100) ( Graph + BFS )  ](./code/1005F.txt)<br/>
 
+### Graph Model :
+274D.[Lovely Matrix (2200) (Graph Model + Topo)  ](./code/274D.txt)<br/>
+
+
 ### Graph With String
  886D.[ Restoration of string(2000) ( Graph + Construtive + String )  ](./code/886D.txt)<br/>
  
@@ -1153,6 +1158,9 @@ My Codeforce Practice<br/>
 ### 2-Sat
 776D. [The Door Problem (2000) (2 Sat) ](https://github.com/JunBinLiang/Leetcode-Complete-Guide/blob/master/code/776D.txt)    <br/>
 1475F. [Unusual Matrix (1900) (2 Sat) ](./code/1475F.txt)    <br/>
+
+### Topo : 
+274D.[Lovely Matrix (2200) (Graph Model + Topo)  ](./code/274D.txt)<br/>
 
 ### UF
 292D.[Connected Components (1900) (UF + Graph + Thinking)  ](./code/292D.txt)<br/>
