@@ -647,6 +647,7 @@ My Codeforce Practice<br/>
  |  1268C |[K Integers (2300) (Thinking)  ](./code/1268C.txt)|2021/11/11|
  |  476E |[Dreamoon and Strings (2200) (Thinking + DP)  ](./code/476E.txt)|2021/11/12|
  |  274D |[Lovely Matrix (2200) (Graph Model + Topo)  ](./code/274D.txt)|2021/11/12|
+ |  743E |[Vladik and cards (2200) (Bitmask DP + Binary Search)  ](./code/743E.txt)|2021/11/12|
  
 # 分类
 
