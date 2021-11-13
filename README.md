@@ -648,6 +648,7 @@ My Codeforce Practice<br/>
  |  476E |[Dreamoon and Strings (2200) (Thinking + DP)  ](./code/476E.txt)|2021/11/12|
  |  274D |[Lovely Matrix (2200) (Graph Model + Topo)  ](./code/274D.txt)|2021/11/12|
  |  743E |[Vladik and cards (2200) (Bitmask DP + Binary Search)  ](./code/743E.txt)|2021/11/12|
+ |  1349B |[Orac and Medians (2000) (Constructive + Thinking + Observation)  ](./code/1349B.txt)|2021/11/13|
  
 # 分类
 
@@ -880,6 +881,7 @@ My Codeforce Practice<br/>
  1558C.[Bottom-Tier Reversals	 (2000) ( Constructive )  ](./code/1558C.txt)<br/>
  1582D.[Vupsen, Pupsen and 0 (1600) ( Constructive )  ](./code/1582D.txt)<br/>
  490E.[Restoring Increasing Sequence (2000) ( Constructive + Greedy)  ](./code/490E.txt)<br/>
+ 1349B.[Orac and Medians (2000) (Constructive + Thinking + Observation)  ](./code/1349B.txt)<br/>
  
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
