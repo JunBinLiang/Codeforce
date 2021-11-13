@@ -1,0 +1,148 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    long val = 0;
+    public void solution(int t) {
+        int n =fs.Int();
+        int k =fs.Int();
+        int A[]=new int[n];
+        for(int i = 0; i < A.length;i++){
+            A[i]=fs.Int();
+        }
+
+        if(n==1){
+            if(A[0]==k){
+                out.println("YES");
+                return;
+            }
+        }
+
+
+        boolean a = false;
+        boolean b = false;
+        int last = -1;
+        for(int i = 0; i < A.length;i++){
+            if(A[i]==k){
+                a = true;
+            }
+            if(A[i]>=k){
+                if(i-1>=0&&A[i]<=A[i-1]){
+                    b = true;
+                }
+                if(i+1<n&&A[i]<=A[i+1]){
+                    b=true;
+                }
+
+                if(last!=-1){
+                    if(i-last<=2){
+                        b=true;
+                    }
+                }
+                last = i;
+            }
+        }
+
+        if(a&b){
+            out.println("YES");
+            return;
+        }
+
+        out.println("NO");
+    }
+
+}
+
