@@ -650,6 +650,7 @@ My Codeforce Practice<br/>
  |  743E |[Vladik and cards (2200) (Bitmask DP + Binary Search)  ](./code/743E.txt)|2021/11/12|
  |  1349B |[Orac and Medians (2000) (Constructive + Thinking + Observation)  ](./code/1349B.txt)|2021/11/13|
  |  1187C |[Vasya And Array(1800) (Constructive + Line Sweep)  ](./code/1187C.txt)|2021/11/14|
+ |  238B |[Boring Partition (1800) (Constructive + Greedy)  ](./code/238B.txt)|2021/11/14|
  
 # 分类
 
@@ -884,6 +885,7 @@ My Codeforce Practice<br/>
  490E.[Restoring Increasing Sequence (2000) ( Constructive + Greedy)  ](./code/490E.txt)<br/>
  1349B.[Orac and Medians (2000) (Constructive + Thinking + Observation)  ](./code/1349B.txt)<br/>
  1187C.[Vasya And Array(1800) (Constructive + Line Sweep)  ](./code/1187C.txt)<br/>
+ 238B.[Boring Partition (1800) (Constructive + Greedy)  ](./code/238B.txt)<br/>
  
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
