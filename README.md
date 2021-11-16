@@ -653,6 +653,7 @@ My Codeforce Practice<br/>
  |  238B |[Boring Partition (1800) (Constructive + Greedy)  ](./code/238B.txt)|2021/11/14|
  |  1136E |[Nastya Hasn't Written a Legend (2200) (Segment SetTo + Math)  ](./code/1136E.txt)|2021/11/15|
  |  533E |[Correcting Mistakes (1800) (Observation)  ](./code/533E.txt)|2021/11/15|
+ |  1257F |[Make Them Similar(2400) (Meet In Middle + Hash)  ](./code/1257F.txt)|2021/11/16|
  
 # 分类
 
@@ -902,6 +903,9 @@ My Codeforce Practice<br/>
 1244C.[The Football Season (2000) (Math + Brute Force)  ](./code/1244C.txt)<br/>
 903E.[Swapping Characters (2200) (Brute Force + Observation)  ](./code/903E.txt)<br/>
 1311D.[ Three Integers (2000) ( Brute Force + 打表 )  ](./code/1311D.txt)<br/>
+
+### Meet In Middle
+1257F.[Make Them Similar(2400) (Meet In Middle + Hash)  ](./code/1257F.txt)<br/>
 
 ### Time Complexity
 1183F.[ Topforces Strikes Back (hard version) (2100) ( Brute Force + Time + Math ) ](./code/1183F.txt)<br/>
