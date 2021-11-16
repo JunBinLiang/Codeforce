@@ -654,6 +654,7 @@ My Codeforce Practice<br/>
  |  1136E |[Nastya Hasn't Written a Legend (2200) (Segment SetTo + Math)  ](./code/1136E.txt)|2021/11/15|
  |  533E |[Correcting Mistakes (1800) (Observation)  ](./code/533E.txt)|2021/11/15|
  |  1257F |[Make Them Similar(2400) (Meet In Middle + Hash)  ](./code/1257F.txt)|2021/11/16|
+ |  946E |[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)|2021/11/16|
  
 # 分类
 
@@ -889,6 +890,9 @@ My Codeforce Practice<br/>
  1349B.[Orac and Medians (2000) (Constructive + Thinking + Observation)  ](./code/1349B.txt)<br/>
  1187C.[Vasya And Array(1800) (Constructive + Line Sweep)  ](./code/1187C.txt)<br/>
  238B.[Boring Partition (1800) (Constructive + Greedy)  ](./code/238B.txt)<br/>
+ 
+ ### Constructive : String less than with prefix
+ 946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
  
 ### Brute Force
 1185F. [Two Pizzas (2100) (Brute Force + Bit )  ](./code/1185F.txt) <br/> 
