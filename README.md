@@ -652,6 +652,7 @@ My Codeforce Practice<br/>
  |  1187C |[Vasya And Array(1800) (Constructive + Line Sweep)  ](./code/1187C.txt)|2021/11/14|
  |  238B |[Boring Partition (1800) (Constructive + Greedy)  ](./code/238B.txt)|2021/11/14|
  |  1136E |[Nastya Hasn't Written a Legend (2200) (Segment SetTo + Math)  ](./code/1136E.txt)|2021/11/15|
+ |  533E |[Correcting Mistakes (1800) (Observation)  ](./code/533E.txt)|2021/11/15|
  
 # 分类
 
