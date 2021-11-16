@@ -655,6 +655,7 @@ My Codeforce Practice<br/>
  |  533E |[Correcting Mistakes (1800) (Observation)  ](./code/533E.txt)|2021/11/15|
  |  1257F |[Make Them Similar(2400) (Meet In Middle + Hash)  ](./code/1257F.txt)|2021/11/16|
  |  946E |[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)|2021/11/16|
+ |  255D |[Mr. Bender and Square (1800) (Binary Search + Math)  ](./code/255D.txt)|2021/11/16|
  
 # 分类
 
@@ -1014,6 +1015,7 @@ My Codeforce Practice<br/>
 32C. [ Flea (1700) ( Math ) ](./code/32C.txt)<br/>
 1151C.[Problem for Nazar (1800) (Math) ](./code/1151C.txt)<br/>
 597A.[Divisibility (1600) (Math)  ](./code/597A.txt)<br/>
+255D.[Mr. Bender and Square (1800) (Binary Search + Math)  ](./code/255D.txt)<br/>
 
 ### Math : Equation
 933B.[A Determined Cleanup (2000) (Math + Constructive) (Thumb)  ](./code/933B.txt)<br/>
