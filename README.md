@@ -651,6 +651,7 @@ My Codeforce Practice<br/>
  |  1349B |[Orac and Medians (2000) (Constructive + Thinking + Observation)  ](./code/1349B.txt)|2021/11/13|
  |  1187C |[Vasya And Array(1800) (Constructive + Line Sweep)  ](./code/1187C.txt)|2021/11/14|
  |  238B |[Boring Partition (1800) (Constructive + Greedy)  ](./code/238B.txt)|2021/11/14|
+ |  1136E |[Nastya Hasn't Written a Legend (2200) (Segment SetTo + Math)  ](./code/1136E.txt)|2021/11/15|
  
 # 分类
 
@@ -1263,6 +1264,7 @@ My Codeforce Practice<br/>
 ### Segment Tree Set Range 
 1439C.[ Greedy Shopping (2600) (Segment Tree Range Update + Segment Tree Binay Search) ](./code/1439C.txt)<br/>
 558E.[ A Simple Task	 (2300) (Segment Tree Range Update)  ](./code/558E.txt)<br/>
+1136E.[Nastya Hasn't Written a Legend (2200) (Segment SetTo + Math)  ](./code/1136E.txt)<br/>
 
 ### Segment Tree  Range Update 
 52C. [Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   <br/>
