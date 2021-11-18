@@ -659,6 +659,7 @@ My Codeforce Practice<br/>
  |  1237D |[Balanced Playlist (2000) (MonoQueue)  ](./code/1237D.txt)|2021/11/17|
  |  1245F |[Daniel and Spring Cleaning (2300) (数位DP + 二维容斥)  ](./code/1245F.txt)|2021/11/17|
  |  1000F |[One Occurrence (2400) (莫队，主席树)  ](./code/1000F.txt)|2021/11/18|
+ |  67A |[Partial Teacher (1800) (Direct Graph + DP)  ](./code/67A.txt)|2021/11/18|
  
 # 分类
 
@@ -1118,6 +1119,7 @@ My Codeforce Practice<br/>
 999E.[Reachability from the Capital	 (2000) (Graph)  ](./code/999E.txt)<br/>
 196B.[ Infinite Maze (2000) (Graph + Thinking + Matrix)  ](./code/196B.txt)<br/>
 1005F.[Berland and the Shortest Paths (2100) ( Graph + BFS )  ](./code/1005F.txt)<br/>
+67A.[Partial Teacher (1800) (Direct Graph + DP)  ](./code/67A.txt)<br/>
 
 ### Graph Model :
 274D.[Lovely Matrix (2200) (Graph Model + Topo)  ](./code/274D.txt)<br/>
