@@ -658,6 +658,7 @@ My Codeforce Practice<br/>
  |  255D |[Mr. Bender and Square (1800) (Binary Search + Math)  ](./code/255D.txt)|2021/11/16|
  |  1237D |[Balanced Playlist (2000) (MonoQueue)  ](./code/1237D.txt)|2021/11/17|
  |  1245F |[Daniel and Spring Cleaning (2300) (数位DP + 二维容斥)  ](./code/1245F.txt)|2021/11/17|
+ |  1000F |[One Occurrence (2400) (莫队，主席树)  ](./code/1000F.txt)|2021/11/18|
  
 # 分类
 
@@ -1289,6 +1290,7 @@ My Codeforce Practice<br/>
 ### Persistant Segment Tree
 484E.[  Sign on Fence	 (2500) (Persistant Segment Tree + Segment Tree Merge Interval + Binary Search)  ](./code/484E.txt) <br/>
 813E.[ Army Creation (2200) (Thinking + Persistant Tree)  ](./code/813E.txt)<br/>
+1000F.[One Occurrence (2400) (莫队，主席树)  ](./code/1000F.txt)<br/>
 
 ### Binary Search
 1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
