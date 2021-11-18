@@ -233,7 +233,42 @@ class Solution {
 
 }
 
-//6
-//1 1 2 3 2 4
-//1
-//12
+
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int B=700;
+stack<int>d;
+struct query{
+	int l,r,p;
+	int operator<(query u)const{return l/B==u.l/B?(l/B&1)?r>u.r:r<u.r:l<u.l;}
+}q[500001];
+int a[500001],s[500001],n,m,i,l,r,ans[500001];
+void ins(int x,int y){
+	s[x]+=y;
+	if(s[x]==1)d.push(x);
+}
+int main(){
+	scanf("%d",&n);
+	for(i=1;i<=n;i++)scanf("%d",&a[i]);
+	scanf("%d",&m);
+	for(i=1;i<=m;i++)scanf("%d%d",&q[i].l,&q[i].r),q[i].p=i;
+	sort(q+1,q+m+1);
+	l=1;r=0;
+	for(i=1;i<=m;i++){
+		for(;l<q[i].l;l++)ins(a[l],-1);
+		for(;l>q[i].l;l--)ins(a[l-1],1);
+		for(;r<q[i].r;r++)ins(a[r+1],1);
+		for(;r>q[i].r;r--)ins(a[r],-1);
+		while(!d.empty()&&s[d.top()]!=1)d.pop();
+		if(!d.empty())ans[q[i].p]=d.top();else ans[q[i].p]=0;
+	}
+	for(i=1;i<=m;i++)printf("%d\n",ans[i]);
+}
+
