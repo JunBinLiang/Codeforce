@@ -1,0 +1,47 @@
+class Solution {
+    int res = 0;
+    int A[];
+    public int largestRectangleArea(int[] A) {
+        this.A = A;
+        int n = A.length;
+        int l[] = new int[n];
+        int r[] = new int[n];
+        Arrays.fill(l, -1);
+        Arrays.fill(r, -1);
+        
+        //build tree
+        Stack<Integer> sta = new Stack<>();
+        for(int i = 0; i < A.length; i++) {
+            int top = -1;
+            while(sta.size() > 0 && A[sta.peek()] > A[i]) {
+                top = sta.pop();
+            }
+            
+            if(sta.size() > 0){
+                r[sta.peek()] = i;
+            }
+            if(top != -1){
+                l[i] = top;
+            }
+            sta.push(i);
+        }
+        
+        
+        while(sta.size() > 1){
+            sta.pop();
+        }
+        dfs(l, r, sta.peek());
+        return res;
+    }
+    
+    public int dfs(int l[], int r[],int root){
+        if(root == -1){
+            return 0;
+        }
+        int left = dfs(l, r, l[root]);
+        int right = dfs(l, r, r[root]);
+        int cnt = 1 + left + right;
+        res = Math.max(res, A[root] * cnt);
+        return cnt;
+    }
+}
