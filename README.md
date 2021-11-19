@@ -663,6 +663,7 @@ My Codeforce Practice<br/>
  |  1000F |[One Occurrence (2400) (莫队，主席树)  ](./code/1000F.txt)|2021/11/18|
  |  67A |[Partial Teacher (1800) (Direct Graph + DP)  ](./code/67A.txt)|2021/11/18|
  |  1556E |[Equilibrium(2200) (Thinking + Bracket + Segment Tree)  ](./code/1556E.txt)|2021/11/18|
+ |  1220F |[Gardener Alex (2700) (Cartesian Tree + Binary Search + Segment Tree + Tree)  ](./code/1220F.txt)|2021/11/19|
  
 # 分类
 
@@ -1269,6 +1270,9 @@ My Codeforce Practice<br/>
 519E.[A and B and Lecture Rooms (2100) (Tree + LCA)  ](./code/519E.txt)<br/>
 597C.[Duff in the Army (2200) (LCA)  ](./code/597C.txt)<br/>
 1304E.[1-Trees and Queries (2000) ( LCA )  ](./code/1304E.txt)<br/>
+
+### Cartesian Tree
+1220F.[Gardener Alex (2700) (Cartesian Tree + Binary Search + Segment Tree + Tree)  ](./code/1220F.txt)<br/>
 
 ### Segment Tree
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
