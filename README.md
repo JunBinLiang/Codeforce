@@ -664,6 +664,7 @@ My Codeforce Practice<br/>
  |  67A |[Partial Teacher (1800) (Direct Graph + DP)  ](./code/67A.txt)|2021/11/18|
  |  1556E |[Equilibrium(2200) (Thinking + Bracket + Segment Tree)  ](./code/1556E.txt)|2021/11/18|
  |  1220F |[Gardener Alex (2700) (Cartesian Tree + Binary Search + Segment Tree + Tree)  ](./code/1220F.txt)|2021/11/19|
+ |  864E |[Fire (2000) (DP)  ](./code/864E.txt)|2021/11/19|
  
 # 分类
 
@@ -720,6 +721,7 @@ My Codeforce Practice<br/>
 1582E.[Pchelyonok and Segments(2000) ( DP )  ](./code/1582E.txt)<br/>
 762D.[Maximum path (2300) ( DP + State Representation )  ](./code/762D.txt)<br/>
 476E.[Dreamoon and Strings (2200) (Thinking + DP)  ](./code/476E.txt)<br/>
+864E.[Fire (2000) (DP)  ](./code/864E.txt)<br/>
 
 
 ### LCS Similar
