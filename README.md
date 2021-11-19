@@ -3,7 +3,7 @@
 My Codeforce Practice<br/>
 
 # 奇怪的知识
-1. https://a2oj.com/Categories.html
+1. [笛卡尔树](https://blog.csdn.net/a_forever_dream/article/details/106802644?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link）
 
 
 
