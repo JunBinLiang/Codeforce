@@ -660,6 +660,7 @@ My Codeforce Practice<br/>
  |  1245F |[Daniel and Spring Cleaning (2300) (数位DP + 二维容斥)  ](./code/1245F.txt)|2021/11/17|
  |  1000F |[One Occurrence (2400) (莫队，主席树)  ](./code/1000F.txt)|2021/11/18|
  |  67A |[Partial Teacher (1800) (Direct Graph + DP)  ](./code/67A.txt)|2021/11/18|
+ |  1556E |[Equilibrium(2200) (Thinking + Bracket + Segment Tree)  ](./code/1556E.txt)|2021/11/18|
  
 # 分类
 
