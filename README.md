@@ -2,6 +2,7 @@
 
 My Codeforce Practice<br/>
 
+# 奇怪的知识
 1. https://a2oj.com/Categories.html
 
 
