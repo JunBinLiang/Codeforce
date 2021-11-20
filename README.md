@@ -668,6 +668,7 @@ My Codeforce Practice<br/>
  |  1220F |[Gardener Alex (2700) (Cartesian Tree + Binary Search + Segment Tree + Tree)  ](./code/1220F.txt)|2021/11/19|
  |  864E |[Fire (2000) (DP)  ](./code/864E.txt)|2021/11/19|
  |  1101G |[(Zero XOR Subset)-less (2300) (线性基)  ](./code/1101G.txt)|2021/11/20|
+ |  845G |[Shortest Path Problem? (2300) (线性基 + Graph + Thinking)  ](./code/845G.txt)|2021/11/20|
  
 # 分类
 
@@ -1062,6 +1063,7 @@ My Codeforce Practice<br/>
 
 ### 线性基
 1101G.[(Zero XOR Subset)-less (2300) (线性基)  ](./code/1101G.txt)<br/>
+845G.[Shortest Path Problem? (2300) (线性基 + Graph + Thinking + Constructive)  ](./code/845G.txt)<br/>
 
 ### Optimize 打表
 222C.[ Reducing Fractions (1800) (超级打表) （Thump）](./code/222C.txt)<br/>
