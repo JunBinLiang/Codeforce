@@ -669,6 +669,7 @@ My Codeforce Practice<br/>
  |  864E |[Fire (2000) (DP)  ](./code/864E.txt)|2021/11/19|
  |  1101G |[(Zero XOR Subset)-less (2300) (线性基)  ](./code/1101G.txt)|2021/11/20|
  |  845G |[Shortest Path Problem? (2300) (线性基 + Graph + Thinking)  ](./code/845G.txt)|2021/11/20|
+ |  1165F2 |[Microtransactions (hard version) (2000) (BinarySearch + Thinking)  ](./code/1165F2.txt)|2021/11/20|
  
 # 分类
 
