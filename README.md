@@ -670,6 +670,7 @@ My Codeforce Practice<br/>
  |  1101G |[(Zero XOR Subset)-less (2300) (线性基)  ](./code/1101G.txt)|2021/11/20|
  |  845G |[Shortest Path Problem? (2300) (线性基 + Graph + Thinking)  ](./code/845G.txt)|2021/11/20|
  |  1165F2 |[Microtransactions (hard version) (2000) (BinarySearch + Thinking)  ](./code/1165F2.txt)|2021/11/20|
+ |  1295E |[Permutation Separation (2200) (Segment Tree pushDown + Thinking)  ](./code/1295E.txt)|2021/11/21|
  
 # 分类
 
@@ -1294,6 +1295,7 @@ My Codeforce Practice<br/>
 877E.[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)<br/>
 833B.[ The Bakery (2200) (DP + Seg push down)  ](./code/833B.txt)<br/>
 446C.[DZY Loves Fibonacci Numbers (2400) (Segment Tree push down + Fib Number Property)  ](./code/446C.txt)<br/>
+1295E.[Permutation Separation (2200) (Segment Tree pushDown + Thinking)  ](./code/1295E.txt)<br/>
 
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
