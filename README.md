@@ -671,6 +671,7 @@ My Codeforce Practice<br/>
  |  845G |[Shortest Path Problem? (2300) (线性基 + Graph + Thinking)  ](./code/845G.txt)|2021/11/20|
  |  1165F2 |[Microtransactions (hard version) (2000) (BinarySearch + Thinking)  ](./code/1165F2.txt)|2021/11/20|
  |  1295E |[Permutation Separation (2200) (Segment Tree pushDown + Thinking)  ](./code/1295E.txt)|2021/11/21|
+ |  336D |[Vasily the Bear and Beautiful Strings (2100) (Combiniation + Thinking)  ](./code/336D.txt)|2021/11/21|
  
 # 分类
 
@@ -1094,6 +1095,7 @@ My Codeforce Practice<br/>
 900D.[Unusual Sequences (2000) (Combination + Math)  ](./code/900D.txt)<br/>
 1557C.[Moamen and XOR	 (1700) (Combination)  ](./code/1557C.txt)<br/>
 486D.[Valid Sets (2100) (Tree + Combination)  ](./code/486D.txt)<br/>
+336D.[Vasily the Bear and Beautiful Strings (2100) (Combiniation + Observation)  ](./code/336D.txt)<br/>
 
 ### Geometric Progression
 327C.[Magic Five (1700) (Geometric Progression)  ](./code/327C.txt)<br/>
