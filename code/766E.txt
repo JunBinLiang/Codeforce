@@ -1,0 +1,205 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+    List<Integer>graph[];
+    int A[];
+    int cnt[][][];
+    long res = 0;
+    public void solution(int testcase) {
+        int n =fs.Int();
+        A=new int[n];
+        graph=new ArrayList[n];
+        cnt=new int[n][32][2];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i = 0; i < n;i++){
+            A[i]=fs.Int();
+        }
+
+        for(int i = 0; i < n-1;i++){
+            int u =fs.Int()-1;
+            int v = fs.Int()-1;
+            graph[u].add(v);graph[v].add(u);
+        }
+
+
+        dfs1(-1,0,A[0]);
+        dfs2(-1,0);
+
+        out.println(res/2);
+    }
+
+    public void dfs1(int pa,int root,int xor){
+        res+=A[root];
+        for(int next:graph[root]){
+            if(pa==next)continue;
+            dfs1(root,next,xor^A[next]);
+            for(int i = 0;i<31;i++){
+                if((A[root]&(1<<i))!=0){//1
+                    cnt[root][i][0]+=cnt[next][i][1];
+                    cnt[root][i][1]+=cnt[next][i][0];
+                }
+                else{//0
+                    cnt[root][i][0]+=cnt[next][i][0];
+                    cnt[root][i][1]+=cnt[next][i][1];
+                }
+            }
+        }
+
+        for(int i = 0;i<31;i++){
+            if((A[root]&(1<<i))!=0){
+                cnt[root][i][1]++;
+            }
+            else{
+                cnt[root][i][0]++;
+            }
+        }
+
+    }
+
+    public void dfs2(int pa,int root){
+        if(pa!=-1){
+            int cur = A[root];
+            int pre = A[pa];
+
+            int sub[][]=new int[32][2];
+            for(int i = 0; i < 31; i++){
+                if((pre&(1<<i))!=0){//1
+                    sub[i][0]+=cnt[root][i][1];
+                    sub[i][1]+=cnt[root][i][0];
+                }
+                else{//0
+                    sub[i][0]+=cnt[root][i][0];
+                    sub[i][1]+=cnt[root][i][1];
+                }
+            }
+
+            int B[][]=new int[32][2];
+            for(int i = 0;i<B.length;i++){
+                B[i][0]=cnt[pa][i][0];
+                B[i][1]=cnt[pa][i][1];
+            }
+
+            for(int i = 0; i < 31;i++){
+                B[i][0]-=sub[i][0];
+                B[i][1]-=sub[i][1];
+            }
+
+
+            for(int i = 0; i < 31; i++){
+                if((cur&(1<<i))!=0){//1
+                    cnt[root][i][0]+=B[i][1];
+                    cnt[root][i][1]+=B[i][0];
+                }
+                else{//0
+                    cnt[root][i][0]+=B[i][0];
+                    cnt[root][i][1]+=B[i][1];
+                }
+            }
+
+        }
+
+        for(int i = 0; i < 31;i++){
+            res += (1l<<i) * cnt[root][i][1];
+        }
+
+        for(int next:graph[root]){
+            if(pa==next)continue;
+            dfs2(root,next);
+        }
+    }
+
+
+}
