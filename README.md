@@ -1171,6 +1171,8 @@ My Codeforce Practice<br/>
 ### Online Bipartite Check
 813F.[ Bipartite Checking (2500) (Dynamic Connectivity + Online Bipartile checking)  ](./code/813F.txt)<br/>
 
+### Euler Path 
+
 ### Shortest Path
 416E. [President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   <br/>
 1486E. [ Paired Payment (2200) （Graph + SPFA） ](./code/1486E.txt)   <br/>
