@@ -672,6 +672,7 @@ My Codeforce Practice<br/>
  |  1165F2 |[Microtransactions (hard version) (2000) (BinarySearch + Thinking)  ](./code/1165F2.txt)|2021/11/20|
  |  1295E |[Permutation Separation (2200) (Segment Tree pushDown + Thinking)  ](./code/1295E.txt)|2021/11/21|
  |  336D |[Vasily the Bear and Beautiful Strings (2100) (Combiniation + Thinking)  ](./code/336D.txt)|2021/11/21|
+ |  788B |[Weird journey (2100) (Euler Path + Thinking)  ](./code/788B.txt)|2021/11/21|
  
 # 分类
 
@@ -1172,6 +1173,7 @@ My Codeforce Practice<br/>
 813F.[ Bipartite Checking (2500) (Dynamic Connectivity + Online Bipartile checking)  ](./code/813F.txt)<br/>
 
 ### Euler Path 
+788B.[Weird journey (2100) (Euler Path + Thinking)  ](./code/788B.txt)<br/>
 
 ### Shortest Path
 416E. [President's Path(2500) （Shortest Path + DP） ](./code/416E.txt)   <br/>
