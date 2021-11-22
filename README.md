@@ -673,6 +673,7 @@ My Codeforce Practice<br/>
  |  1295E |[Permutation Separation (2200) (Segment Tree pushDown + Thinking)  ](./code/1295E.txt)|2021/11/21|
  |  336D |[Vasily the Bear and Beautiful Strings (2100) (Combiniation + Thinking)  ](./code/336D.txt)|2021/11/21|
  |  788B |[Weird journey (2100) (Euler Path + Thinking)  ](./code/788B.txt)|2021/11/21|
+ |  766E |[Mahmoud and a xor trip (2100) (Tree DP)  ](./code/766E.txt)|2021/11/22|
  
 # 分类
 
@@ -787,6 +788,7 @@ My Codeforce Practice<br/>
 633F.[ The Chocolate Spree(2600) (Tree DP)  ](./code/633F.txt)<br/>
 274B.[Zero Tree (1800) (Tree DP )  ](./code/274B.txt)<br/>
 543D.[Road Improvement	 (2300) ( Tree DP + Left/Right DP )  ](./code/543D.txt)<br/>
+766E.[Mahmoud and a xor trip (2100) (Tree DP)  ](./code/766E.txt)<br/>
 
 ### Digit DP
 55D.[Beautiful numbers (2500) (Digit DP)  ](./code/55D.txt)<br/>
