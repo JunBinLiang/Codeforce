@@ -674,6 +674,7 @@ My Codeforce Practice<br/>
  |  336D |[Vasily the Bear and Beautiful Strings (2100) (Combiniation + Thinking)  ](./code/336D.txt)|2021/11/21|
  |  788B |[Weird journey (2100) (Euler Path + Thinking)  ](./code/788B.txt)|2021/11/21|
  |  766E |[Mahmoud and a xor trip (2100) (Tree DP)  ](./code/766E.txt)|2021/11/22|
+ |  852E |[Casinos and travel(2100) (Thinking)  ](./code/852E.txt)|2021/11/23|
  
 # 分类
 
