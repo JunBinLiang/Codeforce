@@ -1,0 +1,227 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+    Map<String,Integer>f=new HashMap<>();
+    public void solution(int testcase) {
+        int n =fs.Int();
+        int m =fs.Int();
+        char A[][]=new char[n][m];
+        for(int i = 0; i < n;i++){
+            A[i]=fs.Str().toCharArray();
+        }
+
+        int len = n + m - 2 - 1;
+        int last[][]=new int[n][n];
+        if(A[n-1][m-1]==A[0][0])last[0][n - 1]=1;
+
+
+
+        int move = (len + 1) / 2;
+        for(int i = 1; i <= move; i++){
+            int dp[][]=new int[n][n];
+            for(int r1 = 0; r1 < n; r1++){
+                for(int r2 = 0; r2 < n; r2++){
+                    int c1 = i - r1;
+                    int c2 = m - 1 - (i - (n - 1 - r2));
+                    if(c1 < 0 || c1 >= A[0].length || c2 < 0 || c2 >= A[0].length){
+                        continue;
+                    }
+
+
+                    //1 2 => 0 2
+                    if(A[r1][c1]==A[r2][c2]){
+                        if(r1-1>=0){//move r1
+                            if(r2+1<n){
+                                dp[r1][r2]+=last[r1-1][r2+1];
+                                dp[r1][r2]%=mod;
+                            }
+                            if(c2+1<m){
+                                dp[r1][r2]+=last[r1 - 1][r2];
+                                dp[r1][r2]%=mod;
+                            }
+                        }
+                        if(c1 - 1 >= 0){//move c1
+
+                            if(r2+1<n){
+                                dp[r1][r2]+=last[r1][r2+1];
+                                dp[r1][r2]%=mod;
+                            }
+                            if(c2+1<m){
+                                dp[r1][r2]+=last[r1][r2];
+                                dp[r1][r2]%=mod;
+                            }
+                        }
+                    }
+                }
+            }
+            last = dp;
+        }
+
+
+
+
+        int res = 0;
+        for(int r1 = 0; r1 < n;r1++){
+            for(int r2 = 0; r2 < n;r2++){
+                int c1 = move - r1;
+                int c2 = m - 1 - (move - (n - 1 - r2));
+                if(c1 < 0 || c1 >= A[0].length || c2 < 0 || c2 >= A[0].length){
+                    continue;
+                }
+                if(Math.abs(r1-r2)+Math.abs(c1-c2)<=1 || (r1==r2&&c1==c2)){
+                    res += last[r1][r2];
+                    res%=mod;
+                }
+            }
+        }
+
+
+        out.println(res);
+    }
+
+
+
+    public int dfs(char A[][],int r1,int r2,int c1){
+        int move = r1 + c1;
+        move -= (A.length - 1 - r2);
+        int c2 = A[0].length - move - 1;
+        String state = r1 +","+r2+","+c1;
+        //System.out.println((r1 + c1)+"    "+r1+" "+c1 +"   "+r2+" "+c2);
+
+        if(r1 <0 || r1 >= A.length || r2 < 0 || r2 >= A.length){
+            return 0;
+        }
+
+        if(c1 < 0 || c1 >= A[0].length || c2 < 0 || c2 >= A[0].length){
+            return 0;
+        }
+
+
+        if(A[r1][c1] != A[r2][c2]){
+            return 0;
+        }
+
+        move = r1 + c1;
+        if(r1 == r2 && c1 == c2){
+            return 1;
+        }
+
+        if(move * 2 == A.length + A[0].length - 2 - 1){
+            if(Math.abs(r1-r2)+Math.abs(c1-c2)<=1){
+                return 1;
+            }
+            return 0;
+        }
+
+        if(f.containsKey(state)){
+            return f.get(state);
+        }
+
+
+        int res = 0;
+        res += dfs(A,r1 + 1,r2,c1);
+        res %= mod;
+        res += dfs(A,r1,r2,c1 + 1);
+        res %= mod;
+        res += dfs(A,r1 + 1,r2 - 1,c1);
+        res %= mod;
+        res += dfs(A,r1,r2 - 1,c1 + 1);
+        res %= mod;
+        f.put(state,res);
+        return res;
+    }
+
+}
