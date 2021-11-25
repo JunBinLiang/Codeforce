@@ -676,6 +676,7 @@ My Codeforce Practice<br/>
  |  766E |[Mahmoud and a xor trip (2100) (Tree DP)  ](./code/766E.txt)|2021/11/22|
  |  852E |[Casinos and travel(2100) (Thinking)  ](./code/852E.txt)|2021/11/23|
  |  1120C |[Compress String (2100) (DP)  ](./code/1120C.txt)|2021/11/24|
+ |  570E |[Pig and Palindromes (2300) (DP)  ](./code/570E.txt)|2021/11/25|
  
 # 分类
 
@@ -734,6 +735,7 @@ My Codeforce Practice<br/>
 476E.[Dreamoon and Strings (2200) (Thinking + DP)  ](./code/476E.txt)<br/>
 864E.[Fire (2000) (DP)  ](./code/864E.txt)<br/>
 1120C.[Compress String (2100) (DP)  ](./code/1120C.txt)<br/>
+570E.[Pig and Palindromes (2300) (DP)  ](./code/570E.txt)<br/>
 
 
 ### LCS Similar
