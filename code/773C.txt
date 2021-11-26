@@ -1,0 +1,195 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution(int testcase) {
+        int n =fs.Int();
+        int cnt1[]=new int[50];
+        int cnt2[]=new int[50];
+        for(int i = 0; i < n;i++){
+            long x = fs.Long();
+            boolean f = false;
+            long y = 1;
+            int j = 0;
+            while(y<x){
+                y*=2;
+                j++;
+            }
+            if(y==x){
+                cnt1[j]++;
+            }else{
+                cnt2[j]++;
+            }
+        }
+
+        List<Integer>res=new ArrayList<>();
+        for(int i = 1; i <= cnt1[0]; i++){
+            if(check(i,cnt1,cnt2)){
+                res.add(i);
+            }
+        }
+        if(res.size()==0){
+            out.println(-1);
+            return;
+        }else{
+            for(int j:res){
+                out.print(j+" ");
+            }
+        }
+
+    }
+
+    public boolean check(int chain,int cnt1[],int cnt2[]){
+        if(cnt1[0] - chain > cnt1[0]){
+            return false;
+        }
+
+        int cnt3[]=new int[cnt2.length];
+        for(int i = 0;i<cnt3.length;i++){
+            cnt3[i]=cnt2[i];
+        }
+
+        int l = 0;
+        int open = chain;
+        cnt3[0]+=(cnt1[0]-open);
+
+        for(int j = 1; j < cnt1.length;j++){
+            if(cnt1[j] == 0){
+                for(int x = j + 1;x<cnt1.length;x++){
+                    if(cnt1[x]!=0 || cnt3[x] != 0){
+                        return false;
+                    }
+                }
+                break;
+            }
+            else{
+                if(cnt1[j]>open){
+                    int extra = cnt1[j]-open;
+                    cnt3[j]+=(extra);
+                }else{
+                    int can = open - cnt1[j];
+                    open = cnt1[j];
+                    while(l<=j){
+                        if(can>cnt3[l]){
+                            can-=cnt3[l];
+                            cnt3[l]=0;
+                        }
+                        else{
+                            cnt3[l]-=can;
+                            break;
+                        }
+                        l++;
+                    }
+                }
+            }
+            /*if(chain==4){
+                System.out.println(j+"    "+open);
+            }*/
+        }
+
+        /*if(chain==4){
+            System.out.println(Arrays.toString(cnt3));
+        }*/
+
+        while(l<cnt3.length){
+            open-=cnt3[l];
+            l++;
+        }
+        return open>=0;
+    }
+
+
+}
