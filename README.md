@@ -677,6 +677,7 @@ My Codeforce Practice<br/>
  |  852E |[Casinos and travel(2100) (Thinking)  ](./code/852E.txt)|2021/11/23|
  |  1120C |[Compress String (2100) (DP)  ](./code/1120C.txt)|2021/11/24|
  |  570E |[Pig and Palindromes (2300) (DP)  ](./code/570E.txt)|2021/11/25|
+ |  773C |[Prairie Partition (2200) (Greedy + Constructive)  ](./code/773C.txt)|2021/11/26|
  
 # 分类
 
@@ -916,7 +917,7 @@ My Codeforce Practice<br/>
  1349B.[Orac and Medians (2000) (Constructive + Thinking + Observation)  ](./code/1349B.txt)<br/>
  1187C.[Vasya And Array(1800) (Constructive + Line Sweep)  ](./code/1187C.txt)<br/>
  238B.[Boring Partition (1800) (Constructive + Greedy)  ](./code/238B.txt)<br/>
- 
+ 773C.[Prairie Partition (2200) (Greedy + Constructive)  ](./code/773C.txt)<br/>
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
  
