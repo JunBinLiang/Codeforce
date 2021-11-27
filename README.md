@@ -678,6 +678,7 @@ My Codeforce Practice<br/>
  |  1120C |[Compress String (2100) (DP)  ](./code/1120C.txt)|2021/11/24|
  |  570E |[Pig and Palindromes (2300) (DP)  ](./code/570E.txt)|2021/11/25|
  |  773C |[Prairie Partition (2200) (Greedy + Constructive)  ](./code/773C.txt)|2021/11/26|
+ |  786C |[Till I Collapse (2400) (Persistant Tree)  ](./code/786C.txt)|2021/11/27|
  
 # 分类
 
