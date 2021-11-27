@@ -1,0 +1,203 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution(int testcase) {
+        int n =fs.Int();
+        int f[]=new int[100000+1];
+        PersistentSeg segs[]=new PersistentSeg[n + 1];
+        PersistentSeg segs1[]=new PersistentSeg[n + 1];
+        segs[n] = new PersistentSeg(0, n - 1, true);
+        segs1[n] = segs[n];
+        for(int i = n - 1; i >= 0 ; i--){
+            int a = fs.Int();
+            if(f[a]>i){
+                segs[i] = new PersistentSeg(0, n -1);
+                PersistentSeg.update(segs[i+1],segs[i],i,1);
+                segs1[i] = new PersistentSeg(0,n-1);
+                PersistentSeg.update(segs1[i+1],segs1[i],f[a],1);
+            }else{
+                segs1[i] = segs1[i + 1];
+                segs[i] = new PersistentSeg(0,n-1);
+                PersistentSeg.update(segs[i+1],segs[i],i,1);
+            }
+            f[a]=i;
+        }
+
+
+
+
+        for(int k =1;k<=n;k++){
+            int res = 0;
+            int l = 0;
+            while(l<n){
+                res++;
+                l = go(segs[l],segs1[l],k)+1;
+            }
+            out.println(res);
+        }
+    }
+
+    public int go(PersistentSeg seg1,PersistentSeg seg2, int k){
+        int res = 0;
+        while(true){
+
+            if(seg1.l==seg1.r){
+                int sum = seg1.cnt-seg2.cnt;
+                if(k>=sum)res=Math.max(res,seg1.l);
+                break;
+            }
+            int cnt1 = seg1.left.cnt;
+            int cnt2 = seg2.left.cnt;
+            int cnt3 = seg1.right.cnt;
+            int cnt4 = seg2.right.cnt;
+            int sum1 = cnt1 - cnt2;
+            int sum2 = cnt3 - cnt4;
+            if(sum1<=k){
+                res=Math.max(res,seg1.left.r);
+                seg1=seg1.right;
+                seg2=seg2.right;
+                k-=sum1;
+            }else{
+                seg1=seg1.left;
+                seg2=seg2.left;
+            }
+        }
+        return res;
+    }
+
+}
+
+class PersistentSeg{
+    int l,r;
+    int cnt = 0;
+    PersistentSeg left=null,right=null;
+    public PersistentSeg(int l,int r,boolean init){
+        this.l=l;
+        this.r=r;
+        if(l!=r){
+            int mid=l+(r-l)/2;
+            if(l<=mid)left=new PersistentSeg(l,mid,true);
+            if(r>=mid+1)right=new PersistentSeg(mid+1,r,true);
+        }else{
+
+        }
+    }
+
+    public PersistentSeg(int l,int r){
+        this.l=l;
+        this.r=r;
+    }
+
+
+    public static void update(PersistentSeg pre, PersistentSeg cur, int index,int val) {
+        if (cur.l == cur.r) {
+            cur.cnt+=val;
+            return;
+        }
+        int mid = cur.l + (cur.r - cur.l) / 2;
+        if (index <= mid) {//update left
+            cur.right = pre.right;
+            cur.left = new PersistentSeg(pre.left.l, pre.left.r);
+            update(pre.left, cur.left, index,val);
+        } else {//update right
+            cur.left = pre.left;
+            cur.right = new PersistentSeg(pre.right.l, pre.right.r);
+            update(pre.right, cur.right, index,val);
+        }
+        cur.cnt=cur.left.cnt+cur.right.cnt;
+    }
+}
