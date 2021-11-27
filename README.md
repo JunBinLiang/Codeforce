@@ -1328,6 +1328,7 @@ My Codeforce Practice<br/>
 484E.[  Sign on Fence	 (2500) (Persistant Segment Tree + Segment Tree Merge Interval + Binary Search)  ](./code/484E.txt) <br/>
 813E.[ Army Creation (2200) (Thinking + Persistant Tree)  ](./code/813E.txt)<br/>
 1000F.[One Occurrence (2400) (莫队，主席树)  ](./code/1000F.txt)<br/>
+786C.[Till I Collapse (2400) (Persistant Tree)  ](./code/786C.txt)<br/>
 
 ### Binary Search
 1379C. [ Choosing flowers (2000) （Binary Search + Math） ](./code/1379C.txt)  <br/> 
