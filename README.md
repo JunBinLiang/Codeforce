@@ -1345,6 +1345,8 @@ My Codeforce Practice<br/>
 ### Binary Search in Convex Line
 439D.[Devu and his Brother (1700) (Binary Search + Convex Line)  ](./code/439D.txt)<br/>
 
+### Tenary Search
+
 ### String Algorithm
 
 ### String Polynominal Hash / Rolling Hash
