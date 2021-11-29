@@ -1,0 +1,149 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution(int testcase) {
+        int n = fs.Int();
+        int a = fs.Int();
+        int b = fs.Int();
+        int c = fs.Int();
+        int A[]=new int[n];
+        for(int i = 0; i < n;i++){
+            A[i]=fs.Int();
+        }
+
+        Arrays.sort(A);
+        long res = Long.MAX_VALUE;
+        int l = 0, r = A[A.length-1];
+        while(l<=r){
+            int mid1 = l + (r - l )/ 3;
+            int mid2 = l +(r - l)/ 3 * 2;
+            long ans1 = cal(A,mid1,a,b,c);
+            long ans2 = cal(A,mid2,a,b,c);
+            res = Math.min(res,ans1);
+            res=Math.min(res,ans2);
+            if(ans1<ans2){
+                r = mid2-1;
+            }
+            else{
+                l = mid1 + 1;
+            }
+        }
+        out.println(res);
+    }
+
+    public long cal(int A[],int mid,int a,int b,int c){//add remove, move
+        long lcnt = 0;
+        long rcnt = 0;
+        for(int i = 0; i < A.length;i++){
+            if(A[i]<=mid){
+                lcnt += (mid - A[i]);
+            }else{
+                rcnt += (A[i] - mid);
+            }
+        }
+        long com = Math.min(rcnt,lcnt);
+        long res = Long.MAX_VALUE;
+        long x = com * c + (lcnt - com) * a + (rcnt - com)*b;
+        long y = a * lcnt + b * rcnt;
+        return Math.min(x,y);
+    }
+
+}
+
+
+
+
