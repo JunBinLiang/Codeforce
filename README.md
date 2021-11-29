@@ -681,6 +681,7 @@ My Codeforce Practice<br/>
  |  786C |[Till I Collapse (2400) (Persistant Tree)  ](./code/786C.txt)|2021/11/27|
  |  1601C |[ Optimal Insertion	 (2300) (Divide Conquer)  ](./code/1601C.txt)|2021/11/28|
  |  1355E |[ Restorer Distance (2100) (Tenery Search)  ](./code/1355E.txt)|2021/11/29|
+ |  314B |[ Sereja and Periods(2000) (Brute Force)  ](./code/314B.txt)|2021/11/29|
  
 # 分类
 
