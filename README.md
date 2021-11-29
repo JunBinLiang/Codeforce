@@ -680,6 +680,7 @@ My Codeforce Practice<br/>
  |  773C |[Prairie Partition (2200) (Greedy + Constructive)  ](./code/773C.txt)|2021/11/26|
  |  786C |[Till I Collapse (2400) (Persistant Tree)  ](./code/786C.txt)|2021/11/27|
  |  1601C |[ Optimal Insertion	 (2300) (Divide Conquer)  ](./code/1601C.txt)|2021/11/28|
+ |  1355E |[ Restorer Distance (2000) (Tenery Search)  ](./code/1355E.txt)|2021/11/29|
  
 # 分类
 
@@ -1346,6 +1347,7 @@ My Codeforce Practice<br/>
 439D.[Devu and his Brother (1700) (Binary Search + Convex Line)  ](./code/439D.txt)<br/>
 
 ### Tenary Search
+ 1355E.[ Restorer Distance (2000) (Tenery Search)  ](./code/1355E.txt)<br/>
 
 ### String Algorithm
 
