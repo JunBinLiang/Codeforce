@@ -1,0 +1,276 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution(int testcase) {
+        int t = fs.Int();
+        while(t>0){
+            t--;
+            int n =fs.Int();
+            int m = fs.Int();
+            int A[]=new int[n];
+            int B[]=new int[m];
+            for(int i = 0; i < n;i++){
+                A[i]=fs.Int();
+            }
+            for(int i =0;i<m;i++){
+                B[i]=fs.Int();
+            }
+            sort(B);
+            int pos[]=new int[B.length];
+            Arrays.fill(pos,B.length);
+            insert(pos,B,A,0,B.length-1,0,A.length-1);
+
+            int i = 0; int j = 0;
+            int index = 0;
+            int C[]=new int[A.length+B.length];
+            while(i<A.length&&j<B.length){
+                if(pos[j]<=i){
+                    C[index++]=B[j++];
+                }
+                else{
+                    C[index++]=A[i++];
+                }
+            }
+            while(i<A.length){
+                C[index++]=A[i++];
+            }
+            while(j<B.length){
+                C[index++]=B[j++];
+            }
+
+            long res = cal(C);
+            out.println(res);
+        }
+    }
+
+    public void insert(int pos[],int B[],int A[],int l1, int r1, int l2,int r2){
+        //insert B into A
+        if(l1>r1 || l2 > r2){
+            return;
+        }
+
+        int mid = l1 + (r1- l1)/2;
+        int rcnt = 0,lcnt = 0;
+        int p = l2;int mn = Integer.MAX_VALUE;
+        for(int i = l2;i<=r2;i++){
+            if(A[i]<B[mid]){
+                rcnt++;
+            }
+        }
+        mn = rcnt;
+        for(int i = l2+1;i<=r2+1;i++){
+            if(A[i - 1]<B[mid]){
+                rcnt--;
+            }
+            if(A[i - 1]>B[mid]){
+                lcnt++;
+            }
+            if(rcnt+lcnt<mn){
+                mn = rcnt+lcnt;
+                p = i;
+            }
+        }
+
+        //divide conquer
+        pos[mid]=p;
+        insert(pos,B,A,l1,mid - 1,l2,Math.min(p,r2));
+        insert(pos,B,A,mid+1,r1,p,r2);
+    }
+
+    public void sort(int A[]){
+        /*PriorityQueue<Integer>pq=new PriorityQueue<>();
+        for(int i:A)pq.add(i);
+        for(int i =0;i<A.length;i++)A[i]=pq.poll();*/
+        Arrays.sort(A);
+    }
+
+    public long cal(int A[]){//count inversion
+        Rev rev = new Rev();
+        List<Integer>list = rev.countSmaller(A);
+        long res = 0;
+        for(int i:list)res+=i;
+        return res;
+    }
+}
+
+class FenWick {
+    int tree[];//1-index based
+    public FenWick(int n) {
+        tree=new int[n+1];
+        int sum=0;
+    }
+
+    public void update(int i, int val) {
+        i++;
+        while(i<tree.length){
+            tree[i]+=val;
+            i+=(i&-i);
+        }
+    }
+
+    public int sumRange(int i, int j) {
+        return pre(j+1)-pre(i);
+    }
+    public int pre(int i){
+        int sum=0;
+        while(i>0){
+            sum+=tree[i];
+            i-=(i&-i);
+        }
+        return sum;
+    }
+}
+
+class Rev {
+    public List<Integer> countSmaller(int[] nums) {
+        if(nums.length==0)return new ArrayList<>();
+        List<Integer>list=new ArrayList<>();
+        Node A[]=divide(nums,0,nums.length-1);
+        int res[]=new int[nums.length];
+        for(Node node:A){
+            nums[node.pos]=node.cnt;
+        }
+        for(int i:nums)list.add(i);
+        return list;
+    }
+
+    public Node[] divide(int A[],int l,int r){
+        if(l==r){
+            return new Node[]{new Node(l,A[l])};
+        }
+        int mid=l+(r-l)/2;
+        Node ll[]=divide(A,l,mid);
+        Node rr[]=divide(A,mid+1,r);
+        return merge(ll,rr);
+    }
+
+    public Node[] merge(Node l[], Node r[]){
+        Node res[]=new Node[l.length+r.length];
+        int i=0,j=0,k=0;
+        while(i<l.length&&j<r.length){
+            if(l[i].val>r[j].val){
+                l[i].cnt+=(r.length-j);
+                res[k++]=l[i++];
+            }else{
+                res[k++]=r[j++];
+            }
+        }
+
+        while(j<r.length){
+            res[k++]=r[j++];
+        }
+        while(i<l.length){
+            res[k++]=l[i++];
+        }
+
+
+        return res;
+
+    }
+
+    class Node{
+        int cnt=0;
+        int pos=-1;
+        int val=0;
+        public Node(int pos,int val){
+            this.pos=pos;
+            this.val=val;
+        }
+    }
+}
+
+//1 3 5 3 1   1 3 4 6
