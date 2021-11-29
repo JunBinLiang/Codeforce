@@ -682,6 +682,7 @@ My Codeforce Practice<br/>
  |  1601C |[ Optimal Insertion	 (2300) (Divide Conquer)  ](./code/1601C.txt)|2021/11/28|
  |  1355E |[ Restorer Distance (2100) (Tenery Search)  ](./code/1355E.txt)|2021/11/29|
  |  314B |[ Sereja and Periods(2000) (Brute Force)  ](./code/314B.txt)|2021/11/29|
+ |  333D |[ Characteristics of Rectangles (2100) (Binary Search + 鸽子)  ](./code/333D.txt)|2021/11/29|
  
 # 分类
 
@@ -1131,6 +1132,7 @@ My Codeforce Practice<br/>
 ### 鸽子原理
 577B. [Modulo Sum (1900) （鸽子原理 + DP）(对prefixsum 进行鸽子原理) ](./code/577B.txt) <br/> 
 125D. [ Two progressions (2200) (Greedy + 鸽子)  ](./code/125D.txt)<br/>
+333D.[ Characteristics of Rectangles (2100) (Binary Search + 鸽子)  ](./code/333D.txt)<br/>
 
 ### Induction
 1095C.[Powers Of Two (1400) (Induction) ](./code/1095C.txt)<br/>
