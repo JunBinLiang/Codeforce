@@ -679,6 +679,7 @@ My Codeforce Practice<br/>
  |  570E |[Pig and Palindromes (2300) (DP)  ](./code/570E.txt)|2021/11/25|
  |  773C |[Prairie Partition (2200) (Greedy + Constructive)  ](./code/773C.txt)|2021/11/26|
  |  786C |[Till I Collapse (2400) (Persistant Tree)  ](./code/786C.txt)|2021/11/27|
+ |  1601C |[ Optimal Insertion	 (2300) (Divide Conquer)  ](./code/1601C.txt)|2021/11/28|
  
 # 分类
 
@@ -1384,6 +1385,7 @@ My Codeforce Practice<br/>
 888E. [ Maximum Subsequence (1800) （Divide Conquer + Meet in Middle ） ](./code/888E.txt)<br/>
 1520F2. [Guess the K-th Zero (Hard version) (2200) (Binary Search+ Divide Conquer)  ](./code/1520F2.txt)<br/>
 1400E.[ Clear the Multiset (2200) (Greedy + Divide Conquer) (Thumb) ](./code/1400E.txt)<br/>
+1601C.[ Optimal Insertion	 (2300) (Divide Conquer)  ](./code/1601C.txt)<br/>
 
 ### Divide Conquer : Merge
 1567E.[Non-Decreasing Dilemma (2200) (Segment Tree + Divide Conquer)  ](./code/1567E.txt)<br/>
