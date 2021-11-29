@@ -7,7 +7,7 @@ My Codeforce Practice<br/>
 2.[笛卡尔树2 ](https://oi-wiki.org/ds/cartesian-tree/) <br/>
 3.[线性基](https://www.cxybb.com/article/UnKfrozen/86609758) <br/>
 4.[线性基](https://blog.csdn.net/weixin_43508782/article/details/100111230) <br/>
-
+5.[三分](https://blog.csdn.net/caduca/article/details/43526375?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link) <br/>
 
 
 
