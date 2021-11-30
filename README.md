@@ -683,6 +683,7 @@ My Codeforce Practice<br/>
  |  1355E |[ Restorer Distance (2100) (Tenery Search)  ](./code/1355E.txt)|2021/11/29|
  |  314B |[ Sereja and Periods(2000) (Brute Force)  ](./code/314B.txt)|2021/11/29|
  |  333D |[ Characteristics of Rectangles (2100) (Binary Search + 鸽子)  ](./code/333D.txt)|2021/11/29|
+ |  721D |[ Maxim and Array (2000) (Greedy + Math)  ](./code/721D.txt)|2021/11/30|
  
 # 分类
 
@@ -871,6 +872,7 @@ My Codeforce Practice<br/>
 349B.[Color the Fence (1700) (Greedy)  ](./code/349B.txt)<br/>
 446B.[DZY Loves Modification (2000) (Greedy)  ](./code/446B.txt)<br/>
 353B.[Two Heaps (1900) (Greedy + Thinking)  ](./code/353B.txt)<br/>
+721D.[ Maxim and Array (2000) (Greedy + Math)  ](./code/721D.txt)<br/>
 
 
 ### Greedy : Number
