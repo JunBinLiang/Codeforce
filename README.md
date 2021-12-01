@@ -685,6 +685,7 @@ My Codeforce Practice<br/>
  |  314B |[ Sereja and Periods(2000) (Brute Force)  ](./code/314B.txt)|2021/11/29|
  |  333D |[ Characteristics of Rectangles (2100) (Binary Search + 鸽子)  ](./code/333D.txt)|2021/11/29|
  |  721D |[ Maxim and Array (2000) (Greedy + Math)  ](./code/721D.txt)|2021/11/30|
+  |  914E |[ Palindromes in a Tree (2400) (点分治)  ](./code/914E.txt)|2021/12/01|
  
 # 分类
 
@@ -1275,6 +1276,8 @@ My Codeforce Practice<br/>
 ### Tree Re-range
 337D.[Book of Evil (2000) (Tree Re-Range)  ](./code/337D.txt)<br/>
 
+### 树点分治
+914E.[ Palindromes in a Tree (2400) (点分治)  ](./code/914E.txt)<br/>
 
 ### Centroid Decomposition
  342E.[Xenia and Tree (2400) (Centroid Decomposition)  ](./code/342E.txt)<br/>
