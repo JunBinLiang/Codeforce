@@ -1,0 +1,335 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner sc=new Scanner(new File("src/text.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+        //File file = new File("src/text.txt");
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+    List<Integer>graph[];
+    char A[];
+    int sum = 0;
+
+    boolean visit[];
+    int cnt[];
+    int f[];long dp[];
+    long res[];
+    public void solution(int testcase) {
+        int n = fs.Int();
+        cnt = new int[n];res=new long[n];
+        visit = new boolean[n];
+        f = new int[2000000 + 100];
+        dp = new long[f.length];
+
+        sum = n;
+        graph=new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i = 0; i < n -1;i++){
+            int u = fs.Int() - 1;
+            int v = fs.Int() - 1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+        String s = fs.Str();
+        A=s.toCharArray();
+
+        divide(0);
+        for(long i:res){
+            out.println(i);
+        }
+    }
+
+    public int getsize(int pa,int root){
+        cnt[root] = 1;
+        for(int next:graph[root]){
+            if(pa==next||visit[next])continue;
+            cnt[root] += getsize(root,next);
+        }
+        return cnt[root];
+    }
+
+    public int findCenter(int pa,int root,int size) {
+        for(int next:graph[root]){
+            if(next==pa||visit[next])continue;
+            if(cnt[next]*2 >= size){
+                return findCenter(root,next,size);
+            }
+        }
+        return root;
+    }
+
+    public void addPath(int pa,int root,int mask,int val){
+        mask = mask ^ (1 << (A[root] - 'a'));
+        f[mask]+=val;
+        for(int next:graph[root]){
+            if(next==pa||visit[next])continue;
+            addPath(root,next,mask,val);
+        }
+    }
+
+    public void divide(int root){
+        getsize(-1,root);
+        int center = findCenter(-1,root,cnt[root]);
+        long x = 0;
+
+
+        for(int next:graph[center]){
+            if(visit[next])continue;
+            addPath(center,next,0,1);
+        }
+
+        res[center]+=f[0];
+        for(int i = 0; i < 20;i++){//single link
+            res[center] += f[(1<<i)|(1<<(A[center]-'a'))];
+        }
+
+
+        for(int next:graph[center]){//double link
+            if(visit[next])continue;
+            addPath(center,next,0,-1);//temporary delete
+            dfs1(center,next,(1<<(A[center]-'a')));
+            addPath(center,next,0,1);//add back
+            x+=dp[next];
+        }
+
+
+        //delete
+        for(int next:graph[center]){
+            if(visit[next])continue;
+            addPath(center,next,0,-1);
+        }
+
+        //recursive divide conquer and solve
+        visit[center]=true;
+        res[center]+=(x/2)+1;
+        for(int next:graph[center]){
+            if(visit[next])continue;
+            divide(next);
+        }
+    }
+
+    public int dfs1(int pa,int root,int mask){
+        dp[root]=0;
+        int ans = 0;
+        mask = mask ^ (1<<(A[root]-'a'));
+
+        for(int next:graph[root]){
+            if(next==pa||visit[next])continue;
+            ans+=dfs1(root,next,mask);
+            dp[root]+=dp[next];
+        }
+
+        dp[root]+=f[mask];
+        for(int i = 0; i < 20;i++){
+            dp[root] += f[mask^(1<<i)];
+        }
+
+        if(Integer.bitCount(mask)<=1)ans++;
+        res[root]+= dp[root]+ans;
+        return ans;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#include <bits/stdc++.h>
+#define int long long 
+using namespace std;
+
+
+const int N = 2e6 + 7;
+
+vector <int> adj[N];
+
+int a[N], sz[N], del[N], f[N], ans[N], dp[N], c;
+
+
+void dfs(int u, int p) {
+	sz[u] = 1;
+	for(int v: adj[u]) if((v ^ p) && !del[v]) {
+		dfs(v, u);
+		sz[u] += sz[v];
+	}
+}
+
+int find(int u, int p, int s) {
+	for(int v: adj[u]) {
+		if((v ^ p) && !del[v] && sz[v] * 2 >= s) {
+			return find(v, u, s);
+		}
+	}
+	return u;
+}
+
+void add(int u, int p, int mask, int val) {
+	mask ^= a[u];
+	f[mask] += val;
+	for(int v: adj[u]) if((v ^ p) && !del[v]) {
+		add(v, u, mask, val);
+	}
+}
+
+int DFS(int u, int p, int mask) {
+	dp[u] = 0; mask ^= a[u]; int res = 0;
+	for(int v: adj[u]) if((v ^ p) && !del[v]) {
+		res += DFS(v, u, mask);
+		dp[u] += dp[v];
+	}
+	dp[u] += f[mask];
+	for(int i = 0; i < 20; i++) {
+		dp[u] += f[mask ^ (1 << i)];
+	}
+	if(__builtin_popcountll(mask) <= 1) res++;
+	ans[u] += dp[u] + res;
+	return res;
+}
+
+void decompose(int u) {
+	dfs(u, -1);
+	c = find(u, -1, sz[u]); 
+	for(int v: adj[c]) if(!del[v]) {
+		add(v, c, 0, +1);
+	}
+	ans[c] += f[0];
+	for(int i = 0; i < 20; i++) {
+		ans[c] += f[(1 << i) | a[c]];
+	}
+	int x = 0;
+	for(int v: adj[c]) if(!del[v]) {
+		add(v, c, 0, -1);
+		DFS(v, c, a[c]);
+		add(v, c, 0, +1);
+		x += dp[v];
+	}
+	for(int v: adj[c]) if(!del[v]) {
+		add(v, c, 0, -1);
+	}
+	ans[c] += (x / 2) + 1;
+	del[c] = 1;
+	for(int v: adj[c]) if(!del[v]) {
+		decompose(v);
+	}
+
+}
+
+int32_t main() {
+	ios_base :: sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	int n; cin >> n;
+	for(int i = 1; i < n; i++) {
+		int u, v; cin >> u >> v;
+		adj[u].push_back(v);
+		adj[v].push_back(u);
+	}
+	string str; cin >> str;
+	for(int i = 0; i < n; i++) {
+		a[i + 1] = 1 << (str[i] - 'a');
+	}
+
+	
+
+	decompose(1);
+
+	for(int i = 1; i <= n; i++) {
+		cout << ans[i] << " ";
+	}
+}
