@@ -686,6 +686,7 @@ My Codeforce Practice<br/>
  |  333D |[ Characteristics of Rectangles (2100) (Binary Search + 鸽子)  ](./code/333D.txt)|2021/11/29|
  |  721D |[ Maxim and Array (2000) (Greedy + Math)  ](./code/721D.txt)|2021/11/30|
   |  914E |[ Palindromes in a Tree (2400) (点分治)  ](./code/914E.txt)|2021/12/01|
+  |  253D |[ Table with Letters - 2(2000) (Two Pointer)  ](./code/253D.txt)|2021/12/02|
  
 # 分类
 
