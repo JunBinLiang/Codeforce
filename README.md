@@ -691,6 +691,7 @@ My Codeforce Practice<br/>
  |  985E |[Pencils and Boxes (2100) (DP + Fenwick)  ](./code/985E.txt)|2021/12/03|
  |  985C |[Liebig's Barrels (1500) (Greedy)  ](./code/985C.txt)|2021/12/03|
  |  1614D2 |[Divan and Kostomuksha (hard version) (2300) (DP)  ](./code/1614D2.txt)|2021/12/03|
+ |  1225E |[Rock Is Push (2200) (DP + Thinking)  ](./code/1225E.txt)|2021/12/03|
  
 # 分类
 
@@ -750,7 +751,7 @@ My Codeforce Practice<br/>
 864E.[Fire (2000) (DP)  ](./code/864E.txt)<br/>
 1120C.[Compress String (2100) (DP)  ](./code/1120C.txt)<br/>
 570E.[Pig and Palindromes (2300) (DP)  ](./code/570E.txt)<br/>
-
+1225E.[Rock Is Push (2200) (DP + Thinking)  ](./code/1225E.txt)<br/>
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
