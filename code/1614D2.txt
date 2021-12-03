@@ -1,0 +1,30 @@
+    #include<bits/stdc++.h>
+    using namespace std;
+    typedef long long ll;
+    int n;
+    ll cnt[20000010],dp[20000010];
+    bool vis[20000010];
+    signed main(){
+    	cin>>n;
+    	for(int i=1;i<=n;i++){
+    		int k;cin>>k;
+    		for(int j=1;j*j<=k;j++){
+    			if(!(k%j)){
+    				cnt[j]++;
+    				if(j*j!=k) cnt[k/j]++;
+    				vis[j]=vis[k/j]=1;
+    			}
+    		}
+    	}
+    	ll ans=0;
+    	for(int i=20000000;i>=1;i--){
+    		if(!vis[i]) continue;
+    		dp[i]=i*cnt[i];
+    		for(int j=i;j<=20000000;j+=i){
+    			if(vis[j]) dp[i]=max(dp[i],dp[j]+(cnt[i]-cnt[j])*i);
+    		}
+    		ans=max(ans,dp[i]);
+    	}
+    	cout<<ans<<endl;
+    	return 0;
+    }
