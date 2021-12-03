@@ -688,6 +688,7 @@ My Codeforce Practice<br/>
  |  914E |[ Palindromes in a Tree (2400) (点分治)  ](./code/914E.txt)|2021/12/01|
  |  253D |[ Table with Letters - 2(2000) (Two Pointer)  ](./code/253D.txt)|2021/12/02|
  |  600E |[ Lomsat gelral (2300) (启发合并)  ](./code/600E.txt)|2021/12/02|
+ |  985E |[Pencils and Boxes (2100) (DP + Fenwick)  ](./code/985E.txt)|2021/12/03|
  
 # 分类
 
