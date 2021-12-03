@@ -685,8 +685,9 @@ My Codeforce Practice<br/>
  |  314B |[ Sereja and Periods(2000) (Brute Force)  ](./code/314B.txt)|2021/11/29|
  |  333D |[ Characteristics of Rectangles (2100) (Binary Search + 鸽子)  ](./code/333D.txt)|2021/11/29|
  |  721D |[ Maxim and Array (2000) (Greedy + Math)  ](./code/721D.txt)|2021/11/30|
-  |  914E |[ Palindromes in a Tree (2400) (点分治)  ](./code/914E.txt)|2021/12/01|
-  |  253D |[ Table with Letters - 2(2000) (Two Pointer)  ](./code/253D.txt)|2021/12/02|
+ |  914E |[ Palindromes in a Tree (2400) (点分治)  ](./code/914E.txt)|2021/12/01|
+ |  253D |[ Table with Letters - 2(2000) (Two Pointer)  ](./code/253D.txt)|2021/12/02|
+ |  600E |[ Lomsat gelral (2300) (启发合并)  ](./code/600E.txt)|2021/12/02|
  
 # 分类
 
@@ -956,6 +957,7 @@ My Codeforce Practice<br/>
 
 ### 优雅暴力1 : 启发式合并
  965E.[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)<br/>
+ 600E.[ Lomsat gelral (2300) (启发合并)  ](./code/600E.txt)<br/>
 
 
 ### 优雅暴力2 : 分块 (Square Root Decomposition)
