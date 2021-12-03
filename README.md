@@ -690,6 +690,7 @@ My Codeforce Practice<br/>
  |  600E |[ Lomsat gelral (2300) (启发合并)  ](./code/600E.txt)|2021/12/02|
  |  985E |[Pencils and Boxes (2100) (DP + Fenwick)  ](./code/985E.txt)|2021/12/03|
  |  985C |[Liebig's Barrels (1500) (Greedy)  ](./code/985C.txt)|2021/12/03|
+ |  1614D2 |[Divan and Kostomuksha (hard version) (2300) (DP)  ](./code/1614D2.txt)|2021/12/03|
  
 # 分类
 
