@@ -689,6 +689,7 @@ My Codeforce Practice<br/>
  |  253D |[ Table with Letters - 2(2000) (Two Pointer)  ](./code/253D.txt)|2021/12/02|
  |  600E |[ Lomsat gelral (2300) (启发合并)  ](./code/600E.txt)|2021/12/02|
  |  985E |[Pencils and Boxes (2100) (DP + Fenwick)  ](./code/985E.txt)|2021/12/03|
+ |  985C |[Liebig's Barrels (1500) (Greedy)  ](./code/985C.txt)|2021/12/03|
  
 # 分类
 
@@ -878,6 +879,7 @@ My Codeforce Practice<br/>
 446B.[DZY Loves Modification (2000) (Greedy)  ](./code/446B.txt)<br/>
 353B.[Two Heaps (1900) (Greedy + Thinking)  ](./code/353B.txt)<br/>
 721D.[ Maxim and Array (2000) (Greedy + Math)  ](./code/721D.txt)<br/>
+985C.[Liebig's Barrels (1500) (Greedy)  ](./code/985C.txt)<br/>
 
 
 ### Greedy : Number
