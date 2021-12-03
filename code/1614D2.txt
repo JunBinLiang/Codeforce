@@ -28,3 +28,45 @@
     	cout<<ans<<endl;
     	return 0;
     }
+
+
+
+#include <iostream>
+#include <algorithm>
+
+constexpr int N = 2e7 + 5;
+
+int n;
+int f[N];
+long long g[N];
+
+int cnt, primes[N];
+bool vis[N];
+
+int main() {
+    std::ios::sync_with_stdio(false), std::cin.tie(nullptr);
+    for (int i = 2; i <= 2e7; ++i) {
+        if (!vis[i]) primes[++cnt] = i;
+        for (int j = 1; j <= cnt && i * primes[j] <= 2e7; ++j) {
+            vis[i * primes[j]] = true;
+            if (!(i % primes[j])) break;
+        }
+    }
+    std::cin >> n;
+    for (int i = 1, x; i <= n; ++i) {
+        std::cin >> x;
+        for (int j = 1; j * j <= x; ++j) {
+            if (x % j) continue;
+            ++f[j];
+            if (j * j < x) ++f[x / j];
+        }
+    }
+    long long ans = 0;
+    for (int i = 2e7; i; --i) {
+        g[i] = static_cast<long long>(i) * f[i];
+        for (int j = 1; j <= cnt && i * primes[j] <= 2e7; ++j) g[i] = std::max(g[i], g[i * primes[j]] + static_cast<long long>(i) * (f[i] - f[i * primes[j]]));
+        if (f[i] == n) ans = std::max(ans, g[i]);
+    }
+    std::cout << ans << '\n';
+    return 0;
+}
