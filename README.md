@@ -694,6 +694,7 @@ My Codeforce Practice<br/>
  |  1225E |[Rock Is Push (2200) (DP + Thinking)  ](./code/1225E.txt)|2021/12/03|
  |  865D |[Buy Low Sell High (2400) (Greedy + Heap)  ](./code/865D.txt)|2021/12/03|
  |  1326E |[Bombs (2400) (Thinking + Seg push down)  ](./code/1326E.txt)|2021/12/04|
+ |  986C |[AND Graph (2500) (Graph)  ](./code/986C.txt)|2021/12/04|
  
 # 分类
 
@@ -1168,6 +1169,7 @@ My Codeforce Practice<br/>
 196B.[ Infinite Maze (2000) (Graph + Thinking + Matrix)  ](./code/196B.txt)<br/>
 1005F.[Berland and the Shortest Paths (2100) ( Graph + BFS )  ](./code/1005F.txt)<br/>
 67A.[Partial Teacher (1800) (Direct Graph + DP)  ](./code/67A.txt)<br/>
+986C.[AND Graph (2500) (Graph)  ](./code/986C.txt)<br/>
 
 ### Graph Model :
 274D.[Lovely Matrix (2200) (Graph Model + Topo)  ](./code/274D.txt)<br/>
