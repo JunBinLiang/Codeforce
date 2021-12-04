@@ -1,0 +1,176 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    int n;
+    boolean seen[][];
+    boolean has[];
+    public void solution(int testcase) {
+        n = fs.Int();
+        int m = fs.Int();
+        int A[]=new int[m];
+        has = new boolean[(1<<n) + 1];
+        for(int i = 0;i<m;i++){
+            A[i]=fs.Int();
+            has[A[i]]=true;
+        }
+
+        seen = new boolean[2][(1<<n)+1];
+        int res = 0;
+        for(int i = 0; i < A.length;i++){
+            if(!seen[0][A[i]]){
+                res++;
+                dfs1(A[i],0);
+            }
+        }
+        out.println(res);
+    }
+
+    public void dfs1(int cur,int b){
+        Stack<int[]>stack=new Stack<>();
+        stack.push(new int[]{cur,b});
+        seen[b][cur]=true;
+        while(stack.size()>0){
+            int pair[]=stack.pop();
+            int num=pair[0],state = pair[1];
+            if(state==0){
+                if(!has[num])continue;
+                int com = com(num);
+                if(!seen[1][com]){
+                    seen[1][com]=true;
+                    stack.push(new int[]{com,1});
+                }
+                if(!seen[0][com]){
+                    seen[0][com]=true;
+                    stack.push(new int[]{com,0});
+                }
+            }
+            else{
+                for(int i = 0; i < n;i++){
+                    if((num&(1<<i))!=0){
+                        int bit = num^(1<<i);
+                        if(!seen[0][bit]){
+                            seen[0][bit]=true;
+                            stack.push(new int[]{bit,0});
+                        }
+                        if(!seen[1][bit]){
+                            seen[1][bit]=true;
+                            stack.push(new int[]{bit,1});
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    public int com(int num){
+        int res = 0;
+        for(int i = 0;i<n;i++){
+            if((num&(1<<i))==0){
+                res = res | (1<<i);
+            }
+        }
+        return res;
+    }
+
+
+}
+
+
+
+
