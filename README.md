@@ -693,6 +693,7 @@ My Codeforce Practice<br/>
  |  1614D2 |[Divan and Kostomuksha (hard version) (2300) (DP)  ](./code/1614D2.txt)|2021/12/03|
  |  1225E |[Rock Is Push (2200) (DP + Thinking)  ](./code/1225E.txt)|2021/12/03|
  |  865D |[Buy Low Sell High (2400) (Greedy + Heap)  ](./code/865D.txt)|2021/12/03|
+ |  1326E |[Bombs (2400) (Thinking + Seg push down)  ](./code/1326E.txt)|2021/12/04|
  
 # 分类
 
@@ -1332,6 +1333,7 @@ My Codeforce Practice<br/>
 833B.[ The Bakery (2200) (DP + Seg push down)  ](./code/833B.txt)<br/>
 446C.[DZY Loves Fibonacci Numbers (2400) (Segment Tree push down + Fib Number Property)  ](./code/446C.txt)<br/>
 1295E.[Permutation Separation (2200) (Segment Tree pushDown + Thinking)  ](./code/1295E.txt)<br/>
+1326E.[Bombs (2400) (Thinking + Seg push down)  ](./code/1326E.txt)<br/>
 
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
