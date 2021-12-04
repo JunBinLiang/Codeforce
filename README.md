@@ -692,6 +692,7 @@ My Codeforce Practice<br/>
  |  985C |[Liebig's Barrels (1500) (Greedy)  ](./code/985C.txt)|2021/12/03|
  |  1614D2 |[Divan and Kostomuksha (hard version) (2300) (DP)  ](./code/1614D2.txt)|2021/12/03|
  |  1225E |[Rock Is Push (2200) (DP + Thinking)  ](./code/1225E.txt)|2021/12/03|
+ |  865D |[Buy Low Sell High (2400) (Greedy + Heap)  ](./code/865D.txt)|2021/12/03|
  
 # 分类
 
@@ -889,6 +890,7 @@ My Codeforce Practice<br/>
 
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
+865D.[Buy Low Sell High (2400) (Greedy + Heap)  ](./code/865D.txt)<br/>
 
 ### Constructive 
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
