@@ -1520,7 +1520,7 @@ ACW 373.[ 車的放置 (E） （二分图最大匹配）  ](./code/acw373.txt) <
 
 # Leetcode
 84.[ Largest Rectangle in Histogram (H） （Cartesian Tree）  ](./code/lc84.txt) <br/>
-
+2097.[ Valid Arrangement of Pairs (H） （Eulaer path + Eule Circuit）  ](./code/lc2097.txt) <br/>
 
 # Kickstart
 2021 D3.[ Final Exam  (TreeSet) ](./code/2021D3.txt) <br/>
