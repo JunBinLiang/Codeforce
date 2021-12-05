@@ -1,0 +1,172 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 998244353;
+    //int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution(int testcase) {
+        int n =fs.Int();
+        int k = fs.Int();
+        int m = fs.Int();
+
+        int q[][]=new int[m][3];
+        for(int i = 0; i < m;i++){
+            int l = fs.Int()-1;
+            int r = fs.Int()-1;
+            int x = fs.Int();
+            q[i][0]=l;
+            q[i][1]=r;
+            q[i][2]=x;
+        }
+
+        long res = 1;
+        for(int i = 0; i < k; i++) {
+            int line[]=new int[n+1];
+            int R[]=new int[n];
+            Arrays.fill(R,-1);
+            long dp[]=new long[n];
+            long sums[]=new long[n];
+
+            for(int j = 0; j < q.length;j++){
+                int l = q[j][0],r=q[j][1],val=q[j][2];
+                if((val&(1<<i))!=0){
+                    line[l]++;
+                    line[r+1]--;
+                }
+                else{
+                    R[r]=Math.max(R[r],l);
+                }
+            }
+
+            for(int j = 1;j<line.length;j++){
+                line[j]+=line[j-1];
+            }
+
+            int l = -1;
+            for(int j = 0;j<dp.length;j++){
+                if(j>0)sums[j]=sums[j-1];
+                if(line[j]!=0){
+                    l = Math.max(l,R[j]);
+                    continue;
+                }
+                if(l==-1)dp[j]=1;
+                dp[j]+=get(sums,Math.max(l,0),j-1);
+                dp[j]%=mod;
+                sums[j]+=dp[j];
+                sums[j]%=mod;
+                l = Math.max(l,R[j]);
+            }
+
+            long a = get(sums, Math.max(l,0) , sums.length-1);
+            if(l==-1)a++;
+            res *= a;
+            res%=mod;
+        }
+        out.println(res);
+    }
+
+    public long get(long A[],int l,int r){
+        if(l>r)return 0;
+        if(l==0)return A[r];
+        return (A[r]-A[l - 1]+mod)%mod;
+    }
+
+}
+
+
+//[1 3 011]
+//[3 4 110]
+//[011,011,111,110]
