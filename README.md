@@ -697,6 +697,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  865D |[Buy Low Sell High (2400) (Greedy + Heap)  ](./code/865D.txt)|2021/12/03|
  |  1326E |[Bombs (2400) (Thinking + Seg push down)  ](./code/1326E.txt)|2021/12/04|
  |  986C |[AND Graph (2500) (Graph)  ](./code/986C.txt)|2021/12/04|
+ |  1327F |[AND Segments (2500) (DP + Thinking)  ](./code/1327F.txt)|2021/12/05|
  
 # 分类
 
@@ -757,6 +758,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1120C.[Compress String (2100) (DP)  ](./code/1120C.txt)<br/>
 570E.[Pig and Palindromes (2300) (DP)  ](./code/570E.txt)<br/>
 1225E.[Rock Is Push (2200) (DP + Thinking)  ](./code/1225E.txt)<br/>
+1327F.[AND Segments (2500) (DP + Thinking)  ](./code/1327F.txt)<br/>
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
