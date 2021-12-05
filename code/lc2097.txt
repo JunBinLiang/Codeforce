@@ -1,0 +1,78 @@
+class Solution {
+    Queue<Integer>graph[];
+    int id = 0;
+    Map<Integer,Integer>f=new HashMap<>();
+    Map<Integer,Integer>g=new HashMap<>();
+    LinkedList<Integer>res=new LinkedList<>();
+    int in[];
+    int out[];
+    public int[][] validArrangement(int[][] A) {
+        int n =  A.length;
+        for(int edge[]:A){
+            int u = edge[0];
+            int v = edge[1];
+            if(!f.containsKey(u)){
+                f.put(u,id);
+                g.put(id,u);
+                id++;
+            }
+            if(!f.containsKey(v)){
+                f.put(v,id);
+                g.put(id,v);
+                id++;
+            }
+        }
+        
+        graph=new LinkedList[id+1];
+        Arrays.setAll(graph,e->new LinkedList<>());
+        in = new int[id];
+        out=new int[id];
+        
+        
+        int B[][]=new int[n][2];
+        for(int i=0;i<n;i++){
+            B[i][0]=f.get(A[i][0]);
+            B[i][1]=f.get(A[i][1]);
+            int u =B[i][0],v=B[i][1];
+            graph[u].add(v);
+            out[u]++;
+            in[v]++;
+        }
+        
+        int start = 0;
+        for(int i=0;i<id;i++){
+            if(out[i]-in[i]==1){
+                start = i;
+            }
+        }
+        
+        
+        dfs(start);
+        int ans[][]=new int[n][2];
+        List<Integer>l=new ArrayList<>();
+        while(res.size()>0){
+            int head=res.removeFirst();
+            l.add(g.get(head));
+        }
+        
+        int j = 0;
+        for(int i = 1;i<l.size();i++){
+            ans[j][0]=l.get(i-1);
+            ans[j][1]=l.get(i);
+            j++;
+        }
+        
+        
+        return ans;
+    }
+    
+    public void dfs(int root){
+        Queue<Integer>q=graph[root];
+        while(q.size()>0){
+            int next=q.poll();
+            dfs(next);
+        }
+        res.addFirst(root);
+    }
+    
+}
