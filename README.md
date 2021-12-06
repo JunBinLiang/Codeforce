@@ -698,6 +698,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1326E |[Bombs (2400) (Thinking + Seg push down)  ](./code/1326E.txt)|2021/12/04|
  |  986C |[AND Graph (2500) (Graph)  ](./code/986C.txt)|2021/12/04|
  |  1327F |[AND Segments (2500) (DP + Thinking)  ](./code/1327F.txt)|2021/12/05|
+ |  703D |[Mishka and Interesting sum (2100) (Fenwick + Thinking)  ](./code/703D.txt)|2021/12/06|
  
 # 分类
 
@@ -1312,7 +1313,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 459D.[Pashmak and Parmida's problem (1800) (Fenwick Tree)  ](./code/459D.txt)<br/>
 1553F.[ Pairwise Modulo (2300) (Fenwick + Math + Thinking)  ](./code/1553F.txt)<br/>
 1579E2.[Array Optimization by Deque (1700) (Fenwick)  ](./code/1579E2.txt)<br/>
-
+703D.[Mishka and Interesting sum (2100) (Fenwick + Thinking)  ](./code/703D.txt)<br/>
 ### Sparse Table
 45B.[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)<br/>
 466E.[ Information Graph	 (2100) (OffLine + Sparse Table + Tree)  ](./code/466E.txt)<br/>
