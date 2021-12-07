@@ -699,6 +699,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  986C |[AND Graph (2500) (Graph)  ](./code/986C.txt)|2021/12/04|
  |  1327F |[AND Segments (2500) (DP + Thinking)  ](./code/1327F.txt)|2021/12/05|
  |  703D |[Mishka and Interesting sum (2100) (Fenwick + Thinking)  ](./code/703D.txt)|2021/12/06|
+ |  850B|[Arpa and a list of numbers (2100) (Math + 打表)  ](./code/850B.txt)|2021/12/07|
  
 # 分类
 
