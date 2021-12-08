@@ -1,0 +1,215 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 998244353;
+    //int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution(int testcase) {
+        int n = fs.Int();
+        int K = fs.Int();
+        int A[]=new int[n];
+        for(int i = 0; i < n; i++) {
+            A[i]=fs.Int();
+        }
+
+        int dp[]=new int[n];
+        int pos[]=new int[n + 1];
+        Arrays.fill(pos,-1);
+        int sum = 0;
+        for(int i = 0; i < n;i++){
+            if(pos[A[i]]!=-1){
+                sum+=(i - pos[A[i]]);
+            }
+            dp[i]=sum;
+            pos[A[i]]=i;
+        }
+
+        for(int k = 1; k < K;k++){
+            Seg seg = new Seg(0, A.length - 1);
+            if(k-2>=0){
+                seg.update(0,k-2,1000000000);
+            }
+            seg.update(k-1,k-1,dp[k-1]);
+
+
+            for(int i = k; i < n; i++){
+                if(pos[A[i]]<i){
+                    int add = i - pos[A[i]];
+                    seg.update(k-1,pos[A[i]]-1,add);
+                }
+
+
+                int res = seg.query(k-1,i-1);
+                seg.update(i,i,dp[i]);
+                dp[i]=res;
+                pos[A[i]]=i;
+            }
+        }
+        out.println(dp[n-1]);
+    }
+
+
+    class Seg{
+        int l,r;
+        int mid;
+        int min=0;
+        int setTo=0;
+        Seg left=null,right=null;
+        public Seg(int l,int r){
+            this.l=l;
+            this.r=r;
+            this.mid=l+(r - l) / 2;
+        }
+
+        public int query(int s,int e){
+            if(l==s&&r==e){
+                return this.min;
+            }
+
+
+            if(setTo!=0){//push down
+                if(left==null)left=new Seg(l,mid);
+                if(right==null)right=new Seg(mid+1,r);
+                left.update(l,mid,setTo);
+                right.update(mid+1,r,setTo);
+                this.min=Math.min(left.min,right.min);
+                this.setTo=0;
+            }
+
+            if(e<=mid){
+                return left.query(s,e);
+            }
+            else if(s>=mid+1){
+                return right.query(s,e);
+            }else{
+                return Math.min(left.query(s,mid),right.query(mid+1,e));
+            }
+        }
+
+        public void update(int s,int e,int add){
+            if(l==s&&r==e){
+                this.setTo+=add;
+                this.min+=add;
+                return;
+            }
+
+            if(left==null)left=new Seg(l,mid);
+            if(right==null)right=new Seg(mid+1,r);
+
+            if(setTo!=0){//push down
+                left.update(l,mid,setTo);
+                right.update(mid+1,r,setTo);
+                this.setTo=0;
+            }
+
+            if(e<=mid){
+                left.update(s,e,add);
+            }
+            else if(s>=mid+1){
+                right.update(s,e,add);
+            }else{
+                left.update(s,mid,add);
+                right.update(mid+1,e,add);
+            }
+            this.min=Math.min(left.min,right.min);
+        }
+
+
+    }
+
+}
+
+
