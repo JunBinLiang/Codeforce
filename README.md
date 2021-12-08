@@ -701,6 +701,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  703D |[Mishka and Interesting sum (2100) (Fenwick + Thinking)  ](./code/703D.txt)|2021/12/06|
  |  850B|[Arpa and a list of numbers (2100) (Math + 打表)  ](./code/850B.txt)|2021/12/07|
  |  1527E |[Partition Game (2500) (DP + Thinking + Seg push down)  ](./code/1527E.txt)|2021/12/08|
+ |  839D |[Winter is here (2200) (容斥 + Combination)  ](./code/839D.txt)|2021/12/08|
  
 # 分类
 
@@ -1148,6 +1149,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### 容斥
  803F.[Coprime Subsequences (2000) (DP + 容斥 + Number Theory)  ](./code/803F.txt)<br/>
+ 839D.[Winter is here (2200) (容斥 + Combination)  ](./code/839D.txt)<br/>
  
 ### 二维容斥
 1245F.[Daniel and Spring Cleaning (2300) (数位DP + 二维容斥)  ](./code/1245F.txt)<br/>
