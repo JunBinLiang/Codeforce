@@ -700,6 +700,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1327F |[AND Segments (2500) (DP + Thinking)  ](./code/1327F.txt)|2021/12/05|
  |  703D |[Mishka and Interesting sum (2100) (Fenwick + Thinking)  ](./code/703D.txt)|2021/12/06|
  |  850B|[Arpa and a list of numbers (2100) (Math + 打表)  ](./code/850B.txt)|2021/12/07|
+ |  1527E |[Partition Game (2500) (DP + Thinking + Seg push down)  ](./code/1527E.txt)|2021/12/08|
  
 # 分类
 
@@ -1342,6 +1343,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 446C.[DZY Loves Fibonacci Numbers (2400) (Segment Tree push down + Fib Number Property)  ](./code/446C.txt)<br/>
 1295E.[Permutation Separation (2200) (Segment Tree pushDown + Thinking)  ](./code/1295E.txt)<br/>
 1326E.[Bombs (2400) (Thinking + Seg push down)  ](./code/1326E.txt)<br/>
+1527E.[Partition Game (2500) (DP + Thinking + Seg push down)  ](./code/1527E.txt)<br/>
 
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
