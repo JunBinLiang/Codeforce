@@ -702,6 +702,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  850B|[Arpa and a list of numbers (2100) (Math + 打表)  ](./code/850B.txt)|2021/12/07|
  |  1527E |[Partition Game (2500) (DP + Thinking + Seg push down)  ](./code/1527E.txt)|2021/12/08|
  |  839D |[Winter is here (2200) (容斥 + Combination)  ](./code/839D.txt)|2021/12/08|
+ |  734E |[ Anton and Tree (2100) (Tree)  ](./code/734E.txt)|2021/12/09|
  
 # 分类
 
@@ -1291,6 +1292,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
+734E.[ Anton and Tree (2100) (Tree)  ](./code/734E.txt)<br/>
 
 ### Tree Euler Tour (Path Sum Query With Update)
 1575I.[Illusions of the Desert (2300) (Tree + LCS + Tree Euler + Tree Path Query)  ](./code/1575I.txt)<br/>
