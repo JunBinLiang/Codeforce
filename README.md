@@ -703,6 +703,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1527E |[Partition Game (2500) (DP + Thinking + Seg push down)  ](./code/1527E.txt)|2021/12/08|
  |  839D |[Winter is here (2200) (容斥 + Combination)  ](./code/839D.txt)|2021/12/08|
  |  734E |[ Anton and Tree (2100) (Tree)  ](./code/734E.txt)|2021/12/09|
+ |  734F |[ Anton and School(2500) (Thinking + Constructive + Math)  ](./code/734F.txt)|2021/12/09|
  
 # 分类
 
@@ -947,6 +948,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  1187C.[Vasya And Array(1800) (Constructive + Line Sweep)  ](./code/1187C.txt)<br/>
  238B.[Boring Partition (1800) (Constructive + Greedy)  ](./code/238B.txt)<br/>
  773C.[Prairie Partition (2200) (Greedy + Constructive)  ](./code/773C.txt)<br/>
+ 734F.[ Anton and School(2500) (Thinking + Constructive + Math)  ](./code/734F.txt)<br/>
+ 
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
  
