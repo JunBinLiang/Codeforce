@@ -1495,9 +1495,6 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 <br/><br/>
 
-# Geometry (训练集)
-https://github.com/JunBinLiang/Geometry <br/>
-
 
 
 ### Flow
@@ -1543,3 +1540,13 @@ ACW 373.[ 車的放置 (E） （二分图最大匹配）  ](./code/acw373.txt) <
 
 # Some Article
 1. https://blog.csdn.net/my_sunshine26/article/details/77385809 (组合数学:球问题)
+
+<br/><br/><br/>
+# 专题练习
+<br/><br/><br/>
+# Geometry (训练集)
+https://github.com/JunBinLiang/Geometry <br/>
+<br/><br/><br/>
+
+# 算法学习 
+
