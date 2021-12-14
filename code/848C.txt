@@ -1,0 +1,336 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    //int mod = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    //CDQ Divide Conquer
+    //Each element A[i] has 3 attributes : A[i][0],A[i][1],A[i][2]
+    //For each i, find how many elemsnts such : A[j][0] <= A[i][0] && A[j][1] <= A[i][1] && A[j][2] <= A[i][2] (j != i)
+    //Template : https://www.acwing.com/problem/content/2817/
+
+    //1st level : sort
+    //2nd level : merge sort
+    //3rd level : Fenwick Tree
+
+
+    long res[];
+    FenWick fen;
+    int n,m;
+    public void solution(int testcase) {
+        n = fs.Int();
+        m = fs.Int();
+        res = new long[m + 1];
+        int A[]=new int[n + 1];
+        int pre[]=new int[n + 1];
+        fen = new FenWick(n + 2);
+        List<Node>list = new ArrayList<>();
+
+        TreeSet<Integer> trees[]=new TreeSet[n + 1];
+        Arrays.setAll(trees,e->new TreeSet<>());
+        for(int i = 0; i < n;i++){
+            int val = fs.Int();
+            A[i + 1] = val;
+            trees[val].add(i + 1);
+            if(pre[val]==0){
+                pre[val] = i + 1;
+            }
+            else{
+                int x = pre[val];
+                int y = i + 1;
+                Node node = new Node(y - x,x,y,1,0);
+                list.add(node);
+                pre[val] = i + 1;
+            }
+        }
+
+        //1 : non query
+        //2 : query
+        boolean seen[]=new boolean[m+1];
+        for(int i = 0; i < m;i++){
+            int type = fs.Int();
+            if(type==1){
+                int pos = fs.Int();
+                int to = fs.Int();
+                int val = A[pos];
+                A[pos] = to;
+                TreeSet<Integer>tree1=trees[val];
+                TreeSet<Integer>tree2=trees[to];
+                tree1.remove(pos);
+                tree2.add(pos);
+
+                Integer next1 = tree1.higher(pos);
+                Integer pre1 = tree1.lower(pos);
+
+                Integer next2 = tree2.higher(pos);
+                Integer pre2 = tree2.lower(pos);
+                if(next1!=null){
+                    Node node = new Node(-(next1-pos),pos,next1,1,i+1);
+                    list.add(node);
+                }
+                if(pre1!=null){
+                    Node node = new Node(-(pos - pre1), pre1,pos,1,i+1);
+                    list.add(node);
+                }
+                if(pre1!=null&&next1!=null){
+                    Node node = new Node(next1-pre1,pre1,next1,1,i+1);
+                    list.add(node);
+                }
+
+                if(next2!=null){
+                    Node node = new Node(next2-pos,pos,next2,1,i+1);
+                    list.add(node);
+                }
+                if(pre2!=null){
+                    Node node = new Node(pos-pre2,pre2,pos,1,i+1);
+                    list.add(node);
+                }
+                if(pre2!=null&&next2!=null){
+                    Node node = new Node(-(next2-pre2),pre2,next2,1,i + 1);
+                    list.add(node);
+                }
+            }
+            else{//query
+                int x = fs.Int();
+                int y = fs.Int();
+                Node node1 = new Node(0,x,y,2,i + 1);
+                list.add(node1);
+                seen[i+1]=true;
+            }
+        }
+
+
+        Node nodes[] = new Node[list.size()];
+        for(int i = 0; i < list.size(); i++){
+            nodes[i] = list.get(i);
+        }
+
+        Arrays.sort(nodes,(a,b)->{
+            if(a.y==b.y){
+                return a.t-b.t;
+            }
+            return a.y-b.y;
+        });
+
+        /*for(Node node:nodes){
+            System.out.println(node.x+" "+node.y+" "+node.val+" "+node.type+"     "+node.t);
+        }System.out.println();*/
+
+
+        divide(nodes,0,nodes.length-1);
+        for(int i = 1; i < res.length;i++){
+            if(seen[i])out.println(res[i]);
+        }
+
+    }
+
+    class Node {
+        int val;
+        int x;
+        int y;
+        int type;
+        int t;
+        public Node(int val,int x,int y,int type,int t){
+            this.val=val;
+            this.x=x;
+            this.y=y;
+            this.type=type;
+            this.t=t;
+        }
+    }
+
+
+
+    public void divide(Node A[],int l,int r){
+        if(l>=r){
+            return;
+        }
+        int mid = l + (r - l ) / 2;
+        divide(A,l,mid);
+        divide(A,mid+1,r);
+        merge(A,l,r);
+    }
+
+
+
+    //looking previous
+    public void merge(Node A[],int l,int r){
+        int mid = l + (r - l) / 2;
+        int i = l;int j = mid + 1;
+        int size = r - l + 1;
+        Node B[]=new Node[size];
+        int index = 0;
+
+        while(i<=mid&&j<=r){
+            if(A[i].t<=A[j].t){
+                B[index++]=A[i];
+                if(A[i].type==1){
+                    fen.update(A[i].x,A[i].val);
+                }
+                i++;
+            }
+            else{
+                B[index++]=A[j];
+                if(A[j].type==2){
+                    int t = A[j].t;
+                    res[t]+= fen.query(A[j].x,A[j].y);
+                }
+                j++;
+            }
+        }
+
+        while(i<=mid){
+            B[index++]=A[i++];
+        }
+        while (j <= r) {
+            B[index++]=A[j];
+            if(A[j].type==2){
+                int t = A[j].t;
+                res[t]+= fen.query(A[j].x,A[j].y);
+            }
+            j++;
+        }
+
+        index = 0;
+        for(int x = l; x <= r; x++){
+            A[x]=B[index++];
+            long old = fen.query(A[x].x,A[x].x);
+            if(old!=0){
+                fen.update(A[x].x,-old);
+            }
+        }
+    }
+
+
+}
+
+
+class FenWick {
+    long tree[];//1-index based.z
+    public FenWick(int n) {
+        tree=new long[n+1];
+    }
+
+    public void update(int i, long val) {
+        i++;
+        while(i<tree.length){
+            tree[i]+=val;
+            i+=(i&-i);
+        }
+    }
+
+    public long query(int i, int j) {
+        return pre(j+1)-pre(i);
+    }
+
+    public long pre(int i){
+        long sum=0;
+        while(i>0){
+            sum+=tree[i];
+            i-=(i&-i);
+        }
+        return sum;
+    }
+}
+
+/*
+7 3
+1 2 3 1 3 2 1
+1 7 2
+1 3 2
+2 1 7
+* */
