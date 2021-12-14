@@ -704,6 +704,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  839D |[Winter is here (2200) (容斥 + Combination)  ](./code/839D.txt)|2021/12/08|
  |  734E |[ Anton and Tree (2100) (Tree)  ](./code/734E.txt)|2021/12/09|
  |  734F |[ Anton and School(2500) (Thinking + Constructive + Math)  ](./code/734F.txt)|2021/12/09|
+ |  848C |[ Goodbye Souvenir(2600) (CDQ 分支)  ](./code/848C.txt)|2021/12/14|
  
 # 分类
 
@@ -1428,6 +1429,9 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1520F2. [Guess the K-th Zero (Hard version) (2200) (Binary Search+ Divide Conquer)  ](./code/1520F2.txt)<br/>
 1400E.[ Clear the Multiset (2200) (Greedy + Divide Conquer) (Thumb) ](./code/1400E.txt)<br/>
 1601C.[ Optimal Insertion	 (2300) (Divide Conquer)  ](./code/1601C.txt)<br/>
+
+### CDQ
+848C.[ Goodbye Souvenir(2600) (CDQ 分支)  ](./code/848C.txt)<br/>
 
 ### Divide Conquer : Merge
 1567E.[Non-Decreasing Dilemma (2200) (Segment Tree + Divide Conquer)  ](./code/1567E.txt)<br/>
