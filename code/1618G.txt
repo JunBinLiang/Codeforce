@@ -1,0 +1,204 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+
+    public void solution(int testcase) {
+        int n =fs.Int();
+        int m = fs.Int();
+        int x = fs.Int();
+        int A[]=new int[n];
+        int B[]=new int[m];
+        long sum = 0;
+        List<int[]>list=new ArrayList<>();
+        for(int i = 0; i < n; i++){
+            A[i]=fs.Int();
+            sum += A[i];
+            list.add(new int[]{A[i],1});
+        }
+        for(int i = 0; i < m; i++){
+            B[i]=fs.Int();
+            list.add(new int[]{B[i],0});
+        }
+
+        long pre[]=new long[list.size()];
+        int nums[] = new int[list.size()];
+        int cnt[] = new int[list.size()];
+        int bound[][]=new int[list.size()][2];
+
+        Collections.sort(list,(a,b)->{
+            return a[0]-b[0];
+        });
+        for(int i = 0; i < list.size();i++){
+            int pair[]=list.get(i);
+            if(i!=0)pre[i]+=pre[i-1];
+            pre[i]+=pair[0];
+            cnt[i] = pair[1];
+            nums[i] = i;
+            bound[i][0] = bound[i][1] = i;
+        }
+
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            return a[2]-b[2];
+        });
+        for(int i =1;i<list.size();i++){
+            int dif = list.get(i)[0] - list.get(i - 1)[0];
+            pq.add(new int[]{i-1,i,dif});
+        }
+
+
+        int q[][]=new int[x][2];
+        for(int i = 0; i < q.length;i++){
+            q[i][0]=fs.Int();
+            q[i][1] = i;
+        }
+        Arrays.sort(q,(a,b)->{
+            return a[0]-b[0];
+        });
+        
+
+        long res[]=new long[q.length];
+        for(int i = 0;i<q.length;i++){
+            int k = q[i][0];
+            int index = q[i][1];
+            while(pq.size()>0&&pq.peek()[2]<=k){//can merge
+                int pair[]=pq.poll();
+                int u = pair[0],v=pair[1];
+                int r1 = find(nums,u);
+                int r2 = find(nums,v);
+
+                if(r1 != r2){
+                    int newcnt = cnt[r1] + cnt[r2];
+                    nums[r1] = r2;
+                    //update sum
+                    int ll1 = bound[r1][0],rr1 = bound[r1][1];
+                    sum -= get(pre,rr1-cnt[r1]+1,rr1);
+                    int ll2= bound[r2][0],rr2=bound[r2][1];
+                    sum -= get(pre,rr2-cnt[r2]+1,rr2);
+
+                    int l = Math.min(ll1,ll2);
+                    int r = Math.max(rr1,rr2);
+                    bound[r2][0]=l;
+                    bound[r2][1]=r;
+                    sum += get(pre,r-newcnt+1,r);
+
+                    cnt[r2] = newcnt;
+                }
+            }
+            res[index]=sum;
+        }
+
+
+        for(long i : res){
+            out.println(i);
+        }
+    }
+
+    public long get(long A[],int l,int r){
+        if(l==0)return A[r];
+        return A[r] - A[l - 1];
+    }
+
+    public int find(int nums[],int x){
+        if(nums[x]==x)return x;
+        int root=find(nums,nums[x]);
+        nums[x]=root;
+        return root;
+    }
+
+
+}
