@@ -705,6 +705,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  734E |[ Anton and Tree (2100) (Tree)  ](./code/734E.txt)|2021/12/09|
  |  734F |[ Anton and School(2500) (Thinking + Constructive + Math)  ](./code/734F.txt)|2021/12/09|
  |  848C |[ Goodbye Souvenir(2600) (CDQ 分支)  ](./code/848C.txt)|2021/12/14|
+ |  1618G |[ Trader Problem (2200) (UF + Sort)  ](./code/1618G.txt)|2021/12/16|
  
 # 分类
 
@@ -1259,6 +1260,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 ### UF
 292D.[Connected Components (1900) (UF + Graph + Thinking)  ](./code/292D.txt)<br/>
 195E.[Building Forest (2000) (UF + Tree) (Thumb)  ](./code/195E.txt)<br/>
+1618G.[ Trader Problem (2200) (UF + Sort)  ](./code/1618G.txt)<br/>
 
 ### MST
 125E. [ MST Company (2400) (MST + Thinking)  ](./code/125E.txt)<br/>
