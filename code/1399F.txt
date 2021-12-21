@@ -1,0 +1,189 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+    int dp[][];
+    int A[][];
+    boolean is[];
+    List<Integer>left[];
+    List<Integer>right[];
+    boolean over[][];
+    public void solution(int testcase) {
+        int n =fs.Int();
+        A=new int[n][2];
+        List<Integer>list = new ArrayList<>();
+        for(int i = 0; i < n;i++){
+            A[i][0]=fs.Int();
+            A[i][1]=fs.Int();
+            list.add(A[i][0]);
+            list.add(A[i][1]);
+        }
+
+        Collections.sort(list);
+        int f[]=new int[200000 + 20];
+        int id = 1;
+        for(int i = 0; i < list.size();i++){
+            if(f[list.get(i)] == 0){
+                f[list.get(i)] = id++;
+            }
+        }
+
+        over = new boolean[id+1][id+1];
+        for(int i = 0; i < A.length;i++){
+            A[i][0] = f[A[i][0]];
+            A[i][1] = f[A[i][1]];
+        }
+        Arrays.sort(A,(a,b)->{
+            return a[0]-b[0];
+        });
+
+        left = new ArrayList[id + 1];
+        right = new ArrayList[id + 1];
+
+        for(int i = 0; i < A.length;i++){
+            int a = A[i][0], b = A[i][1];
+            over[a][b] = true;
+            if(left[a]==null)left[a] = new ArrayList<>();
+            if(right[b]==null)right[b] = new ArrayList<>();
+            left[a].add(i);
+            right[b].add(i);
+        }
+
+
+
+        dp = new int[id + 1][id + 1];
+        for(int p[]:dp)Arrays.fill(p,-1);
+        out.println(dfs(1,id));
+    }
+
+    public int dfs(int l, int r){
+        if(l > r) {
+            return 0;
+        }
+        if(dp[l][r]!=-1){
+            return dp[l][r];
+        }
+        int add = 0;
+        if(over[l][r])add++;
+        int res = add;
+        res = Math.max(res, add + dfs(l+1,r));
+        res = Math.max(res, add + dfs(l, r -  1));
+
+        if(left[l]!=null){
+            List<Integer>list = left[l];
+            for(int i : list){
+                int b = A[i][1];
+                if(b<r){
+                    res = Math.max(res, add + dfs(l,b) + dfs(b + 1,r));
+                }
+            }
+        }
+
+        if(right[r]!=null){
+            List<Integer>list = right[r];
+            for(int i : list){
+                int a = A[i][0];
+                if(a > l){
+                    res = Math.max(res, add + dfs(l,a - 1)+dfs(a,r));
+                }
+            }
+        }
+        return dp[l][r] = res;
+    }
+
+}
