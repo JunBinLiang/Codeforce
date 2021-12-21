@@ -707,6 +707,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  848C |[ Goodbye Souvenir(2600) (CDQ 分支)  ](./code/848C.txt)|2021/12/14|
  |  1618G |[ Trader Problem (2200) (UF + Sort)  ](./code/1618G.txt)|2021/12/16|
  |  1618E |[ Singers' Tour (1700) (MAth + Constructive)  ](./code/1618E.txt)|2021/12/18|
+ |  323B |[ Tournament-graph (2200) (Constructive)  ](./code/323B.txt)|2021/12/20|
  
 # 分类
 
@@ -953,6 +954,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  773C.[Prairie Partition (2200) (Greedy + Constructive)  ](./code/773C.txt)<br/>
  734F.[ Anton and School(2500) (Thinking + Constructive + Math)  ](./code/734F.txt)<br/>
  1618E.[ Singers' Tour (1700) (MAth + Constructive)  ](./code/1618E.txt)<br/>
+ 323B.[ Tournament-graph (2200) (Constructive)  ](./code/323B.txt)<br/>
  
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
