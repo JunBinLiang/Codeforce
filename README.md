@@ -708,6 +708,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1618G |[ Trader Problem (2200) (UF + Sort)  ](./code/1618G.txt)|2021/12/16|
  |  1618E |[ Singers' Tour (1700) (MAth + Constructive)  ](./code/1618E.txt)|2021/12/18|
  |  323B |[ Tournament-graph (2200) (Constructive)  ](./code/323B.txt)|2021/12/20|
+ |  1399F |[ Yet Another Segments Subset (2300) (区间DP)  ](./code/1399F.txt)|2021/12/21|
  
 # 分类
 
@@ -845,6 +846,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1509C. [The Sports Festival (1800) (DP) ](./code/1509C.txt)  <br/>
 983B.[XOR-pyramid (1800) (Interval DP)  ](./code/983B.txt)<br/>
 1132F.[Clear the String (2000) (区间 DP)  ](./code/1132F.txt)<br/>
+1399F.[ Yet Another Segments Subset (2300) (区间DP)  ](./code/1399F.txt)<br/>
 
 ### DP + Monoqueue
 1077F2.[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)<br/>
