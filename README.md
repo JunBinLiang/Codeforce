@@ -709,6 +709,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1618E |[ Singers' Tour (1700) (MAth + Constructive)  ](./code/1618E.txt)|2021/12/18|
  |  323B |[ Tournament-graph (2200) (Constructive)  ](./code/323B.txt)|2021/12/20|
  |  1399F |[ Yet Another Segments Subset (2300) (区间DP)  ](./code/1399F.txt)|2021/12/21|
+ |  85D |[Sum of Medians (2300) (Seg push + Thinking)  ](./code/85D.txt)|2021/12/22|
  
 # 分类
 
@@ -1360,6 +1361,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1295E.[Permutation Separation (2200) (Segment Tree pushDown + Thinking)  ](./code/1295E.txt)<br/>
 1326E.[Bombs (2400) (Thinking + Seg push down)  ](./code/1326E.txt)<br/>
 1527E.[Partition Game (2500) (DP + Thinking + Seg push down)  ](./code/1527E.txt)<br/>
+85D.[Sum of Medians (2300) (Seg push + Thinking)  ](./code/85D.txt)<br/>
 
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
