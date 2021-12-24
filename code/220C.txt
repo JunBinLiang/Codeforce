@@ -1,0 +1,202 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+    }
+
+
+    public void solution(int testcase) {
+        int n =fs.Int();
+        int A[]=new int[n];
+        int B[]=new int[n];
+        int pos[]=new int[n + 1];
+        int pos1[]=new int[n + 1];
+        for(int i = 0; i < n;i++){
+            A[i] = fs.Int();
+            pos[A[i]]=i;
+        }
+        for(int i = 0; i < n;i++){
+            B[i] = fs.Int();
+        }
+
+
+        int res[]=new int[n];
+        Arrays.fill(res,INF);
+        PriorityQueue<int[]>left=new PriorityQueue<>((a,b)->{
+            return a[0]-b[0];
+        });
+        PriorityQueue<int[]>leftmin=new PriorityQueue<>((a,b)->{
+            return a[0]-b[0];
+        });
+        boolean seen[]=new boolean[n+1];
+        PriorityQueue<int[]>right = new PriorityQueue<>((a,b)->{
+            return a[0]-b[0];
+        });
+
+        for(int i = 0; i < n;i++){
+            if(i >= pos[B[i]]){
+                right.add(new int[]{i - pos[B[i]],B[i]});
+
+            }
+            else{
+                left.add(new int[]{pos[B[i]]-i,B[i]});
+                leftmin.add(new int[]{i,B[i]});
+                seen[B[i]]=true;
+            }
+        }
+
+        for(int i = 0; i < n;i++){
+            while(right.size()>0){
+                int top[] = right.peek();
+                if(top[0] - i < 0){
+                    right.poll();
+                    if(pos[top[1]]==0){
+                        right.add(new int[]{n - 1 - pos[top[1]]+i,top[1]});
+                        continue;
+                    }
+
+                    left.add(new int[]{1-i,top[1]});
+                    leftmin.add(new int[]{pos[top[1]] + i - 1,top[1]});
+                    seen[top[1]]=true;
+                }
+                else{
+                    break;
+                }
+            }
+
+            while(leftmin.size()>0){
+                int top[]=leftmin.peek();
+                if(top[0] - i < 0){
+                    leftmin.poll();
+                    seen[top[1]]=false;
+                    right.add(new int[]{n - 1 - pos[top[1]]+i,top[1]});
+                }
+                else{
+                    break;
+                }
+            }
+
+
+            while(left.size()>0&& !seen[left.peek()[1]]){
+                left.poll();
+            }
+
+
+
+            if(left.size()>0){
+                int a[] = left.peek();
+                res[i] = Math.min(res[i],a[0] + i);
+            }
+            if(right.size()>0){
+                int a[] = right.peek();
+                res[i] = Math.min(res[i],a[0] - i);
+            }
+
+        }
+
+        for(int i:res){
+            out.println(i);
+        }
+    }
+
+
+
+}
+
+
+
+
+
