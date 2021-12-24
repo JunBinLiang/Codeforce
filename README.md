@@ -711,7 +711,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1399F |[ Yet Another Segments Subset (2300) (区间DP)  ](./code/1399F.txt)|2021/12/21|
  |  85D |[Sum of Medians (2300) (Seg push + Thinking)  ](./code/85D.txt)|2021/12/22|
  |  1349C |[Orac and Game of Life	 (2000) (Graph + Thinking)  ](./code/1349C.txt)|2021/12/23|
- |  220C |[220C (2100) (Two Heap Moving + Thinking)  ](./code/220C.txt)|2021/12/23|
+ |  220C |[Little Elephant and Shifts (2100) (Two Heap Moving + Thinking)  ](./code/220C.txt)|2021/12/23|
  
 # 分类
 
@@ -1465,7 +1465,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1213D2.[Equalizing by Division (hard version) (1600) (Sort)  ](./code/1213D2.txt)<br/>
 
 ### Two Heap
-220C.[220C (2100) (Two Heap Moving + Thinking)  ](./code/220C.txt)<br/>
+220C.[Little Elephant and Shifts (2100) (Two Heap Moving + Thinking)  ](./code/220C.txt)<br/>
 
 ### Interval Problem
 1029C.[Maximal Intersection (1600) (Left/Right DP + Interval Problem) ](./code/1029C.txt)<br/>
