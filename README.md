@@ -712,6 +712,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  85D |[Sum of Medians (2300) (Seg push + Thinking)  ](./code/85D.txt)|2021/12/22|
  |  1349C |[Orac and Game of Life	 (2000) (Graph + Thinking)  ](./code/1349C.txt)|2021/12/23|
  |  220C |[Little Elephant and Shifts (2100) (Two Heap Moving + Thinking)  ](./code/220C.txt)|2021/12/23|
+ |  1336C |[Kaavi and Magic Spell(2200) (区间DP + Thinking)  ](./code/1336C.txt)|2021/12/25|
  
 # 分类
 
@@ -850,6 +851,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 983B.[XOR-pyramid (1800) (Interval DP)  ](./code/983B.txt)<br/>
 1132F.[Clear the String (2000) (区间 DP)  ](./code/1132F.txt)<br/>
 1399F.[ Yet Another Segments Subset (2300) (区间DP)  ](./code/1399F.txt)<br/>
+1336C.[Kaavi and Magic Spell(2200) (区间DP + Thinking)  ](./code/1336C.txt)<br/>
 
 ### DP + Monoqueue
 1077F2.[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)<br/>
