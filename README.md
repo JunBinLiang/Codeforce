@@ -714,7 +714,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  220C |[Little Elephant and Shifts (2100) (Two Heap Moving + Thinking)  ](./code/220C.txt)|2021/12/23|
  |  1336C |[Kaavi and Magic Spell(2200) (区间DP + Thinking)  ](./code/1336C.txt)|2021/12/25|
  |  1168C |[And Reachability (2200) (DP)  ](./code/1168C.txt)|2021/12/25|
-  |  1148E |[Earth Wind and Fire(2300) (Greedy + Thinking)  ](./code/1148E.txt)|2021/12/26|
+ |  1148E |[Earth Wind and Fire(2300) (Greedy + Thinking)  ](./code/1148E.txt)|2021/12/26|
+ |  280B |[Maximum Xor Secondary	 (1800) (Monotic Stack)  ](./code/280B.txt)|2021/12/26|
  
 # 分类
 
