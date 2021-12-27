@@ -1499,6 +1499,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### Stack
 224C.[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)<br/>
+280B.[Maximum Xor Secondary	 (1800) (Monotic Stack)  ](./code/280B.txt)<br/>
 
 ### LinkedList
 899E.[Segments Removal (2000) (UF + Double LinkedList)  ](./code/899E.txt)<br/>
