@@ -1,4 +1,6 @@
 // Don't place your source in a package
+
+
 import javax.swing.*;
 import java.lang.reflect.Array;
 import java.text.DecimalFormat;
@@ -7,6 +9,7 @@ import java.lang.*;
 import java.io.*;
 import java.math.*;
 import java.util.stream.Stream;
+
 
 
 // Please name your class Main
@@ -40,25 +43,27 @@ public class Main {
 
     public static void main (String[] args) throws java.lang.Exception {
         PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
 
         int T=1;
         for(int t=0;t<T;t++){
-            int n=Int();
-            int r=Int();
-            int A[][]=new int[n][2];
-            for(int i=0;i<n;i++){
-                A[i][0]=Int();
-                A[i][1]=Int();
-            }
-
-            Solution sol=new Solution(out);
-            sol.solution(A,r);
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
         }
-        out.close();
+        out.flush();
 
     }
 
 
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
     public static int Int(){
         return fs.Int();
     }
@@ -76,109 +81,75 @@ public class Main {
 
 
 
-class Solution{
+
+
+class Solution {
     PrintWriter out;
-    public Solution(PrintWriter out){
-        this.out=out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+    int match[];
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+
     }
 
-
-
-
-
-    public void solution(int A[][],int sum){
-        Arrays.sort(A,(a,b)->{
-            return a[0]-b[0];
-        });
-        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
-            return b[1]-a[1];
-        });
-
-        for(int i=0;i<A.length;i++){
-            if(A[i][0]<=sum){
-                pq.add(A[i]);
+    public void solution(int testcase) {
+        int n = fs.Int();
+        int r = fs.Int();
+        int A[][] = new int[n][2];
+        List<int[]>pos = new ArrayList<>();
+        List<int[]>neg = new ArrayList<>();
+        for(int i = 0; i < n; i++){
+            int a = fs.Int();
+            int b = fs.Int();
+            if(b>=0){
+                pos.add(new int[]{a,b});
+            }else{
+                neg.add(new int[]{a,b});
             }
-            else{
+        }
+
+        int cnt = 0;
+        Collections.sort(pos,(a,b)->{
+            return a[0] - b[0];
+        });
+        for(int i = 0; i < pos.size(); i++){
+            if(r >= pos.get(i)[0]){
+                r+=pos.get(i)[1];
+                cnt++;
+            }else{
                 out.println("NO");
                 return;
             }
-            while(pq.size()>0&&pq.peek()[1]>=0)sum+=pq.poll()[1];
         }
 
-        //System.out.println(sum);
-
-        PriorityQueue<int[]>pq1=new PriorityQueue<>((a,b)->{
-            int c1=-a[1];
-            int c2=-b[1];
-            if(a[0]==b[0])return c1-c2;
-
-            int dif=Math.abs(a[0]-b[0]);
-            if(a[0]>b[0]){
-                return (c1-dif)-c2;
-            }
-            else{
-                return c1-(c2-dif);
-            }
+        Collections.sort(neg,(a,b)->{
+            return (b[0]+b[1]) - (a[0] + a[1]);
         });
 
-
-        while(pq.size()>0)pq1.add(pq.poll());
-        while(pq1.size()>0){
-            int top[]=pq1.poll();
-            //System.out.println(Arrays.toString(top));
-            if(sum<top[0]){
+        for(int p[]:neg){
+            if(r >= p[0]){
+                r+=p[1];
+            }else{
                 out.println("NO");
                 return;
             }
-            sum+=top[1];
         }
-        if(sum<0){
+
+
+        if(r<0){
             out.println("NO");
             return;
         }
+
         out.println("YES");
 
     }
 
-
-
-
-
-
 }
-
-
-
-
-
-
-
-/*
-                             ;\
-                            |' \
-         _                  ; : ;
-        / `-.              /: : |
-       |  ,-.`-.          ,': : |
-       \  :  `. `.       ,'-. : |
-        \ ;    ;  `-.__,'    `-.|
-         \ ;   ;  :::  ,::'`:.  `.
-          \ `-. :  `    :.    `.  \
-           \   \    ,   ;   ,:    (\
-            \   :., :.    ,'o)): ` `-.
-           ,/,' ;' ,::"'`.`---'   `.  `-._
-         ,/  :  ; '"      `;'          ,--`.
-        ;/   :; ;             ,:'     (   ,:)
-          ,.,:.    ; ,:.,  ,-._ `.     \""'/
-          '::'     `:'`  ,'(  \`._____.-'"'
-             ;,   ;  `.  `. `._`-.  \\
-             ;:.  ;:       `-._`-.\  \`.
-              '`:. :        |' `. `\  ) \
-      -hrr-      ` ;:       |    `--\__,'
-                   '`      ,'
-                        ,-'
-
-
-                      free bug dog
-*/
-
 
