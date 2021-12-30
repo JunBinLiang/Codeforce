@@ -720,6 +720,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1203F2 |[Complete the Projects (hard version) (2300) (DP + Greedy + Sort)  ](./code/1203F2.txt)|2021/12/27|
  |  811C |[Vladik and Memorable Trip (1900) (DP)  ](./code/811C.txt)|2021/12/28|
  |  134B |[Pairs of Numbers (1900) (Math + Brute Force)  ](./code/134B.txt)|2021/12/30|
+  |  134C |[Swaps (2200) (Greedy)  ](./code/134C.txt)|2021/12/30|
  
 # 分类
 
