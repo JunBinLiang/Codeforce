@@ -1,0 +1,209 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+    int match[];
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+
+    }
+
+    public void solution(int testcase) {
+        String s = fs.Str();
+        char A[] = s.toCharArray();
+        List<Integer>list=new ArrayList<>();
+        long odd = 0, even = 0;//even odd
+        for(int i = 0; i < A.length; i++){
+            int j = i,cnt = 0;
+            while(j < A.length && A[j] == A[i]){
+                j++;cnt++;
+            }
+            list.add(cnt);
+            i = j -1;
+        }
+
+        long preo = 0, pree = 0;
+        for(int i = 0; i < list.size(); i+=2){
+            long x = list.get(i);
+            if(x%2==1){
+                long s1 = (1 + x) * ((x + 1) / 2) / 2;
+                odd+=s1;
+                long s2 = (2 + (x - 1)) * (x / 2) / 2;
+                even += s2;
+            }
+            else{
+                long s1 = (2 + x) * (x / 2) / 2;
+                odd += s1;
+                long s2 = (1 + (x - 1)) * (x / 2) / 2;
+                even += s2;
+            }
+
+            long curOdd = (x + 1) / 2;
+            long curEven = (x) / 2;
+            even += curOdd * preo;
+            even += curEven * pree;
+            odd += curOdd * pree;
+            odd += curEven * preo;
+
+
+
+            if(i + 1 < list.size()){
+                int next = list.get(i+1);
+                if((next + x)%2==1){
+                    long t = pree;
+                    pree = preo;
+                    preo = t;
+                }
+
+                if(next%2==1){
+                    pree += curOdd;
+                    preo += curEven;
+                }
+                else{
+                    pree += curEven;
+                    preo += curOdd;
+                }
+            }
+
+
+
+        }
+
+        preo = 0;
+        pree = 0;
+        for(int i = 1; i < list.size(); i+=2){
+            long x = list.get(i);
+            if(x%2==1){
+                long s1 = (1 + x) * ((x + 1) / 2) / 2;
+                odd+=s1;
+                long s2 = (2 + (x - 1)) * (x / 2) / 2;
+                even += s2;
+            }
+            else{
+                long s1 = (2 + x) * (x / 2) / 2;
+                odd += s1;
+                long s2 = (1 + (x - 1)) * (x / 2) / 2;
+                even += s2;
+            }
+
+            long curOdd = (x + 1) / 2;
+            long curEven = (x) / 2;
+            even += curOdd * preo;
+            even += curEven * pree;
+            odd += curOdd * pree;
+            odd += curEven * preo;
+
+            if(i + 1 < list.size()){
+                int next = list.get(i+1);
+                if((next + x)%2==1){
+                    long t = pree;
+                    pree = preo;
+                    preo = t;
+                }
+
+                if(next%2==1){
+                    pree += curOdd;
+                    preo += curEven;
+                }
+                else{
+                    pree += curEven;
+                    preo += curOdd;
+                }
+            }
+        }
+
+        out.println(even+" "+ odd);
+    }
+
+}
+
