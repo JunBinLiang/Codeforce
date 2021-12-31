@@ -722,6 +722,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  134B |[Pairs of Numbers (1900) (Math + Brute Force)  ](./code/134B.txt)|2021/12/30|
  |  134C |[Swaps (2200) (Greedy)  ](./code/134C.txt)|2021/12/30|
  |  1166D |[Cute Sequences (2200) (Greedy + Math + Constructive)  ](./code/1166D.txt)|2021/12/30|
+ |  451D |[Cute Count Good Substrings (2000) (Math)  ](./code/451D.txt)|2021/12/31|
  
 # 分类
 
