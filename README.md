@@ -720,7 +720,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1203F2 |[Complete the Projects (hard version) (2300) (DP + Greedy + Sort)  ](./code/1203F2.txt)|2021/12/27|
  |  811C |[Vladik and Memorable Trip (1900) (DP)  ](./code/811C.txt)|2021/12/28|
  |  134B |[Pairs of Numbers (1900) (Math + Brute Force)  ](./code/134B.txt)|2021/12/30|
-  |  134C |[Swaps (2200) (Greedy)  ](./code/134C.txt)|2021/12/30|
+ |  134C |[Swaps (2200) (Greedy)  ](./code/134C.txt)|2021/12/30|
+ |  1166D |[Cute Sequences (2200) (Greedy + Math + Constructive)  ](./code/1166D.txt)|2021/12/30|
  
 # 分类
 
@@ -970,6 +971,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  734F.[ Anton and School(2500) (Thinking + Constructive + Math)  ](./code/734F.txt)<br/>
  1618E.[ Singers' Tour (1700) (MAth + Constructive)  ](./code/1618E.txt)<br/>
  323B.[ Tournament-graph (2200) (Constructive)  ](./code/323B.txt)<br/>
+ 1166D.[Cute Sequences (2200) (Greedy + Math + Constructive)  ](./code/1166D.txt)<br/>
  
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
