@@ -1,0 +1,181 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+    int match[];
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+
+    }
+
+    public void solution(int testcase) {
+        int n = fs.Int();
+        for(int i = 0; i < n; i++){
+            long x = fs.Long();
+            long y = fs.Long();
+            long m = fs.Long();
+            if(x == y){
+                out.println(1+" "+x);
+                continue;
+            }
+
+            if(x+m >= y){
+                out.println(2+" "+x+" "+y);
+                continue;
+            }
+            List<Long> res = solve(x,y,m);
+            if(res == null){
+                out.println(-1);
+            }
+            else{
+                StringBuilder str = new StringBuilder();
+                str.append(res.size()+" ");
+                for(long j : res)str.append(j+" ");
+                out.println(str.toString());
+            }
+        }
+    }
+
+    public List<Long> solve(long x, long y, long m){
+        List<Long> res = new ArrayList<>();
+        res.add(x);
+        long term = 0;
+        for(int k = 2; k <= 50;k++){
+            long sum = x * ((1l) << (k - 2));
+            if(sum > y)break;
+            if(k <= 3)term++;
+            else{
+                term += (1l << (k - 3));
+            }
+
+            long dif = y - sum;
+            if(term * m >= dif && dif >= term){//good to go
+                List<Long>list = new ArrayList<>();
+                List<Long> coes = new ArrayList<>();
+                long t = term;
+                for(int j = k - 1; j >= 1; j--){
+                    long coe = 0;
+                    if(j <= 2){
+                        coe = 1;
+                    }
+                    else{
+                        coe = 1l <<(j - 2);
+                    }
+                    coes.add(coe);
+                    t -= coe;
+
+                    long rr = (dif - t) / coe;
+                    rr = Math.min(rr,m);
+                    list.add(rr);
+                    dif -= rr * coe;
+                }
+
+                //System.out.println(list);
+
+                //reconstruct
+                long sum1 = x;
+                for(int j = 0; j < list.size(); j++){
+                    long cur = sum1 + list.get(j);
+                    res.add(cur);
+                    sum1 += cur;
+                }
+                return res;
+            }
+
+        }
+
+        return null;
+    }
+
+}
+
