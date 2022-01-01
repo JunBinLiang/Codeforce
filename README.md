@@ -723,6 +723,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  134C |[Swaps (2200) (Greedy)  ](./code/134C.txt)|2021/12/30|
  |  1166D |[Cute Sequences (2200) (Greedy + Math + Constructive)  ](./code/1166D.txt)|2021/12/30|
  |  451D |[Cute Count Good Substrings (2000) (Math)  ](./code/451D.txt)|2021/12/31|
+ |  451E |[Devu and Flowers (2300) (容斥 + Lucas 定理)  ](./code/451E.txt)|2021/12/31|
  
 # 分类
 
@@ -1162,6 +1163,9 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1557C.[Moamen and XOR	 (1700) (Combination)  ](./code/1557C.txt)<br/>
 486D.[Valid Sets (2100) (Tree + Combination)  ](./code/486D.txt)<br/>
 336D.[Vasily the Bear and Beautiful Strings (2100) (Combiniation + Observation)  ](./code/336D.txt)<br/>
+
+### Lucas Combination
+ 451E.[Devu and Flowers (2300) (容斥 + Lucas 定理)  ](./code/451E.txt)<br/>
 
 ### Geometric Progression
 327C.[Magic Five (1700) (Geometric Progression)  ](./code/327C.txt)<br/>
