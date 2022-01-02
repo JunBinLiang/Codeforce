@@ -724,6 +724,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1166D |[Cute Sequences (2200) (Greedy + Math + Constructive)  ](./code/1166D.txt)|2021/12/30|
  |  451D |[Cute Count Good Substrings (2000) (Math)  ](./code/451D.txt)|2021/12/31|
  |  451E |[Devu and Flowers (2300) (容斥 + Lucas 定理)  ](./code/451E.txt)|2021/12/31|
+ |  403D |[Beautiful Pairs of Numbers (2200) (DP + Combination)  ](./code/403D.txt)|2021/01/01|
  
 # 分类
 
@@ -1175,6 +1176,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 439E.[ Devu and Birthday Celebration (2100) (Combination)  ](./code/439E.txt)<br/>
 571A.[ Lengthening Sticks (2100) (Combination + Ball in box)  ](./code/571A.txt)<br/>
 893E.[ Counting Arrays (2000) (Combination)  ](./code/893E.txt)<br/>
+403D.[Beautiful Pairs of Numbers (2200) (DP + Combination)  ](./code/403D.txt)<br/>
 
 ### Probability
 626D.[ Jerry's Protest (1800) (Combination + Probability)  ](./code/626D.txt)<br/>
