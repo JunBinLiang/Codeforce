@@ -727,6 +727,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  403D |[Beautiful Pairs of Numbers (2200) (DP + Combination)  ](./code/403D.txt)|2021/01/01|
  |  1367F1 |[Flying Sort (Easy Version) (2100) (DP + Thinking)  ](./code/1367F1.txt)|2021/01/03|
  |  1367F2 |[Flying Sort (Hard Version) (2400) (DP + Thinking)  ](./code/1367F2.txt)|2021/01/03|
+ |  1061D |[TV Shows (2000) (Sort + Greedy)  ](./code/1061D.txt)|2021/01/04|
  
 # 分类
 
@@ -930,6 +931,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 ### Greedy+Heap
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
 865D.[Buy Low Sell High (2400) (Greedy + Heap)  ](./code/865D.txt)<br/>
+1061D.[TV Shows (2000) (Sort + Greedy)  ](./code/1061D.txt)<br/>
 
 ### Constructive 
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
