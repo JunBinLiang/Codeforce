@@ -726,6 +726,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  451E |[Devu and Flowers (2300) (容斥 + Lucas 定理)  ](./code/451E.txt)|2021/12/31|
  |  403D |[Beautiful Pairs of Numbers (2200) (DP + Combination)  ](./code/403D.txt)|2021/01/01|
  |  1367F1 |[Flying Sort (Easy Version) (2100) (DP + Thinking)  ](./code/1367F1.txt)|2021/01/03|
+ |  1367F2 |[Flying Sort (Hard Version) (2400) (DP + Thinking)  ](./code/1367F2.txt)|2021/01/03|
  
 # 分类
 
@@ -788,6 +789,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1225E.[Rock Is Push (2200) (DP + Thinking)  ](./code/1225E.txt)<br/>
 1327F.[AND Segments (2500) (DP + Thinking)  ](./code/1327F.txt)<br/>
 1367F1.[Flying Sort (Easy Version) (2100) (DP + Thinking)  ](./code/1367F1.txt)<br/>
+1367F2.[Flying Sort (Hard Version) (2400) (DP + Thinking)  ](./code/1367F2.txt)<br/>
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
