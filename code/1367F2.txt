@@ -1,0 +1,170 @@
+// Don't place your source in a package
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+
+    }
+
+
+    public void solution(int all,int testcase) {
+        int n = fs.Int();
+        int mx = 1;
+        int A[] = new int[n];
+        int B[] = new int[n];
+        for(int i = 0; i < n; i++){
+            A[i] = fs.Int();
+            B[i] = A[i];
+        }
+        Arrays.sort(B);
+        Map<Integer,Integer>f=new HashMap<>();
+        int id = 0;
+        for(int i : B){
+            if(!f.containsKey(i)){
+                f.put(i,id++);
+            }
+        }
+
+        int r[] = new int[id];
+        int l[] = new int[id];
+        int cnt[]=new int[id];
+        int in[][]=new int[id][2];
+
+        for(int i = 0;i<in.length;i++){
+            in[i][0]=n+ 100;
+            in[i][1]=-1;
+        }
+
+        for(int i = 0; i < A.length; i++){
+            A[i] = f.get(A[i]);
+            r[A[i]]++;
+            cnt[A[i]]++;
+            in[A[i]][0]=Math.min(in[A[i]][0],i);
+            in[A[i]][1]=i;
+        }
+
+        int dp[] = new int[id];
+        for(int i = 0; i < n; i++){
+            if(A[i] - 1 >= 0){
+                int remain = r[A[i]];
+                if(in[A[i]-1][1] < i){
+                    mx = Math.max(mx,remain + dp[A[i] - 1]);
+                }
+                if(i==in[A[i]][0]){
+                    dp[A[i]]= cnt[A[i]];
+                    if(in[A[i]-1][1] < i){
+                        dp[A[i]] = Math.max(dp[A[i]],cnt[A[i]]+dp[A[i]-1]);
+                    }
+                    else{
+                        dp[A[i]] = Math.max(dp[A[i]],cnt[A[i]]+l[A[i]-1]);
+                    }
+                } else{
+                    mx = Math.max(mx,remain + l[A[i] - 1]);
+                }
+            }
+            else{
+                dp[0] = cnt[0];
+            }
+            r[A[i]]--;
+            l[A[i]]++;
+        }
+
+
+
+        for(int i :dp)mx = Math.max(mx,i);
+        out.println(n - mx);
+    }
+
+}
