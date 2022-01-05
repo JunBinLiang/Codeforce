@@ -729,6 +729,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1367F2 |[Flying Sort (Hard Version) (2400) (DP + Thinking)  ](./code/1367F2.txt)|2021/01/03|
  |  1061D |[TV Shows (2000) (Sort + Greedy)  ](./code/1061D.txt)|2021/01/04|
  |  1251E2 |[Voting (Hard Version) (2400) (Greedy)  ](./code/1251E2.txt)|2021/01/05|
+ |  620E |[New Year Tree (2100) (Seg push + Tree + Bit)  ](./code/620E.txt)|2021/01/05|
  
 # 分类
 
@@ -792,6 +793,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1327F.[AND Segments (2500) (DP + Thinking)  ](./code/1327F.txt)<br/>
 1367F1.[Flying Sort (Easy Version) (2100) (DP + Thinking)  ](./code/1367F1.txt)<br/>
 1367F2.[Flying Sort (Hard Version) (2400) (DP + Thinking)  ](./code/1367F2.txt)<br/>
+
 
 ### LCS Similar
 1363F.[ Rotating Substrings (2600) (Hard DP)  ](./code/1363F.txt)<br/>
@@ -1390,6 +1392,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1326E.[Bombs (2400) (Thinking + Seg push down)  ](./code/1326E.txt)<br/>
 1527E.[Partition Game (2500) (DP + Thinking + Seg push down)  ](./code/1527E.txt)<br/>
 85D.[Sum of Medians (2300) (Seg push + Thinking)  ](./code/85D.txt)<br/>
+620E.[New Year Tree (2100) (Seg Push + Tree + Bit)  ](./code/620E.txt)<br/>
 
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
