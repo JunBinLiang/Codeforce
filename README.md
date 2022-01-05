@@ -728,6 +728,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1367F1 |[Flying Sort (Easy Version) (2100) (DP + Thinking)  ](./code/1367F1.txt)|2021/01/03|
  |  1367F2 |[Flying Sort (Hard Version) (2400) (DP + Thinking)  ](./code/1367F2.txt)|2021/01/03|
  |  1061D |[TV Shows (2000) (Sort + Greedy)  ](./code/1061D.txt)|2021/01/04|
+ |  1251E2 |[Voting (Hard Version) (2400) (Greedy)  ](./code/1251E2.txt)|2021/01/05|
  
 # 分类
 
