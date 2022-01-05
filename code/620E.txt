@@ -1,0 +1,231 @@
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+
+    }
+
+    List<Integer>graph[];
+    int A[];
+    int cnt[];
+    int ids[];
+    int inv[];
+    int id = 0;
+    TreeSet<Integer>trees[];
+    public void solution(int all,int testcase) {
+        int n  = fs.Int();
+        int m = fs.Int();
+        A = new int[n];inv = new int[n];
+        cnt = new int[n];ids = new int[n];
+        for(int i = 0;i<n;i++){
+            A[i]=fs.Int();
+        }
+        graph = new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i = 0; i < n - 1; i++){
+            int u =fs.Int() - 1;int v = fs.Int() - 1;
+            graph[u].add(v);graph[v].add(u);
+        }
+
+
+        dfs(-1,0);
+
+        Seg seg = new Seg(0, A.length - 1);
+        for(int i = 0; i < m; i++){
+            int type = fs.Int();
+            int u = fs.Int() - 1;
+            int r = ids[u];
+            int l = r - cnt[u] + 1; //how many colors in [l : r]
+            //System.out.println(l+" "+r);
+
+            if(type == 1){
+                int c = fs.Int();
+                seg.update(l,r,(1l<<c));
+            }
+            else{
+                long bit = seg.query(l,r);
+                out.println(Long.bitCount(bit));
+            }
+        }
+
+    }
+
+    public int dfs(int pa,int root){ // size
+        cnt[root]=1;
+        for(int next:graph[root]){
+            if(next==pa)continue;
+            cnt[root] += dfs(root,next);
+        }
+        ids[root] = id;
+        inv[id] = A[root];
+        id++;
+        return cnt[root];
+    }
+
+    class Seg{
+        int l,r;
+        long val=0;
+        long setTo = 0;
+        Seg left=null,right=null;
+        public Seg(int l,int r){
+            this.l=l;
+            this.r=r;
+            if(l!=r){
+                int mid=l+(r-l)/2;
+                if(l<=mid)left=new Seg(l,mid);
+                if(r>=mid+1)right=new Seg(mid+1,r);
+                this.val = left.get() | right.get();
+            }else{
+                this.val = 1l<<inv[l];
+            }
+        }
+
+        public long query(int s,int e){
+            if(e<0||s<0)return 0;
+            if(l==s&&r==e){
+                return this.get();
+            }
+
+            int mid=l+(r-l)/2; //left :  to mid-1,
+            if(setTo!=0){//push down
+                left.update(l,mid,setTo);
+                right.update(mid+1,r,setTo);
+                this.setTo=0;
+                this.val = left.get() | right.get();
+            }
+
+            if(e<=mid){
+                return left.query(s,e);
+            }
+            else if(s>=mid+1){
+                return right.query(s,e);
+            }else{
+                return left.query(s,mid)| right.query(mid+1,e);
+            }
+        }
+
+        public void update(int s,int e,long add){
+            if(l==s&&r==e){
+                this.setTo = add;
+                return;
+            }
+            int mid=l+(r-l)/2;
+
+            if(setTo!=0){//push down
+                left.update(l,mid,setTo);
+                right.update(mid+1,r,setTo);
+                this.setTo=0;
+            }
+
+            if(e<=mid){
+                left.update(s,e,add);
+            }
+            else if(s>=mid+1){
+                right.update(s,e,add);
+            }else{
+                left.update(s,mid,add);
+                right.update(mid+1,e,add);
+            }
+            this.val = left.get() | right.get();
+        }
+
+        public long get(){
+            if(this.setTo!=0)return  this.setTo;
+            else return this.val;
+        }
+
+    }
+}
