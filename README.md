@@ -730,6 +730,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1061D |[TV Shows (2000) (Sort + Greedy)  ](./code/1061D.txt)|2021/01/04|
  |  1251E2 |[Voting (Hard Version) (2400) (Greedy)  ](./code/1251E2.txt)|2021/01/05|
  |  620E |[New Year Tree (2100) (Seg push + Tree + Bit)  ](./code/620E.txt)|2021/01/05|
+ |  691F |[Couple Cover (2200) (Brute Force + Prefix)  ](./code/691F.txt)|2021/01/06|
  
 # 分类
 
