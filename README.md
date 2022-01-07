@@ -735,6 +735,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
   |  837D |[Round Subset (2100) (DP)  ](./code/837D.txt)|2021/01/06|
  |  1316E |[Team Building (2300) (Bitmask DP + Thinking)  ](./code/1316E.txt)|2021/01/06|
  |  1621D |[The Winter Hike (2100) (Thinking)  ](./code/1621D.txt)|2021/01/06|
+  |  627C |[Package Delivery (2200) (Greedy) (Thumb) ](./code/627C.txt)|2021/01/07|
  
 # 分类
 
@@ -932,6 +933,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 353B.[Two Heaps (1900) (Greedy + Thinking)  ](./code/353B.txt)<br/>
 721D.[ Maxim and Array (2000) (Greedy + Math)  ](./code/721D.txt)<br/>
 985C.[Liebig's Barrels (1500) (Greedy)  ](./code/985C.txt)<br/>
+627C.[Package Delivery (2200) (Greedy) (Thumb) ](./code/627C.txt)<br/>
 
 
 ### Greedy : Number
