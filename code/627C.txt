@@ -1,0 +1,192 @@
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+
+    }
+
+
+    public void solution(int all,int testcase) {
+        int n = fs.Int();
+        int D = fs.Int();
+        int m = fs.Int();
+        int A[][] = new int[m + 1][2];
+        for(int i = 0; i < m; i++){
+            A[i][0] = fs.Int();
+            A[i][1] = fs.Int();
+        }
+        A[m][0] = n;
+        A[m][1] = -1;
+
+        Arrays.sort(A,(a, b)->{
+            return a[0] - b[0];
+        });
+
+        //check
+        if(A[0][0] > D || A[m - 1][0]  + D < n){
+            out.println(-1);
+            return;
+        }
+        for(int i = 1; i < m; i++){
+            if(A[i - 1][0] + D < A[i][0]){
+                out.println(-1);
+                return;
+            }
+        }
+
+
+
+
+        long res = 0;
+        int d = D;
+        int cur = INF;
+        int pos = 0;
+        LinkedList<int[]>mono = new LinkedList<>();
+        for(int i = 0; i  < A.length; i++){
+            int j = i;
+            boolean found = false;
+            while(j<A.length&&A[j][0] - pos <= D){
+                if(A[j][1] <= cur){
+                    int dis = A[j][0] - pos;
+                    if(d >= dis){
+                        d -= dis;
+                    }
+                    else{
+                        res += ((dis - d) + 0l) * cur;
+                        d = 0;
+                    }
+                    pos = A[j][0];
+                    cur = A[j][1];
+                    j++;
+                    found = true;
+                    break;
+                }
+                while(mono.size()>0&&A[j][1]<=mono.getLast()[1])mono.removeLast();
+                mono.addLast(A[j]);
+                j++;
+            }
+
+            //wrong
+            if(!found){
+                while(mono.size()>0&&mono.getFirst()[0]<=pos)mono.removeFirst();
+                int first[] = mono.getFirst();
+                res += (D - d + 0l) * cur;
+                d = D;
+                int dis = first[0] - pos;
+                if(d >= dis){
+                    d -= dis;
+                }
+                else{
+                    res += ((dis - d) + 0l) * cur;
+                    d = 0;
+                }
+                pos = first[0];
+                cur = first[1];
+            }
+
+           // System.out.println(j+"  "+pos+"  "+cur+"         "+d+" "+res);
+
+            i = j - 1;
+        }
+        out.println(res);
+    }
+
+
+
+
+
+}
+
