@@ -733,6 +733,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  691F |[Couple Cover (2200) (Brute Force + Prefix)  ](./code/691F.txt)|2021/01/06|
  |  837E |[Vasya's Function (2100) (Thinking + Math)  ](./code/837E.txt)|2021/01/06|
   |  837D |[Round Subset (2100) (DP)  ](./code/837D.txt)|2021/01/06|
+ |  1316E |[Team Building (2300) (Bitmask DP + Thinking)  ](./code/1316E.txt)|2021/01/06|
  
 # 分类
 
@@ -864,6 +865,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 279D.[The Minimum Number of Variables(2200) (Bit DP) ](./code/279D.txt)<br/>
 453B.[Little Pony and Harmony Chest (2000) (Bitmask DP)  ](./code/453B.txt)<br/>
 1215E.[ Marbles (2200) (Bitmask DP)  ](./code/1215E.txt)<br/>
+1316E.[Team Building (2300) (Bitmask DP + Thinking)  ](./code/1316E.txt)<br/>
 
 ### Submask DP (SOS)
 1554B.[Cobb (1700) (Submask + DP)  ](./code/1554B.txt)<br/>
