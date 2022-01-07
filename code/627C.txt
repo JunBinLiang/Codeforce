@@ -159,7 +159,7 @@ class Solution {
                 j++;
             }
 
-            //wrong
+
             if(!found){
                 while(mono.size()>0&&mono.getFirst()[0]<=pos)mono.removeFirst();
                 int first[] = mono.getFirst();
