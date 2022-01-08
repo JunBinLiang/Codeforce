@@ -737,6 +737,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1621D |[The Winter Hike (2100) (Thinking)  ](./code/1621D.txt)|2021/01/06|
   |  627C |[Package Delivery (2200) (Greedy) (Thumb) ](./code/627C.txt)|2021/01/07|
 |  1253E |[Antenna Coverage (2200) (DP) (Thumb) ](./code/1253E.txt)|2021/01/07|
+|  821D |[Okabe and City (2200) (Graph Building + Shortest Path) (Thumb) ](./code/821D.txt)|2021/01/08|
  
 # 分类
 
@@ -1281,6 +1282,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1070A.[ Find a Number(2200) (Shortest Path)  ](./code/1070A.txt)<br/>
 543B.[ Destroying Roads (2100) (Shortes Path + Thinking) (Thumb) ](./code/543B.txt)<br/>
 369D.[ Valera and Fools (2200) (Thinking + Shortest Path + DP)  ](./code/369D.txt)<br/>
+821D.[Okabe and City (2200) (Graph Building + Shortest Path) (Thumb) ](./code/821D.txt)<br/>
 
 ### 0-1 BFS
 1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
