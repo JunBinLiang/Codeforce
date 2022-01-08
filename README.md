@@ -736,6 +736,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  |  1316E |[Team Building (2300) (Bitmask DP + Thinking)  ](./code/1316E.txt)|2021/01/06|
  |  1621D |[The Winter Hike (2100) (Thinking)  ](./code/1621D.txt)|2021/01/06|
   |  627C |[Package Delivery (2200) (Greedy) (Thumb) ](./code/627C.txt)|2021/01/07|
+|  1253E |[Antenna Coverage (2200) (DP) (Thumb) ](./code/1253E.txt)|2021/01/07|
  
 # 分类
 
