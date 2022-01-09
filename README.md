@@ -739,6 +739,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1253E |[Antenna Coverage (2200) (DP) (Thumb) ](./code/1253E.txt)|2021/01/07|
 |  821D |[Okabe and City (2200) (Graph Building + Shortest Path) (Thumb) ](./code/821D.txt)|2021/01/08|
 |  1188B |[Count Pairs (2300) (Math + Equation) ](./code/1188B.txt)|2021/01/09|
+|  1107E |[Vasya and Binary String (2400) (区间DP) ](./code/1107E.txt)|2021/01/09|
  
 # 分类
 
@@ -882,6 +883,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1132F.[Clear the String (2000) (区间 DP)  ](./code/1132F.txt)<br/>
 1399F.[ Yet Another Segments Subset (2300) (区间DP)  ](./code/1399F.txt)<br/>
 1336C.[Kaavi and Magic Spell(2200) (区间DP + Thinking)  ](./code/1336C.txt)<br/>
+1107E.[Vasya and Binary String (2400) (区间DP + remove box) ](./code/1107E.txt)<br/>
 
 ### DP + Monoqueue
 1077F2.[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)<br/>
