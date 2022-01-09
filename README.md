@@ -738,6 +738,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
   |  627C |[Package Delivery (2200) (Greedy) (Thumb) ](./code/627C.txt)|2021/01/07|
 |  1253E |[Antenna Coverage (2200) (DP) (Thumb) ](./code/1253E.txt)|2021/01/07|
 |  821D |[Okabe and City (2200) (Graph Building + Shortest Path) (Thumb) ](./code/821D.txt)|2021/01/08|
+|  1188B |[Count Pairs (2300) (Math + Equation) ](./code/1188B.txt)|2021/01/09|
  
 # 分类
 
