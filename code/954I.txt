@@ -1,173 +1,279 @@
-#include <cstdio>
-#include <iostream>
-#include <cmath>
-#include <cstring>
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <unordered_set>
-using namespace std;
-
-const double PI = acos(-1.0);
-struct Complex{
-    double x, y;    
-    Complex(double _x = 0.0, double _y = 0.0){
-        x = _x;
-        y = _y;
-    }
-    Complex operator - (const Complex &b) const{
-        return Complex(x - b.x, y - b.y);
-    }
-    Complex operator + (const Complex &b) const{
-        return Complex(x + b.x, y + b.y);
-    }
-    Complex operator * (const Complex &b) const{
-        return Complex(x*b.x - y*b.y, x*b.y + y*b.x);
-    }
-};
 
 
-void change(Complex y[], int N){
-    int i,j;
-    for(i=1,j=0;i<N;i++){
-        for(int d=N;j^=d>>=1,~j&d;);
-        if(i<j)
-            swap(y[i],y[j]);
-    }
-}
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
 
 
-void fft(Complex y[], int len, int on){
-    change(y, len);
-    for(int h = 2; h <= len; h *= 2){
-        Complex wn(cos(-on * 2*PI / h), sin(-on * 2*PI / h));
-        for(int j = 0; j < len; j += h){
-            Complex w(1, 0);
-            for(int k = j; k < j + h/2; k++){
-                Complex u = y[k];
-                Complex t = w * y[k + h/2];
-                y[k] = u + t;
-                y[k + h/2] = u - t;
-                w = w * wn;
-            }
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
         }
     }
-    if(on == -1)
-        for(int i = 0; i < len; i++)
-            y[i].x /= len;
-}
 
-const int MAXN = 300010;
-Complex x1[MAXN], x2[MAXN];
-int sum[MAXN];
 
-int find(vector<int>&nums,int x){
-    if(nums[x]==x)return x;
-    int root=find(nums,nums[x]);
-    nums[x]=root;
-    return root;
-}
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
 
-int main(){
-        string str1,str2;
-        cin>>str1>>str2;
-        int len1 = str1.size();
-        int len2 = str2.size();
-        int len = 1;
-        while(len < len1 * 2 || len < len2 * 2) len *= 2;
-        vector<vector<int>>nums(str1.size()-str2.size()+1,vector<int>(6,0));
-        for(int i=0;i<nums.size();i++){
-            for(int j=0;j<nums[0].size();j++){
-                nums[i][j]=j;
-            }
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
         }
-        
-        for(int u=0;u<6;u++){
-            for(int v=0;v<6;v++){
-                if(u==v)continue;
-                for(int i = 0; i < len1; i++){
-                    int d= str1[i]-'a';
-                    x1[i] = Complex(d == u, 0);
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out,Main.FastScanner fs) {
+        this.out = out;
+        this.fs=fs;
+
+    }
+
+    int rev[];
+    int tot;
+    int b = 0;
+    int size = 0;
+    boolean nums[][][];
+    public void solution(int all,int testcase) {
+        String s = fs.Str();
+        String t = fs.Str();
+        int n  = s.length() - 1;
+        int m   = t.length() - 1;
+        char S1[] = s.toCharArray();
+        char S2[] = t.toCharArray();
+
+        int bit = 0;
+        while ((1 << bit) < n + m + 1) bit ++;
+        tot = 1 << bit;
+
+        rev = new int[tot];
+        for (int i = 0; i < tot; i ++) {
+            rev[i] = (rev[i >> 1] >> 1) | ((i & 1) << (bit - 1));
+        }
+
+
+        int N = tot + 10;
+        Complex A[] = new Complex[N];
+        Complex B[] = new Complex[N];
+        Arrays.setAll(A, e->new Complex(0,0));
+        Arrays.setAll(B, e->new Complex(0,0));
+        nums=new boolean[6][6][s.length()-t.length()+1];
+
+        int SIZE = 6;
+
+        for(int u = 0; u < SIZE; u++){
+            for(int v = 0;  v < SIZE; v++) {
+                if(u == v)continue;
+                for(int i = 0; i < tot; i++){
+                    A[i].x = A[i].y = 0;
+                    B[i].x = B[i].y = 0;
                 }
-            
-                for(int i = len1; i < len; i++){
-                    x1[i] = Complex(0, 0);
-                }
-                for(int i = 0; i < len2; i++){
-                    int d= str2[i]-'a';
-                    x2[str2.size()-i-1] = Complex(d==v, 0);
-                }
-                for(int i = len2; i < len; i++){
-                    x2[i] = Complex(0, 0);
-                }
-                
-                
-                
-                /*if(u==0&&v==3){
-                    for(int i=0;i<len;i++){
-                        cout<<x1[i].x<<" ";
-                    }cout<<endl;
-                    
-                    for(int i=0;i<len;i++){
-                        cout<<x2[i].x<<" ";
-                    }cout<<endl;
-                }*/
-                
-                
-                fft(x1, len, 1);
-                fft(x2, len, 1);
-                
-                for(int i = 0; i < len; i++){
-                    x1[i] = x1[i] * x2[i];
-                }
-                fft(x1, len, -1);
-                
-                
-                for(int i = 0; i < len; i++){
-                    sum[i] = (int)(x1[i].x + 0.5);
-                }
-            
-                /*for(int i = 0; i < len; i++){
-                    sum[i+1] += sum[i] / 10;
-                    sum[i] %= 10;
-                }
-                int length = len1 + len2 - 1;
-                while(sum[length] <= 0 && length > 0) length--;*/
-                
-                for(int i = 0; i <= len; i++){
-                    int block=i-str2.size()+1;
-                    if(block<0||block+str2.length()-1>=str1.length())continue;
-                    if(sum[i]>0){
-                        int r1=find(nums[block],u);
-                        int r2=find(nums[block],v);
-                        if(r1!=r2){
-                            nums[block][r1]=r2;
-                        }
+
+                for(int i=0;i<S1.length;i++){
+                    if(S1[i]-'a'==u){
+                        A[i].x = 1;
+                    }
+                    else{
+                        A[i].x = 0;
                     }
                 }
-                
-                /*if(u==0&&v==3){
-                    for(int i=0;i<length;i++){
-                        cout<<sum[i]<<" ";
-                    }cout<<endl;
-                }*/
-            }
-            
-        }
-        
 
-            
-        
-            for(int i=0;i<str1.size();i++){
-                if(i+1<str2.size())continue;
-                unordered_set<int>se;
-                for(int j=0;j<6;j++){
-                    int r=find(nums[i-str2.size()+1],j);
-                    se.insert(r);
+                for(int i=0;i < t.length();i++){
+                    if(S2[i]-'a'==v){
+                        B[S2.length - i - 1].x=1;
+                    }
+                    else{
+                        B[S2.length - i - 1].x=0;
+                    }
                 }
-                cout<<6-se.size()<<endl;
-            }
 
+                fft(A, 1);
+                fft(B,1);
+
+                for(int i = 0; i < tot; i++) {
+                    A[i].mul1(B[i]);
+                }
+                fft(A, -1);
+
+
+                for(int i = t.length()-1; i <s.length(); i++){
+                    int block= i - t.length() + 1;
+                    int x = (int)(A[i].x / tot + 0.5);
+                    if(x > 0) {
+                        nums[u][v][block] = true;
+                        nums[v][u][block] = true;
+                    }
+                }
+            }
+        }
+
+        StringBuilder ans = new StringBuilder();
+        boolean seen[] = new boolean[6];
+        for(int i=S2.length - 1; i<S1.length;i++){
+            size = 0;
+            for(int u = 0; u < 6; u++)seen[u] = false;
+
+            for(int u = 0; u < 6; u++){
+                if(seen[u])continue;
+                dfs(u, seen);
+                size++;
+            }
+            ans.append(6 - size).append(" ");
+            b++;
+        }
+        out.println(ans.toString());
+    }
     
-    return 0;
+    private void dfs(int u,boolean[] seen) {
+        seen[u] = true;
+        for (int i = 0; i < 6; i++) {
+            if (i != u && nums[u][i][b] && !seen[i]) {
+                dfs(i, seen);
+            }
+        }
+    }
+
+
+    public void fft(Complex a[], int inv){
+        for (int i = 0; i < tot; i ++ ){
+            if (i < rev[i]) {
+                swap(a, i, rev[i]);
+            }
+        }
+        for (int mid = 1; mid < tot; mid <<= 1) {
+            double w1x = Math.cos(Math.PI / mid);
+            double w1y = Math.sin(Math.PI / mid) * inv;
+
+            for (int i = 0; i < tot; i += mid * 2) {
+                double wkx = 1;
+                double wky = 0;
+                for (int j = 0; j < mid; j++) {
+                    double xx1 = a[i + j].x;
+                    double xy1 = a[i + j].y;
+                    double p1 = wkx * a[i + j + mid].x - wky * a[i + j + mid].y;
+                    double p2 = wkx * a[i + j + mid].y + wky * a[i + j + mid].x;
+                    a[i + j].x =  xx1 + p1;
+                    a[i + j].y =  xy1 + p2;
+                    a[i + j + mid].x =  xx1 - p1;
+                    a[i + j + mid].y =  xy1 - p2;
+                    double xx = wkx * w1x - wky * w1y;
+                    double yy = wkx * w1y + wky * w1x;
+                    wkx = xx;
+                    wky = yy;
+                }
+            }
+        }
+    }
+
+
+
+    public void swap(Complex A[], int i, int j){
+        Complex t = A[i];
+        A[i] = A[j];
+        A[j] = t;
+    }
+
 }
+
+class Complex{
+    double x = 0.0;
+    double y = 0.0;
+
+    public Complex(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
+
+    public Complex add(Complex other){
+        return new Complex(this.x + other.x, this.y + other.y);
+    }
+
+    public Complex sub(Complex other){
+        return new Complex(this.x - other.x, this.y - other.y);
+    }
+
+    public Complex mul(Complex other){
+        return new Complex(this.x * other.x - this.y * other.y, this.x * other.y + this.y * other.x);
+    }
+
+    public void mul1(Complex other){
+        double xx = this.x * other.x - this.y * other.y;
+        double yy = this.x * other.y + this.y * other.x;
+        this. x = xx;
+        this. y = yy;
+    }
+
+    public String toString(){
+        return "[" + this.x +"," + this.y + "]";
+    }
+}
+
