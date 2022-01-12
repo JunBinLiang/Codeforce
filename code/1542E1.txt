@@ -1,0 +1,184 @@
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        mod = fs.Int();
+
+        long dp[][] = new long[n][n * n + 5];
+        dp[0][0] = 1;
+        for(int i = 1; i < n; i++) {
+            for(int j = 0; j < dp[0].length; j++) {
+                for(int cnt = 0; cnt <= i; cnt++){
+                    if(j - cnt >= 0) {
+                        dp[i][j] += dp[i - 1][j - cnt];
+                        dp[i][j] %= mod;
+                        if(dp[i][j] == 0){
+                            dp[i][j] += mod;
+                        }
+                    }
+                }
+            }
+        }
+
+        long sums[][] = new long[dp.length][dp[0].length];
+        for(int i = 0; i < dp.length;i++){
+            int sum = 0;
+            for(int j = 0; j < dp[0].length; j++){
+                sum += dp[i][j];
+                sum %= mod;
+                if(sum == 0) sum += mod;
+                sums[i][j] = sum;
+            }
+        }
+
+
+        long fact[] = new long[3000];
+        fact[0] = fact[1] = 1;
+        for(int i = 2; i < fact.length;i++){
+            fact[i] = fact[i - 1] * i;
+            fact[i] %= mod;
+        }
+
+        long ncr[][] = new long[55][55];
+        ncr[0][0]=1;
+        for (int i=1;i<ncr.length;i++) {
+            ncr[i][0]=1;
+            for (int j=1;j<ncr[0].length;j++) {
+                ncr[i][j]=(ncr[i-1][j] + ncr[i-1][j-1])%mod;
+                if(ncr[i][j] == 0)ncr[i][j] += mod;
+            }
+        }
+
+
+
+
+        long res = 0;
+        for(int i = n - 2; i >= 0; i--) {
+            int cnt = n - i;
+            int pre = n - cnt;
+            long com = (ncr[n][pre] * fact[pre]) % mod;
+            long sum = 0;
+
+            for(int dif = 1; dif < cnt; dif++){
+                for(int inv = dif; inv < dp[0].length; inv++){
+                    if(dp[cnt - 1][inv] == 0){
+                        break;
+                    }
+                    if(inv - dif - 1 < 0)continue;
+                    long x = dp[cnt - 2][inv];
+                    long y = sums[cnt - 2][inv - dif - 1];
+                    x *= y;
+                    x %= mod;
+                    if(x == 0) x += mod;
+                    sum += x * (cnt - dif);
+                    sum %= mod;
+                }
+            }
+            res += sum * com;
+            res%=mod;
+        }
+
+        out.println(res % mod);
+    }
+
+}
+
