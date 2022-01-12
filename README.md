@@ -740,6 +740,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  821D |[Okabe and City (2200) (Graph Building + Shortest Path) (Thumb) ](./code/821D.txt)|2021/01/08|
 |  1188B |[Count Pairs (2300) (Math + Equation) ](./code/1188B.txt)|2021/01/09|
 |  1107E |[Vasya and Binary String (2400) (区间DP) ](./code/1107E.txt)|2021/01/09|
+|  1542E1 |[Abnormal Permutation Pairs (easy version) (2400) (DP + Combination) ](./code/1542E1.txt)|2021/01/12|
  
 # 分类
 
