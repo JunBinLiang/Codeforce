@@ -743,6 +743,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1542E1 |[Abnormal Permutation Pairs (easy version) (2400) (DP + Combination) ](./code/1542E1.txt)|2021/01/12|
 |  1542E2 |[Abnormal Permutation Pairs (hard version) (2700) (DP + Combination + Prefix Sum) ](./code/1542E2.txt)|2021/01/12|
 |  632D |[Longest Subsequence (2100) (LCM + Brute Force) ](./code/632D.txt)|2021/01/13|
+|  689D |[Friends and Subsequences (2100) (Binary Search) ](./code/689D.txt)|2021/01/13|
  
 # 分类
 
