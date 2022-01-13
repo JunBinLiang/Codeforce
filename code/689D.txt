@@ -1,0 +1,223 @@
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int A[] = new int[n];
+        int B[] = new int[n];
+        for(int i = 0; i < n; i++) {
+            A[i] = fs.Int();
+        }
+        for(int i = 0; i < n; i++) {
+            B[i] = fs.Int();
+        }
+
+        RangeQuery query = new RangeQuery();
+        query.SetMax(A);
+        query.SetMin(B);
+
+
+        //System.out.println(query.min(0,0));
+
+        long res = 0;
+        for(int i = 0; i < n; i++){
+            int l = i, r = n - 1;
+            int pos1 = -1, pos2 = -1;
+            while(l <= r){
+                int mid = l + (r - l) / 2;
+                int mn = query.min(i,mid);
+                int mx = query.max(i,mid);
+                if(mn == mx){
+                    pos1 = mid;
+                    r = mid - 1;
+                    continue;
+                }
+                if(mx > mn){
+                    r = mid - 1;
+                } else{
+                    l = mid + 1;
+                }
+            }
+
+            if(pos1!=-1){
+                l = pos1; r = n - 1;
+                while(l <= r){
+                    int mid = l + (r - l) / 2;
+                    int mn = query.min(i,mid);
+                    int mx = query.max(i,mid);
+                    if(mn == mx){
+                        pos2 = mid;
+                        l = mid + 1;
+                        continue;
+                    }
+                    if(mx > mn){
+                        r = mid - 1;
+                    } else{
+                        l = mid + 1;
+                    }
+                }
+            }
+
+            if(pos1!=-1){
+                res += (pos2 - pos1 + 1);
+            }
+        }
+        out.println(res);
+    }
+}
+
+class RangeQuery{
+    int f1[][];
+    int f2[][];
+
+    public void SetMin(int A[]){
+        f1 = new int[21][A.length];
+        for(int i = 0; i < A.length; i++){
+            f1[0][i] = A[i];
+        }
+
+        for(int i = 1; i < f1.length; i++){
+            for(int j = 0; j  <A.length; j++){
+                if((j + (1 << (i - 1))) >= A.length)break;
+                f1[i][j] = Math.min(f1[i - 1][j], f1[i - 1][j + (1 << (i - 1))]);
+            }
+        }
+    }
+
+    public void SetMax(int A[]){
+        f2 = new int[21][A.length];
+        for(int i = 0; i < A.length; i++){
+            f2[0][i] = A[i];
+        }
+
+        for(int i = 1; i < f2.length; i++){
+            for(int j = 0; j  <A.length; j++){
+                if((j + (1 << (i - 1))) >= A.length)break;
+                f2[i][j] = Math.max(f2[i - 1][j], f2[i - 1][j + (1 << (i - 1))]);
+            }
+        }
+    }
+
+    public int min(int l, int r) {
+        int size = r - l + 1;
+        int min = Integer.MAX_VALUE;
+        for(int i = 0; i < 21; i++){
+            if((size & (1 << i)) != 0){
+                min = Math.min(min, f1[i][l]);
+                l += (1 << i);
+            }
+        }
+        return min;
+    }
+
+    public int max(int l, int r){
+        int size = r - l + 1;
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i < 21; i++){
+            if((size & (1 << i)) != 0){
+                max = Math.max(max, f2[i][l]);
+                l += (1 << i);
+            }
+        }
+        return max;
+    }
+}
+
