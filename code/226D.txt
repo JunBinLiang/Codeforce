@@ -1,0 +1,193 @@
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int m = fs.Int();
+        int A[][] = new int[n][m];
+        int rows[] = new int[n];
+        int cols[] = new int[m];
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                A[i][j]=fs.Int();
+                rows[i] += A[i][j];
+            }
+        }
+
+        for(int c = 0; c < m; c++){
+            for(int r = 0; r < n; r++){
+                cols[c] += A[r][c];
+            }
+        }
+
+
+        List<Integer> res1 = new ArrayList<>();
+        List<Integer> res2 = new ArrayList<>();
+        int rr[] = new int[n];
+        int cc[] = new int[m];
+
+
+
+
+        while(true){
+            int pos1 = find(rows);
+            if(pos1!=-1){//flip row
+                rr[pos1]++;
+                for(int i = 0; i < m; i++){
+                    int old = A[pos1][i];
+                    A[pos1][i] = -A[pos1][i];
+                    cols[i] -=old;
+                    cols[i] += A[pos1][i];
+                    rows[pos1] -= old;
+                    rows[pos1] += A[pos1][i];
+                }
+                continue;
+            }
+            int pos2 = find(cols);
+            if(pos2!=-1){//flip col
+                cc[pos2]++;
+                for(int i = 0; i < n; i++){
+                    int old = A[i][pos2];
+                    A[i][pos2] = -A[i][pos2];
+                    rows[i] -=old;
+                    rows[i] += A[i][pos2];
+                    cols[pos2] -= old;
+                    cols[pos2] += A[i][pos2];
+                }
+                continue;
+            }
+            break;
+        }
+
+
+        for(int i =0;i<rr.length;i++){
+            if(rr[i]%2==1){
+                res1.add(i+1);
+            }
+        }
+        for(int i =0;i<cc.length;i++){
+            if(cc[i]%2==1){
+                res2.add(i+1);
+            }
+        }
+        StringBuilder s1 = new StringBuilder();
+        StringBuilder s2 = new StringBuilder();
+        s1.append(res1.size()).append(" ");
+        s2.append(res2.size()).append(" ");
+        for(int i:res1)s1.append(i).append(" ");
+        for(int i : res2)s2.append(i).append(" ");
+        out.println(s1.toString());
+        out.println(s2.toString());
+
+    }
+
+    public int find(int A[]){
+        for(int i = 0; i < A.length; i++){
+            if(A[i] < 0)return i;
+        }
+        return -1;
+    }
+
+
+
+}
+
+
