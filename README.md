@@ -744,6 +744,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1542E2 |[Abnormal Permutation Pairs (hard version) (2700) (DP + Combination + Prefix Sum) ](./code/1542E2.txt)|2021/01/12|
 |  632D |[Longest Subsequence (2100) (LCM + Brute Force) ](./code/632D.txt)|2021/01/13|
 |  689D |[Friends and Subsequences (2100) (Binary Search) ](./code/689D.txt)|2021/01/13|
+|  689E |[Mike and Geometry Problem (2000) (Combination + Lined Sweep) (Thumb)](./code/689E.txt)|2021/01/13|
  
 # 分类
 
@@ -1519,6 +1520,9 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1285E.[  Delete a Segment (2300) (Interval Problem + TreeMap + BinarySearch + left/right DP + Segment Tree)  ](./code/1285E.txt)<br/>
 863E.[ Turn Off The TV (2000) (Interval Problem)   ](./code/863E.txt)<br/>
 369E.[ Valera and Queries(2200) (offline + Fenwick + Thinking + Line)  ](./code/369E.txt)<br/>
+
+### Line Sweep
+689E.[Mike and Geometry Problem (2000) (Combination + Lined Sweep) (Thumb)](./code/689E.txt)<br/>
 
 ### Two Pointer
 190D. [ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)<br/>
