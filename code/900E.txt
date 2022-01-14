@@ -1,0 +1,211 @@
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt");
+
+
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        String s = fs.Str();
+        char A[] = s.toCharArray();
+        int k = fs.Int();
+
+        int sum = 0;
+        int pre[] = new int[n];
+        for(int i = 0; i < A.length; i++){
+            if(A[i] == '?')sum++;
+            pre[i] = sum;
+        }
+
+        int aodd[] = new int[n];
+        int bodd[] = new int[n];
+        int aeven[] = new int[n];
+        int beven[] = new int[n];
+        for(int i = 0; i < n; i++){
+            if(A[i]=='?'){
+
+            }
+            else{
+                if(A[i] == 'a'){
+                    if(i%2==0)aeven[i]++;
+                    else aodd[i]++;
+                }
+                else{
+                    if(i%2==0)beven[i]++;
+                    else bodd[i]++;
+                }
+            }
+
+            if(i > 0){
+                aodd[i] += aodd[i - 1];
+                bodd[i] += bodd[i - 1];
+                aeven[i] += aeven[i - 1];
+                beven[i] += beven[i - 1];
+            }
+        }
+
+
+        //abab...
+        int dp[][] = new int[n][2]; //[0 : words 1 : cost]
+        for(int i = 0; i < n; i++) {
+            if(i + 1 < k)continue;
+            int j = i - k + 1;
+            boolean good = true; //check if can form the world
+            if(j % 2 == 0){
+                if(get(aodd, j, i) != 0){
+                    good = false;
+                }
+                if(get(beven, j, i) != 0){
+                    good = false;
+                }
+            }
+            else{
+                if(get(aeven, j, i) != 0){
+                    good = false;
+                }
+                if(get(bodd, j, i) != 0){
+                    good = false;
+                }
+            }
+            int change = get(pre, j , i);
+
+            if(i - 1 >= 0){
+                dp[i][0] = dp[i - 1][0];
+                dp[i][1] = dp[i - 1][1];
+            }
+
+
+            if(good){
+                int words = 0;
+                int w = 0;
+                if(i - k >= 0){
+                    words = dp[i -k][0];
+                    w = dp[i - k][1];
+                }
+
+                if(1 + words >= dp[i][0]){
+                    if(1 + words > dp[i][0]){
+                        dp[i][0] = 1 + words;
+                        dp[i][1] = change + w;
+                    } else {
+                        if(change + w < dp[i][1]){
+                            dp[i][1] = change + w;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
+
+        out.println(dp[n - 1][1]);
+
+    }
+
+    //get prefix sum
+    public int get(int A[], int l, int r){
+        if(l==0)return A[r];
+        return A[r] - A[l - 1];
+    }
+
+
+}
+
+
