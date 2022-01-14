@@ -745,6 +745,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  632D |[Longest Subsequence (2100) (LCM + Brute Force) ](./code/632D.txt)|2021/01/13|
 |  689D |[Friends and Subsequences (2100) (Binary Search) ](./code/689D.txt)|2021/01/13|
 |  689E |[Mike and Geometry Problem (2000) (Combination + Lined Sweep) (Thumb)](./code/689E.txt)|2021/01/13|
+|  900E |[Maximum Questions (2100) (DP + Thinking ) (Thumb)](./code/900E.txt)|2021/01/14|
  
 # 分类
 
@@ -808,6 +809,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1327F.[AND Segments (2500) (DP + Thinking)  ](./code/1327F.txt)<br/>
 1367F1.[Flying Sort (Easy Version) (2100) (DP + Thinking)  ](./code/1367F1.txt)<br/>
 1367F2.[Flying Sort (Hard Version) (2400) (DP + Thinking)  ](./code/1367F2.txt)<br/>
+900E.[Maximum Questions (2100) (DP + Thinking ) (Thumb)](./code/900E.txt)<br/>
 
 
 ### LCS Similar
