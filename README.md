@@ -746,6 +746,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  689D |[Friends and Subsequences (2100) (Binary Search) ](./code/689D.txt)|2021/01/13|
 |  689E |[Mike and Geometry Problem (2000) (Combination + Lined Sweep) (Thumb)](./code/689E.txt)|2021/01/13|
 |  900E |[Maximum Questions (2100) (DP + Thinking ) (Thumb)](./code/900E.txt)|2021/01/14|
+|  226D |[The table (2100) (Constructive + Thinking ) (Thumb)](./code/226D.txt)|2021/01/14|
  
 # 分类
 
@@ -1004,6 +1005,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  1618E.[ Singers' Tour (1700) (MAth + Constructive)  ](./code/1618E.txt)<br/>
  323B.[ Tournament-graph (2200) (Constructive)  ](./code/323B.txt)<br/>
  1166D.[Cute Sequences (2200) (Greedy + Math + Constructive)  ](./code/1166D.txt)<br/>
+ 226D.[The table (2100) (Constructive + Thinking ) (Thumb)](./code/226D.txt)<br/>
  
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
