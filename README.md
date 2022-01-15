@@ -747,6 +747,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  689E |[Mike and Geometry Problem (2000) (Combination + Lined Sweep) (Thumb)](./code/689E.txt)|2021/01/13|
 |  900E |[Maximum Questions (2100) (DP + Thinking ) (Thumb)](./code/900E.txt)|2021/01/14|
 |  226D |[The table (2100) (Constructive + Thinking ) (Thumb)](./code/226D.txt)|2021/01/14|
+|  301B |[Yaroslav and Time (2100) (Shortest Path + Thinking ) (Thumb)](./code/301B.txt)|2021/01/15|
  
 # 分类
 
@@ -1244,6 +1245,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1005F.[Berland and the Shortest Paths (2100) ( Graph + BFS )  ](./code/1005F.txt)<br/>
 67A.[Partial Teacher (1800) (Direct Graph + DP)  ](./code/67A.txt)<br/>
 986C.[AND Graph (2500) (Graph)  ](./code/986C.txt)<br/>
+301B.[Yaroslav and Time (2100) (Shortest Path + Thinking ) (Thumb)](./code/301B.txt)<br/>
 
 ### Graph Model :
 274D.[Lovely Matrix (2200) (Graph Model + Topo)  ](./code/274D.txt)<br/>
