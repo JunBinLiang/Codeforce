@@ -748,6 +748,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  900E |[Maximum Questions (2100) (DP + Thinking ) (Thumb)](./code/900E.txt)|2021/01/14|
 |  226D |[The table (2100) (Constructive + Thinking ) (Thumb)](./code/226D.txt)|2021/01/14|
 |  301B |[Yaroslav and Time (2100) (Shortest Path + Thinking ) (Thumb)](./code/301B.txt)|2021/01/15|
+|  1220E |[Tourism (2200) (无向图缩点 + Tree DP ) (Thumb)](./code/1220E.txt)|2021/01/16|
  
 # 分类
 
@@ -1276,6 +1277,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 27D.[ Ring Road 2(2200) ( Bipartile Graph) ](./code/27D.txt)<br/>
 1537F.[ Figure Fixing (2200) (Graph + Bipartile) ](./code/1537F.txt)<br/>
 
+### 无向图缩点
+1220E.[Tourism (2200) (无向图缩点 + Tree DP ) (Thumb)](./code/1220E.txt)<br/>
 ### Online Bipartite Check
 813F.[ Bipartite Checking (2500) (Dynamic Connectivity + Online Bipartile checking)  ](./code/813F.txt)<br/>
 
