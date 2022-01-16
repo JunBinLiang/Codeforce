@@ -749,6 +749,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  226D |[The table (2100) (Constructive + Thinking ) (Thumb)](./code/226D.txt)|2021/01/14|
 |  301B |[Yaroslav and Time (2100) (Shortest Path + Thinking ) (Thumb)](./code/301B.txt)|2021/01/15|
 |  1220E |[Tourism (2200) (无向图缩点 + Tree DP ) (Thumb)](./code/1220E.txt)|2021/01/16|
+|  722D |[Generating Sets (1900) (Greedy)](./code/722D.txt)|2021/01/16|
  
 # 分类
 
