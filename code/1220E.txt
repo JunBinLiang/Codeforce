@@ -1,0 +1,282 @@
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+
+
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+class People{
+    String name;
+    int age;
+    public People(String name, int age) { //create instant : call
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+}
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+    int low[];
+    int dis[];
+    boolean seen[];
+    int t = 0;
+    List<Integer>graph[];
+    Set<Integer>graph1[];
+    long sums[];
+    int sizes[];
+    Set<String> bridge  = new HashSet<>();
+    int assign[];
+    int id = 0;
+    public void solution(int all, int testcase) {
+        int n = fs.Int();int m = fs.Int();
+        int A[] = new int[n];
+        low = new int[n];
+        dis = new int[n];
+        seen = new boolean[n];
+        sums = new long[n];
+        sizes = new int[n];
+        assign = new int[n];
+        int edges[][]=new int[m][2];
+        Arrays.fill(assign, -1);
+        long total = 0;
+
+        graph = new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        graph1 = new HashSet[n];
+        Arrays.setAll(graph1,e->new HashSet<>());
+
+        for(int i = 0; i < n; i++){
+            A[i]= fs.Int();
+            total += A[i];
+        }
+        for(int i = 0; i < m; i++){
+            int u = fs.Int()-1;int v = fs.Int()-1;
+            graph[u].add(v);
+            graph[v].add(u);
+            edges[i][0] = u;
+            edges[i][1] = v;
+        }
+
+
+
+        int s = fs.Int() - 1;
+        dfs(-1, 0);
+
+
+
+        //System.out.println(Arrays.toString(assign));
+        Arrays.fill(seen,false);
+        for(int i = 0; i < n; i++){
+            if(assign[i]!=-1 && !seen[i]){
+                seen[i] = true;
+                color(i,assign[i]);
+            }
+        }
+
+
+
+        for(int i = 0; i < n; i++){
+            if(assign[i]==-1){
+                out.println(total);
+                return;
+            }
+            sums[assign[i]] += A[i];
+            sizes[assign[i]]++;
+        }
+
+
+
+        //System.out.println(Arrays.toString(low));
+        //System.out.println(Arrays.toString(sums));
+
+
+        for(int edge[]:edges){
+            int u = assign[edge[0]],v=assign[edge[1]];
+            if(u==v)continue;
+            graph1[u].add(v);graph1[v].add(u);
+        }
+
+        long pair[] = dfs1(-1,assign[s]);
+        out.println(Math.max(pair[0],pair[1]));
+    }
+
+    public long[] dfs1(int parent, int root){ //[can return, can not return]
+        long res[] = new long[]{-2000000000000000l,-2000000000000000l};
+        long sum = 0;
+        List<long[]>list=new ArrayList<>();
+        for(int next : graph1[root]){
+            if(next == parent)continue;
+            long pair[] = dfs1(root,next);
+            list.add(pair);
+            if(pair[0] >= 0) { // can
+                sum += pair[0];
+            } else { // not
+
+            }
+        }
+        if(list.size() == 0){
+            if(sizes[root] == 1) {
+                res[1] = sums[root];
+            }
+            else{
+                res[0] = res[1] = sums[root];
+            }
+            return res;
+        }
+
+        if(sizes[root] > 1){
+            res[0] = sums[root];
+        }
+        for(long pair[] : list){
+            if(pair[0] >= 0) { // can
+                res[0] = Math.max(res[0], sums[root] + sum);
+                res[1] = Math.max(res[1], sums[root] + sum + pair[1] - pair[0]);
+            } else { // not
+                res[1] = Math.max(res[1], sums[root] + sum + pair[1]);
+            }
+        }
+        return res;
+    }
+
+    public void color(int root,int c){
+        for(int next:graph[root]){
+            if(seen[next])continue;
+            int mn = Math.min(root,next);
+            int mx = Math.max(root,next);
+            String s = mn + ","+mx;
+            if(bridge.contains(s))continue;
+
+            seen[next] = true;
+            assign[next] = c;
+            color(next,c);
+        }
+    }
+
+    public void dfs(int parent,int root){
+        dis[root]=low[root]=t++;
+        seen[root]=true;
+        for(int next :graph[root]){
+            if(!seen[next]){
+                dfs(root,next);
+                low[root]=Math.min(low[root],low[next]);
+                if(low[next]>dis[root]){
+                    if(assign[root]==-1){
+                        assign[root]=id++;
+                    }
+                    if(assign[next]==-1){
+                        assign[next]=id++;
+                    }
+                    int mn = Math.min(root,next);
+                    int mx = Math.max(root,next);
+                    bridge.add(mn+","+mx);
+                }
+            }else{
+                if(next!=parent){
+                    low[root]=Math.min(low[root],low[next]);
+                }
+            }
+        }
+    }
+
+
+}
+
+
