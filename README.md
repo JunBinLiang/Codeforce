@@ -752,6 +752,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  722D |[Generating Sets (1900) (Greedy)](./code/722D.txt)|2021/01/16|
 |  510D |[Fox And Jumping (1900) (GCD + DP) （Thumb）](./code/510D.txt)|2021/01/16|
 |  894C |[Marco and GCD Sequence (1900) (Constructive) ](./code/894C.txt)|2021/01/17|
+|  817D |[Imbalanced Array (1900) (Stack) (Thumb) ](./code/817D.txt)|2021/01/17|
  
 # 分类
 
@@ -1560,7 +1561,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 ### Stack
 224C.[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)<br/>
 280B.[Maximum Xor Secondary	 (1800) (Monotic Stack)  ](./code/280B.txt)<br/>
-
+817D.[Imbalanced Array (1900) (Stack) (Thumb) ](./code/817D.txt)<br/>
 ### LinkedList
 899E.[Segments Removal (2000) (UF + Double LinkedList)  ](./code/899E.txt)<br/>
 920F.[SUM and REPLACE (2000) (Double LinkedList + UF)  ](./code/920F.txt)<br/>
