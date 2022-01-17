@@ -751,6 +751,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1220E |[Tourism (2200) (无向图缩点 + Tree DP ) (Thumb)](./code/1220E.txt)|2021/01/16|
 |  722D |[Generating Sets (1900) (Greedy)](./code/722D.txt)|2021/01/16|
 |  510D |[Fox And Jumping (1900) (GCD + DP) （Thumb）](./code/510D.txt)|2021/01/16|
+|  894C |[Marco and GCD Sequence (1900) (Constructive) ](./code/894C.txt)|2021/01/17|
  
 # 分类
 
@@ -1010,6 +1011,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  323B.[ Tournament-graph (2200) (Constructive)  ](./code/323B.txt)<br/>
  1166D.[Cute Sequences (2200) (Greedy + Math + Constructive)  ](./code/1166D.txt)<br/>
  226D.[The table (2100) (Constructive + Thinking ) (Thumb)](./code/226D.txt)<br/>
+ 894C.[Marco and GCD Sequence (1900) (Constructive) ](./code/894C.txt)<br/>
  
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
