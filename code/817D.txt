@@ -1,0 +1,225 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+
+
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+class People{
+    String name;
+    int age;
+    public People(String name, int age) { //create instant : call
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+}
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+    long x = 0, y = 0;
+    int l1[],l2[],r1[],r2[];
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int A[] = new int[n];
+        int B[] = new int[n];
+        for(int i = 0; i < n; i++){
+            A[i] = fs.Int();
+        }
+        int j = 0;
+        for(int i = n - 1; i >= 0; i--){
+            B[j++]=A[i];
+        }
+
+
+
+
+        l1 = new int[n];
+        l2 = new int[n];
+        r1 = new int[n];
+        r2 = new int[n];
+
+        solve1(A);solve3(B);
+
+        solve2(A);solve4(B);
+
+
+        for(int i=0;i<n;i++){
+            long size1 = l1[i];
+            long size2 = r1[i];
+            x = x  + (size1 * size2 + (size1 + 1 + size2)) * A[i];
+        }
+
+        for(int i=0;i<n;i++){
+            long size1 = l2[i];
+            long size2 = r2[i];
+            y = y  + (size1 * size2 + (size1 + 1 + size2)) * A[i];
+        }
+
+        //System.out.println(x+"  "+Arrays.toString(l1));System.out.println(Arrays.toString(r1));
+        //System.out.println(y+"  "+Arrays.toString(l2));System.out.println(Arrays.toString(r2));
+
+        out.println(x - y);
+
+
+    }
+
+    public void solve1(int A[]){
+        Stack<int[]>sta=new Stack<>();
+        int n = A.length;
+        for(int i = 0; i < n;i++){
+           while(sta.size() > 0 && A[i] > sta.peek()[0])sta.pop();
+           if(sta.size() == 0){
+               l1[i] += i;
+           }else{
+               l1[i] += i - sta.peek()[1] - 1;
+           }
+           sta.push(new int[]{A[i],i});
+        }
+    }
+
+    public void solve3(int A[]){
+        Stack<int[]>sta=new Stack<>();
+        int n = A.length;
+        for(int i = 0; i < n;i++){
+            while(sta.size() > 0 && A[i] >= sta.peek()[0])sta.pop();
+            if(sta.size() == 0){
+                r1[n - i - 1] += i;
+            }else{
+                r1[n - i - 1] += i - sta.peek()[1] - 1;
+            }
+            sta.push(new int[]{A[i],i});
+        }
+    }
+
+
+
+    public void solve2(int A[]){
+        Stack<int[]>sta=new Stack<>();
+        int n = A.length;
+        for(int i = 0; i < n;i++){
+            while(sta.size() > 0 && A[i] < sta.peek()[0])sta.pop();
+            if(sta.size() == 0){
+                l2[i] += i;
+            }else{
+                l2[i] += i - sta.peek()[1] - 1;
+            }
+            sta.push(new int[]{A[i],i});
+        }
+    }
+
+    public void solve4(int A[]){
+        int n = A.length;
+        Stack<int[]>sta=new Stack<>();
+        for(int i = 0; i < n;i++){
+            while(sta.size() > 0 && A[i] <= sta.peek()[0])sta.pop();
+            if(sta.size() == 0){
+                r2[n - i - 1] += i;
+            }else{
+                r2[n - i - 1] += i - sta.peek()[1] - 1;
+            }
+            sta.push(new int[]{A[i],i});
+        }
+    }
+
+}
+
+
