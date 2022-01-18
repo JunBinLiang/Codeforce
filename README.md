@@ -753,6 +753,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  510D |[Fox And Jumping (1900) (GCD + DP) （Thumb）](./code/510D.txt)|2021/01/16|
 |  894C |[Marco and GCD Sequence (1900) (Constructive) ](./code/894C.txt)|2021/01/17|
 |  817D |[Imbalanced Array (1900) (Stack) (Thumb) ](./code/817D.txt)|2021/01/17|
+|  1238D |[AB-string (1900) (Thinking) ](./code/1238D.txt)|2021/01/18|
  
 # 分类
 
