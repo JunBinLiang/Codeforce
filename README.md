@@ -755,6 +755,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  817D |[Imbalanced Array (1900) (Stack) (Thumb) ](./code/817D.txt)|2021/01/17|
 |  1238D |[AB-string (1900) (Thinking) ](./code/1238D.txt)|2021/01/18|
 |  1197D |[Yet Another Subarray Problem (1900) (DP) ](./code/1197D.txt)|2021/01/20|
+|  1076E |[Vasya and a Tree (1900) (Fenwick Tree) ](./code/1076E.txt)|2021/01/20|
  
 # 分类
 
