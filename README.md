@@ -758,6 +758,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1076E |[Vasya and a Tree (1900) (Fenwick Tree) ](./code/1076E.txt)|2021/01/20|
 |  1000D |[Yet Another Problem On a Subsequence (1900) (DP) ](./code/1000D.txt)|2021/01/21|
 |  796C |[Bank Hacking (1900) (Thinking + Segment Tree) ](./code/796C.txt)|2021/01/21|
+|  746E |[Numbers Exchange (1900) (Greedy + Constructive) ](./code/746E.txt)|2021/01/21|
  
 # 分类
 
