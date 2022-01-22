@@ -1,0 +1,321 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+
+
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+class People{
+    String name;
+    int age;
+    public People(String name, int age) { //create instant : call
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+}
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    //int mod = 1000000007;
+    int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+    int x = 1, y = 2;
+    int m;
+    int res = 0;
+    Map<Integer,Integer> f = new HashMap<>();
+    public void solution(int all, int testcase) {
+        int n  =fs.Int();
+        m = fs.Int() + 1;
+        int A[] = new int[n];
+        int odd = 0, even = 0;
+
+        for(int i = 0; i < n; i++) {
+            A[i] = fs.Int();
+            if(A[i] % 2 == 1)odd++;
+            else even++;
+            add(f,A[i]);
+        }
+
+
+
+        if(even > odd){
+            boolean a = odd(A);
+            if(!a){
+                out.println(-1);
+                return;
+            }
+        } else {
+            boolean a = even(A);
+            if(!a){
+                out.println(-1);
+                return;
+            }
+        }
+
+
+        if(even > odd){
+            for(int i = 0; i < n && even > odd; i++){
+                if(A[i] % 2 == 0 && f.get(A[i]) > 1) {
+                    even--;odd++;
+                    while(x < m && f.containsKey(x)){
+                        x += 2;
+                    }
+                    if(x < m){
+                        del(f,A[i]);
+                        A[i] = x;
+                        add(f,A[i]);
+                        res++;
+                    } else{
+                        out.println(-1);
+                        return;
+                    }
+                }
+            }
+
+            for(int i = 0; i < n && even > odd; i++){
+                if(A[i] % 2 == 0) {
+                    even--;odd++;
+                    while(x < m && f.containsKey(x)){
+                        x += 2;
+                    }
+                    if(x < m){
+                        del(f,A[i]);
+                        A[i] = x;
+                        add(f,A[i]);
+                        res++;
+                    } else{
+                        out.println(-1);
+                        return;
+                    }
+                }
+            }
+
+        } else {
+            for(int i = 0; i < n && even < odd; i++){
+                if(A[i] % 2 == 1 && f.get(A[i]) > 1) {
+                    odd--;even++;
+                    while(y < m && f.containsKey(y)){
+                        y += 2;
+                    }
+                    if(y < m){
+                        del(f,A[i]);
+                        A[i] = y;
+                        add(f,A[i]);
+                        res++;
+                    } else{
+                        out.println(-1);
+                        return;
+                    }
+                }
+            }
+            
+
+            for(int i = 0; i < n && even < odd; i++){
+                if(A[i] % 2 == 1) {
+                    odd--;even++;
+                    while(y < m && f.containsKey(y)){
+                        y += 2;
+                    }
+                    if(y < m){
+                        del(f,A[i]);
+                        A[i] = y;
+                        add(f,A[i]);
+                        res++;
+                    } else{
+                        out.println(-1);
+                        return;
+                    }
+                }
+            }
+        }
+
+        if(even!=odd){
+            out.println(-1);
+            return;
+        }
+
+
+        boolean a = odd(A);
+        boolean b = even(A);
+        if((!a) || (!b)){
+            out.println(-1);
+            return;
+        }
+        out.println(res);
+        print(A);
+
+    }
+
+    public boolean odd(int A[]){
+        //remove odd duplicate
+        for(int i = 0; i < A.length; i++){
+            if(A[i] % 2 == 1){
+                Integer cnt = f.get(A[i]);
+                if(cnt > 1){
+                    while(x < m && f.containsKey(x)){
+                        x += 2;
+                    }
+                    if(x < m){
+                        del(f,A[i]);
+                        A[i] = x;
+                        add(f,A[i]);
+                        res++;
+                    } else{
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean even(int A[]){
+        //remove even duplicate
+        for(int i = 0; i < A.length; i++){
+            if(A[i] % 2 == 0){
+                Integer cnt = f.get(A[i]);
+                if(cnt > 1){
+                    while(y < m && f.containsKey(y)){
+                        y += 2;
+                    }
+                    if(y < m){
+                        del(f,A[i]);
+                        A[i] = y;
+                        add(f,A[i]);
+                        res++;
+                    } else{
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public void add(Map<Integer,Integer>f, int k){
+        Integer cnt = f.get(k);
+        if(cnt == null){
+            f.put(k,1);
+        } else {
+            f.put(k,cnt+1);
+        }
+    }
+
+    public void del(Map<Integer,Integer>f, int k){
+        Integer cnt = f.get(k);
+        if(cnt == 1){
+            f.remove(k);
+        } else {
+            f.put(k,cnt - 1);
+        }
+    }
+
+
+
+    public void print(int A[]){
+        for(int i:A)out.print(i+" ");
+    }
+
+
+}
+
+
+
+
