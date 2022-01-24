@@ -1,0 +1,220 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+
+
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+class People{
+    String name;
+    int age;
+    public People(String name, int age) { //create instant : call
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+}
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    //int mod = 1000000007;
+    int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+    int sizes[];
+    public void solution(int all, int testcase) {
+        int n  =fs.Int();
+        int A[] = new int[n];
+        int B[][] = new int[n][2];
+        int res = Integer.MAX_VALUE, mx = 0;
+        for(int i = 0; i < n; i++) {
+            A[i] = fs.Int();
+            B[i][0] = A[i];
+            B[i][1] = i;
+        }
+        Arrays.sort(B, (a,b)->{
+            return a[0] - b[0];
+        });
+
+
+        sizes = new int[n];
+        Arrays.fill(sizes, 1);
+        int nums[] = new int[n];
+        for(int i = 0; i < n; i++){
+            nums[i] = i;
+        }
+        Map<Integer,Integer>f = new HashMap<>();
+
+
+        for(int i = 0; i < B.length;i++){
+            int j = i;
+            while( j < B.length && B[j][0] == B[i][0]) {
+                int index = B[j][1];j++;
+                add(f,1);
+
+                //turn on index
+                if(index + 1  < n && A[index + 1] <= B[i][0]) {
+                    int r1 = find(nums, index);
+                    int r2 = find(nums, index + 1);
+                    if(r1 != r2) {
+                        nums[r1] = r2;
+                        del(f,sizes[r1]);
+                        del(f,sizes[r2]);
+                        sizes[r2] += sizes[r1];
+                        add(f,sizes[r2]);
+                    }
+
+                }
+                if(index - 1 >= 0 && A[index-1] <= B[i][0]) {
+                    int r1 = find(nums, index);
+                    int r2 = find(nums, index - 1);
+                    if(r1 != r2) {
+                        nums[r1] = r2;
+                        del(f,sizes[r1]);
+                        del(f,sizes[r2]);
+                        sizes[r2] += sizes[r1];
+                        add(f,sizes[r2]);
+                    }
+                }
+            }
+
+            if(f.size() == 1) {
+                for(Integer k : f.keySet()){
+                    int cnt = f.get(k);
+                    if(cnt > mx){
+                        mx = cnt;
+                        res = B[i][0];
+                    }
+                }
+            }
+            i = j - 1;
+        }
+
+
+        out.println(res + 1);
+    }
+
+    public void add(Map<Integer,Integer>f, int k){
+        Integer cnt = f.get(k);
+        if(cnt == null){
+            f.put(k,1);
+        } else {
+            f.put(k,cnt+1);
+        }
+    }
+    public void del(Map<Integer,Integer>f, int k){
+        Integer cnt = f.get(k);
+        if(cnt == 1){
+            f.remove(k);
+        } else {
+            f.put(k,cnt - 1);
+        }
+    }
+
+    public int find(int nums[],int x){
+        if(nums[x]==x)return x;
+        int root=find(nums,nums[x]);
+        nums[x]=root;
+        return root;
+    }
+
+}
+
+
+
+
