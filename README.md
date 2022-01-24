@@ -759,6 +759,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1000D |[Yet Another Problem On a Subsequence (1900) (DP) ](./code/1000D.txt)|2021/01/21|
 |  796C |[Bank Hacking (1900) (Thinking + Segment Tree) ](./code/796C.txt)|2021/01/21|
 |  746E |[Numbers Exchange (1900) (Greedy + Constructive) ](./code/746E.txt)|2021/01/21|
+|  982D |[Shark (1900) (Union Find) ](./code/982D.txt)|2021/01/23|
  
 # 分类
 
