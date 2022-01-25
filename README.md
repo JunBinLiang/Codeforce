@@ -760,6 +760,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  796C |[Bank Hacking (1900) (Thinking + Segment Tree) ](./code/796C.txt)|2021/01/21|
 |  746E |[Numbers Exchange (1900) (Greedy + Constructive) ](./code/746E.txt)|2021/01/21|
 |  982D |[Shark (1900) (Union Find) ](./code/982D.txt)|2021/01/23|
+|  754D |[Fedor and coupons (2100) (Sort) ](./code/754D.txt)|2021/01/25|
  
 # 分类
 
@@ -1533,6 +1534,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1547E.[ Air Conditioners (1500) (left/right dp + sort)  ](./code/1547E.txt)<br/>
 12D.[ Ball (2400) (Sort + Segment Tree)  ](./code/12D.txt)<br/>
 1213D2.[Equalizing by Division (hard version) (1600) (Sort)  ](./code/1213D2.txt)<br/>
+754D.[Fedor and coupons (2100) (Sort) ](./code/754D.txt)<br/>
 
 ### Two Heap
 220C.[Little Elephant and Shifts (2100) (Two Heap Moving + Thinking)  ](./code/220C.txt)<br/>
