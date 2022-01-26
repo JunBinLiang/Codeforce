@@ -1,0 +1,180 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+
+
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+class People{
+    String name;
+    int age;
+    public People(String name, int age) { //create instant : call
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+}
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    //int mod = 1000000007;
+    int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    public void solution(int all, int testcase) {
+
+        long m = fs.Int();
+        int a = fs.Int();
+        int b = fs.Int();
+        long res = 0;
+
+        int g = gcd(a,b);
+
+        int v[] = new int[a + b];
+        Arrays.fill(v, -1);
+        int x = 0, y = 0;
+        while(true) {
+            v[x] = y;
+            if(x < b) x += a;
+            else x -= b;
+            if(x==0) break;
+            y = Math.max(x, y);
+        }
+
+        //System.out.println(Arrays.toString(v));
+
+        for(int i = 0; i < a+b; i++) {
+            if(v[i]!=-1) res += Math.max(0, m - v[i] + 1);
+        }
+
+
+        if(m >= a + b) {
+            long j = ((a + b - 1) / g ) * g;
+            m = (m - (a + b - 1)) + ((a + b - 1) - j);
+            res += cal(m, g);
+        }
+        out.println(res);
+    }
+
+    public long cal(long bound, long g){
+        long cnt = (bound) / g;
+        long total = (1 + cnt) * cnt / 2;
+        total *= g;
+        long next = (cnt + 1) * g;
+
+        if(next - 1 != bound){
+            total -= (next - 1 - bound) * (cnt);
+        }
+        return total;
+    }
+
+
+    public int gcd(int num1, int num2) {
+        if (num2 != 0) {
+            return gcd(num2, num1 % num2);
+        } else {
+            return num1;
+        }
+    }
+
+}
+
+
+
+
