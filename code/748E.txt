@@ -1,0 +1,30 @@
+#include <cstdio>
+#define ll long long
+
+int n,K,x;
+int num[10000001],dif[10000001];
+
+int main()
+{
+	scanf("%d%d",&n,&K);
+	for(int i=1;i<=n;i++)
+	{
+		scanf("%d",&x);
+		num[x]++;
+	}
+	ll sum=0;
+	for(int i=10000000;i>0;i--)
+	{
+		sum+=num[i]-dif[i];
+		if(sum>=K)
+		{
+			printf("%d",i);
+			return 0;
+		}
+		num[(i+1)/2]+=num[i];
+		num[i/2]+=num[i];
+		dif[(i+1)/2]+=num[i];
+	}
+	puts("-1");
+	return 0;
+}
