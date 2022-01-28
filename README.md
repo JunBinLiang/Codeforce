@@ -764,6 +764,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  796D |[Police Stations (2100) (Thinking + Graph) ](./code/796D.txt)|2021/01/26|
 |  748E |[Santa Claus and Tangerines (2100) (Thinking) ](./code/748E.txt)|2021/01/26|
 |  1146D |[1146D (2100) (Math + GCD) ](./code/1146D.txt)|2021/01/26|
+|  283C |[Coin Troubles (2100) (DP + Thinking) ](./code/283C.txt)|2021/01/27|
  
 # 分类
 
