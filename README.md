@@ -767,6 +767,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  283C |[Coin Troubles (2100) (DP + Thinking) ](./code/283C.txt)|2021/01/27|
 |  1254B2 |[Send Boxes to Alice (Hard Version)(2100) (Thinking) ](./code/1254B2.txt)|2021/01/27|
 |  1207F |[Remainder Problem (2100) (Thinking + Time) ](./code/1207F.txt)|2021/01/28|
+|  793D |[Presents in Bankopolis(2100) (DP) ](./code/793D.txt)|2021/01/28|
  
 # 分类
 
