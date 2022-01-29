@@ -1,0 +1,366 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+
+
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+class People{
+    String name;
+    int age;
+    public People(String name, int age) { //create instant : call
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+}
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    List<Integer>graph[];
+    int in[];int levels[];
+    int root = 0;
+    int cnt = 0;
+    Map<String,int[]>f= new HashMap<>();
+    int sp[][];
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        in = new int[n];levels = new int[n];
+        graph = new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        int edges[][] = new int[n - 1][2];
+        sp=new int[n][21];
+        for(int i = 0; i < n - 1; i++){
+            int u = fs.Int() - 1, v = fs.Int() - 1;
+            graph[u].add(v);graph[v].add(u);
+            edges[i][0] = u;
+            edges[i][1] = v;
+            in[u]++;
+            in[v]++;
+        }
+
+
+        for(int i = 0; i < n; i++){
+            if(in[i] > 2){
+                root = i;break;
+            }
+        }
+
+        //System.out.println("root "+root);
+
+        int ith = 0;
+        List<Fenwick> list = new ArrayList<>();
+        for(int next : graph[root]){
+            cnt = 0;
+            go(root, next);
+            Fenwick fen = new Fenwick(cnt);
+            list.add(fen);
+            dfs(root,next,ith,0);
+            ith++;
+        }
+
+        //construct sparse table
+        for(int i=0;i<sp.length;i++){
+            Arrays.fill(sp[i],-1);
+        }
+        dfs1(-1,root,0);
+        for(int i=1;i<sp[0].length;i++){//construc sparse table
+            for(int j=0;j<n;j++){
+                int parent=sp[j][i-1];
+                if(parent!=-1&&sp[parent][i-1]!=-1){
+                    sp[j][i]=sp[parent][i-1];
+                }
+            }
+        }
+        //System.out.println(root);
+
+        int m = fs.Int();
+        for(int i = 0; i < m; i++){
+            int type = fs.Int();
+            if(type == 2) {//to white
+                int j = fs.Int() - 1;
+                int mn = Math.min(edges[j][0],edges[j][1]);
+                int mx = Math.max(edges[j][0],edges[j][1]);
+                String state = mn + "," + mx;
+                int pair[] = f.get(state);
+                int ithTree = pair[0], ithE = pair[1];
+                list.get(ithTree).update(ithE, 1);
+            }
+            else if(type == 1) {
+                int j = fs.Int() - 1;
+                int mn = Math.min(edges[j][0],edges[j][1]);
+                int mx = Math.max(edges[j][0],edges[j][1]);
+                String state = mn + "," + mx;
+                int pair[] = f.get(state);
+                int ithTree = pair[0], ithE = pair[1];
+                list.get(ithTree).update(ithE, -1);
+
+            }else{
+                int u = fs.Int() - 1, v = fs.Int() - 1;
+                if(u == v){
+                    out.println(0);
+                    continue;
+                }
+
+                if(u == root || v == root){
+                    int e = u;
+                    if(u == root) e = v;
+                    int fa = sp[e][0];
+                    int mn = Math.min(e,fa);
+                    int mx = Math.max(e,fa);
+                    String state = mn + "," + mx;
+                    int pair[] = f.get(state);
+                    int sum = list.get(pair[0]).sumRange(0,pair[1]);
+                    if(sum != 0) {
+                        out.println(-1);
+                    }else{
+                        out.println(levels[e]);
+                    }
+
+                }
+                else {
+                    int lca = LCA(u,v);
+
+                    int e1 = u, fa1 = sp[u][0];
+                    int e2 = v, fa2 = sp[v][0];
+
+                    int mn1 = Math.min(e1,fa1);
+                    int mx1 = Math.max(e1,fa1);
+                    String state1 = mn1 + "," + mx1;
+
+                    int mn2 = Math.min(e2,fa2);
+                    int mx2 = Math.max(e2,fa2);
+                    String state2 = mn2 + "," + mx2;
+
+                    int pair1[] = f.get(state1);
+                    int pair2[] = f.get(state2);
+
+                    //System.out.println(e1+" "+fa1);
+                    //System.out.println(e2+" "+fa2);
+                    //System.out.println("lca "+lca+"     "+Arrays.toString(pair1)+"  "+Arrays.toString(pair2));
+
+                    if(lca == u || lca == v){//same line
+                        int a = Math.min(pair1[1],pair2[1]);
+                        int b = Math.max(pair1[1],pair2[1]);
+                        int sum = list.get(pair1[0]).sumRange(a + 1, b);
+                        if(sum != 0) {
+                            out.println(-1);
+                        }else{
+                            out.println(b - (a + 1) + 1);
+                        }
+
+
+                    } else {
+                        int dis = levels[u] + levels[v];
+                        int sum = list.get(pair1[0]).sumRange(0, pair1[1]) + list.get(pair2[0]).sumRange(0,pair2[1]);
+                        if(sum != 0) {
+                            out.println(-1);
+                        }else{
+                            out.println(dis);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+3
+1 2
+2 3
+2
+2 2
+3 2 3
+ */
+
+    public void dfs(int pa, int cur,int ithTree, int ith){
+        int mn = Math.min(pa,cur);
+        int mx = Math.max(pa,cur);
+        String state = mn+","+mx;
+        f.put(state, new int[]{ithTree,ith});
+        for(int next : graph[cur]){
+            if(next == pa)continue;
+            dfs(cur,next,ithTree,ith+1);
+        }
+    }
+
+    public void go(int pa, int root){
+        cnt++;
+        for(int next:graph[root]){
+            if(pa==next)continue;
+            go(root,next);
+        }
+    }
+
+    public int LCA(int x,int y){
+        if(levels[x]<levels[y]){
+            return LCA(y,x);
+        }
+
+
+        for(int i=20; i>=0; i--) {
+            if(sp[x][i]!=-1&&levels[sp[x][i]] >= levels[y]) {
+                x = sp[x][i];
+            }
+        }
+        if(x == y) return x;
+
+
+        for(int i=20; i>=0; i--)//不重合，x 和 y 一起往上跳
+        {
+            if(sp[x][i] != sp[y][i]) //只要父亲不同，就跳，父亲相同，就停了
+            {                    // 最后一次，是没有跳上去的
+
+                x = sp[x][i];
+                y = sp[y][i];
+            }
+        }
+        return sp[x][0];
+    }
+
+    public void dfs1(int parent,int root,int level){
+        levels[root]=level;
+        for(int next:graph[root]){
+            if(next!=parent){
+                sp[next][0]=root;
+                dfs1(root,next,level+1);
+            }
+        }
+    }
+
+}
+
+class Fenwick {
+    int tree[];//1-index based
+    public Fenwick(int n) {
+        tree=new int[n + 1];
+    }
+
+    public void update(int i, int val) {
+        i++;
+        while(i<tree.length){
+            tree[i]+=val;
+            i+=(i&-i);
+        }
+
+    }
+
+    public int sumRange(int i, int j) {
+        return pre(j+1)-pre(i);
+    }
+
+    public int pre(int i){
+        int sum=0;
+        while(i>0){
+            sum+=tree[i];
+            i-=(i&-i);
+        }
+        return sum;
+    }
+}
+
+
+
+
+
+
