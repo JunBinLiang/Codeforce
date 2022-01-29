@@ -770,7 +770,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  793D |[Presents in Bankopolis(2100) (DP) ](./code/793D.txt)|2021/01/28|
 |  165D |[Beard Graph (2100) (LCA + Fenwick) ](./code/165D.txt)|2021/01/29|
 |  1056E |[Check Transcription (2100) (Rolling Hash) ](./code/1056E.txt)|2021/01/29|
- 
+|  1163D |[Mysterious Code (2100) (kmp + dp) ](./code/1163D.txt)|2021/01/29|
 # 分类
 
 ### DP
@@ -926,6 +926,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 ## String Match KMP + DP
 1575H.[Holiday Wall Ornaments(2200) (DP + KMP)  ](./code/1575L.txt)<br/>
 494B.[Obsessive String	 (2000) ( DP + KMP + Prefix )  ](./code/494B.txt)<br/>
+1163D.[Mysterious Code (2100) (kmp + dp) ](./code/1163D.txt)<br/>
 
 ### Contribution
 1151E.[Number of Components(2100) (Observation + Thinking + Contribution) ](./code/1151E.txt)<br/>
