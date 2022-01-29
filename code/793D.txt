@@ -1,0 +1,192 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+
+
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+class People{
+    String name;
+    int age;
+    public People(String name, int age) { //create instant : call
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+}
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    int dp[][][][];
+    int graph[][] = new int[83][83];
+    int n;
+    public void solution(int all, int testcase) {
+        n = fs.Int();
+        int k = fs.Int();
+        int m = fs.Int();
+        for(int i = 0; i < m; i++) {
+            int u = fs.Int(),v = fs.Int(), w = fs.Int();
+            if(graph[u][v]==0)graph[u][v] =  w;
+            else graph[u][v] =  Math.min(graph[u][v],w);
+        }
+
+        dp = new int[2][n + 2][n + 2][k + 1];
+        for(int i = 0; i < dp.length;i++){
+            for(int j = 0; j < dp[0].length;j++){
+                for(int x = 0; x < dp[0][0].length;x++){
+                    for(int y = 0; y < dp[0][0][0].length;y++){
+                        dp[i][j][x][y] = -1;
+                    }
+                }
+            }
+        }
+
+        int res = Integer.MAX_VALUE;
+        for(int i = 1; i <= n;i++){
+            //if(i==5){
+                res = Math.min(res, dfs(1, 0, i, k - 1));
+                //System.out.println();
+                res = Math.min(res, dfs(0, i, n+1, k - 1));
+                //System.out.println();
+            //}
+
+        }
+
+        if(res >= 1000000)out.println(-1);
+        else out.println(res);
+    }
+
+    public int dfs(int state,int l, int r,int k) {
+        //System.out.println(state+" "+l+" "+r+"    "+k);
+        if(k == 0) {
+            return 0;
+        }
+        if(dp[state][l][r][k] != -1) {
+            return dp[state][l][r][k];
+        }
+
+
+        int res = 1000000;
+        for(int i = 1; i <= n; i++) {
+            if(state == 0) {
+                if(graph[l][i]==0)continue;
+                if(i >= r)continue;
+                if(i > l) {
+                    res = Math.min(res, Math.min(graph[l][i] + dfs(1, l , i,k - 1),graph[l][i] + dfs(0, i , r,k - 1)));
+                }
+            }else{
+                if(graph[r][i]==0)continue;
+                if(i<=l)continue;
+                if(i < r){
+                    res = Math.min(res, Math.min(graph[r][i] + dfs(1, l , i,k - 1),graph[r][i] + dfs(0, i , r,k - 1)));
+                }
+            }
+        }
+        return dp[state][l][r][k] = res;
+    }
+
+}
+
+
+
+
