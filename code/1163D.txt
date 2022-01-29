@@ -1,0 +1,237 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+
+
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+class People{
+    String name;
+    int age;
+    public People(String name, int age) { //create instant : call
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+}
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+
+    int dp[][][];
+    int p1[];int p2[];
+    public void solution(int all, int testcase) {
+        String a = fs.Str();
+        String s = fs.Str();
+        String t = fs.Str();
+        p1 = pre(s);
+        p2 = pre(t);
+        //System.out.println(Arrays.toString(p1));
+        dp = new int[a.length() + 1][s.length() + 1][t.length() + 1];
+        for(int i = 0; i < dp.length; i++){
+            for(int j = 0; j < dp[0].length; j++){
+                for(int k = 0; k < dp[0][0].length; k++){
+                    dp[i][j][k] = -1000000;
+                }
+            }
+        }
+        int res = dfs(a,s,t,0,0,0);
+        out.println(res);
+    }
+
+    public int dfs(String a,String s,String t, int i, int x, int y) {
+        if(i >= a.length()) {
+            return 0;
+        }
+
+        if(dp[i][x][y] != -1000000){
+            return dp[i][x][y];
+        }
+        int res = -1000000;
+        if(a.charAt(i) == '*') {
+            for(int j = 0; j < 26; j++){
+                char cc = (char)(j + 'a');
+                int sum = 0;
+                int index1 = x;
+                int index2 = y;
+                while(index1 != 0 && cc != s.charAt(index1))index1 = p1[index1 - 1];
+                if(cc == s.charAt(index1)){
+                    index1++;
+                    if(index1 == s.length()) {
+                        index1 = p1[index1 - 1];
+                        sum++;
+                    } else{
+
+                    }
+                }
+                while(index2 != 0 && cc != t.charAt(index2))index2 = p2[index2 - 1];
+                if(cc == t.charAt(index2)){
+                    index2++;
+                    if(index2 == t.length()) {
+                        index2 = p2[index2 - 1];
+                        sum--;
+                    } else{
+
+                    }
+                }
+                res = Math.max(res, sum + dfs(a,s,t,i+1,index1,index2));
+            }
+        }
+        else{
+            char cc = a.charAt(i);
+            int index1 = x;
+            int index2 = y;
+            res = 0;
+            while(index1 != 0 && cc != s.charAt(index1))index1 = p1[index1 - 1];
+            if(cc == s.charAt(index1)){
+                index1++;
+                if(index1 == s.length()) {
+                    index1 = p1[index1 - 1];
+                    res++;
+                } else{
+
+                }
+            }
+            while(index2 != 0 && cc != t.charAt(index2))index2 = p2[index2 - 1];
+            if(cc == t.charAt(index2)){
+                index2++;
+                if(index2 == t.length()) {
+                    index2 = p2[index2 - 1];
+                    res--;
+                } else{
+
+                }
+            }
+            res += dfs(a,s,t,i+1,index1,index2);
+        }
+        //System.out.println(i+" "+x+" "+y);
+        return dp[i][x][y]=res;
+    }
+
+
+    public int[] pre(String pattern){
+        int pre[]=new int[pattern.length()];
+        int l=0,r=1;
+        while(r<pattern.length()){
+            if(pattern.charAt(r)==pattern.charAt(l)){
+                pre[r]=l+1;
+                l++;
+                r++;
+            }else{
+                if(l==0)r++;
+                else{
+                    l=pre[l-1];
+                }
+            }
+        }
+        return pre;
+    }
+
+}
+
+
+
+
+
+
+
