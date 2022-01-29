@@ -769,6 +769,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1207F |[Remainder Problem (2100) (Thinking + Time) ](./code/1207F.txt)|2021/01/28|
 |  793D |[Presents in Bankopolis(2100) (DP) ](./code/793D.txt)|2021/01/28|
 |  165D |[Beard Graph (2100) (LCA + Fenwick) ](./code/165D.txt)|2021/01/29|
+|  1056E |[Check Transcription (2100) (Rolling Hash) ](./code/1056E.txt)|2021/01/29|
  
 # 分类
 
@@ -1485,6 +1486,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### String Polynominal Hash / Rolling Hash
 514C.[Watto and Mechanism (2000) (String Polynomial Hash)  ](./code/514C.txt)<br/>
+1056E.[Check Transcription (2100) (Rolling Hash) ](./code/1056E.txt)<br/>
 
 ### Z-Algorithm
 126B. [ Password (1700) (KMP+ Z algorithm)  ](./code/126B.txt) <br/>
