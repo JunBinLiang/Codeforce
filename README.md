@@ -771,6 +771,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  165D |[Beard Graph (2100) (LCA + Fenwick) ](./code/165D.txt)|2021/01/29|
 |  1056E |[Check Transcription (2100) (Rolling Hash) ](./code/1056E.txt)|2021/01/29|
 |  1163D |[Mysterious Code (2100) (kmp + dp) ](./code/1163D.txt)|2021/01/29|
+|  894E |[Ralph and Mushrooms(2100) (Tarjan Direct) ](./code/894E.txt)|2021/01/30|
 # 分类
 
 ### DP
@@ -1290,7 +1291,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 160D.[Edges in MST (2300) (Graph + MST + Tarjan)  ](./code/160D.txt)<br/>
 
 ### Direct Tarjan (SCC)
-1213F.[Unstable String Sort (2100) (Direct Graph Tarjan + Constructive)  ](./code/1213F.txt)<br/>
+894E.[Ralph and Mushrooms(2100) (Tarjan Direct) ](./code/894E.txt)|2021/01/30|
 
 ### Direct Graph Cycle
 1411C. [Peaceful Rooks (1700) （Cycle Direct Graph） ](./code/1411C.txt)   <br/>
