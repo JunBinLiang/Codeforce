@@ -1,0 +1,230 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+
+
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+class People{
+    String name;
+    int age;
+    public People(String name, int age) { //create instant : call
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+}
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    int dis[];
+    int low[];
+    int assign[];
+    int time = 1;
+    int scc=0;
+    List<int[]> graph[];
+    List<int[]> graph1[];
+    long scores[];
+    long dp[];
+    int stack[];
+    int j = 0;
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int m = fs.Int();
+        graph = new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+
+        dis = new int[n];
+        low = new int[n];
+        assign = new int[n];
+        stack = new int[n];
+
+
+        for(int i = 0; i < m; i++){
+            int u = fs.Int() - 1, v = fs.Int() - 1, w = fs.Int();
+            graph[u].add(new int[]{v,w});
+        }
+        int root = fs.Int() - 1;
+
+        for(int i=0;i<n;i++){
+            if(dis[i]==0){//not visit
+                j = 0;
+                tarjan(i);
+            }
+        }
+
+        scores = new long[scc + 1];
+        graph1 = new ArrayList[scc + 1];
+        dp = new long[scc + 1];
+        //Arrays.fill(dp, -1);
+        Arrays.setAll(graph1,e->new ArrayList<>());
+
+        for(int i = 0; i < n;i++){
+            int u = i;
+            for(int pair[] : graph[i]){
+                int v = pair[0], w = pair[1];
+                int com1 = assign[u];
+                int com2 = assign[v];
+                if(com1 != com2) {
+                    graph1[com1].add(new int[]{com2, w});
+                }else{
+                    scores[com1] += w;
+                    long pos = (int)(Math.sqrt(2 * w));
+                    long sum = (1 + pos) * pos / 2;
+                    if(sum > w) pos--;
+                    scores[com1] += w * pos;
+                    scores[com1] -= (pos * (1l + pos) * (2l + pos) / 6);
+                }
+            }
+        }
+        long res = dfs(assign[root]);
+        out.println(res);
+    }
+
+
+    public long dfs(int root){
+        if(dp[root] != 0)return dp[root];
+        long res = scores[root];
+        long mx = 0;
+        for(int pair[] : graph1[root]){
+            int next = pair[0], w = pair[1];
+            mx = Math.max(mx, dfs(next) + w);
+        }
+        return dp[root] = res + mx;
+    }
+
+    public void tarjan(int root){//tarjan for direct
+        dis[root]=low[root]=time;
+        stack[j++] = root;
+        time++;
+        //core for tarjan
+        for(int pair[]: graph[root]){
+            int c = pair[0];
+            if(dis[c]==0){
+                tarjan(c);
+                low[root]=Math.min(low[root],low[c]);
+            }else if(assign[c] == 0){
+                low[root]=Math.min(low[root],dis[c]);
+            }
+        }
+        //decide where each strong connect component belong
+        if(low[root]==dis[root]){//start
+            scc++;
+            int v=-1;
+            while(v!=root){
+                v=stack[--j];
+                assign[v]=scc;
+            }
+        }
+    }
+
+
+
+}
+
+
+
+
+
+
+
