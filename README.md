@@ -773,6 +773,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1163D |[Mysterious Code (2100) (kmp + dp) ](./code/1163D.txt)|2021/01/29|
 |  894E |[Ralph and Mushrooms(2100) (Tarjan Direct) ](./code/894E.txt)|2021/01/30|
 |  1364D |[Ehab's Last Corollary (2100) (Graph + DFS 最小环) ](./code/1364D.txt)|2021/01/31|
+|  1322B |[Present (2100) (Math + Bit + Two Pointer) ](./code/1322B.txt)|2021/01/31|
 
 # 分类
 
@@ -1575,6 +1576,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1244E.[Minimizing Difference (2000) (Two Pointer + Greedy)  ](./code/1244E.txt)<br/>
 954G.[ Castle Defense (2000) (Binary Search + Two Pointer)  ](./code/954G.txt)<br/>
 620D.[Professor GukiZ and Two Arrays (2200) ( Two Pointer )  ](./code/620D.txt)<br/>
+1322B.[Present (2100) (Math + Bit + Two Pointer) ](./code/1322B.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
