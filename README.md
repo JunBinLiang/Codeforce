@@ -772,6 +772,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1056E |[Check Transcription (2100) (Rolling Hash) ](./code/1056E.txt)|2021/01/29|
 |  1163D |[Mysterious Code (2100) (kmp + dp) ](./code/1163D.txt)|2021/01/29|
 |  894E |[Ralph and Mushrooms(2100) (Tarjan Direct) ](./code/894E.txt)|2021/01/30|
+|  1364D |[Ehab's Last Corollary (2100) (Graph + DFS 最小环) ](./code/1364D.txt)|2021/01/31|
+
 # 分类
 
 ### DP
@@ -1273,6 +1275,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 67A.[Partial Teacher (1800) (Direct Graph + DP)  ](./code/67A.txt)<br/>
 986C.[AND Graph (2500) (Graph)  ](./code/986C.txt)<br/>
 301B.[Yaroslav and Time (2100) (Shortest Path + Thinking ) (Thumb)](./code/301B.txt)<br/>
+1364D.[Ehab's Last Corollary (2100) (Graph + DFS 最小环) ](./code/1364D.txt)<br/>
 
 ### Graph Model :
 274D.[Lovely Matrix (2200) (Graph Model + Topo)  ](./code/274D.txt)<br/>
