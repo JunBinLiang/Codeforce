@@ -1,0 +1,226 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+
+
+
+
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+class People{
+    String name;
+    int age;
+    public People(String name, int age) { //create instant : call
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+}
+
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    List<Integer>graph[];
+    int dis[];
+    int mn = INF;
+    int x = -1, y = -1;
+    int fa[];
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int m = fs.Int();
+        int k = fs.Int();
+        graph = new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i = 0; i < m; i++){
+            int u = fs.Int() -1 ,v = fs.Int()-1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        if(m == n - 1){
+            List<Integer>l1 = new ArrayList<>();List<Integer>l2 = new ArrayList<>();
+            dfs1(-1,0,0,l1,l2);
+            k = (k + 1) / 2;
+            if(l1.size() >= k) {
+                out.println(1);
+                for(int i = 0; i < k; i++) {
+                    out.print(l1.get(i) + " ");
+                }
+            } else {
+                out.println(1);
+                for(int i = 0; i < k; i++) {
+                    out.print(l2.get(i) + " ");
+                }
+            }
+            return;
+        }
+
+        //find smallest cycle
+        dis = new int[n];
+        Arrays.fill(dis,-1);
+        fa = new int[n];
+        dfs2(-1,0,0);
+
+        List<Integer>list=new ArrayList<>();
+        while(list.size() != mn){
+            list.add(x + 1);
+            x = fa[x];
+        }
+
+        if(list.size() <= k) {
+            out.println(2);
+            out.println(list.size());
+            for(int i : list){
+                out.print(i+" ");
+            }
+        } else {
+            k = (k + 1) / 2;
+            out.println(1);
+            for(int i = 0; i < list.size(); i+=2) {
+                if(k == 0)break;
+                out.print(list.get(i) + " ");
+                k--;
+            }
+        }
+    }
+
+
+
+    public void dfs1(int pa,int root,int dep, List<Integer>l1, List<Integer>l2){
+        if(dep % 2 == 0){
+            l1.add(root + 1);
+        }else{
+            l2.add(root + 1);
+        }
+
+        for(int next:graph[root]){
+            if(next != pa){
+                dfs1(root,next,dep+1, l1, l2);
+            }
+        }
+
+    }
+
+    public void dfs2(int pa, int root,int dep){
+        dis[root] = dep;
+        for(int next:graph[root]){
+            if(next==pa)continue;
+            if(dis[next] != -1 ) {
+                int len = Math.abs(dis[next] - dis[root]) + 1;
+                if(len<mn){
+                    mn = len;
+                    x = root;
+                }
+            }
+            else{
+                fa[next] = root;
+                dfs2(root,next,dep+1);
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+
