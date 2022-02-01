@@ -776,6 +776,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1322B |[Present (2100) (Math + Bit + Two Pointer) ](./code/1322B.txt)|2021/01/31|
 |  992D |[Nastya and a Game (2100) (Math + Brute Force) ](./code/992D.txt)|2021/02/01|
 |  1092D1 |[Great Vova Wall (Version 1) (2200) (Thinking + Greedy) ](./code/1092D1.txt)|2021/02/01|
+|  1092D2 |[Great Vova Wall (Version 2) (2200) (Thinking + Greedy) ](./code/1092D2.txt)|2021/02/01|
 
 # 分类
 
