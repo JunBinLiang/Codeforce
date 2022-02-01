@@ -777,6 +777,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  992D |[Nastya and a Game (2100) (Math + Brute Force) ](./code/992D.txt)|2021/02/01|
 |  1092D1 |[Great Vova Wall (Version 1) (2200) (Thinking + Greedy) ](./code/1092D1.txt)|2021/02/01|
 |  1092D2 |[Great Vova Wall (Version 2) (2200) (Thinking + Greedy) ](./code/1092D2.txt)|2021/02/01|
+|  1198D |[Rectangle Painting 1 (2300) (DP) ](./code/1198D.txt)|2021/02/01|
 
 # 分类
 
@@ -841,6 +842,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1367F1.[Flying Sort (Easy Version) (2100) (DP + Thinking)  ](./code/1367F1.txt)<br/>
 1367F2.[Flying Sort (Hard Version) (2400) (DP + Thinking)  ](./code/1367F2.txt)<br/>
 900E.[Maximum Questions (2100) (DP + Thinking ) (Thumb)](./code/900E.txt)<br/>
+1198D.[Rectangle Painting 1 (2300) (DP) ](./code/1198D.txt)<br/>
 
 
 ### LCS Similar
