@@ -775,6 +775,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1364D |[Ehab's Last Corollary (2100) (Graph + DFS 最小环) ](./code/1364D.txt)|2021/01/31|
 |  1322B |[Present (2100) (Math + Bit + Two Pointer) ](./code/1322B.txt)|2021/01/31|
 |  992D |[Nastya and a Game (2100) (Math + Brute Force) ](./code/992D.txt)|2021/02/01|
+|  1092D1 |[Great Vova Wall (Version 1) (2200) (Thinking + Greedy) ](./code/1092D1.txt)|2021/02/01|
 
 # 分类
 
