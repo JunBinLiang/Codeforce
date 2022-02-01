@@ -1,0 +1,172 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int k = fs.Int();
+        int A[] = new int[n];
+        long pre[] = new long[n];
+        TreeMap<Integer, Long> tree = new TreeMap<>();
+        for(int i = 0; i < n; i++) {
+            A[i] = fs.Int();
+        }
+
+        long sum = 0;
+        LinkedList<int[]> list = new LinkedList<>();
+        for(int i = 0; i < n; i++){
+            sum += A[i];
+            pre[i] = sum;
+            if(A[i] > 1) {
+                list.add(new int[]{i, A[i]});
+            }
+        }
+        list.add(new int[]{n, -1});
+
+
+
+        //product = sum * k
+        long res = 0;
+        for(int i = 0; i < n; i++) {
+            int j = i;
+            double x = A[i];
+            long a = A[i];
+            if(a * k == a) {
+                res++;
+            }
+            if(A[i] > 1) {
+                list.removeFirst();
+            }
+            List<int[]> back = new ArrayList<>();
+
+            while(true){
+                int pair[] = list.removeFirst();
+                back.add(pair);
+                if(get(pre, i, j) * k < (long)(x) && get(pre, i, pair[0] - 1) * k >= (long)(x)) {
+                    long diff = (long)(x) -  get(pre, i, j) * k;
+                    if(diff % k == 0)res++;
+                }
+
+                x *= pair[1];
+                j = pair[0];
+                if(x > 1000000000000000000l || pair[0] == n)break;
+                long sum1 = get(pre, i, pair[0]);
+                if(sum1 * k == (long)(x)) {
+                    res++;
+                }
+            }
+
+
+            for(int y = back.size() - 1;  y >= 0; y--) {
+                list.addFirst(back.get(y));
+            }
+        }
+        out.println(res);
+    }
+
+    public long get(long A[], int l, int r) {
+        if(l == 0) {
+            return A[r];
+        }
+        return A[r] - A[l - 1];
+    }
+}
+
+
+
+
+
