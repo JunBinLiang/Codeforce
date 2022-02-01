@@ -774,6 +774,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  894E |[Ralph and Mushrooms(2100) (Tarjan Direct) ](./code/894E.txt)|2021/01/30|
 |  1364D |[Ehab's Last Corollary (2100) (Graph + DFS 最小环) ](./code/1364D.txt)|2021/01/31|
 |  1322B |[Present (2100) (Math + Bit + Two Pointer) ](./code/1322B.txt)|2021/01/31|
+|  992D |[Nastya and a Game (2100) (Math + Brute Force) ](./code/992D.txt)|2021/02/01|
 
 # 分类
 
@@ -1052,6 +1053,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1244C.[The Football Season (2000) (Math + Brute Force)  ](./code/1244C.txt)<br/>
 903E.[Swapping Characters (2200) (Brute Force + Observation)  ](./code/903E.txt)<br/>
 1311D.[ Three Integers (2000) ( Brute Force + 打表 )  ](./code/1311D.txt)<br/>
+992D.[Nastya and a Game (2100) (Math + Brute Force) ](./code/992D.txt)<br/>
 
 ### Meet In Middle
 1257F.[Make Them Similar(2400) (Meet In Middle + Hash)  ](./code/1257F.txt)<br/>
