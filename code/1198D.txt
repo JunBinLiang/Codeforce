@@ -1,0 +1,145 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    int dp[][][][];
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        char A[][] = new char[n][n];
+        for(int i = 0; i < n; i++){
+            String s = fs.Str();
+            A[i] = s.toCharArray();
+        }
+        dp = new int[n][n][n][n];
+        for(int i = 0; i < dp.length;i++){
+            for(int j = 0;j < dp[0].length;j++){
+                for(int x = 0; x < dp[0][0].length;x++){
+                    for(int y = 0; y < dp[0][0][0].length; y++) {
+                        dp[i][j][x][y] = -1;
+                    }
+                }
+            }
+        }
+        int res = dfs(A, 0, 0, n - 1, n - 1);
+        out.println(res);
+    }
+
+    public int dfs(char A[][], int x1, int y1, int x2, int y2){
+        if(x1 == x2 && y1 == y2){
+            if(A[x1][y1] == '.')return 0;
+            else return 1;
+        }
+        if(dp[x1][y1][x2][y2]!=-1)return dp[x1][y1][x2][y2];
+        int res = Math.max(x2 - x1 + 1, y2 - y1 + 1);
+        //horizontal cut
+        for(int x = x1 + 1; x <= x2; x++) {
+            res = Math.min(res, dfs(A,x1,y1,x - 1,y2) + dfs(A, x, y1, x2, y2));
+        }
+        //vertical cut
+        for(int y = y1 + 1; y <= y2; y++) {
+            res = Math.min(res, dfs(A,x1,y1,x2,y - 1) + dfs(A, x1, y, x2, y2));
+        }
+
+        return dp[x1][y1][x2][y2] = res;
+    }
+
+
+}
+
+
+
+
+
