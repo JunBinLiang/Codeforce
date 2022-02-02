@@ -1,0 +1,60 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int cnt[20][20];
+    for(int i = 0; i < 20; i++) {
+        for(int j = 0; j < 20; j++) {
+            cnt[i][j] = 0;
+        }
+    }
+    int n, m;
+    string s;
+    cin>>n>>m>>s;
+    for(int i = 1; i < s.size(); i++) {
+        int x = s[i] - 'a';
+        int y = s[i - 1] - 'a';
+        cnt[x][y]++;
+        cnt[y][x]++;
+    }
+    
+    int dp[1048586];
+    dp[0] = 0;
+    for(int state = 1; state < (1 << m); state++){
+        dp[state] = 1000000000;
+        int bitCount = 0;
+        for(int j = 0; j < m; j++){
+            if((state & (1 << j)) != 0){
+                bitCount++;
+            }
+        }
+        
+        for(int j = 0; j < m; j++){
+            if((state & (1 << j)) != 0){
+                int sum = 0;
+                for(int k = 0; k < m; k++) {
+                    if(k==j)continue;
+                    if((state & (1 << k)) == 0) {
+                        sum -= cnt[j][k] * bitCount;
+                    }
+                    else{
+                        sum += cnt[j][k] * bitCount;
+                    }
+                }
+                dp[state] = min(dp[state], dp[state ^ (1 << j)] + sum);
+            }
+        }
+    }
+    cout<<dp[(1 << m) - 1] <<endl;
+    return 0;
+}
