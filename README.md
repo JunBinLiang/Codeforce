@@ -778,6 +778,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1092D1 |[Great Vova Wall (Version 1) (2200) (Thinking + Greedy) ](./code/1092D1.txt)|2021/02/01|
 |  1092D2 |[Great Vova Wall (Version 2) (2200) (Thinking + Greedy) ](./code/1092D2.txt)|2021/02/01|
 |  1198D |[Rectangle Painting 1 (2300) (DP) ](./code/1198D.txt)|2021/02/01|
+|  1073E |[Segment Sum (2300) (Digit DP) ](./code/1073E.txt)|2021/02/02|
 
 # 分类
 
@@ -905,6 +906,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 ### Digit DP
 55D.[Beautiful numbers (2500) (Digit DP)  ](./code/55D.txt)<br/>
 914C.[Travelling Salesman and Special Numbers (1800) (Digit DP)  ](./code/914C.txt)<br/>
+1073E.[Segment Sum (2300) (Digit DP) ](./code/1073E.txt)<br/>
 
 ### Bit DP
 1185G1. [Playlist for Polycarp (easy version) (2100) (Bitmask DP )  ](./code/1185G1.txt)  <br/>
