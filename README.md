@@ -779,6 +779,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1092D2 |[Great Vova Wall (Version 2) (2200) (Thinking + Greedy) ](./code/1092D2.txt)|2021/02/01|
 |  1198D |[Rectangle Painting 1 (2300) (DP) ](./code/1198D.txt)|2021/02/01|
 |  1073E |[Segment Sum (2300) (Digit DP) ](./code/1073E.txt)|2021/02/02|
+|  1238E |[Keyboard Purchase (2200) (Bitmask DP) ](./code/1238E.txt)|2021/02/02|
 
 # 分类
 
@@ -914,6 +915,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 453B.[Little Pony and Harmony Chest (2000) (Bitmask DP)  ](./code/453B.txt)<br/>
 1215E.[ Marbles (2200) (Bitmask DP)  ](./code/1215E.txt)<br/>
 1316E.[Team Building (2300) (Bitmask DP + Thinking)  ](./code/1316E.txt)<br/>
+1238E.[Keyboard Purchase (2200) (Bitmask DP) ](./code/1238E.txt)<br/>
 
 ### Submask DP (SOS)
 1554B.[Cobb (1700) (Submask + DP)  ](./code/1554B.txt)<br/>
