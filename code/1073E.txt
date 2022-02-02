@@ -1,0 +1,243 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    //int mod = 1000000007;
+    int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    long dp[][][][][];
+    int k;
+    long pow[];
+    public void solution(int all, int testcase) {
+        long l = fs.Long();
+        long r = fs.Long();
+        k = fs.Int();
+        pow = new long[20];
+        pow[0] = 1;
+        for(int i = 1; i < pow.length;i++){
+            pow[i] = pow[i - 1] * 10;
+            pow[i] %= mod;
+        }
+
+        long res = cal(r, k) - cal(l - 1, k);
+        res += mod;
+        res %= mod;
+        out.println(res);
+    }
+
+
+
+    public long cal(long n, int k){
+        if(n == 0)return 0;
+        String num = n + "";
+        dp = new long[num.length()  +1][1 << 10][2][2][2];
+        for(int i = 0; i < dp.length; i++){
+            for(int j = 0; j < dp[0].length; j++){
+                for(int x = 0; x < dp[0][0].length; x++){
+                    for(int y = 0; y < dp[0][0][0].length; y++){
+                        Arrays.fill(dp[i][j][x][y], -1);
+                    }
+                }
+            }
+        }
+        long res = 0;
+        long pair[] = dfs(num, 0, (1 << 10) - 1,0, 1);//System.out.println();
+        res += pair[1];res %= mod;
+        for(int i = 1; i < num.length();i++) {
+            res += dfs(num, i, (1 << 10) - 1, 0,0)[1];
+            //System.out.println();
+            res %= mod;
+        }
+        //System.out.println("final "+res);
+        //System.out.println();
+        return res;
+    }
+
+    public long[] dfs(String s, int i, int bit, int start, int state){
+        if(i >= s.length()) {
+            return new long[]{1, 0};
+        }
+        if(dp[i][bit][state][start][0]!=-1)return dp[i][bit][state][start];
+
+        int cnt = Integer.bitCount(bit);
+        int d = s.charAt(i) - '0';
+        long res = 0;
+        long p = pow[s.length() - i - 1];
+        long dcont = 0;
+
+        if(state == 1) { //same prefix
+            int j = 0;
+            if(start == 0)j=1;
+            for(; j < d; j++) {
+                if((bit & (1 << j)) != 0) {
+                    if(10 - (cnt - 1) <= k) {
+                        int newbit = bit ^ (1 << j);
+                        long pair[] = dfs(s, i+1,newbit,1, 0);
+                        res += pair[0] * p * j;
+                        res += pair[1];
+                        res %= mod;
+                        dcont += pair[0];
+                        dcont %= mod;
+
+                    }
+                }
+                else{
+                    long pair[] = dfs(s, i+1,bit,1, 0);
+                    res += pair[0] * p * j;
+                    res += pair[1];
+                    res %= mod;
+                    dcont += pair[0];
+                    dcont %= mod;
+                }
+            }
+
+            if((bit & (1 << d)) != 0){
+                if(10 - (cnt - 1) <= k) {
+                    int newbit = bit ^ (1 << d);
+                    long pair[] = dfs(s, i+1,newbit,1, 1);
+                    res += pair[0] * p * j;
+                    res += pair[1];
+                    res %= mod;
+                    dcont += pair[0];
+                    dcont %= mod;
+                }
+            }
+            else{
+                long pair[] = dfs(s, i+1,bit,1, 1);
+                res += pair[0] * p * j;
+                res += pair[1];
+                res %= mod;
+                dcont += pair[0];
+                dcont %= mod;
+            }
+
+        } else {
+            int j = 0;
+            if(start == 0)j=1;
+            for(; j < 10; j++) {
+                if((bit & (1 << j)) != 0) {
+                    if(10 - (cnt - 1) <= k) {
+                        int newbit = bit ^ (1 << j);
+                        long pair[] = dfs(s, i+1,newbit,1, state);
+                        res += pair[0] * p * j;
+                        res += pair[1];
+                        res %= mod;
+                        dcont += pair[0];
+                        dcont %= mod;
+                    }
+                }
+                else{
+                    long pair[] = dfs(s, i+1,bit,1, state);
+                    res += pair[0] * p * j;
+                    res += pair[1];
+                    res %= mod;
+                    dcont += pair[0];
+                    dcont %= mod;
+                }
+            }
+        }
+
+        //System.out.println(s+"  "+i+"  "+Integer.toBinaryString(bit)+"  "+start+" "+state);
+        //System.out.println(p+"    "+dcont+" "+res);
+        dp[i][bit][state][start][0] = dcont;
+        dp[i][bit][state][start][1] = res;
+        return dp[i][bit][state][start];
+    }
+
+
+}
+
+
+
+
+
