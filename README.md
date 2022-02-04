@@ -781,6 +781,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1073E |[Segment Sum (2300) (Digit DP) ](./code/1073E.txt)|2021/02/02|
 |  1238E |[Keyboard Purchase (2200) (Bitmask DP) ](./code/1238E.txt)|2021/02/02|
 |  1093F |[Vasya and Array (2400) ( DP + 容斥) ](./code/1093F.txt)|2021/02/03|
+|  1208E |[Let Them Slide (2200) ( Thinking) ](./code/1208E.txt)|2021/02/04|
 
 # 分类
 
