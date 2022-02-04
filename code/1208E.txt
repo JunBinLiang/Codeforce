@@ -1,0 +1,197 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    //int mod = 1000000007;
+    int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int w = fs.Int();
+        long res[] = new long[w];
+        Queue<int[]>q=new LinkedList<>();
+        List<int[]> maxList = new ArrayList<>();
+
+
+        for(int i = 0; i < n; i++) {
+            int m = fs.Int();
+            q.add(new int[]{i, m - 1});
+            int A[] = new int[m];
+            int maxs[] = new int[m];
+            int mx = 0;
+            for(int j = 0; j < m; j++) {
+                A[j]=fs.Int();
+            }
+            for(int j = m - 1; j >= 0; j--) {
+                mx = Math.max(mx, A[j]);
+                maxs[j] = mx;
+            }
+            maxList.add(maxs);
+            int slide = w - m;
+
+            //System.out.println(Arrays.toString(A));
+
+
+            LinkedList<int[]> mono = new LinkedList<>();
+            mono.add(new int[]{-1, 0});
+            for(int j = 0; j < m; j++){
+                while(mono.size() > 0 && A[j] >= mono.getLast()[1])mono.removeLast();
+                mono.add(new int[]{j, A[j]});
+                while(mono.size() > 0 && mono.getFirst()[0] + slide < j)mono.removeFirst();
+                if(mono.size() > 0) {
+                    int mmax = mono.getFirst()[1];
+                    res[j] += mmax;
+                }
+            }
+        }
+
+
+
+        //System.out.println(Arrays.toString(res));
+        int maxs[] = new int[n];
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a, b)->{
+            return b[1] - a[1];
+        });
+
+        long add = 0;
+        for(int i = w - 1; i >= 0; i--) {
+            long sum = 0;
+            List<int[]> list = new ArrayList<>();
+
+            while(q.size() > 0) {
+                int pair[] = q.poll();
+                if(i <= maxList.get(pair[0]).length - 1) {
+                    continue;
+                }
+
+                int max = Math.max(maxList.get(pair[0])[pair[1]],0);
+                pair[1]--;
+                if(pair[1] == -1) {
+                    add+=max;
+                    maxs[pair[0]]=max;
+                    pq.add(new int[]{pair[0], maxList.get(pair[0]).length - 1});
+                }else{
+                    list.add(pair);
+                    sum += Math.max(max, 0);
+                }
+            }
+
+            while(pq.size() > 0 && i <= pq.peek()[1]){
+                int top[] = pq.poll();
+                add -= maxs[top[0]];
+            }
+
+
+            res[i] += sum;
+            res[i] += add;
+            for(int j = 0; j < list.size();j++){
+                q.add(list.get(j));
+            }
+        }
+        
+
+        StringBuilder str = new StringBuilder();
+        for(long i : res)str.append(i).append(" ");
+        out.println(str.toString());
+    }
+
+
+
+
+}
+
+
+
+
+
