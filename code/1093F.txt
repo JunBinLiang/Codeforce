@@ -141,12 +141,14 @@ class Solution {
                 for(int j = 0; j < m; j++) {
                     dp[i][j] = sums[i - 1];
                     if(i - k + 1 >= 0 && get(pre[j], i - k + 1, i) == k) {
-                        if(i - k >= 0  ) {
+                        if(i - k >= 0) {
                             dp[i][j] -= sums[i - k];
-                            dp[i][j] += mod;
-                            dp[i][j] %= mod;
-                            dp[i][j] += dp[i - k][j];
-                            dp[i][j] %= mod;
+                            if((A[i - k] == -1 || A[i - k] == j) ) {
+                                dp[i][j] += mod;
+                                dp[i][j] %= mod;
+                                dp[i][j] += dp[i - k][j];
+                                dp[i][j] %= mod;
+                            }
                         }else {
                             dp[i][j]--;
                             dp[i][j] += mod;
@@ -160,12 +162,14 @@ class Solution {
                 dp[i][A[i]] = sums[i - 1];
                 if(i - k + 1 >= 0 && get(pre[A[i]], i - k + 1, i) == k) {
                     if(i - k + 1 >= 0 && get(pre[A[i]], i - k + 1, i) == k) {
-                        if(i - k >= 0  ) {
+                        if(i - k >= 0){
                             dp[i][A[i]] -= sums[i - k];
-                            dp[i][A[i]] += mod;
-                            dp[i][A[i]] %= mod;
-                            dp[i][A[i]] += dp[i - k][A[i]];
-                            dp[i][A[i]] %= mod;
+                            if((A[i - k] == -1 || A[i - k] == A[i]) ) {
+                                dp[i][A[i]] += mod;
+                                dp[i][A[i]] %= mod;
+                                dp[i][A[i]] += dp[i - k][A[i]];
+                                dp[i][A[i]] %= mod;
+                            }
                         } else {
                             dp[i][A[i]]--;
                             dp[i][A[i]] += mod;
@@ -180,7 +184,7 @@ class Solution {
                 sums[i] += dp[i][j];
                 sums[i] %= mod;
             }
-            //if(sums[i] == 0)break;
+            if(sums[i] == 0)break;
         }
 
         out.println(sums[n - 1]);
