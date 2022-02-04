@@ -782,6 +782,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1238E |[Keyboard Purchase (2200) (Bitmask DP) ](./code/1238E.txt)|2021/02/02|
 |  1093F |[Vasya and Array (2400) ( DP + 容斥) ](./code/1093F.txt)|2021/02/03|
 |  1208E |[Let Them Slide (2200) ( Thinking) ](./code/1208E.txt)|2021/02/04|
+|  878B |[Teams Formation (2300) ( Thinking + Constructive) ](./code/878B.txt)|2021/02/04|
 
 # 分类
 
@@ -1046,6 +1047,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  1166D.[Cute Sequences (2200) (Greedy + Math + Constructive)  ](./code/1166D.txt)<br/>
  226D.[The table (2100) (Constructive + Thinking ) (Thumb)](./code/226D.txt)<br/>
  894C.[Marco and GCD Sequence (1900) (Constructive) ](./code/894C.txt)<br/>
+ 878B.[Teams Formation (2300) ( Thinking + Constructive) ](./code/878B.txt)<br/>
  
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
