@@ -780,6 +780,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1198D |[Rectangle Painting 1 (2300) (DP) ](./code/1198D.txt)|2021/02/01|
 |  1073E |[Segment Sum (2300) (Digit DP) ](./code/1073E.txt)|2021/02/02|
 |  1238E |[Keyboard Purchase (2200) (Bitmask DP) ](./code/1238E.txt)|2021/02/02|
+|  1093F |[Vasya and Array (2400) ( DP + 容斥) ](./code/1093F.txt)|2021/02/03|
 
 # 分类
 
@@ -1256,6 +1257,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 ### 容斥
  803F.[Coprime Subsequences (2000) (DP + 容斥 + Number Theory)  ](./code/803F.txt)<br/>
  839D.[Winter is here (2200) (容斥 + Combination)  ](./code/839D.txt)<br/>
+ 1093F.[Vasya and Array (2400) ( DP + 容斥) ](./code/1093F.txt)<br/>
  
 ### 二维容斥
 1245F.[Daniel and Spring Cleaning (2300) (数位DP + 二维容斥)  ](./code/1245F.txt)<br/>
