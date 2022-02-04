@@ -1,0 +1,245 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    //int mod = 1000000007;
+    int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int k = fs.Int();
+        int m = fs.Int();
+
+        int A[] = new int[n];
+        for(int i = 0; i < n; i++) {
+            A[i] = fs.Int();
+        }
+        Stack<int[]> sta = new Stack<>();
+        for(int i = 0; i < A.length; i++) {
+            if(sta.size() == 0) {
+                sta.push(new int[]{A[i], 1});
+            } else {
+                if(A[i] == sta.peek()[0]) {
+                    sta.peek()[1]++;
+                } else {
+                    sta.push(new int[]{A[i], 1});
+                }
+            }
+            if(sta.peek()[1] == k)sta.pop();
+        }
+
+        if(sta.size() == 0){
+            out.println(0);
+            return;
+        }
+
+        long sum = 0;
+        List<int[]> list = new ArrayList<>();
+        while(sta.size() > 0){
+            int top[] = sta.pop();
+            sum += top[1];
+            list.add(top);
+        }
+        Collections.reverse(list);
+
+
+        if(m == 1){
+            out.println(sum);
+            return;
+        }
+
+
+        for(int p[]:list){
+            sta.push(new int[]{p[0],p[1]});
+        }
+
+        for(int p[]:list){
+            if(sta.size() == 0) {
+                sta.push(new int[]{p[0],p[1]});
+            } else {
+                if(sta.peek()[0] == p[0]) {
+                    sta.peek()[1]+=p[1];
+                    if(sta.peek()[1] >= k) {
+                        sta.peek()[1]-=k;
+                        if(sta.peek()[1]==0)sta.pop();
+                    }
+                }
+                else{
+                    sta.push(new int[]{p[0],p[1]});
+                }
+            }
+        }
+
+
+        int size = list.size();
+        if(list.get(0)[0] != list.get(size - 1)[0]){
+            out.println(sum * m);
+            return;
+        }
+        if(sta.size() == 0) {
+            if(m % 2 == 0) {
+                out.println(0);
+            }else{
+                out.println(sum);
+            }
+            return;
+        }
+
+        //for(int p[]:list)System.out.println(Arrays.toString(p));
+       // System.out.println(sum);
+        //System.out.println(sta.size());
+
+
+        if(!isp(list) || sta.size() != list.size()){
+            long total = 0;
+            while(sta.size() > 0)total += sta.pop()[1];
+            long gone = sum * 2 - total;
+            long res = sum * m - (gone * (m - 1));
+            out.println(res);
+        }else{
+            int mid = size / 2;
+            int pair[] = list.get(mid);
+            long lcm = lcm(pair[1],k);
+            long chunk = lcm / pair[1];
+            long M = m;
+            //System.out.println(Arrays.toString(pair)+"  "+lcm+" "+m);
+            M  = m % chunk;
+            if(M == 0){
+                out.println(0);
+                return;
+            }
+            //System.out.println(lcm+"  "+M+"  "+(list.get(mid)[1]));
+            long res = 0;
+            for(int i = 0; i < list.size(); i++){
+                if(i==mid)continue;
+                res += list.get(i)[1];
+            }
+            res += ((list.get(mid)[1] * M) % k);
+            out.println(res);
+
+        }
+
+    }
+
+    public long lcm(long a, long b){
+        return a * b / gcd(a,b);
+    }
+
+    public long gcd(long num1, long num2) {
+        if (num2 != 0) {
+            return gcd(num2, num1 % num2);
+        } else {
+            return num1;
+        }
+    }
+    //abcdcba  abcdcba
+
+    public boolean isp(List<int[]> list) {
+        int l = 0, r = list.size()-1;
+        while(l < r) {
+            if(list.get(l)[0] != list.get(r)[0]){
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
+    }
+
+}
+
+
+
+
+
