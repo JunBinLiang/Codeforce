@@ -783,6 +783,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1093F |[Vasya and Array (2400) ( DP + 容斥) ](./code/1093F.txt)|2021/02/03|
 |  1208E |[Let Them Slide (2200) ( Thinking) ](./code/1208E.txt)|2021/02/04|
 |  878B |[Teams Formation (2300) ( Thinking + Constructive) ](./code/878B.txt)|2021/02/04|
+|  1630C |[Paint the Middle(2200) ( Thinking + Interval) ](./code/1630C.txt)|2021/02/04|
 
 # 分类
 
@@ -1580,6 +1581,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### Line Sweep
 689E.[Mike and Geometry Problem (2000) (Combination + Lined Sweep) (Thumb)](./code/689E.txt)<br/>
+1630C.[Paint the Middle(2200) ( Thinking + Interval) ](./code/1630C.txt)<br/>
 
 ### Two Pointer
 190D. [ Non-Secret Cypher (1900) (Two Pointer + Segment Tree) ](./code/190D.txt)<br/>
