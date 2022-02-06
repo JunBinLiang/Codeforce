@@ -784,6 +784,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1208E |[Let Them Slide (2200) ( Thinking) ](./code/1208E.txt)|2021/02/04|
 |  878B |[Teams Formation (2300) ( Thinking + Constructive) ](./code/878B.txt)|2021/02/04|
 |  1630C |[Paint the Middle(2200) ( Thinking + Interval) ](./code/1630C.txt)|2021/02/04|
+|  1630D |[Flipping Range (2400) ( DP + Thinking) ](./code/1630D.txt)|2021/02/06|
 
 # 分类
 
