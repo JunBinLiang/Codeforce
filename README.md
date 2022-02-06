@@ -785,6 +785,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  878B |[Teams Formation (2300) ( Thinking + Constructive) ](./code/878B.txt)|2021/02/04|
 |  1630C |[Paint the Middle(2200) ( Thinking + Interval) ](./code/1630C.txt)|2021/02/04|
 |  1630D |[Flipping Range (2400) ( DP + Thinking) ](./code/1630D.txt)|2021/02/06|
+|  1110E |[Magic Stones (2200) ( 差分) ](./code/1110E.txt)|2021/02/06|
 
 # 分类
 
@@ -1168,6 +1169,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1108E2. [Array and Segments (Hard version) (2100) (差分 + DP + Prefix) ](./code/1108E2.txt)  <br/>
 174C. [Range Increments(1800) （差分 + Constructive） ](./code/174C.txt)   <br/>
 1443D.[ Extreme Subtraction (1800) (差分)   ](./code/1443D.txt)<br/>
+1110E.[Magic Stones (2200) ( 差分) ](./code/1110E.txt)<br/>
 
 ### 二维差分
 341D.[ Iahub and Xors(2500) (二维差分+2D Fenwick) ](./code/341D.txt)<br/>
