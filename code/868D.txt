@@ -1,0 +1,170 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    //int mod = 1000000007;
+    int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        String A[] = new String[300];
+        Set setss[][] = new HashSet[205][11];
+
+        for(int i = 0; i < n; i++){
+            A[i] = fs.Str();
+            Set<Integer> sets[] = setss[i];
+            Arrays.setAll(sets, e->new HashSet<>());
+            add(A[i], sets);
+        }
+
+
+
+        int m = fs.Int();
+        int j = n;
+        for(int i = 0; i < m; i++) {
+            int l = fs.Int() - 1, r = fs.Int() - 1;
+            A[j] = A[l] + A[r];
+            Set<Integer> sets[] = setss[j];
+            Arrays.setAll(sets, e->new HashSet<>());
+            //truncate
+
+            String ll = A[l].substring(Math.max(0,A[l].length() - 20));
+            String rr = A[r].substring(0, Math.min(20, A[r].length()));
+            String ss = ll + rr;
+            add(ss,sets);
+            if(A[j].length() > 100) {
+                A[j] = A[j].substring(0, 20) + A[j].substring(A[j].length() - 20);
+            }
+            combine(sets,setss[l]);
+            combine(sets,setss[r]);
+
+
+            int res = 0;
+            for(int x = 1; x < sets.length;x++){
+                if(sets[x].size() == (1 << x)) {
+                    res = x;
+                }
+            }
+            out.println(res);
+            j++;
+        }
+    }
+
+    public void combine(Set<Integer>sets1[], Set<Integer>sets2[]) {
+        for(int i = 1; i < sets1.length;i++){
+            for(Integer j : sets2[i]){
+                sets1[i].add(j);
+            }
+        }
+    }
+
+    public void add(String s, Set<Integer>sets[]) {
+        //System.out.println(s);
+        for(int k = 1; k <= 10; k++) {
+            int bit = 0;
+            for(int i = 0; i  < s.length(); i++) {
+                int d = s.charAt(i) - '0';
+                int kth = Math.min(i, k - 1);
+                bit |= (d << kth);
+                if(i + 1 < k)continue;
+                sets[k].add(bit);
+                int dd = s.charAt(i - k + 1) - '0';
+                bit -= dd;
+                bit /= 2;
+            }
+        }
+    }
+
+}
+
