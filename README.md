@@ -787,6 +787,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1630D |[Flipping Range (2400) ( DP + Thinking) ](./code/1630D.txt)|2021/02/06|
 |  1110E |[Magic Stones (2200) ( 差分) ](./code/1110E.txt)|2021/02/06|
 |  868D |[Huge Strings (2200) ( Brute Force) ](./code/868D.txt)|2021/02/06|
+|  958E2 |[Guard Duty (medium) (2200) ( DP) ](./code/958E2.txt)|2021/02/07|
 
 # 分类
 
