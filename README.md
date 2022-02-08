@@ -788,6 +788,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1110E |[Magic Stones (2200) ( 差分) ](./code/1110E.txt)|2021/02/06|
 |  868D |[Huge Strings (2200) ( Brute Force) ](./code/868D.txt)|2021/02/06|
 |  958E2 |[Guard Duty (medium) (2200) ( DP) ](./code/958E2.txt)|2021/02/07|
+|  920E |[List Of Integers (2200) ( 容斥) ](./code/920E.txt)|2021/02/07|
 
 # 分类
 
@@ -1267,6 +1268,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  803F.[Coprime Subsequences (2000) (DP + 容斥 + Number Theory)  ](./code/803F.txt)<br/>
  839D.[Winter is here (2200) (容斥 + Combination)  ](./code/839D.txt)<br/>
  1093F.[Vasya and Array (2400) ( DP + 容斥) ](./code/1093F.txt)<br/>
+ 920E.[List Of Integers (2200) ( 容斥) ](./code/920E.txt)<br/>
  
 ### 二维容斥
 1245F.[Daniel and Spring Cleaning (2300) (数位DP + 二维容斥)  ](./code/1245F.txt)<br/>
