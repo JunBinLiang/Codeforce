@@ -788,7 +788,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1110E |[Magic Stones (2200) ( 差分) ](./code/1110E.txt)|2021/02/06|
 |  868D |[Huge Strings (2200) ( Brute Force) ](./code/868D.txt)|2021/02/06|
 |  958E2 |[Guard Duty (medium) (2200) ( DP) ](./code/958E2.txt)|2021/02/07|
-|  920G|[List Of Integers (2200) ( 容斥) ](./code/920G.txt)|2021/02/07|
+|  920G|[List Of Integers (2200) ( 容斥) ](./code/920G.txt)|2021/02/08|
+|  1632D|[New Year Concert (2000) ( Two Pointer + Seg + GCD) ](./code/1632D.txt)|2021/02/09|
 
 # 分类
 
@@ -1601,6 +1602,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 954G.[ Castle Defense (2000) (Binary Search + Two Pointer)  ](./code/954G.txt)<br/>
 620D.[Professor GukiZ and Two Arrays (2200) ( Two Pointer )  ](./code/620D.txt)<br/>
 1322B.[Present (2100) (Math + Bit + Two Pointer) ](./code/1322B.txt)<br/>
+1632D.[New Year Concert (2000) ( Two Pointer + Seg + GCD) ](./code/1632D.txt)<br/>
 
 ### Trie
 37C. [ Old Berland Language (1900) (Dfs + Trie)  ](./code/37C.txt)<br/>
