@@ -792,6 +792,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1632D|[New Year Concert (2000) ( Two Pointer + Seg + GCD) ](./code/1632D.txt)|2021/02/09|
 |  1637E|[Best Pair  (Brute Force + Time) ](./code/1637E.txt)|2021/02/13|
 |  756C|[Nikita and stack (2200)  (Thinking + Segment Tree) ](./code/756C.txt)|2021/02/14|
+|  1632E1|[Distance Tree (easy version) (2400)  (Thinking + Tree + Brute Force) ](./code/1632E1.txt)|2021/02/14|
 
 # 分类
 
@@ -1417,6 +1418,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 980E.[The Number Games (2200) (Tree + Sparse + Greedy) (Thumb)  ](./code/980E.txt)<br/>
 1363E.[ Tree Shuffling (2000) (Tree + Greedy)  ](./code/1363E.txt)<br/>
 369C.[Valera and Elections (1600) (Tree)  ](./code/369C.txt)<br/>
+1632E1.[Distance Tree (easy version) (2400)  (Thinking + Tree + Brute Force) ](./code/1632E1.txt)<br/>
 
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
