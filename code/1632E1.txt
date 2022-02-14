@@ -1,0 +1,260 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    //int mod = 1000000007;
+    int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+
+    List<Integer>graph[];
+    List<Integer>graph1[];
+    List<Integer>paths[];
+    int dis[];
+    int dep[];
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        dis = new int[n];
+        dep = new int[n];
+        graph = new ArrayList[n];graph1 = new ArrayList[n];
+        paths = new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        Arrays.setAll(graph1,e->new ArrayList<>());
+        for(int i = 0; i < n - 1; i++) {
+            int u = fs.Int()-1;
+            int v = fs.Int()-1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+
+        dfs1(-1,0,0,new ArrayList<>());
+        dfs2(-1,0);
+
+       // System.out.println(Arrays.toString(dep));
+
+        Map<Integer,Integer>maps[] = new HashMap[n];
+        Arrays.setAll(maps,e->new HashMap<>());
+        int ll[][] = new int[n][n];
+        int rr[][] = new int[n][n];
+        for(int i = 0; i < n; i++) {
+            List<Integer>next = graph1[i];
+            if(next.size()==0)continue;
+
+            for(int j = 0; j < next.size();j++){
+                maps[i].put(next.get(j),j);
+            }
+            ll[i][0] = dep[next.get(0)] + 1;
+            for(int j = 1; j < next.size();j++){
+                ll[i][j] = Math.max(ll[i][j - 1], dep[next.get(j)] + 1);
+            }
+            rr[i][next.size() - 1] = dep[next.get(next.size()-1)] + 1;
+            for(int j = next.size() - 2; j >= 0; j--) {
+                rr[i][j] = Math.max(rr[i][j+1],dep[next.get(j)] + 1);
+            }
+        }
+
+        //System.out.println(Arrays.toString(ll[6])+"  "+Arrays.toString(rr[6]));
+
+
+
+        int l[][] = new int[n][n];
+        int r[][] = new int[n][n];
+        for(int i = 0; i < n;i++){
+            List<Integer>list=paths[i];
+            for(int j = 0; j < list.size();j++){
+                int u = list.get(j);
+                int d = dis[u];
+                if(j + 1 < list.size()) {
+                    int m = 0;
+                    int v = list.get(j + 1);
+                    int index = maps[u].get(v);
+                    if(index - 1 >= 0) {
+                        m = Math.max(m, ll[u][index-1]);
+                    }
+                    if(index + 1 < maps[u].size()){
+                        m = Math.max(m, rr[u][index+1]);
+                    }
+                    d += m;
+                }
+                l[i][j] = d;
+                if(j - 1 >= 0) {
+                    l[i][j] = Math.max(l[i][j], l[i][j - 1]);
+                }
+            }
+
+            int size = list.size();
+            r[i][size - 1] = dep[list.get(size - 1)];
+            int add = 1;
+            for(int j = size - 2; j >= 0; j--) {
+                int u = list.get(j);
+                int v = list.get(j+1);
+                int index = maps[u].get(v);
+                int mx = 0;
+                if(index-1>=0)mx = Math.max(mx, ll[u][index - 1]);
+                if(index + 1 < graph[u].size())mx = Math.max(mx, rr[u][index + 1]);
+                r[i][j] = Math.max(mx + add, r[i][j+1]);
+                add++;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        int max = 0;
+        for(int d : dis)max = Math.max(max,d);
+
+        for(int x = 1; x <= n; x++) {
+            //conntect to
+            int res = max;
+            for(int to = 1; to < n; to++) {
+                List<Integer>path = paths[to];
+                if(x >= path.size() - 1)continue;
+                int mx = 0;
+                int a = path.get(1);
+                int index = maps[0].get(a);
+                if(index - 1 >= 0)mx = Math.max(mx, ll[0][index - 1]);
+                if(index + 1 < rr.length)mx = Math.max(mx, rr[0][index + 1]);
+                int mid = (x + (path.size() - 1)) / 2;
+
+
+
+
+
+                mx = Math.max(mx, l[to][mid]);
+                if(mid + 1 < path.size()) {
+                    mx = Math.max(mx, r[to][mid + 1] + x);
+                }
+
+
+                res = Math.min(res, mx);
+            }
+            out.print(res+" ");
+        }
+        out.println();
+    }
+
+    public void dfs1(int pa, int root, int level,List<Integer>path){
+        dis[root]=level;
+        path.add(root);
+        List<Integer>list=new ArrayList<>(path);
+        paths[root]=list;
+        for(int next:graph[root]){
+            if(next==pa)continue;
+            graph1[root].add(next);
+            dfs1(root,next,level+1,path);
+        }
+        path.remove(path.size()-1);
+    }
+
+    public int dfs2(int pa, int root){
+        int mx = 0;
+        for(int next:graph[root]){
+            if(pa==next)continue;
+            int val = dfs2(root,next);
+            mx = Math.max(mx, val);
+        }
+        dep[root] = mx;
+        return 1 + mx;
+    }
+
+
+
+}
+
+
