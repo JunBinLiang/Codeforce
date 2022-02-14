@@ -791,6 +791,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  920G|[List Of Integers (2200) ( 容斥) ](./code/920G.txt)|2021/02/08|
 |  1632D|[New Year Concert (2000) ( Two Pointer + Seg + GCD) ](./code/1632D.txt)|2021/02/09|
 |  1637E|[Best Pair  (Brute Force + Time) ](./code/1637E.txt)|2021/02/13|
+|  756C|[Nikita and stack (2200)  (Thinking + Segment Tree) ](./code/756C.txt)|2021/02/14|
 
 # 分类
 
@@ -1468,6 +1469,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 981E. [Addition on Segments (2200) （Dp + Segment Tree + Divide Conquer） ](./code/981E.txt)<br/>
 911G.[ Mass Change Queries	 (2500) (Segment Tree Tag )  ](./code/911G.txt)<br/>
 474F.[Ant colony (2100) (Segment Tree + GCD + Binary Search)  ](./code/474F.txt)<br/>
+756C.[Nikita and stack (2200)  (Thinking + Segment Tree) ](./code/756C.txt)<br/>
 
 ### PushDown
 877E.[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)<br/>
