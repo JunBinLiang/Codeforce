@@ -793,6 +793,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1637E|[Best Pair  (Brute Force + Time) ](./code/1637E.txt)|2021/02/13|
 |  756C|[Nikita and stack (2200)  (Thinking + Segment Tree) ](./code/756C.txt)|2021/02/14|
 |  1632E1|[Distance Tree (easy version) (2400)  (Thinking + Tree + Brute Force) ](./code/1632E1.txt)|2021/02/14|
+|  1333F|[Kate and imperfection (2200)  (Thinking + 打表) ](./code/1333F.txt)|2021/02/15|
 
 # 分类
 
