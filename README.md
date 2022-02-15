@@ -794,6 +794,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  756C|[Nikita and stack (2200)  (Thinking + Segment Tree) ](./code/756C.txt)|2021/02/14|
 |  1632E1|[Distance Tree (easy version) (2400)  (Thinking + Tree + Brute Force) ](./code/1632E1.txt)|2021/02/14|
 |  1333F|[Kate and imperfection (2200)  (Thinking + 打表) ](./code/1333F.txt)|2021/02/15|
+|  1622D|[Shuffle (2000)  (Thinking + Combination) ](./code/1622D.txt)|2021/02/15|
 
 # 分类
 
@@ -1266,6 +1267,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 571A.[ Lengthening Sticks (2100) (Combination + Ball in box)  ](./code/571A.txt)<br/>
 893E.[ Counting Arrays (2000) (Combination)  ](./code/893E.txt)<br/>
 403D.[Beautiful Pairs of Numbers (2200) (DP + Combination)  ](./code/403D.txt)<br/>
+1622D.[Shuffle (2000)  (Thinking + Combination) ](./code/1622D.txt)<br/>
 
 ### Probability
 626D.[ Jerry's Protest (1800) (Combination + Probability)  ](./code/626D.txt)<br/>
