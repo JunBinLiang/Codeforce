@@ -1,0 +1,201 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    //int mod = 1000000007;
+    int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int k = fs.Int();
+        String s = fs.Str();
+        char A[] = s.toCharArray();
+        int sum = 0;
+        for(int i = 0; i < n; i++) {
+            sum += (A[i] - '0');
+        }
+
+        long fact[] = new long[n + 1];
+        fact[0] = 1;
+        for(int i = 1; i < fact.length;i++){
+            fact[i] = fact[i - 1] * i;
+            fact[i] %= mod;
+        }
+
+        long inv[] = new long[n + 1];
+        inv[0]=inv[1]=1;
+        for (int i=2;i<inv.length;i++){
+            inv[i]=modInverse(i,mod)*inv[i-1];
+            inv[i]%=mod;
+        }
+
+        long res = 0;
+        if(sum >= k) {
+            for(int i = 0; i < n;i++){
+                int cnt = 0;
+                for(int j = i; j < n; j++) {
+                    cnt += (A[j] - '0');
+                    if(cnt <= k) {
+                        int one = cnt;
+                        int zero = (j - i + 1) - one;
+                        //System.out.println(i+"  "+j+"     "+one+" "+zero);
+
+                        if(A[i] == '0')one--;
+                        else zero--;
+
+                        if(A[j] == '0')one--;
+                        else zero--;
+
+                        if(one >= 0 && zero >= 0) {
+                            if(one == 0 || zero == 0) {
+                                //System.out.println(i+" "+j);
+                                res++;
+                                continue;
+                            }
+
+
+                            long x = C(one + zero, one, fact, inv);
+                            res += x;
+                            res %= mod;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        out.println((res + 1) % mod);
+    }
+
+
+    /*(public long C(long fact[], int i,int j){ // C(20,3)=20!/(17!*3!)
+        long a=fact[i];
+        long b=((fact[i-j]%mod)*(fact[j]%mod))%mod;
+        BigInteger B= BigInteger.valueOf(b);
+        long binverse=B.modInverse(BigInteger.valueOf(mod)).longValue();
+        return ((a)*(binverse%mod))%mod;
+    }*/
+
+    private long C(int n, int r, long fact[], long inv[]) {
+        if(n<0||r<0)return 1;
+        return (((fact[n] * inv[r]) % mod) * inv[n - r]) % mod;
+    }
+
+    long modInverse(long a, long m) {
+        long m0 = m;
+        long y = 0, x = 1;
+
+        if (m == 1)
+            return 0;
+
+        while (a > 1) {
+            long q = a / m;
+            long t = m;
+            m = a % m;
+            a = t;
+            t = y;
+            y = x - q * y;
+            x = t;
+        }
+        if (x < 0)
+            x += m0;
+
+        return x;
+    }
+
+}
+
+
+
