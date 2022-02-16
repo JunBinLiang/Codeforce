@@ -1,0 +1,174 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int m = fs.Int();
+        int A[] = new int[n];
+        for(int i = 0; i < n; i++) {
+            A[i] = fs.Int();
+        }
+
+        boolean yes[][] = new boolean[n][m];
+        for(int i = 0; i < n; i++){
+            String s = fs.Str();
+            for(int j = 0; j < m; j++){
+                if(s.charAt(j) == '1') {
+                    yes[i][j] = true;
+                }
+            }
+        }
+
+
+        //(a - b)
+        //-(a - b)
+
+        int res[] = new int[m];
+        long mx = Long.MIN_VALUE;
+        int cnt[][] = new int[m][2];
+        for(int state = 0; state < (1 << n); state++) {
+            long sum = 0;
+
+            for(int i = 0; i < m; i++){
+                cnt[i][1] = i;
+                cnt[i][0] = 0;
+            }
+
+            for(int i = 0; i < n; i++) {
+                if((state & (1 << i)) != 0){//-a + b
+                    sum -= A[i];
+                    for(int j = 0; j < m;j++){
+                        if(yes[i][j]) {
+                            cnt[j][0]++;
+                        }
+                    }
+                }
+                else{//a - b
+                    sum += A[i];
+                    for(int j = 0; j < m;j++){
+                        if(yes[i][j]) {
+                            cnt[j][0]--;
+                        }
+                    }
+                }
+            }
+            Arrays.sort(cnt,(a,b)->{
+                return a[0] - b[0];
+            });
+
+            for(int i = 0; i < m; i++) {
+                int index = cnt[i][1];
+                sum += (cnt[i][0]+0l) * (i + 1);
+            }
+            if(sum > mx) {
+                mx = sum;
+                for(int i = 0; i < m; i++) {
+                    int index = cnt[i][1];
+                    res[index] = i + 1;
+                }
+            }
+        }
+
+        StringBuilder str = new StringBuilder();
+        for(int i:res)str.append(i).append(" ");
+        out.println(str.toString());
+    }
+}
+
+
+
