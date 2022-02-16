@@ -796,6 +796,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1333F|[Kate and imperfection (2200)  (Thinking + 打表) ](./code/1333F.txt)|2021/02/15|
 |  1622D|[Shuffle (2000)  (Thinking + Combination) ](./code/1622D.txt)|2021/02/15|
 |  383D|[Antimatter (2300)  (DP) ](./code/383D.txt)|2021/02/16|
+|  808E|[Selling Souvenirs (2300)  (Tenary Search) ](./code/808E.txt)|2021/02/16|
 
 # 分类
 
@@ -1521,6 +1522,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### Tenary Search
  1355E.[ Restorer Distance (2100) (Tenery Search)  ](./code/1355E.txt)<br/>
+ 808E.[Selling Souvenirs (2300)  (Tenary Search) ](./code/808E.txt)<br/>
 
 ### String Algorithm
 
