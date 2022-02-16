@@ -797,6 +797,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1622D|[Shuffle (2000)  (Thinking + Combination) ](./code/1622D.txt)|2021/02/15|
 |  383D|[Antimatter (2300)  (DP) ](./code/383D.txt)|2021/02/16|
 |  808E|[Selling Souvenirs (2300)  (Tenary Search) ](./code/808E.txt)|2021/02/16|
+|  1622E|[Math Test (2200)  (Thinking + Brute Force) ](./code/1622E.txt)|2021/02/16|
 
 # 分类
 
