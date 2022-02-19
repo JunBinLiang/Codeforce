@@ -798,6 +798,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  383D|[Antimatter (2300)  (DP) ](./code/383D.txt)|2021/02/16|
 |  808E|[Selling Souvenirs (2300)  (Tenary Search) ](./code/808E.txt)|2021/02/16|
 |  1622E|[Math Test (2200)  (Thinking + Brute Force) ](./code/1622E.txt)|2021/02/16|
+|  1638E|[Colorful Operations (2400)  (Thinking + Interval Problem) ](./code/1638E.txt)|2021/02/19|
 
 # 分类
 
@@ -1599,6 +1600,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1285E.[  Delete a Segment (2300) (Interval Problem + TreeMap + BinarySearch + left/right DP + Segment Tree)  ](./code/1285E.txt)<br/>
 863E.[ Turn Off The TV (2000) (Interval Problem)   ](./code/863E.txt)<br/>
 369E.[ Valera and Queries(2200) (offline + Fenwick + Thinking + Line)  ](./code/369E.txt)<br/>
+1638E.[Colorful Operations (2400)  (Thinking + Interval Problem) ](./code/1638E.txt)<br/>
 
 ### Line Sweep
 689E.[Mike and Geometry Problem (2000) (Combination + Lined Sweep) (Thumb)](./code/689E.txt)<br/>
