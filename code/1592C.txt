@@ -1,0 +1,162 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+    List<Integer>graph[];
+    int A[];
+    int xor = 0;
+    boolean find = false;
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int k = fs.Int();
+        A = new int[n];
+        for(int i = 0; i < n; i++) {
+            A[i] = fs.Int();
+            xor ^= A[i];
+        }
+        //System.out.println(xor);
+
+        graph = new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        for(int i = 0; i < n - 1; i++) {
+            int u = fs.Int() - 1;
+            int v = fs.Int() - 1;
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        if(xor == 0) {
+            out.println("YES");
+        }
+        else{
+            int pair[] = dfs(-1,0);
+            if((find || pair[1] > 2) && k > 2) {
+                out.println("YES");
+            } else {
+                out.println("NO");
+            }
+        }
+    }
+
+    public int[] dfs(int pa, int root) {
+        int res[] = new int[]{A[root], 0};
+        for(int next:graph[root]){
+            if(next==pa)continue;
+            int pair[] = dfs(root,next);
+            if(pair[0] == 0) {
+                if(pair[1] != 0) {
+                    find = true;
+                }
+            }
+            else{
+                res[0] ^= pair[0];
+            }
+            res[1] += pair[1];
+        }
+
+        if(res[0] == xor){
+            if(res[1] >= 2) {
+                find = true;
+            }
+            res[1] = Math.max(res[1], 1);
+        }
+        //System.out.println((root+1)+"  "+Arrays.toString(res));
+        return res;
+    }
+
+
+
+
+}
