@@ -799,6 +799,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  808E|[Selling Souvenirs (2300)  (Tenary Search) ](./code/808E.txt)|2021/02/16|
 |  1622E|[Math Test (2200)  (Thinking + Brute Force) ](./code/1622E.txt)|2021/02/16|
 |  1638E|[Colorful Operations (2400)  (Thinking + Interval Problem) ](./code/1638E.txt)|2021/02/19|
+|  1616E|[Lexicographically Small Enough(2200)  (Fenwick) ](./code/1616E.txt)|2021/02/20|
 
 # 分类
 
@@ -1457,6 +1458,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1553F.[ Pairwise Modulo (2300) (Fenwick + Math + Thinking)  ](./code/1553F.txt)<br/>
 1579E2.[Array Optimization by Deque (1700) (Fenwick)  ](./code/1579E2.txt)<br/>
 703D.[Mishka and Interesting sum (2100) (Fenwick + Thinking)  ](./code/703D.txt)<br/>
+1616E.[Lexicographically Small Enough(2200)  (Fenwick) ](./code/1616E.txt)<br/>
+
 ### Sparse Table
 45B.[School (2200) (DP + Sparse Table + Brute Force + Time) ](./code/45B.txt)<br/>
 466E.[ Information Graph	 (2100) (OffLine + Sparse Table + Tree)  ](./code/466E.txt)<br/>
