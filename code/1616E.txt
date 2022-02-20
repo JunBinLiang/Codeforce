@@ -1,0 +1,180 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+    public void solution(int all, int testcase) {
+       int n = fs.Int();
+       String s = fs.Str();
+       String t = fs.Str();
+       Queue<Integer>qs[] = new LinkedList[26];
+       Arrays.setAll(qs,e->new LinkedList<>());
+       for(int i = 0; i < s.length(); i++) {
+           char c = s.charAt(i);
+           qs[c-'a'].add(i);
+       }
+
+       FenWick fen = new FenWick(n);
+       for(int i = 0; i < n; i++) {
+           fen.update(i,1);
+       }
+
+       long res = Long.MAX_VALUE;
+       long move = 0;
+       for(int i = 0; i < t.length(); i++) {
+           char c1 = t.charAt(i);
+
+           int d = c1 - 'a';
+           for(int j = 0; j < d; j++) {
+               if(qs[j].size() == 0)continue;
+               int index = qs[j].peek();
+               int need = 0;
+               if(index > 0) {
+                   need += fen.sumRange(0, index - 1);
+               }
+               res = Math.min(res, move + need);
+           }
+
+
+           if(qs[c1 - 'a'].size() == 0) {
+               break;
+           }
+
+           int index = qs[d].poll();
+           if(index > 0) {
+               move += fen.sumRange(0, index - 1);
+           }
+           fen.update(index, -1);
+       }
+
+
+
+
+       if(res == Long.MAX_VALUE) {
+           out.println(-1);
+       } else {
+           out.println(res);
+       }
+    }
+
+}
+
+class FenWick {
+    int tree[];//1-index based
+    public FenWick(int n) {
+        tree=new int[n+1];
+    }
+
+    public void update(int i, int val) {
+        i++;
+        while(i<tree.length){
+            tree[i]+=val;
+            i+=(i&-i);
+        }
+    }
+
+    public int sumRange(int i, int j) {
+        return pre(j+1)-pre(i);
+    }
+
+    public int pre(int i){
+        int sum=0;
+        while(i>0){
+            sum+=tree[i];
+            i-=(i&-i);
+        }
+        return sum;
+    }
+}
