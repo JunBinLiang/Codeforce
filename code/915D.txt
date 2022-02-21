@@ -1,0 +1,204 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+
+    boolean seen[];
+    boolean staSeen[];
+    List<Integer>graph[];
+    List<Integer>cycle = new ArrayList<>();
+    public void solution(int all, int testcase) {
+        int n  = fs.Int();
+        int m = fs.Int();
+        int edge[][] = new int[m][2];
+        graph = new ArrayList[n];
+        Arrays.setAll(graph,e->new ArrayList<>());
+        seen = new boolean[n];
+        staSeen = new boolean[n];
+        for(int i = 0; i < m; i++) {
+            int u = fs.Int()-1;
+            int v = fs.Int()-1;
+            edge[i][0] = u;
+            edge[i][1] = v;
+            graph[u].add(v);
+        }
+
+
+        for(int i = 0; i < n; i++) {
+            if(seen[i]) continue;
+            dfs(i, new Stack<>());
+        }
+
+        if(cycle.size() == 0) {
+            out.println("YES");
+            return;
+        }
+
+        //System.out.println(cycle);
+
+
+        int size = cycle.size();
+        for(int i = 0; i < cycle.size(); i++) {
+            int u = cycle.get(i);
+            int v = cycle.get((i + 1) % size);
+            boolean a = check(n, edge, v, u);
+            if(a) {
+                out.println("YES");
+                return;
+            }
+        }
+        out.println("NO");
+    }
+
+    public boolean check(int n, int edge[][], int u, int v){
+        int in[] = new int[n];
+        for(int i = 0; i < edge.length; i++) {
+            int a = edge[i][0], b = edge[i][1];
+            if(u==a&&v==b)continue;
+            in[b]++;
+        }
+
+        boolean visit[] = new boolean[n];
+        int cnt = 0;
+        Queue<Integer>q=new LinkedList<>();
+        for(int i = 0; i < in.length;i++){
+            if(in[i] == 0) {
+                visit[i] = true;
+                q.add(i);
+            }
+        }
+        while(q.size() > 0) {
+            int top = q.poll();
+            cnt++;
+            for(int next:graph[top]){
+                if(top==u&&next==v)continue;
+                if(visit[next])return false;
+                in[next]--;
+                if(in[next]==0){
+                    q.add(next);
+                    visit[next]=true;
+                }
+            }
+        }
+        return cnt == n;
+    }
+
+    public void dfs(int root, Stack<Integer>sta) {
+        seen[root] = staSeen[root] = true;
+        sta.push(root);
+        //System.out.println(root);
+        for(int next:graph[root]) {
+            if(seen[next]){
+                if(staSeen[next]) {
+                    if(cycle.size() == 0) {
+                        while(sta.peek() != next) {
+                            cycle.add(sta.pop());
+                        }
+                        cycle.add(next);
+                    }
+                }
+            }
+            else{
+                dfs(next, sta);
+            }
+        }
+        if(sta.size() > 0)sta.pop();
+        staSeen[root] = false;
+    }
+
+}
+
+
+
