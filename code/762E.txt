@@ -1,0 +1,264 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+
+    }
+
+
+
+
+    public void solution(int all, int testcase) {
+        int n  = fs.Int();
+        int k = fs.Int();
+        int A[][] = new int[n][3];
+        Map<Integer, List<int[]>> f = new HashMap<>();
+        for(int i = 0; i < n; i++) {
+            int x = fs.Int();
+            int r = fs.Int();
+            int fre = fs.Int();
+            if(!f.containsKey(fre)) {
+                f.put(fre, new ArrayList<>());
+            }
+            f.get(fre).add(new int[]{x,r});
+            A[i][0] = x;
+            A[i][1] = r;
+            A[i][2] = fre;
+        }
+
+        Map<Integer,FenWick> g = new HashMap<>();
+
+        for(Integer key : f.keySet()){
+            List<int[]>list=f.get(key);
+            Collections.sort(list,(a,b)->{
+                return a[0] - b[0];
+            });
+            FenWick fen = new FenWick(list.size() + 1);
+            for(int i = 0; i <= list.size(); i++) {
+                fen.update(i,1);
+            }
+            g.put(key,fen);
+        }
+
+        Arrays.sort(A, (a, b) -> {
+            return a[1] - b[1];
+        });
+
+        
+
+        //dis(x1, x2) <= r
+        long res = 0;
+        for(int i = 0; i < n; i++) {
+            int x = A[i][0], ra = A[i][1], fre = A[i][2];
+            List<int[]> list = f.get(fre);
+            //delete
+            int l = 0, r = list.size() - 1;
+            FenWick fen = g.get(fre);
+            while(l <= r) {
+                int mid = l + (r - l) / 2;
+                int pair[] = list.get(mid);
+                if(pair[0] == x) {
+                    fen.update(mid, -1);
+                    break;
+                } else if(pair[0] > x) {
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
+            }
+
+
+            for(int j = 0; j <= k; j++) {
+                List<int[]> l1 = f.get(fre + j);
+                if(l1 == null) continue;
+                FenWick fen1 = g.get(fre + j);
+                int ll = 0, rr = l1.size() - 1;
+                int pos1 = l1.size(), pos2 = -1;
+                while(ll <= rr ){
+                    int mid = ll + (rr - ll) / 2;
+                    int pair[] = l1.get(mid);
+                    if(pair[0] - x > ra) {
+                        pos1 = mid;
+                        rr = mid - 1;
+                    } else {
+                        ll = mid + 1;
+                    }
+                }
+
+                ll = 0; rr = l1.size() - 1;
+                while(ll <= rr ){
+                    int mid = ll + (rr - ll) / 2;
+                    int pair[] = l1.get(mid);
+                    if(x - pair[0] > ra) {
+                        pos2 = mid;
+                        ll = mid + 1;
+                    } else {
+                        rr = mid - 1;
+                    }
+                }
+                if(pos2 + 1 <= pos1 - 1) {
+                    res += fen1.sumRange(pos2 + 1, pos1 - 1);
+                }
+            }
+
+
+            for(int j = 1; j <= k; j++) {
+                List<int[]> l1 = f.get(fre - j);
+                if(l1 == null) continue;
+
+
+                FenWick fen1 = g.get(fre - j);
+                int ll = 0, rr = l1.size() - 1;
+                int pos1 = l1.size(), pos2 = -1;
+                while(ll <= rr ){
+                    int mid = ll + (rr - ll) / 2;
+                    int pair[] = l1.get(mid);
+                    if(pair[0] - x > ra) {
+                        pos1 = mid;
+                        rr = mid - 1;
+                    } else {
+                        ll = mid + 1;
+                    }
+                }
+
+                ll = 0; rr = l1.size() - 1;
+                while(ll <= rr ){
+                    int mid = ll + (rr - ll) / 2;
+                    int pair[] = l1.get(mid);
+                    if(x - pair[0] > ra) {
+                        pos2 = mid;
+                        ll = mid + 1;
+                    } else {
+                        rr = mid - 1;
+                    }
+                }
+
+                if(pos2 + 1 <= pos1 - 1) {
+                    res += fen1.sumRange(pos2 + 1, pos1 - 1);
+                }
+            }
+
+        }
+        out.println(res);
+
+    }
+
+}
+
+class FenWick {
+    int tree[];//1-index based
+    public FenWick(int n) {
+        tree=new int[n+1];
+    }
+
+    public void update(int i, int val) {
+        i++;
+        while(i<tree.length){
+            tree[i]+=val;
+            i+=(i&-i);
+        }
+    }
+
+    public int sumRange(int i, int j) {
+        return pre(j+1)-pre(i);
+    }
+
+    public int pre(int i){
+        int sum=0;
+        while(i>0){
+            sum+=tree[i];
+            i-=(i&-i);
+        }
+        return sum;
+    }
+}
+
+
