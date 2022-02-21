@@ -800,6 +800,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1622E|[Math Test (2200)  (Thinking + Brute Force) ](./code/1622E.txt)|2021/02/16|
 |  1638E|[Colorful Operations (2400)  (Thinking + Interval Problem) ](./code/1638E.txt)|2021/02/19|
 |  1616E|[Lexicographically Small Enough(2200)  (Fenwick) ](./code/1616E.txt)|2021/02/20|
+|  915D|[Almost Acyclic Graph	 (2200)  (Graph + Thinking) ](./code/915D.txt)|2021/02/21|
 
 # 分类
 
@@ -1313,6 +1314,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 986C.[AND Graph (2500) (Graph)  ](./code/986C.txt)<br/>
 301B.[Yaroslav and Time (2100) (Shortest Path + Thinking ) (Thumb)](./code/301B.txt)<br/>
 1364D.[Ehab's Last Corollary (2100) (Graph + DFS 最小环) ](./code/1364D.txt)<br/>
+915D.[Almost Acyclic Graph	 (2200)  (Graph + Thinking) ](./code/915D.txt)<br/>
 
 ### Graph Model :
 274D.[Lovely Matrix (2200) (Graph Model + Topo)  ](./code/274D.txt)<br/>
