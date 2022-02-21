@@ -1,0 +1,166 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+    }
+
+
+
+    TreeMap<Integer, int[]> tree  =new TreeMap<>();
+    int res;
+    public void solution(int all, int testcase) {
+        int n  = fs.Int();
+        int q = fs.Int();
+        res = n;
+        tree.put(1, new int[]{n, 2});
+        StringBuilder str = new StringBuilder();
+        for(int i = 0; i < q; i++) {
+            int a = fs.Int();int b = fs.Int();int  c = fs.Int();
+            add(a,b,c);
+            str.append(res).append("\n");
+        }
+        out.println(str.toString());
+    }
+
+
+    public void add(int l,int r, int color) {
+        while(true){
+            Map.Entry<Integer, int[]> entry = tree.ceilingEntry(l);
+            if(entry == null) break;
+            int pair[] = entry.getValue();
+            if(pair[0] > r) break;
+            int ceil = entry.getKey();
+            tree.remove(ceil);
+            if(pair[1] == 2) {
+                res -= (pair[0] - ceil + 1);
+            }
+        }
+
+        Integer low = tree.lowerKey(l);
+        if(low != null) {
+            int pair[] = tree.get(low);
+            if(pair[0] > r) {
+                tree.put(low, new int[]{l - 1, pair[1]});
+                tree.put(r + 1, pair);
+                if(pair[1] == 2) {
+                    res -= (r - l + 1);
+                }
+            }
+            else if(pair[0] >= l) {
+                if(pair[1] == 2) {
+                    res -= (pair[0] - l + 1);
+                }
+                pair[0] = l - 1;
+            }
+        }
+
+        Integer ceil = tree.ceilingKey(l);
+        if(ceil != null && ceil <= r) {
+            int pair[] = tree.get(ceil);
+            tree.remove(ceil);
+            if(pair[0] >= r + 1) {
+                tree.put(r + 1, pair);
+                if(pair[1] == 2) {
+                    res -= (r - ceil + 1);
+                }
+            }
+        }
+
+        if(color == 2){
+            res += (r - l + 1);
+        }
+        tree.put(l, new int[]{r, color});
+    }
+
+}
+
+
+
