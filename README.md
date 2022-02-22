@@ -803,6 +803,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  915D|[Almost Acyclic Graph	 (2200)  (Graph + Thinking) ](./code/915D.txt)|2021/02/21|
 |  915E|[Physical Education Lessons (2300)  (Interval) ](./code/915E.txt)|2021/02/21|
 |  1181D|[Irrigation (2200)  (Sorting + Segment Tree) ](./code/1181D.txt)|2021/02/21|
+|  1228E|[Another Filling the Grid (2300)  (DP + Combination) ](./code/1228E.txt)|2021/02/22|
 
 # 分类
 
@@ -1262,6 +1263,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1557C.[Moamen and XOR	 (1700) (Combination)  ](./code/1557C.txt)<br/>
 486D.[Valid Sets (2100) (Tree + Combination)  ](./code/486D.txt)<br/>
 336D.[Vasily the Bear and Beautiful Strings (2100) (Combiniation + Observation)  ](./code/336D.txt)<br/>
+1228E.[Another Filling the Grid (2300)  (DP + Combination) ](./code/1228E.txt)<br/>
 
 ### Lucas Combination
  451E.[Devu and Flowers (2300) (容斥 + Lucas 定理)  ](./code/451E.txt)<br/>
