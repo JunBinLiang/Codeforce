@@ -1,0 +1,189 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+    }
+
+
+
+
+    public void solution(int all, int testcase) {
+        int n  = fs.Int();
+        int k  = fs.Int();
+
+        if(k == 1) {
+            out.println(1);
+            return;
+        }
+
+        long C[][] = new long[n + 5][n + 5];
+        C[0][0]=1;
+        for (int i=1;i<C.length;i++) {
+            C[i][0]=1;
+            for (int j=1;j<C[0].length;j++) {
+                C[i][j]=(C[i-1][j]+C[i-1][j-1])%mod;
+            }
+        }
+
+
+
+        long pow[] = new long[n + 5];
+        pow[0] = 1;
+        for(int i = 1; i < pow.length; i++) {
+            pow[i] = pow[i - 1] * (k - 1);
+            pow[i] %= mod;
+        }
+
+        long preCom[] = new long[n + 5];
+        for(int i = 1; i <= n; i++) {
+            long sum = 0;
+            for(int j = i; j >= 1; j--) {
+                long take = C[i][j] * pow[n - j];
+                sum += take;
+                sum %= mod;
+            }
+            preCom[i] = sum;
+            preCom[i] %= mod;
+        }
+
+        long preCom1[] = new long[n + 5];
+        for(int i = 1; i <= n; i++) {
+            long sum = 0;
+            for(int j = i; j >= 0; j--) {
+                long take = C[i][j] * pow[i - j];
+                sum += take;
+                sum %= mod;
+            }
+            preCom1[i] = sum;
+            preCom1[i] %= mod;
+        }
+
+
+        long dp[][] = new long[n][n + 1];
+        for(int i = 1; i <= n; i++){//i one
+            long com = C[n][i];
+            dp[0][i] = com * pow[n - i];
+            dp[0][i] %= mod;
+        }
+
+        for(int r = 1; r < n; r++) {
+            for(int one = 1; one <= n; one++) {
+                long sum = 0;
+                for(int lastone = one; lastone >= 1; lastone--) {
+                    if(lastone != one) {
+                        long per = pow[n - one];
+                        long take = preCom1[lastone];
+                        long com = C[n - lastone][one - lastone];
+
+                        long y = (take * per) % mod;
+                        long x = (y * com) % mod;
+                        sum += (x * dp[r - 1][lastone]);
+                        sum %= mod;
+
+
+                    }else {
+                        long x = preCom[one] * dp[r - 1][lastone];
+                        sum += (x);
+                        sum %= mod;
+                    }
+                }
+                dp[r][one] = sum;
+            }
+        }
+        out.println(dp[n - 1][n]);
+    }
+
+
+
+
+}
+
+
