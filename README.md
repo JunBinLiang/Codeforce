@@ -804,6 +804,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  915E|[Physical Education Lessons (2300)  (Interval) ](./code/915E.txt)|2021/02/21|
 |  1181D|[Irrigation (2200)  (Sorting + Segment Tree) ](./code/1181D.txt)|2021/02/21|
 |  1228E|[Another Filling the Grid (2300)  (DP + Combination) ](./code/1228E.txt)|2021/02/22|
+|  847D|[Dog Show (2200)  (Heap + Greedy) ](./code/847D.txt)|2021/02/22|
 
 # 分类
 
@@ -1017,6 +1018,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1260E.[ Tournament (2400) (Greedy + Heap) ](./code/1260E.txt)<br/>
 865D.[Buy Low Sell High (2400) (Greedy + Heap)  ](./code/865D.txt)<br/>
 1061D.[TV Shows (2000) (Sort + Greedy)  ](./code/1061D.txt)<br/>
+847D.[Dog Show (2200)  (Heap + Greedy) ](./code/847D.txt)<br/>
 
 ### Constructive 
 1185E.[Polycarp and Snakes (2000) (Brute Force + Implementation )  ](./code/1185E.txt) <br/> 
