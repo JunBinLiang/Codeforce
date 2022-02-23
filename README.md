@@ -805,6 +805,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1181D|[Irrigation (2200)  (Sorting + Segment Tree) ](./code/1181D.txt)|2021/02/21|
 |  1228E|[Another Filling the Grid (2300)  (DP + Combination) ](./code/1228E.txt)|2021/02/22|
 |  847D|[Dog Show (2200)  (Heap + Greedy) ](./code/847D.txt)|2021/02/22|
+|  1419E|[Decryption (2100)  (Math + Constructive) ](./code/1419E.txt)|2021/02/22|
 
 # 分类
 
@@ -1071,6 +1072,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  226D.[The table (2100) (Constructive + Thinking ) (Thumb)](./code/226D.txt)<br/>
  894C.[Marco and GCD Sequence (1900) (Constructive) ](./code/894C.txt)<br/>
  878B.[Teams Formation (2300) ( Thinking + Constructive) ](./code/878B.txt)<br/>
+ 1419E.[Decryption (2100)  (Math + Constructive) ](./code/1419E.txt)<br/>
  
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
