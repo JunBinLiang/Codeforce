@@ -1,0 +1,226 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+    }
+
+
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        List<Integer>div = new ArrayList<>();
+        for(int i = 1; i * i <= n; i++) {
+            if(n % i == 0) {
+                int a = i;
+                if(a != 1) {
+                    div.add(a);
+                }
+                if(a != n / a) {
+                    int b = n / a;
+                    div.add(b);
+                }
+            }
+        }
+
+        int primes[] = new int[33];
+        int j = 0;
+        int nn = n;
+        for(int i = 2; i * i <= nn; i++) {
+            if(nn % i == 0) {
+                while(nn % i == 0) {
+                    nn /= i;
+                }
+                primes[j++] = i;
+            }
+        }
+        if(nn > 1) {
+            primes[j++] = nn;
+        }
+
+        if(j == 1) {
+            StringBuilder str = new StringBuilder();
+            for(int i : div)str.append(i).append(" ");
+            str.append("\n");str.append(0);
+            out.println(str.toString());
+            return;
+        }
+
+
+        List<Integer>res = new ArrayList<>();
+        boolean seen[] = new boolean[div.size()];
+        for(int i = 0; i < j; i++) {
+            int p = primes[i];
+            List<Integer>list=new ArrayList<>();
+            for(int k = 0; k < div.size(); k++) {
+                if(seen[k])continue;
+                if(div.get(k) % p == 0) {
+                    seen[k] = true;
+                    list.add(div.get(k));
+                }
+            }
+            if(i == 0) {
+                List<Integer> l1 = shift(list,primes[i + 1]);
+                List<Integer> l2 = shift1(l1,primes[j - 1]);
+                res.addAll(l2);
+            }
+            else{
+                if(i + 1 < j) {
+                    List<Integer> l1 = shift(list, primes[i + 1]);
+                    res.addAll(l1);
+                }
+                else{
+                    res.addAll(list);
+                }
+            }
+        }
+
+        int cnt = 0;
+        for(int i = 0; i < res.size(); i++) {
+            int a = res.get(i);
+            int b = res.get((i + 1) % (res.size()));
+            int g = gcd(a, b);
+            if(g == 1) {
+                cnt++;
+            }
+        }
+        StringBuilder str = new StringBuilder();
+        for(int i : res)str.append(i).append(" ");
+        str.append("\n").append(cnt);
+        out.println(str.toString());
+    }
+
+    public List<Integer> shift(List<Integer>list, int x) {
+        int index = -1;
+        for(int i = 0; i < list.size(); i++) {
+            if(list.get(i) % x == 0) {
+                index = i;break;
+            }
+        }
+
+        List<Integer>llist = new ArrayList<>();
+        for(int i = 0; i < list.size(); i++) {
+            if(i == index)continue;
+            llist.add(list.get(i));
+        }
+        llist.add(list.get(index));
+        return llist;
+    }
+
+    public List<Integer> shift1(List<Integer>list, int x) {
+        int index = -1;
+        for(int i = 0; i < list.size() - 1; i++) {
+            if(list.get(i) % x == 0) {
+                index = i;break;
+            }
+        }
+
+        List<Integer>llist = new ArrayList<>();
+        if(index != -1)llist.add(list.get(index));
+        for(int i = 0; i < list.size(); i++) {
+            if(i == index)continue;
+            llist.add(list.get(i));
+        }
+        return llist;
+    }
+
+    public int gcd(int num1, int num2) {
+        if (num2 != 0){
+            return gcd(num2, num1 % num2);
+        } else{
+            return num1;
+        }
+    }
+
+
+}
+
+
