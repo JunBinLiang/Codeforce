@@ -1,0 +1,123 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int mod = 1000000007;
+int INF = INT_MAX;
+
+bool dp[100000 + 10];
+bool cur[100000 + 10];
+bool check(vector<int>& A, int a, int b, int c, int d) {
+  //a >= c, b >= d
+  ll total = 1;
+  memset(dp, false, sizeof(dp));
+  for(int i : A) {
+    total *= i;
+    if(total >= 1000000000000000ll)break;
+  }
+
+  dp[a] = true;
+  for(int i : A) {
+      memset(cur, sizeof(cur), false);
+      for(int j = 0; j <= c; j++) {
+        if(dp[j]) {
+          long long p = (j + 0ll) * i;
+          if(p >= c) {
+            if(total >= 1000000000000000ll) {
+              return true;
+            } else {
+              ll x = total / (p / a);
+              if(x * b >= d) {
+                return true;
+              }
+            }
+          }
+          else {
+            cur[j * i] = true;
+          }
+        }
+      }
+      for(int j = 0; j <= c; j++) {
+        dp[j] = cur[j];
+      }
+  }
+  return false;
+} 
+
+int main()
+{
+  
+  int a, b, h, w, n;
+  cin >> a >> b >> h >> w >> n;
+  vector<int> A(n);
+  for(int i = 0; i < n; i++) {
+    cin >> A[i];
+  }
+  sort(A.begin(), A.end());
+  reverse(A.begin(), A.end());
+  int res = INF;
+
+  if((h >= a && w >= b) || (h >= b && w >= a)) {
+    cout<<0<<endl;
+    return 0;
+  }
+
+  //1. h >= a  && w >= b
+  //2. h >= b && w >= a
+  vector<int> B;
+  for(int i = 0; i < min(34, (int)(A.size())); i++) {
+    B.push_back(A[i]);
+    if(check(B, h, w, a, b) || check(B, w, h, b, a)) {
+      res = i + 1;
+      break;
+    }
+  }
+  cout << ((res == INF) ? (-1) : (res)) << endl;
+  return 0;
+}
+
