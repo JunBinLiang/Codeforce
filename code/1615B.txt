@@ -1,0 +1,84 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int f[25][200000 + 10];
+
+void solve(int l, int r) {
+  int res = r - l + 1;
+  for(int i = 0; i < 25; i++) {
+    //delete all ith bit is off
+    int del = f[i][r] - f[i][l - 1];
+    res = min(res, del);
+  }
+  cout<<res<<endl;
+}
+
+int main()
+{
+
+  //preprocessing
+  for(int i = 0; i < 25; i++) {
+    int sum = 0;
+    for(int j = 0; j < 200000 + 5; j++) {
+      if((j & (1 << i)) == 0) {
+        sum++;
+      }
+      f[i][j] = sum;
+    }
+  }
+
+  int t;
+  cin>>t;
+  while(t--) {
+    int l, r;
+    cin>>l>>r;
+    solve(l,r);
+  }
+  
+  return 0;
+}
+
