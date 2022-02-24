@@ -1,0 +1,168 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+    }
+
+
+
+
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        String s = fs.Str();
+        String t = fs.Str();
+        if(!ana(s,t)){
+            out.println(-1);
+            return;
+        }
+
+        int res = 0;
+        boolean seen[] = new boolean[n];
+        TreeSet<Integer> t1 = new TreeSet<>();
+        TreeSet<Integer> t2 = new TreeSet<>();
+        for(int i = 0; i < n; i++){
+            if(s.charAt(i) == t.charAt(i)){
+                seen[i] = true;
+            } else {
+                if(s.charAt(i) == '0') {
+                    t1.add(i);
+                } else {
+                    t2.add(i);
+                }
+            }
+        }
+
+
+        for(int i = 0; i < n; i++) {
+            if(seen[i])continue;
+            int last = i;
+            res++;
+            while(true) {
+                if(s.charAt(i) == '1') {
+                    Integer index1 = t2.ceiling(last);
+                    if(index1 == null) break;
+                    Integer index2 = t1.ceiling(index1);
+                    if(index2==null)break;
+                    t2.remove(index1);t1.remove(index2);
+                    seen[index1] = seen[index2] = true;
+                    last = index2;
+                } else {
+                    Integer index1 = t1.ceiling(last);
+                    if(index1 == null) break;
+                    Integer index2 = t2.ceiling(index1);
+                    if(index2==null)break;
+                    t1.remove(index1);t2.remove(index2);
+                    seen[index1] = seen[index2] = true;
+                    last = index2;
+                }
+            }
+        }
+
+
+        out.println(res);
+
+    }
+
+    public boolean ana(String s, String t) {
+        int a = 0, b = 0;
+        for(int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == '0')a++;
+            else b++;
+        }
+        for(int i = 0; i < t.length(); i++) {
+            if(t.charAt(i) == '0')a--;
+            else b--;
+        }
+        return a == 0 && b == 0;
+    }
+}
+
+
