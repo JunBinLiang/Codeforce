@@ -807,6 +807,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  847D|[Dog Show (2200)  (Heap + Greedy) ](./code/847D.txt)|2021/02/22|
 |  1419E|[Decryption (2100)  (Math + Constructive) ](./code/1419E.txt)|2021/02/22|
 |  1370E|[Binary Subsequence Rotation (2100)  (Thinking + Constructive) ](./code/1370E.txt)|2021/02/23|
+|  489F|[Special Matrices (2100)  (DP + Combination) ](./code/489F.txt)|2021/02/24|
 
 # 分类
 
