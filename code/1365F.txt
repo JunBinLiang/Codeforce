@@ -1,0 +1,152 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int mod = 1000000007;
+int INF = INT_MAX;
+
+bool ana(vector<int>& A, vector<int>& B) {
+  map<int, int> f;
+  for(int i : A) {
+    f[i]++;
+  }
+  for(int i : B) {
+    f[i]--;
+    if(f[i] < 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+void change(vector<int>& A, int r) {
+  int n = A.size();
+  int dif = n - (r + 1);
+  for(int i = 0; i <= r; i++) {
+    swap(A[i], A[i + dif]);
+  }
+}
+
+void solve(vector<int>& A, vector<int>& B) {
+  if(!ana(A, B)) {
+    cout<< "No" << endl;
+    return;
+  }
+  int n = A.size();
+  if(n % 2 == 1) {
+    if(A[n / 2] != B[n / 2]) {
+      cout<< "No" << endl;
+      return;
+    }
+  }
+
+  int i = n / 2 - 1;
+  int j = n / 2;
+  if(n % 2 == 1) {
+    j++;
+  }
+
+  map<string, int > f;
+  while(i >= 0 && j < n) {
+    //cout << A << endl;
+    int mn = min(A[i], A[j]);
+    int mx = max(A[i], A[j]);
+    string s = to_string(mn) + "," + to_string(mx);
+    f[s]++;
+    i--;
+    j++;
+  }
+
+  i = n / 2 - 1;
+  j = n / 2;
+  if(n % 2 == 1) {
+    j++;
+  }
+
+  while(i >= 0 && j < n) {
+    //cout << A << endl;
+    int mn = min(B[i], B[j]);
+    int mx = max(B[i], B[j]);
+    string s = to_string(mn) + "," + to_string(mx);
+    if(f.find(s) == f.end()) {
+      cout << "No" << endl; 
+      return;
+    }
+    f[s]--;
+    if(f[s] == 0) f.erase(s);
+    i--;
+    j++;
+  }
+  
+
+  cout<< "Yes"<<endl;
+
+}
+
+int main()
+{
+  int t;
+  cin >> t;
+  while(t--) {
+    int n;
+    cin >> n;
+    vector<int> a, b;
+    for(int i = 0; i < n; i++) {
+      int x; cin >> x;
+      a.push_back(x);
+    }
+    for(int i = 0; i < n; i++) {
+      int x; cin >> x;
+      b.push_back(x);
+    }
+    solve(a, b);
+  } 
+
+  return 0;
+}
+
