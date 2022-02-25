@@ -1,0 +1,102 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int mod = 1000000007;
+int INF = INT_MAX;
+
+bool check(vector<int>& a, int x) {
+  int l = 0, r = a.size() - 1;
+  while(l < r) {
+    if(a[l] == a[r]) {
+      l++;
+      r--;
+    } else {
+      if(a[l] == x)l++;
+      else if(a[r] == x)r--;
+      else return false;
+    }
+  }
+  return true;
+}
+
+void solve(vector<int>& a) {
+  int l = 0, r = a.size() - 1;
+  while(l < r) {
+    if(a[l] == a[r]) {
+      l++;
+      r--;
+    } else {
+      if(check(a, a[l]) || check(a, a[r])) {
+        cout << "YES" << endl;
+        return;
+      } else {
+        cout << "NO" << endl;
+        return;
+      }
+    }
+  }
+  cout << "YES" << endl;
+}
+
+int main()
+{
+  int t;
+  cin >> t;
+  while(t--) {
+    int n; cin >> n;
+    vector<int>a(n);
+    for(int i = 0; i < n; i++) {
+      cin >> a[i];
+    }
+    solve(a);
+  } 
+
+  return 0;
+}
+
