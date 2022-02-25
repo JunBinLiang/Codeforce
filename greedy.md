@@ -13,3 +13,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1610B  |[Kalindrome Array	 (1100) (4 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1610B.txt)   |2022/02/25|
 |  1438B  |[Valerii Against Everyone	 (1000) (7 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1438B.txt)   |2022/02/25|
 |  1557B  |[Moamen and k-subarrays	 (1000) (15 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1557B.txt)   |2022/02/25|
+|  1326C  |[Permutation Partitions	 (1300) (15 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1326C.txt)   |2022/02/25|
