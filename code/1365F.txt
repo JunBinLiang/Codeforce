@@ -91,13 +91,13 @@ void solve(vector<int>& A, vector<int>& B) {
     j++;
   }
 
-  map<string, int > f;
+  map<pair<int, int>, int > f;
   while(i >= 0 && j < n) {
     //cout << A << endl;
     int mn = min(A[i], A[j]);
     int mx = max(A[i], A[j]);
-    string s = to_string(mn) + "," + to_string(mx);
-    f[s]++;
+    pair<int, int> p = {mn, mx};
+    f[p]++;
     i--;
     j++;
   }
@@ -112,13 +112,13 @@ void solve(vector<int>& A, vector<int>& B) {
     //cout << A << endl;
     int mn = min(B[i], B[j]);
     int mx = max(B[i], B[j]);
-    string s = to_string(mn) + "," + to_string(mx);
-    if(f.find(s) == f.end()) {
+    pair<int, int> p = {mn, mx};
+    if(f.find(p) == f.end()) {
       cout << "No" << endl; 
       return;
     }
-    f[s]--;
-    if(f[s] == 0) f.erase(s);
+    f[p]--;
+    if(f[p] == 0) f.erase(p);
     i--;
     j++;
   }
