@@ -809,6 +809,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1370E|[Binary Subsequence Rotation (2100)  (Thinking + Constructive) ](./code/1370E.txt)|2021/02/23|
 |  489F|[Special Matrices (2100)  (DP + Combination) ](./code/489F.txt)|2021/02/24|
 |  799D|[Field expansion (2100)  (DP) ](./code/799D.txt)|2021/02/24|
+|  1365F|[1365F (2100)  (Constructive + Thinking) ](./code/1365F.txt)|2021/02/25|
 
 # 分类
 
