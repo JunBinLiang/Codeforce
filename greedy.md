@@ -9,3 +9,5 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1504B  |[Flip the Bits (1200) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1504B.txt)   |2022/02/25|
 |  1315C  |[Restoring Permutation (1200) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1315C.txt)   |2022/02/25|
 |  1605C  |[Dominant Character (1400) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1605C.txt)   |2022/02/25|
+|  1574C  |[Combinatorics Homework	 (1100) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1574C.txt)   |2022/02/25|
+
