@@ -17,3 +17,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1601A  |[ Array Elimination	 (1300) (7 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1601A.txt)   |2022/02/26|
 |  1277B  |[ Make Them Odd	 (1200) (6 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1277B.txt)   |2022/02/26|
 |  1364B  |[ Most socially-distanced subsequence	 (1300) (10 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1364B.txt)   |2022/02/26|
+|  1550B  |[ Maximum Cost Deletion	 (1000) (6 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1550B.txt)   |2022/02/26|
