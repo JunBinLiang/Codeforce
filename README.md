@@ -810,6 +810,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  489F|[Special Matrices (2100)  (DP + Combination) ](./code/489F.txt)|2021/02/24|
 |  799D|[Field expansion (2100)  (DP) ](./code/799D.txt)|2021/02/24|
 |  1365F|[1365F (2100)  (Constructive + Thinking) ](./code/1365F.txt)|2021/02/25|
+|  1167F|[Scalar Queries (2300)  (Combination) ](./code/1167F.txt)|2021/02/26|
 
 # 分类
 
@@ -1272,6 +1273,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 486D.[Valid Sets (2100) (Tree + Combination)  ](./code/486D.txt)<br/>
 336D.[Vasily the Bear and Beautiful Strings (2100) (Combiniation + Observation)  ](./code/336D.txt)<br/>
 1228E.[Another Filling the Grid (2300)  (DP + Combination) ](./code/1228E.txt)<br/>
+1167F.[Scalar Queries (2300)  (Combination) ](./code/1167F.txt)<br/>
 
 ### Lucas Combination
  451E.[Devu and Flowers (2300) (容斥 + Lucas 定理)  ](./code/451E.txt)<br/>
