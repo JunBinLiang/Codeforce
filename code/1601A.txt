@@ -1,0 +1,106 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+
+void solve(vector<int>& a) {
+  int n = a.size();
+  int f[32];
+  memset(f, 0, sizeof(f));
+  for(int x : a) {
+    for(int i = 0; i < 31; i++) {
+      if(x & (1 << i)) {
+        f[i]++;
+      }
+    }
+  }
+
+  vector<int> res;
+  for(int i = 1; i <= n; i++) {
+    bool yes = true;
+    for(int j = 0; j < 32; j++) {
+      if(f[j] % i != 0) {
+        yes = false;
+        break;
+      }
+    }
+    if(yes) {
+      res.push_back(i);
+    }
+  }
+
+  for(int i : res) {
+    cout << i << " ";
+  }cout << endl;
+  
+}
+
+int main()
+{
+  int t;
+  cin >> t;
+  while(t--) {
+    int n;
+    cin >> n;
+    vector<int> a;
+    for(int i = 0; i < n; i++) {
+      int x;
+      cin >> x;
+      a.push_back(x);
+    }
+    solve(a);
+    
+  } 
+
+  return 0;
+}
+
