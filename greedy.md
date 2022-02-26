@@ -15,3 +15,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1557B  |[Moamen and k-subarrays	 (1000) (15 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1557B.txt)   |2022/02/25|
 |  1326C  |[Permutation Partitions	 (1300) (15 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1326C.txt)   |2022/02/25|
 |  1601A  |[ Array Elimination	 (1300) (7 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1601A.txt)   |2022/02/26|
+|  1277B  |[ Make Them Odd	 (1200) (6 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1277B.txt)   |2022/02/26|
