@@ -1,0 +1,104 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+//43
+void solve(vector<int>& a) {
+  sort(a.begin(), a.end());
+  reverse(a.begin(), a.end());
+  int res = 0;
+  map<int, int> f;
+  for(int i : a) {
+    f[i]++;
+  }
+  for(int i = 0; i < a.size(); i++) {
+    int j = i;
+    while(j < a.size() && a[j] == a[i]) {
+      j++;
+    }
+    i = j - 1;
+    if(a[i] % 2 == 0) {
+      res ++;
+      a[i] /= 2;
+      while(a[i] % 2 == 0) {
+        if(f.find(a[i]) == f.end()) {
+          res ++;
+          a[i] /= 2;
+        } else {
+          break;
+        }
+      }
+    }
+  }
+  cout << res << endl;
+}
+
+int main()
+{
+  int t;
+  cin >> t;
+  while(t--) {
+    int n;
+    cin >> n;
+    vector<int> a;
+    for(int i = 0; i < n; i++) {
+      int x;
+      cin >> x;
+      a.push_back(x);
+    }
+    solve(a);
+    
+  } 
+
+  return 0;
+}
+
