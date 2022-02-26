@@ -1,0 +1,107 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y) {
+    return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y) {
+    return x * y / gcd(x, y);
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+//33
+void solve(vector<int>& a) {
+  vector<int> res;
+
+  for(int i = 0; i < a.size(); i++) {
+    res.push_back(a[i]);
+    int j = i + 1;
+    if(j < a.size() && a[j] > a[i]) {
+      while(j < a.size() && a[j] > a[j - 1]) {
+        j++;
+      }
+      i = j - 2;
+    }
+    else if(j < a.size() && a[j] < a[i]) {
+      while(j < a.size() && a[j] < a[j - 1]) {
+        j++;
+      }
+      i = j - 2;
+    }
+  }
+
+  cout << res.size() << endl;
+  for(int i : res) {
+    cout << i << " ";
+  } cout << endl;
+}
+
+int main()
+{
+  int t;
+  cin >> t;
+  while(t--) {
+    int n;
+    cin >> n;
+    vector<int> a;
+    for(int i = 0; i < n; i++) {
+      int x;
+      cin >> x;
+      a.push_back(x);
+    }
+    solve(a);
+    
+  } 
+
+  return 0;
+}
+
