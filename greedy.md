@@ -19,3 +19,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1364B  |[ Most socially-distanced subsequence	 (1300) (10 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1364B.txt)   |2022/02/26|
 |  1550B  |[ Maximum Cost Deletion	 (1000) (6 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1550B.txt)   |2022/02/26|
 |  1476A  |[ K-divisible Sum	 (1000) (5 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1476A.txt)   |2022/02/27|
+|  1360C  |[ Similar Pairs		 (1100) (4 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1360C.txt)   |2022/02/27|
