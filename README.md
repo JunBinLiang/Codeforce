@@ -812,6 +812,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1365F|[1365F (2100)  (Constructive + Thinking) ](./code/1365F.txt)|2021/02/25|
 |  1167F|[Scalar Queries (2300)  (Combination) ](./code/1167F.txt)|2021/02/26|
 |  1389D|[Scalar Queries (2100)  (Implementation) ](./code/1389D.txt)|2021/02/26|
+|  1398E|[Two Types of Spells (2200)  (Seg + Thinking) ](./code/1398E.txt)|2021/02/27|
 
 # 分类
 
