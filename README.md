@@ -814,6 +814,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1389D|[Scalar Queries (2100)  (Implementation) ](./code/1389D.txt)|2021/02/26|
 |  1398E|[Two Types of Spells (2200)  (Seg + Thinking) ](./code/1398E.txt)|2021/02/27|
 |  895D|[String Mark (2100)  (Com + String prefix) ](./code/895D.txt)|2021/02/28|
+|  1418D|[Trash Problem (2100)  (TreeMap) ](./code/1418D.txt)|2021/03/01|
 
 # 分类
 
