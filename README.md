@@ -813,6 +813,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1167F|[Scalar Queries (2300)  (Combination) ](./code/1167F.txt)|2021/02/26|
 |  1389D|[Scalar Queries (2100)  (Implementation) ](./code/1389D.txt)|2021/02/26|
 |  1398E|[Two Types of Spells (2200)  (Seg + Thinking) ](./code/1398E.txt)|2021/02/27|
+|  895D|[String Mark (2100)  (Com + String prefix) ](./code/895D.txt)|2021/02/28|
 
 # 分类
 
@@ -1276,6 +1277,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 336D.[Vasily the Bear and Beautiful Strings (2100) (Combiniation + Observation)  ](./code/336D.txt)<br/>
 1228E.[Another Filling the Grid (2300)  (DP + Combination) ](./code/1228E.txt)<br/>
 1167F.[Scalar Queries (2300)  (Combination) ](./code/1167F.txt)<br/>
+895D.[String Mark (2100)  (Com + String prefix) ](./code/895D.txt)<br/>
 
 ### Lucas Combination
  451E.[Devu and Flowers (2300) (容斥 + Lucas 定理)  ](./code/451E.txt)<br/>
