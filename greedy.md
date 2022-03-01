@@ -22,3 +22,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1360C  |[ Similar Pairs		 (1100) (4 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1360C.txt)   |2022/02/27|
 |  1270B  |[ Interesting Subarray		 (1200) (5 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1270B.txt)   |2022/02/27|
 |  1291B  |[ Array Sharpening		 (1300) (15 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1291B.txt)   |2022/02/27|
+|  1617C  |[ Paprika and Permutation		 (1300) (12 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1617C.txt)   |2022/02/28|
