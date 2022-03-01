@@ -815,6 +815,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1398E|[Two Types of Spells (2200)  (Seg + Thinking) ](./code/1398E.txt)|2021/02/27|
 |  895D|[String Mark (2100)  (Com + String prefix) ](./code/895D.txt)|2021/02/28|
 |  1418D|[Trash Problem (2100)  (TreeMap) ](./code/1418D.txt)|2021/03/01|
+|  1158C|[Permutation recovery (2100)  (Graph + Constructive) ](./code/1158C.txt)|2021/03/01|
 
 # 分类
 
@@ -1082,6 +1083,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  894C.[Marco and GCD Sequence (1900) (Constructive) ](./code/894C.txt)<br/>
  878B.[Teams Formation (2300) ( Thinking + Constructive) ](./code/878B.txt)<br/>
  1419E.[Decryption (2100)  (Math + Constructive) ](./code/1419E.txt)<br/>
+ 1158C.[Permutation recovery (2100)  (Graph + Constructive) ](./code/1158C.txt)<br/>
  
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
