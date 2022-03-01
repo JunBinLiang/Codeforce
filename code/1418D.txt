@@ -1,0 +1,213 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=1;
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+    }
+
+    PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> {
+        return b - a;
+    });
+    public void solution(int all, int testcase) {
+        int n = fs.Int();
+        int m = fs.Int();
+        int A[] = new int[n];
+        TreeSet<Integer> tree = new TreeSet<>();
+        for(int i = 0; i < n; i++) {
+            A[i] = fs.Int();
+            tree.add(A[i]);
+        }
+
+
+        sort(A);
+        Map<Integer, Integer> f = new HashMap<>();
+        for(int i = 1; i < n; i++) {
+            int dif = A[i] - A[i - 1];
+            add(f, dif);
+        }
+
+
+
+        for(int i = 0; i <= m; i++) {
+            if(tree.size() <= 1) {
+                out.println(0);
+            } else {
+                Integer first = tree.first();
+                Integer last = tree.last();
+                int total = last - first;
+                while(pq.size() > 0) {
+                    int peek = pq.peek();
+                    if(!f.containsKey(peek)) {
+                        pq.poll();
+                    } else {
+                        break;
+                    }
+                }
+                int peek = pq.peek();
+                out.println(total - peek);
+            }
+
+            if(i == m)break;
+
+            int opt = fs.Int();
+            int x = fs.Int();
+            if(opt == 0) {
+                Integer low = tree.lower(x);
+                Integer high = tree.higher(x);
+                tree.remove(x);
+
+                if(low != null && high != null) {
+                    add(f, high - low);
+                    del(f, high - x);
+                    del(f, x - low);
+                }else if(low != null) {
+                    del(f, x - low);
+                } else if(high != null) {
+                    del(f, high - x);
+                } else {
+
+                }
+
+            } else {
+                Integer low = tree.lower(x);
+                Integer high = tree.higher(x);
+                tree.add(x);
+                if(low != null && high != null) {
+                    del(f, high - low);
+                    add(f, high - x);
+                    add(f, x - low);
+                }else if(low != null) {
+                    add(f, x - low);
+                } else if(high != null) {
+                    add(f, high - x);
+                } else {
+
+                }
+            }
+        }
+
+
+    }
+
+    public void add(Map<Integer, Integer> f, int key) {
+        Integer cnt = f.get(key);
+        if(cnt == null) {
+            f.put(key, 1);
+        } else {
+            f.put(key, cnt + 1);
+        }
+        pq.add(key);
+    }
+
+    public void del(Map<Integer, Integer> f, int key) {
+        Integer cnt = f.get(key);
+        if(cnt == 1) {
+            f.remove(key);
+        } else {
+            f.put(key, cnt - 1);
+        }
+    }
+
+    public void sort(int A[]) {
+        PriorityQueue<Integer>p=new PriorityQueue<>();
+        for(int i : A)p.add(i);
+        for(int i = 0; i < A.length;i++)A[i] = p.poll();
+    }
+
+
+}
+
+
+
+
+
+
+
+
