@@ -1,0 +1,226 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y) {
+    return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y) {
+    return x * y / gcd(x, y);
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int inv[1000000 + 10];
+ll fact[1000000 + 10];
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+
+void init(int n) {
+  inv[1] = 1;
+  for (int i = 2; i <= n; i++){
+      inv[i] = inv[mod % i] *(mod - mod / i) % mod;
+  }
+  fact[0] = 1;
+  for(int i = 1; i <= n; i++) {
+    fact[i] = fact[i - 1] * i;
+    fact[i] %= mod;
+  }
+}
+
+int power(int x, unsigned int y, unsigned int m) {
+    if (y == 0)
+        return 1;
+    int p = power(x, y / 2, m) % m;
+    p = (p * p) % m;
+ 
+    return (y % 2 == 0) ? p : (x * p) % m;
+}
+
+
+ll modInverse(ll a, ll m) {
+  ll m0 = m;
+  ll y = 0, x = 1;
+  if (m == 1)
+      return 0;
+    while (a > 1) {
+        ll q = a / m;
+        ll t = m;
+        m = a % m;
+        a = t;
+        t = y;
+        y = x - q * y;
+        x = t;
+    }
+    if (x < 0)
+        x += m0;
+    return x;
+}
+
+ll divide(ll a, ll b) {
+  ll binverse = modInverse(b, mod);
+  return ((a) * (binverse %mod ) ) % mod;
+}
+
+ll C(int n, int r) {
+    return ((fact[n] * inv[r] % mod) * inv[n - r]) % mod;
+}
+
+  
+ll cal(string& a, string& b) {
+  int n = a.size();
+  vector<int> cnt(26);
+  for(char& c : a) {
+    cnt[c - 'a']++;
+  }
+
+  int total = n;
+  ll res = 0;
+
+
+  vector<ll> right(26);
+  ll l[26];
+  ll r[26];
+
+  for(int i = 0; i < n; i++) {
+    for(int j = 25; j >= 0; j--) {
+      right[j] = fact[cnt[j]];
+      if(j + 1 < 26) {
+        right[j] *= right[j + 1];
+      } 
+      right[j] %= mod;
+    }
+
+    ll x = 1;
+    vector<ll> bottoms;
+    for(int j = 0; j < 26; j++) {
+      if(b[i] - 'a' <= j)break;
+      if(cnt[j] == 0) continue;
+      ll xx = x;
+      if(j + 1 < 26) {
+        xx *= right[j + 1]; xx %= mod;
+      }
+      xx *= fact[cnt[j] - 1];
+      xx %= mod;
+      bottoms.push_back(xx);
+
+      x *= fact[cnt[j]];
+      x %= mod;
+    }
+
+    int size = bottoms.size();
+    //cout << i << "  "<<bottoms << endl;
+    
+    
+    for(int j = 0; j < size; j++) {
+      l[j] = bottoms[j];
+      if(j > 0) {
+        l[j] *= l[j - 1];
+      }
+      l[j] %= mod;
+    }
+    for(int j = size - 1; j >= 0; j--) {
+      r[j] = bottoms[j];
+      if(j + 1 < size) {
+        r[j] *= r[j + 1];
+      }
+      r[j] %= mod;
+    }
+
+  
+
+    ll top = 0;
+    for(int j = 0; j < size; j++) {
+      ll k = 1;
+      if(j > 0) k *= l[j - 1];
+      if(j + 1 < size) k *= r[j + 1];
+      k %= mod;
+      top += (k * fact[total - 1]);
+      top %= mod;
+    }
+
+    ll ways = divide(top , l[size - 1]);
+    res += ways;
+    res %= mod;
+    
+
+    if(cnt[b[i] - 'a'] == 0) {
+      break;
+    }
+    total--;
+    cnt[b[i] - 'a']--;
+  }
+  return res;
+}
+
+void solve(string& a, string& b) {
+  init(1000000 + 5);
+  if(a >= b) {
+    cout << 0 << endl;
+    return;
+  }
+
+  ll x = cal(a, b);
+  ll y = cal(a, a);
+  ll res = (x - y - 1 + mod) % mod;
+  cout << res << endl;
+}
+
+int main()
+{
+  int t = 1;
+  while(t--) {
+    string a , b;
+    cin >> a >> b;
+    solve(a, b);
+  } 
+
+  return 0;
+}
+
