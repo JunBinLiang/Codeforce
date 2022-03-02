@@ -1,0 +1,132 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y) {
+    return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y) {
+    return x * y / gcd(x, y);
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+string to(int m, ll n) {
+  string res = "";
+  for(int i = m - 1; i >= 0; i--) {
+    if(n & (1ll << i)) {
+      res += "1";
+    } else {
+      res += "0";
+    }
+  }
+  return res;
+}
+
+void solve(vector<string>& a, int m) {
+  int n = a.size();
+  vector<ll> b;
+  for(string& s : a) {
+    ll num = 0;
+    for(int i = 0; i < s.size(); i++) {
+      num *= 2;
+      num += (s[i] - '0');
+    }
+    b.push_back(num);
+  }
+
+  sort(b.begin(), b.end());
+
+  ll total = (1ll << m);
+  ll kth = (total - n - 1) / 2;
+
+
+  ll res = -1;
+  ll l = 0, r = total - 1;
+  while(l <= r) {
+    ll mid = l + (r - l) / 2;
+    ll cnt = 0;
+    for(ll i : b) {
+      if(i <= mid) {
+        cnt++;
+      }
+    }
+
+    if(mid + 1ll - cnt >= kth + 1ll) {
+      res = mid;
+      r = mid - 1;
+    } else {
+      l = mid + 1;
+    }
+    
+  }
+  cout << to(m, res) << endl;
+}
+
+//0 1 2 3 4 5 6 7
+int main()
+{
+  int t = 1;
+  cin >> t;
+  while(t--) {
+    int n, m;
+    cin >> n >> m;
+    vector<string> a(n);
+    for(int i = 0; i < n; i++) {
+      cin >> a[i];
+    }
+    solve(a, m);
+  } 
+
+  return 0;
+}
+
+
