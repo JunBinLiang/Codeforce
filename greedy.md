@@ -25,3 +25,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1617C  |[ Paprika and Permutation		 (1300) (12 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1617C.txt)   |2022/02/28|
 |  1257C  |[ Dominated Subarray		 (1200) (7 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1257C.txt)   |2022/02/28|
 |  1498B  |[ Box Fitting		 (1300) (7 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1498B.txt)   |2022/03/01|
+|  1539A  |[ Contest Start		 (1000) (20 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1539A.txt)   |2022/03/02|
