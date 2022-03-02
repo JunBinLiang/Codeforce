@@ -1,0 +1,147 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y) {
+    return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y) {
+    return x * y / gcd(x, y);
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+int len = 0;
+
+
+ll get(ll n, ll a) {
+  ll b = a;
+  ll cnt = 0;
+  int bit = 0;
+  while(b <= n) {
+    ll total = (1ll << bit);
+    if(b + total - 1 <= n) {
+      cnt += total;
+    } else {
+      cnt += (n - b + 1);
+    }
+
+    if(a % 2 == 0) {
+      ll c = b + (1ll << bit);
+      ll total = (1ll << bit);
+      if(c <= n) {
+        if(c + total - 1 <= n) {
+          cnt += total;
+        } else {
+          cnt += (n - c + 1);
+        }
+      }
+      
+    }
+    bit++;
+    b *= 2;
+  }
+  return cnt;
+}
+
+
+void solve(ll n, ll k) {
+  //odd
+  ll res = -1;
+  ll p1 = -1, p2 = -1;
+  ll l = 0, r = n;
+  while(l <= r) {
+    ll mid = l + (r - l) / 2;
+    ll a = mid * 2 + 1;
+    if(a > n) {
+      r = mid - 1;
+      continue;
+    }
+    ll cnt = get(n, a);
+    if(cnt >= k) {
+      p1 = a;
+      l = mid + 1;
+    } else {
+      r = mid - 1;
+    }
+    
+  }
+
+  l = 1ll; r = n;
+  while(l <= r) {
+    ll mid = l + (r - l) / 2;
+    ll a = mid * 2;
+    if(a > n) {
+      r = mid - 1;
+      continue;
+    }
+    ll cnt = get(n, a);
+    if(cnt >= k) {
+      p2 = a;
+      l = mid + 1;
+    } else {
+      r = mid - 1;
+    }
+  }
+  res = max(p1, p2);
+  cout << res << endl;
+}
+
+int main()
+{
+  int t = 1;
+  while(t--) {
+    ll n, k;
+    cin >> n >> k;
+    solve(n, k);
+  } 
+
+  return 0;
+}
