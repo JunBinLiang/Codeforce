@@ -465,6 +465,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 
 
+
  # 上班了！！
  
  |  #  | Title           |    Date  | 
@@ -818,6 +819,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1158C|[Permutation recovery (2100)  (Graph + Constructive) ](./code/1158C.txt)|2021/03/01|
 |  1271E|[Common Number (2100)  (Binary Search + Math) ](./code/1271E.txt)|2021/03/02|
 |  343D|[Water Tree (2100)  (Tree + Seg push) ](./code/343D.txt)|2021/03/02|
+|  1360H |[Binary Median (2100) (Binary Search)  ](./code/1360H.txt)|2022/03/02|
 
 # 分类
 
