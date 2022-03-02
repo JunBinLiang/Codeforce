@@ -817,6 +817,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1418D|[Trash Problem (2100)  (TreeMap) ](./code/1418D.txt)|2021/03/01|
 |  1158C|[Permutation recovery (2100)  (Graph + Constructive) ](./code/1158C.txt)|2021/03/01|
 |  1271E|[Common Number (2100)  (Binary Search + Math) ](./code/1271E.txt)|2021/03/02|
+|  343D|[Water Tree (2100)  (Tree + Seg push) ](./code/343D.txt)|2021/03/02|
 
 # 分类
 
@@ -1524,6 +1525,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1439C.[ Greedy Shopping (2600) (Segment Tree Range Update + Segment Tree Binay Search) ](./code/1439C.txt)<br/>
 558E.[ A Simple Task	 (2300) (Segment Tree Range Update)  ](./code/558E.txt)<br/>
 1136E.[Nastya Hasn't Written a Legend (2200) (Segment SetTo + Math)  ](./code/1136E.txt)<br/>
+343D.[Water Tree (2100)  (Tree + Seg push) ](./code/343D.txt)<br/>
 
 ### Segment Tree  Range Update 
 52C. [Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   <br/>
