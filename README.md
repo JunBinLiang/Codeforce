@@ -816,6 +816,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  895D|[String Mark (2100)  (Com + String prefix) ](./code/895D.txt)|2021/02/28|
 |  1418D|[Trash Problem (2100)  (TreeMap) ](./code/1418D.txt)|2021/03/01|
 |  1158C|[Permutation recovery (2100)  (Graph + Constructive) ](./code/1158C.txt)|2021/03/01|
+|  1271E|[Common Number (2100)  (Binary Search + Math) ](./code/1271E.txt)|2021/03/02|
 
 # 分类
 
