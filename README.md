@@ -823,6 +823,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  976E |[Well played! (2100) (Greedy)  ](./code/976E.txt)|2022/03/02|
 |  1231E |[Middle-Out (2200) (Greedy + Constructive)  ](./code/1231E.txt)|2022/03/02|
 |  1557D |[Ezzat and Grid (2200) (Seg push + DP)  ](./code/1557D.txt)|2022/03/03|
+|  1004D |[Sonya and Matrix (2300) (Thinking + Math Equation + Constructive)  ](./code/1004D.txt)|2022/03/03|
 
 # 分类
 
@@ -1225,6 +1226,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### Math : Equation
 933B.[A Determined Cleanup (2000) (Math + Constructive) (Thumb)  ](./code/933B.txt)<br/>
+1004D.[Sonya and Matrix (2300) (Thinking + Math Equation + Constructive)  ](./code/1004D.txt)<br/>
 
 ### Math : Mod
 354C.[Vasya and Beautiful Arrays (2100) (Thinking + Math Mod + 打表)  ](./code/354C.txt)<br/>
