@@ -820,6 +820,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1271E|[Common Number (2100)  (Binary Search + Math) ](./code/1271E.txt)|2021/03/02|
 |  343D|[Water Tree (2100)  (Tree + Seg push) ](./code/343D.txt)|2021/03/02|
 |  1360H |[Binary Median (2100) (Binary Search)  ](./code/1360H.txt)|2022/03/02|
+|  976E |[Well played! (2100) (Greedy)  ](./code/976E.txt)|2022/03/02|
 
 # 分类
 
@@ -1024,6 +1025,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 721D.[ Maxim and Array (2000) (Greedy + Math)  ](./code/721D.txt)<br/>
 985C.[Liebig's Barrels (1500) (Greedy)  ](./code/985C.txt)<br/>
 627C.[Package Delivery (2200) (Greedy) (Thumb) ](./code/627C.txt)<br/>
+976E.[Well played! (2100) (Greedy)  ](./code/976E.txt)<br/>
 
 
 ### Greedy : Number
