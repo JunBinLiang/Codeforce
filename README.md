@@ -822,6 +822,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1360H |[Binary Median (2100) (Binary Search)  ](./code/1360H.txt)|2022/03/02|
 |  976E |[Well played! (2100) (Greedy)  ](./code/976E.txt)|2022/03/02|
 |  1231E |[Middle-Out (2200) (Greedy + Constructive)  ](./code/1231E.txt)|2022/03/02|
+|  1557D |[Ezzat and Grid (2200) (Seg push + DP)  ](./code/1557D.txt)|2022/03/03|
 
 # 分类
 
