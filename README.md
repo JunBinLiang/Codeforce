@@ -821,6 +821,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  343D|[Water Tree (2100)  (Tree + Seg push) ](./code/343D.txt)|2021/03/02|
 |  1360H |[Binary Median (2100) (Binary Search)  ](./code/1360H.txt)|2022/03/02|
 |  976E |[Well played! (2100) (Greedy)  ](./code/976E.txt)|2022/03/02|
+|  1231E |[Middle-Out (2200) (Greedy + Constructive)  ](./code/1231E.txt)|2022/03/02|
 
 # 分类
 
@@ -1090,6 +1091,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  878B.[Teams Formation (2300) ( Thinking + Constructive) ](./code/878B.txt)<br/>
  1419E.[Decryption (2100)  (Math + Constructive) ](./code/1419E.txt)<br/>
  1158C.[Permutation recovery (2100)  (Graph + Constructive) ](./code/1158C.txt)<br/>
+ 1231E.[Middle-Out (2200) (Greedy + Constructive)  ](./code/1231E.txt)<br/>
  
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
