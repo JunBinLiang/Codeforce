@@ -1,0 +1,163 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y) {
+    return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y) {
+    return x * y / gcd(x, y);
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+vector<vector<int>> dir = {{0,1}, {0,-1}, {1,0}, {-1, 0}};
+
+bool check(vector<int>& cnt, int n, int m, int x, int y) {
+  if(x < 1 || x > n || y < 1 || y > m) {
+    return false;
+  }
+
+  queue<pair<int, int>>q; 
+  q.push({x, y});
+  int level = 0;
+  vector<bool> seen(n * m + 5);
+  seen[(x - 1) * m + (y - 1)] = true;
+  while(q.size() > 0) {
+    int size = q.size();
+    if(size != cnt[level]) {
+      return false;
+    }
+    for(int i = 0; i < size; i++) {
+      pair<int, int> p = q.front(); q.pop();
+      int r = p.f, c = p.s;
+      for(vector<int>& d : dir) {
+        int xx = r + d[0], yy = c + d[1];
+        int id = (xx - 1) * m + (yy - 1);
+        if(xx < 1 || xx > n || yy < 1 || yy > m || seen[id]) {
+          continue;
+        }
+        seen[id] = true;
+        q.push({xx, yy});
+      }
+    }
+    level++;
+  }
+  return true;
+}
+
+void solve(vector<int>& a) {
+  int n = a.size();
+  vector<int> cnt(n + 1);
+  int mx = 0;
+  for(int i : a) {
+    cnt[i]++;
+    mx = max(mx, i);
+  }
+
+  if(cnt[0] != 1) {
+    cout << -1 << endl;
+    return;
+  }
+
+  int x = -1;
+  for(int i = 1; i < cnt.size(); i++) {
+    if(cnt[i] != i * 4) {
+      x = i;
+      break;
+    }
+  }
+
+  for(int i = 1; i <= n; i++) {
+    if(n % i == 0) {
+      int nn = i;
+      int mm = n / i;
+      //a + b = mm + nn - 2
+      //let b = mx
+      int bb = mx;
+      int aa = nn + mm - 2 - bb;
+      int y = aa - x + 2;
+      
+      if(check(cnt, nn, mm, x, y)) {
+        cout << nn << " " << mm << endl;
+        cout << x << " " << y << endl;
+        return;
+      }
+      if(check(cnt, nn, mm, y, x)) {
+        cout << nn << " " << mm << endl;
+        cout << y << " " << x << endl;
+        return;
+      }
+    }
+  }
+  cout << -1 << endl;
+
+}
+
+
+int main()
+{
+  int t = 1;
+  //cin >> t;
+  while(t--) {
+    int n; cin >> n;
+    vector<int> a (n);
+    for(int i = 0; i < n; i++) {
+      cin >> a[i];
+    }
+    solve(a);
+  } 
+
+  return 0;
+}
+
+
