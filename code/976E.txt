@@ -1,0 +1,141 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y) {
+    return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y) {
+    return x * y / gcd(x, y);
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+
+static bool com(const pair<ll, ll>&a, const pair<ll,ll>& b) {
+  ll dif1 = a.f - a.s;
+  ll dif2 = b.f - b.s;
+  return dif1 > dif2;
+}
+
+void solve(vector<pair<ll, ll>>& a, int x, int y) {
+  int n = a.size();
+  ll res = 0;
+  sort(a.begin(), a.end(), com);
+  ll sum = 0;
+
+
+  vector<bool> seen(n);
+  vector<ll> add;
+  for(int i = 0; i < a.size(); i++) {
+    if(a[i].f > a[i].s) {
+      if(y > 0) {
+        y--;
+        seen[i] = true;
+        sum += a[i].f;
+        add.pb(a[i].f - a[i].s);
+      } else {
+        sum += a[i].s;
+      }
+
+    } else {
+      sum += a[i].s;
+    }
+  }
+
+  sort(add.begin(), add.end());
+  res = sum;
+
+  ll mx = 0;
+  for(int i = 0; i < a.size(); i++) {
+    ll val = a[i].f;
+    for(int j = 0; j < x; j++) {
+      val *= 2;
+    }
+    
+    if(seen[i]) {
+      res = max(res, sum + (val - a[i].f));
+    } else {
+      if(y > 0) {
+        res = max(res, sum - a[i].s + val);
+      } else {
+        if(add.size() > 0) {
+          res = max(res, sum - add[0] + val - a[i].s);
+        }
+      }
+    }
+    
+  }
+
+  cout << res << endl;
+}
+
+
+int main()
+{
+  int t = 1;
+  //cin >> t;
+  while(t--) {
+    int n, a, b;
+    cin >> n >> a >> b;
+    vector<pair<ll, ll>> aa(n);
+    for(int i = 0; i < n; i++) {
+      int c, d;
+      cin >> c >> d;
+      aa[i] = {c, d};
+    }
+    solve(aa, a, b);
+  } 
+
+  return 0;
+}
+
+
