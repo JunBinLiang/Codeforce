@@ -824,6 +824,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1231E |[Middle-Out (2200) (Greedy + Constructive)  ](./code/1231E.txt)|2022/03/02|
 |  1557D |[Ezzat and Grid (2200) (Seg push + DP)  ](./code/1557D.txt)|2022/03/03|
 |  1004D |[Sonya and Matrix (2300) (Thinking + Math Equation + Constructive)  ](./code/1004D.txt)|2022/03/03|
+|  979D |[Kuro and GCD and XOR and SUM (2200) (Trie)  ](./code/979D.txt)|2022/03/04|
+
 
 # 分类
 
@@ -1663,8 +1665,10 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1285D.[ Dr. Evil Underscores (1900) (Bit + Trie)  ](./code/1285D.txt)<br/>
 665E.[Beautiful Subarrays (2100) (Trie + XOR + Array Implementation)  ](./code/665E.txt)<br/>
 
+
 ### Trie Bitmask:
 842D.[Vitya and Strange Lesson (2000) (Trie + Bitmask + Thinking)  ](./code/842D.txt)<br/>
+979D.[Kuro and GCD and XOR and SUM (2200) (Trie)  ](./code/979D.txt)<br/>
 
 ### Stack
 224C.[ Bracket Sequence (1700) (Stack) ](./code/224C.txt)<br/>
