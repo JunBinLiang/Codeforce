@@ -825,6 +825,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1557D |[Ezzat and Grid (2200) (Seg push + DP)  ](./code/1557D.txt)|2022/03/03|
 |  1004D |[Sonya and Matrix (2300) (Thinking + Math Equation + Constructive)  ](./code/1004D.txt)|2022/03/03|
 |  979D |[Kuro and GCD and XOR and SUM (2200) (Trie)  ](./code/979D.txt)|2022/03/04|
+|  1638D |[Big Brush (2000) (Constructive)  ](./code/1638D.txt)|2022/03/04|
 
 
 # 分类
