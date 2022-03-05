@@ -827,7 +827,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  979D |[Kuro and GCD and XOR and SUM (2200) (Trie)  ](./code/979D.txt)|2022/03/04|
 |  1638D |[Big Brush (2000) (Constructive)  ](./code/1638D.txt)|2022/03/04|
 |  1607G |[Banquet Preparations 1 (2200) (Greedy)  ](./code/1607G.txt)|2022/03/04|
-
+|  1646E |[Power Board (2200) (Math + DP)  ](./code/1646E.txt)|2022/03/04|
 
 # 分类
 
