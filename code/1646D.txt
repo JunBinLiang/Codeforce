@@ -1,0 +1,180 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y) {
+    return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y) {
+    return x * y / gcd(x, y);
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+int f[200000 + 10][2];
+int g[200000 + 10][2];
+int res[200000 + 10];
+void dfs(vector<vector<int>>& graph, int pa, int root) {
+  f[root][0] = 0; // bad
+  f[root][1] = 1; //good
+  
+  g[root][0] = 0;
+  g[root][1] = graph[root].size();
+
+  for(int next : graph[root]) {
+    if(next == pa) continue;
+    dfs(graph, root, next);
+  }
+
+  for(int next : graph[root]) {
+    if(next == pa) continue;
+    f[root][1] += f[next][0];
+    g[root][1] += g[next][0];
+
+    f[root][0] += max(f[next][0], f[next][1]);
+    
+    if(f[next][0] > f[next][1]) {
+      g[root][0] += g[next][0];
+    } else if(f[next][0] < f[next][1]) {
+      g[root][0] += g[next][1];
+    } else {
+      g[root][0] += min(g[next][0], g[next][1]);
+    }
+
+  }
+}
+
+
+void dfs1(vector<vector<int>>& graph, int pa, int root, bool state) {
+  if(state) {
+    res[root] = graph[root].size();
+  } else {
+    res[root] = 1;
+  }
+
+  for(int next : graph[root]) {
+    if(next == pa) continue;
+    if(state) {
+      dfs1(graph, root, next, !state);
+    } else {
+      if(f[next][0] > f[next][1]) {
+        dfs1(graph, root, next, false);
+      } else if(f[next][0] < f[next][1]) {
+        dfs1(graph, root, next, true);
+      } else {
+        if(g[next][0] < g[next][1]) {
+            dfs1(graph, root, next, false);
+        } else {
+            dfs1(graph, root, next, true);
+        }
+      }
+    }
+  }
+
+}
+
+void solve() {
+  int n;
+  cin >> n;
+  vector<vector<int>> graph(n);
+  for(int i = 0; i < n - 1; i++) {
+    int u, v;
+    cin >> u >> v;
+    u--; v--;
+    graph[u].pb(v);
+    graph[v].pb(u);
+  }
+  if(n == 2) {
+    cout << 2 << " " << 2 << endl;
+    cout << 1 << " " << 1 << endl;
+    return;
+  }
+  memset(f, 0, sizeof(f));
+  memset(g, 0, sizeof(g));
+  dfs(graph, -1, 0);
+
+  bool good = true;
+  if(f[0][0] > f[0][1]) {
+    good = false;
+  } else if(f[0][0] == f[0][1]) {
+    if(g[0][0] < g[0][1]) {
+      good = false;
+    }
+  }
+
+  dfs1(graph, -1, 0, good);
+
+
+
+  int sum = 0;
+  for(int i = 0; i < n; i++) {
+    sum += res[i];
+  }
+  cout<< max(f[0][0], f[0][1]) << " " << sum << endl;
+  for(int i = 0; i < n; i++) {
+    cout << res[i] << " ";
+  }
+  cout << endl;
+}
+
+ 
+int main()
+{
+  int t = 1;
+  while(t--) {
+    solve();
+  } 
+
+  return 0;
+}
+
+
