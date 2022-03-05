@@ -828,6 +828,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1638D |[Big Brush (2000) (Constructive)  ](./code/1638D.txt)|2022/03/04|
 |  1607G |[Banquet Preparations 1 (2200) (Greedy)  ](./code/1607G.txt)|2022/03/04|
 |  1646E |[Power Board (2200) (Math + DP)  ](./code/1646E.txt)|2022/03/04|
+|  1646D |[Weight the Tree	 (2000) (Tree + DP)  ](./code/1646D.txt)|2022/03/05|
 
 # 分类
 
@@ -951,6 +952,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 274B.[Zero Tree (1800) (Tree DP )  ](./code/274B.txt)<br/>
 543D.[Road Improvement	 (2300) ( Tree DP + Left/Right DP )  ](./code/543D.txt)<br/>
 766E.[Mahmoud and a xor trip (2100) (Tree DP)  ](./code/766E.txt)<br/>
+1646D.[Weight the Tree	 (2000) (Tree + DP)  ](./code/1646D.txt)<br/>
 
 ### Digit DP
 55D.[Beautiful numbers (2500) (Digit DP)  ](./code/55D.txt)<br/>
