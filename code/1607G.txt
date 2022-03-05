@@ -1,0 +1,149 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y) {
+    return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y) {
+    return x * y / gcd(x, y);
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+vector<vector<int>> dir = {{0,1}, {0,-1}, {1,0}, {-1, 0}};
+
+
+void solve() {
+  int n, m;
+  cin >> n >> m;
+  vector<vector<int>> a;
+  for(int i = 0; i < n; i++) {
+    int x , y;
+    cin >> x >> y;
+    a.pb({x, y, x + y - m});
+  }
+
+
+  vector<vector<int>>b(n, vector<int>(2, 0));
+  ll more = 0;
+  for(int i = 0; i < a.size(); i++) {
+    int x = a[i][0], y = a[i][1], z = a[i][2];
+    if(x >= z) {
+      b[i][0] = z;
+      more += z;
+    } else {
+      b[i][0] = x;
+      b[i][1] = z - x;
+      more += b[i][0];
+      more -= b[i][1];
+    }
+  }
+
+
+  for(int i = 0; i < n; i++) {
+    if(more > 0) {
+      int mn = min(b[i][0], a[i][1] - b[i][1]);
+      if(mn * 2 <= more) {
+        more -= (mn * 2);
+        b[i][0] -= mn;
+        b[i][1] += mn;
+      } else {
+        mn = more / 2;
+        more -= (mn * 2);
+        b[i][0] -= mn;
+        b[i][1] += mn;
+      }
+
+    } else {
+      int mn = min(b[i][1], a[i][0] - b[i][0]);
+      int mmore = -more;
+      if(mn * 2 <= mmore) {
+        more += (mn * 2);
+        b[i][0] += mn;
+        b[i][1] -= mn;
+      } else {
+        mn = mmore / 2;
+        more += (mn * 2); 
+        b[i][0] += mn;
+        b[i][1] -= mn;
+      }
+
+    }
+  }
+
+  ll s1 = 0, s2 = 0;
+  for(int i = 0; i < n; i++) {
+    s1 += b[i][0];
+    s2 += b[i][1];
+  }
+
+  cout << abs(s1 - s2) << endl;
+  for(int i = 0; i < n; i++) {
+    cout << (a[i][0] - b[i][0]) << " " << (a[i][1] - b[i][1]) << endl;
+  }
+
+
+}
+
+ 
+int main()
+{
+  int t = 1;
+  cin >> t;
+  while(t--) {
+    solve();
+  } 
+
+  return 0;
+}
+
+
