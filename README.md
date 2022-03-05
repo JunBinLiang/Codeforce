@@ -829,6 +829,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1607G |[Banquet Preparations 1 (2200) (Greedy)  ](./code/1607G.txt)|2022/03/04|
 |  1646E |[Power Board (2200) (Math + DP)  ](./code/1646E.txt)|2022/03/04|
 |  1646D |[Weight the Tree	 (2000) (Tree + DP)  ](./code/1646D.txt)|2022/03/05|
+|  1607H |[Banquet Preparations 2 (2200) (Greedy)  ](./code/1607H.txt)|2022/03/05|
 
 # 分类
 
@@ -1035,7 +1036,11 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 985C.[Liebig's Barrels (1500) (Greedy)  ](./code/985C.txt)<br/>
 627C.[Package Delivery (2200) (Greedy) (Thumb) ](./code/627C.txt)<br/>
 976E.[Well played! (2100) (Greedy)  ](./code/976E.txt)<br/>
+
+
+### Greedy : 后替换
 1607G.[Banquet Preparations 1 (2200) (Greedy)  ](./code/1607G.txt)<br/>
+1607H.[Banquet Preparations 2 (2200) (Greedy)  ](./code/1607H.txt)<br/>
 
 
 
