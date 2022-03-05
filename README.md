@@ -826,6 +826,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1004D |[Sonya and Matrix (2300) (Thinking + Math Equation + Constructive)  ](./code/1004D.txt)|2022/03/03|
 |  979D |[Kuro and GCD and XOR and SUM (2200) (Trie)  ](./code/979D.txt)|2022/03/04|
 |  1638D |[Big Brush (2000) (Constructive)  ](./code/1638D.txt)|2022/03/04|
+|  1607G |[Banquet Preparations 1 (2200) (Greedy)  ](./code/1607G.txt)|2022/03/04|
 
 
 # 分类
@@ -1032,6 +1033,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 985C.[Liebig's Barrels (1500) (Greedy)  ](./code/985C.txt)<br/>
 627C.[Package Delivery (2200) (Greedy) (Thumb) ](./code/627C.txt)<br/>
 976E.[Well played! (2100) (Greedy)  ](./code/976E.txt)<br/>
+1607G.[Banquet Preparations 1 (2200) (Greedy)  ](./code/1607G.txt)<br/>
+
 
 
 ### Greedy : Number
