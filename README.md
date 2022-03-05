@@ -830,6 +830,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1646E |[Power Board (2200) (Math + DP)  ](./code/1646E.txt)|2022/03/04|
 |  1646D |[Weight the Tree	 (2000) (Tree + DP)  ](./code/1646D.txt)|2022/03/05|
 |  1607H |[Banquet Preparations 2 (2200) (Greedy)  ](./code/1607H.txt)|2022/03/05|
+|  1552F |[Telepanting (2200) (DP + Thinking + Math)  ](./code/1552F.txt)|2022/03/05|
 
 # 分类
 
