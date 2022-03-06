@@ -831,6 +831,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1646D |[Weight the Tree	 (2000) (Tree + DP)  ](./code/1646D.txt)|2022/03/05|
 |  1607H |[Banquet Preparations 2 (2200) (Greedy)  ](./code/1607H.txt)|2022/03/05|
 |  1552F |[Telepanting (2200) (DP + Thinking + Math)  ](./code/1552F.txt)|2022/03/05|
+|  1467D |[Sum of Paths (2200) (DP + Combination)  ](./code/1467D.txt)|2022/03/06|
 
 # 分类
 
