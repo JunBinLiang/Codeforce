@@ -1,0 +1,148 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+#define ve vector
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y) {
+    return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y) {
+    return x * y / gcd(x, y);
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+
+
+int a[200000 + 5];
+ll dp[5005][5005];
+
+int dfs(int n, int cur, int k) {
+  if(cur < 0 || cur >= n) {
+    return 0;
+  }
+  
+  if(k == 1) {
+    return dp[cur][k] = 1;
+  }
+
+  if(dp[cur][k] != -1) {
+    return dp[cur][k];
+  }
+  ll res = 0;
+  res += dfs(n, cur + 1, k - 1);
+  res %= mod;
+  res += dfs(n, cur - 1, k - 1);
+  res %= mod;
+  return dp[cur][k] = res;
+}
+
+void solve() {
+  int n, k, m;
+  cin >> n >> k >> m;
+  for(int i = 0; i < n; i++) {
+    cin >> a[i];
+  }
+
+  memset(dp, -1, sizeof(dp));
+  for(int i = 0; i < n; i++) {
+    dfs(n, i, k + 1);
+  }
+
+  vector<ll> cnt(n);
+  ll sum = 0;
+  for(int i = 0; i < n; i++) {
+    for(int j = 1; j <= k + 1; j++) {
+      ll a = 1;
+      if(dp[i][k + 1 - j] != - 1) a = dp[i][k + 1 - j + 1];
+      cnt[i] += dp[i][j] * a;
+      cnt[i] %= mod;
+    }
+    sum += (cnt[i] * a[i]);
+    sum %= mod;
+  }
+
+
+  for(int i = 0; i < m; i++) {
+    ll res = 0;
+    int index, x;
+    cin >> index >> x;
+    res = sum;
+    ll sum1 = cnt[index - 1] * a[index - 1];
+    sum1 %= mod;
+
+    res -= sum1; 
+    res += mod;
+    res %= mod;
+
+    a[index - 1] = x;
+    res += a[index - 1] * cnt[index - 1];
+    res %= mod;
+    sum = res;
+    cout << res << endl;
+  }
+
+}
+
+ 
+int main()
+{
+  int t = 1;
+  //cin >> t;
+  while(t--) {
+    solve();
+  } 
+
+  return 0;
+}
+
+
