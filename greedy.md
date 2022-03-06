@@ -27,3 +27,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1498B  |[ Box Fitting		 (1300) (7 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1498B.txt)   |2022/03/01|
 |  1539A  |[ Contest Start		 (1000) (20 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1539A.txt)   |2022/03/02|
 |  1251B  |[ Binary Palindromes		 (1400) (20 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1251B.txt)   |2022/03/06|
+|  1618D  |[  Array and Operations	 (1300) (12 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1618D.txt)   |2022/03/06|
