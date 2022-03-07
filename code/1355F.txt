@@ -1,0 +1,167 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+
+// Some predefined templates
+template <typename T>
+ostream &operator<<(ostream &out, const vector<T> &a)
+{
+  out << "[";
+  bool first = true;
+  for (auto v : a)
+  {
+    out << (first ? "" : ", ");
+    out << v;
+    first = 0;
+  }
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const unordered_map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y)
+{
+  return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y)
+{
+  return x * y / gcd(x, y);
+}
+
+int to_int(string &s)
+{
+  int res = 0;
+  for (char c : s)
+  {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+
+int f[1000000 + 10][23];
+
+void solve(vector<string>& a, vector<string>& b) {
+  int n = a.size(), m = a[0].size();
+  for(int i = 0; i < n; i++) {
+    for(int j = 0; j < m; j++) {
+      char c = b[i][j];
+      int id1 = i * m + j;
+      if(c == 'U') {
+        f[id1][0] = (i - 1) * m + j;
+      } 
+      else if(c == 'D') {
+        f[id1][0] = (i + 1) * m + j;
+      }
+      else if(c == 'L') {
+        f[id1][0] = i * m + (j - 1);
+      }
+      else {
+        f[id1][0] = i * m + (j + 1);
+      }
+    }
+  }
+  for(int i = 1; i < 22; i++) {
+    for(int j = 0; j < n * m; j++) {
+      f[j][i] = f[f[j][i - 1]][i - 1];
+    }
+  }
+
+  unordered_map<int, vector<int>> ma;
+  for(int i = 0; i < n * m; i++) {
+    int des = f[i][21];
+    ma[des].pb(i);
+  }
+
+  int res1 = ma.size(); int res2 = 0;
+  for(auto it = ma.begin(); it != ma.end(); it++) {
+    vector<int> b = it -> s;
+    for(int id : b) {
+      int r = id / m;
+      int c = id % m;
+      if(a[r][c] == '0') {
+        res2++;
+        break;
+      }
+    }
+  }
+
+  printf("%d %d\n", res1, res2);
+
+
+}
+
+int main()
+{
+  int t = 1;
+  cin >> t;
+  while (t--)
+  {
+
+    int n, m;
+    scanf("%d %d", &n, &m);
+    vector<string> a, b;
+    FOR(i, 0, n) {
+      string s; cin >> s;
+      a.pb(s);
+    }
+
+    FOR(i, 0, n) {
+      string s; cin >> s;
+      b.pb(s);
+    }
+
+    solve(a, b);
+  }
+
+  return 0;
+}
