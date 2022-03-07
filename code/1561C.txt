@@ -1,0 +1,150 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include<set>
+#include<unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define s second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+
+//Some predefined templates
+template <typename T>
+ostream& operator <<(ostream& out, const vector<T>& a) {
+  out << "["; bool first = true;
+  for (auto v : a) { out << (first ? "" : ", "); out << v; first = 0;} 
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream& operator <<(ostream& out, const unordered_map<U, T, Cmp>& a) {
+  out << "{"; bool first = true;
+  for (auto& p : a) { out << (first ? "" : ", "); out << p.first << ":" << p.second; first = 0;} out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y) {
+    return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y) {
+    return x * y / gcd(x, y);
+}
+
+
+int to_int(string& s) {
+  int res = 0;
+  for(char c : s) {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+
+bool check(vector<int>& a, int pow) {
+  for(int i : a) {
+    if(pow <= i) return false;
+    pow++;
+  }
+  return true;
+}
+
+bool com(pair<int, int>& p1, pair<int, int>& p2) {
+  return p1.f < p2.f;
+}
+//1
+void solve(vector<vector<int>>& a) {
+  int n = a.size();
+  ve<pair<int, int>> powers;
+  for(int i = 0; i < n; i++) {
+    vector<int>& b = a[i];
+    int l = 0, r = 1000000000 + 10;
+    int res = -1;
+    while(l <= r) {
+      int mid = l + (r - l) / 2;
+      if(check(b, mid)) {
+        res = mid;
+        r = mid - 1;
+      } else {
+        l = mid + 1;
+      }
+    }
+    powers.pb({res, (int)(b.size())});
+  }
+
+  sort(powers.begin(), powers.end(), com);
+  int res = 0;
+
+  int l = 0, r = 1000000000 + 10;
+  while(l <= r) {
+    int mid = l + (r - l) / 2;
+    bool yes = true;
+    int cur = mid;
+    for(int i = 0; i < powers.size(); i++) {
+      int ini = powers[i].f;
+      int add = powers[i].s;
+      if(cur >= ini) {
+        cur += add;
+      } else {
+        yes = false;
+        break;
+      }
+    }
+
+    if(yes) {
+      res = mid;
+      r = mid - 1;
+    } else {
+      l = mid + 1;
+    }
+  }
+
+  cout << res << endl;
+}
+
+ 
+int main()
+{
+  int t = 1;
+  cin >> t;
+  while(t--) {
+    
+    int n;
+    cin >> n;
+    vector<vector<int>> a(n);
+    FOR(i, 0, n) {
+      int m; cin >> m;
+      FOR(j, 0, m) {
+        int y; cin >> y;
+        a[i].pb(y);
+      }
+    }
+    solve(a);
+  } 
+
+  return 0;
+}
+
+
