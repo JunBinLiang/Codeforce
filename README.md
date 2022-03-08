@@ -834,6 +834,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1467D |[Sum of Paths (2200) (DP + Combination)  ](./code/1467D.txt)|2022/03/06|
 |  1355F |[Robots on a Grid (2200) (Graph + Thinking)  ](./code/1355F.txt)|2022/03/07|
 |  616E |[Sum of Remainders (2200) (Math)  ](./code/616E.txt)|2022/03/07|
+|  1526D |[Kill Anton (2200) (Thinking)  ](./code/1526D.txt)|2022/03/07|
 
 
 # 分类
