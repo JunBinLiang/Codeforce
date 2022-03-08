@@ -835,6 +835,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1355F |[Robots on a Grid (2200) (Graph + Thinking)  ](./code/1355F.txt)|2022/03/07|
 |  616E |[Sum of Remainders (2200) (Math)  ](./code/616E.txt)|2022/03/07|
 |  1526D |[Kill Anton (2200) (Thinking)  ](./code/1526D.txt)|2022/03/07|
+|  1305E |[Kuroni and the Score Distribution (2200) (Constructive)  ](./code/1305E.txt)|2022/03/08|
 
 
 # 分类
@@ -1113,6 +1114,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  1419E.[Decryption (2100)  (Math + Constructive) ](./code/1419E.txt)<br/>
  1158C.[Permutation recovery (2100)  (Graph + Constructive) ](./code/1158C.txt)<br/>
  1231E.[Middle-Out (2200) (Greedy + Constructive)  ](./code/1231E.txt)<br/>
+ 1305E.[Kuroni and the Score Distribution (2200) (Constructive)  ](./code/1305E.txt)<br/>
  
  ### Constructive : String less than with prefix
  946E.[Largest Beautiful Number (2200) (Constructive + Greedy)  ](./code/946E.txt)<br/>
