@@ -1,0 +1,205 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define se second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+
+// Some predefined templates
+template <typename T>
+ostream &operator<<(ostream &out, const vector<T> &a)
+{
+  out << "[";
+  bool first = true;
+  for (auto v : a)
+  {
+    out << (first ? "" : ", ");
+    out << v;
+    first = 0;
+  }
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const unordered_map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y)
+{
+  return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y)
+{
+  return x * y / gcd(x, y);
+}
+
+int to_int(string &s)
+{
+  int res = 0;
+  for (char c : s)
+  {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+int f[556][556];
+
+
+struct Comp
+{
+    bool operator()(ve<int>& a, ve<int>& b) const
+    {  
+      if(a[0] == b[0]) {
+        return a[3] > b[3];
+      }
+      return a[0] > b[0];
+    }
+};
+
+
+
+void solve(ve<pair<int, int>>& a, ve<pair<int, int>>& b) {
+  int n = a.size(), m = b.size();
+  memset(f, 0, sizeof(f));
+  vector<int> indexs(n);
+  vector<int> p(m);
+  int s = 0;
+
+  for(int i = 0; i < m; i++) {
+    int day = i + 1;
+    int op = b[i].f, k = b[i].se; 
+    int x = a[k - 1].f, y = a[k - 1].se;
+    int sum = x + y;
+    int res = 0;
+    if(op == 1) { // added
+      indexs[k - 1] = i;
+      if(x + y >= 555) {
+        bool state = true;
+        int j = i + x;
+        while(j < m) {
+          if(state) {
+            p[j]++;
+            j += y;
+          } else {
+            p[j]--;
+            j += x;
+          }
+          state = !state;
+        }
+      } else {
+        for(int j = 0; j < y; j++) {
+          f[sum][(j + x + i) % sum]++;
+        }
+      }
+    } else {// del
+      if(x + y >= 555) {
+        bool state = true;
+        int j = indexs[k - 1] + x;
+        bool cur1 = false, cur2 = false;
+        while(j < m) {
+          if(j < i) {
+            cur1 = true;
+            cur2 = state;
+          }
+          if(state) {
+            p[j]--;
+            j += y;
+          } else {
+            p[j]++;
+            j += x;
+          }
+          state = !state;
+        }
+
+        if(cur1) {
+          if(cur2) {
+            s--;
+          } else {
+
+          }
+        }
+        
+      } else {
+        for(int j = 0; j < y; j++) {
+          f[sum][(j + x + indexs[k - 1]) % sum]--;
+        }
+      }
+    }
+    for(int j = 1; j <= 555; j++) {
+      res += f[j][i % j];
+    }
+    s += p[i];
+    printf("%d\n", (res + s));
+  }
+}
+
+int main()
+{
+  int t = 1;
+  //cin >> t;
+  while (t--)
+  {
+    int n, m;
+    cin >> n >> m;
+    vector<pair<int, int>> a, b;
+    for(int i = 0; i < n; i++) {
+      int x, y;
+      scanf("%d%d",&x,&y);
+      a.pb({x, y});
+    }
+
+    for(int i = 0; i < m; i++) {
+      int x, y;
+      scanf("%d%d",&x,&y);
+      b.pb({x, y});
+    }
+    solve(a, b);
+  }
+
+  return 0;
+}
