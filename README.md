@@ -837,6 +837,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1526D |[Kill Anton (2200) (Thinking)  ](./code/1526D.txt)|2022/03/07|
 |  1305E |[Kuroni and the Score Distribution (2200) (Constructive)  ](./code/1305E.txt)|2022/03/08|
 |  1580C |[Train Maintenance (2200) (Thinking + Brute Force)  ](./code/1580C.txt)|2022/03/08|
+|  559C |[Gerald and Giant Chess (2200) (Combination + DP + 容斥 + Unique Path 升级)  ](./code/559C.txt)|2022/03/09|
 
 
 # 分类
@@ -1338,6 +1339,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  839D.[Winter is here (2200) (容斥 + Combination)  ](./code/839D.txt)<br/>
  1093F.[Vasya and Array (2400) ( DP + 容斥) ](./code/1093F.txt)<br/>
  920G.[List Of Integers (2200) ( 容斥) ](./code/920G.txt)<br/>
+ 559C.[Gerald and Giant Chess (2200) (Combination + DP + 容斥 + Unique Path 升级)  ](./code/559C.txt)<br/>
  
 ### 二维容斥
 1245F.[Daniel and Spring Cleaning (2300) (数位DP + 二维容斥)  ](./code/1245F.txt)<br/>
