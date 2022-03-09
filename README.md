@@ -836,6 +836,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  616E |[Sum of Remainders (2200) (Math)  ](./code/616E.txt)|2022/03/07|
 |  1526D |[Kill Anton (2200) (Thinking)  ](./code/1526D.txt)|2022/03/07|
 |  1305E |[Kuroni and the Score Distribution (2200) (Constructive)  ](./code/1305E.txt)|2022/03/08|
+|  1580C |[Train Maintenance (2200) (Thinking + Brute Force)  ](./code/1580C.txt)|2022/03/08|
 
 
 # 分类
@@ -1143,6 +1144,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1593D2.[Half of Same (1900) (Time + Thinking)  ](./code/1593D2.txt)<br/>
 1582F2.[Korney Korneevich and XOR (hard version) (2400) ( Thinking )  ](./code/1582F2.txt)<br/>
 1637E.[Best Pair  (Brute Force + Time) ](./code/1637E.txt)<br/>
+1580C.[Train Maintenance (2200) (Thinking + Brute Force)  ](./code/1580C.txt)<br/>
 
 ### 优雅暴力1 : 启发式合并
  965E.[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)<br/>
