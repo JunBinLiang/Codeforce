@@ -1,0 +1,187 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define se second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+
+// Some predefined templates
+template <typename T>
+ostream &operator<<(ostream &out, const vector<T> &a)
+{
+  out << "[";
+  bool first = true;
+  for (auto v : a)
+  {
+    out << (first ? "" : ", ");
+    out << v;
+    first = 0;
+  }
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const unordered_map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y)
+{
+  return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y)
+{
+  return x * y / gcd(x, y);
+}
+
+int to_int(string &s)
+{
+  int res = 0;
+  for (char c : s)
+  {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+ll dp[1005][105][2][2];
+ll f[1005];
+ll dfs(int k, int n, int i, int m, int zero, int state) {
+  if(i >= n) {
+    if(state == 0 && zero == 0) { // not zero
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  if(dp[i][m][zero][state] != -1) {
+    return dp[i][m][zero][state];
+  }
+
+  
+
+  ll res = 0;
+  for(int d = 1; d < 10; d++) {
+    int add = (int)((f[i] * d) % k);
+    int mm = (m + add) % k;
+    if(state == 0) {
+      res += dfs(k, n, i + 1, mm, 0, 0);
+    } else {
+      if(mm == 0) {
+        res += dfs(k, n, i + 1, mm, 0, 0);
+      } else {
+        res += dfs(k, n, i + 1, mm, 0, 1);
+      }
+    }
+    res %= mod;
+  }
+
+  if(i != n - 1) {
+    if(state == 0) {
+      res += dfs(k, n, i + 1, m, 0, 0);
+    } else {
+      if(zero == 1) {
+        res += dfs(k, n, i + 1, m, 1, 1);
+      } else {
+        res += dfs(k, n, i + 1, m, 0, 1);
+      }
+    }
+  }
+  res %= mod;
+  return dp[i][m][zero][state] = res;
+}
+
+void solve(int n, int k, int m) {
+  if(n == 1) {
+    int res = 0;
+    for(int i = 1; i < 10; i++) {
+      if(i % k == 0) res++;
+    }
+    res %= m;
+    cout << res << endl;
+    return;
+  }
+
+  mod = m;
+  memset(dp, -1, sizeof(dp));
+  f[0] = 1;
+  for(int i = 1; i < 1000 + 2; i++) {
+    f[i] = f[i - 1] * 10;
+    f[i] %= k;
+  }
+
+
+  ll res = 0;
+  for(int i = 1; i < 10; i++) {
+    int add = i % k;
+    if(add == 0) {
+      res += dfs(k, n, 1, 0, 0, 0);
+    } else {
+      res += dfs(k, n, 1, add, 0, 1);
+    }
+    res %= mod;
+  }
+  res += dfs(k, n, 1, 0, 1, 1);
+  res %= mod;
+
+  cout << res << endl;
+
+}
+
+int main()
+{
+  int t = 1;
+  //cin >> t;
+  while (t--)
+  {
+    int n, k, m;
+    cin >> n >> k >> m;
+    solve(n, k, m);
+  }
+
+  return 0;
+}
