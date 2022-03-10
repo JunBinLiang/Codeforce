@@ -839,6 +839,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1580C |[Train Maintenance (2200) (Thinking + Brute Force)  ](./code/1580C.txt)|2022/03/08|
 |  559C |[Gerald and Giant Chess (2200) (Combination + DP + 容斥 + Unique Path 升级)  ](./code/559C.txt)|2022/03/09|
 |  906B |[Seating of Students (2200) (Constructive)  ](./code/906B.txt)|2022/03/09|
+|  507D |[The Maths Lecture (2200) (Digit DP)  ](./code/507D.txt)|2022/03/10|
 
 
 # 分类
