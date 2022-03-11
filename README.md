@@ -841,6 +841,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  906B |[Seating of Students (2200) (Constructive)  ](./code/906B.txt)|2022/03/09|
 |  507D |[The Maths Lecture (2200) (Digit DP)  ](./code/507D.txt)|2022/03/10|
 |  1650G |[Counting Shortcuts (2100) (Shortest Path + DP)  ](./code/1650G.txt)|2022/03/10|
+|  1650F |[Vitaly and Advanced Useless Algorithms (2200) (DP)  ](./code/1650F.txt)|2022/03/11|
 
 
 # 分类
