@@ -29,3 +29,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1251B  |[ Binary Palindromes		 (1400) (20 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1251B.txt)   |2022/03/06|
 |  1618D  |[  Array and Operations	 (1300) (12 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1618D.txt)   |2022/03/06|
 |  1561C  |[  Deep Down Below	 (1300) (11 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1561C.txt)   |2022/03/06|
+|  1650D  |[  Twist the Permutation (1300) (15 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1650D.txt)   |2022/03/011|
