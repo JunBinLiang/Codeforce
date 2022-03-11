@@ -1,0 +1,256 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define se second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+
+// Some predefined templates
+template <typename T>
+ostream &operator<<(ostream &out, const vector<T> &a)
+{
+  out << "[";
+  bool first = true;
+  for (auto v : a)
+  {
+    out << (first ? "" : ", ");
+    out << v;
+    first = 0;
+  }
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const unordered_map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y)
+{
+  return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y)
+{
+  return x * y / gcd(x, y);
+}
+
+int to_int(string &s)
+{
+  int res = 0;
+  for (char c : s)
+  {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int MOD = 998244353;
+int mod = 1000000007;
+ll INF = 1000000000000000ll;
+
+
+ll dp[100000 + 10][101][3];
+ll minTime = -1;
+ve<int> orders;
+
+bool com(ve<int>& a, ve<int>& b) {
+  return a[0] < b[0];
+}
+
+void DP(ve<ve<int>>& a) {
+  minTime = -1;
+  orders.clear();
+
+  int n = a.size();
+  for(int i = 0; i <= n; i++) {
+    for(int j = 0; j <= 100; j++) {
+      dp[i][j][0] = INF;
+      dp[i][j][1] = INF;
+      dp[i][j][2] = INF;
+    }
+  }
+
+
+  dp[0][0][0] = 0;
+  dp[0][0][1] = -1;
+
+  //cout << endl;
+
+  for(int i = 1; i <= n; i++) {
+    int t = a[i - 1][1], pe = a[i - 1][2], index = a[i - 1][3];
+
+    //cout << "arr :" << a[i - 1] << endl;
+
+    for(int p = 0; p <= 100; p++) {
+      dp[i][p][0] = dp[i - 1][p][0];
+      dp[i][p][1] = dp[i - 1][p][1];
+      dp[i][p][2] = p;
+    }
+
+    
+
+    for(int preP = 0; preP <= 100; preP++) {
+      int curP = min(preP + pe, 100);
+      if(dp[i - 1][preP][0] != INF && dp[i - 1][preP][0] + t < dp[i][curP][0]) {
+        dp[i][curP][0] =  dp[i - 1][preP][0] + t;
+        dp[i][curP][1] =  i;
+        dp[i][curP][2] =  preP;
+      }
+    }
+  }
+
+  /*cout << "oh  " << dp[1][64][1] << "  " << dp[1][64][2] << endl;
+  cout << "oh  " << dp[2][64][1] << "  " << dp[2][64][2] << endl;
+  cout << "oh  " << dp[3][64][1] << "  " << dp[3][64][2] << endl;
+  cout << "oh  " << dp[4][64][1] << "  " << dp[4][64][2] << endl;
+  cout << "oh  " << dp[5][64][1] << "  " << dp[5][64][2] << endl;*/
+
+
+
+
+  if(dp[n][100][0] != INF) {
+    minTime = dp[n][100][0];
+    int ii = n, per = 100;
+    ve<int> add;
+    while(ii > 0) {
+     
+      int index = (int)(dp[ii][per][1]);
+      int lastP = (int)(dp[ii][per][2]);
+      //cout << ii << " " << per << " " << index << endl;
+      if(index == -1) break;
+      add.pb(index);
+      ii--;
+      per = lastP;
+    }
+
+    //cout << "add" << add << endl;
+
+    reverse(add.begin(), add.end());
+    for(int i = 0; i < add.size(); i++) {
+      int j = i;
+      while(j < add.size() && add[j] == add[i]) {
+        j++;
+      }
+      orders.pb(a[add[i] - 1][3]);
+      i = j - 1;
+    }
+  }
+
+
+}
+
+void solve(ve<int>& a, ve<ve<int>>& b) {
+    int n = a.size(), m = b.size();
+    sort(b.begin(), b.end(), com);
+    
+    ve<int> res;
+    ll start = 0; int task = 0;
+    for(int i = 0; i < m; i++) {
+      if(b[i][0] != task) {
+        cout << -1 << endl;
+        return;
+      }
+      int j = i;
+      vector<ve<int>> c;
+      while(j < m && b[j][0] == b[i][0]) {
+        c.pb(b[j]);
+        j++;
+      }
+
+      //using the minimum time to finish 100%
+      DP(c);
+      if(minTime == -1) { // can not do 100 %
+        cout << -1 << endl;
+        return;
+      }
+
+      start += minTime;
+      if(start > a[task]) {
+        cout << -1 << endl;
+        return;
+      }
+
+      for(int ord : orders) {
+        res.pb(ord);
+      }
+      task++;
+      i = j - 1;
+    }
+
+    if(task != a.size()) {
+        cout << -1 << endl;
+        return;
+    }
+
+    cout << res.size() << endl;
+    for(int r : res) {
+      cout << r + 1 << " ";
+    }
+    cout << endl;
+  
+}
+
+int main()
+{
+  int t = 1;
+  cin >> t;
+  while (t--)
+  {
+    int n, m;
+    cin >> n >> m;
+    ve<int> a;
+    FOR(i, 0, n) {
+      int x; cin >> x;
+      a.pb(x);
+    }
+
+    ve<ve<int>> b;
+    FOR(i, 0, m) {
+      int x, y, z;
+      cin >> x >> y >> z;
+      b.pb({x - 1, y, z, i});
+    }
+    solve(a, b);
+  }
+
+  return 0;
+}
