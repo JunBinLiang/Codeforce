@@ -1,0 +1,208 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define se second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+
+// Some predefined templates
+template <typename T>
+ostream &operator<<(ostream &out, const vector<T> &a)
+{
+  out << "[";
+  bool first = true;
+  for (auto v : a)
+  {
+    out << (first ? "" : ", ");
+    out << v;
+    first = 0;
+  }
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const unordered_map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y)
+{
+  return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y)
+{
+  return x * y / gcd(x, y);
+}
+
+int to_int(string &s)
+{
+  int res = 0;
+  for (char c : s)
+  {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+
+
+
+void solve(ve<int>& a, int d) {
+  int n = a.size();
+  int res = 0;
+
+
+  map<int, int> f;
+  for(int i = 1; i < a.size(); i++) {
+    int dif = (a[i] - a[i - 1] ) - 1;
+    f[dif]++;
+  }
+  res = max(res, f.begin() -> first);
+
+  for(int i = 1; i < a.size() - 1; i++) {
+    int d1 = a[i] - a[i - 1] - 1;
+    int d2 = a[i + 1] - a[i] - 1; 
+    f[d1]--;
+    f[d2]--;
+    f[(a[i + 1] - a[i - 1]) - 1]++;
+
+
+    //put at last
+    if(a[n - 1] != d) {
+      int mn = INF;
+      int last = d - a[n - 1] - 1;
+      
+      for(auto it = f.begin(); it != f.end(); it++) {
+        if(it -> se > 0) {
+          mn = min(mn, it -> first);
+          break;
+        }
+      }
+      mn = min(mn, last);
+      res = max(res, mn);
+    }
+
+    if(a[0] != 1) {
+      //put at first
+      int mn = INF;
+      int x = a[0] - 1 - 1;
+      
+      for(auto it = f.begin(); it != f.end(); it++) {
+        if(it -> se > 0) {
+          mn = min(mn, it -> first);
+          break;
+        }
+      }
+      mn = min(mn, x);
+      res = max(res, mn);
+
+    }
+
+    //put at max
+    int mn = INF;
+    for(auto it = f.begin(); it != f.end(); it++) {
+        if(it -> se > 0) {
+          mn = min(mn, it -> f);
+          break;
+        }
+    }
+    for(auto it = f.rbegin(); it != f.rend(); it++) {
+      if(it -> se > 0) {
+        int dif = it -> first - 1;
+        mn = min(mn, dif / 2);
+        break;
+      }
+    }
+    res = max(res, mn);
+
+    //recover
+    f[d1]++;
+    f[d2]++;
+    f[(a[i + 1] - a[i - 1]) - 1]--;
+  }
+
+  if(a[n - 1] != d) {
+    int mn = INF;
+    int dif = a[n - 1] - a[n - 2] - 1;
+    f[dif]--;
+    f[d - a[n - 2] - 1]++;
+    for(auto it = f.begin(); it != f.end(); it++) {
+        if(it -> se > 0) {
+          mn = min(mn, it -> f);
+          break;
+        }
+    }
+    res = max(res, mn);
+  }
+
+  
+  
+
+
+  cout << res << endl;
+
+}
+
+int main()
+{
+  int t = 1;
+  cin >> t;
+  while (t--)
+  {
+    int n, d;
+    cin >> n >> d;
+    ve<int> a;
+    a.pb(0);
+    FOR(i, 0, n) {
+      int x;
+      cin >> x;
+      a.pb(x);
+    }
+    solve(a, d);
+  }
+
+  return 0;
+}
