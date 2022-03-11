@@ -840,6 +840,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  559C |[Gerald and Giant Chess (2200) (Combination + DP + 容斥 + Unique Path 升级)  ](./code/559C.txt)|2022/03/09|
 |  906B |[Seating of Students (2200) (Constructive)  ](./code/906B.txt)|2022/03/09|
 |  507D |[The Maths Lecture (2200) (Digit DP)  ](./code/507D.txt)|2022/03/10|
+|  1650G |[Counting Shortcuts (2100) (Shortest Path + DP)  ](./code/1650G.txt)|2022/03/10|
 
 
 # 分类
@@ -1428,6 +1429,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 543B.[ Destroying Roads (2100) (Shortes Path + Thinking) (Thumb) ](./code/543B.txt)<br/>
 369D.[ Valera and Fools (2200) (Thinking + Shortest Path + DP)  ](./code/369D.txt)<br/>
 821D.[Okabe and City (2200) (Graph Building + Shortest Path) (Thumb) ](./code/821D.txt)<br/>
+1650G.[Counting Shortcuts (2100) (Shortest Path + DP)  ](./code/1650G.txt)<br/>
 
 ### 0-1 BFS
 1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
