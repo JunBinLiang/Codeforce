@@ -842,6 +842,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  507D |[The Maths Lecture (2200) (Digit DP)  ](./code/507D.txt)|2022/03/10|
 |  1650G |[Counting Shortcuts (2100) (Shortest Path + DP)  ](./code/1650G.txt)|2022/03/10|
 |  1650F |[Vitaly and Advanced Useless Algorithms (2200) (DP)  ](./code/1650F.txt)|2022/03/11|
+|  1650E |[Rescheduling the Exam (1900)   ](./code/1650E.txt)|2022/03/11|
 
 
 # 分类
