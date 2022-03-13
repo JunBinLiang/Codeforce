@@ -843,6 +843,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1650G |[Counting Shortcuts (2100) (Shortest Path + DP)  ](./code/1650G.txt)|2022/03/10|
 |  1650F |[Vitaly and Advanced Useless Algorithms (2200) (DP)  ](./code/1650F.txt)|2022/03/11|
 |  1650E |[Rescheduling the Exam (1900)   ](./code/1650E.txt)|2022/03/11|
+|  1580B |[Mathematics Curriculum (2600)  (Permutation DP + Combination)  ](./code/1580B.txt)|2022/03/13|
 
 
 # 分类
@@ -957,6 +958,10 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### DP 转换/Optimize
 1303E.[ Erase Subsequences(2200) (DP + Thinking)  ](./code/1303E.txt)<br/>
+
+### Permutation DP
+1580B.[Mathematics Curriculum (2600)  (Permutation DP + Combination)  ](./code/1580B.txt)<br/>
+
 
 ### 树DP
 161D. [ Distance in Tree  (1800) (Tree DP  )  ](./code/161D.txt)<br/>
