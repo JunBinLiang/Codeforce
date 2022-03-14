@@ -844,6 +844,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1650F |[Vitaly and Advanced Useless Algorithms (2200) (DP)  ](./code/1650F.txt)|2022/03/11|
 |  1650E |[Rescheduling the Exam (1900)   ](./code/1650E.txt)|2022/03/11|
 |  1580B |[Mathematics Curriculum (2600)  (Permutation DP + Combination)  ](./code/1580B.txt)|2022/03/13|
+|  912E |[Prime Gift (2400)  (Brute Force + Meet in Middle)  ](./code/912E.txt)|2022/03/13|
 
 
 # 分类
@@ -1646,6 +1647,9 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### CDQ
 848C.[ Goodbye Souvenir(2600) (CDQ 分支)  ](./code/848C.txt)<br/>
+
+### Meet in Middle
+912E.[Prime Gift (2400)  (Brute Force + Meet in Middle)  ](./code/912E.txt)<br/>
 
 ### Divide Conquer : Merge
 1567E.[Non-Decreasing Dilemma (2200) (Segment Tree + Divide Conquer)  ](./code/1567E.txt)<br/>
