@@ -845,6 +845,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1650E |[Rescheduling the Exam (1900)   ](./code/1650E.txt)|2022/03/11|
 |  1580B |[Mathematics Curriculum (2600)  (Permutation DP + Combination)  ](./code/1580B.txt)|2022/03/13|
 |  912E |[Prime Gift (2400)  (Brute Force + Meet in Middle)  ](./code/912E.txt)|2022/03/13|
+|  817F |[MEX Queries (2300)  (Segment Update + rever a bit rangg + Cpp) (Thumb)  ](./code/817F.txt)|2022/03/15|
 
 
 # 分类
@@ -1564,6 +1565,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1527E.[Partition Game (2500) (DP + Thinking + Seg push down)  ](./code/1527E.txt)<br/>
 85D.[Sum of Medians (2300) (Seg push + Thinking)  ](./code/85D.txt)<br/>
 620E.[New Year Tree (2100) (Seg Push + Tree + Bit)  ](./code/620E.txt)<br/>
+817F.[MEX Queries (2300)  (Segment Update + rever a bit rangg + Cpp) (Thumb)  ](./code/817F.txt)<br/>
 
 ### Lazy Segment Tree
 960F.[Pathwalks (2100) (DP + Lazy Segment Tree)  ](./code/960F.txt)<br/>
@@ -1573,6 +1575,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 558E.[ A Simple Task	 (2300) (Segment Tree Range Update)  ](./code/558E.txt)<br/>
 1136E.[Nastya Hasn't Written a Legend (2200) (Segment SetTo + Math)  ](./code/1136E.txt)<br/>
 343D.[Water Tree (2100)  (Tree + Seg push) ](./code/343D.txt)<br/>
+
 
 ### Segment Tree  Range Update 
 52C. [Circular RMQ (2200) (Range Update Min Lazy Seg) ](./code/52C.txt)   <br/>
