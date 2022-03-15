@@ -846,6 +846,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1580B |[Mathematics Curriculum (2600)  (Permutation DP + Combination)  ](./code/1580B.txt)|2022/03/13|
 |  912E |[Prime Gift (2400)  (Brute Force + Meet in Middle)  ](./code/912E.txt)|2022/03/13|
 |  817F |[MEX Queries (2300)  (Segment Update + rever a bit rangg + Cpp) (Thumb)  ](./code/817F.txt)|2022/03/15|
+|  1342E |[Placing Rooks (2300)  (Com + 容斥) (Thumb)  ](./code/1342E.txt)|2022/03/15|
 
 
 # 分类
@@ -1352,6 +1353,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
  1093F.[Vasya and Array (2400) ( DP + 容斥) ](./code/1093F.txt)<br/>
  920G.[List Of Integers (2200) ( 容斥) ](./code/920G.txt)<br/>
  559C.[Gerald and Giant Chess (2200) (Combination + DP + 容斥 + Unique Path 升级)  ](./code/559C.txt)<br/>
+ 1342E.[Placing Rooks (2300)  (Com + 容斥) (Thumb)  ](./code/1342E.txt)<br/>
  
 ### 二维容斥
 1245F.[Daniel and Spring Cleaning (2300) (数位DP + 二维容斥)  ](./code/1245F.txt)<br/>
