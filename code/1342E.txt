@@ -1,0 +1,193 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define se second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+#define RFOR(i, a, b) for (int i = a; i >= b; i--)
+
+// Some predefined templates
+template <typename T>
+ostream &operator<<(ostream &out, const vector<T> &a)
+{
+  out << "[";
+  bool first = true;
+  for (auto v : a)
+  {
+    out << (first ? "" : ", ");
+    out << v;
+    first = 0;
+  }
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const unordered_map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y)
+{
+  return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y)
+{
+  return x * y / gcd(x, y);
+}
+
+int to_int(string &s)
+{
+  int res = 0;
+  for (char c : s)
+  {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int MOD = 998244353;
+int mod = 998244353;
+
+
+ll fact[200000 + 50];
+ll inv[200000 + 50];
+ll C(int n, int r) {
+    return ((fact[n] * inv[r] % mod) * inv[n - r]) % mod;
+}
+
+ll modInverse(ll a, ll m){
+    ll m0 = m;
+    ll y = 0, x = 1;
+
+    if (m == 1)
+        return 0;
+
+    while (a > 1) {
+        ll q = a / m;
+        ll t = m;
+        m = a % m;
+        a = t;
+        t = y;
+        y = x - q * y;
+        x = t;
+    }
+    if (x < 0)
+        x += m0;
+    return x;
+}
+
+void init() {
+  memset(fact, 0, sizeof(fact));
+  memset(inv, 0, sizeof(inv));
+  fact[0] = fact[1] = 1;
+  for(int i = 2; i < 200000 + 10; i++) {
+    fact[i] = fact[i - 1] * i;
+    fact[i] %= mod;
+  }
+  inv[0]=inv[1]=1;
+  for (int i = 2;i < 200000 + 10;i++){
+      inv[i]= modInverse(i,mod) * inv[i-1];
+      inv[i]%=mod;
+  }
+}
+ll power(ll a,ll b)
+{
+    ll res=1;
+    while(b) {
+        if(b&1) {
+          res = (res * a) % mod;
+        } 
+        a = (a * a) % mod;
+        b >>= 1;
+    }
+    return res % mod;
+}
+
+void solve(int n, int k) {
+  //place n rocks
+  init();
+  if(k >= n) {
+    cout << 0 << endl;
+    return;
+  }
+  if(k == 0) {
+    cout << fact[n] << endl;
+    return;
+  }
+
+  
+  int m = n - k;
+  ll c2 = C(n, m);
+  ll res = power(m, n); 
+ 
+  int sign = -1;
+  for(int i = 1; i < m; i++) {
+    //fixed i positions as empty
+    ll ways = C(m, m - i);
+    ll distribute = power(m - i, n);
+    ll x = (distribute * ways) % mod;
+    x *= sign;
+    res += x;
+    res += mod;
+    res %= mod;
+    sign *= -1;
+  }
+
+  res *= c2;
+  res %= mod;
+  res *= 2;
+  res %= mod;
+  cout << res << endl;
+}
+
+int main()
+{
+  int t = 1;
+  //cin >> t;
+  while (t--)
+  {
+    int n, k;
+    cin >> n >> k;
+    solve(n, k);
+  }
+  return 0;
+}
