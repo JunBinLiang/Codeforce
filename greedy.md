@@ -32,3 +32,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1650D  |[  Twist the Permutation (1300) (15 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1650D.txt)   |2022/03/11|
 |  1650C  |[  Weight of the System of Nested Segments (1200) (8 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1650C.txt)   |2022/03/11|
 |  1641A  |[  Great Sequence (1200) (8 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1641A.txt)   |2022/03/14|
+|  1320A  |[  Journey Planning (1400) (5 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1320A.txt)   |2022/03/15|
