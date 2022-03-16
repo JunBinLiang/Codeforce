@@ -847,6 +847,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  912E |[Prime Gift (2400)  (Brute Force + Meet in Middle)  ](./code/912E.txt)|2022/03/13|
 |  817F |[MEX Queries (2300)  (Segment Update + rever a bit rangg + Cpp) (Thumb)  ](./code/817F.txt)|2022/03/15|
 |  1342E |[Placing Rooks (2300)  (Com + 容斥) (Thumb)  ](./code/1342E.txt)|2022/03/15|
+|  1304F1 |[Animal Observation (easy version) (2300)  (DP) ](./code/1304F1.txt)|2022/03/15|
+
 
 
 # 分类
