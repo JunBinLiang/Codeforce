@@ -35,3 +35,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1320A  |[  Journey Planning (1400) (5 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1320A.txt)   |2022/03/15|
 |  1149A  |[  Prefix Sum Primes (1200) (5 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1149A.txt)   |2022/03/16|
 |  1492B  |[  Card Deck (1100) (8 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1492B.txt)   |2022/03/16|
+|  1201C  |[  Maximum Median (1400) (4 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1201C.txt)   |2022/03/16|
