@@ -849,7 +849,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1342E |[Placing Rooks (2300)  (Com + 容斥) (Thumb)  ](./code/1342E.txt)|2022/03/15|
 |  1304F1 |[Animal Observation (easy version) (2300)  (DP) ](./code/1304F1.txt)|2022/03/15|
 |  1304F2 |[Animal Observation (Hard version) (2400)  (DP + Monoqueue + Thinking) ](./code/1304F2.txt)|2022/03/15|
-
+|  1442C |[Graph Transpositions (2400)  (Thinking + Shortest Path) ](./code/1442C.txt)|2022/03/16|
 
 
 # 分类
@@ -1445,6 +1445,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 369D.[ Valera and Fools (2200) (Thinking + Shortest Path + DP)  ](./code/369D.txt)<br/>
 821D.[Okabe and City (2200) (Graph Building + Shortest Path) (Thumb) ](./code/821D.txt)<br/>
 1650G.[Counting Shortcuts (2100) (Shortest Path + DP)  ](./code/1650G.txt)<br/>
+1442C.[Graph Transpositions (2400)  (Thinking + Shortest Path) ](./code/1442C.txt)<br/>
 
 ### 0-1 BFS
 1063B.[ Labyrinth (1800) (Thinking + 01-BFS )  ](./code/1063B.txt)<br/>
