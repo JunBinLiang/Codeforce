@@ -848,6 +848,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  817F |[MEX Queries (2300)  (Segment Update + rever a bit rangg + Cpp) (Thumb)  ](./code/817F.txt)|2022/03/15|
 |  1342E |[Placing Rooks (2300)  (Com + 容斥) (Thumb)  ](./code/1342E.txt)|2022/03/15|
 |  1304F1 |[Animal Observation (easy version) (2300)  (DP) ](./code/1304F1.txt)|2022/03/15|
+|  1304F2 |[Animal Observation (Hard version) (2400)  (DP + Monoqueue + Thinking) ](./code/1304F2.txt)|2022/03/15|
 
 
 
@@ -1007,6 +1008,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 ### DP + Monoqueue
 1077F2.[Pictures with Kittens (hard version) (2100) (DP + Monoqueue) ](./code/1077F2.txt)<br/>
 487B.[ Strip (2000) (DP + Monoqueue)  ](./code/487B.txt)<br/>
+1304F2.[Animal Observation (Hard version) (2400)  (DP + Monoqueue + Thinking) ](./code/1304F2.txt)<br/>
 
 ## 概率DP
 540D. [Bad Luck Island (1900) (DP)  ](./code/540D.txt)<br/>
