@@ -851,6 +851,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1304F2 |[Animal Observation (Hard version) (2400)  (DP + Monoqueue + Thinking) ](./code/1304F2.txt)|2022/03/15|
 |  1442C |[Graph Transpositions (2400)  (Thinking + Shortest Path) ](./code/1442C.txt)|2022/03/16|
 |  1149B |[Three Religions (2200)  (DP + Thinking) ](./code/1149B.txt)|2022/03/17|
+|  1603C |[ Extreme Extension (2300)  (DP + Thinking) ](./code/1603C.txt)|2022/03/17|
 
 
 # 分类
