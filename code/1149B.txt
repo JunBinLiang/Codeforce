@@ -1,0 +1,206 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+#include <list>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define se second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+#define RFOR(i, a, b) for (int i = a; i >= b; i--)
+
+// Some predefined templates
+template <typename T>
+ostream &operator<<(ostream &out, const vector<T> &a)
+{
+  out << "[";
+  bool first = true;
+  for (auto v : a)
+  {
+    out << (first ? "" : ", ");
+    out << v;
+    first = 0;
+  }
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const unordered_map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+ll gcd(ll x, ll y)
+{
+  return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y)
+{
+  return x * y / gcd(x, y);
+}
+
+int to_int(string &s)
+{
+  int res = 0;
+  for (char c : s)
+  {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+int MOD = 998244353;
+int mod = 998244353;
+int INF = INT_MAX;
+
+
+int dp[260][260][260];
+int Next[100000 + 50][26];
+
+void solve() {
+  int n, m;
+  cin >> n >> m;
+  string s;
+  cin >> s;
+
+  //init next array.
+  for(int i = 0; i < 100000 + 50; i++) {
+    for(int j = 0; j < 26; j++) {
+      Next[i][j] = n + 1;
+    }
+  }
+
+  ve<int> last(26, n + 1);
+  for(int i = s.size(); i >= 1; i--) {
+    for(int j = 0; j < 26; j++) {
+      Next[i][j] = last[j];
+    }
+    last[s[i - 1] - 'a'] = i;
+  }
+  for(int i = 0; i < 26; i++) {
+    Next[0][i] = last[i];
+  }
+
+  //init dp
+  for(int i = 0; i < 260; i++) {
+    for(int j = 0; j < 260; j++) {
+      for(int k = 0; k < 260; k++) {
+        dp[i][j][k] = n + 1;
+      }
+    }
+  }
+
+
+  ve<string> a(3);
+  dp[0][0][0] = 0;
+
+  FOR(i, 0, m) {
+    string op;
+    cin >> op;
+    int index;
+    if(op[0] == '+') {
+      cin >> index;
+      char c;
+      cin >> c;
+      //update dp
+      a[index - 1].pb(c);
+      if(index == 1) {
+        int x = a[0].size();
+        for(int i = 0; i <= a[1].size(); i++) {
+          for(int j = 0; j <= a[2].size(); j++) {
+            int mn = n + 1;
+            mn = min(mn, Next[dp[x - 1][i][j]][c - 'a']);
+            if(i > 0)mn = min(mn, Next[dp[x][i - 1][j]][a[1][i - 1] - 'a']);
+            if(j > 0)mn = min(mn, Next[dp[x][i][j - 1]][a[2][j - 1] - 'a']);
+            dp[x][i][j] = mn;
+          }
+        }
+
+      } else if(index == 2) {
+        int x = a[1].size();
+        for(int i = 0; i <= a[0].size(); i++) {
+          for(int j = 0; j <= a[2].size(); j++) {
+            int mn = n + 1;
+            mn = min(mn, Next[dp[i][x - 1][j]][c - 'a']);
+            if(i > 0)mn = min(mn, Next[dp[i - 1][x][j]][a[0][i - 1] - 'a']);
+            if(j > 0)mn = min(mn, Next[dp[i][x][j - 1]][a[2][j - 1] - 'a']);
+            dp[i][x][j] = mn;
+          }
+        }
+      } else {
+        int x = a[2].size();
+        for(int i = 0; i <= a[0].size(); i++) {
+          for(int j = 0; j <= a[1].size(); j++) {
+            int mn = n + 1;
+            mn = min(mn, Next[dp[i][j][x - 1]][c - 'a']);
+            if(i > 0)mn = min(mn, Next[dp[i - 1][j][x]][a[0][i - 1]- 'a']);
+            if(j > 0)mn = min(mn, Next[dp[i][j - 1][x]][a[1][j - 1] - 'a']);
+            dp[i][j][x] = mn;
+          }
+        }
+      }
+    } else {
+      cin >> index;
+      a[index - 1].pop_back();
+    }
+
+  
+
+    // check answer
+    int val = dp[a[0].size()][a[1].size()][a[2].size()];
+    //cout << "val " << val << endl;
+    if(val >= n + 1) {
+      cout << "NO" << endl;
+    } else {
+      cout << "YES" << endl;
+    }
+  }
+}
+
+int main()
+{
+  int t = 1;
+  //cin >> t;
+  while (t--)
+  {
+
+    solve();
+  }
+  return 0;
+}
