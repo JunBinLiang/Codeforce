@@ -852,6 +852,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1442C |[Graph Transpositions (2400)  (Thinking + Shortest Path) ](./code/1442C.txt)|2022/03/16|
 |  1149B |[Three Religions (2200)  (DP + Thinking) ](./code/1149B.txt)|2022/03/17|
 |  1603C |[ Extreme Extension (2300)  (DP + Thinking + Math) ](./code/1603C.txt)|2022/03/17|
+|  1037E |[Trips (2200)  (Graph) ](./code/1037E.txt)|2022/03/18|
 
 
 # 分类
