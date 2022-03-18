@@ -853,6 +853,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1149B |[Three Religions (2200)  (DP + Thinking) ](./code/1149B.txt)|2022/03/17|
 |  1603C |[ Extreme Extension (2300)  (DP + Thinking + Math) ](./code/1603C.txt)|2022/03/17|
 |  1037E |[Trips (2200)  (Graph) ](./code/1037E.txt)|2022/03/18|
+|  1132G |[Greedy Subsequences (2400)  (Seg push + Tree + DP) ](./code/1132G.txt)|2022/03/18|
 
 
 # 分类
@@ -1513,6 +1514,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1363E.[ Tree Shuffling (2000) (Tree + Greedy)  ](./code/1363E.txt)<br/>
 369C.[Valera and Elections (1600) (Tree)  ](./code/369C.txt)<br/>
 1632E1.[Distance Tree (easy version) (2400)  (Thinking + Tree + Brute Force) ](./code/1632E1.txt)<br/>
+1132G.[Greedy Subsequences (2400)  (Seg push + Tree + DP) ](./code/1132G.txt)<br/>
 
 ### Tree Diameter
 744F.[ Tree Destruction (2400) (Tree + Greedy )  ](./code/744F.txt)<br/>
