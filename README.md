@@ -854,6 +854,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1603C |[ Extreme Extension (2300)  (DP + Thinking + Math) ](./code/1603C.txt)|2022/03/17|
 |  1037E |[Trips (2200)  (Graph) ](./code/1037E.txt)|2022/03/18|
 |  1132G |[Greedy Subsequences (2400)  (Seg push + Tree + DP) ](./code/1132G.txt)|2022/03/18|
+|  830C |[Bamboo Partition (2300)  (除法分块 + Math) ](./code/830C.txt)|2022/03/19|
 
 
 # 分类
@@ -1288,7 +1289,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 552C.[Vanya and Scales (1900) (进制)  ](./code/552C.txt)<br/>
 
 ### Math ： n / 1   n / 2   n / 3 ...  除法分块
-1603C.[ Extreme Extension (2300)  (DP + Thinking + Math) ](./code/1603C.txt)<br、>
+1603C.[ Extreme Extension (2300)  (DP + Thinking + Math) ](./code/1603C.txt)<br>
+830C.[Bamboo Partition (2300)  (除法分块 + Math) ](./code/830C.txt)<br/>
 
 ### Number Theory
 584D. [Dima and Lisa (1800) （Math : 1个偶数可以拆两个素数 ） ](./code/584D.txt)   <br/>
