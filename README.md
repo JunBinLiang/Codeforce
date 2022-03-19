@@ -1287,7 +1287,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 ### Math : 进制
 552C.[Vanya and Scales (1900) (进制)  ](./code/552C.txt)<br/>
 
-### Math ： n / 1   n / 2   n / 3 ...  分块
+### Math ： n / 1   n / 2   n / 3 ...  除法分块
 1603C.[ Extreme Extension (2300)  (DP + Thinking + Math) ](./code/1603C.txt)<br、>
 
 ### Number Theory
