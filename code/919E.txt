@@ -1,0 +1,36 @@
+题解：https://v-verly.github.io/2019/08/29/Codeforces-919E/
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+ll a, b, n, p;
+
+ll inv(ll a, ll n = p - 2)
+{
+    ll res = 1;
+    for(; n; n >>= 1, (a *= a) %= p) if(n & 1) (res *= a) %= p;
+    return res;
+}
+
+int main()
+{
+    cin >> a >> b >> p >> n;
+    ll inva = inv(a), res = 0;
+    for(int y = 0; y < p - 1; y ++)
+    {
+        // x = y - b * a ^ (-y) + k * p
+        ll x = (y - b + p) % p;
+        if(y <= n && (n - y) / (p - 1) >= x)
+        {
+            res += ((n - y) / (p - 1) - x) / p + 1;
+            if(x == 0 && y == 0) res --;
+        }
+        (b *= inva) %= p;
+    }
+    cout << res << endl;
+    return 0;
+}
