@@ -859,6 +859,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1037E |[Trips (2200)  (Graph) ](./code/1037E.txt)|2022/03/18|
 |  1132G |[Greedy Subsequences (2400)  (Seg push + Tree + DP) ](./code/1132G.txt)|2022/03/18|
 |  830C |[Bamboo Partition (2300)  (除法分块 + Math) ](./code/830C.txt)|2022/03/19|
+|  919E |[ Congruence Equation (2100)  (费马小定理) ](./code/919E.txt)|2022/03/21|
 
 
 # 分类
@@ -1304,6 +1305,9 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1029D.[Concatenated Multiples (1900) (Hash + Mod) ](./code/1029D.txt)<br/>
 1537D.[ Deleting Divisors (1700) (Game + Number Theory) ](./code/1537D.txt)<br/>
 1285C.[  Fadi and LCM (1400) (Math)  ](./code/1285C.txt) <br/>
+
+## 费马小定理
+919E.[ Congruence Equation (2100)  (费马小定理) ](./code/919E.txt)<br/>
 
 ### Exponentional with Mod
 615D.[Multipliers (2000) (Combination + Math)  ](./code/615D.txt)<br/>
