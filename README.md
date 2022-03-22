@@ -860,6 +860,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1132G |[Greedy Subsequences (2400)  (Seg push + Tree + DP) ](./code/1132G.txt)|2022/03/18|
 |  830C |[Bamboo Partition (2300)  (除法分块 + Math) ](./code/830C.txt)|2022/03/19|
 |  919E |[ Congruence Equation (2100)  (费马小定理) ](./code/919E.txt)|2022/03/21|
+|  1500B |[ Two chandeliers (2200)  (CRT and EXCRT) ](./code/1500B.txt)|2022/03/22|
 
 
 # 分类
@@ -1306,8 +1307,11 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1537D.[ Deleting Divisors (1700) (Game + Number Theory) ](./code/1537D.txt)<br/>
 1285C.[  Fadi and LCM (1400) (Math)  ](./code/1285C.txt) <br/>
 
-## 费马小定理
+### 费马小定理
 919E.[ Congruence Equation (2100)  (费马小定理) ](./code/919E.txt)<br/>
+
+### CRT & EXCRT
+1500B.[ Two chandeliers (2200)  (CRT and EXCRT) ](./code/1500B.txt)<br/>
 
 ### Exponentional with Mod
 615D.[Multipliers (2000) (Combination + Math)  ](./code/615D.txt)<br/>
