@@ -36,3 +36,4 @@ https://codeforces.com/problemset?tags=greedy,1000-1400 <br/>
 |  1149A  |[  Prefix Sum Primes (1200) (5 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1149A.txt)   |2022/03/16|
 |  1492B  |[  Card Deck (1100) (8 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1492B.txt)   |2022/03/16|
 |  1201C  |[  Maximum Median (1400) (4 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1201C.txt)   |2022/03/16|
+|  1372B  |[  Omkar and Last Class of Math (1300) (16 min) ](https://github.com/JunBinLiang/Codeforce/blob/main/code/1372B.txt)   |2022/03/22|
