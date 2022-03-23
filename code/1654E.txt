@@ -1,0 +1,187 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+#include <list>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define se second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+#define RFOR(i, a, b) for (int i = a; i >= b; i--)
+#define W while
+#define um unordered_map
+#define us unordered_set
+#define str string
+
+// Some predefined templates
+template <typename T>
+ostream &operator<<(ostream &out, const vector<T> &a)
+{
+  out << "[";
+  bool first = true;
+  for (auto v : a)
+  {
+    out << (first ? "" : ", ");
+    out << v;
+    first = 0;
+  }
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const unordered_map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+
+ll gcd(ll x, ll y)
+{
+  return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y)
+{
+  return x * y / gcd(x, y);
+}
+
+int to_int(string &s)
+{
+  int res = 0;
+  for (char c : s)
+  {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+
+
+int cal(ve<int>& a) {
+  int n = a.size();
+  int res = n;
+  FOR(d, 0, 101) {
+    um<int, int> f;
+    int mx = 0;
+    FOR(i, 0, n) {
+      int x = a[i] - d * i;
+      f[x]++;
+      mx = max(mx, f[x]);
+    }
+    res = min(res, n - mx);
+  }
+
+  //if(n > 90000) return res;
+  
+  FOR(i, 0, n) {
+    //fixed a[i]
+    um<int, int> f;
+    for(int j = i + 1; j < n; j++) {
+      if((j - i) * 100 + a[i] > 100000 + 5){
+        break;
+      }
+      int dif = a[j] - a[i];
+      if(dif < 0) {
+        continue;
+      }
+      if((dif % (j - i)) == 0) {
+        int d = dif / (j - i);
+        f[d]++;
+      }
+    }
+
+    for(int j = i - 1; j >= 0; j--) {
+      if(a[i] - (i - j) * 100 < 0) {
+        break;
+      }
+      int dif = a[i] - a[j];
+      if(dif < 0) {
+        continue;
+      }
+      if((dif % (i - j)) == 0) {
+        int d = dif / (i - j);
+        f[d]++;
+      } 
+    }
+    for(auto it = f.begin(); it != f.end(); it++) {
+      int cnt = it -> se;
+      res = min(res, n - (cnt + 1));
+    }
+
+  }
+
+  return res;
+}
+
+void solve(ve<int>& a) {
+  ve<int> b;
+  RFOR(i, a.size() - 1, 0) {
+    b.pb(a[i]);
+  }
+  int x = cal(a);
+  int y = cal(b);
+  int res = min(x, y);
+  cout << res << endl;
+}
+
+int main()
+{
+  int t = 1;
+  //cin >> t;
+  W (t--)
+  {
+    int n;
+    cin >> n;
+    ve<int> a(n);
+    FOR(i, 0, n) {
+      scanf("%i", &a[i]);
+    }
+    solve(a);
+  }
+  return 0;
+}
+
+
+
+
+
