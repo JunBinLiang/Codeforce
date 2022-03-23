@@ -861,6 +861,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  830C |[Bamboo Partition (2300)  (除法分块 + Math) ](./code/830C.txt)|2022/03/19|
 |  919E |[ Congruence Equation (2100)  (费马小定理) ](./code/919E.txt)|2022/03/21|
 |  1500B |[ Two chandeliers (2200)  (CRT and EXCRT) ](./code/1500B.txt)|2022/03/22|
+|  364B |[ Free Market (2200)  (DP + Greedy) ](./code/364B.txt)|2022/03/23|
 
 
 # 分类
