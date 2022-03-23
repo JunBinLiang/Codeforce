@@ -863,6 +863,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1500B |[ Two chandeliers (2200)  (CRT and EXCRT) ](./code/1500B.txt)|2022/03/22|
 |  364B |[ Free Market (2200)  (DP + Greedy) ](./code/364B.txt)|2022/03/23|
 |  1380E |[ Merging Towers (2300)  (启发式合并) ](./code/1380E.txt)|2022/03/23|
+|  1654E |[ Arithmetic Operations (2300)  (Brute Force + Time Complexity) ](./code/1654E.txt)|2022/03/23|
 
 
 # 分类
@@ -1176,6 +1177,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 1582F2.[Korney Korneevich and XOR (hard version) (2400) ( Thinking )  ](./code/1582F2.txt)<br/>
 1637E.[Best Pair  (Brute Force + Time) ](./code/1637E.txt)<br/>
 1580C.[Train Maintenance (2200) (Thinking + Brute Force)  ](./code/1580C.txt)<br/>
+1654E.[ Arithmetic Operations (2300)  (Brute Force + Time Complexity) ](./code/1654E.txt)<br/>
 
 ### 优雅暴力1 : 启发式合并
  965E.[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)<br/>
