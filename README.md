@@ -862,6 +862,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  919E |[ Congruence Equation (2100)  (费马小定理) ](./code/919E.txt)|2022/03/21|
 |  1500B |[ Two chandeliers (2200)  (CRT and EXCRT) ](./code/1500B.txt)|2022/03/22|
 |  364B |[ Free Market (2200)  (DP + Greedy) ](./code/364B.txt)|2022/03/23|
+|  1380E |[ Merging Towers (2300)  (启发式合并) ](./code/1380E.txt)|2022/03/23|
 
 
 # 分类
@@ -1179,6 +1180,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 ### 优雅暴力1 : 启发式合并
  965E.[Short Code (2200) (Trie + Greedy + 启发式合并)  ](./code/965E.txt)<br/>
  600E.[ Lomsat gelral (2300) (启发合并)  ](./code/600E.txt)<br/>
+ 1380E.[ Merging Towers (2300)  (启发式合并) ](./code/1380E.txt)<br/>
 
 
 ### 优雅暴力2 : 分块 (Square Root Decomposition)
