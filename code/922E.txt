@@ -1,0 +1,190 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+#include <list>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define se second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+#define RFOR(i, a, b) for (int i = a; i >= b; i--)
+#define W while
+#define um unordered_map
+#define us unordered_set
+#define str string
+
+// Some predefined templates
+template <typename T>
+ostream &operator<<(ostream &out, const vector<T> &a)
+{
+  out << "[";
+  bool first = true;
+  for (auto v : a)
+  {
+    out << (first ? "" : ", ");
+    out << v;
+    first = 0;
+  }
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const unordered_map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+
+ll gcd(ll x, ll y)
+{
+  return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y)
+{
+  return x * y / gcd(x, y);
+}
+
+int to_int(string &s)
+{
+  int res = 0;
+  for (char c : s)
+  {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+
+
+int a[5000];
+int b[5000];
+ll dp[1010][10010];
+void solve() {
+  int n;
+  ll w, B, X;
+  int res = 0;
+  cin >> n;
+  cin >> w >> B >> X;
+  int sum = 0;
+  FOR(i, 0, n) {
+    scanf("%i", &a[i]);
+    sum += a[i];
+  }
+  FOR(i, 0, n) {
+    scanf("%i", &b[i]);
+  }
+
+  //B : capacity
+  //X : restore
+  memset(dp, -1, sizeof(dp));
+  dp[0][0] = w;
+  FOR(i, 1, n + 1) {
+    ll val = a[i - 1];
+    list<ve<ll>> mono;
+    FOR(j, 0, sum + 1) {
+      if(dp[i - 1][j] != -1) {
+        ll add = dp[i - 1][j] - (n - j + 0ll) * b[i - 1];
+        while(mono.size() > 0)  {
+          ve<ll> p = mono.back();
+          if(add >= p[1])mono.pop_back();
+          else break;
+        }
+        mono.push_back({j, add});
+      }
+      //remove invalid
+      while(mono.size() > 0) {
+        ve<ll> p = mono.front();
+        if(j - (int)(p[0]) > a[i - 1]) {
+          mono.pop_front();
+        } else {
+          break;
+        }
+      }
+
+      if(mono.size() > 0) {
+        ve<ll> p = mono.front();
+        int index = (int)(p[0]);
+        ll take = j - index;
+        if(dp[i - 1][index] >= take * b[i - 1]) {
+          ll cap = (w) +  (B) * j;
+          dp[i][j] = max(min((dp[i - 1][index] - take * b[i - 1] + X), cap), dp[i][j]);
+        }
+        
+        /*if(dp[i - 1][j] != -1) {
+          ll cap = (w) +  (B) * j;
+          dp[i][j] = max(dp[i][j], min(dp[i - 1][j] + X, cap));
+        }*/
+      }
+    }
+  }
+
+  FOR(i, 0, n + 1) {
+    FOR(j, 0, sum + 1) {
+      if(dp[i][j] != -1) {
+        res = max(res, j);
+      }
+    }
+  }
+  cout << res << endl;
+}
+
+
+
+
+int main()
+{
+  int t = 1;
+  //cin >> t;
+  W (t--)
+  {
+    
+    solve();
+  }
+  return 0;
+}
+
+
+
+
+
