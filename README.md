@@ -865,6 +865,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1380E |[ Merging Towers (2300)  (启发式合并) ](./code/1380E.txt)|2022/03/23|
 |  1654E |[ Arithmetic Operations (2300)  (Brute Force + Time Complexity) ](./code/1654E.txt)|2022/03/23|
 |  922E |[ Birds (2200)  (DP + Monoqueue) ](./code/922E.txt)|2022/03/24|
+|  618D |[ Hamiltonian Spanning Tree (2200)  (Greedy + Tree) ](./code/618D.txt)|2022/03/25|
 
 
 # 分类
