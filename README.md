@@ -13,6 +13,7 @@ My Codeforce Practice<br/>
 7.[中国余数 2](https://oi-wiki.org/math/number-theory/crt/) <br/>
 8.[中国余数 3](https://blog.nowcoder.net/n/489d8c84c8984eb791b31f8f113555bf?from=nowcoder_improve) <br/>
 9.[中国余数 Code](https://yeasion.github.io/2019/02/15/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E4%B8%8E%E6%89%A9%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86ExCrt/) <br/>
+10.[欧拉函数](https://blog.nowcoder.net/n/fc4e8db64b0c4786933e2b1a14f4c5e8?from=nowcoder_improve) <br/>
 
 
 # Archive
