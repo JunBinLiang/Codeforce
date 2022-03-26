@@ -867,6 +867,8 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  922E |[ Birds (2200)  (DP + Monoqueue) ](./code/922E.txt)|2022/03/24|
 |  618D |[ Hamiltonian Spanning Tree (2200)  (Greedy + Tree) ](./code/618D.txt)|2022/03/25|
 |  618F |[ Double Knapsack (3000)  (鸽子原理) ](./code/618F.txt)|2022/03/25|
+|  1093E |[ Intersection of Permutations (2400)  (CDP 分支二维) ](./code/1093E.txt)|2022/03/25|
+
 
 
 # 分类
@@ -1688,6 +1690,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### CDQ
 848C.[ Goodbye Souvenir(2600) (CDQ 分支)  ](./code/848C.txt)<br/>
+1093E.[ Intersection of Permutations (2400)  (CDP 分支二维) ](./code/1093E.txt)<br/>
 
 ### Meet in Middle
 912E.[Prime Gift (2400)  (Brute Force + Meet in Middle)  ](./code/912E.txt)<br/>
