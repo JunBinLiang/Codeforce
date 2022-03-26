@@ -1,0 +1,313 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <queue>
+#include <list>
+using namespace std;
+using ll = long long;
+
+#define pb push_back
+#define f first
+#define se second
+#define ve vector
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+#define RFOR(i, a, b) for (int i = a; i >= b; i--)
+#define W while
+#define um unordered_map
+#define us unordered_set
+#define str string
+
+// Some predefined templates
+template <typename T>
+ostream &operator<<(ostream &out, const vector<T> &a)
+{
+  out << "[";
+  bool first = true;
+  for (auto v : a)
+  {
+    out << (first ? "" : ", ");
+    out << v;
+    first = 0;
+  }
+  out << "]";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+template <typename U, typename T, class Cmp>
+ostream &operator<<(ostream &out, const unordered_map<U, T, Cmp> &a)
+{
+  out << "{";
+  bool first = true;
+  for (auto &p : a)
+  {
+    out << (first ? "" : ", ");
+    out << p.first << ":" << p.second;
+    first = 0;
+  }
+  out << "}";
+  return out;
+}
+
+
+ll gcd(ll x, ll y)
+{
+  return (y == 0 ? x : gcd(y, x % y));
+}
+ll lcm(ll x, ll y)
+{
+  return x * y / gcd(x, y);
+}
+
+int to_int(string &s)
+{
+  int res = 0;
+  for (char c : s)
+  {
+    res = res * 10 + (c - '0');
+  }
+  return res;
+}
+
+
+int MOD = 998244353;
+int mod = 1000000007;
+int INF = INT_MAX;
+
+int a[200000 + 5];
+int b[200000 + 5];
+int pos1[200000 + 5];
+int pos2[200000 + 5];
+int res[200000 + 5];
+bool isq[200000 + 5];
+struct Q {
+  int x, y, t, val, index, mul;
+};
+
+namespace Fenwick {
+  const int SIZE = 200000 + 100;
+  int tree[SIZE];
+  void init() {
+    memset(tree, 0, sizeof(tree));
+  }
+
+  void update(int i, int val) {
+    i++;
+    while(i < SIZE){
+      tree[i] += val;
+      i += (i & -i);
+    }
+  }
+
+  int pre(int i) {
+    int sum = 0;
+    while(i>0){
+      sum += tree[i];
+      i -= ( i & -i);
+    }
+    return sum;
+  }
+  int query(int i, int j) {
+      return pre(j + 1) - pre(i);
+  }
+}
+
+void add1(ve<Q>& q, int x1, int y1, int x2, int y2, int t, int index){ // x axis, y axis
+  q.pb({x1 - 1, y2, t, 0, index, -1});
+  q.pb({x2, y1 - 1, t, 0, index, -1});
+
+  q.pb({x2, y2, t, 0, index, 1});
+  q.pb({x1 - 1, y1 - 1, t, 0, index, 1});
+}
+void add2(ve<Q>& q, int x, int y, int val, int t) {
+  q.pb({x, y, t, val, -1, 0});
+}
+
+bool Comp(Q& q1, Q& q2) {
+  if(q1.x == q2. x) {
+    if(q1.y == q2.y) {
+      return q1.t < q2.t;
+    }
+    return q1.y < q2.y;
+  }
+  return q1.x < q2.x;
+}
+
+void merge(ve<Q>& q, int l, int r) {
+  int mid = l + (r - l) / 2;
+  int i = l;
+  int j = mid + 1;
+  ve<Q> a;
+
+  W(i <= mid && j <= r) {
+    if(q[i].y <= q[j].y) {
+      if(q[i].index == -1) { // single point
+        Fenwick :: update(q[i].t, q[i].val);
+      } else {//query
+
+      }
+      a.pb(q[i]);
+      i++;
+    } else {
+      if(q[j].index == -1) { // single point
+
+      } else {//query
+        int sum =  Fenwick :: query(0, q[j].t);
+        res[q[j].index] += sum * q[j].mul;
+      }
+      a.pb(q[j]);
+      j++;
+    }
+  }
+
+  
+
+  W(i <= mid) {
+    if(q[i].index == -1) { // single point
+        Fenwick :: update(q[i].t, q[i].val);
+    } else {//query
+    
+    }
+    a.pb(q[i]);
+    i++;
+  }
+
+  W(j <= r) {
+    if(q[j].index == -1) { // single point
+
+    } else {//query
+      int sum =  Fenwick :: query(0, q[j].t);
+      res[q[j].index] += sum * q[j].mul;
+    }
+    a.pb(q[j]);
+    j++;
+  }
+
+
+
+  //copy back
+  int k = 0;
+  FOR(x, l, r + 1) {
+    q[x] = a[k++];  
+    //reset fenwick tree
+    if(q[x].index == -1) {
+      int old = Fenwick :: query(q[x].t, q[x].t);
+      Fenwick :: update(q[x].t, -old); 
+    }
+  }
+
+}
+
+void divide(ve<Q>& q, int l, int r) {
+  if(l >= r) {
+    return;
+  }
+  int mid = l + (r - l) / 2;
+  divide(q, l, mid);
+  divide(q, mid + 1, r);
+  merge(q, l, r);
+}
+
+void solve() {   
+  int n, m;
+  cin >> n >> m;
+  memset(res, 0, sizeof(res));
+  memset(isq, false, sizeof(isq));
+  Fenwick :: init();
+
+  FOR(i, 0, n) {
+    scanf("%i", &a[i + 1]);
+    pos1[a[i + 1]] = i + 1;
+  }
+  FOR(i, 0, n) {
+    scanf("%i", &b[i + 1]);
+    pos2[b[i + 1]] = i + 1;
+  }
+
+
+  ve<Q> q;
+
+  FOR(i, 0, n) {
+    int x1 = pos1[a[i + 1]];
+    int y1 = pos2[a[i + 1]];
+    add2(q, x1, y1, 1, 0);
+  }
+
+  int t = 0;
+  int index = 0;
+  FOR(i, 0, m) {
+    int opt;
+    scanf("%i", &opt);
+    if(opt == 1) {
+      int l1, r1, l2, r2;
+      scanf("%i", &l1);scanf("%i", &r1);
+      scanf("%i", &l2);scanf("%i", &r2);
+      add1(q, l1, l2, r1, r2, t, i);
+      isq[i] = true;
+      //index++;
+    } else {
+      int x, y;
+      scanf("%i", &x);scanf("%i", &y);
+      //swap b[x], b[y]
+      int v1 = b[x], v2 = b[y];
+      b[x] = v2;
+      b[y] = v1;
+      //remove the old one
+      add2(q, pos1[v1], x, -1, t);
+      add2(q, pos1[v2], y, -1, t);
+      //add new one
+      pos2[v1] = y;
+      pos2[v2] = x;
+      add2(q, pos1[v1], y, 1, t);
+      add2(q, pos1[v2], x, 1, t);
+    }
+    t++;
+  }
+
+  sort(q.begin(), q.end(), Comp);
+
+  
+
+  divide(q, 0, q.size() - 1);
+  FOR(i, 0, m) {
+    if(isq[i]) {
+      printf("%d\n", res[i]);
+    }
+  }
+
+
+
+}
+
+
+int main()
+{
+  int t = 1;
+  //cin >> t;
+  W (t--)
+  {
+    solve();
+  }
+  return 0;
+}
