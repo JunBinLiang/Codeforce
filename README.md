@@ -868,6 +868,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  618D |[ Hamiltonian Spanning Tree (2200)  (Greedy + Tree) ](./code/618D.txt)|2022/03/25|
 |  618F |[ Double Knapsack (3000)  (鸽子原理) ](./code/618F.txt)|2022/03/25|
 |  1093E |[ Intersection of Permutations (2400)  (CDP 分支二维) ](./code/1093E.txt)|2022/03/25|
+|  955C |[ Sad powers (2100)  (binary search + 预处理) ](./code/955C.txt)|2022/03/26|
 
 
 
