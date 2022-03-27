@@ -1,0 +1,267 @@
+
+
+
+
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.stream.Stream;
+
+
+
+// Please name your class Main
+public class Main {
+    static FastScanner fs=new FastScanner();
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        public String next() {
+            while (!st.hasMoreElements())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int Int() {
+            return Integer.parseInt(next());
+        }
+
+        long Long() {
+            return Long.parseLong(next());
+        }
+
+        String Str(){
+            return next();
+        }
+    }
+
+
+
+    public static void main (String[] args) throws java.lang.Exception {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //reading /writing file
+        //Scanner in=new Scanner(System.in);
+        //Scanner in=new Scanner(new File("input.txt"));
+        //PrintWriter pr=new PrintWriter("output.txt")
+        int T=Int();
+        for(int t=0;t<T;t++){
+            Solution sol1=new Solution(out,fs);
+            sol1.solution(T,t);
+        }
+        out.flush();
+
+    }
+
+
+    public static int[] Arr(int n){
+        int A[]=new int[n];
+        for(int i=0;i<n;i++)A[i]=Int();
+        return A;
+    }
+    public static int Int(){
+        return fs.Int();
+    }
+    public static long Long(){
+        return fs.Long();
+    }
+    public static String Str(){
+        return fs.Str();
+    }
+}
+
+
+
+class Solution {
+    PrintWriter out;
+    int INF = Integer.MAX_VALUE;
+    int NINF = Integer.MIN_VALUE;
+    int MOD = 998244353;
+    int mod = 1000000007;
+    //int mod = 998244353;
+    Main.FastScanner fs;
+
+
+    public Solution(PrintWriter out, Main.FastScanner fs) {
+        this.out = out;
+        this.fs = fs;
+    }
+
+    public void add(Map<Integer, Integer> f, int key) {
+        Integer cnt = f.get(key);
+        if(cnt == null) {
+            f.put(key, 1);
+        } else {
+            f.put(key, cnt + 1);
+        }
+    }
+    public void del(Map<Integer, Integer> f, int key) {
+        Integer cnt = f.get(key);
+        if(cnt == 1) {
+            f.remove(key);
+        } else {
+            f.put(key, cnt - 1);
+        }
+    }
+
+    int val1 = 0;
+    int val2 = 0;
+    Trie root;
+    public void solution(int all, int testcase) {
+       int l = fs.Int();
+       int r = fs.Int();
+       int n = r - l + 1;
+       int a[] = new int[n];
+       int xor1 = 0;
+       for(int i = 0; i < n; i++) {
+           a[i] = fs.Int();
+           xor1 ^= a[i];
+       }
+
+       int xor2 = 0;
+       int xor3 = 0;
+       for(int i = l; i <= r; i++) {
+           xor2 ^= i;
+           xor3 ^= i;
+       }
+
+       if(n % 2 == 1) {
+           int x = xor1 ^ xor2;
+           out.println(x);
+           return;
+       }
+       else {
+           int left[] = new int[n];
+           int right[] = new int[n];
+
+           xor1 = 0;
+           xor2 = 0;
+           for(int i = 0; i < n; i++) {
+               xor1 ^= a[i];
+               left[i] = xor1;
+           }
+           for(int i = n - 1; i >= 0; i--) {
+               xor2 ^= a[i];
+               right[i] = xor2;
+           }
+
+           xor3 ^= l;
+
+           root = new Trie();
+           for(int i : a) {
+               insert(20,i,root, 1);
+           }
+
+
+           for(int i = 0; i < n; i++) {
+               int x = 0;
+               if (i - 1 >= 0) x ^= left[i - 1];
+               if (i + 1 < n) x ^= right[i + 1];
+               if ((x ^ xor3) == (a[i] ^ l)) {
+                   //out.println(a[i]);
+                   insert(20, a[i],root, -1);
+                   val1 = 0;
+                   val2 = 0;
+                   q1(20, a[i] ^ l, root);
+                   q2(20, a[i] ^ l, root);
+                   //System.out.println(a[i]+"  "+val1 + " " + val2+"  "+((val1 ^ a[i] ^ l)) + "  " + ( (val2 ^ a[i] ^ l)));
+
+                   insert(20, a[i],root, 1);
+                   if((val1 ^ a[i] ^ l) == r && (val2 ^ a[i] ^ l) == l + 1) {
+                       out.println(a[i] ^ l);
+                       break;
+                   }
+                   //break;
+               }
+           }
+       }
+    }
+
+    /*
+    0 3
+    4 7 6 5
+    0 3 1 2
+    * */
+
+
+    public void q1(int index,int num,Trie root){
+        if(index<0)return;
+
+        int bit=-1;
+        if((num&(1<<index))!=0)bit=1;
+        else bit=0;
+
+        if(bit==0){
+            if(root.childs[1]==null || root.childs[1].cnt == 0){
+                q1(index-1,num,root.childs[0]);
+            }else{
+                q1(index-1,num,root.childs[1]);
+                val1=val1|(1<<index);
+            }
+        }else{
+            if(root.childs[0]==null || root.childs[0].cnt == 0){
+                q1(index-1,num,root.childs[1]);
+                val1=val1|(1<<index);
+            }else{
+                q1(index-1,num,root.childs[0]);
+            }
+        }
+    }
+
+    public void q2(int index,int num,Trie root){
+        if(index<0)return;
+
+        int bit=-1;
+        if((num&(1<<index))!=0)bit=1;
+        else bit=0;
+
+        if(bit==0){
+            if(root.childs[0]==null || root.childs[0].cnt == 0){
+                q2(index-1,num,root.childs[1]);
+                val2=val2|(1<<index);
+            }else{
+                q2(index-1,num,root.childs[0]);
+            }
+        }else{
+            if(root.childs[1]==null || root.childs[1].cnt == 0){
+                q2(index-1,num,root.childs[0]);
+            }else{
+                q2(index-1,num,root.childs[1]);
+                val2=val2|(1<<index);
+            }
+        }
+    }
+
+    public void insert(int index,int num,Trie root, int add){
+        if(index<0)return;
+
+        int bit=-1;
+        if((num&(1<<index))!=0)bit=1;
+        else bit=0;
+
+        if(bit==0){
+            if(root.childs[0]==null)root.childs[0]=new Trie();
+            root.childs[0].cnt += add;
+            insert(index-1,num,root.childs[0],add);
+        }else{
+            if(root.childs[1]==null)root.childs[1]=new Trie();
+            root.childs[1].cnt += add;
+            insert(index-1,num,root.childs[1],add);
+        }
+    }
+
+    class Trie{
+        Trie childs[]=new Trie[2];
+        int cnt = 0;
+    }
+
+
+}
+
+
+
