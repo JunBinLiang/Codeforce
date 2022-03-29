@@ -870,7 +870,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  618F |[ Double Knapsack (3000)  (鸽子原理) ](./code/618F.txt)|2022/03/25|
 |  1093E |[ Intersection of Permutations (2400)  (CDP 分支二维) ](./code/1093E.txt)|2022/03/25|
 |  955C |[ Sad powers (2100)  (binary search + 预处理) ](./code/955C.txt)|2022/03/26|
-|  1658D2 |[ 388535 (Hard Version)   (Trie) ](./code/1658D2.txt)|2022/03/27|
+|  1658D2 |[ 388535 (Hard Version)   (2300) (Trie) ](./code/1658D2.txt)|2022/03/27|
 
 
 
