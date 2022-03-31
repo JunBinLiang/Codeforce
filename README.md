@@ -873,7 +873,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1658D2 |[ 388535 (Hard Version)   (2300) (Trie) ](./code/1658D2.txt)|2022/03/27|
 |  1657E |[ Star MST   (2200) (MST + DP + Combination) ](./code/1657E.txt)|2022/03/29|
 |  1656E |[ Equal Tree Sums   (2200) (Constructive) ](./code/1656E.txt)|2022/03/30|
-
+|  707D |[ Persistent Bookcase	   (2200) (DFS) ](./code/707D.txt)|2022/03/31|
 
 
 
