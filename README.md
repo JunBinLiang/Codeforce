@@ -874,6 +874,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1657E |[ Star MST   (2200) (MST + DP + Combination) ](./code/1657E.txt)|2022/03/29|
 |  1656E |[ Equal Tree Sums   (2200) (Constructive) ](./code/1656E.txt)|2022/03/30|
 |  707D |[ Persistent Bookcase	   (2200) (DFS) ](./code/707D.txt)|2022/03/31|
+|  1585E |[Frequency Queries	  (2400) (Seg) ](./code/1585E.txt)|2022/03/31|
 
 
 
@@ -1602,6 +1603,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 911G.[ Mass Change Queries	 (2500) (Segment Tree Tag )  ](./code/911G.txt)<br/>
 474F.[Ant colony (2100) (Segment Tree + GCD + Binary Search)  ](./code/474F.txt)<br/>
 756C.[Nikita and stack (2200)  (Thinking + Segment Tree) ](./code/756C.txt)<br/>
+1585E.[Frequency Queries	  (2400) (Seg) ](./code/1585E.txt)<br/>
 
 ### PushDown
 877E.[ Danil and a Part-time Job (2000) (Tree + Segment Tree Push)  ](./code/877E.txt)<br/>
