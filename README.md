@@ -878,6 +878,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1619H |[Permutation and Queries  (2400) (分块) ](./code/1619H.txt)|2022/04/01|
 |  1660F2 |[Promising String (hard version) (2100) (Fenwick + Thinking) ](./code/1660F2.txt)|2022/04/03|
 |  1100E |[Andrew and Taxi (2200) (Graph) ](./code/1100E.txt)|2022/04/04|
+|  1343F |[Restore the Permutation by Sorted Segments (2400) (Constructive) ](./code/1343F.txt)|2022/04/05|
 
 
 # 分类
