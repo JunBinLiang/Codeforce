@@ -876,7 +876,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  707D |[ Persistent Bookcase	   (2200) (DFS) ](./code/707D.txt)|2022/03/31|
 |  1585E |[Frequency Queries	  (2400) (Seg) ](./code/1585E.txt)|2022/03/31|
 |  1619H |[Permutation and Queries  (2400) (分块) ](./code/1619H.txt)|2022/04/01|
-
+|  1660F2 |[Promising String (hard version) (2100) (Fenwick + Thinking) ](./code/1660F2.txt)|2022/04/03|
 
 
 # 分类
