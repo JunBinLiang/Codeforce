@@ -880,6 +880,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 |  1100E |[Andrew and Taxi (2200) (Graph) ](./code/1100E.txt)|2022/04/04|
 |  1343F |[Restore the Permutation by Sorted Segments (2400) (Constructive) ](./code/1343F.txt)|2022/04/04|
 |  220E |[Little Elephant and Inversions (2400) (Two Pointer + 逆序对) ](./code/220E.txt)|2022/04/04|
+|  946G |[Almost Increasing Array (2500) (DP + LIS) ](./code/946G.txt)|2022/04/05|
 
 
 # 分类
@@ -953,6 +954,7 @@ https://github.com/JunBinLiang/Leetcode-Complete-Guide <br/>
 
 ### LIS 
 1575L.[Longest Array Deconstruction(2100) (DP + LIS)  ](./code/1575L.txt)<br/>
+946G.[Almost Increasing Array (2500) (DP + LIS) ](./code/946G.txt)<br/>
 
 ### DP With Greedy Property
  675E.[Trains and Statistic (2300) (DP + Greedy + Segment Tree)  ](./code/675E.txt)<br/>
